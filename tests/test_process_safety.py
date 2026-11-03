@@ -317,3 +317,226 @@ class Separator(unittest.TestCase):
         from process_safety import separator as sp
         k = sp.knockout_drum_vertical(3.0, 700, 5.0, 1.0e-5)
         self.assertLessEqual(3.0 / (math.pi * k["diameter_m"] ** 2 / 4), k["settling_velocity_m_s"] + 1e-9)
+
+
+class Hydraulics(unittest.TestCase):
+    def setUp(self):
+        from process_safety import hydraulics as hy, fire_water as fw, vessel_mech as vm
+        self.hy, self.fw, self.vm = hy, fw, vm
+
+    def test_friction_factor_limits(self):
+        self.assertAlmostEqual(self.hy.friction_factor(1000, 0.1), 0.064)
+        f = self.hy.friction_factor(1e5, 0.1, 0.0)  # smooth pipe Re=1e5: Blasius-ish 0.018
+        self.assertTrue(0.0175 < f < 0.0185)
+        D, eps = 0.1, 4.6e-5; Re = 3e5; f = self.hy.friction_factor(Re, D, eps)
+        lhs = 1 / math.sqrt(f); rhs = -2 * math.log10(eps / (3.7 * D) + 2.51 / (Re * math.sqrt(f)))
+        self.assertAlmostEqual(lhs, rhs, places=8)
+
+    def test_incompressible_dp_components(self):
+        r = self.hy.incompressible_dp_kpa(0.01, 0.1, 100, 1000, 1e-3, K_total=3, dz=5)
+        self.assertAlmostEqual(r["dp_static_kPa"], 1000 * 9.80665 * 5 / 1e3)
+        self.assertAlmostEqual(r["dp_total_kPa"], r["dp_friction_kPa"] + r["dp_fittings_kPa"] + r["dp_static_kPa"])
+        self.assertAlmostEqual(r["dp_fittings_kPa"], 3 * 1000 * r["velocity_m_s"] ** 2 / 2 / 1e3)
+
+    def test_isothermal_gas_equation_residual_and_limit(self):
+        r = self.hy.isothermal_gas_outlet_kpa(2.0, 0.2, 500, 1000, 300, 20, 1.1e-5)
+        Rs = 8.314462618 / 0.020; Gm = 2.0 / (math.pi * 0.04 / 4)
+        P1, P2 = 1e6, r["P2_kPa"] * 1e3
+        res = P1 ** 2 - P2 ** 2 - Gm ** 2 * Rs * 300 * (r["f"] * 500 / 0.2 + 2 * math.log(P1 / P2))
+        self.assertAlmostEqual(res / P1 ** 2, 0, places=9)
+        short = self.hy.isothermal_gas_outlet_kpa(0.2, 0.3, 10, 1000, 300, 20, 1.1e-5)
+        self.assertLess(short["dp_kPa"], 5)
+        with self.assertRaises(ValueError):
+            self.hy.isothermal_gas_outlet_kpa(50, 0.1, 5000, 500, 300, 20, 1.1e-5)
+
+    def test_erosional_conversion(self):
+        self.assertAlmostEqual(self.hy.erosional_velocity_m_s(1000), 122 / math.sqrt(1000) * 1.0, delta=0.05 * 122 / math.sqrt(1000) + 0.01)
+        self.assertAlmostEqual(self.hy.erosional_velocity_m_s(800) / self.hy.erosional_velocity_m_s(200), 0.5)
+
+    def test_control_valve(self):
+        self.assertAlmostEqual(self.hy.kv_liquid(100, 1000, 1.0), 100.0)
+        self.assertAlmostEqual(self.hy.kv_liquid(100, 800, 4.0), 100 * math.sqrt(0.8 / 4))
+        dp = self.hy.liquid_choked_dp_bar(10, 1, 50, FL=0.9)
+        self.assertAlmostEqual(dp, 0.81 * (10 - (0.96 - 0.28 * math.sqrt(1 / 50)) * 1))
+
+    def test_pump(self):
+        self.assertAlmostEqual(self.hy.npsha_m(101.325, 3.17, 1000, 2.0, 0.5), (101.325 - 3.17) * 1e3 / (1000 * 9.80665) + 1.5)
+        self.assertAlmostEqual(self.hy.pump_hydraulic_kW(36, 50, 1000), 1000 * 9.80665 * 0.01 * 50 / 1e3)
+        a = self.hy.pump_affinity(100, 50, 20, 1450, 2900)
+        self.assertEqual((a["Q"], a["H"], a["P"]), (200, 200, 160))
+
+    def test_water_hammer(self):
+        a = self.hy.wave_speed_m_s(2.2e9, 1000, 0.5, 0.01, 2.0e11)
+        self.assertTrue(900 < a < 1300)
+        self.assertAlmostEqual(self.hy.wave_speed_m_s(2.2e9, 1000, 0.5, 1e6, 2e11), math.sqrt(2.2e9 / 1000), places=2)
+        s = self.hy.surge_screen(1000, a, 0.5 * 2 * 1000 / a, 1000, 2.0)
+        self.assertTrue(s["rapid_closure"]); self.assertAlmostEqual(s["estimated_kPa"], 1000 * a * 2.0 / 1e3)
+        slow = self.hy.surge_screen(1000, a, 4 * 2 * 1000 / a, 1000, 2.0)
+        self.assertAlmostEqual(slow["estimated_kPa"], slow["joukowsky_kPa"] / 4)
+
+    def test_hazen_williams_vs_darcy(self):
+        hw = self.fw.hazen_williams_bar_per_m(1000, 100, 140) * 1e5  # Pa/m
+        d = self.hy.incompressible_dp_kpa(1000 / 60000, 0.1, 1, 1000, 1.0e-3, eps=1.5e-6)["dp_friction_kPa"] * 1e3
+        self.assertAlmostEqual(hw / d, 1, delta=0.25)
+        self.assertAlmostEqual(self.fw.hazen_williams_bar_per_m(2000, 100, 120) / self.fw.hazen_williams_bar_per_m(1000, 100, 120), 2 ** 1.85)
+
+    def test_fire_water_demand(self):
+        self.assertAlmostEqual(self.fw.nozzle_flow_lpm(25, 3.5), 0.97 * math.pi * 0.025 ** 2 / 4 * math.sqrt(2 * 3.5e5 / 1000) * 60000)
+        d = self.fw.demand_summary({"tank": 3000, "pump": 1200}, ["tank", "pump"], 4, 500)
+        self.assertEqual(d["design_flow_lpm"], 4700); self.assertAlmostEqual(d["storage_m3"], 4700 * 0.06 * 4)
+
+    def test_vessel_mechanical(self):
+        t = self.vm.cylinder_thickness_mm(1500, 1000, 138, 0.85, 3)
+        self.assertAlmostEqual(t["t_circumferential_mm"], 1.5 * 1000 / (138 * 0.85 - 0.9))
+        self.assertGreater(t["t_circumferential_mm"], t["t_longitudinal_mm"])
+        mawp = self.vm.cylinder_mawp_kpag(t["t_required_mm"], 1000, 138, 0.85)
+        self.assertAlmostEqual(mawp, 1500, delta=1)
+        h = self.vm.ellipsoidal_head_thickness_mm(1500, 2000, 138, 0.85)
+        self.assertAlmostEqual(h, 1.5 * 2000 / (2 * 138 * 0.85 - 0.3))
+        self.assertAlmostEqual(self.vm.hydrotest_kpag(1500), 1950)
+        self.assertAlmostEqual(self.vm.liquid_inventory_m3(2, 10, 0.5), math.pi * 1 * 10 / 2)
+        with self.assertRaises(ValueError):
+            self.vm.cylinder_thickness_mm(60000, 1000, 138, 1.0)
+
+
+class Consequence(unittest.TestCase):
+    def setUp(self):
+        from process_safety import release, dispersion, explosion, consequence
+        self.rl, self.dp, self.ex, self.cq = release, dispersion, explosion, consequence
+
+    def test_release_basic(self):
+        self.assertAlmostEqual(self.rl.liquid_release_kg_s(0.025, 800, 2e5, 2.0), 0.62 * math.pi * 0.025 ** 2 / 4 * math.sqrt(2 * 800 * (2e5 + 800 * 9.80665 * 2)))
+        G, _ = relief.gas_mass_flux(1000, 101.325, 300, 20, 1.3)
+        self.assertAlmostEqual(self.rl.gas_release_kg_s(0.01, 1000, 300, 20, 1.3), 0.85 * math.pi * 0.01 ** 2 / 4 * G)
+        self.assertAlmostEqual(self.rl.tank_drain_time_s(10, 0.05, 5), 10 / (0.62 * math.pi * 0.05 ** 2 / 4) * math.sqrt(2 * 5 / 9.80665))
+
+    def test_blowdown_matches_analytic_while_choked(self):
+        V, P0, T0, M, k, d = 20.0, 2000.0, 300.0, 20.0, 1.3, 0.05
+        r = self.rl.blowdown_adiabatic(V, P0, T0, M, k, d, t_end_s=5.0, dt=0.01)
+        # compare mass released over first 5 s with the closed form pressure ratio (mass ratio = (P/P0)^(1/k))
+        pr = self.rl.blowdown_adiabatic_analytic_P_ratio(5.0, V, P0, T0, M, k, d)
+        self.assertAlmostEqual(r["released_kg"] / r["initial_mass_kg"], 1 - pr ** (1 / k), delta=0.002)
+        full = self.rl.blowdown_adiabatic(V, P0, T0, M, k, d, t_end_s=3000)
+        self.assertLess(full["released_kg"], full["initial_mass_kg"]); self.assertGreater(full["released_kg"], 0.9 * full["initial_mass_kg"] * (1 - 101.325 / P0))
+
+    def test_sigmas_and_mass_conservation(self):
+        sy, sz = self.dp.sigmas(500, "D")
+        self.assertAlmostEqual(sz, 0.06 * 500 * (1 + 0.0015 * 500) ** -0.5)
+        Q, u, H, x = 10.0, 3.0, 25.0, 800.0
+        sy, sz = self.dp.sigmas(x, "D")
+        n = 4000; ymax = 8 * sy; dy = 2 * ymax / n
+        iy = sum(self.dp.concentration_g_m3(Q, u, H, x, -ymax + i * dy, 0.0) for i in range(n + 1)) * dy
+        self.assertAlmostEqual(iy, Q / u * 2 * math.exp(-H * H / (2 * sz * sz)) / (math.sqrt(2 * math.pi) * sz), delta=1e-3 * iy)
+        nz = 4000; zmax = 10 * sz + H; dz = zmax / nz
+        iz = sum(self.dp.concentration_g_m3(Q, u, H, x, 0.0, i * dz) for i in range(nz + 1)) * dz  # centreline y=0
+        flux = iz * math.sqrt(2 * math.pi) * sy * u  # integrate lateral analytically
+        self.assertAlmostEqual(flux, Q, delta=2e-3 * Q)
+
+    def test_plume_rise_and_max(self):
+        F = self.dp.buoyancy_flux(15, 2, 450, 293)
+        self.assertGreater(F, 0)
+        self.assertGreater(self.dp.plume_rise_m(F, 3), self.dp.plume_rise_m(F, 6))
+        self.assertGreater(self.dp.plume_rise_m(F, 3, "D"), 0); self.assertGreater(self.dp.plume_rise_m(F, 3, "F"), 0)
+        low = self.dp.max_ground_concentration(10, 3, 10)[0]; high = self.dp.max_ground_concentration(10, 3, 60)[0]
+        self.assertGreater(low, high)
+        c, x = self.dp.max_ground_concentration(10, 3, 30)
+        self.assertAlmostEqual(self.dp.distance_to_threshold_m(10, 3, 30, c * 0.999999) is not None, True)
+        self.assertIsNone(self.dp.distance_to_threshold_m(10, 3, 30, c * 2))
+
+    def test_ppm_roundtrip(self):
+        self.assertAlmostEqual(self.dp.mg_m3_to_ppm(self.dp.ppm_to_mg_m3(100, 34.08), 34.08), 100)
+        self.assertAlmostEqual(self.dp.ppm_to_mg_m3(1, 24.45 * 1.0, 298.15), 24.45 * 101.325 / (8.314462618 * 298.15), places=6)
+
+    def test_explosion(self):
+        self.assertAlmostEqual(self.ex.tnt_equivalent_kg(1000, 46, 0.05, 4.5), 0.05 * 1000 * 46 / 4.5)
+        W = 1000.0
+        p10 = self.ex.kinney_graham_kpa(W, 10 * W ** (1 / 3)); p4 = self.ex.kinney_graham_kpa(W, 4 * W ** (1 / 3))
+        self.assertTrue(8 < p10 < 12); self.assertTrue(40 < p4 < 50); self.assertGreater(p4, p10)
+        R = self.ex.distance_for_overpressure_m(W, 21)
+        self.assertAlmostEqual(self.ex.kinney_graham_kpa(W, R), 21, places=4)
+        E = self.ex.brode_burst_energy_J(2000, 101.325, 10, 1.4)
+        self.assertAlmostEqual(E, (2000 - 101.325) * 1e3 * 10 / 0.4)
+        self.assertAlmostEqual(self.ex.burst_tnt_equivalent_kg(E, 4.5, True), 2 * E / 4.5e6)
+
+    def test_probits(self):
+        self.assertAlmostEqual(self.cq.fraction_from_probit(5.0), 0.5)
+        self.assertAlmostEqual(self.cq.fraction_from_probit(self.cq.probit_from_fraction(0.1)), 0.1, places=9)
+        t = self.cq.time_to_fraction_thermal_s(12.5, 0.5)
+        self.assertAlmostEqual(self.cq.fraction_from_probit(self.cq.probit_thermal(12.5, t)), 0.5, places=6)
+        self.assertLess(self.cq.time_to_fraction_thermal_s(37.5), self.cq.time_to_fraction_thermal_s(12.5))
+        c = self.cq.concentration_for_fraction_ppm("chlorine", 30, 0.5)
+        self.assertAlmostEqual(self.cq.fraction_from_probit(self.cq.probit_toxic_named("chlorine", c, 30)), 0.5, places=6)
+        self.assertTrue(100 < c < 2000)
+
+
+class Reliability(unittest.TestCase):
+    def setUp(self):
+        from process_safety import reliability as rb, hazop, emissions, reaction_hazard
+        self.rb, self.hz, self.em, self.rx = rb, hazop, emissions, reaction_hazard
+
+    def test_availability_and_koon(self):
+        self.assertAlmostEqual(self.rb.availability(900, 100), 0.9)
+        self.assertAlmostEqual(self.rb.parallel_availability([0.9, 0.9]), 0.99)
+        self.assertAlmostEqual(self.rb.series_availability([0.9, 0.9]), 0.81)
+        p = 0.1
+        self.assertAlmostEqual(self.rb.koon_failure_probability(1, 2, p), p ** 2)
+        self.assertAlmostEqual(self.rb.koon_failure_probability(2, 3, p), 3 * p ** 2 * (1 - p) + p ** 3)
+        self.assertAlmostEqual(self.rb.koon_failure_probability(2, 2, p), 1 - (1 - p) ** 2)
+
+    def test_fault_tree_exact_with_repeated_event(self):
+        ft = self.rb.FaultTree().event("A", .1).event("B", .2).event("C", .3)
+        ft.gate("AB", "AND", ["A", "B"]).gate("AC", "AND", ["A", "C"]).gate("TOP", "OR", ["AB", "AC"])
+        self.assertAlmostEqual(ft.probability("TOP"), .1 * (.2 + .3 - .2 * .3))
+        self.assertEqual(ft.minimal_cut_sets("TOP"), [frozenset({"A", "B"}), frozenset({"A", "C"})])
+        b = ft.birnbaum("TOP")
+        self.assertAlmostEqual(b["A"], .2 + .3 - .06)
+        self.assertGreater(b["A"], b["B"])
+
+    def test_vote_gate_matches_binomial(self):
+        ft = self.rb.FaultTree()
+        for n in "XYZ":
+            ft.event(n, .1)
+        ft.gate("TOP", "VOTE", ["X", "Y", "Z"], k=2)
+        self.assertAlmostEqual(ft.probability("TOP"), self.rb.koon_failure_probability(2, 3, .1))
+        self.assertEqual(len(ft.minimal_cut_sets("TOP")), 3)
+
+    def test_event_tree_conserves_frequency(self):
+        out = self.rb.event_tree(0.1, [("PSV", .99), ("Operator", .9), ("SIS", .99)])
+        self.assertEqual(len(out), 8); self.assertAlmostEqual(sum(o["frequency_per_yr"] for o in out), 0.1)
+        self.assertAlmostEqual(next(o for o in out if all(v == "fails" for v in o["path"].values()))["frequency_per_yr"], .1 * .01 * .1 * .01)
+
+    def test_fmea_and_matrix(self):
+        self.assertEqual(self.rb.rpn(8, 5, 4), 160)
+        self.assertEqual(self.rb.risk_rank(5, 5), (25, "extreme")); self.assertEqual(self.rb.risk_rank(1, 2)[1], "low")
+
+    def test_hazop_generation_and_csv(self):
+        import csv, os, tempfile
+        rows = self.hz.generate("Node 1", "Feed naphtha to surge drum", ["Flow", "Pressure"])
+        self.assertEqual(len(rows), 6 + 2)
+        self.assertIn("Control valve fails closed", rows[0]["Causes (prompts)"])
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "h.csv"); self.assertEqual(self.hz.to_csv(rows, p), 8)
+            back = list(csv.DictReader(open(p, encoding="utf-8-sig")))
+            self.assertEqual(back[0]["Deviation"], "No flow"); self.assertEqual(list(back[0].keys()), self.hz.COLUMNS)
+        for (param, gw) in self.hz.CAUSES:
+            self.assertIn(gw, self.hz.DEVIATIONS[param])
+
+    def test_emissions(self):
+        self.assertAlmostEqual(self.em.molar_mass("CH4"), 16.043, places=3)
+        self.assertAlmostEqual(self.em.co2_per_kg_fuel("CH4"), 44.009 / 16.043, places=4)
+        self.assertAlmostEqual(self.em.co2_per_kg_fuel("C3H8"), 3 * 44.009 / 44.097, places=3)
+        r = self.em.flare_emissions(1000, 0.75, 0.98)
+        self.assertAlmostEqual(r["co2_kg"], 1000 * .98 * .75 * 44.009 / 12.011)
+        self.assertAlmostEqual(r["co2e_kg"], r["co2_kg"] + 20 * 28)
+        self.assertAlmostEqual(self.em.sox_from_sulfur_kg(1000, 0.01), 10 * (32.06 + 2 * 15.999) / 32.06)
+
+    def test_reaction_hazard(self):
+        dT = self.rx.adiabatic_temperature_rise_K(-100, 2.0, 1000, 2.0)  # 100 kJ/mol, 2 mol/L
+        self.assertAlmostEqual(dT, 100 * 2.0 * 1000 / (1000 * 2.0))
+        self.assertAlmostEqual(self.rx.mtsr_C(80, dT, 0.3), 80 + 30)
+        s = self.rx.screen(80, dT, 1.0, 100, 150, 120)
+        self.assertTrue(any("boiling" in f for f in s["flags"])); self.assertTrue(any("TD24" in f for f in s["flags"]))
+        self.assertTrue(any("MTT" in f for f in s["flags"]))  # MTSR 180 C > MTT 150 C
+        ok = self.rx.screen(80, dT, 0.1, 200, 150, 120)  # MTSR 90 C: below everything
+        self.assertEqual(len(ok["flags"]), 1); self.assertIn("below", ok["flags"][0])
+        self.assertFalse(any("MTT" in f for f in self.rx.screen(80, dT, 1.0, 100, 200, 120)["flags"]))

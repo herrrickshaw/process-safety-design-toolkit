@@ -18,5 +18,14 @@
 | 10/13 rule (tube rupture) | API 521, per secondary summaries | secondary | medium |
 | API 12J separator K range 0.061-0.107 m/s (vertical, mesh) | search summary | secondary | low-medium: input |
 
+| Darcy-Weisbach, Colebrook, isothermal compressible flow, Joukowsky, Torricelli, Bernoulli | textbook; isothermal gas equation derived here from the momentum balance | tests assert the integrated equation residual and limits | high |
+| Hazen-Williams SI form 6.05e5 Q^1.85/(C^1.85 d^4.87) | NFPA 13 SI form, recalled | cross-checked against Darcy-Weisbach within 25% | medium-high |
+| API RP 14E erosional C=100; IEC 60534 FF = 0.96 - 0.28 sqrt(Pv/Pc), Kv definition | recalled | not verified against text | medium: verify |
+| ASME VIII-1 UG-27/UG-32 formulas | recalled | round-trip tested, not checked against the code | medium: verify |
+| Briggs open-country sigmas and plume rise | recalled from open literature | mass-conservation tested (plume integrates to Q/u) | medium: verify coefficients |
+| Kinney-Graham overpressure | recalled | values checked for plausibility only (e.g. Z=10 -> ~10 kPa) | medium: verify |
+| Probit constants (Eisenberg thermal; Cl2, NH3, H2S toxic) | recalled from CCPS/TNO literature | not verified | low-medium: verify before use |
+| HAZOP guidewords and cause prompts | IEC 61882/CCPS common practice | generic checklist | n/a (prompts, not requirements) |
+
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.

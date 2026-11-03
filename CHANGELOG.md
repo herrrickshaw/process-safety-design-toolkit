@@ -1,5 +1,14 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.2.0 - 2026-11-03: wider industry coverage
+* Added hydraulics, fire-water, vessel mechanical, release, dispersion, explosion, consequence probits, reliability (fault/event trees),
+  HAZOP worksheet generation, emissions and reaction-hazard screening. Every module is stdlib-only and tested against identities
+  (equation residuals, mass conservation, analytic limits) rather than against remembered example numbers.
+* Rejected: hard-coding OISD/NFPA application rates, damage-overpressure tables, gas control-valve Cv constants and Stoessel criticality
+  classes: they could not be verified from open text, so they stay inputs or are marked not implemented.
+* Rejected: building a QRA engine. Frequency data, ignition and population modelling and dense-gas physics need validated software;
+  this package supplies screening inputs and cross-checks only.
+
 ## 0.1.0 - 2026-11-03
 * Stdlib-only, no numpy/CoolProp: keeps it runnable anywhere and every number traceable. Rejected: depending on `fluids`/`thermo`
   (good libraries; recommended instead as an independent cross-check, see docs/TOOLKIT_SURVEY.md).

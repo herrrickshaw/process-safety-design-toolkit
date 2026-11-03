@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|flare|lopa|pfd|fireball|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|flare|lopa|pfd|fireball|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -6,7 +6,7 @@ import dataclasses
 import json
 import sys
 
-from . import fireball, flare, relief, sil, standards, tank_venting, vapour_fire
+from . import dispersion, fireball, flare, hazop, relief, release, sil, standards, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -79,6 +79,20 @@ def main(argv=None):
     vf.add_argument("--strength", type=float, default=260.0, help="MPa (min yield; conservative)")
     vf.add_argument("--h-in", type=float, default=20.0); vf.add_argument("--t-end", type=float, default=3600.0)
 
+    pl = s.add_parser("plume", help="Gaussian plume screening (neutral gas): max ground conc and distance to a threshold")
+    pl.add_argument("--Q", type=float, required=True, help="release g/s"); pl.add_argument("--u", type=float, default=3.0)
+    pl.add_argument("--H", type=float, default=0.0, help="effective release height m"); pl.add_argument("--stability", default="D")
+    pl.add_argument("--threshold-ppm", type=float); pl.add_argument("--M", type=float, help="molar mass for ppm conversion")
+
+    bd = s.add_parser("blowdown", help="adiabatic vessel blowdown through a hole")
+    for n in ("volume", "p0", "T0", "M", "k", "hole-d"):
+        bd.add_argument("--" + n, type=float, required=True)
+    bd.add_argument("--t-end", type=float, default=600.0)
+
+    hz = s.add_parser("hazop-csv", help="write a HAZOP worksheet skeleton (CSV, opens in Excel)")
+    hz.add_argument("--node", required=True); hz.add_argument("--intent", default="")
+    hz.add_argument("--params", nargs="*"); hz.add_argument("--out", required=True)
+
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
     fl.add_argument("--lhv", type=float, required=True, help="MJ/kg")
@@ -134,6 +148,22 @@ def main(argv=None):
         v = vapour_fire.Vessel(a.volume, a.area, a.D, a.wall_mm, a.M, a.k, a.p0_g, strength_MPa=a.strength)
         _out(vapour_fire.simulate(v, a.q, a.psv_area, a.psv_set_g, bdv_area_mm2=a.bdv_area, bdv_open_s=a.bdv_open_s,
                                   h_in=a.h_in, t_end_s=a.t_end))
+    elif a.cmd == "plume":
+        c, x = dispersion.max_ground_concentration(a.Q, a.u, a.H, a.stability)
+        out = {"max_ground_conc_g_m3": c, "at_distance_m": x}
+        if a.M:
+            out["max_ground_conc_ppm"] = dispersion.mg_m3_to_ppm(c * 1000, a.M)
+        if a.threshold_ppm and a.M:
+            out["farthest_distance_above_threshold_m"] = dispersion.distance_to_threshold_m(
+                a.Q, a.u, a.H, dispersion.ppm_to_mg_m3(a.threshold_ppm, a.M) / 1000, a.stability)
+        out["warning"] = "neutral-buoyancy screening only; dense gases need a dense-gas model"
+        _out(out)
+    elif a.cmd == "blowdown":
+        r = release.blowdown_adiabatic(a.volume, a.p0, a.T0, a.M, a.k, a.hole_d, t_end_s=a.t_end)
+        r.pop("series"); _out(r)
+    elif a.cmd == "hazop-csv":
+        n = hazop.to_csv(hazop.generate(a.node, a.intent, a.params), a.out)
+        _out({"rows": n, "file": a.out})
     elif a.cmd == "flare":
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         _out({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})
