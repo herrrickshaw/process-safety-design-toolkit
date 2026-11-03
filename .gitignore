@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.egg-info/
+.DS_Store
+# never commit licensed standards, vendor datasheets or client documents
+standards_private/
+*.dep.pdf

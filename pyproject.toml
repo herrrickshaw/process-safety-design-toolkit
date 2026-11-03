@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "process-safety-design-toolkit"
+version = "0.1.0"
+description = "Dependency-free process safety design calculators: PSV/relief, API 2000 tank venting, flare radiation, vapour-filled fire, LOPA/SIL, separators"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+process-safety = "process_safety.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["process_safety*"]
+
+[tool.setuptools.package-data]
+process_safety = ["data/*.json"]
