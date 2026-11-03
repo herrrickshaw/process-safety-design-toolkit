@@ -42,5 +42,11 @@
 | 49 CFR 192.105 formula, 192.111 factors, 192.113 joint factors (subset), 192.115 derating, 192.903 PIR and HCA text | Cornell LII copy of eCFR | read | high (US rule) |
 | India rules list | sigma-hse.co.in article | read | medium (consultancy summary, not the rules) |
 
+| 49 CFR 193.2181 impoundment (110% / 100% rules), 193.2059 dispersion parameters (2.5% average concentration, 0.5 m receptor, F stability, 2.01 m/s, roughness 0.03 m) | Cornell LII eCFR | read | high (US rule) |
+| 40 CFR 68: 68.22 endpoints/meteorology, 68.25 worst-case release rules, 68.115 thresholds, 68.130 Tables 1/3 (77 + 63), Appendix A endpoints | Cornell LII eCFR | read; tables parsed, counts match headings | high; mixture rule simplified |
+| Lee-Kesler vapour pressure and Rackett density; critical constants | open-literature correlations; constants recalled | tested vs known values (propane 10.0 bar at 300 K; boiling points; densities within ~1%) | medium-high for non-polar hydrocarbons |
+| Methane LNG properties (510 kJ/kg, 3.5/2.2 kJ/kgK, 50 MJ/kg) | recalled | not verified | medium: use project data |
+| H2O2 decomposition enthalpy 98.2 kJ/mol | recalled | not verified | medium |
+
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.

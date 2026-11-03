@@ -46,6 +46,12 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `psm` | OSHA PSM 14 elements, Appendix A applicability (134 chemicals) and the flammables rule, due-date tracking, AIGA 99 / RBPS crosswalk, gap scoring | OSHA 1910.119 (read), AIGA 99 (titles read) | cadences verified against OSHA text |
 | `mah` | Seveso III sum-rule tier classification | Directive 2012/18/EU Annex I (parsed from official text) | EU thresholds only; India MSIHC schedules not read |
 | `pipeline` | Gas pipeline design pressure, wall thickness, temperature derating, potential impact radius | 49 CFR 192.105/111/113/115/903 (read) | US rule; natural-gas PIR |
+| `props` | Lee-Kesler vapour pressure, Rackett liquid density for light hydrocarbons/cryogens, saturation temperature | open-literature correlations, tested vs known values | non-polar only |
+| `lng` | Impoundment capacity (49 CFR 193.2181), 193.2059 dispersion parameters, boil-off, regas duty and seawater/fuel, ideal liquefaction work | 49 CFR 193 (read) | siting models not reproduced |
+| `lpg` | Vapour pressure, density, thermodynamic maximum filling ratio, refrigerated boil-off | props correlations | code limits are inputs |
+| `rmp` | EPA RMP (77 toxics, 63 flammables, endpoints) threshold check and worst-case criteria (10 min release, 1.5 m/s F, 10% VCE yield, 1 psi) | 40 CFR 68 (read) | toxic distance = order-of-magnitude flag only |
+| `flare_system` | Coincident-load aggregation per event, governing event, header size by Mach | API 521 practice | coincidence is an input |
+| `plant_units` | Furnace purge time, H2O2 decomposition O2/heat/steam, adiabatic exotherm, hydrogenation heat | first principles | project data required |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -68,6 +74,11 @@ python3 -m process_safety psm-check --chemical chlorine --kg 700
 python3 -m process_safety psm-due --pha 2021-03-15 --audit 2023-06-01 --today 2026-11-03
 python3 -m process_safety seveso Chlorine:H=6 "Hydrogen sulphide:H=3"
 python3 -m process_safety pipeline --smys 448 --wall 12.7 --od 610 --buildings 25
+python3 -m process_safety rmp-check chlorine --kg 1200
+python3 -m process_safety rmp-worst propane --kg 20000 --hc 46.3
+python3 -m process_safety lng --tanks 160000 --heat-kw 100 --regas-kg-s 100
+python3 -m process_safety lpg propane --fill-C 15 --max-C 50
+python3 -m process_safety h2o2 --kg-h 1000
 python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05
@@ -83,6 +94,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 `vapour_fire.py`.
 
 ## Docs
+* `docs/SECTORS_AND_LESSONS.md`: LNG, LPG, refinery, petrochemical and chemicals coverage, public sources, and incident lessons mapped to modules.
 * `docs/PSM_FRAMEWORKS.md`: OSHA, AIGA 99, CCPS RBPS, CSChE, DOE handbook, Indian rules and Seveso, and how each is used.
 * `SOURCES.md`: what was verified, from where, at what confidence.
 * `docs/TOOLKIT_SURVEY.md`: other open-source and spreadsheet toolkits found.

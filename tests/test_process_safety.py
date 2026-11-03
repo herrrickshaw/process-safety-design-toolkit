@@ -713,3 +713,133 @@ class PSMandMAH(unittest.TestCase):
         self.assertAlmostEqual(r / 0.3048, 0.69 * math.sqrt(1000 * 36 ** 2), places=3); self.assertAlmostEqual(r / 0.3048, 785.5, delta=0.5)
         self.assertTrue(self.pl.hca_by_pir(250, 20)); self.assertFalse(self.pl.hca_by_pir(250, 19)); self.assertFalse(self.pl.hca_by_pir(150, 50))
         self.assertFalse(self.pl.hca_by_pir(250, 50, class_location=3))
+
+
+class Sectors(unittest.TestCase):
+    def setUp(self):
+        from process_safety import props, lng, lpg, rmp, flare_system, plant_units
+        self.pr, self.lng, self.lpg, self.rmp, self.fs, self.pu = props, lng, lpg, rmp, flare_system, plant_units
+
+    def test_property_correlations_against_known_values(self):
+        self.assertAlmostEqual(self.pr.vapour_pressure_bar("propane", 300) / 9.98, 1, delta=0.03)
+        self.assertAlmostEqual(self.pr.vapour_pressure_bar("propane", 323.15) / 17.1, 1, delta=0.04)
+        for c, (Tc, Pc, w, M, Tb) in self.pr.COMPONENTS.items():
+            self.assertAlmostEqual(self.pr.vapour_pressure_bar(c, Tb) / 1.01325, 1, delta=0.04, msg=c)
+            self.assertAlmostEqual(self.pr.saturation_temperature_K(c, 1.01325), Tb, delta=2.5, msg=c)
+        self.assertAlmostEqual(self.pr.liquid_density_kg_m3("methane", 111.66) / 422, 1, delta=0.02)
+        self.assertAlmostEqual(self.pr.liquid_density_kg_m3("propane", 288.15) / 507, 1, delta=0.02)
+        self.assertAlmostEqual(self.pr.liquid_density_kg_m3("n-butane", 288.15) / 584, 1, delta=0.02)
+        self.assertGreater(self.pr.liquid_density_kg_m3("propane", 270), self.pr.liquid_density_kg_m3("propane", 320))
+        self.assertGreater(self.pr.vapour_pressure_bar("n-butane", 320), self.pr.vapour_pressure_bar("n-butane", 300))
+
+    def test_lng_impoundment_per_cfr_193_2181(self):
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([160000]), 176000)
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([160000], surge_accounted=True), 160000)
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([100000, 100000]), 200000)
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([160000, 50000]), 210000)
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([160000, 20000]), 180000)
+        self.assertAlmostEqual(self.lng.impoundment_capacity_m3([160000, 10000]), 176000)
+        self.assertEqual(self.lng.DISPERSION_RULE["average_concentration_vol_pct"], 2.5)
+        self.assertEqual((self.lng.DISPERSION_RULE["stability"], self.lng.DISPERSION_RULE["wind_speed_m_s"]), ("F", 2.01))
+
+    def test_lng_boiloff_regas_liquefaction(self):
+        self.assertAlmostEqual(self.lng.boil_off_rate_kg_s(51), 0.1)
+        pct = self.lng.boil_off_pct_per_day(100, 160000)
+        self.assertAlmostEqual(pct, 100 / 510 * 86400 / (160000 * 422) * 100)
+        self.assertTrue(0.02 < pct < 0.5)
+        d = self.lng.regas_duty_kW(100, 111.66, 283.15)
+        self.assertAlmostEqual(d, 100 * (510 + 2.2 * (283.15 - 111.66)))
+        self.assertAlmostEqual(self.lng.seawater_flow_m3_s(d, 5.0), d / (3.99 * 5) / 1025)
+        self.assertAlmostEqual(self.lng.scv_fuel_gas_kg_s(d, 0.98, 50), d / (0.98 * 50000))
+        w = self.lng.ideal_liquefaction_work_kJ_kg(300)
+        # numeric check of the exergy integral: sum of (T0/T - 1) dQ over the cooling path
+        T0, Tb, n = 300.0, 111.66, 200000
+        num = sum((T0 / (Tb + (T0 - Tb) * (i + .5) / n) - 1) * 2.2 * (T0 - Tb) / n for i in range(n)) + 510 * (T0 / Tb - 1)
+        self.assertAlmostEqual(w / num, 1, delta=1e-4)
+        self.assertAlmostEqual(self.lng.kWh_per_tonne(3600.0), 1000.0)
+
+    def test_lpg(self):
+        f = self.lpg.max_fill_fraction("propane", 288.15, 323.15)
+        self.assertTrue(0.8 < f < 0.95)
+        self.assertLess(self.lpg.max_fill_fraction("propane", 288.15, 333.15), f)
+        self.assertAlmostEqual(self.lpg.vapour_pressure_kPag("propane", 323.15), 17.1e2 - 101.325, delta=0.05 * 1700)
+        self.assertAlmostEqual(self.lpg.liquid_mass_kg("propane", 100, 288.15, 0.85), 100 * 0.85 * self.pr.liquid_density_kg_m3("propane", 288.15))
+        self.assertAlmostEqual(self.lpg.refrigerated_boil_off_kg_s(42.5), 0.1)
+        self.assertAlmostEqual(self.lpg.design_pressure_for_max_temperature_kPag("n-butane", 323.15, 1.1), 1.1 * self.lpg.vapour_pressure_kPag("n-butane", 323.15))
+
+    def test_rmp_data_and_rules(self):
+        d = self.rmp._data()
+        self.assertEqual((len(d["toxics"]), len(d["flammables"])), (77, 63))
+        self.assertTrue(all(r["toxic_endpoint_mg_L"] is not None for r in d["toxics"]))
+        c = self.rmp.find("Chlorine"); self.assertEqual((c["tq_lb"], c["toxic_endpoint_mg_L"]), (2500, 0.0087))
+        self.assertEqual(self.rmp.find("7664-41-7")["tq_lb"], 10000)
+        self.assertEqual((self.rmp.find("propane")["name"], self.rmp.find("propane")["tq_lb"], self.rmp.find("propane")["kind"]), ("Propane", 10000, "flammable"))
+        self.assertTrue(self.rmp.threshold_check("chlorine", 1200)["covered"]); self.assertFalse(self.rmp.threshold_check("chlorine", 1000)["covered"])
+        self.assertFalse(self.rmp.threshold_check("chlorine", 5000, weight_fraction=0.005)["covered"])
+        self.assertAlmostEqual(self.rmp.ENDPOINT_OVERPRESSURE_KPA, 6.894757)
+        self.assertEqual((self.rmp.WORST_CASE_WIND_M_S, self.rmp.WORST_CASE_STABILITY, self.rmp.RELEASE_DURATION_S, self.rmp.EXPLOSION_YIELD), (1.5, "F", 600.0, 0.10))
+        self.assertAlmostEqual(self.rmp.pool_area_m2(2.0), 200.0)
+
+    def test_rmp_worst_cases(self):
+        a = self.rmp.worst_case_toxic_gas("Chlorine", 20); b = self.rmp.worst_case_toxic_gas("Chlorine", 80)
+        self.assertAlmostEqual(a["release_rate_kg_s"], 20 / 600); self.assertGreater(b["screening_distance_m_neutral_gas"], a["screening_distance_m_neutral_gas"])
+        self.assertIn("dense", a["warning"])
+        with self.assertRaises(KeyError): self.rmp.worst_case_toxic_gas("propane", 100)
+        v = self.rmp.worst_case_flammable_vce(20000, 46.3)
+        self.assertAlmostEqual(v["tnt_equivalent_kg"], 0.1 * 20000 * 46.3 / 4.5)
+        from process_safety import explosion
+        self.assertAlmostEqual(explosion.kinney_graham_kpa(v["tnt_equivalent_kg"], v["distance_to_1psi_m"]), 6.894757, places=3)
+
+    def test_flare_system(self):
+        events = {"power failure": [{"name": "a", "kg_s": 30, "mw": 20, "T_K": 350}, {"name": "b", "kg_s": 20, "mw": 40, "T_K": 400}],
+                  "cooling water": [{"name": "c", "kg_s": 60, "mw": 30, "T_K": 320}], "fire": [{"name": "d", "kg_s": 10, "mw": 30, "T_K": 300}]}
+        name, load, loads = self.fs.governing_event(events)
+        self.assertEqual(name, "cooling water"); self.assertAlmostEqual(loads["power failure"]["kg_s"], 50)
+        self.assertAlmostEqual(loads["power failure"]["mw"], 50 / (30 / 20 + 20 / 40)); self.assertAlmostEqual(loads["power failure"]["T_K"], (30 * 350 + 20 * 400) / 50)
+        D = self.fs.header_for_event(load, 200, 1.3, 0.5)
+        from process_safety import scenarios
+        self.assertAlmostEqual(D, scenarios.flare_header_diameter_m(60, 200, 320, 30, 1.3, 0.5))
+
+    def test_plant_units(self):
+        self.assertAlmostEqual(self.pu.furnace_purge_time_s(100, 5), 100.0 * 5 / 5)
+        h = self.pu.h2o2_decomposition(1000)
+        self.assertAlmostEqual(h["o2_per_kg_h2o2"], 0.5 * 31.998 / 34.0147, places=4)
+        self.assertAlmostEqual(h["heat_kW"], 1000e3 / 34.0147 * 98.2 / 3600, delta=0.5)
+        self.assertAlmostEqual(h["max_steam_kg_h"], h["heat_kW"] * 3600 / 2257.0)
+        self.assertAlmostEqual(self.pu.adiabatic_rise_K(200, 2.5), 80.0)
+        q = self.pu.hydrogenation_heat_kJ_kg_feed(100, 800, 125)
+        self.assertAlmostEqual(q, 100 * 1000 / 22.414 * 125 / 800)
+
+
+class CLI(unittest.TestCase):
+    """The CLI builds its whole parser on every call, so one bad help string breaks every command; exercise representative commands."""
+
+    def run_cli(self, *argv):
+        import contextlib, io, json
+        from process_safety.__main__ import main
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = main(list(argv))
+        return rc, buf.getvalue()
+
+    def test_commands_run_and_emit(self):
+        import json
+        cases = [("coverage",), ("psm-check", "--chemical", "chlorine", "--kg", "700"), ("rmp-check", "chlorine", "--kg", "1200"),
+                 ("rmp-worst", "propane", "--kg", "20000", "--hc", "46.3"), ("lng", "--tanks", "160000", "--heat-kw", "100", "--regas-kg-s", "100"),
+                 ("lpg", "propane"), ("h2o2", "--kg-h", "1000"), ("pool-fire", "--area", "300", "--hc", "44000", "--hv", "350", "--cp", "2.2", "--tb", "400"),
+                 ("depressure", "--volume", "30", "--p0", "5000", "--pt", "1000", "--T0", "300", "--M", "20", "--k", "1.3", "--area", "800"),
+                 ("seveso", "Chlorine:H=6", "Hydrogen sulphide:H=3"), ("pipeline", "--smys", "448", "--wall", "12.7", "--od", "610")]
+        for argv in cases:
+            rc, out = self.run_cli(*argv)
+            self.assertEqual(rc, 0, argv); self.assertTrue(out.strip(), argv)
+            if argv[0] != "coverage":
+                json.loads(out)
+
+    def test_help_for_every_command(self):
+        import contextlib, io
+        from process_safety.__main__ import main
+        for cmd in ("relief-gas", "tank-fire", "vapour-fire", "rmp-worst", "lng", "psm-due", "hazop-csv"):
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf), self.assertRaises(SystemExit) as cm:
+                main([cmd, "--help"])
+            self.assertEqual(cm.exception.code, 0, cmd)

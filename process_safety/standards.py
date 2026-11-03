@@ -59,6 +59,11 @@ TOPICS = {
     "PSM management system (OSHA 14 elements, AIGA 99, RBPS)": (["OSHA 29 CFR 1910.119", "AIGA 99/20", "CCPS RBPS", "CSChE PSM Standard", "DOE-HDBK-1101-96"], "psm.*", "applicability, cadences, due dates, crosswalk, gap scoring; verified against OSHA text"),
     "MAH classification (Seveso sum rule)": (["Directive 2012/18/EU Annex I", "MSIHC Rules 1989 (schedules not read)", "OISD-STD-206/GDN"], "mah.*", "EU thresholds from official text; Indian MSIHC schedules not implemented"),
     "Gas pipeline design pressure / impact radius": (["49 CFR 192", "ASME B31.8 / B31.4", "OISD-STD-226 (not read)", "PNGRB T4S (not read)"], "pipeline.*", "US rule text verified; Indian requirements not implemented"),
+    "LNG: impoundment, boil-off, regas duty, liquefaction work": (["49 CFR 193", "NFPA 59A", "EN 1473", "OISD-STD-194"], "lng.*, props.*", "impoundment + dispersion parameters verified from 49 CFR 193; siting models (LNGFIRE3, DEGADIS) not reproduced"),
+    "LPG: vapour pressure, density, filling ratio, boil-off": (["API 2510/2510A", "NFPA 58", "OISD-STD-144/150/236", "IS 2825"], "lpg.*, props.*", "Lee-Kesler/Rackett correlations; code filling limits are inputs"),
+    "US EPA RMP applicability and worst-case criteria": (["40 CFR 68"], "rmp.*", "77 toxics + 63 flammables parsed from the rule; distances are order-of-magnitude screening"),
+    "Refinery/petrochemical flare-system loads (coincident relief)": (["API 521"], "flare_system.*", "aggregation arithmetic; cause-and-effect coincidence is an input"),
+    "Furnace purge, peroxide decomposition, exotherm bookkeeping": (["NFPA 86/85", "API 556", "DIERS"], "plant_units.*", "bookkeeping only; project data required"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 

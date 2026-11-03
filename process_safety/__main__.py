@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|flare|lopa|pfd|fireball|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|rmp-check|rmp-worst|lng|lpg|h2o2|flare|lopa|pfd|fireball|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -8,7 +8,7 @@ import sys
 
 import datetime as _dt
 
-from . import depressuring, dispersion, fireball, flare, hazop, mah, pipeline, pool_fire, psm, relief, release, sil, standards, structural_fire, tank_venting, vapour_fire
+from . import depressuring, dispersion, fireball, flare, hazop, lng, lpg, mah, pipeline, plant_units, pool_fire, props, psm, relief, release, rmp, sil, standards, structural_fire, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -127,6 +127,24 @@ def main(argv=None):
     pp.add_argument("--class-location", type=int, default=1); pp.add_argument("--joint", type=float, default=1.0)
     pp.add_argument("--temp", type=float, default=20.0); pp.add_argument("--buildings", type=int, default=0)
 
+    rc = s.add_parser("rmp-check", help="EPA RMP (40 CFR 68) threshold check for a regulated toxic/flammable substance")
+    rc.add_argument("substance"); rc.add_argument("--kg", type=float, required=True); rc.add_argument("--weight-fraction", type=float, default=1.0)
+
+    rw = s.add_parser("rmp-worst", help="RMP worst-case criteria: toxic gas (10 min, 1.5 m/s, F) or flammable VCE (10%% yield, 1 psi)")
+    rw.add_argument("substance"); rw.add_argument("--kg", type=float, required=True)
+    rw.add_argument("--hc", type=float, help="heat of combustion MJ/kg (flammables)")
+
+    lg = s.add_parser("lng", help="LNG: impoundment (49 CFR 193.2181), boil-off, regas duty")
+    lg.add_argument("--tanks", type=float, nargs="+", required=True, help="tank capacities m3"); lg.add_argument("--surge", action="store_true")
+    lg.add_argument("--heat-kw", type=float, help="heat ingress kW (boil-off)"); lg.add_argument("--regas-kg-s", type=float)
+    lg.add_argument("--sw-dT", type=float, default=5.0)
+
+    lp = s.add_parser("lpg", help="LPG/hydrocarbon: vapour pressure, density, max fill fraction")
+    lp.add_argument("component"); lp.add_argument("--fill-C", type=float, default=15.0); lp.add_argument("--max-C", type=float, default=50.0)
+
+    hp = s.add_parser("h2o2", help="hydrogen peroxide decomposition: O2, heat and max steam per hour")
+    hp.add_argument("--kg-h", type=float, required=True, help="pure H2O2 decomposing, kg/h")
+
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
     fl.add_argument("--lhv", type=float, required=True, help="MJ/kg")
@@ -239,6 +257,28 @@ def main(argv=None):
         r = pipeline.potential_impact_radius_m(P, a.od)
         _out({"design_pressure_kPag": P, "design_pressure_bar": P / 100, "potential_impact_radius_m_natural_gas_at_that_pressure": r,
               "hca_criterion_iii": pipeline.hca_by_pir(r, a.buildings, a.class_location), "note": "49 CFR 192 basis (US), natural gas only"})
+    elif a.cmd == "rmp-check":
+        _out(rmp.threshold_check(a.substance, a.kg, a.weight_fraction))
+    elif a.cmd == "rmp-worst":
+        f = rmp.find(a.substance)
+        if f is None:
+            raise SystemExit(f"{a.substance!r} not in the parsed RMP tables")
+        _out(rmp.worst_case_toxic_gas(a.substance, a.kg) if f["kind"] == "toxic" else rmp.worst_case_flammable_vce(a.kg, a.hc))
+    elif a.cmd == "lng":
+        out = {"impoundment_m3": lng.impoundment_capacity_m3(a.tanks, a.surge), "basis": "49 CFR 193.2181"}
+        if a.heat_kw:
+            out["boil_off_kg_s"] = lng.boil_off_rate_kg_s(a.heat_kw)
+            out["boil_off_pct_per_day_largest_tank"] = lng.boil_off_pct_per_day(a.heat_kw, max(a.tanks))
+        if a.regas_kg_s:
+            d = lng.regas_duty_kW(a.regas_kg_s, 111.66, 283.15)
+            out.update({"regas_duty_MW": d / 1000, "seawater_m3_s_open_rack": lng.seawater_flow_m3_s(d, a.sw_dT)})
+        _out(out)
+    elif a.cmd == "lpg":
+        Tf, Tm = a.fill_C + 273.15, a.max_C + 273.15
+        _out({"vapour_pressure_kPag_at_max": lpg.vapour_pressure_kPag(a.component, Tm), "liquid_density_kg_m3_at_fill": props.liquid_density_kg_m3(a.component, Tf),
+              "max_fill_fraction_thermodynamic_ceiling": lpg.max_fill_fraction(a.component, Tf, Tm), "note": "codes (API 2510, OISD-STD-144/150, IS 2825) set the practical limit"})
+    elif a.cmd == "h2o2":
+        _out(plant_units.h2o2_decomposition(a.kg_h))
     elif a.cmd == "flare":
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         _out({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})

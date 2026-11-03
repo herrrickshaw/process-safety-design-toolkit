@@ -1,5 +1,15 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.5.0 - 2026-11-03: LNG, LPG, refinery, petrochemical and chemicals coverage
+* New: `props` (Lee-Kesler/Rackett), `lng`, `lpg`, `rmp`, `flare_system`, `plant_units`; docs/SECTORS_AND_LESSONS.md. 102 tests.
+* Chose property correlations over a property database or CoolProp: dependency-free and testable against well-known values.
+* Corrected a mistake in my own wording while building `rmp`: neutral-gas Gaussian screening is NOT a lower bound for dense gases. At the
+  RMP worst-case conditions it can over- or under-predict badly (chlorine distances come out tens of km) so it is labelled an order-of-magnitude
+  flag; the TNT-equivalent 1 psi flammable distance is the more robust output. The lookup bug (a substring match returned the wrong
+  substance) was fixed by preferring CAS/exact/prefix matches.
+* Rejected: coding LNGFIRE3/DEGADIS-style siting, NFPA 59A spacing tables, OISD-STD-194/150/144 requirements (paywalled, not read);
+  rapid-phase-transition energetics; HF alkylation and FCC afterburn models (no verifiable open source found).
+
 ## 0.4.0 - 2026-11-03: PSM management system, MAH classification, pipeline design
 * New modules `psm`, `mah`, `pipeline` built from primary public texts that were actually fetched and read (OSHA 1910.119 and Appendix A,
   Seveso III Annex I, 49 CFR 192). Data tables are parsed from those texts, with unparsed rows omitted instead of guessed.
