@@ -52,6 +52,9 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `rmp` | EPA RMP (77 toxics, 63 flammables, endpoints) threshold check and worst-case criteria (10 min release, 1.5 m/s F, 10% VCE yield, 1 psi) | 40 CFR 68 (read) | toxic distance = order-of-magnitude flag only |
 | `flare_system` | Coincident-load aggregation per event, governing event, header size by Mach | API 521 practice | coincidence is an input |
 | `plant_units` | Furnace purge time, H2O2 decomposition O2/heat/steam, adiabatic exotherm, hydrogenation heat | first principles | project data required |
+| `electrical` | Fault levels, cable CSA/voltage drop, power factor, motor start dip, IEC 60255 relay curves + grading, IEEE 80 tolerable voltages and rod resistance, lightning rolling sphere and collection area, Ex T-class/gas group/EPL, Lee arc flash with OSHA applicability | OSHA 1910.269 App. E (read); IEEE 80, IEC 60255, 62305 (corroborated) | no IEEE 1584; not studies |
+| `noise` | OSHA permissible exposure, dose, TWA, NIOSH 3 dB criterion, level summation and attenuation | OSHA 1910.95 + App. A (read) | environmental noise limits not implemented |
+| `mechanical_safety` | ISO 13849-1 required PL and PFHd bands, ISO 13855 safeguard distance, sling tension, dropped-object/vehicle/ship energy, pipe span, thermal growth, guided cantilever, bolt torque | ISO texts paywalled (corroborated by search) | pre-2024 ISO 13855; screening forms |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -79,6 +82,11 @@ python3 -m process_safety rmp-worst propane --kg 20000 --hc 46.3
 python3 -m process_safety lng --tanks 160000 --heat-kw 100 --regas-kg-s 100
 python3 -m process_safety lpg propane --fill-C 15 --max-C 50
 python3 -m process_safety h2o2 --kg-h 1000
+python3 -m process_safety arc-flash --kv 0.48 --ka 20 --t 0.2 --dist-mm 455
+python3 -m process_safety idmt --i 2000 --pickup 200 --tms 0.3
+python3 -m process_safety noise 95:2 90:4 100:0.5
+python3 -m process_safety safeguard --stop-s 0.2 --d-mm 30
+python3 -m process_safety earthing --rho-s 3000 --t 0.5 --rho 75 --hs 0.2
 python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05
@@ -94,6 +102,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 `vapour_fire.py`.
 
 ## Docs
+* `docs/ELECTRICAL_MECHANICAL.md`: electrical and mechanical safety scope, which formulas were read versus corroborated, and the limits.
 * `docs/SECTORS_AND_LESSONS.md`: LNG, LPG, refinery, petrochemical and chemicals coverage, public sources, and incident lessons mapped to modules.
 * `docs/PSM_FRAMEWORKS.md`: OSHA, AIGA 99, CCPS RBPS, CSChE, DOE handbook, Indian rules and Seveso, and how each is used.
 * `SOURCES.md`: what was verified, from where, at what confidence.

@@ -64,6 +64,16 @@ TOPICS = {
     "US EPA RMP applicability and worst-case criteria": (["40 CFR 68"], "rmp.*", "77 toxics + 63 flammables parsed from the rule; distances are order-of-magnitude screening"),
     "Refinery/petrochemical flare-system loads (coincident relief)": (["API 521"], "flare_system.*", "aggregation arithmetic; cause-and-effect coincidence is an input"),
     "Furnace purge, peroxide decomposition, exotherm bookkeeping": (["NFPA 86/85", "API 556", "DIERS"], "plant_units.*", "bookkeeping only; project data required"),
+    "Short-circuit levels, cable sizing, voltage drop, motor starting": (["IEC 60909", "IEC 60364", "IEEE 141/399"], "electrical.*", "hand-calculation forms; load-flow/short-circuit studies need software"),
+    "Overcurrent relay curves and grading": (["IEC 60255-151", "IEEE C37.112"], "electrical.idmt_time_s, grading_check", "curve arithmetic; coordination study not implemented"),
+    "Earthing: tolerable touch/step voltage, rod resistance": (["IEEE 80", "IEC 61936-1 / EN 50522"], "electrical.*", "tolerable voltages and rod only; grid design/mesh voltage not implemented"),
+    "Lightning protection (rolling sphere, collection area)": (["IEC 62305", "NFPA 780", "IS/IEC 62305"], "electrical.*", "geometry and strike frequency; full risk assessment (R1-R4) not implemented"),
+    "Hazardous-area electrical equipment selection (Ex)": (["IEC 60079-0/-14/-20-1", "OISD-STD-113", "NFPA 70/497"], "electrical.allowed_t_classes, gas_group_from_mesg, min_epl_for_zone", "selection arithmetic; classification extents not implemented"),
+    "Arc flash (screening)": (["NFPA 70E Annex D", "IEEE 1584", "OSHA 1910.269 App. E"], "electrical.lee_*", "Lee method with OSHA applicability limits; IEEE 1584 not implemented"),
+    "Occupational noise": (["OSHA 1910.95", "NIOSH REL", "IS/BS 7445 (environmental, not implemented)"], "noise.*", "OSHA dose/TWA verified; environmental noise limits not implemented"),
+    "Machinery safety (PL, safeguard distance)": (["ISO 13849-1", "ISO 13855", "IEC 62061"], "mechanical_safety.required_pl, safeguard_distance_mm", "risk graph + PFH bands; pre-2024 ISO 13855 form"),
+    "Lifting, dropped objects, vehicle/ship impact": (["ASME B30.9", "DNV-RP-C204", "NORSOK N-004"], "mechanical_safety.*", "energy and tension arithmetic; design codes govern"),
+    "Pipe spans, thermal growth, bolt torque": (["ASME B31.3", "ASME PCC-1"], "mechanical_safety.*", "screening forms; stress analysis supersedes"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 

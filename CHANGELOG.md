@@ -1,5 +1,14 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.6.0 - 2026-11-03: electrical and mechanical safety
+* New: `electrical`, `noise`, `mechanical_safety`, docs/ELECTRICAL_MECHANICAL.md. 114 tests.
+* The arc-flash calculator enforces OSHA's applicability limits (open-air three-phase up to 15 kV) and refuses enclosed equipment and higher voltages
+  instead of returning a number. Rejected: reproducing IEEE 1584 empirical equations (could not be verified; gives wrong answers if mis-recalled),
+  NFPA 70E PPE category tables (paywalled).
+* ISO 13855 is implemented in its pre-2024 form with an explicit edition warning, because the 2024 edition changed the formula.
+* Rejected: full ISO 13849-1 architecture assessment (category, MTTFd, DC), earthing grid design, protection coordination studies, load flow:
+  these need models and data beyond the formula level.
+
 ## 0.5.0 - 2026-11-03: LNG, LPG, refinery, petrochemical and chemicals coverage
 * New: `props` (Lee-Kesler/Rackett), `lng`, `lpg`, `rmp`, `flare_system`, `plant_units`; docs/SECTORS_AND_LESSONS.md. 102 tests.
 * Chose property correlations over a property database or CoolProp: dependency-free and testable against well-known values.

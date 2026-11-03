@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|rmp-check|rmp-worst|lng|lpg|h2o2|flare|lopa|pfd|fireball|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|rmp-check|rmp-worst|lng|lpg|h2o2|arc-flash|idmt|noise|safeguard|earthing|flare|lopa|pfd|fireball|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -8,7 +8,7 @@ import sys
 
 import datetime as _dt
 
-from . import depressuring, dispersion, fireball, flare, hazop, lng, lpg, mah, pipeline, plant_units, pool_fire, props, psm, relief, release, rmp, sil, standards, structural_fire, tank_venting, vapour_fire
+from . import depressuring, dispersion, electrical, fireball, flare, hazop, lng, lpg, mah, mechanical_safety, noise, pipeline, plant_units, pool_fire, props, psm, relief, release, rmp, sil, standards, structural_fire, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -145,6 +145,24 @@ def main(argv=None):
     hp = s.add_parser("h2o2", help="hydrogen peroxide decomposition: O2, heat and max steam per hour")
     hp.add_argument("--kg-h", type=float, required=True, help="pure H2O2 decomposing, kg/h")
 
+    af = s.add_parser("arc-flash", help="Lee-method incident energy and boundary (open-air 3-phase; OSHA applicability limits enforced)")
+    af.add_argument("--kv", type=float, required=True); af.add_argument("--ka", type=float, required=True); af.add_argument("--t", type=float, required=True)
+    af.add_argument("--dist-mm", type=float, required=True); af.add_argument("--phases", type=int, default=3); af.add_argument("--enclosed", action="store_true")
+
+    im = s.add_parser("idmt", help="IEC 60255 inverse-time overcurrent relay operating time")
+    im.add_argument("--i", type=float, required=True, help="fault current A"); im.add_argument("--pickup", type=float, required=True); im.add_argument("--tms", type=float, required=True)
+    im.add_argument("--curve", default="standard_inverse", choices=list(electrical.IDMT))
+
+    nz = s.add_parser("noise", help="OSHA noise dose and TWA; items LEVEL_dBA:HOURS")
+    nz.add_argument("items", nargs="+")
+
+    sg = s.add_parser("safeguard", help="ISO 13855 (pre-2024 form) minimum distance for an electro-sensitive protective device")
+    sg.add_argument("--stop-s", type=float, required=True, help="total stopping time incl. response, s"); sg.add_argument("--d-mm", type=float, required=True, help="detection capability mm")
+
+    er = s.add_parser("earthing", help="IEEE 80 tolerable touch and step voltages (50 and 70 kg)")
+    er.add_argument("--rho-s", type=float, required=True, help="surface layer resistivity ohm-m"); er.add_argument("--t", type=float, required=True, help="fault duration s")
+    er.add_argument("--rho", type=float, help="underlying soil resistivity (with --hs for the Cs derating)"); er.add_argument("--hs", type=float, help="surface layer thickness m")
+
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
     fl.add_argument("--lhv", type=float, required=True, help="MJ/kg")
@@ -279,6 +297,26 @@ def main(argv=None):
               "max_fill_fraction_thermodynamic_ceiling": lpg.max_fill_fraction(a.component, Tf, Tm), "note": "codes (API 2510, OISD-STD-144/150, IS 2825) set the practical limit"})
     elif a.cmd == "h2o2":
         _out(plant_units.h2o2_decomposition(a.kg_h))
+    elif a.cmd == "arc-flash":
+        ok = electrical.lee_applicable(a.kv * 1000, a.phases, a.enclosed)
+        out = {"applicability": ok}
+        if ok["ok"]:
+            E = electrical.lee_incident_energy_J_cm2(a.kv, a.ka, a.t, a.dist_mm)
+            out.update({"incident_energy_J_cm2": E, "incident_energy_cal_cm2": E * electrical.CAL_PER_J,
+                        "boundary_mm_second_degree_burn": electrical.lee_boundary_mm(a.kv, a.ka, a.t), "note": "screening; arc-flash study per IEEE 1584 for enclosed equipment"})
+        _out(out)
+    elif a.cmd == "idmt":
+        _out({"operating_time_s": electrical.idmt_time_s(a.i, a.pickup, a.tms, a.curve), "multiple_of_pickup": a.i / a.pickup})
+    elif a.cmd == "noise":
+        ex = [(float(x.split(":")[0]), float(x.split(":")[1])) for x in a.items]
+        d = noise.dose_pct(ex)
+        _out({"dose_pct": d, "twa_dBA": noise.twa_dBA(d), "exceeds_pel": d > 100, "above_action_level": d >= 50, "basis": "OSHA 1910.95 Table G-16 / App. A"})
+    elif a.cmd == "safeguard":
+        _out({"min_distance_mm": mechanical_safety.safeguard_distance_mm(a.stop_s, a.d_mm), "note": "pre-2024 ISO 13855 form; confirm the edition your project cites"})
+    elif a.cmd == "earthing":
+        Cs = electrical.surface_layer_factor(a.rho, a.rho_s, a.hs) if a.rho and a.hs else 1.0
+        _out({"Cs": Cs, "touch_V_50kg": electrical.tolerable_touch_V(a.rho_s, a.t, Cs, 50), "step_V_50kg": electrical.tolerable_step_V(a.rho_s, a.t, Cs, 50),
+              "touch_V_70kg": electrical.tolerable_touch_V(a.rho_s, a.t, Cs, 70), "step_V_70kg": electrical.tolerable_step_V(a.rho_s, a.t, Cs, 70)})
     elif a.cmd == "flare":
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         _out({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})

@@ -48,5 +48,12 @@
 | Methane LNG properties (510 kJ/kg, 3.5/2.2 kJ/kgK, 50 MJ/kg) | recalled | not verified | medium: use project data |
 | H2O2 decomposition enthalpy 98.2 kJ/mol | recalled | not verified | medium |
 
+| OSHA 1910.95 Table G-16, dose D = 100 C/T, TWA = 16.61 log10(D/100) + 90, 85 dBA action level, 140 dB peak | osha.gov 1910.95 and App. A | read | high (US rule) |
+| OSHA 1910.269 App. E Table 3: where the Lee arc-flash equation is acceptable | osha.gov | read | high |
+| Lee equation constant 2.142e6 and 5.02 J/cm2 (1.2 cal/cm2) | patent and trade-press text via search | corroborated, standard not read | medium-high |
+| IEEE 80-2000 touch/step constants and Cs formula; IEC 60255 curve constants; rolling-sphere radii | public secondary sources via search | corroborated, standards not read | medium-high |
+| IEC 62305-2 collection area and Ng = 0.1 Td; IEC 60364 k factors; IEC 60079 T classes and gas groups; ISO 13849-1 risk graph and PFHd bands | recalled | not verified (two risk-graph corners corroborated) | medium: verify |
+| ISO 13855 S = KT + C (pre-2024) | search summaries | corroborated; 2024 edition differs | medium: confirm edition |
+
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.

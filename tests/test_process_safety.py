@@ -828,7 +828,9 @@ class CLI(unittest.TestCase):
                  ("rmp-worst", "propane", "--kg", "20000", "--hc", "46.3"), ("lng", "--tanks", "160000", "--heat-kw", "100", "--regas-kg-s", "100"),
                  ("lpg", "propane"), ("h2o2", "--kg-h", "1000"), ("pool-fire", "--area", "300", "--hc", "44000", "--hv", "350", "--cp", "2.2", "--tb", "400"),
                  ("depressure", "--volume", "30", "--p0", "5000", "--pt", "1000", "--T0", "300", "--M", "20", "--k", "1.3", "--area", "800"),
-                 ("seveso", "Chlorine:H=6", "Hydrogen sulphide:H=3"), ("pipeline", "--smys", "448", "--wall", "12.7", "--od", "610")]
+                 ("seveso", "Chlorine:H=6", "Hydrogen sulphide:H=3"), ("pipeline", "--smys", "448", "--wall", "12.7", "--od", "610"),
+                 ("arc-flash", "--kv", "0.48", "--ka", "20", "--t", "0.2", "--dist-mm", "455"), ("idmt", "--i", "2000", "--pickup", "200", "--tms", "0.3"),
+                 ("noise", "95:2", "90:4"), ("safeguard", "--stop-s", "0.2", "--d-mm", "30"), ("earthing", "--rho-s", "3000", "--t", "0.5", "--rho", "75", "--hs", "0.2")]
         for argv in cases:
             rc, out = self.run_cli(*argv)
             self.assertEqual(rc, 0, argv); self.assertTrue(out.strip(), argv)
@@ -843,3 +845,110 @@ class CLI(unittest.TestCase):
             with contextlib.redirect_stdout(buf), self.assertRaises(SystemExit) as cm:
                 main([cmd, "--help"])
             self.assertEqual(cm.exception.code, 0, cmd)
+
+
+class ElectricalMechanical(unittest.TestCase):
+    def setUp(self):
+        from process_safety import electrical as el, mechanical_safety as ms, noise
+        self.el, self.ms, self.nz = el, ms, noise
+
+    def test_fault_cable_power(self):
+        self.assertAlmostEqual(self.el.fault_current_kA(11, 0.5), 11 / (math.sqrt(3) * 0.5))
+        self.assertAlmostEqual(self.el.transformer_fault_kA(1, 0.415, 5), 1 / (math.sqrt(3) * 0.415 * 0.05))
+        self.assertAlmostEqual(self.el.transformer_fault_kA(1, 0.415, 5, 100), 1 / (math.sqrt(3) * 0.415 * 0.06))
+        self.assertAlmostEqual(self.el.full_load_current_A(55, 415, 0.85, 0.93), 55000 / (math.sqrt(3) * 415 * 0.85 * 0.93))
+        self.assertAlmostEqual(self.el.voltage_drop_pct(100, 0.2, 0.3, 0.08, 1.0, 415), math.sqrt(3) * 100 * 0.2 * 0.3 / 415 * 100)
+        self.assertGreater(self.el.voltage_drop_pct(100, 0.2, 0.3, 0.08, 0.8, 415, 1), self.el.voltage_drop_pct(100, 0.2, 0.3, 0.08, 0.8, 415, 3) * 0.99)
+        self.assertAlmostEqual(self.el.min_csa_mm2(10, 1.0, "copper", "XLPE"), 10000 / 143)
+        self.assertGreater(self.el.min_csa_mm2(10, 1, "aluminium", "PVC"), self.el.min_csa_mm2(10, 1, "copper", "XLPE"))
+        self.assertAlmostEqual(self.el.pf_correction_kvar(100, 0.8, 0.95), 100 * (0.75 - math.tan(math.acos(0.95))))
+        self.assertAlmostEqual(self.el.motor_start_dip_pct(5, 50), 100 * 5 / 55)
+
+    def test_idmt_and_grading(self):
+        self.assertAlmostEqual(self.el.idmt_time_s(10, 1, 1.0, "standard_inverse"), 0.14 / (10 ** 0.02 - 1))
+        self.assertAlmostEqual(self.el.idmt_time_s(10, 1, 1.0, "standard_inverse"), 2.97, places=2)
+        self.assertAlmostEqual(self.el.idmt_time_s(10, 1, 1.0, "very_inverse"), 1.5)
+        self.assertAlmostEqual(self.el.idmt_time_s(10, 1, 1.0, "extremely_inverse"), 80 / 99)
+        self.assertEqual(self.el.idmt_time_s(1.0, 1, 1.0), float("inf"))
+        self.assertAlmostEqual(self.el.idmt_time_s(10, 1, 0.5), 0.5 * self.el.idmt_time_s(10, 1, 1.0))
+        self.assertTrue(self.el.grading_check(0.8, 0.4)["ok"]); self.assertFalse(self.el.grading_check(0.6, 0.4)["ok"])
+
+    def test_earthing(self):
+        self.assertAlmostEqual(self.el.surface_layer_factor(75, 4000, 0.2), 0.82, places=2)
+        self.assertEqual(self.el.surface_layer_factor(100, 100, 0.1), 1.0)
+        t = self.el.tolerable_touch_V(3000, 0.5, 0.8, 50)
+        self.assertAlmostEqual(t, (1000 + 1.5 * 0.8 * 3000) * 0.116 / math.sqrt(0.5))
+        self.assertGreater(self.el.tolerable_step_V(3000, 0.5, 0.8), t)
+        self.assertGreater(self.el.tolerable_touch_V(3000, 0.5, 0.8, 70), t)
+        self.assertLess(self.el.tolerable_touch_V(3000, 1.0), self.el.tolerable_touch_V(3000, 0.25))
+        R = self.el.rod_resistance_ohm(100, 3, 0.0079)
+        self.assertAlmostEqual(R, 100 / (2 * math.pi * 3) * (math.log(4 * 3 / 0.0079) - 1)); self.assertLess(self.el.rod_resistance_ohm(100, 6, 0.0079), R)
+        self.assertAlmostEqual(self.el.ground_potential_rise_V(5000, 0.5), 2500)
+
+    def test_lightning(self):
+        self.assertEqual(self.el.ROLLING_SPHERE_RADIUS_M, {1: 20.0, 2: 30.0, 3: 45.0, 4: 60.0})
+        self.assertAlmostEqual(self.el.protected_radius_at_ground_m(10, 20), math.sqrt(10 * 30)); self.assertEqual(self.el.protected_radius_at_ground_m(25, 20), 20)
+        self.assertAlmostEqual(self.el.protected_radius_at_height_m(10, 5, 20), math.sqrt(300) - math.sqrt(175)); self.assertEqual(self.el.protected_radius_at_height_m(10, 10, 20), 0.0)
+        self.assertGreater(self.el.protected_radius_at_ground_m(10, 45), self.el.protected_radius_at_ground_m(10, 20))
+        A = self.el.collection_area_m2(50, 30, 10); self.assertAlmostEqual(A, 1500 + 2 * 30 * 80 + math.pi * 900)
+        self.assertAlmostEqual(self.el.strikes_per_year(self.el.ground_flash_density_from_thunderdays(40), A), 4 * A * 1e-6)
+
+    def test_ex_selection(self):
+        self.assertEqual(self.el.allowed_t_classes(280), ["T3", "T4", "T5", "T6"]); self.assertEqual(self.el.allowed_t_classes(90), ["T6"])
+        self.assertEqual(self.el.allowed_t_classes(540), list(self.el.T_CLASS_MAX_C)); self.assertEqual(self.el.allowed_t_classes(80), [])
+        self.assertEqual(self.el.allowed_t_classes(210, margin_C=20), ["T4", "T5", "T6"])
+        self.assertEqual([self.el.gas_group_from_mesg(x) for x in (0.28, 0.5, 0.65, 0.9, 1.1)], ["IIC", "IIC", "IIB", "IIA", "IIA"])
+        self.assertEqual([self.el.min_epl_for_zone(z) for z in (0, 1, 2)], ["Ga", "Gb", "Gc"])
+
+    def test_arc_flash_lee(self):
+        E = self.el.lee_incident_energy_J_cm2(0.48, 20, 0.2, 455)
+        self.assertAlmostEqual(E, 2.142e6 * 0.48 * 20 * 0.2 / 455 ** 2)
+        self.assertAlmostEqual(self.el.lee_incident_energy_J_cm2(0.48, 20, 0.2, 910) * 4, E)
+        D = self.el.lee_boundary_mm(0.48, 20, 0.2)
+        self.assertAlmostEqual(self.el.lee_incident_energy_J_cm2(0.48, 20, 0.2, D), 5.02)
+        self.assertAlmostEqual(5.02 * self.el.CAL_PER_J, 1.2, places=2)
+        a = self.el.lee_applicable(480, 3, enclosed=False); self.assertTrue(a["ok"]) ; self.assertFalse(a["conditional"])
+        self.assertTrue(self.el.lee_applicable(11000, 3, False)["conditional"])
+        self.assertFalse(self.el.lee_applicable(480, 3, enclosed=True)["ok"]); self.assertFalse(self.el.lee_applicable(20000, 3, False)["ok"])
+        self.assertTrue(self.el.lee_applicable(480, 1, True)["ok"])
+
+    def test_noise_osha(self):
+        for L, T in ((90, 8), (95, 4), (100, 2), (105, 1), (110, 0.5), (115, 0.25)):
+            self.assertAlmostEqual(self.nz.osha_permissible_hours(L), T)
+        for L, T in ((92, 6), (97, 3), (102, 1.5)):
+            self.assertAlmostEqual(self.nz.osha_permissible_hours(L) / T, 1, delta=0.02)
+        self.assertAlmostEqual(self.nz.dose_pct([(95, 2), (90, 4)]), 100.0)
+        self.assertAlmostEqual(self.nz.twa_dBA(100), 90.0); self.assertAlmostEqual(self.nz.twa_dBA(50), 85.0, places=1)
+        self.assertAlmostEqual(self.nz.niosh_permissible_hours(88), 4.0); self.assertAlmostEqual(self.nz.niosh_permissible_hours(100), 0.25)
+        self.assertAlmostEqual(self.nz.sum_levels_dB([90, 90]), 93.0103, places=3)
+        self.assertAlmostEqual(self.nz.point_source_level_dB(100, 1, 20), 100 - 20 * math.log10(20))
+        r85 = self.nz.distance_for_level_m(100, 1, 85)
+        self.assertAlmostEqual(self.nz.point_source_level_dB(100, 1, r85), 85.0)
+
+    def test_machinery_safety(self):
+        self.assertEqual((self.ms.required_pl("S2", "F2", "P2"), self.ms.required_pl("S2", "F1", "P1"), self.ms.required_pl("S1", "F1", "P1")), ("e", "c", "a"))
+        self.assertEqual(len(self.ms._RISK_GRAPH), 8)
+        self.assertEqual([self.ms.pl_from_pfhd(x) for x in (5e-8, 5e-7, 2e-6, 5e-6, 5e-5, 1e-9)], ["e", "d", "c", "b", "a", None])
+        self.assertTrue(self.ms.pl_meets("d", "c")); self.assertFalse(self.ms.pl_meets("c", "d"))
+        self.assertAlmostEqual(self.ms.safeguard_distance_mm(0.2, 30), 500.0)   # K=2000 gives 528 > 500; K=1600 gives 448 < 500 -> 500
+        self.assertAlmostEqual(self.ms.safeguard_distance_mm(1.0, 14), 1600.0)
+        self.assertAlmostEqual(self.ms.safeguard_distance_mm(0.1, 14), 200.0)
+        self.assertAlmostEqual(self.ms.safeguard_distance_mm(0.1, 10), 200.0)  # C floors at 0
+
+    def test_lifting_and_impacts(self):
+        self.assertAlmostEqual(self.ms.sling_leg_tension_N(1000, 2, 60), 1000 * 9.80665 / (2 * 0.5))
+        self.assertAlmostEqual(self.ms.sling_leg_tension_N(1000, 2, 0), 1000 * 9.80665 / 2)
+        self.assertAlmostEqual(self.ms.drop_velocity_m_s(50), math.sqrt(2 * 9.80665 * 50))
+        vd = self.ms.drop_velocity_m_s(50, 5, 1.0, 0.01); self.assertTrue(0 < vd < self.ms.drop_velocity_m_s(50))
+        vt = self.ms.terminal_velocity_m_s(5, 1.0, 0.01); self.assertAlmostEqual(self.ms.drop_velocity_m_s(1e5, 5, 1.0, 0.01), vt, delta=0.01 * vt)
+        self.assertAlmostEqual(self.ms.impact_energy_kJ(10, 20), 2.0); self.assertAlmostEqual(self.ms.ship_collision_energy_kJ(5000, 2.0), 14000.0)
+
+    def test_piping_mechanics(self):
+        s = self.ms.pipe_section(168.3, 7.11)
+        self.assertAlmostEqual(s["I_m4"], math.pi / 64 * (0.1683 ** 4 - (0.1683 - 0.01422) ** 4)); self.assertAlmostEqual(s["Z_m3"], s["I_m4"] / 0.08415)
+        dry = self.ms.max_pipe_span_m(168.3, 7.11); wet = self.ms.max_pipe_span_m(168.3, 7.11, fluid_density=1000)
+        self.assertLess(wet["max_span_m"], dry["max_span_m"]); self.assertGreater(wet["w_N_m"], dry["w_N_m"])
+        self.assertEqual(dry["max_span_m"], min(dry["L_deflection_m"], dry["L_stress_m"]))
+        self.assertAlmostEqual(self.ms.thermal_growth_mm(100, 100), 120.0)
+        self.assertAlmostEqual(self.ms.guided_cantilever_leg_m(200, 100, 150, 200), math.sqrt(3 * 200e9 * 0.2 * 0.1 / 150e6))
+        self.assertAlmostEqual(self.ms.bolt_torque_Nm(20, 100e3), 400.0)
