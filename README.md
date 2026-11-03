@@ -102,6 +102,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 `vapour_fire.py`.
 
 ## Docs
+* `docs/RELATED_PROJECTS.md`: other open-source process-safety and engineering projects found on GitHub, with licences and how each relates to this toolkit.
 * `docs/ELECTRICAL_MECHANICAL.md`: electrical and mechanical safety scope, which formulas were read versus corroborated, and the limits.
 * `docs/SECTORS_AND_LESSONS.md`: LNG, LPG, refinery, petrochemical and chemicals coverage, public sources, and incident lessons mapped to modules.
 * `docs/PSM_FRAMEWORKS.md`: OSHA, AIGA 99, CCPS RBPS, CSChE, DOE handbook, Indian rules and Seveso, and how each is used.
