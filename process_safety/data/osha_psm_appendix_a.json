@@ -1,0 +1,679 @@
+{
+ "source": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119AppA",
+ "fetched": "2026-11-03",
+ "note": "29 CFR 1910.119 Appendix A - List of Highly Hazardous Chemicals, Toxics and Reactives (Mandatory). TQ in pounds. Flammable gases/liquids are covered separately by 1910.119(a)(1)(ii): >=10,000 lb (4535.9 kg). Parsed from the fetched page text: 134 entries; confirm completeness against the official page before regulatory use.",
+ "chemicals": [
+  {
+   "chemical": "1-Chloro-2,4-Dinitrobenzene",
+   "cas": "97-00-7",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "2,4-Dinitroaniline",
+   "cas": "97-02-9",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "3-Bromopropyne (also called Propargyl Bromide)",
+   "cas": "106-96-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Acetaldehyde",
+   "cas": "75-07-0",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Acrolein (2-Propenal)",
+   "cas": "107-02-8",
+   "tq_lb": 150
+  },
+  {
+   "chemical": "Acrylyl Chloride",
+   "cas": "814-68-6",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Allyl Chloride",
+   "cas": "107-05-1",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Allylamine",
+   "cas": "107-11-9",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Ammonia solutions (>44% ammonia by weight)",
+   "cas": "7664-41-7",
+   "tq_lb": 15000
+  },
+  {
+   "chemical": "Ammonia, Anhydrous",
+   "cas": "7664-41-7",
+   "tq_lb": 10000
+  },
+  {
+   "chemical": "Ammonium Perchlorate",
+   "cas": "7790-98-9",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Ammonium Permanganate",
+   "cas": "7787-36-2",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Arsine (also called Arsenic Hydride)",
+   "cas": "7784-42-1",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Bis(Chloromethyl) Ether",
+   "cas": "542-88-1",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Boron Trichloride",
+   "cas": "10294-34-5",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Boron Trifluoride",
+   "cas": "7637-07-2",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Bromine",
+   "cas": "7726-95-6",
+   "tq_lb": 1500
+  },
+  {
+   "chemical": "Bromine Chloride",
+   "cas": "13863-41-7",
+   "tq_lb": 1500
+  },
+  {
+   "chemical": "Bromine Pentafluoride",
+   "cas": "7789-30-2",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Bromine Trifluoride",
+   "cas": "7787-71-5",
+   "tq_lb": 15000
+  },
+  {
+   "chemical": "Butyl Hydroperoxide (Tertiary)",
+   "cas": "75-91-2",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Butyl Perbenzoate (Tertiary)",
+   "cas": "614-45-9",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Carbonyl Chloride (see Phosgene)",
+   "cas": "75-44-5",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Carbonyl Fluoride",
+   "cas": "353-50-4",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Cellulose Nitrate (concentration >12.6% nitrogen)",
+   "cas": "9004-70-0",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Chlorine",
+   "cas": "7782-50-5",
+   "tq_lb": 1500
+  },
+  {
+   "chemical": "Chlorine Dioxide",
+   "cas": "10049-04-4",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Chlorine Pentrafluoride",
+   "cas": "13637-63-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Chlorine Trifluoride",
+   "cas": "7790-91-2",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Chlorodiethylaluminum (also called Diethylaluminum Chloride)",
+   "cas": "96-10-6",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Chloromethyl Methyl Ether",
+   "cas": "107-30-2",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Chloropicrin",
+   "cas": "76-06-2",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Cumene Hydroperoxide",
+   "cas": "80-15-9",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Cyanogen",
+   "cas": "460-19-5",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Cyanogen Chloride",
+   "cas": "506-77-4",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Cyanuric Fluoride",
+   "cas": "675-14-9",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Diacetyl Peroxide (Concentration >70%)",
+   "cas": "110-22-5",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Diazomethane",
+   "cas": "334-88-3",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Dibenzoyl Peroxide",
+   "cas": "94-36-0",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Diborane",
+   "cas": "19287-45-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Dibutyl Peroxide (Tertiary)",
+   "cas": "110-05-4",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Dichloro Acetylene",
+   "cas": "7572-29-4",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Dichlorosilane",
+   "cas": "4109-96-0",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Diethylzinc",
+   "cas": "557-20-0",
+   "tq_lb": 10000
+  },
+  {
+   "chemical": "Diisopropyl Peroxydicarbonate",
+   "cas": "105-64-6",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Dilaluroyl Peroxide",
+   "cas": "105-74-8",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Dimethylamine, Anhydrous",
+   "cas": "124-40-3",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Dimethyldichlorosilane",
+   "cas": "75-78-5",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Dimethylhydrazine, 1,1-",
+   "cas": "57-14-7",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Ethyl Methyl Ketone Peroxide (also Methyl Ethyl Ketone Peroxide; concentration >60%)",
+   "cas": "1338-23-4",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Ethyl Nitrite",
+   "cas": "109-95-5",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Ethylamine",
+   "cas": "75-04-7",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Ethylene Fluorohydrin",
+   "cas": "371-62-0",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Ethylene Oxide",
+   "cas": "75-21-8",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Ethyleneimine",
+   "cas": "151-56-4",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Fluorine",
+   "cas": "7782-41-4",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Formaldehyde (Formalin)",
+   "cas": "50-00-0",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Furan",
+   "cas": "110-00-9",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Hexafluoroacetone",
+   "cas": "684-16-2",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Hydrochloric Acid, Anhydrous",
+   "cas": "7647-01-0",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Hydrofluoric Acid, Anhydrous",
+   "cas": "7664-39-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Hydrogen Bromide",
+   "cas": "10035-10-6",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Hydrogen Chloride",
+   "cas": "7647-01-0",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Hydrogen Cyanide, Anhydrous",
+   "cas": "74-90-8",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Hydrogen Fluoride",
+   "cas": "7664-39-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Hydrogen Peroxide (52% by weight or greater)",
+   "cas": "7722-84-1",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Hydrogen Selenide",
+   "cas": "7783-07-5",
+   "tq_lb": 150
+  },
+  {
+   "chemical": "Hydrogen Sulfide",
+   "cas": "7783-06-4",
+   "tq_lb": 1500
+  },
+  {
+   "chemical": "Hydroxylamine",
+   "cas": "7803-49-8",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Iron, Pentacarbonyl",
+   "cas": "13463-40-6",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Isopropylamine",
+   "cas": "75-31-0",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Ketene",
+   "cas": "463-51-4",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methacrylaldehyde",
+   "cas": "78-85-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Methacryloyl Chloride",
+   "cas": "920-46-7",
+   "tq_lb": 150
+  },
+  {
+   "chemical": "Methacryloyloxyethyl Isocyanate",
+   "cas": "30674-80-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methyl Acrylonitrile",
+   "cas": "126-98-7",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Methyl Bromide",
+   "cas": "74-83-9",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Methyl Chloride",
+   "cas": "74-87-3",
+   "tq_lb": 15000
+  },
+  {
+   "chemical": "Methyl Chloroformate",
+   "cas": "79-22-1",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Methyl Ethyl Ketone Peroxide (concentration >60%)",
+   "cas": "1338-23-4",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Methyl Fluoroacetate",
+   "cas": "453-18-9",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methyl Fluorosulfate",
+   "cas": "421-20-5",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methyl Hydrazine",
+   "cas": "60-34-4",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methyl Iodide",
+   "cas": "74-88-4",
+   "tq_lb": 7500
+  },
+  {
+   "chemical": "Methyl Isocyanate",
+   "cas": "624-83-9",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Methyl Mercaptan",
+   "cas": "74-93-1",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Methyl Vinyl Ketone",
+   "cas": "78-94-4",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Methylamine, Anhydrous",
+   "cas": "74-89-5",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Methyltrichlorosilane",
+   "cas": "75-79-6",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Nickel Carbonly (Nickel Tetracarbonyl)",
+   "cas": "13463-39-3",
+   "tq_lb": 150
+  },
+  {
+   "chemical": "Nitric Acid (94.5% by weight or greater)",
+   "cas": "7697-37-2",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Nitric Oxide",
+   "cas": "10102-43-9",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Nitroaniline (para Nitroaniline",
+   "cas": "100-01-6",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Nitrogen Dioxide",
+   "cas": "10102-44-0",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Nitrogen Oxides (NO; NO2; N204; N203)",
+   "cas": "10102-44-0",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Nitrogen Tetroxide (also called Nitrogen Peroxide)",
+   "cas": "10544-72-6",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Nitrogen Trifluoride",
+   "cas": "7783-54-2",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Nitrogen Trioxide",
+   "cas": "10544-73-7",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Nitromethane",
+   "cas": "75-52-5",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Oleum (65% to 80% by weight; also called Fuming Sulfuric Acid)",
+   "cas": "8014-95-7",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Osmium Tetroxide",
+   "cas": "20816-12-0",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Oxygen Difluoride (Fluorine Monoxide)",
+   "cas": "7783-41-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Ozone",
+   "cas": "10028-15-6",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Pentaborane",
+   "cas": "19624-22-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Peracetic Acid (concentration >60% Acetic Acid; also called Peroxyacetic Acid)",
+   "cas": "79-21-0",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Perchloric Acid (concentration >60% by weight)",
+   "cas": "7601-90-3",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Perchloromethyl Mercaptan",
+   "cas": "594-42-3",
+   "tq_lb": 150
+  },
+  {
+   "chemical": "Perchloryl Fluoride",
+   "cas": "7616-94-6",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Peroxyacetic Acid (concentration >60% Acetic Acid; also called Peracetic Acid)",
+   "cas": "79-21-0",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Phosgene (also called Carbonyl Chloride)",
+   "cas": "75-44-5",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Phosphine (Hydrogen Phosphide)",
+   "cas": "7803-51-2",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Phosphorus Oxychloride (also called Phosphoryl Chloride)",
+   "cas": "10025-87-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Phosphorus Trichloride",
+   "cas": "7719-12-2",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Phosphoryl Chloride (also called Phosphorus Oxychloride)",
+   "cas": "10025-87-3",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Propargyl Bromide",
+   "cas": "106-96-7",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Propyl Nitrate",
+   "cas": "627-3-4",
+   "tq_lb": 2500,
+   "note": "CAS printed as 627-3-4 in the source"
+  },
+  {
+   "chemical": "Sarin",
+   "cas": "107-44-8",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Selenium Hexafluoride",
+   "cas": "7783-79-1",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Stibine (Antimony Hydride)",
+   "cas": "7803-52-3",
+   "tq_lb": 500
+  },
+  {
+   "chemical": "Sulfur Dioxide (liquid)",
+   "cas": "7446-09-5",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Sulfur Pentafluoride",
+   "cas": "5714-22-7",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Sulfur Tetrafluoride",
+   "cas": "7783-60-0",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Sulfur Trioxide (also called Sulfuric Anhydride)",
+   "cas": "7446-11-9",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Sulfuric Anhydride (also called Sulfur Trioxide)",
+   "cas": "7446-11-9",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Tellurium Hexafluoride",
+   "cas": "7783-80-4",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Tetrafluoroethylene",
+   "cas": "116-14-3",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Tetrafluorohydrazine",
+   "cas": "10036-47-2",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Tetramethyl Lead",
+   "cas": "75-74-1",
+   "tq_lb": 1000
+  },
+  {
+   "chemical": "Thionyl Chloride",
+   "cas": "7719-09-7",
+   "tq_lb": 250
+  },
+  {
+   "chemical": "Trichloro (chloromethyl) Silane",
+   "cas": "1558-25-4",
+   "tq_lb": 100
+  },
+  {
+   "chemical": "Trichloro (dichlorophenyl) Silane",
+   "cas": "27137-85-5",
+   "tq_lb": 2500
+  },
+  {
+   "chemical": "Trichlorosilane",
+   "cas": "10025-78-2",
+   "tq_lb": 5000
+  },
+  {
+   "chemical": "Trifluorochloroethylene",
+   "cas": "79-38-9",
+   "tq_lb": 10000
+  },
+  {
+   "chemical": "Trimethyoxysilane",
+   "cas": "2487-90-3",
+   "tq_lb": 1500
+  }
+ ],
+ "count": 134
+}

@@ -33,5 +33,14 @@
 | Depressuring closed forms | derived from choked orifice flow; tests assert numeric = closed form within 1% | derived | high |
 | v.d <= 0.5 m2/s charging limit; IP/EI 15 zone hours | recalled | informative | low-medium: use your standard |
 
+| OSHA 1910.119 elements (c)-(p), cadences (5 y PHA, annual procedure certification, 3 y refresher and audit, 48 h investigation, retention), 10,000 lb flammables rule and exemptions | osha.gov regulation page | read in full via fetch | high |
+| OSHA Appendix A threshold quantities (134 parsed) | osha.gov ...1910.119AppA | parsed from fetched text; Propyl Nitrate added manually (CAS printed non-standard) | high; completeness to confirm |
+| AIGA 99/20 element titles (21) | asiaiga.org PDF contents page | read | high (titles only) |
+| CCPS RBPS 20 elements | published literature | recalled | medium |
+| OSHA -> AIGA crosswalk | author's mapping | not published by either body | low-medium |
+| Seveso III Annex I Part 1 (21 categories) and 38 Part 2 substances, sum rule | EU Publications Office CELEX 32012L0018 | parsed from official 2012 text; rows with unparsed thresholds omitted | high for listed rows; later amendments not applied |
+| 49 CFR 192.105 formula, 192.111 factors, 192.113 joint factors (subset), 192.115 derating, 192.903 PIR and HCA text | Cornell LII copy of eCFR | read | high (US rule) |
+| India rules list | sigma-hse.co.in article | read | medium (consultancy summary, not the rules) |
+
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.

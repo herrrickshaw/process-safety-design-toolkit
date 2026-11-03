@@ -1,5 +1,13 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.4.0 - 2026-11-03: PSM management system, MAH classification, pipeline design
+* New modules `psm`, `mah`, `pipeline` built from primary public texts that were actually fetched and read (OSHA 1910.119 and Appendix A,
+  Seveso III Annex I, 49 CFR 192). Data tables are parsed from those texts, with unparsed rows omitted instead of guessed.
+* Rejected/blocked: EPA equipment-leak emission factors (EPA site blocks automated access; the OISD-224 fugitive-VOC use case therefore stays
+  unimplemented rather than coded from remembered factors); AXA XL fire-water demand guide (blocked); eCFR (redirect to a block page: used the
+  Cornell LII copy instead); synergenog and MDPI (blocked, not retried); Purdue deck (empty retrieval).
+* Rejected: reproducing OISD/NFPA spacing and fire-water rate tables (paywalled or not retrievable).
+
 ## 0.3.0 - 2026-11-03: more process-safety design cases
 * Added pool fire, flammability/inerting/static, structural fire and PFP screening, depressuring with minimum-temperature check,
   overfill alarm placement and PSV inlet/outlet piping checks (88 tests).

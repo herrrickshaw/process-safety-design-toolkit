@@ -43,6 +43,9 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `depressuring` | Time to target pressure (isothermal/adiabatic bounds, numeric + closed form), orifice for a target time, isentropic minimum temperature | API 521 criteria are inputs | gas phase only |
 | `overfill` | Time to overfill, alarm margin and alarm height | API 2350 criteria are inputs | arithmetic |
 | `relief_piping` | Inlet loss 3% check, outlet reaction force, exit Mach/velocity | API 520-II | no AIV/FIV |
+| `psm` | OSHA PSM 14 elements, Appendix A applicability (134 chemicals) and the flammables rule, due-date tracking, AIGA 99 / RBPS crosswalk, gap scoring | OSHA 1910.119 (read), AIGA 99 (titles read) | cadences verified against OSHA text |
+| `mah` | Seveso III sum-rule tier classification | Directive 2012/18/EU Annex I (parsed from official text) | EU thresholds only; India MSIHC schedules not read |
+| `pipeline` | Gas pipeline design pressure, wall thickness, temperature derating, potential impact radius | 49 CFR 192.105/111/113/115/903 (read) | US rule; natural-gas PIR |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -61,6 +64,10 @@ python3 -m process_safety flare --mass 20 --lhv 46 --mw 30 --flame-length 40
 python3 -m process_safety pool-fire --area 300 --hc 44000 --hv 350 --cp 2.2 --tb 400
 python3 -m process_safety depressure --volume 30 --p0 5000 --pt 1000 --T0 300 --M 20 --k 1.3 --area 800
 python3 -m process_safety steel-fire --am-v 150
+python3 -m process_safety psm-check --chemical chlorine --kg 700
+python3 -m process_safety psm-due --pha 2021-03-15 --audit 2023-06-01 --today 2026-11-03
+python3 -m process_safety seveso Chlorine:H=6 "Hydrogen sulphide:H=3"
+python3 -m process_safety pipeline --smys 448 --wall 12.7 --od 610 --buildings 25
 python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05
@@ -76,6 +83,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 `vapour_fire.py`.
 
 ## Docs
+* `docs/PSM_FRAMEWORKS.md`: OSHA, AIGA 99, CCPS RBPS, CSChE, DOE handbook, Indian rules and Seveso, and how each is used.
 * `SOURCES.md`: what was verified, from where, at what confidence.
 * `docs/TOOLKIT_SURVEY.md`: other open-source and spreadsheet toolkits found.
 * `CHANGELOG.md`: decisions, including alternatives rejected.

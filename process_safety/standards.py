@@ -56,6 +56,9 @@ TOPICS = {
     "Emergency depressuring / blowdown + MDMT": (["API 521 s.4.6"], "depressuring.*", "gas-phase isothermal/adiabatic bounds; liquid flashing not modelled"),
     "Overfill protection (alarm placement)": (["API 2350", "IEC 61511", "OISD-STD-108"], "overfill.*", "volume/time arithmetic; criteria are inputs"),
     "PSV inlet loss (3%) and outlet reaction force": (["API 520-II"], "relief_piping.*", "implemented; AIV/FIV and stress not"),
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)": (["OSHA 29 CFR 1910.119", "AIGA 99/20", "CCPS RBPS", "CSChE PSM Standard", "DOE-HDBK-1101-96"], "psm.*", "applicability, cadences, due dates, crosswalk, gap scoring; verified against OSHA text"),
+    "MAH classification (Seveso sum rule)": (["Directive 2012/18/EU Annex I", "MSIHC Rules 1989 (schedules not read)", "OISD-STD-206/GDN"], "mah.*", "EU thresholds from official text; Indian MSIHC schedules not implemented"),
+    "Gas pipeline design pressure / impact radius": (["49 CFR 192", "ASME B31.8 / B31.4", "OISD-STD-226 (not read)", "PNGRB T4S (not read)"], "pipeline.*", "US rule text verified; Indian requirements not implemented"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 

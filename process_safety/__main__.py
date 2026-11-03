@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|flare|lopa|pfd|fireball|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|flare|lopa|pfd|fireball|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -6,7 +6,9 @@ import dataclasses
 import json
 import sys
 
-from . import depressuring, dispersion, fireball, flare, hazop, pool_fire, relief, release, sil, standards, structural_fire, tank_venting, vapour_fire
+import datetime as _dt
+
+from . import depressuring, dispersion, fireball, flare, hazop, mah, pipeline, pool_fire, psm, relief, release, sil, standards, structural_fire, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -107,6 +109,24 @@ def main(argv=None):
     sf.add_argument("--minutes", type=float, default=120.0)
     sf.add_argument("--iso", action="store_true", help="use ISO 834 instead of the hydrocarbon curve")
 
+    pc = s.add_parser("psm-check", help="OSHA PSM applicability: Appendix A chemical or the 10,000 lb flammables rule")
+    pc.add_argument("--chemical", help="name or CAS"); pc.add_argument("--kg", type=float, required=True)
+    pc.add_argument("--flammable", action="store_true"); pc.add_argument("--workplace-fuel", action="store_true"); pc.add_argument("--atmospheric-below-bp", action="store_true")
+
+    pd = s.add_parser("psm-due", help="next due dates (ISO dates) for PHA revalidation, procedure certification, refresher training, compliance audit")
+    for n in ("pha", "procedures", "training", "audit"):
+        pd.add_argument("--" + n, help="last done YYYY-MM-DD")
+    pd.add_argument("--today")
+
+    sv = s.add_parser("seveso", help="Seveso III sum-rule tier; items as KEY=tonnes, KEY=P2 (category) or Name:H=tonnes (substance:group)")
+    sv.add_argument("items", nargs="+")
+
+    pp = s.add_parser("pipeline", help="49 CFR 192 design pressure and potential impact radius (natural gas)")
+    for n in ("smys", "wall", "od"):
+        pp.add_argument("--" + n, type=float, required=True, help={"smys": "MPa", "wall": "mm", "od": "mm"}[n])
+    pp.add_argument("--class-location", type=int, default=1); pp.add_argument("--joint", type=float, default=1.0)
+    pp.add_argument("--temp", type=float, default=20.0); pp.add_argument("--buildings", type=int, default=0)
+
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
     fl.add_argument("--lhv", type=float, required=True, help="MJ/kg")
@@ -194,6 +214,31 @@ def main(argv=None):
                                                       t_end_min=a.minutes)
         _out({"time_to_critical_min": structural_fire.time_to_critical_min(h, a.crit), "critical_C": a.crit,
               "steel_C_at": {str(t): round(T) for t, T in h if t in (5, 10, 15, 30, 60, 120)}})
+    elif a.cmd == "psm-check":
+        if a.flammable:
+            _out(psm.covered_flammable(a.kg, workplace_fuel_only=a.workplace_fuel, atmospheric_tank_below_boiling_point=a.atmospheric_below_bp))
+        else:
+            _out(psm.covered_chemical(a.chemical, a.kg))
+    elif a.cmd == "psm-due":
+        last = {k: _dt.date.fromisoformat(v) for k, v in (("pha_revalidation", a.pha), ("operating_procedure_certification", a.procedures),
+                                                          ("refresher_training", a.training), ("compliance_audit", a.audit)) if v}
+        _out(psm.due_dates(last, _dt.date.fromisoformat(a.today) if a.today else None))
+    elif a.cmd == "seveso":
+        inv = []
+        for it in a.items:
+            key, val = it.split("=", 1)
+            if ":" in key:
+                name, grp = key.split(":"); inv.append({"substance": name, "group": grp, "tonnes": float(val)})
+            else:
+                inv.append({"category": key, "tonnes": float(val)})
+        r = mah.classify(inv)
+        _out({"tier": r["tier"], "sums": {g: {"lower": round(v["lower"], 3), "upper": round(v["upper"], 3)} for g, v in r["sums"].items() if v["items"]},
+              "note": "Seveso III Annex I, 2012 text; MSIHC 1989 schedules not reproduced"})
+    elif a.cmd == "pipeline":
+        P = pipeline.design_pressure_kpa(a.smys, a.wall, a.od, a.class_location, a.joint, a.temp)
+        r = pipeline.potential_impact_radius_m(P, a.od)
+        _out({"design_pressure_kPag": P, "design_pressure_bar": P / 100, "potential_impact_radius_m_natural_gas_at_that_pressure": r,
+              "hca_criterion_iii": pipeline.hca_by_pir(r, a.buildings, a.class_location), "note": "49 CFR 192 basis (US), natural gas only"})
     elif a.cmd == "flare":
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         _out({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})

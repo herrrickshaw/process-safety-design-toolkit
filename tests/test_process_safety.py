@@ -642,3 +642,74 @@ class Depressuring(unittest.TestCase):
         self.assertAlmostEqual(self.rp.reaction_force_N(5, 200, 201.325, 0.05), 1000 + 100e3 * 0.05)
         s = self.rp.exit_state_from_mach(5, 0.25, 110, 320, 20, 1.3)
         self.assertAlmostEqual(s["density_kg_m3"] * s["velocity_m_s"] * s["area_m2"], 5.0)
+
+
+class PSMandMAH(unittest.TestCase):
+    def setUp(self):
+        from process_safety import psm, mah, pipeline
+        self.psm, self.mah, self.pl = psm, mah, pipeline
+
+    def test_elements_and_data(self):
+        self.assertEqual(list(self.psm.OSHA_ELEMENTS), list("cdefghijklmnop")); self.assertEqual(len(self.psm.OSHA_ELEMENTS), 14)
+        self.assertEqual(len(self.psm.AIGA99_ELEMENTS), 21); self.assertEqual(sum(len(v) for v in self.psm.RBPS_ELEMENTS.values()), 20)
+        self.assertEqual(set(self.psm.CROSSWALK_OSHA_TO_AIGA), set(self.psm.OSHA_ELEMENTS))
+        for v in self.psm.CROSSWALK_OSHA_TO_AIGA.values():
+            for n in v: self.assertIn(n, self.psm.AIGA99_ELEMENTS)
+        tq = {r["chemical"]: r["tq_lb"] for r in self.psm.appendix_a()}
+        for name, v in {"Chlorine": 1500, "Ammonia, Anhydrous": 10000, "Hydrogen Fluoride": 1000, "Hydrogen Sulfide": 1500, "Ethylene Oxide": 5000,
+                        "Phosgene (also called Carbonyl Chloride)": 100, "Sulfur Dioxide (liquid)": 1000}.items():
+            self.assertEqual(tq[name], v, name)
+        self.assertGreaterEqual(len(tq), 130)
+
+    def test_applicability(self):
+        r = self.psm.covered_chemical("7782-50-5", 700); self.assertTrue(r["covered"]); self.assertAlmostEqual(r["threshold_kg"], 1500 / 2.2046226218)
+        self.assertFalse(self.psm.covered_chemical("chlorine", 600)["covered"])
+        self.assertFalse(self.psm.covered_chemical("nonexistium", 1)["found"])
+        f = self.psm.covered_flammable(5000); self.assertTrue(f["covered"]); self.assertAlmostEqual(f["threshold_kg"], 4535.9, places=1)
+        self.assertFalse(self.psm.covered_flammable(5000, workplace_fuel_only=True)["covered"])
+        self.assertFalse(self.psm.covered_flammable(5000, atmospheric_tank_below_boiling_point=True)["covered"])
+        self.assertFalse(self.psm.covered_flammable(4000)["covered"])
+
+    def test_due_dates(self):
+        from datetime import date, datetime
+        d = self.psm.due_dates({"pha_revalidation": date(2020, 2, 29), "compliance_audit": date(2023, 6, 1), "refresher_training": date(2025, 10, 1),
+                                "operating_procedure_certification": date(2025, 11, 1)}, today=date(2026, 11, 3))
+        self.assertEqual(d["pha_revalidation"]["next_due"], "2025-02-28"); self.assertEqual(d["pha_revalidation"]["status"], "overdue")
+        self.assertEqual(d["compliance_audit"]["next_due"], "2026-06-01"); self.assertEqual(d["compliance_audit"]["status"], "overdue")
+        self.assertEqual(d["refresher_training"]["status"], "ok"); self.assertEqual(d["operating_procedure_certification"]["next_due"], "2026-11-01")
+        self.assertEqual(self.psm.incident_investigation_deadline(datetime(2026, 1, 1, 10)), datetime(2026, 1, 3, 10))
+
+    def test_gap_assessment(self):
+        s = {k: 4 for k in self.psm.OSHA_ELEMENTS}; s["l"] = 1; s["o"] = 0
+        g = self.psm.gap_assessment(s)
+        self.assertAlmostEqual(g["percent"], 100 * (12 * 4 + 1) / 56); self.assertEqual(g["weakest"][0][0], "o"); self.assertEqual(g["unscored"], [])
+        self.assertEqual(self.psm.gap_assessment({"e": 2})["unscored"][0], "c")
+
+    def test_seveso(self):
+        p1 = self.mah.part1()
+        self.assertEqual((p1["P5c"]["lower_t"], p1["P5c"]["upper_t"]), (5000, 50000)); self.assertEqual((p1["H1"]["lower_t"], p1["H1"]["upper_t"]), (5, 20))
+        cl = self.mah.find_substance("Chlorine"); self.assertEqual((cl["lower_t"], cl["upper_t"]), (10, 25))
+        self.assertEqual(self.mah.classify([{"substance": "Chlorine", "tonnes": 10, "group": "H"}])["tier"], "lower-tier")
+        self.assertEqual(self.mah.classify([{"substance": "Chlorine", "tonnes": 25, "group": "H"}])["tier"], "upper-tier")
+        self.assertEqual(self.mah.classify([{"substance": "Chlorine", "tonnes": 9, "group": "H"}])["tier"], "below Seveso scope")
+        c = self.mah.classify([{"substance": "Chlorine", "tonnes": 6, "group": "H"}, {"substance": "Hydrogen sulphide", "tonnes": 3, "group": "H"}])
+        self.assertEqual(c["tier"], "lower-tier"); self.assertAlmostEqual(c["sums"]["H"]["lower"], 0.6 + 0.6)
+        sep = self.mah.classify([{"substance": "Chlorine", "tonnes": 6, "group": "H"}, {"category": "P2", "tonnes": 6}])  # 0.6 H + 0.6 P: groups not added
+        self.assertEqual(sep["tier"], "below Seveso scope")
+        lpg = self.mah.classify([{"substance": "Liquefied flammable gases", "tonnes": 60, "group": "P"}]); self.assertEqual(lpg["tier"], "lower-tier")
+        with self.assertRaises(KeyError): self.mah.classify([{"substance": "Unobtainium", "tonnes": 1, "group": "H"}])
+
+    def test_pipeline(self):
+        self.assertEqual(self.pl.DESIGN_FACTOR, {1: 0.72, 2: 0.60, 3: 0.50, 4: 0.40})
+        self.assertAlmostEqual(self.pl.temperature_derating(135.0), (1.0 + 0.967) / 2); self.assertEqual(self.pl.temperature_derating(100), 1.0)
+        self.assertAlmostEqual(self.pl.temperature_derating(232.0), 0.867)
+        with self.assertRaises(ValueError): self.pl.temperature_derating(300)
+        P = self.pl.design_pressure_kpa(448, 12.7, 610, 1, 1.0, 20)  # X65, 24 in, 0.5 in
+        self.assertAlmostEqual(P, 2 * 448 * 12.7 / 610 * 0.72 * 1000)
+        self.assertAlmostEqual(self.pl.required_wall_mm(P, 448, 610, 1, 1.0, 20), 12.7)
+        self.assertLess(self.pl.design_pressure_kpa(448, 12.7, 610, 3), P)
+        self.assertAlmostEqual(self.pl.design_pressure_kpa(448, 12.7, 610, 1, 0.6, 20), P * 0.6)
+        r = self.pl.potential_impact_radius_m(1000 / 0.1450377377, 36 * 25.4)  # 1000 psi, 36 in
+        self.assertAlmostEqual(r / 0.3048, 0.69 * math.sqrt(1000 * 36 ** 2), places=3); self.assertAlmostEqual(r / 0.3048, 785.5, delta=0.5)
+        self.assertTrue(self.pl.hca_by_pir(250, 20)); self.assertFalse(self.pl.hca_by_pir(250, 19)); self.assertFalse(self.pl.hca_by_pir(150, 50))
+        self.assertFalse(self.pl.hca_by_pir(250, 50, class_location=3))
