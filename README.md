@@ -37,6 +37,12 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `hazop` | HAZOP worksheet generator (CSV for Excel) with generic cause prompts | IEC 61882 guidewords | skeleton only |
 | `emissions` | Combustion CO2 by element balance, flare emissions with efficiency/GWP, SO2 | stoichiometry | efficiency/GWP are inputs |
 | `reaction_hazard` | Adiabatic temperature rise, MTSR and screening flags | Stoessel-style | needs calorimetry |
+| `pool_fire` | Burning rate (Burgess), flame height (Thomas), Mudan-Croce SEP, point-source flux and distances | CCPS-style | screening; no wind/spreading |
+| `flammability` | Le Chatelier LFL/UFL, LOC, sweep/pressure/vacuum purge, charge relaxation, v.d check, zone-duration rule | NFPA 69 / API 2003 criteria are inputs | limits are inputs |
+| `structural_fire` | ISO 834 and hydrocarbon curves, steel temperature (unprotected + insulated), time to critical temperature | EN 1993-1-2 forms | simplified; certification governs |
+| `depressuring` | Time to target pressure (isothermal/adiabatic bounds, numeric + closed form), orifice for a target time, isentropic minimum temperature | API 521 criteria are inputs | gas phase only |
+| `overfill` | Time to overfill, alarm margin and alarm height | API 2350 criteria are inputs | arithmetic |
+| `relief_piping` | Inlet loss 3% check, outlet reaction force, exit Mach/velocity | API 520-II | no AIV/FIV |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -52,6 +58,9 @@ python3 -m process_safety relief-gas --W 12000 --T 400 --set-g 1000 --case fire 
 python3 -m process_safety vapour-fire --volume 15 --area 36 --D 2 --wall-mm 20 --M 20 --k 1.3 --p0-g 1000 --psv-area 500 --psv-set-g 1500
 python3 -m process_safety tank-fire --shape vertical --D 20 --L 15 --F bare --normal-capacity 1500
 python3 -m process_safety flare --mass 20 --lhv 46 --mw 30 --flame-length 40
+python3 -m process_safety pool-fire --area 300 --hc 44000 --hv 350 --cp 2.2 --tb 400
+python3 -m process_safety depressure --volume 30 --p0 5000 --pt 1000 --T0 300 --M 20 --k 1.3 --area 800
+python3 -m process_safety steel-fire --am-v 150
 python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05

@@ -27,5 +27,11 @@
 | Probit constants (Eisenberg thermal; Cl2, NH3, H2S toxic) | recalled from CCPS/TNO literature | not verified | low-medium: verify before use |
 | HAZOP guidewords and cause prompts | IEC 61882/CCPS common practice | generic checklist | n/a (prompts, not requirements) |
 
+| Burgess burning rate, Thomas flame height, Mudan-Croce SEP (140/20/0.12) | recalled from CCPS/open literature | formula-level tests only | medium: verify |
+| Le Chatelier, z-rule LOC, purge equations | textbook; purge forms derived from mixing balances | tested by inversion | high (LOC rule is an estimate) |
+| EN 1993-1-2 lumped steel forms; ISO 834 and hydrocarbon curves | recalled | curve values and bounds tested | medium-high: verify coefficients, constants (ca, eps, alpha_c) are inputs |
+| Depressuring closed forms | derived from choked orifice flow; tests assert numeric = closed form within 1% | derived | high |
+| v.d <= 0.5 m2/s charging limit; IP/EI 15 zone hours | recalled | informative | low-medium: use your standard |
+
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.

@@ -1,5 +1,12 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.3.0 - 2026-11-03: more process-safety design cases
+* Added pool fire, flammability/inerting/static, structural fire and PFP screening, depressuring with minimum-temperature check,
+  overfill alarm placement and PSV inlet/outlet piping checks (88 tests).
+* Depressuring is offered as isothermal/adiabatic bounds, not a single answer: heat input and liquid flashing decide the real curve.
+* Rejected: dust-explosion vent sizing (NFPA 68 / VDI 3673 coefficients could not be verified), jet-fire flame length correlations,
+  acoustic-induced vibration sound-power constants, gas control-valve Cv constants. All stay unimplemented rather than guessed.
+
 ## 0.2.0 - 2026-11-03: wider industry coverage
 * Added hydraulics, fire-water, vessel mechanical, release, dispersion, explosion, consequence probits, reliability (fault/event trees),
   HAZOP worksheet generation, emissions and reaction-hazard screening. Every module is stdlib-only and tested against identities

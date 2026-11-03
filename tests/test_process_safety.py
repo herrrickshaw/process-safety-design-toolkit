@@ -516,7 +516,8 @@ class Reliability(unittest.TestCase):
         self.assertIn("Control valve fails closed", rows[0]["Causes (prompts)"])
         with tempfile.TemporaryDirectory() as d:
             p = os.path.join(d, "h.csv"); self.assertEqual(self.hz.to_csv(rows, p), 8)
-            back = list(csv.DictReader(open(p, encoding="utf-8-sig")))
+            with open(p, encoding="utf-8-sig") as fh:
+                back = list(csv.DictReader(fh))
             self.assertEqual(back[0]["Deviation"], "No flow"); self.assertEqual(list(back[0].keys()), self.hz.COLUMNS)
         for (param, gw) in self.hz.CAUSES:
             self.assertIn(gw, self.hz.DEVIATIONS[param])
@@ -540,3 +541,104 @@ class Reliability(unittest.TestCase):
         ok = self.rx.screen(80, dT, 0.1, 200, 150, 120)  # MTSR 90 C: below everything
         self.assertEqual(len(ok["flags"]), 1); self.assertIn("below", ok["flags"][0])
         self.assertFalse(any("MTT" in f for f in self.rx.screen(80, dT, 1.0, 100, 200, 120)["flags"]))
+
+
+class MoreCases(unittest.TestCase):
+    def setUp(self):
+        from process_safety import pool_fire, flammability, structural_fire
+        self.pf, self.fl, self.sf = pool_fire, flammability, structural_fire
+
+    def test_pool_fire_basics(self):
+        m = self.pf.burning_rate_kg_m2_s(44_000, 350, 2.2, 400, 298.15)
+        self.assertAlmostEqual(m, 0.001 * 44000 / (350 + 2.2 * 101.85))
+        self.assertAlmostEqual(self.pf.burning_rate_kg_m2_s(50_000, 510, 3.5, 111.7), 0.001 * 50000 / 510)  # cryogenic: no sensible term
+        D = 20.0
+        H = self.pf.flame_height_m(D, 0.08)
+        self.assertAlmostEqual(H / D, 42 * (0.08 / (1.2 * math.sqrt(9.80665 * D))) ** 0.61)
+        self.assertTrue(1.0 < H / D < 4.0)
+        self.assertTrue(20 < self.pf.mudan_croce_sep_kW_m2(50) < 60); self.assertGreater(self.pf.mudan_croce_sep_kW_m2(5), self.pf.mudan_croce_sep_kW_m2(50))
+
+    def test_pool_fire_radiation(self):
+        pf = self.pf.pool_fire(300, 44_000, 350, 2.2, 400)
+        self.assertAlmostEqual(pf["Q_kW"], pf["mass_burn_rate_kg_s"] * 44_000)
+        far = pf["flame_height_m"] * 5
+        self.assertAlmostEqual(self.pf.incident_kW_m2(pf, far) / self.pf.incident_kW_m2(pf, 2 * far), 4, delta=0.9)
+        d = self.pf.distance_to_flux_m(pf, 4.73)
+        self.assertAlmostEqual(self.pf.incident_kW_m2(pf, d), 4.73, places=5)
+
+    def test_flammability(self):
+        self.assertAlmostEqual(self.fl.le_chatelier([0.5, 0.5], [5.0, 2.0]), 1 / (0.5 / 5 + 0.5 / 2))
+        self.assertAlmostEqual(self.fl.le_chatelier([1, 1], [5.0, 5.0]), 5.0)
+        self.assertAlmostEqual(self.fl.oxygen_stoich_z("CH4"), 2.0); self.assertAlmostEqual(self.fl.oxygen_stoich_z("C3H8"), 5.0)
+        self.assertAlmostEqual(self.fl.oxygen_stoich_z("C2H6O"), 3.0)
+        self.assertAlmostEqual(self.fl.loc_vol_pct(2.1, "C3H8"), 10.5)
+
+    def test_purge(self):
+        c = self.fl.sweep_through_conc(21, 0, 100, 0.5, 50)
+        self.assertAlmostEqual(c, 21 * math.exp(-1))
+        t = self.fl.sweep_through_time_h(21, 5, 0, 100, 50)
+        self.assertAlmostEqual(self.fl.sweep_through_conc(21, 0, 100, t, 50), 5)
+        n = self.fl.pressure_purge_cycles(21, 2, 700, 100)
+        self.assertEqual(n, 2)
+        self.assertLessEqual(21 * (100 / 700) ** n, 2); self.assertGreater(21 * (100 / 700) ** (n - 1), 2)
+
+    def test_static_and_zones(self):
+        self.assertAlmostEqual(self.fl.relaxation_time_s(1e-11, 2.0), 8.854e-12 * 2 / 1e-11, places=4)
+        self.assertTrue(self.fl.pipe_charging_check(2.0, 0.1)["ok"]); self.assertFalse(self.fl.pipe_charging_check(7.0, 0.2)["ok"])
+        self.assertEqual([self.fl.zone_from_release_hours(h) for h in (2000, 100, 1)], ["Zone 0", "Zone 1", "Zone 2"])
+
+    def test_fire_curves(self):
+        self.assertAlmostEqual(self.sf.iso834_C(0), 20); self.assertAlmostEqual(self.sf.iso834_C(30), 20 + 345 * math.log10(241))
+        self.assertAlmostEqual(self.sf.hydrocarbon_C(0), 20, places=6)
+        self.assertTrue(1050 < self.sf.hydrocarbon_C(60) < 1100)
+        self.assertGreater(self.sf.hydrocarbon_C(5), self.sf.iso834_C(5))
+
+    def test_steel_temperature(self):
+        thin = self.sf.steel_temperature_history(250, t_end_min=30)
+        thick = self.sf.steel_temperature_history(60, t_end_min=30)
+        t_thin, t_thick = self.sf.time_to_critical_min(thin), self.sf.time_to_critical_min(thick)
+        self.assertIsNotNone(t_thin); self.assertTrue(t_thick is None or t_thick > t_thin)
+        prot = dict(thickness_m=0.02, **{"lambda": 0.1}, cp=1000.0, rho=300.0, Ap_over_V=150)
+        p = self.sf.steel_temperature_history(150, protection=prot, t_end_min=120)
+        u = self.sf.steel_temperature_history(150, t_end_min=120)
+        self.assertGreater(self.sf.time_to_critical_min(p) or 999, (self.sf.time_to_critical_min(u) or 0) + 5)
+        thicker = self.sf.steel_temperature_history(150, protection={**prot, "thickness_m": 0.04}, t_end_min=120)
+        self.assertGreaterEqual(self.sf.time_to_critical_min(thicker) or 999, self.sf.time_to_critical_min(p) or 999)
+        # steel never exceeds the gas temperature
+        for t, T in u:
+            self.assertLessEqual(T, self.sf.hydrocarbon_C(t) + 1e-6)
+
+
+class Depressuring(unittest.TestCase):
+    def setUp(self):
+        from process_safety import depressuring as dep, overfill as of, relief_piping as rp
+        self.dep, self.of, self.rp = dep, of, rp
+
+    def test_numeric_matches_closed_form_while_choked(self):
+        args = (30.0, 5000.0, 1000.0, 300.0, 20.0, 1.3, 800.0)
+        pc = self.dep.choke_pressure_kpa(1.3); self.assertLess(pc, 1000)
+        for mode in ("isothermal", "adiabatic"):
+            n = self.dep.depressuring_time_s(*args, mode=mode, dt=0.01)
+            c = self.dep.closed_form_time_s(*args, mode=mode)
+            self.assertAlmostEqual(n / c, 1, delta=0.01, msg=mode)
+        self.assertLess(self.dep.depressuring_time_s(*args, mode="adiabatic"), self.dep.depressuring_time_s(*args, mode="isothermal"))
+
+    def test_required_area_roundtrip_and_temperature(self):
+        A = self.dep.required_area_mm2(30, 5000, 1000, 300, 20, 1.3, 600)
+        t = self.dep.depressuring_time_s(30, 5000, 1000, 300, 20, 1.3, A, mode="isothermal", dt=0.2)
+        self.assertAlmostEqual(t / 600, 1, delta=0.02)
+        self.assertAlmostEqual(self.dep.min_gas_temperature_K(300, 5000, 1000, 1.3), 300 * 0.2 ** (0.3 / 1.3))
+        self.assertLess(self.dep.min_gas_temperature_K(300, 5000, 1000, 1.3), 300)
+
+    def test_overfill(self):
+        self.assertAlmostEqual(self.of.time_to_overfill_s(10, 360), 100)
+        self.assertAlmostEqual(self.of.alarm_margin_m3(360, 600, 60, 1.5), 0.1 * 660 * 1.5)
+        a = self.of.tank_area_m2(10)
+        self.assertAlmostEqual(self.of.alarm_height_m(14.0, a, 360, 600, 60), 14.0 - 0.1 * 660 / a)
+
+    def test_relief_piping(self):
+        self.assertTrue(self.rp.inlet_loss_check(20, 1000)["ok"]); self.assertFalse(self.rp.inlet_loss_check(40, 1000)["ok"])
+        self.assertAlmostEqual(self.rp.reaction_force_N(5, 200, 101.325, 0.05), 1000.0)
+        self.assertAlmostEqual(self.rp.reaction_force_N(5, 200, 201.325, 0.05), 1000 + 100e3 * 0.05)
+        s = self.rp.exit_state_from_mach(5, 0.25, 110, 320, 20, 1.3)
+        self.assertAlmostEqual(s["density_kg_m3"] * s["velocity_m_s"] * s["area_m2"], 5.0)

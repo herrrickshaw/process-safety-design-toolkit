@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|flare|lopa|pfd|fireball|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|flare|lopa|pfd|fireball|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -6,7 +6,7 @@ import dataclasses
 import json
 import sys
 
-from . import dispersion, fireball, flare, hazop, relief, release, sil, standards, tank_venting, vapour_fire
+from . import depressuring, dispersion, fireball, flare, hazop, pool_fire, relief, release, sil, standards, structural_fire, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -93,6 +93,20 @@ def main(argv=None):
     hz.add_argument("--node", required=True); hz.add_argument("--intent", default="")
     hz.add_argument("--params", nargs="*"); hz.add_argument("--out", required=True)
 
+    pf = s.add_parser("pool-fire", help="pool fire burn rate, flame height, distances to radiation levels")
+    for n in ("area", "hc", "hv", "cp", "tb"):
+        pf.add_argument("--" + n, type=float, required=True)
+    pf.add_argument("--fraction", type=float, default=0.25)
+
+    dp = s.add_parser("depressure", help="time to target pressure through an orifice (isothermal and adiabatic) + min gas temperature")
+    for n in ("volume", "p0", "pt", "T0", "M", "k", "area"):
+        dp.add_argument("--" + n, type=float, required=True)
+
+    sf = s.add_parser("steel-fire", help="steel temperature vs time in a hydrocarbon fire; time to critical temperature")
+    sf.add_argument("--am-v", type=float, required=True, help="section factor Am/V 1/m"); sf.add_argument("--crit", type=float, default=550.0)
+    sf.add_argument("--minutes", type=float, default=120.0)
+    sf.add_argument("--iso", action="store_true", help="use ISO 834 instead of the hydrocarbon curve")
+
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
     fl.add_argument("--lhv", type=float, required=True, help="MJ/kg")
@@ -164,6 +178,22 @@ def main(argv=None):
     elif a.cmd == "hazop-csv":
         n = hazop.to_csv(hazop.generate(a.node, a.intent, a.params), a.out)
         _out({"rows": n, "file": a.out})
+    elif a.cmd == "pool-fire":
+        r = pool_fire.pool_fire(a.area, a.hc, a.hv, a.cp, a.tb, radiant_fraction=a.fraction)
+        r["distance_m"] = {str(q): round(pool_fire.distance_to_flux_m(r, q), 1) for q in (37.5, 12.5, 4.73, 1.58)}
+        r["note"] = "point-source: unreliable inside ~2 pool diameters; no wind tilt"
+        _out(r)
+    elif a.cmd == "depressure":
+        k = a.k
+        _out({"isothermal_s": depressuring.depressuring_time_s(a.volume, a.p0, a.pt, a.T0, a.M, k, a.area, mode="isothermal"),
+              "adiabatic_s": depressuring.depressuring_time_s(a.volume, a.p0, a.pt, a.T0, a.M, k, a.area, mode="adiabatic"),
+              "min_gas_temperature_K_isentropic": depressuring.min_gas_temperature_K(a.T0, a.p0, a.pt, k),
+              "note": "gas phase only; the isentropic temperature is a screening lower bound for MDMT, not metal temperature"})
+    elif a.cmd == "steel-fire":
+        h = structural_fire.steel_temperature_history(a.am_v, structural_fire.iso834_C if a.iso else structural_fire.hydrocarbon_C,
+                                                      t_end_min=a.minutes)
+        _out({"time_to_critical_min": structural_fire.time_to_critical_min(h, a.crit), "critical_C": a.crit,
+              "steel_C_at": {str(t): round(T) for t, T in h if t in (5, 10, 15, 30, 60, 120)}})
     elif a.cmd == "flare":
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         _out({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})

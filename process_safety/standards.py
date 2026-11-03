@@ -34,7 +34,7 @@ TOPICS = {
     "BLEVE / fireball": (["CCPS", "TNO Yellow Book"], "fireball.*", "radiation only; blast/fragments not"),
     "Pool/jet fire, explosion, dispersion (QRA)": (["CCPS", "OISD-STD-116", "PNGRB T4S"], None, "not implemented - use DNV Phast/Safeti or add models"),
     "Layout / separation distances": (["OISD-STD-118", "OISD-STD-163"], None, "not implemented"),
-    "Hazardous area classification": (["IEC 60079-10-1", "OISD-STD-113", "API RP 505"], None, "not implemented"),
+    "Hazardous area classification": (["IEC 60079-10-1", "OISD-STD-113", "API RP 505"], "flammability.zone_from_release_hours", "only the duration rule of thumb; extents and ventilation analysis not implemented"),
     "F&G detector mapping": (["OISD-STD-116", "ISA TR84.00.07"], None, "not implemented (3D geometry tool)"),
     "Line sizing / hydraulics / erosional velocity": (["Darcy-Weisbach", "API RP 14E"], "hydraulics.incompressible_dp_kpa, isothermal_gas_outlet_kpa, erosional_velocity_m_s", "implemented"),
     "Control valve (liquid) / pump NPSH / affinity": (["IEC 60534-2-1", "Hydraulic Institute"], "hydraulics.kv_liquid, npsha_m, pump_affinity", "implemented (gas Cv not)"),
@@ -49,6 +49,13 @@ TOPICS = {
     "HAZOP worksheet generation": (["IEC 61882", "CCPS"], "hazop.generate/to_csv", "worksheet skeleton + generic cause prompts; the study itself is a team exercise"),
     "Combustion / flare emissions": (["GHG Protocol", "CPCB/MoEFCC rules (not read)"], "emissions.*", "element balance; efficiency/GWP are inputs"),
     "Reaction hazard screening (chemicals / pharma)": (["Stoessel", "DIERS"], "reaction_hazard.*", "dT_ad and MTSR only; calorimetry, criticality classes, runaway vent sizing not"),
+    "Pool fire (burn rate, flame, radiation)": (["CCPS", "TNO Yellow Book", "OISD-STD-116"], "pool_fire.*", "screening point-source; no wind tilt or spreading"),
+    "Flammability, LOC, inerting / purging": (["NFPA 69", "CCPS", "API RP 2216"], "flammability.*", "Le Chatelier, LOC, purge cycles; limits/targets are inputs"),
+    "Static electricity (relaxation, v.d)": (["API RP 2003", "OISD-RP-110", "IEC 60079-32-1"], "flammability.relaxation_time_s, pipe_charging_check", "screening; criterion is an input"),
+    "Structural fire / passive fire protection": (["EN 1993-1-2", "EN 1991-1-2", "API 2218", "OISD-STD-116"], "structural_fire.*", "lumped steel temperature, ISO 834 + hydrocarbon curves; fire-test certification governs real PFP"),
+    "Emergency depressuring / blowdown + MDMT": (["API 521 s.4.6"], "depressuring.*", "gas-phase isothermal/adiabatic bounds; liquid flashing not modelled"),
+    "Overfill protection (alarm placement)": (["API 2350", "IEC 61511", "OISD-STD-108"], "overfill.*", "volume/time arithmetic; criteria are inputs"),
+    "PSV inlet loss (3%) and outlet reaction force": (["API 520-II"], "relief_piping.*", "implemented; AIV/FIV and stress not"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 
