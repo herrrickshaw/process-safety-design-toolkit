@@ -7,6 +7,7 @@
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
+    workflow safety simulation -> resizing/design -> BOQ -> capex and opex (devices, pipeline rerouting, sensors, PCN modification), ALARP, shutdown merge  (design_workflow.py)
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
@@ -19,7 +20,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, design_workflow, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -121,6 +122,39 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
         shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
         summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "workflow":
+        errs = design_workflow.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (modes, rate keys in the rate book, opex book present)"]
+        if errs:
+            return summ
+        r = design_workflow.run(data, runs=data.get("runs", 5000))
+        summ["screen_and_resize"] = r["stage1_2_screen_and_resize"]
+        if "stage4_capex" in r:
+            est = r["stage4_capex"]
+            summ["capex"] = {"portfolio": est["portfolio"], "by_scope": [{k: v for k, v in x.items() if k in ("id", "requires_shutdown", "total_mode", "capex", "contingency_P80", "work_duration_days")} for x in est["recommendations"]]}
+            summ["opex"] = r["stage5_opex"]
+            summ["lifecycle"] = r["lifecycle"]
+            summ["alarp_per_unit_package"] = r["stage6_alarp_per_unit_package"]
+            summ["notes"] = r["notes"]
+            boq = [{"scope": b["id"], "description": ln["description"], "discipline": ln["discipline"], "rate_key": ln.get("rate_key", "inline"),
+                    "qty_mode": ln["qty"]["mode"] if isinstance(ln["qty"], dict) else ln["qty"]} for b in r["stage3_bill_of_quantities"] for ln in b["lines"]]
+            pha.write_csv(boq, pre + "_bill_of_quantities.csv")
+            pha.write_csv([{"scope": x["id"], "requires_shutdown": x["requires_shutdown"], "total_mode": x["total_mode"], "P50": x["capex"]["P50"], "P80": x["capex"]["P80"],
+                            "contingency_P80": x["contingency_P80"]} for x in est["recommendations"]], pre + "_capex.csv")
+            pha.write_csv([{"unit": u["tag"], "annual_opex": u["annual_opex"], "lifecycle_opex_pv": u["lifecycle_opex_pv"], **{f"part_{k}": v for k, v in u["parts"].items()}} for u in r["stage5_opex"]["units"]], pre + "_opex.csv")
+            summ["files"] = [pre + "_bill_of_quantities.csv", pre + "_capex.csv", pre + "_opex.csv"]
+            if "shutdown_model" in data:
+                from . import recommendation_cost as _rc
+                sm = data["shutdown_model"]
+                merged = _rc.merge_into_shutdown(sm, est, data["insert_after"], data["insert_before"])
+                b = shutdown_risk.simulate(sm, data.get("shutdown_runs", 3000), seed=1)
+                m = shutdown_risk.simulate(merged, data.get("shutdown_runs", 3000), seed=1)
+                summ["shutdown_effect"] = {"delta_duration_days": {k: m["duration_days"][k] - b["duration_days"][k] for k in ("P50", "P80", "P90")},
+                                           "delta_direct_cost": {k: m["cost"][k] - b["cost"][k] for k in ("P50", "P80", "P90")},
+                                           **({"delta_lost_operating_days": {k: m["opportunity"]["lost_operating_days"][k] - b["opportunity"]["lost_operating_days"][k] for k in ("P50", "P80", "P90")},
+                                               "delta_total_cost": {k: m["opportunity"]["total_cost"][k] - b["opportunity"]["total_cost"][k] for k in ("P50", "P80", "P90")}} if "opportunity" in b else {})}
+        else:
+            summ["notes"] = [r.get("note", "")]
     elif name == "lngcost":
         errs = lng_cost.check(data)
         summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (target, cost index or escalation rate, location factors)"]

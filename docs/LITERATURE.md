@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 64 sources, 25 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 73 sources, 25 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -108,10 +108,19 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 |---|---|---|---|---|---|---|---|---|
 | [BibMon (Petrobras)](https://github.com/petrobras/BibMon) | Petrobras | BR | free | no | 200 | monitoring, fault-detection |  | Apache-2.0; complementary, not integrated |
 | [BioSTEAM techno-economic analysis tutorial](https://biosteam.readthedocs.io/en/latest/tutorial/Techno-economic_analysis.html) | BioSTEAM (Univ. of Illinois) | global | free | no | 200 | cost-estimation, tea, lang-factor | recommendation_cost | open-source Python TEA: installed cost via Lang factor or bare-module factors, cash-flow analysis; licence not checked here |
+| [COCO simulator (CAPE-OPEN to CAPE-OPEN)](https://www.cocosimulator.org) | AmsterCHEM | global | free | no | 200 | simulation, process-simulator, cape-open |  | free to use per its site; licence terms (closed or open source) not checked here |
+| [Cantera](https://github.com/Cantera/cantera) | Cantera developers | global | free | no | 200 | simulation, thermochemistry, kinetics | reaction_hazard | BSD-style (Caltech) licence text; thermochemistry and kinetics library, not a flowsheet simulator |
 | [CoolProp](https://coolprop.org/) | CoolProp project | global | free | text | 200 | properties, validation | fluiddata, props | MIT; source of data/fluid_screening.json and test oracle |
+| [DWSIM open-source chemical process simulator](https://dwsim.org) | Daniel Wagner and contributors | global | free | no | 200 | simulation, process-simulator, cape-open, lng | fluiddata | GPL-3.0; GitHub repo DanWBR/dwsim shows archived (last push 2026-07-17): confirm where active development lives; do not copy GPL source into this MIT project |
+| [HydDown blowdown and depressurisation of pure gases](https://github.com/andr1976/HydDown) | A. Rasmussen (andr1976) | global | free | no | 200 | simulation, depressuring, blowdown, relief | depressuring, release | MIT; Python with CoolProp; pure gas phase only; candidate cross-check for depressuring.py |
+| [IDAES process costing framework (SSLW correlations)](https://idaes-pse.readthedocs.io/en/main/reference_guides/core/costing/costing_framework.html) | IDAES / DOE | global | free | no | 200 | cost-estimation, process-simulator, pyomo | recommendation_cost, lng_cost | open-source equation-oriented flowsheets in Pyomo; costing blocks per unit, costs normalised to CE index 500; licence file is a custom text, read it before reuse |
+| [IDAES process costing using SSLW correlations](https://idaes-pse.readthedocs.io/en/main/reference_guides/model_libraries/generic/costing/process_costing_sslw.html) | IDAES / DOE | global | free | no | 200 | cost-estimation, equipment-cost | recommendation_cost | base and purchase cost correlations from Seider et al., Product and Process Design Principles, 3rd ed. |
+| [NeqSim thermodynamic and process simulation (Equinor)](https://github.com/equinor/neqsim) | Equinor | global | free | no | 200 | simulation, process-simulator, gas-processing, thermodynamics | fluiddata, relief | Apache-2.0; Java library, active (push 2026-11-05); Python wrapper neqsim-python also Apache-2.0 (needs Java) |
 | [OTsafe](https://github.com/p4lsec/otsafe) | p4lsec | global | free | no | 200 | ot-security, safety-modelling |  | Apache-2.0; complementary, not integrated |
 | [Open FEL1 LNG Cost (ORIMIZ Consulting)](https://github.com/ORIMIZ-Consulting/open-fel1-lng-cost) | ORIMIZ Consulting / S. Z. Haider | global | free | page | 200 | cost-estimation, lng, analog | lng_cost | MIT; README, factors and analog table read as text; code not run |
 | [Open Plant Cost Index (OPCI)](https://github.com/ORIMIZ-Consulting/open-plant-cost-index) | ORIMIZ Consulting | global | free | no | 200 | cost-estimation, escalation, location-factors | lng_cost | source of ORIMIZ escalation and location factors; not read |
+| [OpenPyTEA](https://github.com/pbtamarona/OpenPyTEA) | pbtamarona (TU Delft) | global | free | no | 200 | cost-estimation, tea, uncertainty | recommendation_cost | MIT; equipment cost estimation, cash flow and uncertainty for process plants; not run here |
 | [QSDsan techno-economic analysis tutorial](https://qsdsan.readthedocs.io/en/latest/tutorials/7_TEA.html) | QSDsan | global | free | no | 200 | cost-estimation, tea, cepci |  | builds on BioSTEAM TEA; exposes a CEPCI input and Lang factor; licence not checked here |
 | [fluids (ChEDL)](https://fluids.readthedocs.io/) | Caleb Bell | global | free | text | 200 | validation, relief, hydraulics | relief, hydraulics, separator | MIT; test oracle only |
+| [neqsim-python](https://pypi.org/project/neqsim) | Equinor | global | free | no | 200 | simulation, thermodynamics, python | fluiddata | pip package wrapping the Java library |
 | [thermo (ChEDL)](https://thermo.readthedocs.io/) | Caleb Bell | global | free | text | 200 | properties, validation | props | MIT; test oracle only |

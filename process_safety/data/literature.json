@@ -837,6 +837,198 @@
    "checked": "2026-11-06"
   },
   {
+   "id": "dwsim",
+   "title": "DWSIM open-source chemical process simulator",
+   "publisher": "Daniel Wagner and contributors",
+   "kind": "data-tool",
+   "url": "https://dwsim.org",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "cape-open",
+    "lng"
+   ],
+   "modules": [
+    "fluiddata"
+   ],
+   "note": "GPL-3.0; GitHub repo DanWBR/dwsim shows archived (last push 2026-07-17): confirm where active development lives; do not copy GPL source into this MIT project",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "neqsim",
+   "title": "NeqSim thermodynamic and process simulation (Equinor)",
+   "publisher": "Equinor",
+   "kind": "data-tool",
+   "url": "https://github.com/equinor/neqsim",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "gas-processing",
+    "thermodynamics"
+   ],
+   "modules": [
+    "fluiddata",
+    "relief"
+   ],
+   "note": "Apache-2.0; Java library, active (push 2026-11-05); Python wrapper neqsim-python also Apache-2.0 (needs Java)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "neqsim-python",
+   "title": "neqsim-python",
+   "publisher": "Equinor",
+   "kind": "data-tool",
+   "url": "https://pypi.org/project/neqsim",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "thermodynamics",
+    "python"
+   ],
+   "modules": [
+    "fluiddata"
+   ],
+   "note": "pip package wrapping the Java library",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "idaes-costing",
+   "title": "IDAES process costing framework (SSLW correlations)",
+   "publisher": "IDAES / DOE",
+   "kind": "data-tool",
+   "url": "https://idaes-pse.readthedocs.io/en/main/reference_guides/core/costing/costing_framework.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "process-simulator",
+    "pyomo"
+   ],
+   "modules": [
+    "recommendation_cost",
+    "lng_cost"
+   ],
+   "note": "open-source equation-oriented flowsheets in Pyomo; costing blocks per unit, costs normalised to CE index 500; licence file is a custom text, read it before reuse",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "idaes-sslw",
+   "title": "IDAES process costing using SSLW correlations",
+   "publisher": "IDAES / DOE",
+   "kind": "data-tool",
+   "url": "https://idaes-pse.readthedocs.io/en/main/reference_guides/model_libraries/generic/costing/process_costing_sslw.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "base and purchase cost correlations from Seider et al., Product and Process Design Principles, 3rd ed.",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hyddown",
+   "title": "HydDown blowdown and depressurisation of pure gases",
+   "publisher": "A. Rasmussen (andr1976)",
+   "kind": "data-tool",
+   "url": "https://github.com/andr1976/HydDown",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "depressuring",
+    "blowdown",
+    "relief"
+   ],
+   "modules": [
+    "depressuring",
+    "release"
+   ],
+   "note": "MIT; Python with CoolProp; pure gas phase only; candidate cross-check for depressuring.py",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "openpytea",
+   "title": "OpenPyTEA",
+   "publisher": "pbtamarona (TU Delft)",
+   "kind": "data-tool",
+   "url": "https://github.com/pbtamarona/OpenPyTEA",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "uncertainty"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "MIT; equipment cost estimation, cash flow and uncertainty for process plants; not run here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cantera",
+   "title": "Cantera",
+   "publisher": "Cantera developers",
+   "kind": "data-tool",
+   "url": "https://github.com/Cantera/cantera",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "thermochemistry",
+    "kinetics"
+   ],
+   "modules": [
+    "reaction_hazard"
+   ],
+   "note": "BSD-style (Caltech) licence text; thermochemistry and kinetics library, not a flowsheet simulator",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "coco",
+   "title": "COCO simulator (CAPE-OPEN to CAPE-OPEN)",
+   "publisher": "AmsterCHEM",
+   "kind": "data-tool",
+   "url": "https://www.cocosimulator.org",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "cape-open"
+   ],
+   "modules": [],
+   "note": "free to use per its site; licence terms (closed or open source) not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
    "id": "spe-focus-ps",
    "title": "SPE In Focus: Process Safety",
    "publisher": "Society of Petroleum Engineers",
