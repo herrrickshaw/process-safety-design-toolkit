@@ -29,6 +29,7 @@ DEFAULT_CONVENTIONS = {
     "vce_yield": 0.05,                           # TNT yield on combustion energy (explosion.py default; highly uncertain)
     "fireball_mass_fraction": 1.0,               # share of a liquefied inventory in the fireball (CCPS practice: whole contents)
     "blast_threshold_kpa": None,                 # optional: p = 1 above this overpressure (e.g. building-collapse basis)
+    "vce_overpressure_cap_kpa": 800.0,           # TNT near-field is unphysical for deflagrations: field capped (buildings/EPZ only)
     "sector_subdivisions": 12,                   # sub-directions per wind sector (spreads plumes over the sector width)
 }
 

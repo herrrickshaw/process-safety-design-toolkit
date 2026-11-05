@@ -100,13 +100,20 @@ class Effect:
     def p(self, dx: float, dy: float) -> float:  # pragma: no cover - interface
         raise NotImplementedError
 
+    def field(self, dx: float, dy: float) -> dict:
+        """Physical effect at the point: any of flux_kW_m2, overpressure_kpa, in_cloud, conc_g_m3 (used by buildings/emergency)."""
+        return {}
+
 
 class Radial(Effect):
     """Radially symmetric lethality, tabulated; centre may be offset downwind by xc (then it becomes directional)."""
 
-    def __init__(self, p_of_r, kind: str, xc: float = 0.0, r_max: float = 20000.0, n: int = 400, engulf_r: float = 0.0):
+    def __init__(self, p_of_r, kind: str, xc: float = 0.0, r_max: float = 20000.0, n: int = 400, engulf_r: float = 0.0,
+                 field_of_r=None):
         self.kind = kind
         self.xc = xc
+        self.field_of_r = field_of_r
+        self.engulf_r = engulf_r
         r = 1.0
         last_pos = 0.0
         while r < r_max:  # outward scan to find reach
@@ -135,6 +142,13 @@ class Radial(Effect):
 
     def p(self, dx, dy):
         return self.p_r(math.hypot(dx - self.xc, dy))
+
+    def field(self, dx, dy):
+        r = math.hypot(dx - self.xc, dy)
+        out = dict(self.field_of_r(max(r, 0.1))) if self.field_of_r else {}
+        if r <= self.engulf_r:
+            out["engulfed"] = True
+        return out
 
 
 class Plume(Effect):
@@ -167,6 +181,14 @@ class Plume(Effect):
         ppm = dispersion.mg_m3_to_ppm(c * 1e3, self.M)
         return _frac(consequence.probit_toxic(ppm, self.t_min, *self.probit))
 
+    def field(self, dx, dy):
+        if dx <= 0:
+            return {}
+        c = dispersion.concentration_g_m3(self.Q, self.u, self.H, dx, dy, 0.0, self.st)
+        if self.mode == "threshold":
+            return {"in_cloud": c >= self.c_thr, "conc_g_m3": c}
+        return {"conc_ppm": dispersion.mg_m3_to_ppm(c * 1e3, self.M)}
+
 
 class Footprint(Effect):
     """External (e.g. Phast) cloud footprint: ellipse of length L downwind, half-width W, lethality p inside."""
@@ -180,6 +202,9 @@ class Footprint(Effect):
             return 0.0
         a = self.reach / 2
         return self.p_in if ((dx - a) / a) ** 2 + (dy / self.half_width) ** 2 <= 1 else 0.0
+
+    def field(self, dx, dy):
+        return {"in_cloud": self.p(dx, dy) > 0}
 
 
 class Composite(Effect):
@@ -198,6 +223,13 @@ class Composite(Effect):
         for e in self.parts:
             q *= 1 - e.p(dx, dy)
         return 1 - q
+
+    def field(self, dx, dy):
+        out = {}
+        for e in self.parts:
+            for k, v in e.field(dx, dy).items():
+                out[k] = (out.get(k, False) or v) if isinstance(v, bool) else max(out.get(k, 0.0), v)
+        return out
 
 
 def from_override(ov: dict, kind: str) -> Effect:
@@ -232,7 +264,8 @@ def jet_fire(st: dict, material: dict, conv: dict) -> Radial | None:
     L = 0.00326 * Q ** 0.478
     F = flare.radiant_fraction(material["M"]) if material.get("radiant_fraction") is None else material["radiant_fraction"]
     t = conv["thermal_s"]
-    e = Radial(lambda r: thermal_p(flare.radiation_kW_m2(Q, max(r, 0.5), F), t), "jet_fire", engulf_r=L / 2)
+    e = Radial(lambda r: thermal_p(flare.radiation_kW_m2(Q, max(r, 0.5), F), t), "jet_fire", engulf_r=L / 2,
+               field_of_r=lambda r: {"flux_kW_m2": flare.radiation_kW_m2(Q, max(r, 0.5), F)})
     e.info = {"Q_MW": Q / 1e6, "flame_length_m": L, "radiant_fraction": F}
     return e
 
@@ -254,7 +287,8 @@ def pool(st: dict, section: dict, material: dict, conv: dict) -> Radial | None:
     pf = pool_fire.pool_fire(A, material["Hc_MJ_kg"] * 1e3, material["Hv_kJ_kg"], material["cp_liquid_kJ_kgK"], material["Tb_K"],
                              radiant_fraction=material.get("pool_radiant_fraction", 0.25))
     t = conv["thermal_s"]
-    e = Radial(lambda r: thermal_p(pool_fire.incident_kW_m2(pf, r), t), "pool_fire", engulf_r=pf["diameter_m"] / 2)
+    e = Radial(lambda r: thermal_p(pool_fire.incident_kW_m2(pf, r), t), "pool_fire", engulf_r=pf["diameter_m"] / 2,
+               field_of_r=lambda r: {"flux_kW_m2": pool_fire.incident_kW_m2(pf, r)})
     e.info = {"area_m2": A, "diameter_m": pf["diameter_m"], "flame_height_m": pf["flame_height_m"], "Q_MW": pf["heat_release_MW"]}
     return e
 
@@ -264,7 +298,8 @@ def fireball_effect(st: dict, material: dict, conv: dict) -> Radial | None:
     if m <= 0:
         return None
     fb = fireball.fireball(m, material["Hc_MJ_kg"])
-    e = Radial(lambda r: thermal_p(fireball.incident_kW_m2(fb, r), fb["duration_s"]), "fireball", engulf_r=fb["diameter_m"] / 2)
+    e = Radial(lambda r: thermal_p(fireball.incident_kW_m2(fb, r), fb["duration_s"]), "fireball", engulf_r=fb["diameter_m"] / 2,
+               field_of_r=lambda r: {"flux_kW_m2": max(fireball.incident_kW_m2(fb, r), fireball.incident_kW_m2(fb, fb["diameter_m"] / 2) if r < fb["diameter_m"] / 2 else 0.0)})
     e.info = {"mass_kg": m, **fb}
     return e
 
@@ -276,7 +311,7 @@ def flash_fire(st, section, material, wx, conv):
         if m <= 0:
             return None
         Rh = (3 * m * 1e3 / (2 * math.pi * c_lfl)) ** (1 / 3)
-        e = Radial(lambda r: 0.0, "flash_fire", engulf_r=Rh)
+        e = Radial(lambda r: 0.0, "flash_fire", engulf_r=Rh, field_of_r=lambda r: {"in_cloud": r <= Rh})
         e.ps = [conv["flash_fire_lethality"] if p > 0 else 0 for p in e.ps]
         e.info = {"cloud_radius_m": Rh, "airborne_kg": m}
         return e
@@ -306,7 +341,9 @@ def vce(st, section, material, wx, conv):
     def p_blast(r):
         P = explosion.kinney_graham_kpa(W, max(r, 0.5 * W ** (1 / 3)))
         return 1.0 if thr and P >= thr else lung_p(P)
-    blast = Radial(p_blast, "vce_blast", xc=xc)
+    blast = Radial(p_blast, "vce_blast", xc=xc,
+                   field_of_r=lambda r: {"overpressure_kpa": min(conv.get("vce_overpressure_cap_kpa") or math.inf,
+                                                                 explosion.kinney_graham_kpa(W, max(r, 0.5 * W ** (1 / 3))))})
     e = Composite([ff, blast], "vce")
     e.info = {"flammable_mass_kg": m, "tnt_kg": W, "centre_downwind_m": xc, **getattr(ff, "info", {})}
     return e

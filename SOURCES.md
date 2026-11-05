@@ -71,3 +71,17 @@ to this repository.
 | Eisenberg probits: lung haemorrhage Pr = -77.1 + 6.91 ln P[Pa]; structural damage -23.8 + 2.92 ln P | Purdue P2SAC note; Crowl & Louvar problem sets | secondary, consistent | medium-high |
 | Flare/jet flame length L = 0.00326 Q^0.478 (Q in W) | TCEQ technical basis (4.56e-3 q^0.478, cal/s, flame at 45 deg) = same curve; forum fits of API 521 Fig. | regulator doc + secondary | medium: API figure fit |
 | India QRA criteria | no single national value found; OISD-STD-118 (2025), PNGRB T4S, MSIHC reference QRA | consultancy summaries only | n/a: use `custom` |
+
+## Study tools (0.8.0, checked 2026-11-05)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Stoessel criticality classes 1-5 (Tp, MTSR, MTT, TD24) | Masaryk Univ. safety lecture notes; TUV SUD Schweiz EPSC 2020 award lecture (worked examples: class 3, class 5) | read | high |
+| Purple Book building vulnerability: > 0.3 barg 1 in/out; 0.1-0.3 barg 0.025 indoors, 0 outdoors; flame/35 kW/m2 -> 1 | DNV Phast vulnerability model theory note; US LNG QRA filings | read | high |
+| Indoor fire vulnerability below 35 kW/m2 = 0 | assumption (not read in the Purple Book) | n/a | low: override |
+| IEC 61511-1:2016 Table 6 minimum HFT (as corrected by COR1) | iteh.ai sample of IEC 61511-1:2016/COR1:2016 | read | high |
+| IEC 61508-2 Route 1H tables (type A/B, SFF x HFT) | exida blog; PR electronics SIL poster | secondary, consistent | high |
+| KSt classes St1 <= 200, St2 200-300, St3 > 300 bar.m/s | explosion-testing labs; OSHA NEP table as quoted | secondary, consistent | high |
+| Damage criteria 37.5/12.5/4 kW/m2; 0.3/0.1/0.03 bar | MoEF EIA Technical Guidance Manual (thermal power plants, 2010), Table 3-19/3-21 | read | high (as Indian reporting basis) |
+| H2S ERPG-3/2 = 100/30 ppm | recalled; example input only | not verified | medium: verify against AIHA |
+| Spurious-trip approximations (2 ls^2 MTTR, 6 ls^2 MTTR) | ISA TR84.00.02 style, recalled | not verified | medium |
+| FIBC type rules, gas zone by grade (medium/good, high dilution) | recalled summaries of IEC 61340-4-4 / IEC 60079-10-1 | not verified | medium: verify |

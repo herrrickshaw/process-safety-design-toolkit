@@ -1,0 +1,37 @@
+{
+  "areas": [
+    {
+      "area": "Powder charging room",
+      "substance": "dust",
+      "material": "API powder",
+      "grade": "primary",
+      "kst": 224,
+      "mie_mJ": 2,
+      "bulk_bags": true,
+      "ignition_sources": [
+        "static from FIBC",
+        "hot surfaces",
+        "mechanical sparks"
+      ]
+    },
+    {
+      "area": "Solvent pump bay",
+      "substance": "gas",
+      "material": "toluene",
+      "grade": "secondary",
+      "dilution": "medium",
+      "availability": "good",
+      "autoignition_C": 480,
+      "gas_group": "IIA"
+    },
+    {
+      "area": "Tank vent",
+      "substance": "gas",
+      "material": "methanol",
+      "grade": "primary",
+      "dilution": "low",
+      "availability": "fair",
+      "autoignition_C": 464
+    }
+  ]
+}

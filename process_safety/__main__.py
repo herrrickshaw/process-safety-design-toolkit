@@ -188,7 +188,7 @@ def main(argv=None):
     fb.add_argument("--fraction", type=float, default=0.3)
 
     q = s.add_parser("qra", help="quantitative risk assessment workflow (HAZID -> frequency -> consequence -> risk -> ALARP -> mitigation)")
-    q.add_argument("action", choices=["example", "validate", "run", "hazid"])
+    q.add_argument("action", choices=["example", "validate", "run", "hazid", "buildings", "emergency"])
     q.add_argument("study", nargs="?", help="study JSON (see process_safety/qra/examples/lpg_terminal.json)")
     q.add_argument("--out", default="qra_out", help="output folder (run/hazid) or file (example)")
     q.add_argument("--sample", type=int, help="run only N LOC scenarios on a 2x coarser grid and project the full run time")
@@ -196,6 +196,12 @@ def main(argv=None):
     q.add_argument("--no-mitigation", action="store_true")
     q.add_argument("--no-xlsx", action="store_true")
     q.add_argument("--quiet", action="store_true", help="no progress bar")
+
+    tl = s.add_parser("tool", help="JSON-driven study tools: bowtie, sif, fg, thermal, atex, ram, pha (see process_safety/tools.py)")
+    tl.add_argument("name", choices=["bowtie", "sif", "fg", "thermal", "atex", "ram", "pha", "example"])
+    tl.add_argument("input", nargs="?", help="input JSON (tool example <name> copies a worked example)")
+    tl.add_argument("--out", default="tool_out")
+    tl.add_argument("--quiet", action="store_true")
 
     s.add_parser("coverage")
     a = p.parse_args(argv)
@@ -340,6 +346,8 @@ def main(argv=None):
         _out({**b, "distance_to_kW_m2": {str(k): fireball.distance_to_flux_m(b, k) for k in (37.5, 12.5, 4.0)}})
     elif a.cmd == "qra":
         return _qra(a)
+    elif a.cmd == "tool":
+        return _tool(a)
     elif a.cmd == "coverage":
         for t, (stds, mod, status) in standards.TOPICS.items():
             print(f"- {t}\n    standards: {', '.join(stds)}\n    code: {mod or '-'}\n    status: {status}")
@@ -374,11 +382,45 @@ def _qra(a):
         qreport._csv(os.path.join(a.out, "loc_register.csv"), [{k: x[k] for k in ("id", "section", "equipment", "hole", "hole_mm", "instantaneous", "frequency_per_yr", "basis", "source")} for x in sc])
         print(f"{n1} HAZID rows, {n2} HAZOP rows, {len(sc)} LOC scenarios -> {a.out}/")
         return 0
-    out = qstudy.run(st, sample=a.sample, grid_step=a.grid_step, progress=not a.quiet, mitigate=not a.no_mitigation, dataset=ds)
+    from .qra import buildings as qbuild, emergency as qemerg
+    out = qstudy.run(st, sample=a.sample, grid_step=a.grid_step, progress=not a.quiet, mitigate=not a.no_mitigation and a.action == "run",
+                     dataset=ds)
+    if a.action == "buildings":
+        res = qbuild.assess(out, st, progress=not a.quiet)
+        os.makedirs(a.out, exist_ok=True)
+        _out({"buildings": res["buildings"], "files": qbuild.write(res, os.path.join(a.out, "qra"))})
+        return 0
+    if a.action == "emergency":
+        res = qemerg.assess(out, st)
+        os.makedirs(a.out, exist_ok=True)
+        _out({"site_emergency_level": res["site_level"], "mcls": res["mcls"], "files": qemerg.write(res, st, os.path.join(a.out, "qra"))})
+        return 0
     files = qreport.write_all(out, st, a.out, xlsx=not a.no_xlsx)
+    if st.get("buildings"):
+        files["buildings"] = qbuild.write(qbuild.assess(out, st, progress=not a.quiet), os.path.join(a.out, "qra"))[1]
+    files["emergency"] = qemerg.write(qemerg.assess(out, st), st, os.path.join(a.out, "qra"))[2]
     _out(qstudy.summary(out))
     print("\n".join(f"{k}: {v}" for k, v in files.items()), file=sys.stderr)
     return 1 if out["validation_results"]["errors"] else 0
+
+
+def _tool(a):
+    import os
+    import shutil
+    from .tools import run_tool
+    exdir = os.path.join(os.path.dirname(__file__), "examples")
+    if a.name == "example":
+        if not a.input:
+            print("tool example <bowtie|sif|fg|thermal|atex|ram|pha>", file=sys.stderr)
+            return 2
+        shutil.copy(os.path.join(exdir, f"{a.input}.json"), f"{a.input}.json")
+        print(f"wrote {a.input}.json - run: python3 -m process_safety tool {a.input} {a.input}.json")
+        return 0
+    with open(a.input or os.path.join(exdir, f"{a.name}.json"), encoding="utf-8") as fh:
+        data = json.load(fh)
+    summ = run_tool(a.name, data, a.out, progress=not a.quiet)
+    _out(summ)
+    return 1 if any(str(c).startswith("FAIL") for c in summ.get("checks", [])) else 0
 
 
 if __name__ == "__main__":

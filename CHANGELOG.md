@@ -1,5 +1,19 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.8.0 - 2026-11-05: consultancy study tools (bow-tie, OBRA, emergency zones, SIL lifecycle, F&G, PHA, thermal/ATEX, RAM)
+* New: `bowtie`, `qra.buildings`, `qra.emergency`, `sil_lifecycle`, `fg_mapping`, `pha`, `thermal_runaway`, `atex`, `ram`, `tools` runner,
+  CLI `tool` and `qra buildings|emergency`; worked examples in `process_safety/examples/`; docs/STUDIES.md. 166 tests (24 new).
+* QRA footprints gained `Effect.field()` (flux, overpressure, engulfment, cloud, concentration) so buildings and emergency zones reuse
+  the same events instead of re-modelling.
+* Found while building: the TNT field gives 4000 kPa inside a vapour cloud. Added a flagged 800 kPa cap (`vce_overpressure_cap_kpa`)
+  for building and zone use. H2S ERPG-1 on a 22 s release gave a 20 km zone (steady-plume artefact), so the example uses ERPG-3/2 only and
+  the limitation is documented. Point gas detectors first used line-of-sight blocking, which is wrong for gas that diffuses around
+  obstacles: it is now opt-in for point detectors (still on for flame detectors). Mixed-key CSV exports (closed actions, toxic distances) fixed.
+* Verified before coding: Stoessel classes (both TUV SUD EPSC lecture examples reproduced as tests), Purple Book discrete building
+  vulnerability (DNV note), IEC 61511 Table 6 (COR1 copy), Route 1H tables, KSt classes, MoEF TGM damage criteria.
+* Rejected: API 752/753 building damage levels and pressure-impulse curves (paywalled: custom curves are inputs); IEC 60079-10-1 ventilation
+  table beyond two cases and zone extents; dust-vent sizing; a default risk-graph calibration; Keller TD24-from-DSC-onset correlation (not verified).
+
 ## 0.7.0 - 2026-11-05: quantitative risk assessment workflow (`qra` package)
 * New `process_safety/qra/`: hazid, frequency, eta, effects, risk, alarp, mitigation, validate, progress, study, report; CLI `qra`;
   docs/QRA.md; worked example `qra/examples/lpg_terminal.json`. 142 tests (28 new, identity/conservation based).
