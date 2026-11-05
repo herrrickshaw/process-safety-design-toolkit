@@ -399,7 +399,7 @@
    "recommendation": "ASME 2024-05-I-TX-4: develop written guidelines for marking equipment (text partly captured)",
    "lesson": "workers removing an isolation blind from piping that normally carries H2S: positive isolation, marking and permit design",
    "modules": [
-    "plume",
+    "dispersion",
     "consequence",
     "psm"
    ],

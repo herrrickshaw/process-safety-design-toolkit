@@ -65,7 +65,7 @@ add("oregon-ohio-2022", "BP-Husky Oregon (Toledo) refinery chemical release and 
     ["overfill", "relief", "psm", "hazop"], [5, 6, 8])
 add("pemex-2024", "PEMEX Deer Park hydrogen sulfide release", "2024-10-10", "Deer Park, TX", "2026-02-23", 2, 13, "refining", "pemex-deer-park-chemical-release-/",
     "ASME 2024-05-I-TX-4: develop written guidelines for marking equipment (text partly captured)", "workers removing an isolation blind from piping that normally carries H2S: positive isolation, marking and permit design",
-    ["plume", "consequence", "psm"], [5, 11, 12], "page shows both 2026-02-23 and 'February 23, 2025' as release date; 2026-02-23 used")
+    ["dispersion", "consequence", "psm"], [5, 11, 12], "page shows both 2026-02-23 and 'February 23, 2025' as release date; 2026-02-23 used")
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "process_safety", "data", "incidents.json")
 json.dump({"compiled": "2026-11-06", "source": "US Chemical Safety and Hazard Investigation Board investigation pages (csb.gov), read 2026-11-06",
