@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 49 sources, 21 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 49 sources, 22 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -48,7 +48,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 
 | Source | Publisher | Region | Access | Read | HTTP | Topics | Modules | Note |
 |---|---|---|---|---|---|---|---|---|
-| [CSB investigations](https://www.csb.gov/investigations/) | US Chemical Safety Board | US | free | no | 200 | incident, investigation | psm, overfill | CSB investigates and recommends; it does not regulate |
+| [CSB investigations](https://www.csb.gov/investigations/) | US Chemical Safety Board | US | free | page | 200 | incident, investigation | psm, overfill, relief | CSB investigates and recommends; it does not regulate. 17 investigations read for docs/INCIDENTS.md |
 | [CSB recommendations](https://www.csb.gov/recommendations/) | US Chemical Safety Board | US | free | no | 200 | incident, investigation |  |  |
 
 ## Database
@@ -68,7 +68,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [Mary Kay O'Connor Process Safety Center](https://psc.tamu.edu/) | Texas A&M University | US | free | no | 200 | research, psm |  |  |
 | [Center for Chemical Process Safety](https://www.aiche.org/ccps) | AIChE | global | mixed | no | 403 | psm, guidelines, rbps | psm, hazop, sil | books are paywalled |
 | [IOGP safety, including Life-Saving Rules and process safety reports](https://www.iogp.org/safety/) | IOGP | global | free | no | 200 | life-saving-rules, psm, oil-gas |  |  |
-| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 200 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
+| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 0 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
 
 ## Journal
 

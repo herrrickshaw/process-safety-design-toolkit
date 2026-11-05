@@ -389,7 +389,7 @@
    "kind": "investigation",
    "url": "https://www.csb.gov/investigations/",
    "access": "free",
-   "read": "no",
+   "read": "page",
    "region": "US",
    "topics": [
     "incident",
@@ -397,9 +397,10 @@
    ],
    "modules": [
     "psm",
-    "overfill"
+    "overfill",
+    "relief"
    ],
-   "note": "CSB investigates and recommends; it does not regulate",
+   "note": "CSB investigates and recommends; it does not regulate. 17 investigations read for docs/INCIDENTS.md",
    "http_status": 200,
    "checked": "2026-11-06"
   },
@@ -538,7 +539,7 @@
    ],
    "modules": [],
    "note": "index of articles, papers on OnePetro (many paywalled)",
-   "http_status": 200,
+   "http_status": 0,
    "checked": "2026-11-06"
   },
   {

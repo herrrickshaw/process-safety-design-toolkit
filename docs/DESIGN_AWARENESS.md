@@ -42,7 +42,7 @@ These are from `docs/USE_CASES.md` (real runs, screening inputs):
 | Buncefield 2005, IOC Jaipur 2009, BP Texas City 2005 (reports not fetched) | overfill leading to a large vapour release and explosion; blowdown to atmosphere | steps 4, 6, 8: independent high-level protection, blowdown to a closed system, siting of occupied buildings | `overfill`, `separator`, `explosion`, `flare_system`, `qra.buildings` |
 | BP Products refinery, Oregon, Ohio, Sept 2022 (as summarised by [JPT](https://jpt.spe.org/investigators-find-operating-training-deficiencies-contributed-to-fatal-refinery-explosion); CSB report not read) | two workers fatally burned: flow-control valves opened to relieve a rising level in a fuel gas mix drum let naphtha into the fuel gas system, and a vapour cloud ignited. OSHA cited 10 serious PSM violations, including no documented PSV design for an overpressure scenario, overfill hazards not addressed, a PHA inaccurate on the level indicator safeguard, and a control-board screen that loaded slowly | steps 5, 6, 8: document the PSV basis for each overpressure case, protect against overfill independently of the operator, check the PHA against the as-built safeguards, design the control room display for upset conditions | `relief`, `overfill`, `separator`, `hazop`, `psm` |
 
-Rows for other incidents are not added until their investigation reports are read.
+`docs/INCIDENTS.md` lists 17 further CSB investigations with the review steps each maps to (search: `python -m process_safety incidents --step 6`). Those rows rest on the CSB investigation pages; the full reports were not read. Rows for other incidents are not added until their sources are read.
 
 ## 5. External material read on 2026-11-06
 

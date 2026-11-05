@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import glossary, literature, ranges, standards
+from .. import glossary, incidents, literature, ranges, standards
 from .registry import command, emit
 
 
@@ -81,4 +81,24 @@ class Literature:
             print(f"{e['title']}\n    {e['publisher']} [{e['region']}, {e['kind']}, {e['access']}, read: {e['read']}, HTTP {e.get('http_status', '?')}]\n    {e['url']}")
             if e["note"]:
                 print(f"    {e['note']}")
+        return 0 if hits else 1
+
+
+@command("incidents", "search the CSB-based incident register (maps incidents to toolkit modules and design review steps)")
+class Incidents:
+    @staticmethod
+    def add_arguments(ip):
+        ip.add_argument("text", nargs="?"); ip.add_argument("--module"); ip.add_argument("--step", type=int, help="design review step 1-12 (docs/DESIGN_AWARENESS.md)")
+        ip.add_argument("--sector"); ip.add_argument("--year", type=int)
+        ip.add_argument("--markdown", action="store_true", help="print the whole register as Markdown (docs/INCIDENTS.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(incidents.markdown(), end="")
+            return 0
+        hits = incidents.search(a.text, a.module, a.step, a.sector, a.year)
+        for i in hits:
+            d = "" if i["deaths"] is None else f", {i['deaths']} killed"
+            print(f"{i['date']}  {i['name']} ({i['location']}{d})\n    {i['lesson']}\n    modules: {', '.join(i['modules'])}; steps: {', '.join(map(str, i['design_steps']))}\n    {i['source']}")
         return 0 if hits else 1
