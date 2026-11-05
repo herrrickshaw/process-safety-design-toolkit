@@ -21,6 +21,9 @@ class Catalog(unittest.TestCase):
         self.assertIn("BDV", rc.classify("Add emergency depressuring valve (blowdown)"))
         self.assertIn("DUST", rc.classify("Improve housekeeping to control dust accumulation"))
         self.assertEqual(rc.classify("completely unrelated sentence about lunch"), [])
+        self.assertNotIn("SIF-UPGRADE", rc.classify("the marking shall be silver letters on a diamond"))      # 'sil' must not match inside 'silver'
+        self.assertIn("SIF-UPGRADE", rc.classify("verify the SIL of the trip"))
+        self.assertNotIn("PSV-UPSIZE", rc.classify("the capacity of the fueling facility shall not exceed five cubic feet"))
 
     def test_tally(self):
         t = rc.tally(["Add PSV on V-101", "Install high level alarm and trip", "Update the lunch menu"])

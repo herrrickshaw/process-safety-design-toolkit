@@ -14,6 +14,16 @@ Readers: `.txt`, `.md`, `.csv`, `.docx` (standard library) and `.pdf` through `p
 
 Output columns: file, clause, modality (mandatory / recommended / prohibition), the catalogue type(s) it matches, the cost scope that type maps to, and the statement. Console summary: statements per modality, per file and per recommendation type, and, with `--register`, the requirement types your register never mentions.
 
+## A test on public documents
+Run on four public LNG documents (a regulator's code of practice, an international lender's EHS guideline draft, a design-considerations paper and a US fuel-transfer regulation): 1,943 normative statements (1,627 mandatory, 174 recommended, 142 prohibitions); 1,622 of them (83%) matched no catalogue type, because the catalogue covers relief, protective instrumentation, isolation, detection and similar safety topics, not every requirement in a regulation (marking, training frequencies, cylinder manufacture). A hand check of 14 matched statements found about two thirds sensible; the rest were false matches, and two causes were fixed (short keywords such as "sil" matched inside other words, and "capacity" and "insulation" were too generic). Expect to review the output.
+
+## Finding documents: index a Zotero library
+If your reference library is in Zotero, `scripts/zotero_index.py` builds a CSV of every attachment (title, file name, type, collections, tags) from a copy of `zotero.sqlite`, and can resolve files that were later moved by matching names in the folders you give it:
+```bash
+python3 scripts/zotero_index.py ~/path/Zotero/zotero.sqlite /Users/Shared/private_dep_work/out/zotero_index.csv --storage ~/path/Zotero/storage --also-search ~/path/folder1 ~/path/folder2
+```
+In one 32,000-attachment library it located 99% of the files this way. The index holds titles and file names that may be personal: keep it outside any repository.
+
 ## Where this fits in a project
 | Project document | What it holds | Toolkit link |
 |---|---|---|

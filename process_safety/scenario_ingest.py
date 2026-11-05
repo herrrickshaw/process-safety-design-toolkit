@@ -30,7 +30,7 @@ def classify_register(rows: list[dict]) -> dict:
 
 def _mentions(row: dict, cid: str) -> bool:
     blob = " ".join(str(row.get(k) or "") for k in ("deviation", "cause", "consequence", "safeguards", "recommendation")).lower()
-    return any(k in blob for k in rc.CATALOG[cid]["keywords"]) or cid in row.get("rec_ids", [])
+    return any(rc._has(" " + blob + " ", k) for k in rc.CATALOG[cid]["keywords"]) or cid in row.get("rec_ids", [])
 
 
 def rationale(m: dict, params: dict | None = None, register: list[dict] | None = None, isolation_inventory_kg: float | None = None) -> dict:

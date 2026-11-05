@@ -21,7 +21,7 @@ CATALOG: dict[str, dict] = {
     "PSV-UPSIZE": dict(title="Resize the relief device", category="relief", scope="device",
                        trigger="required relieving area exceeds the installed orifice for the governing case (fire, blocked outlet, control valve failure)",
                        response="replace with the next API 526 orifice or add a valve; re-check inlet and outlet piping",
-                       keywords=["resize", "upsize", "larger psv", "larger relief", "orifice", "relief capacity", "psv capacity", "capacity", "sizing", "inadequate relief", "insufficient relief"]),
+                       keywords=["resize", "upsize", "larger psv", "larger relief", "orifice", "relief capacity", "psv capacity", "psv sizing", "relief sizing", "inadequate relief", "insufficient relief"]),
     "RELIEF-PIPING": dict(title="Fix relief inlet/outlet piping losses or back pressure", category="relief", scope="device",
                           trigger="inlet loss above the 3% rule at rated capacity, or built-up back pressure above the valve's limit",
                           response="enlarge or shorten the inlet line, relocate the valve, use a balanced or pilot-operated valve, enlarge the outlet header",
@@ -65,7 +65,7 @@ CATALOG: dict[str, dict] = {
     "FIRE-PROT": dict(title="Passive or active fire protection", category="mitigation", scope="mechanical",
                       trigger="fire exposure can fail supports or vessels before relief or blowdown works",
                       response="passive fireproofing of supports and vessels, fire water or deluge, drainage",
-                      keywords=["fireproof", "pfp", "fire water", "deluge", "fire protection", "insulation", "water spray"]),
+                      keywords=["fireproof", "pfp", "fire water", "deluge", "fire protection", "fire insulation", "water spray"]),
     "LAYOUT": dict(title="Siting, layout, blast and occupied buildings", category="mitigation", scope="civil",
                    trigger="occupied buildings or ignition sources lie within the effect distances of a credible event",
                    response="relocate, blast-harden, add distance or barriers, limit occupancy",
@@ -114,12 +114,19 @@ SCOPE_NOTE = {"device": "design_workflow device scope (PSV, inlet line, blowdown
               "mechanical": "recommendation_cost lines (mechanical)", "opex": "opex book (test and inspection cost)", "none": "no capital scope (procedure / design choice)"}
 
 
+def _has(t: str, kw: str) -> bool:
+    """Keyword test: short keywords (4 characters or fewer, such as sil, psv, moc) must stand alone as words, so 'sil' does not match 'silver'."""
+    if len(kw) <= 4:
+        return re.search(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])", t) is not None
+    return kw in t
+
+
 def classify(text: str) -> list[str]:
     """Catalogue ids whose keywords appear in the text, best match first (number of keyword hits, then catalogue order)."""
     t = " " + re.sub(r"\s+", " ", (text or "").lower()) + " "
     hits = []
     for i, (cid, c) in enumerate(CATALOG.items()):
-        n = sum(1 for k in c["keywords"] if k in t)
+        n = sum(1 for k in c["keywords"] if _has(t, k))
         if n:
             hits.append((-n, i, cid))
     return [cid for _, _, cid in sorted(hits)]
