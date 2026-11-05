@@ -8,8 +8,8 @@ from __future__ import annotations
 
 import math
 
-G = 9.80665
-R = 8.314462618
+from .constants import G
+from .constants import R
 
 
 def reynolds(rho, v, D, mu_Pa_s) -> float:

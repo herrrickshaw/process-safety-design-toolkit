@@ -1,5 +1,4 @@
 """Tests for the data-centre helpers: energy balance, published-physics identities, availability monotonicity."""
-import math
 import unittest
 
 from process_safety import datacentre as dc, reliability

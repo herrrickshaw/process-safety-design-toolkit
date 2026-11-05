@@ -8,7 +8,7 @@ import json
 import math
 import os
 
-from . import alarp, hazid, risk
+from . import alarp, hazid
 from .study import summary
 
 NAVY, GOLD, INK, GREY = "#14284b", "#c9a227", "#1f2933", "#8a94a6"

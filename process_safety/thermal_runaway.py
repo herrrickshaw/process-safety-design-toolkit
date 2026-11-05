@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import math
 
-R = 8.314462618
+from .constants import R
 
 
 def q_W_kg(T_K: float, q_ref_W_kg: float, T_ref_K: float, Ea_J_mol: float) -> float:

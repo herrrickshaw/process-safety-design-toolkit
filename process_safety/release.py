@@ -10,7 +10,7 @@ import math
 
 from .relief import ATM, R, gas_mass_flux
 
-G = 9.80665
+from .constants import G
 
 
 def hole_area_m2(d_m: float) -> float:

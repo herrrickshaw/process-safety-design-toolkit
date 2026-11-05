@@ -119,7 +119,14 @@ weakens. Blowdown opened at 60 s: no rupture within the hour. Reproduces, qualit
 alone often does not protect a gas-filled vessel. Inputs (flux, internal film coefficient, strength curve) are assumptions: see
 `vapour_fire.py`.
 
+## Input checks, glossary
+* Every numeric CLI input is checked against `docs/RANGES.md`: impossible values (negative absolute temperature, Cp/Cv of 1.0 or less) stop the run with exit 2; atypical ones warn on stderr and still run. `--no-range-check` skips the checks. `python -m process_safety ranges [NAME]` lists them. Core library functions raise `ranges.RangeError` on impossible values.
+* `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
+
 ## Docs
+* `docs/VALIDATION.md`: 124 cross-checks against fluids, thermo, CoolProp and closed-form literature formulas, with the differences to know about.
+* `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `CONTRIBUTING.md`: checks to run, releasing.
+* `docs/RANGES.md`, `docs/GLOSSARY.md`: generated from `ranges.py` and `glossary.py`; a test keeps them in sync.
 * `docs/STUDIES.md`: bow-tie, occupied buildings, emergency zones/MCLS, SIL lifecycle, F&G mapping, PHA management, thermal runaway/ATEX, RAM.
 * `docs/IFLUIDS_SERVICES.md`: the iFluids Engineering brochure service list mapped to modules, with what is not covered.
 * `docs/DATACENTRE.md`: data-centre helpers, inputs, and what is deliberately not coded.

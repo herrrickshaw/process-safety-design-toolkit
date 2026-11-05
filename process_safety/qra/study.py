@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import copy
 import json
-import math
 import time
 
 from . import alarp, effects, eta, frequency, hazid, mitigation, risk, validate

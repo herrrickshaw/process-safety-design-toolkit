@@ -1,5 +1,4 @@
 """QRA workflow tests: identities and conservation laws, not remembered example numbers."""
-import copy
 import io
 import json
 import math
