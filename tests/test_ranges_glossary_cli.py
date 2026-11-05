@@ -13,6 +13,17 @@ from process_safety.cli.registry import REGISTRY
 ROOT = os.path.dirname(os.path.dirname(__file__))
 
 
+def _close(a, b, rel=1e-9):
+    """Equal structure and numbers within rel (the last digit of a float differs between platforms' libm)."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(_close(a[k], b[k], rel) for k in a)
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(_close(x, y, rel) for x, y in zip(a, b))
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool) and not isinstance(b, bool):
+        return abs(a - b) <= rel * max(abs(a), abs(b), 1e-300)
+    return a == b
+
+
 def run(*args):
     out, err = io.StringIO(), io.StringIO()
     with redirect_stdout(out), redirect_stderr(err):
@@ -148,7 +159,13 @@ class Cli(unittest.TestCase):
             golden = json.load(fh)
         for case in golden:
             r = subprocess.run([sys.executable, "-m", "process_safety", *case["args"]], capture_output=True, text=True, cwd=ROOT)
-            self.assertEqual((r.returncode, r.stdout), (case["rc"], case["stdout"]), f"changed: {case['args']}")
+            self.assertEqual(r.returncode, case["rc"], f"exit code changed: {case['args']}")
+            try:
+                got, want = json.loads(r.stdout), json.loads(case["stdout"])
+            except ValueError:
+                self.assertEqual(r.stdout, case["stdout"], f"changed: {case['args']}")
+            else:
+                self.assertTrue(_close(got, want), f"changed: {case['args']}")
 
 
 if __name__ == "__main__":
