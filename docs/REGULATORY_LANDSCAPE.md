@@ -25,7 +25,7 @@ Nothing here is legal advice, and it is not a compliance checklist.
 | Singapore | Workplace Safety and Health (Major Hazard Installations) Regulations, from 1 Sept 2017: safety case regime | Ministry of Manpower, Major Hazards Department | safety case, QRA, incident reporting, information to affected workplaces; MOM sets no fixed format | B for scope (MOM index page); C for dates |
 | South Korea | PSM under the Industrial Safety and Health Act (basis set Jan 1995, process safety report review from 1996); Chemicals Control Act (2015) with off-site consequence analysis and risk management plans | Ministry of Employment and Labor and KOSHA (roles not confirmed by a primary source); Ministry of Environment for chemicals | process safety report to the government; off-site consequence analysis | C |
 | China | identification of major hazard installations for dangerous chemicals, GB 18218-2018 (in force Mar 2019; production and storage units; graded, level 1 highest) under the Interim Provisions on supervision of such installations | Ministry of Emergency Management | registration and grading, responsible persons named for each installation | C |
-| Gulf (Saudi Arabia, UAE) | not verified. Secondary mentions: Abu Dhabi OSHAD framework behind ADNOC standards; Saudi sites follow company PSM aligned with international practice | not verified | | N |
+| Gulf (Saudi Arabia, UAE) | no national major-hazard law confirmed. Saudi: Royal Commission Environmental Regulations (RCER-2015) for Jubail, Yanbu and Ras Al Khair; Aramco SAES/SAEP engineering standards for Aramco work. UAE: Abu Dhabi OSHAD-SF (v3.1, March 2017); Emirates Fire and Life Safety Code (2017 update). See section 6 | Royal Commission for Jubail and Yanbu; Abu Dhabi Public Health Center (reported supervisor of OSHAD-SF); UAE Civil Defence (fire code) | no PSM text found in RCER or OSHAD-SF searches | C / N |
 | Canada, Japan | looked for (CEPA environmental emergency regulations, High Pressure Gas Safety Act), nothing usable returned | | | N |
 
 ## 2. By governing body
@@ -67,6 +67,31 @@ Company systems sit on top of law: they set stricter or more uniform internal ru
 * **Safety case regimes want quantified risk.** Singapore lists QRA as a requirement topic and the UK criteria used here come from R2P2. The `qra` workflow with R2P2 and Bevi presets fits this style; an India or Singapore criterion has to be supplied as a custom one.
 * **Company systems converge on the same shape.** ExxonMobil, Chevron, Shell and the Baker recommendations all combine leadership accountability, a management-system standard, and auditing, and since Texas City the emphasis includes process safety, not only personal safety. A design team inside such a company designs to the stricter of law and company standard.
 * **Regulation is moving.** The 2026 PHMSA proposal for LNG would borrow PSM-style elements (PHA, management of change, mechanical integrity) into a risk-based option, an example of style (1) entering style (3) territory.
+
+## 6. OSHA and Middle East sources
+
+### OSHA (United States)
+| Source | What it is | Status |
+|---|---|---|
+| [29 CFR 1910.119, Process safety management](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119) | the standard: 14 elements, Appendix A list of 134 chemicals, the 10,000 lb flammables rule | A: read for `psm.py` and `data/osha_psm_appendix_a.json` |
+| [OSHA CPL 02-02-045 (1994 PSM compliance directive)](https://www.osha.gov/enforcement/directives/cpl-02-02-045) | older enforcement guidance, listed on osha.gov | C: reported superseded by CPL 02-01-065 (revised PSM directive issued 26 Jan 2024, per a law-firm alert); confirm on osha.gov before citing |
+| PSM Covered Chemical Facilities National Emphasis Program, CPL 03-00-021 (17 Jan 2017) | inspection targeting programme | C: reported still in effect; status in Nov 2026 not confirmed |
+| [OSHA refinery NEP, CPL 03-00-004](https://www.osha.gov/enforcement/directives/cpl-03-00-004) | separate 2007 programme for refineries | C: listed, not read |
+| State plans | states running their own OSHA-approved programmes issue their own PSM directives (for example the [Washington L&I directive](https://lni.wa.gov/dA/547a1e8103/DD2440.pdf)) | C: listed, not read |
+
+The toolkit encodes the standard (A). The directives govern how inspectors apply it, so they matter for audit preparation but change no calculation here.
+
+### Middle East
+| Source | What it is | Status |
+|---|---|---|
+| [Royal Commission for Jubail and Yanbu](https://saudipedia.com/en/the-royal-commission-for-jubail-and-yanbu) and its Royal Commission Environmental Regulations (RCER-2015, replacing RCER-2010; Volume III covers penalties) | rules for operators in Jubail, Yanbu and, per one source, Ras Al Khair | C: general description only; no PSM requirement text found, and the available copies are unofficial (Scribd). Get the volumes from rcjy.gov.sa |
+| Saudi Aramco Engineering Standards (SAES/SAEP) | company standards for Aramco work, for example SAES-A-005 safety instruction sheets and SAES-B-057 refrigerated and pressure storage | C: found only through unofficial copies; many search hits list invented numbers, so verify on Aramco's own portal |
+| Abu Dhabi OSHAD-SF, [Elements v3.1](https://pdfcoffee.com/oshad-sf-elements-v31-english-pdf-free.html) (March 2017) | occupational safety and health framework: mechanisms, elements, codes of practice (Element 2 risk management, 5 training, 7 monitoring, investigating and reporting) | C: unofficial copy; no dedicated process-safety element found; check for a newer version |
+| ADNOC HSE and safety standards | company standards drawing on OSHAD-SF; one secondary source says the HSE management system is built on ISO 45001 and ISO 14001 and lists PSM as an operational standard | C: no official ADNOC document retrieved |
+| [UAE Fire and Life Safety Code](https://www.thenationalnews.com/uae/environment/uae-fire-safety-and-life-protection-code-undergoes-major-changes-1.643989) | Civil Defence code (2011, updated 2017; includes flammable liquid storage) | C: news coverage only |
+| Qatar, Kuwait, Oman, Bahrain; Saudi environment ministry rules | | N: searched, nothing returned |
+
+Takeaway for design teams in the region: expect project requirements to arrive through the owner company's standards (Aramco, ADNOC) and the industrial-city authority, with US and European standards (API, NFPA, IEC) as the technical base, rather than through one national process-safety statute. That is an inference from the sources above and has not been checked against the primary texts.
 
 ## 5. Gaps and what to read next
 
