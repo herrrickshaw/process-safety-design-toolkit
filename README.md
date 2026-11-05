@@ -135,6 +135,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/REQUIREMENTS_EXTRACT.md`: a local extractor for "shall"/"should" statements in standards and design practices you hold (private output only), with the project documents it connects to.
 * `docs/PLANT_INGEST.md`: ingesting flow-scheme/HMB data, P&ID registers and a PHA register, and the reasoning chain for why studies recommend what they do.
 * `docs/DESIGN_LIFECYCLE_PLAN.md`: a structured plan from process concept through flow scheme, heat and material balance, equipment design, P&ID-level design and safety studies to design tweaks and safe operation, mapped to the toolkit.
 * `docs/RECOMMENDATIONS_CATALOG.md`: 21 common safety-study recommendation types with triggers, usual responses and cost scopes (`python -m process_safety catalog TEXT` classifies a recommendation).

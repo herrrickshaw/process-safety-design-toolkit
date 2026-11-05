@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import glossary, incidents, literature, ranges, recommendation_catalog, standards
+from .. import glossary, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
 from .registry import command, emit
 
 
@@ -124,4 +124,34 @@ class Catalog:
             return 0 if ids else 1
         for cid, c in recommendation_catalog.CATALOG.items():
             print(f"{cid:14} {c['title']}  [{c['category']}; {c['scope']}]")
+        return 0
+
+
+@command("requirements", "extract shall/should statements from standards you hold, classify them, write them to a private file (counts only on screen)")
+class Requirements:
+    @staticmethod
+    def add_arguments(rp):
+        rp.add_argument("files", nargs="+", help=".txt .md .docx (or .pdf if pdftotext is installed)")
+        rp.add_argument("--out", required=True, help="CSV to write the statements to; must be outside version control or git-ignored")
+        rp.add_argument("--register", help="PHA register CSV to compare requirement types against")
+        rp.add_argument("--show", type=int, default=0, help="print this many statements to the screen (default 0: counts only)")
+        rp.add_argument("--allow-tracked", action="store_true", help="write even if the output path is inside a git repository and not ignored")
+
+    @staticmethod
+    def run(a, p):
+        ign = requirements_extract.git_ignored(a.out)
+        if ign is False and not a.allow_tracked:
+            p.error(f"{a.out} is inside a git repository and not ignored: extracted statements from proprietary documents must not be committed. "
+                    "Choose a path outside the repository or add it to .gitignore (or pass --allow-tracked for documents you may publish).")
+        try:
+            rows = requirements_extract.extract(a.files)
+        except (OSError, ValueError, RuntimeError) as e:
+            p.error(str(e))
+        requirements_extract.write_csv(rows, a.out)
+        out = {"statements": len(rows), "written_to": a.out, **requirements_extract.summarize(rows)}
+        if a.register:
+            out["register_comparison"] = requirements_extract.compare_register(rows, scenario_ingest.read_register(a.register))
+        emit(out)
+        for r in rows[: a.show]:
+            print(f"[{r['file']} {r['clause']}] ({r['modality']}) {r['text']}")
         return 0

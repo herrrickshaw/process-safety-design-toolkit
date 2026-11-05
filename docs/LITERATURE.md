@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 78 sources, 26 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 84 sources, 26 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -12,7 +12,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | Source | Publisher | Region | Access | Read | HTTP | Topics | Modules | Note |
 |---|---|---|---|---|---|---|---|---|
 | [NOPSEMA offshore safety case regime](https://www.nopsema.gov.au/) | NOPSEMA (Australia) | AU | free | no | 0 | safety-case, offshore, regulation |  |  |
-| [Directive 2012/18/EU (Seveso III)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018) | European Union | EU | free | text | 200 | seveso, regulation | mah | Annex I parsed into data/seveso_iii_annex_i.json |
+| [Directive 2012/18/EU (Seveso III)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018) | European Union | EU | free | text | 202 | seveso, regulation | mah | Annex I parsed into data/seveso_iii_annex_i.json |
 | [Directorate General Factory Advice Service and Labour Institutes](https://dgfasli.gov.in/) | DGFASLI (India) | IN | free | no | 200 | india, regulation, factories |  |  |
 | [Petroleum and Explosives Safety Organisation](https://peso.gov.in/) | PESO (India) | IN | free | no | 0 | india, regulation, explosives |  |  |
 | [Petroleum and Natural Gas Regulatory Board](https://www.pngrb.gov.in/) | PNGRB (India) | IN | free | no | 200 | india, regulation, gas |  |  |
@@ -30,7 +30,10 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | Source | Publisher | Region | Access | Read | HTTP | Topics | Modules | Note |
 |---|---|---|---|---|---|---|---|---|
 | [OISD standards list (105 standards)](https://www.oisd.gov.in/oisd-standards) | OISD (India) | IN | mixed | page | 200 | india, standards, oil-gas | standards | list and editions in data/oisd_standards.json; contents not read |
+| [DOE-STD-1189-2016 Integration of Safety into the Design Process](https://www.standards.doe.gov/standards-documents/1100/1189-astd-2016) | US Department of Energy | US | free | no | 200 | design, safety-in-design, safety-design-strategy, shall-statements | recommendation_catalog | public standard with requirements and guidance on integrating safety into project design (nuclear facilities, but the safety design strategy and staged design review are transferable); has a Safety Design Strategy section; not read |
 | [AACE RP 18R-97 Cost estimate classification system, process industries](https://library.aacei.org/pgd01/pgd01.shtml) | AACE International | global | paywalled | no | 200 | cost-estimation, aace, accuracy | lng_cost | copyrighted; class ranges used in docs/COST_ESTIMATION.md are those quoted in the ORIMIZ factor file and NETL, not read from AACE |
+| [IOGP JIP33 specifications (S-series equipment and materials specifications)](https://www.iogp.org/bookstore/product-category/jip33/instruments/) | IOGP | global | free | no | 200 | design, specifications, shall-statements, relief |  | IOGP states the JIP33 specifications are free to use; equipment and materials specifications (for example S-730 flanged steel pressure relief valves, S-729 control valves), not safety-design strategy documents; not read |
+| [PMBOK Guide (A Guide to the Project Management Body of Knowledge)](https://www.pmi.org/standards/pmbok) | Project Management Institute | global | paywalled | no | 403 | project-management, cost-estimation, schedule-risk | shutdown_risk | commercial standard (PMI member/purchase access); pmi.org returns 403 to automated requests; not read |
 | [ProteusXML schema (P&ID exchange format used by DEXPI), schema 4.2](https://github.com/ProteusXML/proteusxml) | ProteusXML project | global | free | page | 200 | pid, data-exchange, dexpi | plant_model | XSD element and attribute names read for the parser; GitHub shows no licence for the repository; the toolkit does not copy the schema |
 
 ## Guidance
@@ -44,6 +47,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [IChemE Symposium Series No. 156 paper on HAZOP recommendations](https://www.icheme.org/media/9258/xxii-paper-42.pdf) | IChemE | UK | free | no | 200 | hazop, recommendations |  | found via search; not read |
 | [IChemE Symposium Series paper on ranking HAZOP recommendations](https://www.icheme.org/media/10174/xvi-paper-29.pdf) | IChemE | UK | free | no | 200 | hazop, recommendations, prioritisation |  | found via search; describes ranking by consequence, frequency and mitigation with benefit-cost; not read |
 | [DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals](https://www.energy.gov/documents/doe-hdbk-1101-96) | US DOE | US | free | page | 200 | psm, audit | psm |  |
+| [GAO Cost Estimating and Assessment Guide: Best Practices for Developing and Managing Program Costs (GAO-20-195G)](https://www.gao.gov/products/gao-20-195g) | US Government Accountability Office | US | free | no | 403 | cost-estimation, methodology, schedule-risk, cost-risk | shutdown_risk, recommendation_cost, lng_cost | public US government guide; 12-step estimating process built on accuracy, comprehensiveness, credibility and documentation; includes cost and schedule risk analysis chapters; gao.gov returns 403 to automated requests (open in a browser); step list confirmed from search summaries only; not read |
 | [OSHA Process Safety Management topic page](https://www.osha.gov/process-safety-management) | OSHA (US) | US | free | no | 200 | psm, regulation | psm | enforcement directives and NEP are linked from here |
 | [QGESS: Capital cost scaling methodology, Revision 4](https://www.osti.gov/servlets/purl/1573493) | US DOE NETL | US | free | no | 200 | cost-estimation, scaling, escalation | lng_cost | scaling of legacy estimates by size, date and location; not read |
 | [QGESS: Cost estimation methodology for NETL assessments of power plant performance](https://netl.doe.gov/projects/files/QGESSCostEstMethodforNETLAssessmentsofPowerPlantPerformance_022621.pdf) | US DOE NETL | US | free | no | 200 | cost-estimation, aace, methodology | recommendation_cost, lng_cost | public worked methodology (bare erected cost to total overnight cost, AACE Class 4 target); power-plant context; not read |
@@ -80,7 +84,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [Mary Kay O'Connor Process Safety Center](https://psc.tamu.edu/) | Texas A&M University | US | free | no | 200 | research, psm |  |  |
 | [Center for Chemical Process Safety](https://www.aiche.org/ccps) | AIChE | global | mixed | no | 403 | psm, guidelines, rbps | psm, hazop, sil | books are paywalled |
 | [IOGP safety, including Life-Saving Rules and process safety reports](https://www.iogp.org/safety/) | IOGP | global | free | no | 200 | life-saving-rules, psm, oil-gas |  |  |
-| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 0 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
+| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 200 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
 
 ## Journal
 
@@ -111,6 +115,8 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | Source | Publisher | Region | Access | Read | HTTP | Topics | Modules | Note |
 |---|---|---|---|---|---|---|---|---|
 | [BibMon (Petrobras)](https://github.com/petrobras/BibMon) | Petrobras | BR | free | no | 200 | monitoring, fault-detection |  | Apache-2.0; complementary, not integrated |
+| [CostOS cost estimating software (Nomitech)](https://www.nomitech.com) | Nomitech Ltd. | UK | paywalled | no | 200 | cost-estimation, commercial-tool | recommendation_cost | commercial estimating package; vendor site only; not evaluated |
+| [Primavera Cloud (project scheduling and controls)](https://www.oracle.com/construction-engineering/primavera-cloud/) | Oracle | US | paywalled | no | 200 | scheduling, schedule-risk, commercial-tool | shutdown_risk | commercial scheduling package; a shutdown plan exported from a scheduling tool could be loaded into shutdown_risk as activities and predecessors (not built); not evaluated |
 | [BioSTEAM techno-economic analysis tutorial](https://biosteam.readthedocs.io/en/latest/tutorial/Techno-economic_analysis.html) | BioSTEAM (Univ. of Illinois) | global | free | no | 200 | cost-estimation, tea, lang-factor | recommendation_cost | open-source Python TEA: installed cost via Lang factor or bare-module factors, cash-flow analysis; licence not checked here |
 | [COCO simulator (CAPE-OPEN to CAPE-OPEN)](https://www.cocosimulator.org) | AmsterCHEM | global | free | no | 200 | simulation, process-simulator, cape-open |  | free to use per its site; licence terms (closed or open source) not checked here |
 | [Cantera](https://github.com/Cantera/cantera) | Cantera developers | global | free | no | 200 | simulation, thermochemistry, kinetics | reaction_hazard | BSD-style (Caltech) licence text; thermochemistry and kinetics library, not a flowsheet simulator |

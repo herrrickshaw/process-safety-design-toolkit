@@ -86,6 +86,17 @@ Gaps: no free source was found that publishes equipment cost correlations (Turto
 
 What this suggests for the toolkit: simulators such as UniSim and DWSIM already produce equipment lists with sizes, so the natural next step is an **equipment-factored mode** (purchase cost from your own vendor or database figures, installation by Lang or bare-module factors you supply, with the same Monte Carlo ranging and shutdown merge). I have not built it; the NETL methodology and BioSTEAM's factor structure are the references to follow.
 
+## Commercial tools and guides named by the user (added 2026-11-06)
+| Name | What it is | Status here |
+|---|---|---|
+| [GAO Cost Estimating and Assessment Guide, GAO-20-195G](https://www.gao.gov/products/gao-20-195g) | Free US government guide: a 12-step estimating process resting on accuracy, comprehensiveness, credibility and documentation, with cost and schedule risk analysis | gao.gov blocks automated requests; confirmed from search summaries; not read. The best free methodology reference alongside NETL's |
+| PMI PMBOK Guide ([pmi.org](https://www.pmi.org/standards/pmbok)) | Commercial project management standard | not read; the site blocks automated requests |
+| [Cleopatra Enterprise](https://cleopatraenterprise.com) (Cost Engineering Consultancy) | Cost estimating and project cost management software; linked from UniSim Design per Honeywell's documents | vendor documents only |
+| [Nomitech CostOS](https://www.nomitech.com) | Commercial cost estimating software | vendor site only; not evaluated |
+| [Oracle Primavera Cloud](https://www.oracle.com/construction-engineering/primavera-cloud/) | Commercial scheduling and controls | not evaluated. A turnaround schedule kept there could feed `shutdown_risk` as activities with durations and predecessors; that import is not built |
+
+Trademarks and copyright, as notified by their owners: PMI(R) and PMBOK(R) (c) Project Management Institute, Inc.; GAO(R) (c) U.S. Government Accountability Office; Cleopatra Enterprise(R) (c) Cost Engineering Consultancy; CostOS(R) (c) Nomitech Ltd.; Oracle(R) and Primavera Cloud (c) Oracle Corporation. All rights reserved by their owners. This toolkit has no affiliation with them, reproduces none of their content, and mentions the names only to say what they are and where they fit.
+
 ## Limits
 Published figures mix scopes (plant only, plant plus pipeline, integrated upstream splits), bases (FID budgets, outturns, EPC-only) and contingency treatment, and most are announced at FID; final costs are often higher. The OIES-derived factors reflect 2014-18 conditions. Gas richness, CO2 handling, multi-train effects, tanks and marine items are not adjusted individually here (ORIMIZ's tool does, with a register of site items). Use it to screen and to size study contingency, not to decide an investment.
 
