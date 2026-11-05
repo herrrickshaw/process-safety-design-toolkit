@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import glossary, incidents, literature, ranges, standards
+from .. import glossary, incidents, literature, ranges, recommendation_catalog, standards
 from .registry import command, emit
 
 
@@ -102,3 +102,26 @@ class Incidents:
             d = "" if i["deaths"] is None else f", {i['deaths']} killed"
             print(f"{i['date']}  {i['name']} ({i['location']}{d})\n    {i['lesson']}\n    modules: {', '.join(i['modules'])}; steps: {', '.join(map(str, i['design_steps']))}\n    {i['source']}")
         return 0 if hits else 1
+
+
+@command("catalog", "common safety-study recommendation types; classify free text; --markdown prints docs/RECOMMENDATIONS_CATALOG.md")
+class Catalog:
+    @staticmethod
+    def add_arguments(cp):
+        cp.add_argument("text", nargs="*", help="recommendation text to classify (omit to list the catalogue)")
+        cp.add_argument("--markdown", action="store_true")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(recommendation_catalog.markdown(), end="")
+            return 0
+        if a.text:
+            ids = recommendation_catalog.classify(" ".join(a.text))
+            for cid in ids[:3]:
+                c = recommendation_catalog.CATALOG[cid]
+                print(f"{cid}: {c['title']} [{c['category']}; scope {c['scope']}]\n    trigger: {c['trigger']}\n    response: {c['response']}")
+            return 0 if ids else 1
+        for cid, c in recommendation_catalog.CATALOG.items():
+            print(f"{cid:14} {c['title']}  [{c['category']}; {c['scope']}]")
+        return 0

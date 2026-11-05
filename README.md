@@ -134,6 +134,8 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/DESIGN_LIFECYCLE_PLAN.md`: a structured plan from process concept through flow scheme, heat and material balance, equipment design, P&ID-level design and safety studies to design tweaks and safe operation, mapped to the toolkit.
+* `docs/RECOMMENDATIONS_CATALOG.md`: 21 common safety-study recommendation types with triggers, usual responses and cost scopes (`python -m process_safety catalog TEXT` classifies a recommendation).
 * `docs/WORKFLOW.md`: the end-to-end workflow from safety simulation through resizing and design to capex and opex (pipeline rerouting, additional sensors, PCN modification), with a worked example and its limits.
 * `docs/SIMULATION_TOOLS.md`: open-source simulators, property libraries, blowdown tools and costing/TEA packages (with licences and activity checked on GitHub) that can feed or cross-check this toolkit.
 * `docs/COST_ESTIMATION.md`: the three cost estimators (plant, recommendations, shutdown) and how they connect; a review of the reference LNG cost notebook against published analogs; limits and attribution.
