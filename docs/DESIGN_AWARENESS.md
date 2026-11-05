@@ -43,6 +43,19 @@ These are from `docs/USE_CASES.md` (real runs, screening inputs):
 
 Rows for other incidents are not added until their investigation reports are read.
 
+## 5. External material read on 2026-11-06
+
+| Source | Status | What it adds for design |
+|---|---|---|
+| [National Law Review, Van Ness Feldman: PHMSA proposes comprehensive revisions to LNG safety regulations](https://natlawreview.com/article/phmsa-proposes-comprehensive-revisions-safety-regulations-lng-facilities) (2 Nov 2026) | read in full (a law-firm summary of the NPRM, not the NPRM text) | PHMSA released a proposed rule on 28 Oct 2026 to rewrite 49 CFR 193 around NFPA 59A-2026 (replacing the 2001 and 2006 editions); comments are due 4 Jan 2027. It is **proposed, not final**. Siting would follow NFPA 59A chapter 5 plus new hazard-analysis and exclusion-zone sections, with an optional QRA route (chapter 19), and would apply to facilities designed or significantly altered five years after a final rule. A risk-based operations and maintenance option (subpart F) would borrow from OSHA PSM: PHA, pre-startup review, mechanical integrity, management of change, audits. |
+| [Sigma-HSE, why early-stage design decisions are critical](https://sigma-hse.com/news-insights/early-stage-design-decisions/) (27 Nov 2025) | read in full; a consultancy article, its statistics are quoted from it and not checked | Bench work masks thermal hazards; scale-up is where runaway shows. Design choice: thermal screening and calorimetry before scale-up, check cooling, mixing and dosing against loss-of-cooling and misdosing, and keep dust, vapour and gas explosion evidence in the safety management file. It cites the 2008 Imperial Sugar explosion as a dust example (not read here). |
+| [Sigma-HSE news and insights index](https://sigma-hse.com/news-insights/) | titles only; other articles not read | Topic list worth reading next: startup and shutdown hazards, management of change ("the stealth of small changes"), a basis of safety that survives scale-up, "compliant does not mean safe". |
+| [CCPS Process Safety Beacon](https://ccps.aiche.org/process-safety-beacon) | **not read**: the site returned a bot-check page (HTTP 403) | No bypass attempted. Beacon issues can be added if you supply the PDFs. |
+
+What this changes in the toolkit's advice:
+* **LNG users:** `lng` and `docs/SECTORS_AND_LESSONS.md` cite the current 49 CFR 193 text (for example 193.2181 impoundment). If the proposal is finalised, section numbers and the governing NFPA edition change, and impoundment moves into the incorporated NFPA 59A chapter 13 and new supplementary sections. Treat the `lng` numbers as the current-rule screen and re-check after the final rule.
+* **Reactive chemistry:** the Sigma-HSE point is the same one `reaction_hazard` and `thermal_runaway` encode (MTSR against decomposition onset). Step 1 and step 5 of section 1 should carry calorimetry data as an input, not an assumption.
+
 ## 4. Habits that keep design choices defensible
 
 * State the standard and edition, and what was not read, beside every number (the toolkit refuses defaults where a vendor or standard value governs).

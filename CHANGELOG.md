@@ -6,6 +6,7 @@
 * New: `viewfactor` and CLI `flame-flux`: midpoint integration of the view factor to flat rectangular flame faces; tests match the Howell rectangle result to 2e-4 and the far-field inverse-square limit.
 * Coverage map: two entries added; the README "not implemented" list now says two-phase relief sizing is covered and runaway-reaction (DIERS) relief is not. Two ranges (`omega_parameter`, `emissive_power_kW_m2`) and five glossary terms added; `docs/RANGES.md` and `docs/GLOSSARY.md` regenerated.
 * Found while writing the use cases: the point-source `pool-fire` distances and the SEP-based solid-flame fluxes disagree by about four times in the far field (25% radiant fraction against about 6% implied by the Mudan-Croce SEP). Documented in the use case, not papered over; no model was changed.
+* Docs: `docs/DESIGN_AWARENESS.md` (review steps, design choices, incident instances) and section 5 there on external material read 2026-11-06: the PHMSA LNG proposed rule (proposed, not final, so `lng` still follows the current 49 CFR 193 text), a Sigma-HSE early-design article, and the CCPS Beacon page which was blocked and not read.
 * Rejected: coding the TNO multi-energy blast curves and OISD layout distances (the curves and the standard were not read, so the numbers would be recalled); a default omega or Kd (both depend on the fluid and the valve); defaulting Kd to 0.85 for two-phase service.
 
 ## 0.10.0 - 2026-11-05: streamlined CLI, input ranges, glossary, CI/CD, validation
