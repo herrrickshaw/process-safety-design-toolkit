@@ -68,6 +68,10 @@ Generated from `process_safety/glossary.py` (`python -m process_safety glossary 
 
 | Term | Meaning | Applies to |
 |---|---|---|
+| **FEL 1 / Class 5 estimate** (Front-end loading 1; AACE Class 5) | The concept-stage capital estimate, based on analog projects or capacity factoring, with a wide accuracy range; good for screening, not for a budget or investment decision. | lng_cost |
+| **Analog (cost estimating)** (Reference project) | A past project with published cost used, after adjustment for size, date, location and scope, to estimate a new one. | lng_cost |
+| **Capacity factoring / size exponent** (Six-tenths rule and variants) | Scaling cost with capacity raised to an exponent below 1 (0.6 to 0.8 for LNG trains) to reflect economies of scale. | lng_cost |
+| **Location factor / cost index** | Multipliers for where and when a plant is built relative to a reference (for example US Gulf Coast at a base date); the toolkit ships none and requires them as inputs. | lng_cost |
 | **ICAF** (Implied cost of averting a fatality) | Cost of a risk-reduction measure divided by the fatalities it is expected to avert over its life; compared with the value of preventing a fatality in the ALARP cost-benefit test. | recommendation_cost, qra.alarp |
 | **Indirect costs** | Costs on top of direct construction cost: engineering, procurement, construction management, owner's cost, commissioning and escalation, usually as percentages of direct cost. | recommendation_cost |
 | **Safety study recommendation** (HAZOP / LOPA / QRA action) | A change proposed by a hazard study to reduce risk: for example a piping change, a civil protection, an electrical upgrade or an instrumented function. | recommendation_cost |

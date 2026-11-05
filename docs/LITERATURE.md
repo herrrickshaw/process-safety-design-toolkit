@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 52 sources, 22 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 55 sources, 23 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -42,6 +42,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals](https://www.energy.gov/documents/doe-hdbk-1101-96) | US DOE | US | free | page | 200 | psm, audit | psm |  |
 | [OSHA Process Safety Management topic page](https://www.osha.gov/process-safety-management) | OSHA (US) | US | free | no | 200 | psm, regulation | psm | enforcement directives and NEP are linked from here |
 | [AIGA 99/20 Process safety management](https://asiaiga.org/uploaded_docs/en_AIGA_99_20_Process_Safety_Mangement.pdf) | AIGA | global | free | page | 200 | psm | psm |  |
+| [LNG Plant Cost Reduction 2014-18 (OIES NG137)](https://www.oxfordenergy.org/wpcms/wp-content/uploads/2018/10/LNG-Plant-Cost-Reduction-2014%E2%80%9318-NG137.pdf) | Oxford Institute for Energy Studies | global | free | no | 200 | cost-estimation, lng | lng_cost | origin of most plant-only analog figures and factors; not read in full |
 | [Monte Carlo is not magic](https://www.somaprojectcontrols.com/resources/guides/monte-carlo-is-not-magic/) | SOMA Project Controls | global | free | no | 200 | schedule-risk, cost-risk, monte-carlo, shutdown | shutdown_risk | consultancy guide; not read |
 | [OECD Guiding Principles for Chemical Accident Prevention, Preparedness and Response](https://www.oecd.org/en/topics/chemical-accidents.html) | OECD | global | free | no | 403 | international, guidance, psm |  | third edition supports the 2023 Council Recommendation |
 | [QCRA explained: quantitative cost risk analysis](https://iqrm.net/blog/qcra-explained-quantitative-cost-risk-analysis-2026) | IQRM | global | free | no | 200 | schedule-risk, cost-risk, monte-carlo, shutdown | shutdown_risk | vendor blog; method background; not read |
@@ -101,5 +102,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [BibMon (Petrobras)](https://github.com/petrobras/BibMon) | Petrobras | BR | free | no | 200 | monitoring, fault-detection |  | Apache-2.0; complementary, not integrated |
 | [CoolProp](https://coolprop.org/) | CoolProp project | global | free | text | 200 | properties, validation | fluiddata, props | MIT; source of data/fluid_screening.json and test oracle |
 | [OTsafe](https://github.com/p4lsec/otsafe) | p4lsec | global | free | no | 200 | ot-security, safety-modelling |  | Apache-2.0; complementary, not integrated |
+| [Open FEL1 LNG Cost (ORIMIZ Consulting)](https://github.com/ORIMIZ-Consulting/open-fel1-lng-cost) | ORIMIZ Consulting / S. Z. Haider | global | free | page | 200 | cost-estimation, lng, analog | lng_cost | MIT; README, factors and analog table read as text; code not run |
+| [Open Plant Cost Index (OPCI)](https://github.com/ORIMIZ-Consulting/open-plant-cost-index) | ORIMIZ Consulting | global | free | no | 200 | cost-estimation, escalation, location-factors | lng_cost | source of ORIMIZ escalation and location factors; not read |
 | [fluids (ChEDL)](https://fluids.readthedocs.io/) | Caleb Bell | global | free | text | 200 | validation, relief, hydraulics | relief, hydraulics, separator | MIT; test oracle only |
 | [thermo (ChEDL)](https://thermo.readthedocs.io/) | Caleb Bell | global | free | text | 200 | properties, validation | props | MIT; test oracle only |

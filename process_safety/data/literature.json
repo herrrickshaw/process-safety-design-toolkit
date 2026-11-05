@@ -590,6 +590,68 @@
    "checked": "2026-11-06"
   },
   {
+   "id": "orimiz-fel1",
+   "title": "Open FEL1 LNG Cost (ORIMIZ Consulting)",
+   "publisher": "ORIMIZ Consulting / S. Z. Haider",
+   "kind": "data-tool",
+   "url": "https://github.com/ORIMIZ-Consulting/open-fel1-lng-cost",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng",
+    "analog"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "MIT; README, factors and analog table read as text; code not run",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "orimiz-opci",
+   "title": "Open Plant Cost Index (OPCI)",
+   "publisher": "ORIMIZ Consulting",
+   "kind": "data-tool",
+   "url": "https://github.com/ORIMIZ-Consulting/open-plant-cost-index",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "escalation",
+    "location-factors"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "source of ORIMIZ escalation and location factors; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oies-ng137",
+   "title": "LNG Plant Cost Reduction 2014-18 (OIES NG137)",
+   "publisher": "Oxford Institute for Energy Studies",
+   "kind": "guidance",
+   "url": "https://www.oxfordenergy.org/wpcms/wp-content/uploads/2018/10/LNG-Plant-Cost-Reduction-2014%E2%80%9318-NG137.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "origin of most plant-only analog figures and factors; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
    "id": "spe-focus-ps",
    "title": "SPE In Focus: Process Safety",
    "publisher": "Society of Petroleum Engineers",

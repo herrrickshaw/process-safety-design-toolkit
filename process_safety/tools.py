@@ -7,6 +7,7 @@
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
+    lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
 Every tool runs input checks first and writes a validation section to its summary.
@@ -18,7 +19,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, fg_mapping, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -120,6 +121,21 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
         shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
         summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "lngcost":
+        errs = lng_cost.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (target, cost index or escalation rate, location factors)"]
+        if errs:
+            return summ
+        r = lng_cost.estimate(data, runs=data.get("runs", 10000))
+        summ["result"] = {k: v for k, v in r.items() if k not in ("analogs", "excluded")}
+        summ["excluded"] = r["excluded"]
+        pha.write_csv([{k: v for k, v in a.items() if k != "source_url"} | {"source_url": a["source_url"]} for a in r["analogs"]], pre + "_analogs.csv")
+        summ["files"] = [pre + "_analogs.csv"]
+        if "daily_margin" in data:
+            dm = data["daily_margin"]
+            summ["daily_margin_musd_per_day"] = lng_cost.daily_margin(data["capacity_mtpa"], dm["margin_usd_per_mmbtu"], dm["mmbtu_per_tonne"], dm["operating_days_per_year"])
+        if "recommendations_capex_musd" in data:
+            summ["safety_spend_share_of_plant_capex_P50"] = lng_cost.safety_spend_ratio(data["recommendations_capex_musd"], r["total_musd"]["P50"])
     elif name == "recs":
         errs = recommendation_cost.check(data)
         summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (disciplines, rates, ranges, shutdown durations)"]

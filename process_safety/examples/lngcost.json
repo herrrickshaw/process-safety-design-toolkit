@@ -1,0 +1,43 @@
+{
+ "_note": "ILLUSTRATIVE. The location factors, escalation rates, margin and spend share below are PLACEHOLDERS to show the method: the toolkit ships no cost index and no location factors. Replace them with a cost index you hold (or one with a licence you can use) and defensible location factors. The analog costs themselves are published figures from the ORIMIZ public analog table (MIT licence) in each row's own cost-year dollars.",
+ "name": "Illustrative 5 MTPA single-train greenfield, Australia",
+ "capacity_mtpa": 5.0,
+ "trains": 1,
+ "site_type": "greenfield",
+ "target_year": 2026,
+ "location_code": "AU-NW",
+ "escalation_pct_per_year": {
+  "min": 2.0,
+  "mode": 3.0,
+  "max": 5.0
+ },
+ "location_factors": {
+  "AU-NW": 1.45,
+  "AU-QLD": 1.45,
+  "US-GC": 1.0,
+  "CA-BC": 1.2,
+  "NG-BON": 1.2,
+  "PG": 1.5,
+  "RU-YAM": 1.3,
+  "AO-SOY": 1.3,
+  "MZ-AFU": 1.3,
+  "ID-SUL": 1.2,
+  "ID-PAP": 1.3,
+  "MY-BIN": 1.0,
+  "QA-RLF": 1.0
+ },
+ "location_factor_range": {
+  "min": 1.3,
+  "mode": 1.45,
+  "max": 1.7
+ },
+ "exponent": 0.7,
+ "runs": 10000,
+ "compare_total_musd": 5890.6,
+ "daily_margin": {
+  "margin_usd_per_mmbtu": 2.0,
+  "mmbtu_per_tonne": 52,
+  "operating_days_per_year": 350
+ },
+ "recommendations_capex_musd": 65.0
+}
