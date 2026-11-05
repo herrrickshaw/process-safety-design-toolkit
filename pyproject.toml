@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "process-safety-design-toolkit"
-version = "0.8.0"
+version = "0.9.0"
 description = "Dependency-free process-safety and process-design calculators: relief, tank venting, flare, fire, hydraulics, consequence, LOPA/SIL, reliability, HAZOP, QRA (individual/societal risk, ALARP)"
 readme = "README.md"
 requires-python = ">=3.10"

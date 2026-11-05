@@ -85,6 +85,14 @@ TOPICS = {
     "Machinery safety (PL, safeguard distance)": (["ISO 13849-1", "ISO 13855", "IEC 62061"], "mechanical_safety.required_pl, safeguard_distance_mm", "risk graph + PFH bands; pre-2024 ISO 13855 form"),
     "Lifting, dropped objects, vehicle/ship impact": (["ASME B30.9", "DNV-RP-C204", "NORSOK N-004"], "mechanical_safety.*", "energy and tension arithmetic; design codes govern"),
     "Pipe spans, thermal growth, bolt torque": (["ASME B31.3", "ASME PCC-1"], "mechanical_safety.*", "screening forms; stress analysis supersedes"),
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage": (["EN 50600 / ISO/IEC 22237 (PUE definition; not read)", "ASHRAE TC 9.9 (not read)"], "datacentre.*", "arithmetic with project inputs; no tier or thermal-envelope values coded"),
+    "Data centre: redundancy availability (N+1, 2N)": (["Uptime Institute tiers (not read)", "ANSI/TIA-942 (not read)"], "datacentre.k_of_n_availability, dual_path_availability", "independent-units arithmetic; tier percentages deliberately not coded"),
+    "Data centre: generic HAZID prompts (fuel, battery, suppression, electrical, cooling)": (["CCPS HAZID practice"], "datacentre.HAZID_PROMPTS", "checklist to seed a study; not a study"),
+    "Gas suppression / clean-agent room design": (["NFPA 2001", "ISO 14520", "NFPA 75/76"], None, "not implemented (standards not read; manufacturer calculation governs)"),
+    "Load flow, harmonics, transient stability, switching transients": (["IEEE 399", "IEEE 519", "IEC 60909"], None, "not implemented (software studies)"),
+    "Illumination study": (["IS 3646 / EN 12464 / OISD-STD-113 (not read)"], None, "not implemented"),
+    "Pulsation and vibration studies": (["API 618", "API 674", "API 688"], None, "not implemented"),
+    "Escape, evacuation and rescue analysis; ESSA": (["ISO 13702", "NORSOK S-001"], None, "not implemented"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 
