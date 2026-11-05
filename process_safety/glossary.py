@@ -64,6 +64,9 @@ CATEGORIES: dict[str, list[tuple[str, str, str, str]]] = {
         ("T-class / gas group", "", "The maximum surface temperature class and the gas group (by maximum experimental safe gap) that explosion-protected equipment must match.", "electrical"),
     ],
     "Risk, reliability and safety management": [
+        ("ICAF", "Implied cost of averting a fatality", "Cost of a risk-reduction measure divided by the fatalities it is expected to avert over its life; compared with the value of preventing a fatality in the ALARP cost-benefit test.", "recommendation_cost, qra.alarp"),
+        ("Indirect costs", "", "Costs on top of direct construction cost: engineering, procurement, construction management, owner's cost, commissioning and escalation, usually as percentages of direct cost.", "recommendation_cost"),
+        ("Safety study recommendation", "HAZOP / LOPA / QRA action", "A change proposed by a hazard study to reduce risk: for example a piping change, a civil protection, an electrical upgrade or an instrumented function.", "recommendation_cost"),
         ("Turnaround / shutdown", "Planned outage", "A planned period when a unit or plant is taken out of service for inspection, repair and reinstatement; its length and cost are the subject of schedule and cost risk analysis.", "shutdown_risk"),
         ("QSRA / QCRA", "Quantitative schedule / cost risk analysis", "Monte Carlo analysis of a project network (schedule) or cost estimate (cost) using ranges and risk events instead of single-point values.", "shutdown_risk"),
         ("P50 / P80", "Confidence levels", "The value that the outcome is at or below in 50% (P50) or 80% (P80) of simulated runs; contingency is often set as P80 minus the base estimate.", "shutdown_risk"),

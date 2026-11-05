@@ -7,6 +7,7 @@
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
+    recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
 Every tool runs input checks first and writes a validation section to its summary.
 """
@@ -17,7 +18,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, fg_mapping, pha, ram, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, fg_mapping, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -119,6 +120,39 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
         shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
         summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "recs":
+        errs = recommendation_cost.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (disciplines, rates, ranges, shutdown durations)"]
+        if errs:
+            return summ
+        est = recommendation_cost.estimate(data, runs=data.get("runs", 5000))
+        summ["estimate"] = {k: v for k, v in est.items() if k != "recommendations"}
+        summ["recommendations"] = [{k: v for k, v in r.items() if k != "direct_by_discipline_mode"} for r in est["recommendations"]]
+        rows = [{"id": r["id"], "title": r["title"], "requires_shutdown": r["requires_shutdown"], **{f"direct_{k}": v for k, v in r["direct_by_discipline_mode"].items()},
+                 "total_mode": r["total_mode"], "P50": r["capex"]["P50"], "P80": r["capex"]["P80"], "contingency_P80": r["contingency_P80"],
+                 "cost_benefit_ratio": r.get("cba", {}).get("cost_benefit_ratio", ""), "decision": r.get("cba", {}).get("decision", "")} for r in est["recommendations"]]
+        keys = sorted({k for r in rows for k in r}, key=lambda k: (k not in ("id", "title", "requires_shutdown"), k))
+        pha.write_csv([{k: r.get(k, "") for k in keys} for r in rows], pre + "_recommendations.csv")
+        summ["files"] = [pre + "_recommendations.csv"]
+        if "shutdown_model" in data:
+            sm = data["shutdown_model"]
+            merged = recommendation_cost.merge_into_shutdown(sm, est, data["insert_after"], data["insert_before"])
+            b = shutdown_risk.simulate(sm, data.get("shutdown_runs", 4000), seed=1)
+            m = shutdown_risk.simulate(merged, data.get("shutdown_runs", 4000), seed=1)
+            def d(a, c):
+                return {k: c[k] - a[k] for k in ("P50", "P80", "P90")}
+            comp = {"duration_days_without": b["duration_days"], "duration_days_with": m["duration_days"], "delta_duration_days": d(b["duration_days"], m["duration_days"]),
+                    "direct_cost_without": b["cost"], "direct_cost_with": m["cost"], "delta_direct_cost": d(b["cost"], m["cost"])}
+            if "opportunity" in b:
+                comp["total_cost_delta"] = d(b["opportunity"]["total_cost"], m["opportunity"]["total_cost"])
+                comp["lost_operating_days_delta"] = d(b["opportunity"]["lost_operating_days"], m["opportunity"]["lost_operating_days"])
+            if "P_meet_target_days" in b:
+                comp["P_meet_target_days"] = {"without": b["P_meet_target_days"], "with": m["P_meet_target_days"]}
+            summ["shutdown_effect"] = comp
+            summ["shutdown_effect_notes"] = ["the same seed is used for both runs, so differences reflect the added work, not sampling noise (the added activities change the random stream, so small differences remain)"]
+            with open(pre + "_merged_shutdown_model.json", "w", encoding="utf-8") as fh:
+                json.dump(merged, fh, indent=1)
+            summ["files"].append(pre + "_merged_shutdown_model.json")
     elif name == "pha":
         today = dt.date.fromisoformat(data["today"]) if data.get("today") else None
         files = []
