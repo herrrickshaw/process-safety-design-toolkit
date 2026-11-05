@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import math
 
-G = 9.80665
+from .constants import G
 RHO_AIR = 1.2
 
 

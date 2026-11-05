@@ -815,7 +815,7 @@ class CLI(unittest.TestCase):
     """The CLI builds its whole parser on every call, so one bad help string breaks every command; exercise representative commands."""
 
     def run_cli(self, *argv):
-        import contextlib, io, json
+        import contextlib, io
         from process_safety.__main__ import main
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):

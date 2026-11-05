@@ -8,11 +8,12 @@ The standards text itself is paywalled and was not read: confirm coefficients, K
 """
 from __future__ import annotations
 
+from .ranges import validated
+
 import math
 from dataclasses import dataclass, field
 
-R = 8.314462618  # J/mol/K
-ATM = 101.325    # kPa
+from .constants import R, ATM_KPA as ATM
 
 # ASME VIII / API 520 allowable accumulation as fraction of set pressure (gauge) - secondary-source figures, verify.
 ACCUMULATION = {"single_non_fire": 0.10, "multiple_non_fire": 0.16, "fire": 0.21}
@@ -63,6 +64,7 @@ def gas_mass_flux(P1_kpa, P2_kpa, T_K, M, k, Z=1.0) -> tuple[float, str]:
     return math.sqrt(2 * P1 * rho1 * (k / (k - 1)) * (r ** (2 / k) - r ** ((k + 1) / k))), "subcritical"
 
 
+@validated(W_kg_h="mass_flow_kg_h", T_K="temperature_K", P1_kpa="pressure_abs_kPa", P2_kpa="pressure_abs_kPa", M="molar_mass_kg_kmol", k="heat_capacity_ratio", Z="compressibility")
 def gas_area(W_kg_h, T_K, P1_kpa, P2_kpa, M, k, Z=1.0, Kd=0.975, Kb=1.0, Kc=1.0,
              set_g_kpa: float | None = None, valve: str = "conventional") -> ReliefResult:
     """API 520-I gas/vapour sizing. P1 = relieving pressure, P2 = total back pressure (both kPa abs).

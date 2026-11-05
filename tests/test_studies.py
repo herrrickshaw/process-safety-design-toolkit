@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from process_safety import atex, bowtie, fg_mapping, pha, ram, sil, sil_lifecycle, thermal_runaway as tr
-from process_safety.qra import buildings, effects, emergency, study
+from process_safety.qra import buildings, emergency, study
 from process_safety.tools import run_tool
 
 EX = os.path.join(os.path.dirname(__file__), "..", "process_safety", "examples")

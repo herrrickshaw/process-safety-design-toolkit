@@ -1,0 +1,55 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests (stdlib only, includes CLI golden outputs and generated-docs sync)
+        run: python -m unittest discover tests -v
+      - name: Smoke test the installed entry point
+        run: |
+          pip install .
+          process-safety coverage > /dev/null
+          process-safety relief-gas --W 5000 --T 300 --set-g 1000 --M 30 --k 1.3
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - name: Real errors only (syntax, undefined names, unused imports/variables)
+        run: ruff check --select E9,F63,F7,F82,F401,F811,F841 --target-version py310 process_safety tests
+
+  crosscheck:
+    # Independent validation against fluids / thermo / CoolProp and closed-form literature formulas (docs/VALIDATION.md).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fluids thermo CoolProp scipy
+      - run: python tests/crosscheck/validate.py --json crosscheck-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: crosscheck-results
+          path: crosscheck-results.json

@@ -182,7 +182,7 @@ def report(layout: dict, res: dict, prefix: str) -> list[str]:
         w.writeheader()
         w.writerows(rows)
     trs = "".join(f"<tr><td>{html.escape(r['zone'])}</td><td>{r['grade']}</td><td>{r['voting']}</td><td>{100 * r['coverage_1']:.1f}%</td>"
-                  f"<td>{100 * r['coverage_2']:.1f}%</td><td>{'' if r['target'] is None else f'{100 * r['target']:.0f}%'}</td>"
+                  f"<td>{100 * r['coverage_2']:.1f}%</td><td>{'' if r['target'] is None else format(100 * r['target'], '.0f') + '%'}</td>"
                   f"<td>{'' if r['meets_target'] is None else ('YES' if r['meets_target'] else 'NO')}</td></tr>" for r in rows)
     doc = (f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>F&amp;G mapping</title><style>body{{font-family:Helvetica;max-width:900px;"
            f"margin:20px auto}}table{{border-collapse:collapse;width:100%;font-size:12px}}th{{background:#14284b;color:#fff;padding:5px}}"

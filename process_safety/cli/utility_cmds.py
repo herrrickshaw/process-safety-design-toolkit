@@ -1,0 +1,61 @@
+"""Commands about the toolkit itself: coverage map, glossary, input ranges."""
+from __future__ import annotations
+
+from .. import glossary, ranges, standards
+from .registry import command, emit
+
+
+@command("coverage")
+class Coverage:
+    @staticmethod
+    def add_arguments(p):
+        pass
+
+    @staticmethod
+    def run(a, p):
+        for t, (stds, mod, status) in standards.TOPICS.items():
+            print(f"- {t}\n    standards: {', '.join(stds)}\n    code: {mod or '-'}\n    status: {status}")
+
+
+@command("glossary", "search the glossary of terms and abbreviations (no term lists everything)")
+class Glossary:
+    @staticmethod
+    def add_arguments(g):
+        g.add_argument("term", nargs="?", help="text to search in term, expansion and definition")
+        g.add_argument("--markdown", action="store_true", help="print the whole glossary as Markdown (docs/GLOSSARY.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(glossary.markdown(), end="")
+            return 0
+        hits = glossary.search(a.term) if a.term else glossary.entries()
+        for e in hits:
+            name = e["term"] + (f" ({e['expansion']})" if e["expansion"] else "")
+            print(f"{name}\n    {e['definition']}\n    [{e['category']}; {e['applies_to']}]")
+        return 0 if hits else 1
+
+
+@command("ranges", "show the accepted input ranges (hard = rejected, soft = warning)")
+class Ranges:
+    @staticmethod
+    def add_arguments(g):
+        g.add_argument("name", nargs="?", help="one quantity, e.g. temperature_K")
+        g.add_argument("--markdown", action="store_true", help="print the full table as Markdown (docs/RANGES.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(ranges.markdown_table(), end="")
+            return 0
+        if a.name:
+            try:
+                r = ranges.get(a.name)
+            except KeyError:
+                print(f"unknown quantity {a.name!r}; run 'ranges' to list", file=__import__("sys").stderr)
+                return 2
+            emit({"name": r.name, "unit": r.unit, "description": r.description, "hard_range": r.hard_text(), "soft_range": r.soft_text(), "note": r.note})
+            return 0
+        for r in ranges.RANGES.values():
+            print(f"{r.name:28s} {r.unit:9s} possible {r.hard_text():14s} typical {r.soft_text()}")
+        return 0

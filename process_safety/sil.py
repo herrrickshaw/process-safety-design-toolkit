@@ -7,6 +7,8 @@ NOT implemented here.
 """
 from __future__ import annotations
 
+from .ranges import validated
+
 import math
 from dataclasses import dataclass
 
@@ -40,6 +42,7 @@ class LopaResult:
     meets_target_without_sif: bool
 
 
+@validated(initiating_freq_per_yr="frequency_per_yr", tolerable_per_yr="frequency_per_yr")
 def lopa(initiating_freq_per_yr: float, ipl_pfds: list[float], tolerable_per_yr: float,
          conditional_modifiers: float = 1.0) -> LopaResult:
     """Scenario frequency = IE x prod(IPL PFDs) x conditional modifiers (ignition, occupancy, fatality...).
@@ -51,6 +54,7 @@ def lopa(initiating_freq_per_yr: float, ipl_pfds: list[float], tolerable_per_yr:
                       "no SIF needed" if req >= 1 else sil_for_pfd(req), req >= 1)
 
 
+@validated(lambda_du_per_h="failure_rate_per_h", proof_test_h="multiplier_positive", beta="beta_factor")
 def pfd_avg(arch: str, lambda_du_per_h: float, proof_test_h: float, beta: float = 0.0) -> float:
     """Simplified IEC 61508-6 PFDavg. arch in 1oo1, 1oo2, 2oo2, 2oo3. beta = common-cause fraction (0-1)."""
     x = lambda_du_per_h * proof_test_h

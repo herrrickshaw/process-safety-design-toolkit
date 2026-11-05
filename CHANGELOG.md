@@ -1,5 +1,14 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.10.0 - 2026-11-05: streamlined CLI, input ranges, glossary, CI/CD, validation
+* New: `ranges.py` (55 quantities with hard and soft ranges), `glossary.py` (about 115 terms), CLI commands `ranges` and `glossary`, `--no-range-check`, generated `docs/RANGES.md` and `docs/GLOSSARY.md`, `@validated` on `relief.gas_area`, `sil.pfd_avg`, `sil.lopa`, `electrical.idmt_time_s` and `fireball.fireball`.
+* Refactor (no change to any output): the 437-line `__main__.py` with a 34-branch `if/elif` is now a command registry (`cli/`), one class per command, with range checks applied by the framework. `constants.py` replaces `R`, `G` and atmospheric pressure defined in 9 modules. A golden test pins 40 CLI outputs from before the refactor; all match.
+* Fixed (found by the lint step): `fg_mapping.py` reused a quote character inside an f-string, a syntax error on Python 3.10 and 3.11 although the package declares `>=3.10`; `psm.py` annotated with `datetime` without importing it. Removed the unused imports.
+* CI/CD: GitHub Actions matrix on Python 3.10 to 3.13, lint (real errors only), optional cross-check job, tag-driven release workflow that checks tag against `pyproject.toml`, Dependabot for actions.
+* Validation: `tests/crosscheck/validate.py` runs 124 checks against fluids, thermo, CoolProp and closed-form literature formulas; all within tolerance. `docs/VALIDATION.md` lists them and the known differences (liquid relief area consistently 4.7% below `fluids`, cause not resolved).
+* Rejected: a heavyweight linter ruleset (style rules would touch hundreds of lines of working numerical code for no safety gain); one class per physical model (the modules are already single-purpose); making soft ranges errors (they are judgement, and a deliberate extreme case must still run).
+* Rejected: hard-failing on unknown range names at call time rather than import time; typos now fail when the module is imported.
+
 ## 0.9.0 - 2026-11-05: iFluids service map and data-centre helpers
 * New: `datacentre` (PUE, cooling-water balance, evaporative water, UPS battery and diesel sizing, N/N+1/2N availability, generic HAZID
   prompts), CLI `datacentre`, docs/DATACENTRE.md, docs/IFLUIDS_SERVICES.md (brochure services mapped to modules, with gaps), eight new
