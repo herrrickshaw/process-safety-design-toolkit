@@ -652,6 +652,191 @@
    "checked": "2026-11-06"
   },
   {
+   "id": "honeywell-unisim-r460",
+   "title": "UniSim Design R460 brochure (sizing, rating and costing; Cleopatra Enterprise integration)",
+   "publisher": "Honeywell",
+   "kind": "guidance",
+   "url": "https://process.honeywell.com/content/dam/process/en/documents/document-lists/hon-ia-hps-bro-unisim-design-r460-vcma.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [
+    "lng_cost",
+    "recommendation_cost"
+   ],
+   "note": "vendor brochure: states integration with Cost Engineering's Cleopatra Enterprise for costing; older release",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "honeywell-unisim-faq",
+   "title": "UniSim Design external FAQ",
+   "publisher": "Honeywell",
+   "kind": "guidance",
+   "url": "https://hcenews.honeywell.com/rs/093-RAU-212/images/UNISIM_External_FAQ.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [],
+   "note": "vendor FAQ: lists Cleopatra Plus for cost estimating and Capex optimisation use",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cleopatra-webinar",
+   "title": "Learn how to easily design and evaluate the cost of your projects (UniSim + Cleopatra)",
+   "publisher": "Cleopatra Enterprise / Honeywell",
+   "kind": "guidance",
+   "url": "https://cleopatraenterprise.com/webinar-learn-how-to-easily-design-and-evaluate-the-cost-of-your-projects",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [],
+   "note": "webinar page; the data flow between simulator and costing software was not found",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "netl-qgess-cost",
+   "title": "QGESS: Cost estimation methodology for NETL assessments of power plant performance",
+   "publisher": "US DOE NETL",
+   "kind": "guidance",
+   "url": "https://netl.doe.gov/projects/files/QGESSCostEstMethodforNETLAssessmentsofPowerPlantPerformance_022621.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "cost-estimation",
+    "aace",
+    "methodology"
+   ],
+   "modules": [
+    "recommendation_cost",
+    "lng_cost"
+   ],
+   "note": "public worked methodology (bare erected cost to total overnight cost, AACE Class 4 target); power-plant context; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "netl-qgess-scaling",
+   "title": "QGESS: Capital cost scaling methodology, Revision 4",
+   "publisher": "US DOE NETL",
+   "kind": "guidance",
+   "url": "https://www.osti.gov/servlets/purl/1573493",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "cost-estimation",
+    "scaling",
+    "escalation"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "scaling of legacy estimates by size, date and location; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aace-18r97",
+   "title": "AACE RP 18R-97 Cost estimate classification system, process industries",
+   "publisher": "AACE International",
+   "kind": "standard",
+   "url": "https://library.aacei.org/pgd01/pgd01.shtml",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "aace",
+    "accuracy"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "copyrighted; class ranges used in docs/COST_ESTIMATION.md are those quoted in the ORIMIZ factor file and NETL, not read from AACE",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "biosteam-tea",
+   "title": "BioSTEAM techno-economic analysis tutorial",
+   "publisher": "BioSTEAM (Univ. of Illinois)",
+   "kind": "data-tool",
+   "url": "https://biosteam.readthedocs.io/en/latest/tutorial/Techno-economic_analysis.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "lang-factor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "open-source Python TEA: installed cost via Lang factor or bare-module factors, cash-flow analysis; licence not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "qsdsan-tea",
+   "title": "QSDsan techno-economic analysis tutorial",
+   "publisher": "QSDsan",
+   "kind": "data-tool",
+   "url": "https://qsdsan.readthedocs.io/en/latest/tutorials/7_TEA.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "cepci"
+   ],
+   "modules": [],
+   "note": "builds on BioSTEAM TEA; exposes a CEPCI input and Lang factor; licence not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ogj-lng-benchmark",
+   "title": "Benchmarking study compares LNG plant costs",
+   "publisher": "Oil & Gas Journal",
+   "kind": "news",
+   "url": "https://ogj.com/drilling-production/production-operations/article/17239949/benchmarking-study-compares-lng-plant-costs",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng",
+    "benchmark"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "older trade article; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
    "id": "spe-focus-ps",
    "title": "SPE In Focus: Process Safety",
    "publisher": "Society of Petroleum Engineers",
