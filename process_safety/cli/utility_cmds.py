@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import glossary, ranges, standards
+from .. import glossary, literature, ranges, standards
 from .registry import command, emit
 
 
@@ -59,3 +59,26 @@ class Ranges:
         for r in ranges.RANGES.values():
             print(f"{r.name:28s} {r.unit:9s} possible {r.hard_text():14s} typical {r.soft_text()}")
         return 0
+
+
+@command("literature", "search the curated literature and source index (regulators, investigations, journals, tools)")
+class Literature:
+    @staticmethod
+    def add_arguments(lp):
+        lp.add_argument("text", nargs="?", help="text to search in title, publisher, note and topics")
+        lp.add_argument("--topic"); lp.add_argument("--module"); lp.add_argument("--region", help="e.g. US, UK, EU, IN, SG, AU, ME, global")
+        lp.add_argument("--kind", help="regulation, standard, guidance, investigation, database, association, journal, news, data-tool")
+        lp.add_argument("--read-only", action="store_true", help="only sources whose content was read for the toolkit")
+        lp.add_argument("--markdown", action="store_true", help="print the whole index as Markdown (docs/LITERATURE.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(literature.markdown(), end="")
+            return 0
+        hits = literature.search(a.text, a.topic, a.module, a.region, a.kind, a.read_only)
+        for e in hits:
+            print(f"{e['title']}\n    {e['publisher']} [{e['region']}, {e['kind']}, {e['access']}, read: {e['read']}, HTTP {e.get('http_status', '?')}]\n    {e['url']}")
+            if e["note"]:
+                print(f"    {e['note']}")
+        return 0 if hits else 1

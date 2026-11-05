@@ -130,6 +130,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/LITERATURE.md`: 49 curated sources (regulations, regulators, investigation bodies, incident databases, associations, journals, reference tools) with topic and module links, what was read versus URL-checked only, and the HTTP status on 2026-11-06. Search with `python -m process_safety literature TEXT [--topic T] [--module M] [--region R]`.
 * `docs/REGULATORY_LANDSCAPE.md`: process safety regimes by country, governing body and company, with a confidence grade per row (rule text read, regulator page read, search summary, or not found).
 * `docs/DESIGN_AWARENESS.md`: process safety review steps, the design choices each drives, results from the use cases, and incident instances, with the toolkit command for each.
 * `docs/USE_CASES.md`: eight worked scenarios (refinery fire case, flashing LPG relief, terminal siting, LOPA to proof-test interval, regulatory screen, electrical, data centre, occupational) with the real commands and outputs; every command is run by the tests.

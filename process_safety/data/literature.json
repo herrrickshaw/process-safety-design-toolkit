@@ -1,0 +1,980 @@
+{
+ "compiled": "2026-11-06",
+ "note": "read=text/page means that material was read for the toolkit; read=no means the URL was checked but the content was not read.",
+ "entries": [
+  {
+   "id": "osha-1910-119",
+   "title": "29 CFR 1910.119 Process safety management of highly hazardous chemicals",
+   "publisher": "OSHA (US)",
+   "kind": "regulation",
+   "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "psm",
+    "regulation"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "14 elements, Appendix A",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "osha-psm-home",
+   "title": "OSHA Process Safety Management topic page",
+   "publisher": "OSHA (US)",
+   "kind": "guidance",
+   "url": "https://www.osha.gov/process-safety-management",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "psm",
+    "regulation"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "enforcement directives and NEP are linked from here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "epa-rmp",
+   "title": "EPA Risk Management Program (40 CFR 68)",
+   "publisher": "EPA (US)",
+   "kind": "regulation",
+   "url": "https://www.epa.gov/rmp",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "rmp",
+    "regulation",
+    "consequence"
+   ],
+   "modules": [
+    "rmp"
+   ],
+   "note": "2026 revision proposal pending (see DESIGN_AWARENESS.md)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "phmsa-home",
+   "title": "PHMSA pipeline and LNG safety",
+   "publisher": "PHMSA (US)",
+   "kind": "regulation",
+   "url": "https://www.phmsa.dot.gov/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "pipeline",
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "pipeline",
+    "lng"
+   ],
+   "note": "49 CFR 192/193 read; Oct 2026 LNG NPRM proposed",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "natlaw-phmsa-lng",
+   "title": "PHMSA proposes comprehensive revisions to safety regulations for LNG facilities",
+   "publisher": "National Law Review / Van Ness Feldman",
+   "kind": "news",
+   "url": "https://natlawreview.com/article/phmsa-proposes-comprehensive-revisions-safety-regulations-lng-facilities",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "lng"
+   ],
+   "note": "law-firm summary of the 28 Oct 2026 NPRM",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "seveso-iii",
+   "title": "Directive 2012/18/EU (Seveso III)",
+   "publisher": "European Union",
+   "kind": "regulation",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018",
+   "access": "free",
+   "read": "text",
+   "region": "EU",
+   "topics": [
+    "seveso",
+    "regulation"
+   ],
+   "modules": [
+    "mah"
+   ],
+   "note": "Annex I parsed into data/seveso_iii_annex_i.json",
+   "http_status": 202,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-comah",
+   "title": "COMAH Regulations 2015 guidance",
+   "publisher": "HSE (UK)",
+   "kind": "regulation",
+   "url": "https://www.hse.gov.uk/comah/comah15.htm",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "comah",
+    "regulation",
+    "safety-case"
+   ],
+   "modules": [
+    "mah",
+    "qra"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-comah-home",
+   "title": "HSE COMAH home (Buncefield, competent authority material)",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/comah/",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "comah",
+    "incident"
+   ],
+   "modules": [
+    "overfill"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-hsg254",
+   "title": "HSG254 Developing process safety indicators",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/hsg254.htm",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "indicators",
+    "management"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-risk",
+   "title": "HSE risk management pages (ALARP, tolerability)",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/risk/",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "risk-criteria",
+    "alarp",
+    "qra"
+   ],
+   "modules": [
+    "qra"
+   ],
+   "note": "the R2P2 criteria used as QRA presets came from secondary sources; the old direct R2P2 URL returned 404 on 2026-11-06",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "mom-mhi",
+   "title": "Major Hazard Installations: safety case regime",
+   "publisher": "Ministry of Manpower (Singapore)",
+   "kind": "regulation",
+   "url": "https://www.mom.gov.sg/maintenance/workplace-safety-and-health/major-hazard-installations",
+   "access": "free",
+   "read": "page",
+   "region": "SG",
+   "topics": [
+    "safety-case",
+    "regulation",
+    "qra"
+   ],
+   "modules": [
+    "qra"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "safework-mhf",
+   "title": "Major hazard facilities",
+   "publisher": "Safe Work Australia",
+   "kind": "guidance",
+   "url": "https://safeworkaustralia.gov.au/safety-topic/industry-and-business/major-hazard-facilities",
+   "access": "free",
+   "read": "no",
+   "region": "AU",
+   "topics": [
+    "safety-case",
+    "regulation"
+   ],
+   "modules": [],
+   "note": "fetch timed out on 2026-11-06; verify access",
+   "http_status": 302,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "nopsema",
+   "title": "NOPSEMA offshore safety case regime",
+   "publisher": "NOPSEMA (Australia)",
+   "kind": "regulation",
+   "url": "https://www.nopsema.gov.au/",
+   "access": "free",
+   "read": "no",
+   "region": "AU",
+   "topics": [
+    "safety-case",
+    "offshore",
+    "regulation"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 0,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oisd-standards",
+   "title": "OISD standards list (105 standards)",
+   "publisher": "OISD (India)",
+   "kind": "standard",
+   "url": "https://www.oisd.gov.in/oisd-standards",
+   "access": "mixed",
+   "read": "page",
+   "region": "IN",
+   "topics": [
+    "india",
+    "standards",
+    "oil-gas"
+   ],
+   "modules": [
+    "standards"
+   ],
+   "note": "list and editions in data/oisd_standards.json; contents not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "peso",
+   "title": "Petroleum and Explosives Safety Organisation",
+   "publisher": "PESO (India)",
+   "kind": "regulation",
+   "url": "https://peso.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "explosives"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 0,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "pngrb",
+   "title": "Petroleum and Natural Gas Regulatory Board",
+   "publisher": "PNGRB (India)",
+   "kind": "regulation",
+   "url": "https://www.pngrb.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "gas"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "dgfasli",
+   "title": "Directorate General Factory Advice Service and Labour Institutes",
+   "publisher": "DGFASLI (India)",
+   "kind": "regulation",
+   "url": "https://dgfasli.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "factories"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ilo-c174",
+   "title": "ILO Convention 174, Prevention of Major Industrial Accidents",
+   "publisher": "ILO",
+   "kind": "regulation",
+   "url": "https://normlex.ilo.org/dyn/nrmlx_en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:C174",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "regulation",
+    "international"
+   ],
+   "modules": [],
+   "note": "ratification counts differ between sources; check NORMLEX",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oecd-chem-accidents",
+   "title": "OECD Guiding Principles for Chemical Accident Prevention, Preparedness and Response",
+   "publisher": "OECD",
+   "kind": "guidance",
+   "url": "https://www.oecd.org/en/topics/chemical-accidents.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "international",
+    "guidance",
+    "psm"
+   ],
+   "modules": [],
+   "note": "third edition supports the 2023 Council Recommendation",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "csb-investigations",
+   "title": "CSB investigations",
+   "publisher": "US Chemical Safety Board",
+   "kind": "investigation",
+   "url": "https://www.csb.gov/investigations/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "incident",
+    "investigation"
+   ],
+   "modules": [
+    "psm",
+    "overfill"
+   ],
+   "note": "CSB investigates and recommends; it does not regulate",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "csb-recommendations",
+   "title": "CSB recommendations",
+   "publisher": "US Chemical Safety Board",
+   "kind": "investigation",
+   "url": "https://www.csb.gov/recommendations/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "incident",
+    "investigation"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "emars",
+   "title": "eMARS major accident reporting system",
+   "publisher": "EU Joint Research Centre",
+   "kind": "database",
+   "url": "https://emars.jrc.ec.europa.eu/",
+   "access": "free",
+   "read": "no",
+   "region": "EU",
+   "topics": [
+    "incident",
+    "database",
+    "seveso"
+   ],
+   "modules": [
+    "mah"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aria",
+   "title": "ARIA accident database (BARPI)",
+   "publisher": "French Ministry of Ecological Transition",
+   "kind": "database",
+   "url": "https://www.aria.developpement-durable.gouv.fr/",
+   "access": "free",
+   "read": "no",
+   "region": "FR",
+   "topics": [
+    "incident",
+    "database"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-bp-oregon",
+   "title": "Investigators find operating, training deficiencies contributed to fatal refinery explosion",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/investigators-find-operating-training-deficiencies-contributed-to-fatal-refinery-explosion",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "incident",
+    "overfill",
+    "relief",
+    "psm"
+   ],
+   "modules": [
+    "relief",
+    "overfill"
+   ],
+   "note": "BP Oregon, Ohio 2022; OSHA findings",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-adnoc-psm",
+   "title": "Approach aims to prevent process safety incidents (ADNOC PSM framework)",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/approach-aims-to-prevent-process-safety-incidents",
+   "access": "free",
+   "read": "page",
+   "region": "ME",
+   "topics": [
+    "psm",
+    "incident",
+    "company"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "15 elements; 50+ event review; SPE paper 210971",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-energy-transition",
+   "title": "Are process safety standards and practices ready for the energy transition?",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/are-process-safety-standards-and-practices-ready-for-the-energy-transition",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "psm",
+    "management-of-change",
+    "energy-transition"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "spe-focus-ps",
+   "title": "SPE In Focus: Process Safety",
+   "publisher": "Society of Petroleum Engineers",
+   "kind": "association",
+   "url": "https://www.spe.org/en/focus/process-safety/",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "psm",
+    "oil-gas"
+   ],
+   "modules": [],
+   "note": "index of articles, papers on OnePetro (many paywalled)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "afpm-ps",
+   "title": "AFPM process safety",
+   "publisher": "American Fuel & Petrochemical Manufacturers",
+   "kind": "association",
+   "url": "https://www.afpm.org/issues/safety-health/process-safety",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "refining",
+    "rmp"
+   ],
+   "modules": [
+    "rmp"
+   ],
+   "note": "industry-association position",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ccps",
+   "title": "Center for Chemical Process Safety",
+   "publisher": "AIChE",
+   "kind": "association",
+   "url": "https://www.aiche.org/ccps",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "psm",
+    "guidelines",
+    "rbps"
+   ],
+   "modules": [
+    "psm",
+    "hazop",
+    "sil"
+   ],
+   "note": "books are paywalled",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ccps-beacon",
+   "title": "Process Safety Beacon",
+   "publisher": "CCPS",
+   "kind": "news",
+   "url": "https://ccps.aiche.org/process-safety-beacon",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "incident",
+    "awareness"
+   ],
+   "modules": [],
+   "note": "returned a bot check (HTTP 403) on 2026-11-06; not read, no bypass",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "tamu-mkopsc",
+   "title": "Mary Kay O'Connor Process Safety Center",
+   "publisher": "Texas A&M University",
+   "kind": "association",
+   "url": "https://psc.tamu.edu/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-safety",
+   "title": "IChemE Safety Centre",
+   "publisher": "IChemE",
+   "kind": "association",
+   "url": "https://www.icheme.org/knowledge/safety-centre/",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "incident",
+    "lessons"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "energy-inst",
+   "title": "Energy Institute technical publications",
+   "publisher": "Energy Institute",
+   "kind": "association",
+   "url": "https://www.energyinst.org/technical",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "guidelines",
+    "oil-gas",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "iogp-safety",
+   "title": "IOGP safety, including Life-Saving Rules and process safety reports",
+   "publisher": "IOGP",
+   "kind": "association",
+   "url": "https://www.iogp.org/safety/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "life-saving-rules",
+    "psm",
+    "oil-gas"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "sigma-hse-articles",
+   "title": "Sigma-HSE news and insights",
+   "publisher": "Sigma-HSE",
+   "kind": "news",
+   "url": "https://sigma-hse.com/news-insights/",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "hazop",
+    "dust",
+    "atex",
+    "reaction-hazard"
+   ],
+   "modules": [
+    "atex",
+    "reaction_hazard"
+   ],
+   "note": "titles only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "sigma-early-design",
+   "title": "Why are early-stage design decisions critical for process safety?",
+   "publisher": "Sigma-HSE",
+   "kind": "news",
+   "url": "https://sigma-hse.com/news-insights/early-stage-design-decisions/",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "reaction-hazard",
+    "design",
+    "scale-up"
+   ],
+   "modules": [
+    "reaction_hazard",
+    "thermal_runaway"
+   ],
+   "note": "statistics quoted by the article, not checked",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psmnews",
+   "title": "PSM News (James Klein)",
+   "publisher": "Process Safety Priorities LLC",
+   "kind": "news",
+   "url": "https://psmnews.com/",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "blog"
+   ],
+   "modules": [],
+   "note": "single-author blog; low weight; nothing used",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jlppi",
+   "title": "Journal of Loss Prevention in the Process Industries",
+   "publisher": "Elsevier",
+   "kind": "journal",
+   "url": "https://www.sciencedirect.com/journal/journal-of-loss-prevention-in-the-process-industries",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "consequence",
+    "qra"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psep",
+   "title": "Process Safety and Environmental Protection",
+   "publisher": "Elsevier / IChemE",
+   "kind": "journal",
+   "url": "https://www.sciencedirect.com/journal/process-safety-and-environmental-protection",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psp",
+   "title": "Process Safety Progress",
+   "publisher": "AIChE / Wiley",
+   "kind": "journal",
+   "url": "https://aiche.onlinelibrary.wiley.com/journal/15475913",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "coolprop",
+   "title": "CoolProp",
+   "publisher": "CoolProp project",
+   "kind": "data-tool",
+   "url": "https://coolprop.org/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "properties",
+    "validation"
+   ],
+   "modules": [
+    "fluiddata",
+    "props"
+   ],
+   "note": "MIT; source of data/fluid_screening.json and test oracle",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "fluids",
+   "title": "fluids (ChEDL)",
+   "publisher": "Caleb Bell",
+   "kind": "data-tool",
+   "url": "https://fluids.readthedocs.io/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "validation",
+    "relief",
+    "hydraulics"
+   ],
+   "modules": [
+    "relief",
+    "hydraulics",
+    "separator"
+   ],
+   "note": "MIT; test oracle only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "thermo",
+   "title": "thermo (ChEDL)",
+   "publisher": "Caleb Bell",
+   "kind": "data-tool",
+   "url": "https://thermo.readthedocs.io/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "properties",
+    "validation"
+   ],
+   "modules": [
+    "props"
+   ],
+   "note": "MIT; test oracle only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "bibmon",
+   "title": "BibMon (Petrobras)",
+   "publisher": "Petrobras",
+   "kind": "data-tool",
+   "url": "https://github.com/petrobras/BibMon",
+   "access": "free",
+   "read": "no",
+   "region": "BR",
+   "topics": [
+    "monitoring",
+    "fault-detection"
+   ],
+   "modules": [],
+   "note": "Apache-2.0; complementary, not integrated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "otsafe",
+   "title": "OTsafe",
+   "publisher": "p4lsec",
+   "kind": "data-tool",
+   "url": "https://github.com/p4lsec/otsafe",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "ot-security",
+    "safety-modelling"
+   ],
+   "modules": [],
+   "note": "Apache-2.0; complementary, not integrated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "doe-hdbk-1101",
+   "title": "DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals",
+   "publisher": "US DOE",
+   "kind": "guidance",
+   "url": "https://www.energy.gov/documents/doe-hdbk-1101-96",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "audit"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aiga-99",
+   "title": "AIGA 99/20 Process safety management",
+   "publisher": "AIGA",
+   "kind": "guidance",
+   "url": "https://asiaiga.org/uploaded_docs/en_AIGA_99_20_Process_Safety_Mangement.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "psm"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cfr-193",
+   "title": "49 CFR 193 LNG facilities: federal safety standards",
+   "publisher": "eCFR",
+   "kind": "regulation",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-D/part-193",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "lng"
+   ],
+   "note": "current text; NPRM would replace",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cfr-192",
+   "title": "49 CFR 192 Transportation of natural and other gas by pipeline",
+   "publisher": "eCFR",
+   "kind": "regulation",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-D/part-192",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "pipeline",
+    "regulation"
+   ],
+   "modules": [
+    "pipeline"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  }
+ ]
+}
