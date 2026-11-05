@@ -135,7 +135,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
-* `docs/PUBLIC_REQUIREMENTS_SURVEY.md`: counts of normative statements by recommendation type across 17 public oil, gas and LNG documents (counts only, no quoted text).
+* `docs/PUBLIC_REQUIREMENTS_SURVEY.md`: counts of normative statements by recommendation type across 23 public oil, gas, LNG and safety-in-design documents (counts only, no quoted text).
 * `docs/REQUIREMENTS_EXTRACT.md`: a local extractor for "shall"/"should" statements in standards and design practices you hold (private output only), with the project documents it connects to.
 * `docs/PLANT_INGEST.md`: ingesting flow-scheme/HMB data, P&ID registers and a PHA register, and the reasoning chain for why studies recommend what they do.
 * `docs/DESIGN_LIFECYCLE_PLAN.md`: a structured plan from process concept through flow scheme, heat and material balance, equipment design, P&ID-level design and safety studies to design tweaks and safe operation, mapped to the toolkit.
