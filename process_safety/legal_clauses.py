@@ -86,7 +86,7 @@ def markdown() -> str:
              "**notify**ing the regulator or updating safety documents, and the only route that sets a legal duty aside (**exemption**).",
              "Grade **A**: the legal text was read for the toolkit. Grade **B**: seen only in regulator guidance or a secondary source; confirm against the legislation. "
              "Paraphrased; not legal advice.", "",
-             f"{len(CLAUSES)} clauses from {len({c['region'] for c in CLAUSES})} regimes. **Not yet read** (see `docs/REGULATORY_LANDSCAPE.md` for what is known): India, China, Japan, Brazil, Norway, the Gulf states, the Australian states and Canadian provinces, and others.", ""]
+             f"{len(CLAUSES)} clauses from {len({c['region'] for c in CLAUSES})} regimes. **Not yet read** (see `docs/REGULATORY_LANDSCAPE.md` for what is known): China, Japan, Brazil, Norway, the Gulf states, the Australian states and Canadian provinces, and others.", ""]
     for t in TOPICS:
         rows = [c for c in CLAUSES if c["topic"] == t]
         if not rows:

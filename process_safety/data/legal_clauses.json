@@ -341,6 +341,171 @@
    "requires": "The Act contains no discretionary exemption from Arts. 44-46; covered facilities are set by decree. The Enforcement Decree was not read. The KLRI translation is for reference and not legally effective.",
    "for_derogations": "Scope is fixed by decree, so a company derogation cannot exempt a covered facility.",
    "url": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=63609"
+  },
+  {
+   "id": "IN-FA-7A",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 7A(1)-(3)",
+   "topic": "general-duty",
+   "grade": "A",
+   "requires": "Every occupier must ensure, so far as reasonably practicable, the health, safety and welfare of workers, including safe plant and systems of work, safe handling and storage of substances, and a written safety policy. (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "An internal derogation cannot lower this duty; it can only be a documented way of meeting it.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-7B",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 7B(1)",
+   "topic": "general-duty",
+   "grade": "A",
+   "requires": "Anyone who designs, manufactures, imports or supplies an article for factory use must ensure, so far as reasonably practicable, that it is safe when properly used, test it and give adequate information; imported articles must meet the Indian or the higher foreign standard. (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "A designer or supplier cannot derogate away this statutory design-safety duty.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-41A",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 41A(1), (2), (5)",
+   "topic": "change",
+   "grade": "A",
+   "requires": "The State Government may appoint a Site Appraisal Committee to advise on the initial location of a hazardous-process factory or the expansion of one; it recommends within 90 days. (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "A derogation that amounts to an expansion of a hazardous-process factory needs State permission, not only internal sign-off.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-41B",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 41B(1), (2), (4), (5), (7)",
+   "topic": "notify",
+   "grade": "A",
+   "requires": "The occupier of a hazardous-process factory must disclose hazard information to workers, the Chief Inspector, the local authority and the public nearby, inform the Chief Inspector of any change to the safety policy, get approval of the on-site emergency plan, and inform the Chief Inspector of the nature and details of a hazardous process at least thirty days before starting it (failure makes the licence liable to cancellation, s. 41B(6)). (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "A derogation that changes the policy, storage or handling measures, or starts a new hazardous process, still triggers notice or approval to the Chief Inspector.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-41G",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 41G proviso",
+   "topic": "exemption",
+   "grade": "A",
+   "requires": "A Safety Committee with equal worker and management representation is mandatory where a hazardous process takes place; only the State Government may exempt an occupier or class of factories, by written order with recorded reasons. (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "An exemption that only the State Government can grant; the occupier cannot exempt itself.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-5",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 5",
+   "topic": "exemption",
+   "grade": "A",
+   "requires": "Only the State Government may exempt a factory or class of factories from provisions of the Act (except s. 67), and only in a public emergency (a grave threat to the security of India), by Gazette notification, for no more than three months at a time. (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "The only general exemption route in the Act; ordinary design or cost reasons cannot ground it and it is not available to the occupier.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-FA-96A",
+   "region": "India",
+   "instrument": "The Factories Act, 1948",
+   "provision": "s. 96A(1)",
+   "topic": "general-duty",
+   "grade": "A",
+   "requires": "Contravening s. 41B, 41C or 41H or the rules under them is punishable with imprisonment up to seven years and a fine up to two lakh rupees, with additional daily fines for a continuing contravention (sub-section (2) raises the term where it continues beyond a year). (Read in a state-government-hosted copy of the Act with the 1987 amendments; later amendments not checked.)",
+   "for_derogations": "Acting on an internal derogation that breaches those sections exposes the occupier to criminal liability; internal approval is no defence.",
+   "url": "https://www.hrylabour.gov.in/staticdocs/labourActpdfdocs/The_FactoriesAct.pdf"
+  },
+  {
+   "id": "IN-MSIHC-4",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 4(1)-(2)",
+   "topic": "general-duty",
+   "grade": "B",
+   "requires": "For an industrial activity meeting the Schedule 1 criteria or isolated storage at or above the Schedule 2 threshold, the occupier must provide evidence that major accident hazards have been identified and adequate steps taken to prevent major accidents and limit their consequences. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "A derogation cannot remove the duty to evidence that hazards are identified and controlled; it must itself be evidenced as adequate.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-6",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 6(2)(a)(ii)",
+   "topic": "change",
+   "grade": "B",
+   "requires": "An existing industrial activity in which a modification likely to cover major accident hazards has been made is treated as a 'new industrial activity', deemed to commence on the date of the modification. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "A derogation that physically changes the plant in a way likely to cover major accident hazards makes the activity 'new' for rules 7-15.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-7",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 7(1)-(2)",
+   "topic": "notify",
+   "grade": "B",
+   "requires": "The occupier must not undertake a covered activity unless a Schedule 7 report was sent to the concerned authority at least three months beforehand (or a shorter agreed period); an activity that comes to hold a threshold quantity of an additional hazardous chemical is treated as a different activity. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "Adding a chemical or quantity through a derogation triggers fresh site notification.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-8",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 8",
+   "topic": "notify",
+   "grade": "B",
+   "requires": "If an activity already reported under r. 7(1) changes (threshold quantity up or down, or cessation) in a way that affects the reported particulars, the occupier must forthwith send a further report to the authority. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "A change made under a derogation that alters the reported particulars must be reported promptly.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-10",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 10(1)",
+   "topic": "general-duty",
+   "grade": "B",
+   "requires": "The occupier must not undertake a covered activity unless a safety report with the Schedule 8 information has been prepared and sent to the concerned authority at least ninety days before commencing. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "The safety report is a pre-condition of operating, and a derogation moves the design away from the filed basis.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-11",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 11(1)-(2)",
+   "topic": "change",
+   "grade": "B",
+   "requires": "After making a safety report, the occupier must not modify the activity in a way that could materially affect its particulars unless a further report has been sent to the authority at least ninety days before the modification; a further report is also due within three years of the last. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "The central constraint on a derogation under these rules: a change that materially affects the safety-report basis needs an updated report 90 days beforehand.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-13",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 13(1)-(3)",
+   "topic": "change",
+   "grade": "B",
+   "requires": "The occupier must prepare and keep up to date an on-site emergency plan that takes account of any modification of the industrial activity, and affected people on site must be informed. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "Each derogation that modifies the activity requires the emergency plan to be revised and communicated.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
+  },
+  {
+   "id": "IN-MSIHC-20",
+   "region": "India",
+   "instrument": "Manufacture, Storage and Import of Hazardous Chemical Rules, 1989 (MSIHC)",
+   "provision": "r. 20",
+   "topic": "exemption",
+   "grade": "B",
+   "requires": "Only the Central Government may change the Schedules, by Gazette notification. Rules 1-20 as printed contain no occupier-level exemption or relaxation rule. (Read in a noisy OCR printout of the 1989 text hosted by CPCB/Parivesh; the 1994 and 2000 amendments and the Schedules were not checked.)",
+   "for_derogations": "The occupier has no self-exemption power; a company derogation cannot waive any duty.",
+   "url": "https://cpc.parivesh.nic.in/writereaddata/ENV/HSM/note27.pdf"
   }
  ]
 }
