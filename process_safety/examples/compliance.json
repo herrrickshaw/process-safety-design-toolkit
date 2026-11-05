@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-11-05",
+  "clauses": [
+    {"id": "4.1.1", "source": "example practice", "tier": "MUST", "text": "Every pressure vessel shall be protected by a pressure relief device.", "status": "complied"},
+    {"id": "4.1.3", "source": "example practice", "tier": "MUST", "text": "Relief devices shall not discharge flammable vapour to atmosphere.", "status": "derogated",
+     "derogation": {"justification": "Existing vent to a safe location 18 m above grade; flare tie-in not available before the next turnaround.",
+                    "risk_assessment_ref": "QRA-2026-014", "compensating_measures": ["gas detection at the vent", "ignition-source exclusion zone"],
+                    "approved_by_level": "technical-authority", "expiry": "2027-06-30"}},
+    {"id": "4.2.2", "source": "example practice", "tier": "MUST", "text": "A high level trip shall be independent of the control system.", "status": "derogated",
+     "derogation": {"justification": "Shared logic solver accepted for the pilot phase.", "approved_by_level": "discipline-lead", "expiry": "2026-09-30"}},
+    {"id": "4.1.2", "source": "example practice", "tier": "SHOULD", "text": "The relief valve inlet line should be as short as practicable.", "status": "derogated",
+     "derogation": {"justification": "Inlet loss 2.1% of set pressure with the longer route; below the 3% limit.", "approved_by_level": "discipline-lead"}},
+    {"id": "6.3", "source": "example practice", "tier": "SHOULD", "text": "Fire-water monitors should be remotely operable.", "status": "open"},
+    {"id": "7.4", "source": "example practice", "tier": "CAN", "text": "A second level transmitter may be installed for diagnostics.", "status": "not-adopted"},
+    {"id": "9.1", "source": "example regulation", "tier": "MUST", "statutory": true, "text": "The operator shall notify the authority before start-up.", "status": "derogated",
+     "derogation": {"justification": "Notification deferred."}}
+  ]
+}

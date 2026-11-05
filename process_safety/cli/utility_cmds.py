@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import glossary, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
+from .. import compliance, glossary, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
 from .registry import command, emit
 
 
@@ -154,4 +154,37 @@ class Requirements:
         emit(out)
         for r in rows[: a.show]:
             print(f"[{r['file']} {r['clause']}] ({r['modality']}) {r['text']}")
+        return 0
+
+
+@command("compliance", "tiered compliance (must / should / can) and derogations: check a register, or start one from a requirements extract")
+class Compliance:
+    @staticmethod
+    def add_arguments(cp):
+        cp.add_argument("register", nargs="?", help="register JSON ({'as_of': date, 'clauses': [...]}); see process_safety/examples/compliance.json")
+        cp.add_argument("--as-of", help="date for expiry checks, YYYY-MM-DD (default: the register's as_of, else today)")
+        cp.add_argument("--init", metavar="EXTRACT_CSV", help="start a register (every clause open) from a CSV written by the requirements command")
+        cp.add_argument("--out", help="with --init: register JSON to write; must be outside version control or git-ignored")
+        cp.add_argument("--allow-tracked", action="store_true", help="write even if --out is inside a git repository and not ignored")
+
+    @staticmethod
+    def run(a, p):
+        import datetime as dt
+        try:
+            if a.init:
+                if not a.out:
+                    p.error("--init needs --out")
+                if requirements_extract.git_ignored(a.out) is False and not a.allow_tracked:
+                    p.error(f"{a.out} is inside a git repository and not ignored: a register built from extracted statements must not be committed.")
+                import json
+                reg = compliance.init_register(a.init)
+                with open(a.out, "w", encoding="utf-8") as fh:
+                    json.dump(reg, fh, indent=1)
+                emit({"clauses": len(reg["clauses"]), "by_tier": {t: sum(c["tier"] == t for c in reg["clauses"]) for t in compliance.TIERS}, "written_to": a.out})
+                return 0
+            if not a.register:
+                p.error("give a register JSON, or --init EXTRACT_CSV --out FILE")
+            emit(compliance.evaluate(compliance.load(a.register), dt.date.fromisoformat(a.as_of) if a.as_of else None))
+        except (OSError, ValueError) as e:
+            p.error(str(e))
         return 0
