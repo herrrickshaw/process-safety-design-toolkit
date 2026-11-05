@@ -60,7 +60,7 @@ TOPICS = {
     "HAZOP worksheet generation": (["IEC 61882", "CCPS"], "hazop.generate/to_csv", "worksheet skeleton + generic cause prompts; the study itself is a team exercise"),
     "Combustion / flare emissions": (["GHG Protocol", "CPCB/MoEFCC rules (not read)"], "emissions.*", "element balance; efficiency/GWP are inputs"),
     "Reaction hazard screening (chemicals / pharma)": (["Stoessel", "DIERS"], "reaction_hazard.*", "dT_ad and MTSR only; calorimetry, criticality classes, runaway vent sizing not"),
-    "Two-phase / flashing relief discharge": (["API 520-I Annex C (method named, not read)", "DIERS"], "twophase.*", "omega method, homogeneous equilibrium, choked and subcritical flux; saturated or low-subcooled inlet; no reactive-system (DIERS) sizing"),
+    "Two-phase / flashing relief discharge": (["API 520-I Annex C (method named, not read)", "DIERS"], "twophase.*", "omega method, homogeneous equilibrium, choked and subcritical flux; bundled CoolProp saturated-liquid data for 18 fluids (two-point omega within 2.2% of direct HEM integration); no subcooled, mixture or reactive-system (DIERS) sizing"),
     "Near-field solid-flame radiation (view factor)": (["CCPS", "TNO Yellow Book"], "viewfactor.*", "numerical view factor from flat rectangular faces; no tilt model, no blockage"),
     "Pool fire (burn rate, flame, radiation)": (["CCPS", "TNO Yellow Book", "OISD-STD-116"], "pool_fire.*", "screening point-source; no wind tilt or spreading"),
     "Flammability, LOC, inerting / purging": (["NFPA 69", "CCPS", "API RP 2216"], "flammability.*", "Le Chatelier, LOC, purge cycles; limits/targets are inputs"),

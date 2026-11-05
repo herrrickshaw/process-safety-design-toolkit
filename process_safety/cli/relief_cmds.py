@@ -1,7 +1,7 @@
 """Relief, venting and flare commands."""
 from __future__ import annotations
 
-from .. import depressuring, flare, relief, release, tank_venting, twophase
+from .. import depressuring, fluiddata, flare, relief, release, tank_venting, twophase
 from .registry import command, emit
 
 
@@ -195,6 +195,8 @@ class TwoPhase:
     @staticmethod
     def add_arguments(tp):
         tp.add_argument("--P0", type=float, required=True, help="inlet (relieving) pressure, kPa absolute")
+        tp.add_argument("--fluid", help="saturated liquid from the bundled CoolProp table (python -m process_safety fluid-data lists them); sets rho0 and omega")
+        tp.add_argument("--omega-basis", choices=("two_point", "saturated"), default="two_point", help="which tabulated omega to use with --fluid")
         tp.add_argument("--rho0", type=float, help="inlet fluid density kg/m3 (or give --v0)")
         tp.add_argument("--omega", type=float, help="omega parameter, if known")
         tp.add_argument("--v0", type=float, help="inlet specific volume m3/kg"); tp.add_argument("--v9", type=float, help="specific volume at 0.9*P0, m3/kg")
@@ -204,16 +206,55 @@ class TwoPhase:
 
     @staticmethod
     def run(a, p):
-        if a.omega is None and not (a.v0 and a.v9):
-            p.error("give --omega, or --v0 and --v9")
-        omega = a.omega if a.omega is not None else twophase.omega_two_point(a.v0, a.v9)
-        rho0 = a.rho0 if a.rho0 else (1.0 / a.v0 if a.v0 else None)
+        table = None
+        if a.fluid:
+            try:
+                table = fluiddata.at_pressure(a.fluid, a.P0)
+            except ValueError as e:
+                p.error(str(e))
+        if a.omega is None and not (a.v0 and a.v9) and table is None:
+            p.error("give --fluid, --omega, or --v0 and --v9")
+        if a.omega is not None:
+            omega = a.omega
+        elif a.v0 and a.v9:
+            omega = twophase.omega_two_point(a.v0, a.v9)
+        else:
+            omega = table["omega_" + a.omega_basis]
+        rho0 = a.rho0 if a.rho0 else (1.0 / a.v0 if a.v0 else (table["rho_liq_kg_m3"] if table else None))
         if rho0 is None:
             p.error("give --rho0 (or --v0)")
         out = twophase.mass_flux(a.P0, rho0, omega, a.back_p)
+        if table and a.omega_basis == "saturated" and a.omega is None and a.P0 > 0.5 * fluiddata.fluid_constants(a.fluid)["Pc_kPa"]:
+            out["warning"] = "single-point (saturated) omega loses accuracy above half the critical pressure (up to ~13% flux error at 0.7 Pc, ~38% near 0.9 Pc in the bundled data); use the two_point basis"
         if a.W:
             if a.Kd is None:
                 p.error("--W needs --Kd (discharge coefficient has no default)")
             out["required_area_mm2"] = twophase.relief_area_mm2(a.W, out["G_kg_m2_s"], a.Kd)
+        if table:
+            out["fluid"] = a.fluid.lower(); out["data_source"] = fluiddata.source()
+            out["G_hem_reference_kg_m2_s"] = table["G_hem_kg_m2_s"]
         out["note"] = "homogeneous equilibrium; Kb/Kc not applied; subcooled and reactive (DIERS) cases need other methods"
+        emit(out)
+
+
+@command("fluid-data", "bundled CoolProp saturated-liquid screening data (omega, density, latent heat, cp, HEM flux)")
+class FluidData:
+    ranges = {"P": "pressure_abs_kPa"}
+
+    @staticmethod
+    def add_arguments(fd):
+        fd.add_argument("fluid", nargs="?", help="fluid name (omit to list)"); fd.add_argument("--P", type=float, help="pressure kPa absolute (omit for the constants only)")
+
+    @staticmethod
+    def run(a, p):
+        if not a.fluid:
+            emit({"fluids": fluiddata.names(), "source": fluiddata.source()})
+            return
+        try:
+            out = fluiddata.fluid_constants(a.fluid)
+            if a.P is not None:
+                out["saturated_liquid"] = fluiddata.at_pressure(a.fluid, a.P)
+        except ValueError as e:
+            p.error(str(e))
+        out["source"] = fluiddata.source()
         emit(out)

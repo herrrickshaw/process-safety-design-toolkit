@@ -58,7 +58,7 @@ python3 -m process_safety vapour-fire --volume 15 --area 36 --D 2 --wall-mm 20 -
 
 *Sector: LPG, petrochemicals, terminals.*
 
-A propane bullet relieves a liquid that flashes as pressure falls. Gas-only or liquid-only sizing would be wrong; the omega method sizes the two-phase case.
+A bullet relieves saturated liquid that flashes as pressure falls. Gas-only or liquid-only sizing would be wrong; the omega method sizes the two-phase case, here with omega and density taken from the bundled CoolProp table instead of typed in.
 
 **Vapour pressure and fill limit of a propane bullet**
 
@@ -73,49 +73,86 @@ python3 -m process_safety lpg propane --fill-C 15 --max-C 50
 }
 ```
 
-**Two-phase relief area at omega 2 (mostly liquid-like)**
+**Bundled CoolProp data for saturated propane at 1900 kPa abs**
 
 ```bash
-python3 -m process_safety twophase --P0 1900 --rho0 450 --omega 2 --W 8 --Kd 0.85
+python3 -m process_safety fluid-data propane --P 1900
 ```
 
 ```json
 {
-  "G_kg_m2_s": 14320.0,
-  "eta_critical": 0.6925,
-  "required_area_mm2": 657.3
+  "saturated_liquid": {
+    "T_K": 328.1,
+    "rho_liq_kg_m3": 438.3,
+    "h_lg_kJ_kg": 271.8,
+    "cp_liq_kJ_kgK": 3.221,
+    "omega_two_point": 4.616,
+    "omega_saturated": 5.058,
+    "G_hem_kg_m2_s": 10500.0,
+    "P_kPa": 1900.0
+  }
 }
 ```
 
-**Same case at omega 6**
+**Two-phase relief area, propane relieving at 1900 kPa abs**
 
 ```bash
-python3 -m process_safety twophase --P0 1900 --rho0 450 --omega 6 --W 8 --Kd 0.85
+python3 -m process_safety twophase --fluid propane --P0 1900 --W 8 --Kd 0.85
 ```
 
 ```json
 {
-  "G_kg_m2_s": 9631.0,
-  "eta_critical": 0.8068,
-  "required_area_mm2": 977.3
+  "omega": 4.616,
+  "G_kg_m2_s": 10510.0,
+  "G_hem_reference_kg_m2_s": 10500.0,
+  "required_area_mm2": 895.5
 }
 ```
 
-**Same case at omega 20 (strongly flashing)**
+**Same duty with n-butane**
 
 ```bash
-python3 -m process_safety twophase --P0 1900 --rho0 450 --omega 20 --W 8 --Kd 0.85
+python3 -m process_safety twophase --fluid n-butane --P0 1900 --W 8 --Kd 0.85
 ```
 
 ```json
 {
-  "G_kg_m2_s": 5844.0,
-  "eta_critical": 0.8938,
-  "required_area_mm2": 1611.0
+  "omega": 5.467,
+  "G_kg_m2_s": 9919.0,
+  "required_area_mm2": 948.9
 }
 ```
 
-**Takeaway.** For the same 8 kg/s relief rate and the same Kd of 0.85, the required area is 657 mm2 at omega 2, 977 mm2 at omega 6 and 1611 mm2 at omega 20: more flashing needs more area, a factor 2.5 across this range. Omega is an input here (the illustrative values 2, 6 and 20 are not propane properties): take it from your property package, and treat the area as a screening value until it is checked against API 520 Annex C and the valve vendor.
+**Same duty with ammonia**
+
+```bash
+python3 -m process_safety twophase --fluid ammonia --P0 1900 --W 8 --Kd 0.85
+```
+
+```json
+{
+  "omega": 6.64,
+  "G_kg_m2_s": 10390.0,
+  "required_area_mm2": 905.9
+}
+```
+
+**Propane again, but relieving at only 300 kPa abs**
+
+```bash
+python3 -m process_safety twophase --fluid propane --P0 300 --W 8 --Kd 0.85
+```
+
+```json
+{
+  "omega": 14.5,
+  "G_kg_m2_s": 2942.0,
+  "eta_critical": 0.8744,
+  "required_area_mm2": 3199.0
+}
+```
+
+**Takeaway.** For 8 kg/s and Kd 0.85, propane relieving at 1900 kPa abs needs 896 mm2; n-butane 949 mm2 and ammonia 906 mm2, so the fluid matters little at the same relieving pressure. The relieving pressure matters a lot: propane at 300 kPa abs (omega 14.5 against 4.6) needs 3199 mm2, 3.6 times the area. The omega-method flux agrees with a direct isentropic integration of the same fluid in CoolProp to within 1% in the table (see `docs/VALIDATION.md`). Design choice: the lowest relieving pressure the system can tolerate drives the area, so check the set pressure and back pressure before the valve size. Kb and Kc are not applied, and the table is saturated pure liquid only; mixtures, subcooled liquid and runaway reactions need other methods.
 
 ## Terminal siting: how far is far enough from a pool fire
 

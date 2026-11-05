@@ -11,6 +11,8 @@
 python -m unittest discover tests          # all tests, CLI golden outputs, generated-docs sync
 ruff check --select E9,F63,F7,F82,F401,F811,F841 --target-version py310 process_safety tests
 python tests/crosscheck/validate.py        # optional: pip install fluids thermo CoolProp scipy
+python scripts/gen_fluid_table.py          # regenerate data/fluid_screening.json (needs CoolProp)
+python scripts/gen_validation.py xc.json   # after validate.py --json xc.json
 ```
 
 Regenerate the generated docs after editing `ranges.py` or `glossary.py`:
