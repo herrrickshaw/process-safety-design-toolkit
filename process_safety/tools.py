@@ -7,6 +7,7 @@
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
+    plant    ingest PFS/HMB streams, P&ID registers (+Proteus XML), PHA register: balances, scenarios, P&ID review, why-chain, common recommendations, workflow skeleton  (plant_model, hmb, pid_review, scenario_ingest)
     workflow safety simulation -> resizing/design -> BOQ -> capex and opex (devices, pipeline rerouting, sensors, PCN modification), ALARP, shutdown merge  (design_workflow.py)
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
@@ -20,7 +21,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, design_workflow, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -122,6 +123,30 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
         shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
         summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "plant":
+        m = plant_model.load(data, base_dir=data.get("base_dir"))
+        errs = plant_model.validate(m)
+        summ["checks"] = errs and ["WARN: " + e for e in errs] or ["PASS: references (stream ends, device and instrument units) resolve"]
+        reg = scenario_ingest.read_register(data["register"]) if data.get("register") else []
+        regsum = scenario_ingest.classify_register(reg) if reg else None
+        rat = scenario_ingest.rationale(m, data.get("params"), reg, data.get("isolation_inventory_kg"))
+        summ["balance"] = hmb.balance(m)
+        summ["hazards"] = hmb.unit_hazards(m)
+        summ["hmb_scenarios"] = rat["hmb_scenarios"]
+        summ["pid_findings"] = rat["pid_findings"]
+        summ["rationale"] = rat["rationale"]
+        summ["triggered_recommendation_types"] = rat["triggered_counts"]
+        if regsum:
+            summ["register"] = regsum
+            summ["gaps_not_in_register"] = [{"unit": g["unit"], "rec_id": g["rec_id"], "recommendation": g["recommendation"], "reasons": g["reasons"]} for g in rat["gaps_not_in_register"]]
+        summ["workflow_skeleton"] = scenario_ingest.workflow_skeleton(m, rat)
+        summ["notes"] = m["notes"]
+        pha.write_csv([{"unit": r["unit"], "rec_id": r["rec_id"], "recommendation": r["recommendation"], "cost_scope": r["cost_scope"], "sources": ";".join(r["sources"]),
+                        "in_register": r["in_register"], "why": " | ".join(r["reasons"])} for r in rat["rationale"]], pre + "_rationale.csv")
+        pha.write_csv([{"unit": s_["unit"], "scenario": s_["scenario"], "status": s_["status"], "why": s_["why"], "missing": ",".join(s_["missing"])} for s_ in rat["hmb_scenarios"]], pre + "_scenarios.csv")
+        with open(pre + "_workflow_skeleton.json", "w", encoding="utf-8") as fh:
+            json.dump(summ["workflow_skeleton"], fh, indent=1, default=str)
+        summ["files"] = [pre + "_rationale.csv", pre + "_scenarios.csv", pre + "_workflow_skeleton.json"]
     elif name == "workflow":
         errs = design_workflow.check(data)
         summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (modes, rate keys in the rate book, opex book present)"]

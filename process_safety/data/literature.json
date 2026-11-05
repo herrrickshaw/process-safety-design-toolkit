@@ -122,7 +122,7 @@
     "mah"
    ],
    "note": "Annex I parsed into data/seveso_iii_annex_i.json",
-   "http_status": 202,
+   "http_status": 200,
    "checked": "2026-11-06"
   },
   {
@@ -1029,6 +1029,103 @@
    "checked": "2026-11-06"
   },
   {
+   "id": "proteusxml",
+   "title": "ProteusXML schema (P&ID exchange format used by DEXPI), schema 4.2",
+   "publisher": "ProteusXML project",
+   "kind": "standard",
+   "url": "https://github.com/ProteusXML/proteusxml",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "pid",
+    "data-exchange",
+    "dexpi"
+   ],
+   "modules": [
+    "plant_model"
+   ],
+   "note": "XSD element and attribute names read for the parser; GitHub shows no licence for the repository; the toolkit does not copy the schema",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "pydexpi",
+   "title": "pyDEXPI (Python framework for P&IDs using the DEXPI model)",
+   "publisher": "Process Intelligence Research, RWTH Aachen",
+   "kind": "data-tool",
+   "url": "https://github.com/process-intelligence-research/pyDEXPI",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "pid",
+    "data-exchange",
+    "dexpi"
+   ],
+   "modules": [
+    "plant_model"
+   ],
+   "note": "AGPL-3.0: not used or copied; listed as an option for reading real DEXPI files as a separate program",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-hazop-recs-1",
+   "title": "IChemE Symposium Series paper on ranking HAZOP recommendations",
+   "publisher": "IChemE",
+   "kind": "guidance",
+   "url": "https://www.icheme.org/media/10174/xvi-paper-29.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "hazop",
+    "recommendations",
+    "prioritisation"
+   ],
+   "modules": [],
+   "note": "found via search; describes ranking by consequence, frequency and mitigation with benefit-cost; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-hazop-recs-2",
+   "title": "IChemE Symposium Series No. 156 paper on HAZOP recommendations",
+   "publisher": "IChemE",
+   "kind": "guidance",
+   "url": "https://www.icheme.org/media/9258/xxii-paper-42.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "hazop",
+    "recommendations"
+   ],
+   "modules": [],
+   "note": "found via search; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "petrosolutions-hazop-recs",
+   "title": "Effective HAZOP recommendations (practitioner guide)",
+   "publisher": "The Petro Solutions",
+   "kind": "news",
+   "url": "https://thepetrosolutions.com/effective-hazop-recommendations/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "hazop",
+    "recommendations"
+   ],
+   "modules": [],
+   "note": "practitioner article; its claim that over half of recommendations are operability issues is unsourced; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
    "id": "spe-focus-ps",
    "title": "SPE In Focus: Process Safety",
    "publisher": "Society of Petroleum Engineers",
@@ -1043,7 +1140,7 @@
    ],
    "modules": [],
    "note": "index of articles, papers on OnePetro (many paywalled)",
-   "http_status": 200,
+   "http_status": 0,
    "checked": "2026-11-06"
   },
   {

@@ -67,6 +67,7 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `ram` | Monte Carlo RAM with k-of-n stages, analytic check, criticality, sample-first run planning | binomial availability identity | unlimited crews |
 | `twophase` | Two-phase / flashing discharge by the omega method: critical pressure ratio and mass flux by maximising the energy-balance flux, subcritical flux, relief area | homogeneous equilibrium; closed-form checks in tests | omega and Kd are inputs; no subcooled or DIERS runaway sizing |
 | `shutdown_risk` | Shutdown/turnaround schedule and cost risk: Monte Carlo on a CPM network with three-point durations and costs, risk events, common-cause factor, **opportunity cost of lost operating days**, P10-P90, contingency, S-curve, criticality, tornado, safety-critical flags; `tool shutdown` | closed-form checks in tests; method background in `docs/SHUTDOWN_RISK.md` | calendar days, no resource levelling; all rates and margins are inputs |
+| `plant_model`, `hmb`, `pid_review`, `scenario_ingest`, `recommendation_catalog` | Ingest PFS/HMB stream tables, P&ID registers or Proteus (DEXPI) XML and a PHA register; mass-balance and hazard checks; blocked outlet, overfill, interface, tube rupture, MDMT and fire scenarios; P&ID review rules; the reason behind each recommendation type and which ones the register misses; draft input for `tool workflow`; `tool plant` | each scenario recomputed from the underlying models in tests | screening; keyword matching; Proteus reader untested on real exports |
 | `design_workflow` | Safety simulation -> equipment resizing and design -> bill of quantities -> capex and opex, for devices (PSV, inlet line, blowdown valve), pipeline rerouting, additional sensors and PCN modification; ALARP package test with risk benefit from sensor voting; shutdown merge; `tool workflow` | chains tested modules; closed-form arithmetic checks | screening models; you supply all rates; no two-phase in the chain |
 | `lng_cost` | Concept-stage (FEL 1, Class 5 style) capital cost of an onshore LNG liquefaction plant from 26 public analogs (MIT-licensed ORIMIZ table), scaled for size, escalation, location and site type, Monte Carlo range; also `daily_margin` for the shutdown model; `tool lngcost` | analog data with sources; closed-form tests | you must supply a cost index and location factors; screening only |
 | `recommendation_cost` | Cost of implementing study recommendations (piping, civil, electrical, instrumentation): quantity x rate lines with three-point uncertainty, indirects, shared rate factor, shutdown dependency merged into `shutdown_risk`, ALARP cost-benefit; `tool recs` | closed-form tests; ALARP via `qra.alarp` | no rates shipped; no resource-loaded schedule |
@@ -118,7 +119,7 @@ python3 -m process_safety qra validate study.json               # input consiste
 python3 -m process_safety qra hazid study.json --out hazid/     # HAZID register, HAZOP worksheet, LOC register (CSV)
 python3 -m process_safety qra run study.json --sample 3 --out sample/   # small sample: checks, convergence, projected run time
 python3 -m process_safety qra run study.json --out qra_out/     # full study: qra_report.html, qra_results.xlsx, CSVs, buildings, emergency
-python3 -m process_safety tool example bowtie && python3 -m process_safety tool bowtie bowtie.json --out out/   # also sif fg thermal atex ram shutdown recs lngcost workflow pha
+python3 -m process_safety tool example bowtie && python3 -m process_safety tool bowtie bowtie.json --out out/   # also sif fg thermal atex ram shutdown recs lngcost workflow plant pha
 ```
 Python API (not all exposed on the CLI): `scenarios.thermal_expansion_relief_m3h`, `scenarios.tube_rupture_flow_kg_s`,
 `separator.vertical_separator`, `separator.horizontal_separator`, `separator.knockout_drum_vertical`, `fireball.fireball`.
@@ -134,6 +135,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/PLANT_INGEST.md`: ingesting flow-scheme/HMB data, P&ID registers and a PHA register, and the reasoning chain for why studies recommend what they do.
 * `docs/DESIGN_LIFECYCLE_PLAN.md`: a structured plan from process concept through flow scheme, heat and material balance, equipment design, P&ID-level design and safety studies to design tweaks and safe operation, mapped to the toolkit.
 * `docs/RECOMMENDATIONS_CATALOG.md`: 21 common safety-study recommendation types with triggers, usual responses and cost scopes (`python -m process_safety catalog TEXT` classifies a recommendation).
 * `docs/WORKFLOW.md`: the end-to-end workflow from safety simulation through resizing and design to capex and opex (pipeline rerouting, additional sensors, PCN modification), with a worked example and its limits.

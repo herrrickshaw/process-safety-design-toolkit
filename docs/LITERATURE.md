@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 73 sources, 25 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 78 sources, 26 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -12,7 +12,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | Source | Publisher | Region | Access | Read | HTTP | Topics | Modules | Note |
 |---|---|---|---|---|---|---|---|---|
 | [NOPSEMA offshore safety case regime](https://www.nopsema.gov.au/) | NOPSEMA (Australia) | AU | free | no | 0 | safety-case, offshore, regulation |  |  |
-| [Directive 2012/18/EU (Seveso III)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018) | European Union | EU | free | text | 202 | seveso, regulation | mah | Annex I parsed into data/seveso_iii_annex_i.json |
+| [Directive 2012/18/EU (Seveso III)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018) | European Union | EU | free | text | 200 | seveso, regulation | mah | Annex I parsed into data/seveso_iii_annex_i.json |
 | [Directorate General Factory Advice Service and Labour Institutes](https://dgfasli.gov.in/) | DGFASLI (India) | IN | free | no | 200 | india, regulation, factories |  |  |
 | [Petroleum and Explosives Safety Organisation](https://peso.gov.in/) | PESO (India) | IN | free | no | 0 | india, regulation, explosives |  |  |
 | [Petroleum and Natural Gas Regulatory Board](https://www.pngrb.gov.in/) | PNGRB (India) | IN | free | no | 200 | india, regulation, gas |  |  |
@@ -31,6 +31,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 |---|---|---|---|---|---|---|---|---|
 | [OISD standards list (105 standards)](https://www.oisd.gov.in/oisd-standards) | OISD (India) | IN | mixed | page | 200 | india, standards, oil-gas | standards | list and editions in data/oisd_standards.json; contents not read |
 | [AACE RP 18R-97 Cost estimate classification system, process industries](https://library.aacei.org/pgd01/pgd01.shtml) | AACE International | global | paywalled | no | 200 | cost-estimation, aace, accuracy | lng_cost | copyrighted; class ranges used in docs/COST_ESTIMATION.md are those quoted in the ORIMIZ factor file and NETL, not read from AACE |
+| [ProteusXML schema (P&ID exchange format used by DEXPI), schema 4.2](https://github.com/ProteusXML/proteusxml) | ProteusXML project | global | free | page | 200 | pid, data-exchange, dexpi | plant_model | XSD element and attribute names read for the parser; GitHub shows no licence for the repository; the toolkit does not copy the schema |
 
 ## Guidance
 
@@ -40,6 +41,8 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [HSE COMAH home (Buncefield, competent authority material)](https://www.hse.gov.uk/comah/) | HSE (UK) | UK | free | no | 200 | comah, incident | overfill |  |
 | [HSE risk management pages (ALARP, tolerability)](https://www.hse.gov.uk/risk/) | HSE (UK) | UK | free | no | 200 | risk-criteria, alarp, qra | qra | the R2P2 criteria used as QRA presets came from secondary sources; the old direct R2P2 URL returned 404 on 2026-11-06 |
 | [HSG254 Developing process safety indicators](https://www.hse.gov.uk/pubns/books/hsg254.htm) | HSE (UK) | UK | mixed | no | 200 | psm, indicators, management | psm |  |
+| [IChemE Symposium Series No. 156 paper on HAZOP recommendations](https://www.icheme.org/media/9258/xxii-paper-42.pdf) | IChemE | UK | free | no | 200 | hazop, recommendations |  | found via search; not read |
+| [IChemE Symposium Series paper on ranking HAZOP recommendations](https://www.icheme.org/media/10174/xvi-paper-29.pdf) | IChemE | UK | free | no | 200 | hazop, recommendations, prioritisation |  | found via search; describes ranking by consequence, frequency and mitigation with benefit-cost; not read |
 | [DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals](https://www.energy.gov/documents/doe-hdbk-1101-96) | US DOE | US | free | page | 200 | psm, audit | psm |  |
 | [OSHA Process Safety Management topic page](https://www.osha.gov/process-safety-management) | OSHA (US) | US | free | no | 200 | psm, regulation | psm | enforcement directives and NEP are linked from here |
 | [QGESS: Capital cost scaling methodology, Revision 4](https://www.osti.gov/servlets/purl/1573493) | US DOE NETL | US | free | no | 200 | cost-estimation, scaling, escalation | lng_cost | scaling of legacy estimates by size, date and location; not read |
@@ -77,7 +80,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [Mary Kay O'Connor Process Safety Center](https://psc.tamu.edu/) | Texas A&M University | US | free | no | 200 | research, psm |  |  |
 | [Center for Chemical Process Safety](https://www.aiche.org/ccps) | AIChE | global | mixed | no | 403 | psm, guidelines, rbps | psm, hazop, sil | books are paywalled |
 | [IOGP safety, including Life-Saving Rules and process safety reports](https://www.iogp.org/safety/) | IOGP | global | free | no | 200 | life-saving-rules, psm, oil-gas |  |  |
-| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 200 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
+| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 0 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
 
 ## Journal
 
@@ -99,6 +102,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [PSM News (James Klein)](https://psmnews.com/) | Process Safety Priorities LLC | US | free | page | 200 | psm, blog |  | single-author blog; low weight; nothing used |
 | [Are process safety standards and practices ready for the energy transition?](https://jpt.spe.org/are-process-safety-standards-and-practices-ready-for-the-energy-transition) | Journal of Petroleum Technology (SPE) | global | free | no | 200 | psm, management-of-change, energy-transition |  |  |
 | [Benchmarking study compares LNG plant costs](https://ogj.com/drilling-production/production-operations/article/17239949/benchmarking-study-compares-lng-plant-costs) | Oil & Gas Journal | global | mixed | no | 200 | cost-estimation, lng, benchmark | lng_cost | older trade article; not read |
+| [Effective HAZOP recommendations (practitioner guide)](https://thepetrosolutions.com/effective-hazop-recommendations/) | The Petro Solutions | global | free | no | 200 | hazop, recommendations |  | practitioner article; its claim that over half of recommendations are operability issues is unsourced; not read in full |
 | [Process Safety Beacon](https://ccps.aiche.org/process-safety-beacon) | CCPS | global | free | no | 403 | incident, awareness |  | returned a bot check (HTTP 403) on 2026-11-06; not read, no bypass |
 | [Project Controls Online](https://projectcontrolsonline.com) | projectcontrolsonline.com | global | free | no | 200 | schedule-risk, cost-risk, shutdown | shutdown_risk | project controls community site; not read |
 
@@ -123,4 +127,5 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [QSDsan techno-economic analysis tutorial](https://qsdsan.readthedocs.io/en/latest/tutorials/7_TEA.html) | QSDsan | global | free | no | 200 | cost-estimation, tea, cepci |  | builds on BioSTEAM TEA; exposes a CEPCI input and Lang factor; licence not checked here |
 | [fluids (ChEDL)](https://fluids.readthedocs.io/) | Caleb Bell | global | free | text | 200 | validation, relief, hydraulics | relief, hydraulics, separator | MIT; test oracle only |
 | [neqsim-python](https://pypi.org/project/neqsim) | Equinor | global | free | no | 200 | simulation, thermodynamics, python | fluiddata | pip package wrapping the Java library |
+| [pyDEXPI (Python framework for P&IDs using the DEXPI model)](https://github.com/process-intelligence-research/pyDEXPI) | Process Intelligence Research, RWTH Aachen | global | free | no | 200 | pid, data-exchange, dexpi | plant_model | AGPL-3.0: not used or copied; listed as an option for reading real DEXPI files as a separate program |
 | [thermo (ChEDL)](https://thermo.readthedocs.io/) | Caleb Bell | global | free | text | 200 | properties, validation | props | MIT; test oracle only |
