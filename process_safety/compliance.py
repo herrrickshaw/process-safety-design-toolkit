@@ -21,6 +21,17 @@ TA3 (lowest: site / discipline) < TA2 (project / regional discipline) < TA1 (hig
 `APPROVAL_MATRIX` gives the sign-offs for each tier and class. With no consequence assessment the matrix uses `severe`. The level names,
 the 0-5 scale, the class thresholds and the matrix cells are defaults written to be edited: they are not any company's rules.
 
+EU compliance. A derogation is an internal, company-level instrument: it cannot waive a legal requirement. A clause with
+`legal_basis` {"regime": "EU", "instrument", "article", "relation"} is treated as follows. relation "is" (the clause is the legal
+text): it cannot be derogated internally, only exempted by the member-state competent authority. relation "implements" (a company
+clause that exists to meet the law): it may be derogated only with an `eu_equivalence` statement showing the alternative still
+meets the legal duty, and its consequence class is at least `EU_CLASS_FLOOR`. For a Seveso III establishment (register field
+"seveso": "lower" or "upper"), a derogation that could have significant consequences for major-accident hazards is a modification
+under Article 11 of Directive 2012/18/EU: the operator reviews and, where necessary, updates the notification, the major-accident
+prevention policy (MAPP), the safety management system and (upper tier) the safety report, and informs the competent authority in
+advance. Only Seveso III was read for this module (EUR-Lex text, 2026-11-06); other EU instruments are recognised by name but their
+articles are not encoded. EU law is transposed nationally: check your member state's law and your competent authority.
+
 PESTLE maps the consequence across Political, Economic, Social, Technological, Legal and Environmental factors, each rated 0-5 with a
 note. A factor rated `ACTION_AT` (3) or more needs a management action, and a MUST derogation must address all six factors. This module checks that a register is complete and consistent; it does not judge whether a
 justification is technically adequate, and a passing register is not an approval.
@@ -48,6 +59,21 @@ APPROVAL_MATRIX = {
     "MUST": {"low": ("TA2",), "medium": ("TA2",), "high": ("TA1",), "severe": ("TA1", "TA2")},
     "SHOULD": {"low": ("TA3",), "medium": ("TA3",), "high": ("TA2",), "severe": ("TA1",)},
 }
+EU_CLASS_FLOOR = "high"          # a derogation of a clause that implements an EU legal duty is never rated below this
+SEVESO_TIERS = (None, "lower", "upper")
+SEVESO_DOCUMENTS = {"lower": ("notification", "MAPP", "safety management system"),
+                    "upper": ("notification", "MAPP", "safety management system", "safety report")}
+# What Directive 2012/18/EU (Seveso III) says on the points used here; paraphrased from the EUR-Lex text.
+SEVESO_ARTICLES = {
+    "5": "General obligations: take all necessary measures to prevent major accidents and limit their consequences; prove this to the competent authority at any time",
+    "7(4)": "Notification: inform the competent authority in advance of a modification of an establishment or installation that could have significant consequences for major-accident hazards",
+    "8": "Major-accident prevention policy (MAPP) and safety management system",
+    "10": "Safety report (upper tier): must show adequate safety and reliability in design, construction, operation and maintenance (10(1)(c)); reviewed at least every five years and after changes (10(5))",
+    "11": "Modification: review and, where necessary, update notification, MAPP, SMS and safety report, and inform the competent authority of the details in advance of the modification",
+    "19": "Prohibition of use where prevention and mitigation measures are seriously deficient, or required information was not submitted",
+}
+_RANK = [n for _, n in CLASS_THRESHOLDS]
+
 _MODALITY_TIER = {"mandatory": "MUST", "prohibition": "MUST", "recommended": "SHOULD", "permissive": "CAN"}
 
 
@@ -110,7 +136,30 @@ def _signoffs_met(required, approvals):
     return unmet
 
 
-def check_derogation(clause: dict, as_of: dt.date) -> list[dict]:
+def _eu_relation(clause):
+    lb = clause.get("legal_basis") or {}
+    if lb.get("regime") != "EU":
+        return None
+    if lb.get("relation") not in ("is", "implements"):
+        raise ValueError(f"clause {clause['id']}: legal_basis.relation must be 'is' or 'implements'")
+    return lb["relation"]
+
+
+def effective_class(clause: dict) -> tuple[str, list[str]]:
+    """Consequence class after the EU floor (a clause implementing an EU duty is rated at least EU_CLASS_FLOOR)."""
+    cls, drivers = consequence_class((clause.get("derogation") or {}).get("consequence"))
+    if _eu_relation(clause) == "implements" and _RANK.index(cls) < _RANK.index(EU_CLASS_FLOOR):
+        return EU_CLASS_FLOOR, drivers + ["EU floor"]
+    return cls, drivers
+
+
+def significant_for_seveso(clause: dict) -> bool:
+    """A derogation is screened for Seveso Article 11 when it is a MUST departure, or any departure rated high or severe."""
+    cls, _ = effective_class(clause)
+    return clause["tier"] == "MUST" or _RANK.index(cls) >= _RANK.index("high")
+
+
+def check_derogation(clause: dict, as_of: dt.date, seveso: str | None = None) -> list[dict]:
     """Problems with one clause's derogation record (empty list: the record is complete and in force)."""
     tier, d = clause["tier"], clause.get("derogation") or {}
     cid = clause["id"]
@@ -119,10 +168,14 @@ def check_derogation(clause: dict, as_of: dt.date) -> list[dict]:
     def bad(code, msg):
         issues.append({"clause": cid, "tier": tier, "code": code, "message": msg})
 
-    if clause.get("statutory") and tier == "MUST":
+    rel = _eu_relation(clause)
+    if (clause.get("statutory") or rel == "is") and tier == "MUST":
         if not clause.get("regulator_ref"):
-            bad("statutory-no-exemption", "a statutory requirement cannot be derogated internally: record the regulator's exemption in regulator_ref")
+            who = "the member-state competent authority" if rel == "is" else "the regulator"
+            bad("statutory-no-exemption", f"a statutory requirement cannot be derogated internally: record {who}'s exemption in regulator_ref")
         return issues
+    if rel == "implements" and not d.get("eu_equivalence"):
+        bad("eu-equivalence-not-shown", "this clause implements an EU legal duty: state in eu_equivalence how the alternative still meets it")
     if not d.get("justification"):
         bad("no-justification", "a departure needs a written justification")
     cons = d.get("consequence")
@@ -145,8 +198,18 @@ def check_derogation(clause: dict, as_of: dt.date) -> list[dict]:
         for f, v in (cons.get("pestle") or {}).items():
             if f in PESTLE_FACTORS and (v.get("rating") or 0) >= ACTION_AT and not (cons.get("management_actions") or {}).get(f):
                 bad("pestle-no-action", f"{f} is rated {v['rating']} (>= {ACTION_AT}) with no management action")
-    cls, _ = consequence_class(cons)
+    cls, _ = effective_class(clause)
     required = required_signoffs(tier, cls)
+    if seveso and significant_for_seveso(clause):
+        sa = d.get("seveso_assessment")
+        if not sa or "significant" not in sa or not sa.get("rationale"):
+            bad("seveso-not-assessed", "Seveso Art. 11: assess (seveso_assessment: significant true/false with a rationale) whether this departure could have significant consequences for major-accident hazards")
+        elif sa["significant"]:
+            if not sa.get("authority_informed"):
+                bad("seveso-authority-not-informed", "Seveso Art. 11 / 7(4): the competent authority must be informed of the details in advance of the modification (authority_informed date)")
+            missing = [x for x in SEVESO_DOCUMENTS[seveso] if x not in (sa.get("documents_updated") or [])]
+            if missing:
+                bad("seveso-documents-not-updated", f"Seveso Art. 11: review and update before the modification: {', '.join(missing)}")
     unmet = _signoffs_met(required, d.get("approvals") or [])
     if not d.get("approvals"):
         bad("not-approved", f"no approval recorded; {tier} / {cls} consequence needs {' + '.join(required)}")
@@ -168,7 +231,7 @@ def review(clause: dict) -> dict:
     """The consequence class, required and present sign-offs and the PESTLE map for one derogated clause."""
     d = clause.get("derogation") or {}
     cons = d.get("consequence") or {}
-    cls, drivers = consequence_class(d.get("consequence"))
+    cls, drivers = effective_class(clause)
     req = required_signoffs(clause["tier"], cls)
     pm = cons.get("pestle") or {}
     acts = cons.get("management_actions") or {}
@@ -188,12 +251,40 @@ def matrix_markdown() -> str:
     return "\n".join(rows) + "\n"
 
 
+def eu_summary(register: dict) -> dict | None:
+    """EU view of the register, or None when it has no Seveso tier and no clause with an EU legal basis."""
+    sev = register.get("seveso")
+    if sev not in SEVESO_TIERS:
+        raise ValueError(f"register 'seveso' must be one of {SEVESO_TIERS}")
+    eu = [c for c in register["clauses"] if _eu_relation(c)]
+    if not sev and not eu:
+        return None
+    der = [c for c in register["clauses"] if c["status"] == "derogated"]
+    screened = [c for c in der if sev and significant_for_seveso(c) and not (c.get("statutory") or _eu_relation(c) == "is")]
+    sig = [c["id"] for c in screened if ((c.get("derogation") or {}).get("seveso_assessment") or {}).get("significant")]
+    return {
+        "seveso_tier": sev,
+        "non_derogable_eu_clauses": sorted(c["id"] for c in eu if _eu_relation(c) == "is" and c["tier"] == "MUST"),
+        "eu_implementing_derogations": sorted(c["id"] for c in der if _eu_relation(c) == "implements"),
+        "derogations_screened_for_art11": sorted(c["id"] for c in screened),
+        "art11_significant": sorted(sig),
+        "art11_unassessed": sorted(c["id"] for c in screened if "significant" not in ((c.get("derogation") or {}).get("seveso_assessment") or {})),
+        "documents_to_update_if_significant": list(SEVESO_DOCUMENTS[sev]) if sev else [],
+        "notes": ["Derogations are internal: they never waive an EU or national legal requirement.",
+                  "Under Seveso Art. 5(2) the operator must be able to prove to the competent authority, at any time, that all necessary measures were taken: keep this register current and producible.",
+                  "Art. 10(1)(c) (upper tier): the safety report must show adequate safety and reliability in design; list derogations and their compensating measures there.",
+                  "Only Seveso III articles are encoded; check ATEX, PED, IED and your member state's transposition separately."],
+    }
+
+
 def evaluate(register: dict, as_of: dt.date | None = None) -> dict:
     """Check a register {"clauses": [...]} and summarise compliance by tier. Raises ValueError on a malformed register."""
     as_of = as_of or _date(register.get("as_of", dt.date.today().isoformat()), "as_of")
     clauses = register.get("clauses")
     if not isinstance(clauses, list) or not clauses:
         raise ValueError("register needs a non-empty 'clauses' list")
+    if register.get("seveso") not in SEVESO_TIERS:
+        raise ValueError(f"register 'seveso' must be one of {SEVESO_TIERS}")
     seen, issues = set(), []
     table = {t: {s: 0 for s in VALID_STATUS[t]} for t in TIERS}
     for c in clauses:
@@ -211,7 +302,7 @@ def evaluate(register: dict, as_of: dt.date | None = None) -> dict:
         if c["status"] == "derogated":
             if c["tier"] == "CAN":
                 raise ValueError(f"clause {c['id']}: a CAN clause is optional and cannot be derogated")
-            issues += check_derogation(c, as_of)
+            issues += check_derogation(c, as_of, register.get("seveso"))
         elif c["status"] == "not-applicable" and c["tier"] != "CAN" and not c.get("na_reason"):
             issues.append({"clause": c["id"], "tier": c["tier"], "code": "na-no-reason", "message": "not-applicable needs a stated reason (na_reason)"})
         elif c["status"] == "open":
@@ -230,6 +321,7 @@ def evaluate(register: dict, as_of: dt.date | None = None) -> dict:
         "should_complied_pct": round(100 * should["complied"] / should_total, 1) if should_total else None,
         "derogations": {t: table[t]["derogated"] for t in ("MUST", "SHOULD")},
         "derogation_reviews": [review(c) for c in clauses if c["status"] == "derogated" and not (c.get("statutory") and c["tier"] == "MUST")],
+        "eu_compliance": eu_summary(register),
         "issues": issues,
         "ready_for_gate": not blocking_ids,
         "gate_note": "ready_for_gate is false while any MUST clause is open or has an incomplete, expired or improperly approved derogation",

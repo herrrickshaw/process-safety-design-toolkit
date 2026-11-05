@@ -159,8 +159,71 @@ class Evaluate(unittest.TestCase):
         self.assertEqual(rv["4.2.2"]["unmet"], ["TA2"])
         self.assertNotIn("9.1", rv)
         self.assertIn(("9.1", "statutory-no-exemption"), codes)
-        self.assertNotIn("4.1.3", {c for c, _ in codes})
+        self.assertEqual({k for c, k in codes if c == "4.1.3"}, {"seveso-documents-not-updated"})
         self.assertNotIn("4.1.2", {c for c, _ in codes})
+
+
+LB_IMPL = {"regime": "EU", "instrument": "Directive 2012/18/EU", "article": "10(1)(c)", "relation": "implements"}
+LB_IS = dict(LB_IMPL, relation="is")
+SEV_OK = {"significant": True, "rationale": "r", "authority_informed": "2026-10-01",
+          "documents_updated": ["notification", "MAPP", "safety management system", "safety report"]}
+
+
+class EuCompliance(unittest.TestCase):
+    def codes(self, c, seveso="upper"):
+        return {i["code"] for i in cp.check_derogation(c, D, seveso)}
+
+    def must(self, **extra):
+        return clause("MUST", "derogated", derogation=dict(GOOD_MUST, approvals=[{"level": "TA1"}, {"level": "TA2"}], **extra))
+
+    def test_clause_that_is_the_eu_text_cannot_be_derogated_internally(self):
+        c = self.must(); c["legal_basis"] = LB_IS
+        self.assertEqual(self.codes(c), {"statutory-no-exemption"})
+        c["regulator_ref"] = "CA-1"
+        self.assertEqual(self.codes(c), set())
+
+    def test_implementing_clause_needs_equivalence_and_is_floored_to_high(self):
+        c = self.must(seveso_assessment=SEV_OK); c["legal_basis"] = LB_IMPL
+        self.assertIn("eu-equivalence-not-shown", self.codes(c))
+        c["derogation"]["eu_equivalence"] = "how"
+        self.assertEqual(self.codes(c), set())
+        s = clause("SHOULD", "derogated", legal_basis=LB_IMPL, derogation={"justification": "j", "eu_equivalence": "e", "consequence": {"safety_severity": 1},
+                                                                           "approvals": [{"level": "TA3"}], "seveso_assessment": SEV_OK})
+        self.assertEqual(cp.effective_class(s)[0], "high")
+        self.assertIn("approval-insufficient", self.codes(s))               # SHOULD / high needs TA2, TA3 is not enough
+        s["derogation"]["approvals"] = [{"level": "TA2"}]
+        self.assertEqual(self.codes(s), set())
+
+    def test_seveso_article_11_screening(self):
+        c = self.must()
+        self.assertIn("seveso-not-assessed", self.codes(c))
+        self.assertNotIn("seveso-not-assessed", self.codes(c, seveso=None))
+        c["derogation"]["seveso_assessment"] = {"significant": False, "rationale": "cosmetic"}
+        self.assertEqual(self.codes(c), set())
+        c["derogation"]["seveso_assessment"] = {"significant": True, "rationale": "r"}
+        self.assertEqual(self.codes(c), {"seveso-authority-not-informed", "seveso-documents-not-updated"})
+        c["derogation"]["seveso_assessment"] = SEV_OK
+        self.assertEqual(self.codes(c), set())
+
+    def test_lower_tier_has_no_safety_report(self):
+        c = self.must(seveso_assessment=dict(SEV_OK, documents_updated=["notification", "MAPP", "safety management system"]))
+        self.assertEqual(self.codes(c, "lower"), set())
+        self.assertIn("seveso-documents-not-updated", self.codes(c, "upper"))
+
+    def test_low_should_departure_is_not_screened(self):
+        s = clause("SHOULD", "derogated", derogation={"justification": "j", "consequence": {"safety_severity": 1}, "approvals": [{"level": "TA3"}]})
+        self.assertEqual(self.codes(s), set())
+
+    def test_summary_and_validation(self):
+        r = cp.evaluate(cp.load(EX))
+        eu = r["eu_compliance"]
+        self.assertEqual((eu["seveso_tier"], eu["non_derogable_eu_clauses"], eu["art11_significant"], eu["art11_unassessed"]), ("upper", ["9.1"], ["4.1.3"], ["4.2.2"]))
+        self.assertIn(("4.1.3", "seveso-documents-not-updated"), {(i["clause"], i["code"]) for i in r["issues"]})
+        self.assertIsNone(cp.evaluate({"as_of": "2026-11-05", "clauses": [clause("MUST", "complied")]})["eu_compliance"])
+        with self.assertRaises(ValueError):
+            cp.evaluate({"seveso": "medium", "clauses": [clause("MUST", "complied")]})
+        with self.assertRaises(ValueError):
+            cp.check_derogation(clause("MUST", "derogated", legal_basis=dict(LB_IMPL, relation="maybe"), derogation=GOOD_MUST), D)
 
 
 class Cli(unittest.TestCase):

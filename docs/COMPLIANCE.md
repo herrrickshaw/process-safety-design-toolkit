@@ -34,6 +34,27 @@ For each derogation the consequence scenario is mapped across **P**olitical, **E
 
 The output's `derogation_reviews` lists, for each derogated clause, the consequence class, the factors that set it (`driven_by`), the sign-offs required, present and unmet, the scenario and the full PESTLE map with its management actions.
 
+## Follow-up: how derogations affect EC (EU) compliance
+**A derogation is an internal instrument. It cannot waive a legal requirement.** European Commission law reaches a site through directives that member states transpose into national law, and the only party that can exempt a legal duty is the member-state competent authority. What this means for a register:
+
+| Situation | Rule in the toolkit |
+|---|---|
+| The clause **is** the EU legal text (`legal_basis.relation: "is"`) | Cannot be derogated internally. Record the competent authority's exemption in `regulator_ref`, or the clause stays an issue (`statutory-no-exemption`). |
+| The clause **implements** an EU duty (company practice that exists to meet the law, `relation: "implements"`) | May be derogated only with an `eu_equivalence` statement showing the alternative still meets the legal duty. Its consequence class is **at least `high`**, so the matrix asks for more senior sign-off. |
+| The site is a **Seveso III establishment** (`"seveso": "lower"` or `"upper"` on the register) | Every MUST derogation, and any derogation rated high or severe, is screened as a possible **modification** (Article 11). |
+
+**Seveso III, Directive 2012/18/EU** (text read from EUR-Lex, 2026-11-06; wording below paraphrased):
+* **Article 5**: the operator must take all necessary measures to prevent major accidents and limit their consequences, and must be able to **prove this to the competent authority at any time**. The derogation register, with its risk assessments and compensating measures, is part of that proof, so keep it current and producible.
+* **Article 11**: for a modification of an installation, establishment, storage facility or process that could have significant consequences for major-accident hazards, the operator reviews and where necessary updates the **notification, the MAPP, the safety management system and the safety report**, and **informs the competent authority of the details in advance**. A derogation that changes a credible major-accident scenario (for example the vent-release case) is exactly that kind of change. Article 7(4) also requires advance notice of such modifications.
+* **Article 10**: an upper-tier safety report must show adequate safety and reliability in design (10(1)(c)) and be reviewed at least every five years and after changes (10(5)). Accepted derogations and their compensating measures belong in it.
+* **Article 19**: a member state may prohibit use where prevention and mitigation measures are seriously deficient, or required information was not submitted. An unassessed or unreported derogation is the sort of gap that feeds that finding.
+
+For each screened derogation the register records `seveso_assessment`: `significant` (true/false), a `rationale`, and, if significant, the date `authority_informed` and the list of `documents_updated` (notification, MAPP, safety management system, plus the safety report for upper tier). Issues raised: `seveso-not-assessed`, `seveso-authority-not-informed`, `seveso-documents-not-updated`, `eu-equivalence-not-shown`.
+
+The output's `eu_compliance` block lists the non-derogable EU clauses, the derogations that implement EU duties, those screened for Article 11, those found significant, those not yet assessed, and the documents to update.
+
+**What is and is not covered.** Only Seveso III was read for this feature, and only the articles above are encoded. ATEX (equipment and workplace), the Pressure Equipment Directive, the Industrial Emissions Directive and national transposition (for example COMAH in Great Britain, which is outside the EU) are not encoded: use `legal_basis` to mark such clauses, but check the legal text yourself. A "not significant" finding is the operator's judgement and may be challenged by the competent authority. Seveso issues on a SHOULD departure do not block `ready_for_gate`; they remain in the issue list. This is not legal advice.
+
 ## Use
 ```bash
 # check a register (the shipped example has deliberate faults: an expired derogation, a junior approver, a statutory clause)
@@ -42,11 +63,11 @@ python3 -m process_safety compliance process_safety/examples/compliance.json
 # start a register from a requirements extract: every clause begins "open", tier set from its modal verb
 python3 -m process_safety compliance --init requirements_out/my_requirements.csv --out requirements_out/register.json
 ```
-The register is JSON: `{"as_of": "YYYY-MM-DD", "clauses": [{"id", "tier", "status", "text", "derogation": {"justification", "risk_assessment_ref", "compensating_measures", "expiry", "consequence": {"scenario", "safety_severity", "pestle": {factor: {"rating", "note"}}, "management_actions": {factor: text}}, "approvals": [{"level": "TA1", "name"}]}, "statutory", "regulator_ref", "na_reason"}]}`. The shipped example shows each field. `--as-of` overrides the date used for expiry checks.
+The register is JSON: `{"as_of": "YYYY-MM-DD", "clauses": [{"id", "tier", "status", "text", "derogation": {"justification", "risk_assessment_ref", "compensating_measures", "expiry", "consequence": {"scenario", "safety_severity", "pestle": {factor: {"rating", "note"}}, "management_actions": {factor: text}}, "approvals": [{"level": "TA1", "name"}]}, "statutory", "regulator_ref", "na_reason", "legal_basis": {"regime": "EU", "instrument", "article", "relation": "is|implements"}}], "seveso": "lower|upper"}`. The shipped example shows each field. `--as-of` overrides the date used for expiry checks.
 
 The output gives counts by tier and status, MUST compliance (complied plus validly derogated, over applicable clauses), the share of SHOULD clauses complied with, the derogations in force, a list of issues, and `ready_for_gate`. That flag is false while any MUST clause is open or has an incomplete, expired or improperly approved derogation. Open or departed SHOULD clauses are reported but do not block it.
 
-Issue codes: `open`, `no-justification`, `no-risk-assessment`, `no-compensating-measures`, `no-expiry`, `no-consequence-assessment`, `no-scenario`, `pestle-incomplete`, `pestle-no-action`, `not-approved`, `approval-insufficient`, `unknown-approver-level`, `expired`, `bad-date`, `na-no-reason`, `statutory-no-exemption`.
+Issue codes: `open`, `no-justification`, `no-risk-assessment`, `no-compensating-measures`, `no-expiry`, `no-consequence-assessment`, `no-scenario`, `pestle-incomplete`, `pestle-no-action`, `not-approved`, `approval-insufficient`, `unknown-approver-level`, `expired`, `bad-date`, `na-no-reason`, `statutory-no-exemption`, `eu-equivalence-not-shown`, `seveso-not-assessed`, `seveso-authority-not-informed`, `seveso-documents-not-updated`.
 
 ## Limits
 * **The levels, the 0-5 scale, the class thresholds and the matrix cells are defaults, not any company's rules.** TA1 as the highest level and TA3 as the lowest is an assumption about common usage; edit `APPROVER_LEVELS`, `CLASS_THRESHOLDS` and `APPROVAL_MATRIX` in `process_safety/compliance.py` to match your own procedure. The ratings are the assessor's judgement; the tool does not derive them.
