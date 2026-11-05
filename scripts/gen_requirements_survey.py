@@ -34,6 +34,9 @@ TITLES = {
     "AER_Directive060": "Alberta Energy Regulator Directive 060: upstream flaring, incinerating and venting",
     "DOE_STD_1189_2016": "DOE-STD-1189-2016: Integration of Safety into the Design Process",
     "eCFR_29CFR1910.106": "29 CFR 1910.106 Flammable liquids (eCFR, 2026-11-03)",
+    "hsg253": "HSE HSG253: The safe isolation of plant and equipment (UK)",
+    "hsg254": "HSE HSG254: Developing process safety indicators (UK)",
+    "hsg176": "HSE HSG176: The storage of flammable liquids in tanks (UK)",
     "eCFR_29CFR1910.110": "29 CFR 1910.110 Storage and handling of liquefied petroleum gases (eCFR, 2026-11-03)",
 }
 
