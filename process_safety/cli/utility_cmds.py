@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import compliance, glossary, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
+from .. import compliance, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
 from .registry import command, emit
 
 
@@ -190,5 +190,41 @@ class Compliance:
                 p.error("give a register JSON, or --init EXTRACT_CSV --out FILE")
             emit(compliance.evaluate(compliance.load(a.register), dt.date.fromisoformat(a.as_of) if a.as_of else None))
         except (OSError, ValueError) as e:
+            p.error(str(e))
+        return 0
+
+
+@command("legal-clauses", "legal provisions on general duty, management of change, notification and exemption, by jurisdiction (what a derogation cannot waive)")
+class LegalClauses:
+    @staticmethod
+    def add_arguments(lp):
+        lp.add_argument("text", nargs="?"); lp.add_argument("--region", help="e.g. EU, US, UK")
+        lp.add_argument("--topic", choices=legal_clauses.TOPICS)
+        lp.add_argument("--markdown", action="store_true", help="print the whole table as Markdown (docs/LEGAL_CLAUSES.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(legal_clauses.markdown(), end="")
+            return 0
+        hits = legal_clauses.search(a.text, a.region, a.topic)
+        for c in hits:
+            print(f"{c['id']}  [{c['region']}; {c['topic']}; grade {c['grade']}] {c['instrument']}, {c['provision']}\n    {c['requires']}\n    For a derogation: {c['for_derogations']}\n    {c['url']}")
+        return 0 if hits else 1
+
+
+@command("insurance", "actuarial insurance impact of derogations and compensating measures: layer expected loss, uncertainty, technical premium, retained loss")
+class Insurance:
+    @staticmethod
+    def add_arguments(ip):
+        ip.add_argument("input", help="JSON with programme, pricing, cases, scenarios (see process_safety/examples/insurance.json)")
+
+    @staticmethod
+    def run(a, p):
+        import json
+        try:
+            with open(a.input, encoding="utf-8") as fh:
+                emit(insurance_impact.evaluate(json.load(fh)))
+        except (OSError, ValueError, KeyError) as e:
             p.error(str(e))
         return 0

@@ -137,6 +137,8 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 ## Docs
 * `docs/PUBLIC_REQUIREMENTS_SURVEY.md`: counts of normative statements by recommendation type across 23 public oil, gas, LNG and safety-in-design documents (counts only, no quoted text).
 * `docs/REQUIREMENTS_EXTRACT.md`: a local extractor for "shall"/"should" statements in standards and design practices you hold (private output only), with the project documents it connects to.
+* `docs/INSURANCE_IMPACT.md`: actuarial view of how derogations, compensating measures and better-documented risk change a project's insurance cost (`insurance` command).
+* `docs/LEGAL_CLAUSES.md`: legal provisions on general duty, change control, notification and exemption by jurisdiction (`legal-clauses` command): what a derogation cannot waive.
 * `docs/COMPLIANCE.md`: requirement tiers (must / should / can) and derogations: what a departure from each tier needs, and a register check with gate readiness.
 * `docs/PLANT_INGEST.md`: ingesting flow-scheme/HMB data, P&ID registers and a PHA register, and the reasoning chain for why studies recommend what they do.
 * `docs/DESIGN_LIFECYCLE_PLAN.md`: a structured plan from process concept through flow scheme, heat and material balance, equipment design, P&ID-level design and safety studies to design tweaks and safe operation, mapped to the toolkit.
