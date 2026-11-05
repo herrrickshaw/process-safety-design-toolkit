@@ -1,0 +1,87 @@
+{
+  "_about": "Generic loss-of-containment (LOC) frequencies. Every row carries its source and how it was checked. Only rows whose values were seen in a retrieved public document are included; equipment with no verified row (pumps, compressors, flanges, valves) must be given per study ('frequency_per_yr' on the equipment item) from OGP 434-1, HSE FRED/PCAG 6K, the Purple Book or site data. Hole keys: '10mm', '25mm', '0.1D_max50' (10% of diameter, capped at 50 mm), 'D/3', 'rupture' (full bore / catastrophic).",
+  "sources": {
+    "PHMSA_FRT_2015": "US DOT PHMSA LNG Failure Rate Table, rev. 2015-02-11 (FERC nominal rates), primis.phmsa.dot.gov; values read from search-engine excerpts of the public PDF (direct fetch blocked by robots.txt), 2026-11-05",
+    "HSE_PCAG_6K": "UK HSE Planning Case Assessment Guide ch. 6K 'Failure rate and event data' v12 (2012), efcog.org copy; values read from search excerpt, 2026-11-05",
+    "HSE_FRED_LPG": "HSE generic value 2e-6 per vessel-year for catastrophic failure of pressure vessels (LPG/chlorine basis), as quoted in the HSE/Nussey 2006 comparison of HSE and Dutch data; read from search excerpt, 2026-11-05"
+  },
+  "equipment": {
+    "pressure_vessel": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 5e-6, "source": "PHMSA_FRT_2015", "note": "process vessels, columns, heat exchangers, condensers: catastrophic failure"},
+        {"hole": "10mm", "freq": 1e-4, "source": "PHMSA_FRT_2015", "note": "hole of 0.01 m effective diameter"}
+      ]
+    },
+    "pressure_storage_vessel_hse": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 2e-6, "source": "HSE_FRED_LPG", "note": "HSE generic catastrophic value retained in preference to the 2.7e-8 Shell estimate; hole-size rows not verified - add per study"}
+      ]
+    },
+    "atmospheric_tank_single_containment": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 5e-6, "source": "PHMSA_FRT_2015", "note": "catastrophic failure, release to atmosphere"},
+        {"hole": "10mm", "freq": 1e-4, "source": "PHMSA_FRT_2015", "note": "hole in inner tank, 0.01 m"}
+      ]
+    },
+    "atmospheric_tank_double_containment": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 5e-7, "source": "PHMSA_FRT_2015", "note": "catastrophic failure, release to atmosphere"},
+        {"hole": "10mm", "freq": 1e-4, "source": "PHMSA_FRT_2015", "note": "hole in inner tank, 0.01 m"}
+      ]
+    },
+    "atmospheric_tank_large_hse": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 5e-6, "source": "HSE_PCAG_6K", "note": "large atmospheric vessels: catastrophic"},
+        {"hole": "D/3", "freq": 1e-4, "source": "HSE_PCAG_6K", "note": "'major' release; PCAG sizes holes to empty the tank in ~5 min - set hole_mm explicitly"}
+      ]
+    },
+    "piping_50_149mm": {
+      "unit": "per_m_yr", "d_min_mm": 50, "d_max_mm": 149,
+      "rows": [
+        {"hole": "rupture", "freq": 5e-7, "source": "PHMSA_FRT_2015"},
+        {"hole": "25mm", "freq": 2e-6, "source": "PHMSA_FRT_2015"}
+      ]
+    },
+    "piping_150_299mm": {
+      "unit": "per_m_yr", "d_min_mm": 150, "d_max_mm": 299,
+      "rows": [
+        {"hole": "rupture", "freq": 2e-7, "source": "PHMSA_FRT_2015", "note": "smaller-hole rows for this band not seen in the retrieved excerpt - add per study"}
+      ]
+    },
+    "piping_300_499mm": {
+      "unit": "per_m_yr", "d_min_mm": 300, "d_max_mm": 499,
+      "rows": [
+        {"hole": "rupture", "freq": 7e-8, "source": "PHMSA_FRT_2015"},
+        {"hole": "D/3", "freq": 2e-7, "source": "PHMSA_FRT_2015"},
+        {"hole": "0.1D_max50", "freq": 4e-7, "source": "PHMSA_FRT_2015"},
+        {"hole": "25mm", "freq": 5e-7, "source": "PHMSA_FRT_2015"}
+      ]
+    },
+    "piping_500_1000mm": {
+      "unit": "per_m_yr", "d_min_mm": 500, "d_max_mm": 1000,
+      "rows": [
+        {"hole": "rupture", "freq": 2e-8, "source": "PHMSA_FRT_2015"},
+        {"hole": "D/3", "freq": 1e-7, "source": "PHMSA_FRT_2015"},
+        {"hole": "0.1D_max50", "freq": 2e-7, "source": "PHMSA_FRT_2015"},
+        {"hole": "25mm", "freq": 4e-7, "source": "PHMSA_FRT_2015"}
+      ]
+    },
+    "transfer_hose": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 4e-2, "source": "PHMSA_FRT_2015", "note": "per transfer hose; PHMSA's 2017 GTI review says the hose leak rate may be ~100x conservative"}
+      ]
+    },
+    "transfer_arm": {
+      "unit": "per_item_yr",
+      "rows": [
+        {"hole": "rupture", "freq": 3e-4, "source": "PHMSA_FRT_2015", "note": "truck transfer arm rupture"}
+      ]
+    }
+  }
+}

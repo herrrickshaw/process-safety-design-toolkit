@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "process-safety-design-toolkit"
-version = "0.6.0"
-description = "Dependency-free process-safety and process-design calculators: relief, tank venting, flare, fire, hydraulics, consequence, LOPA/SIL, reliability, HAZOP"
+version = "0.8.0"
+description = "Dependency-free process-safety and process-design calculators: relief, tank venting, flare, fire, hydraulics, consequence, LOPA/SIL, reliability, HAZOP, QRA (individual/societal risk, ALARP)"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -18,4 +18,4 @@ process-safety = "process_safety.__main__:main"
 include = ["process_safety*"]
 
 [tool.setuptools.package-data]
-process_safety = ["data/*.json"]
+process_safety = ["data/*.json", "qra/data/*.json", "qra/examples/*.json", "examples/*.json"]
