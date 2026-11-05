@@ -162,6 +162,7 @@ class Compliance:
     @staticmethod
     def add_arguments(cp):
         cp.add_argument("register", nargs="?", help="register JSON ({'as_of': date, 'clauses': [...]}); see process_safety/examples/compliance.json")
+        cp.add_argument("--matrix", action="store_true", help="print the derogation approval matrix (TA1/TA2/TA3 by tier and consequence class) as Markdown")
         cp.add_argument("--as-of", help="date for expiry checks, YYYY-MM-DD (default: the register's as_of, else today)")
         cp.add_argument("--init", metavar="EXTRACT_CSV", help="start a register (every clause open) from a CSV written by the requirements command")
         cp.add_argument("--out", help="with --init: register JSON to write; must be outside version control or git-ignored")
@@ -170,6 +171,9 @@ class Compliance:
     @staticmethod
     def run(a, p):
         import datetime as dt
+        if a.matrix:
+            print(compliance.matrix_markdown(), end="")
+            return 0
         try:
             if a.init:
                 if not a.out:
