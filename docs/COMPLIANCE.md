@@ -53,7 +53,7 @@ For each screened derogation the register records `seveso_assessment`: `signific
 
 The output's `eu_compliance` block lists the non-derogable EU clauses, the derogations that implement EU duties, those screened for Article 11, those found significant, those not yet assessed, and the documents to update.
 
-Other jurisdictions: `python3 -m process_safety legal-clauses` (docs/LEGAL_CLAUSES.md) lists the provisions read so far for the EU, the US (OSHA PSM and EPA RMP management of change, OSHA variances) and the UK. The cost side, how a derogation moves the insurance premium and retained loss, is in `docs/INSURANCE_IMPACT.md`.
+Other jurisdictions: `python3 -m process_safety legal-clauses` (docs/LEGAL_CLAUSES.md) lists the provisions read so far for the EU, the US (OSHA PSM and EPA RMP management of change, OSHA variances), the UK, Australia (Commonwealth WHS major hazard facilities), Singapore, Canada (federal) and South Korea. The cost side, how a derogation moves the insurance premium and retained loss, is in `docs/INSURANCE_IMPACT.md`.
 
 **What is and is not covered.** Only Seveso III was read for this feature, and only the articles above are encoded. ATEX (equipment and workplace), the Pressure Equipment Directive, the Industrial Emissions Directive and national transposition (for example COMAH in Great Britain, which is outside the EU) are not encoded: use `legal_basis` to mark such clauses, but check the legal text yourself. A "not significant" finding is the operator's judgement and may be challenged by the competent authority. Seveso issues on a SHOULD departure do not block `ready_for_gate`; they remain in the issue list. This is not legal advice.
 

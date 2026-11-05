@@ -10,10 +10,12 @@ A company derogation (see `compliance`) cannot waive a law. What the law does sa
 Each entry says what the provision requires (paraphrased, never quoted at length), what it means for a derogation, where it is, and how it
 was checked: grade A = the legal text was read for the toolkit on the date shown; grade B = read only in a regulator's guidance or a
 secondary source, so the wording and numbering must be checked against the legislation. Jurisdictions not listed here have not been read:
-`docs/REGULATORY_LANDSCAPE.md` lists the regimes of other countries (Singapore, Australia, India, Canada, Korea, Gulf and others) with
-their own read/not-read grades. This is a finding aid, not legal advice.
+`docs/REGULATORY_LANDSCAPE.md` lists the regimes of other countries with their own read/not-read grades. This is a finding aid, not legal advice.
 """
 from __future__ import annotations
+
+import json
+import os
 
 TOPICS = ("general-duty", "change", "notify", "exemption")
 CHECKED = "2026-11-06"
@@ -56,6 +58,9 @@ CLAUSES = [
      "for_derogations": "Same position as Seveso Art. 5. The regulation numbers for safety-report review and modification were not confirmed: check legislation.gov.uk.",
      "url": "https://www.hse.gov.uk/comah/comah15.htm"},
 ]
+_PATH = os.path.join(os.path.dirname(__file__), "data", "legal_clauses.json")
+with open(_PATH, encoding="utf-8") as _fh:
+    CLAUSES += json.load(_fh)["entries"]
 for _c in CLAUSES:
     _c["checked"] = CHECKED
 
@@ -81,8 +86,7 @@ def markdown() -> str:
              "**notify**ing the regulator or updating safety documents, and the only route that sets a legal duty aside (**exemption**).",
              "Grade **A**: the legal text was read for the toolkit. Grade **B**: seen only in regulator guidance or a secondary source; confirm against the legislation. "
              "Paraphrased; not legal advice.", "",
-             f"{len(CLAUSES)} clauses from {len({c['region'] for c in CLAUSES})} regimes. **Not yet read** (see `docs/REGULATORY_LANDSCAPE.md` for what is known): Australia (WHS major hazard facilities), Singapore, "
-             "India, Canada, South Korea, China, Japan, Brazil, Norway, the Gulf states and others.", ""]
+             f"{len(CLAUSES)} clauses from {len({c['region'] for c in CLAUSES})} regimes. **Not yet read** (see `docs/REGULATORY_LANDSCAPE.md` for what is known): India, China, Japan, Brazil, Norway, the Gulf states, the Australian states and Canadian provinces, and others.", ""]
     for t in TOPICS:
         rows = [c for c in CLAUSES if c["topic"] == t]
         if not rows:
