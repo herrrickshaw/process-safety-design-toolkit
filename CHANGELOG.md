@@ -1,5 +1,23 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.7.0 - 2026-11-05: quantitative risk assessment workflow (`qra` package)
+* New `process_safety/qra/`: hazid, frequency, eta, effects, risk, alarp, mitigation, validate, progress, study, report; CLI `qra`;
+  docs/QRA.md; worked example `qra/examples/lpg_terminal.json`. 142 tests (28 new, identity/conservation based).
+* Generic LOC frequencies ship only for rows seen in public documents (PHMSA LNG failure-rate table 2015, HSE PCAG 6K, HSE generic
+  vessel value), each with its source. Pumps, compressors, valves and flanges have no verified public row, so the study must supply
+  them: rejected shipping remembered OGP 434-1 / Purple Book numbers.
+* Cox-Lees-Ang ignition/explosion probabilities verified against the EU JRC RAPID-N tabulation. The immediate/delayed split is not in
+  Cox and is a required study input (no default) rather than a hidden assumption.
+* Wind-sector handling: first version sent each plume down the sector centreline only. The map showed spokes and the village receptor
+  was missed by geometry (IR 2.6e-9/yr). Spreading each sector over adaptive sub-directions (step <= 1/3 of the plume's angular width)
+  moved it to ~1e-4/yr, converged within ~6% when the resolution is doubled. Sample runs now report this convergence check automatically.
+* Pool area bug found in the first sample run: a small leak inside a bund was given the whole bund area. Fixed: continuous releases
+  use the burn-off area capped by the bund.
+* Consistency identities checked on every run: event-tree branches sum to 1, PLL from F-N events equals population-weighted LSIR,
+  max LSIR <= total LOC frequency, monotone F-N, footprints vs grid extent.
+* Rejected: India-wide default criteria (none exists; OISD-STD-118 / PNGRB / MSIHC bases not read - use `custom`); dense-gas model
+  (no verifiable open formulation within scope - use the override hook with Phast/RISKCURVES footprints); a default VPF (policy input).
+
 ## 0.6.0 - 2026-11-03: electrical and mechanical safety
 * New: `electrical`, `noise`, `mechanical_safety`, docs/ELECTRICAL_MECHANICAL.md. 114 tests.
 * The arc-flash calculator enforces OSHA's applicability limits (open-air three-phase up to 15 kV) and refuses enclosed equipment and higher voltages

@@ -57,3 +57,17 @@
 
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.
+
+## QRA (0.7.0, checked 2026-11-05)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Generic LOC frequencies: vessels 5e-6 rupture / 1e-4 10 mm; piping by diameter band; tanks; hoses 4e-2; transfer arm 3e-4 | US DOT PHMSA LNG Failure Rate Table rev. 2015-02-11 (FERC nominal), primis.phmsa.dot.gov | search-engine excerpts of the public PDF (direct fetch blocked by robots.txt) | medium-high: rows as printed; check the current FRT |
+| Large atmospheric tank catastrophic 5e-6, major 1e-4 | HSE PCAG ch. 6K v12 (2012) | search excerpt | medium-high |
+| HSE generic pressure-vessel catastrophic 2e-6 /vessel-yr | Nussey (2006) HSE vs Netherlands comparison, quoting FRED | search excerpt | medium-high |
+| Cox, Lees & Ang (1990) ignition 0.01/0.07/0.30 gas, 0.01/0.03/0.08 liquid; explosion 0.04/0.12/0.30 | EU JRC RAPID-N property estimators citing Cox et al. 1990; CET journal table | read | high (as tabulated) |
+| HSE R2P2: IR 1e-3 workers, 1e-4 public, 1e-6 broadly acceptable; N>=50 at 2e-4/yr intolerable | Risktec paper (traficom.fi), IGEM guidance note, EU criteria review | secondary, consistent | high |
+| F-N lines 1e-2/N (max tolerable) and 1e-4/N (broadly acceptable) | IGEM note (states it derives from the R2P2 50-fatality point) | read | medium: IGEM rendering, not R2P2 text |
+| Netherlands: PR 1e-6/yr; societal guide value 1e-3/N^2 for installations (N >= 10) | CET vol. 31 (2013); TU Delft notes; Jonkman et al. (2010) | secondary, consistent | high |
+| Eisenberg probits: lung haemorrhage Pr = -77.1 + 6.91 ln P[Pa]; structural damage -23.8 + 2.92 ln P | Purdue P2SAC note; Crowl & Louvar problem sets | secondary, consistent | medium-high |
+| Flare/jet flame length L = 0.00326 Q^0.478 (Q in W) | TCEQ technical basis (4.56e-3 q^0.478, cal/s, flame at 45 deg) = same curve; forum fits of API 521 Fig. | regulator doc + secondary | medium: API figure fit |
+| India QRA criteria | no single national value found; OISD-STD-118 (2025), PNGRB T4S, MSIHC reference QRA | consultancy summaries only | n/a: use `custom` |

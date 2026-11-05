@@ -1,0 +1,85 @@
+{
+  "name": "Illustrative LPG / fuel terminal QRA (hypothetical site)",
+  "_note": "EXAMPLE ONLY. Material properties are typical handbook values; pump frequencies, weather, wind rose, population, indoor vulnerability, VPF and measure costs are ILLUSTRATIVE PLACEHOLDERS - replace with site data, OGP 434-1 / HSE FRED rows, IMD met data and company policy before any decision.",
+  "criteria": "uk_hse_r2p2",
+  "materials": {
+    "propane": {"phase_stored": "pressurised_liquefied", "M": 44.1, "k": 1.13, "rho_liquid": 500, "Tb_K": 231.1, "Hv_kJ_kg": 426,
+                "cp_liquid_kJ_kgK": 2.52, "Hc_MJ_kg": 46.35, "LFL_vol": 0.021},
+    "sour_fuel_gas": {"phase_stored": "gas", "M": 18.5, "k": 1.28, "Hc_MJ_kg": 47.0, "LFL_vol": 0.05,
+                      "toxic": {"component": "hydrogen sulfide", "mole_fraction": 0.005, "M": 34.08}},
+    "diesel": {"phase_stored": "liquid", "rho_liquid": 840, "Tb_K": 520, "Hv_kJ_kg": 250, "cp_liquid_kJ_kgK": 2.2, "Hc_MJ_kg": 43.0, "LFL_vol": 0.006}
+  },
+  "sections": [
+    {"id": "S1", "name": "Propane bullet + pump suction/discharge", "material": "propane", "x": 0, "y": 0, "P_kpag": 750, "T_K": 303,
+     "inventory_kg": 60000, "release_height_m": 1.0, "max_pool_area_m2": 400,
+     "design_intent": "Store refrigerated-free pressurised propane and transfer to loading at 900 kPag",
+     "equipment": [
+       {"type": "pressure_vessel", "tag": "V-101 bullet", "count": 1},
+       {"type": "piping_50_149mm", "tag": "4in lines", "length_m": 80, "diameter_mm": 100},
+       {"type": "pump", "tag": "P-101A/B", "count": 2, "diameter_mm": 100,
+        "rows": [{"hole": "10mm", "freq": 1e-3, "source": "ILLUSTRATIVE PLACEHOLDER - replace with OGP 434-1 / HSE FRED pump row"},
+                 {"hole": "25mm", "freq": 3e-4, "source": "ILLUSTRATIVE PLACEHOLDER - replace with OGP 434-1 / HSE FRED pump row"}]}
+     ]},
+    {"id": "S2", "name": "LPG road-tanker loading bay", "material": "propane", "x": 120, "y": 40, "P_kpag": 900, "T_K": 303,
+     "inventory_kg": 15000, "release_height_m": 1.0, "max_pool_area_m2": 300,
+     "design_intent": "Load propane road tankers through a 3in hose",
+     "equipment": [
+       {"type": "transfer_hose", "tag": "Loading hose", "count": 1, "diameter_mm": 75, "instantaneous_rupture": false},
+       {"type": "piping_50_149mm", "tag": "3in loading line", "length_m": 40, "diameter_mm": 80}
+     ]},
+    {"id": "S3", "name": "Sour fuel-gas header (12in, between SDVs)", "material": "sour_fuel_gas", "x": -150, "y": 80, "P_kpag": 3000, "T_K": 310,
+     "inventory_kg": 800, "release_height_m": 3.0, "connection_diameter_mm": 100,
+     "design_intent": "Supply sour fuel gas at 30 barg to heaters",
+     "equipment": [
+       {"type": "piping_300_499mm", "tag": "12in header", "length_m": 250, "diameter_mm": 300},
+       {"type": "pressure_vessel", "tag": "V-301 KO drum", "count": 1}
+     ]},
+    {"id": "S4", "name": "Diesel storage tank in bund", "material": "diesel", "x": 200, "y": -150, "P_kpag": 0, "T_K": 303,
+     "inventory_kg": 2000000, "liquid_head_m": 8.0, "bund_area_m2": 2500, "release_height_m": 0.5,
+     "design_intent": "Store diesel at atmospheric pressure",
+     "equipment": [{"type": "atmospheric_tank_single_containment", "tag": "T-401", "count": 1}]}
+  ],
+  "extra_scenarios": [
+    {"id": "S1-FT-overfill-overpressure", "section": "S1", "equipment": "V-101 bullet", "hole": "rupture", "hole_mm": 0, "instantaneous": true,
+     "source": "Fault tree from HAZOP 'More level' -> liquid-full overpressure; generic CCPS LOPA values (sil.GENERIC_IPL_PFD)",
+     "fault_tree": {"initiator_per_yr": 0.1,
+                    "basic": {"operator_misses_high_level_alarm": 0.1, "psv_fails_to_open": 0.01, "psv_isolation_valve_closed": 0.001},
+                    "gates": {"relief_unavailable": ["OR", ["psv_fails_to_open", "psv_isolation_valve_closed"]],
+                              "top": ["AND", ["operator_misses_high_level_alarm", "relief_unavailable"]]},
+                    "top": "top"},
+     "ipl_pfds": [0.01]}
+  ],
+  "ignition": {"model": "cox1990", "immediate_fraction": 0.3, "_note": "immediate_fraction is a study assumption: Cox gives total ignition only"},
+  "conventions": {"thermal_s": 20, "vce_yield": 0.05},
+  "weather": [
+    {"name": "D5", "stability": "D", "u": 5.0, "p": 0.65},
+    {"name": "F2", "stability": "F", "u": 2.0, "p": 0.35}
+  ],
+  "wind_rose": [0.08, 0.14, 0.10, 0.06, 0.08, 0.22, 0.20, 0.12],
+  "grid": {"x_min": -600, "x_max": 600, "y_min": -600, "y_max": 600, "step": 10},
+  "receptors": [
+    {"name": "Control room operator", "x": 60, "y": -60, "group": "worker", "occupancy": 0.23},
+    {"name": "Loading-bay operator", "x": 110, "y": 30, "group": "worker", "occupancy": 0.10},
+    {"name": "North boundary", "x": 0, "y": 300, "group": "public", "occupancy": 1.0},
+    {"name": "Village edge", "x": 450, "y": 300, "group": "public", "occupancy": 1.0}
+  ],
+  "population": [
+    {"name": "Control room", "x": 60, "y": -60, "people": 6, "indoor_fraction": 1.0},
+    {"name": "Loading bay", "x": 120, "y": 30, "people": 4, "indoor_fraction": 0.0},
+    {"name": "Admin building", "x": -120, "y": -120, "people": 30, "indoor_fraction": 0.9},
+    {"name": "Village", "x": 450, "y": 300, "people": 400, "indoor_fraction": 0.8},
+    {"name": "Highway", "x": 0, "y": -450, "people": 15, "indoor_fraction": 0.0}
+  ],
+  "indoor_vulnerability": {"_note": "ILLUSTRATIVE - justify per building (API RP 752/753 occupied-building assessment)",
+                           "jet_fire": 0.1, "pool_fire": 0.1, "fireball": 0.1, "flash_fire": 0.1, "vce": 0.3, "toxic": 0.1},
+  "alarp": {"vpf": 1.0e8, "currency": "INR", "disproportion_factor": 3, "lifetime_yr": 25, "discount_rate": 0.0,
+            "_note": "VPF is an ILLUSTRATIVE policy value; set per company / regulator basis"},
+  "mitigation": [
+    {"name": "Loading-hose ERC + breakaway coupling", "description": "Emergency release coupling with interlocked shut-off; credited as 0.1 on hose rupture (justify)",
+     "capex": 2.5e6, "opex_per_yr": 5e4, "changes": [{"target": "frequency", "section": "S2", "hole": "rupture", "factor": 0.1}]},
+    {"name": "Fuel-gas header extra SDVs", "description": "Automatic SDVs on gas detection cut the isolatable sour-gas inventory from 800 to 300 kg",
+     "capex": 8.0e6, "opex_per_yr": 2e5, "changes": [{"target": "section", "id": "S3", "set": {"inventory_kg": 300}}]},
+    {"name": "Relocate admin building", "description": "Move the 30-person admin building to the far south-west corner",
+     "capex": 4.0e7, "opex_per_yr": 0, "changes": [{"target": "population", "name": "Admin building", "set": {"x": -500, "y": -500}}]}
+  ]
+}

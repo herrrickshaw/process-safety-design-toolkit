@@ -55,6 +55,7 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `electrical` | Fault levels, cable CSA/voltage drop, power factor, motor start dip, IEC 60255 relay curves + grading, IEEE 80 tolerable voltages and rod resistance, lightning rolling sphere and collection area, Ex T-class/gas group/EPL, Lee arc flash with OSHA applicability | OSHA 1910.269 App. E (read); IEEE 80, IEC 60255, 62305 (corroborated) | no IEEE 1584; not studies |
 | `noise` | OSHA permissible exposure, dose, TWA, NIOSH 3 dB criterion, level summation and attenuation | OSHA 1910.95 + App. A (read) | environmental noise limits not implemented |
 | `mechanical_safety` | ISO 13849-1 required PL and PFHd bands, ISO 13855 safeguard distance, sling tension, dropped-object/vehicle/ship energy, pipe span, thermal growth, guided cantilever, bolt torque | ISO texts paywalled (corroborated by search) | pre-2024 ISO 13855; screening forms |
+| `qra` (package) | Six-step QRA: HAZID/HAZOP + LOC register, parts-count frequencies, fault trees, Cox ignition event trees, consequence footprints, LSIR grid, IRPA, F-N, PLL, R2P2/Bevi evaluation, mitigation re-runs with ALARP cost-benefit; HTML/Excel/CSV report; sample-first runs with progress, ETA and convergence check | HSE R2P2, Bevi, PHMSA failure-rate table, Cox-Lees-Ang | screening QRA; see `docs/QRA.md` |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -91,6 +92,11 @@ python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05
 python3 -m process_safety hazop-csv --node "Node 1" --intent "Feed naphtha to surge drum" --out node1_hazop.csv
+python3 -m process_safety qra example --out study.json          # worked LPG/fuel terminal study to edit
+python3 -m process_safety qra validate study.json               # input consistency checks
+python3 -m process_safety qra hazid study.json --out hazid/     # HAZID register, HAZOP worksheet, LOC register (CSV)
+python3 -m process_safety qra run study.json --sample 3 --out sample/   # small sample: checks, convergence, projected run time
+python3 -m process_safety qra run study.json --out qra_out/     # full study: qra_report.html, qra_results.xlsx, CSVs
 ```
 Python API (not all exposed on the CLI): `scenarios.thermal_expansion_relief_m3h`, `scenarios.tube_rupture_flow_kg_s`,
 `separator.vertical_separator`, `separator.horizontal_separator`, `separator.knockout_drum_vertical`, `fireball.fireball`.
@@ -102,6 +108,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 `vapour_fire.py`.
 
 ## Docs
+* `docs/QRA.md`: the QRA workflow, study file format, models and their limits, worked example results.
 * `docs/RELATED_PROJECTS.md`: other open-source process-safety and engineering projects found on GitHub, with licences and how each relates to this toolkit.
 * `docs/ELECTRICAL_MECHANICAL.md`: electrical and mechanical safety scope, which formulas were read versus corroborated, and the limits.
 * `docs/SECTORS_AND_LESSONS.md`: LNG, LPG, refinery, petrochemical and chemicals coverage, public sources, and incident lessons mapped to modules.
@@ -111,6 +118,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `CHANGELOG.md`: decisions, including alternatives rejected.
 
 ## Not implemented (see `coverage`)
-Full QRA (frequency data, ignition and population modelling), dense-gas and two-phase release, pool/jet-fire geometry, multi-energy explosions,
+Dense-gas dispersion and two-phase/flashing discharge (the QRA uses neutral Gaussian plumes and Bernoulli liquid flow, flagged; override with Phast),
+pump/compressor/valve/flange generic frequencies (no verified public row: give per study), pool/jet-fire geometry, multi-energy explosions,
 layout distances (OISD-STD-118), hazardous area classification, F&G mapping, HAZOP worksheets, two-phase/runaway relief (DIERS),
 API 2000 7th-edition thermal method, vent/PV-valve flow curves, SIL architectural constraints.
