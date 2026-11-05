@@ -22,3 +22,13 @@ class UseCases(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DesignAwareness(unittest.TestCase):
+    def test_commands_named_in_doc_exist(self):
+        import re
+        from process_safety.cli import REGISTRY
+        with open(os.path.join(ROOT, "docs", "DESIGN_AWARENESS.md"), encoding="utf-8") as fh:
+            names = set(re.findall(r"cmd:([a-z0-9-]+)", fh.read()))
+        self.assertTrue(names)
+        self.assertEqual(names - set(REGISTRY), set())

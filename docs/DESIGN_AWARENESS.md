@@ -1,0 +1,51 @@
+# Process safety awareness for design: review steps and incidents that lead to design choices
+
+One page for a design team: which process safety review (PSR) step asks which question, what design choice it forces, and
+which part of this toolkit gives the first-pass number. Incident rows come from `docs/SECTORS_AND_LESSONS.md` (public investigation
+material, summarised, **not all reports were read**: verify against the reports before quoting). Commands are written with a `cmd:` prefix and
+a test checks each one exists. Everything here is screening support, not a safety case.
+
+## 1. Review steps in the order a design meets them
+
+| Step | Question it asks | Typical design choice it drives | Toolkit |
+|---|---|---|---|
+| 1. Concept / inherent safety | Can the hazard be removed, reduced, substituted or moderated before adding protection? | smaller inventory, lower pressure or temperature, less hazardous material, simpler layout | `cmd:seveso`, `cmd:psm-check`, `cmd:rmp-check`, `cmd:lpg`, `cmd:lng` |
+| 2. Regulatory screen | Which regimes apply (Seveso, OSHA PSM, EPA RMP, pipeline rules)? | design basis documents, safety report, PHA cadence | `cmd:seveso`, `cmd:psm-check`, `cmd:psm-due`, `cmd:rmp-check`, `cmd:pipeline` |
+| 3. HAZID | What can go wrong, where, with what consequence class? | list of major accident scenarios and the loss-of-containment register | `cmd:hazop-csv`, `cmd:qra` (hazid) |
+| 4. Consequence screening | How far do fire, explosion and toxic effects reach? | plot layout, separation, building siting, escape routes | `cmd:pool-fire`, `cmd:flame-flux`, `cmd:fireball`, `cmd:plume`, `cmd:flare` |
+| 5. HAZOP / what-if | What deviations from design intent can occur and are they protected? | added instruments, relief paths, interlocks, procedures | `cmd:hazop-csv`, `cmd:tool` (pha) |
+| 6. Relief and flare design | What is the worst credible overpressure and does the valve and header handle it? | PSV area and orifice, two-phase sizing, inlet and outlet piping, flare header and KO drum | `cmd:relief-gas`, `cmd:relief-steam`, `cmd:relief-liquid`, `cmd:relief-fire`, `cmd:twophase`, `cmd:tank-normal`, `cmd:tank-fire` |
+| 7. Fire protection and depressuring | Does the vessel survive the fire long enough for relief or blowdown to work? | blowdown valve, passive fire protection, fire water, steel section | `cmd:vapour-fire`, `cmd:depressure`, `cmd:blowdown`, `cmd:steel-fire` |
+| 8. LOPA and SIL | How much risk reduction does each scenario need and who provides it? | safety instrumented function with a target SIL, architecture, proof-test interval | `cmd:lopa`, `cmd:pfd`, `cmd:tool` (sif) |
+| 9. QRA and ALARP | Is the individual and societal risk tolerable, and what mitigation is worth its cost? | siting changes, occupied-building rating, mitigation package | `cmd:qra`, `cmd:tool` (bowtie) |
+| 10. Detection and emergency response | Will a release be seen in time and who responds? | detector layout, voting, emergency zones | `cmd:tool` (fg), `cmd:qra` (emergency) |
+| 11. Electrical, mechanical and occupational | Ignition sources, arc flash, earthing, noise, guarding | equipment protection, relay settings, earthing, guard distance | `cmd:arc-flash`, `cmd:idmt`, `cmd:earthing`, `cmd:noise`, `cmd:safeguard` |
+| 12. PSSR, MOC and revalidation | Is it built as designed, and does every change and the five-year cycle get re-reviewed? | commissioning checklist, change control, revalidation dates | `cmd:psm-due`, `cmd:tool` (pha) |
+
+## 2. Design choices the toolkit's own results illustrate
+
+These are from `docs/USE_CASES.md` (real runs, screening inputs):
+
+* **Relief is not protection.** A J-orifice fire-case valve held pressure at about 1503 kPag but the 20 mm wall vessel still ruptured at 700 s; opening a blowdown valve at 60 s avoided rupture. Design choice: depressuring or passive fire protection in addition to the valve (step 7).
+* **Flashing changes the valve.** The same 8 kg/s needs 657, 977 or 1611 mm2 as omega goes 2, 6, 20. Design choice: decide the fluid state at relief first, size for two-phase if the liquid can flash (step 6).
+* **Test interval is a design variable.** A 1oo2 pair gave PFDavg 5.3e-4 with a yearly proof test and 2.1e-3 with a three-yearly one, one SIL band lost. Design choice: access for online testing and the interval written into the safety requirement (step 8).
+* **Models disagree; show both.** Point-source and solid-flame pool-fire radiation differ about four times in the far field. Design choice: siting uses the conservative model until a specialist picks one (step 4).
+* **Applicability decides the paperwork.** 700 kg chlorine is above the OSHA PSM threshold and 1200 kg above the RMP threshold. Design choice: PSM elements and an RMP are scoped at concept, not after detailed design (steps 1 and 2).
+
+## 3. Incident instances and the design question each should raise
+
+| Incident (as summarised in `SECTORS_AND_LESSONS.md`) | What went wrong | Design / review step to ask at | Toolkit |
+|---|---|---|---|
+| LG Polymers styrene tank, Visakhapatnam, India, 2020 | polymerisation runaway in an idle tank; inhibitor depletion; one local temperature sensor; no HAZOP or pre-start review after lockdown | steps 5, 8, 12: independent temperature monitoring and alarm, venting for runaway, pre-start review after long idle | `reaction_hazard`, `thermal_runaway`, `tank_venting`, `psm` |
+| Husky Superior refinery FCC explosion, 2018 | transient operations without explicit hazard analysis | steps 5 and 12: analyse start-up, shutdown and abnormal modes, not only steady state | `hazop`, `psm`, `plant_units` |
+| Tesoro Anacortes, 2010 | high-temperature hydrogen attack not assessed | steps 5 and 12: damage mechanisms in the mechanical integrity scope | `psm`, `hazop` |
+| Buncefield 2005, IOC Jaipur 2009, BP Texas City 2005 (reports not fetched) | overfill leading to a large vapour release and explosion; blowdown to atmosphere | steps 4, 6, 8: independent high-level protection, blowdown to a closed system, siting of occupied buildings | `overfill`, `separator`, `explosion`, `flare_system`, `qra.buildings` |
+
+Rows for other incidents are not added until their investigation reports are read.
+
+## 4. Habits that keep design choices defensible
+
+* State the standard and edition, and what was not read, beside every number (the toolkit refuses defaults where a vendor or standard value governs).
+* Run range checks on, and read warnings (`docs/RANGES.md`).
+* Record the model's limit with the result (`cmd:coverage` lists what is not implemented).
+* Keep a decision log of the alternatives rejected, as `CHANGELOG.md` does.

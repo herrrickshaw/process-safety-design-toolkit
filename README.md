@@ -128,6 +128,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/DESIGN_AWARENESS.md`: process safety review steps, the design choices each drives, results from the use cases, and incident instances, with the toolkit command for each.
 * `docs/USE_CASES.md`: eight worked scenarios (refinery fire case, flashing LPG relief, terminal siting, LOPA to proof-test interval, regulatory screen, electrical, data centre, occupational) with the real commands and outputs; every command is run by the tests.
 * `docs/VALIDATION.md`: 124 cross-checks against fluids, thermo, CoolProp and closed-form literature formulas, with the differences to know about.
 * `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `CONTRIBUTING.md`: checks to run, releasing.
