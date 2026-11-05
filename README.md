@@ -65,6 +65,8 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `thermal_runaway` | TMRad, TD24, Stoessel criticality class, Semenov critical ambient | Stoessel (TUV SUD lecture examples reproduced) | zero-order kinetics |
 | `atex` | KSt class, zone by grade, EPL / ATEX category, FIBC screening, EPD register | KSt classes (read) | no zone extent, no vent sizing |
 | `ram` | Monte Carlo RAM with k-of-n stages, analytic check, criticality, sample-first run planning | binomial availability identity | unlimited crews |
+| `twophase` | Two-phase / flashing discharge by the omega method: critical pressure ratio and mass flux by maximising the energy-balance flux, subcritical flux, relief area | homogeneous equilibrium; closed-form checks in tests | omega and Kd are inputs; no subcooled or DIERS runaway sizing |
+| `viewfactor` | Numerical view factor from flat rectangular flame faces to a target, incident flux = tau x SEP x F | integration checked vs Howell and far-field limits | no tilt, no blockage |
 | `datacentre` | PUE, cooling-water flow, evaporative water per kWh, UPS battery energy, diesel storage, N+1/2N availability, generic data-centre HAZID prompts | energy balance and first principles | no tier/ASHRAE/NFPA values coded; see `docs/DATACENTRE.md` |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
@@ -89,6 +91,8 @@ python3 -m process_safety psm-due --pha 2021-03-15 --audit 2023-06-01 --today 20
 python3 -m process_safety seveso Chlorine:H=6 "Hydrogen sulphide:H=3"
 python3 -m process_safety pipeline --smys 448 --wall 12.7 --od 610 --buildings 25
 python3 -m process_safety rmp-check chlorine --kg 1200
+python3 -m process_safety twophase --P0 1900 --rho0 450 --omega 6 --W 8 --Kd 0.85   # flashing LPG relief area
+python3 -m process_safety flame-flux --width 20 --height 31 --distance 15 --sep 30.9 --tau 0.8   # near-field solid flame
 python3 -m process_safety datacentre --it-kw 10000 --facility-kw 13000 --delta-t 8 --autonomy-min 10 --gen-hours 48 --sfc 210
 python3 -m process_safety rmp-worst propane --kg 20000 --hc 46.3
 python3 -m process_safety lng --tanks 160000 --heat-kw 100 --regas-kg-s 100
@@ -124,6 +128,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/USE_CASES.md`: eight worked scenarios (refinery fire case, flashing LPG relief, terminal siting, LOPA to proof-test interval, regulatory screen, electrical, data centre, occupational) with the real commands and outputs; every command is run by the tests.
 * `docs/VALIDATION.md`: 124 cross-checks against fluids, thermo, CoolProp and closed-form literature formulas, with the differences to know about.
 * `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `CONTRIBUTING.md`: checks to run, releasing.
 * `docs/RANGES.md`, `docs/GLOSSARY.md`: generated from `ranges.py` and `glossary.py`; a test keeps them in sync.
@@ -140,7 +145,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `CHANGELOG.md`: decisions, including alternatives rejected.
 
 ## Not implemented (see `coverage`)
-Dense-gas dispersion and two-phase/flashing discharge (the QRA uses neutral Gaussian plumes and Bernoulli liquid flow, flagged; override with Phast),
+Dense-gas dispersion (the QRA uses neutral Gaussian plumes and Bernoulli liquid flow, flagged; override with Phast) and two-phase discharge inside the QRA (the standalone `twophase` command covers relief sizing only),
 pump/compressor/valve/flange generic frequencies (no verified public row: give per study), pool/jet-fire geometry, multi-energy explosions,
-layout distances (OISD-STD-118), hazardous area classification, F&G mapping, HAZOP worksheets, two-phase/runaway relief (DIERS),
+layout distances (OISD-STD-118), hazardous area classification, F&G mapping, HAZOP worksheets, runaway-reaction relief (DIERS),
 API 2000 7th-edition thermal method, vent/PV-valve flow curves, SIL architectural constraints.

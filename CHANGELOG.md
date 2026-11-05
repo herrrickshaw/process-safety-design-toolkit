@@ -1,5 +1,13 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.11.0 - 2026-11-06: use cases, two-phase relief, solid-flame view factor
+* New: `docs/USE_CASES.md` (eight scenarios across refinery, LPG, terminals, functional safety, regulation, electrical, data centre and occupational safety, generated from `scripts/use_case_cmds.py` by `scripts/gen_use_cases.py`; the test suite runs every command and checks the doc is current).
+* New: `twophase` (omega method) and CLI `twophase`. The choked flux is found by maximising the energy-balance flux over pressure ratio, not from a recalled chart; tests check the result against the published critical-ratio equation (five omegas) and two exact limits (omega near 0 is incompressible flow, omega = 1 is isothermal choking at exp(-1/2)).
+* New: `viewfactor` and CLI `flame-flux`: midpoint integration of the view factor to flat rectangular flame faces; tests match the Howell rectangle result to 2e-4 and the far-field inverse-square limit.
+* Coverage map: two entries added; the README "not implemented" list now says two-phase relief sizing is covered and runaway-reaction (DIERS) relief is not. Two ranges (`omega_parameter`, `emissive_power_kW_m2`) and five glossary terms added; `docs/RANGES.md` and `docs/GLOSSARY.md` regenerated.
+* Found while writing the use cases: the point-source `pool-fire` distances and the SEP-based solid-flame fluxes disagree by about four times in the far field (25% radiant fraction against about 6% implied by the Mudan-Croce SEP). Documented in the use case, not papered over; no model was changed.
+* Rejected: coding the TNO multi-energy blast curves and OISD layout distances (the curves and the standard were not read, so the numbers would be recalled); a default omega or Kd (both depend on the fluid and the valve); defaulting Kd to 0.85 for two-phase service.
+
 ## 0.10.0 - 2026-11-05: streamlined CLI, input ranges, glossary, CI/CD, validation
 * New: `ranges.py` (55 quantities with hard and soft ranges), `glossary.py` (about 115 terms), CLI commands `ranges` and `glossary`, `--no-range-check`, generated `docs/RANGES.md` and `docs/GLOSSARY.md`, `@validated` on `relief.gas_area`, `sil.pfd_avg`, `sil.lopa`, `electrical.idmt_time_s` and `fireball.fireball`.
 * Refactor (no change to any output): the 437-line `__main__.py` with a 34-branch `if/elif` is now a command registry (`cli/`), one class per command, with range checks applied by the framework. `constants.py` replaces `R`, `G` and atmospheric pressure defined in 9 modules. A golden test pins 40 CLI outputs from before the refactor; all match.

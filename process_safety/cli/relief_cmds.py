@@ -1,7 +1,7 @@
 """Relief, venting and flare commands."""
 from __future__ import annotations
 
-from .. import depressuring, flare, relief, release, tank_venting
+from .. import depressuring, flare, relief, release, tank_venting, twophase
 from .registry import command, emit
 
 
@@ -185,3 +185,35 @@ class Flare:
     def run(a, p):
         F = flare.radiant_fraction(a.mw); Q = flare.heat_release_W(a.mass, a.lhv)
         emit({"heat_release_MW": Q / 1e6, "radiant_fraction": F, **flare.radiation_checks(Q, F, a.flame_length, a.tau)})
+
+
+@command("twophase", "two-phase / flashing discharge by the omega method: mass flux, choking, relief area")
+class TwoPhase:
+    ranges = {"P0": "pressure_abs_kPa", "back_p": "pressure_abs_kPa", "rho0": "density_kg_m3", "omega": "omega_parameter",
+              "W": "mass_flow_kg_s", "Kd": "coefficient_0_1"}
+
+    @staticmethod
+    def add_arguments(tp):
+        tp.add_argument("--P0", type=float, required=True, help="inlet (relieving) pressure, kPa absolute")
+        tp.add_argument("--rho0", type=float, help="inlet fluid density kg/m3 (or give --v0)")
+        tp.add_argument("--omega", type=float, help="omega parameter, if known")
+        tp.add_argument("--v0", type=float, help="inlet specific volume m3/kg"); tp.add_argument("--v9", type=float, help="specific volume at 0.9*P0, m3/kg")
+        tp.add_argument("--back-p", type=float, help="back pressure kPa absolute (default: choked)")
+        tp.add_argument("--W", type=float, help="required relief rate kg/s, to size the area")
+        tp.add_argument("--Kd", type=float, help="discharge coefficient for two-phase service (no default: use your valve data)")
+
+    @staticmethod
+    def run(a, p):
+        if a.omega is None and not (a.v0 and a.v9):
+            p.error("give --omega, or --v0 and --v9")
+        omega = a.omega if a.omega is not None else twophase.omega_two_point(a.v0, a.v9)
+        rho0 = a.rho0 if a.rho0 else (1.0 / a.v0 if a.v0 else None)
+        if rho0 is None:
+            p.error("give --rho0 (or --v0)")
+        out = twophase.mass_flux(a.P0, rho0, omega, a.back_p)
+        if a.W:
+            if a.Kd is None:
+                p.error("--W needs --Kd (discharge coefficient has no default)")
+            out["required_area_mm2"] = twophase.relief_area_mm2(a.W, out["G_kg_m2_s"], a.Kd)
+        out["note"] = "homogeneous equilibrium; Kb/Kc not applied; subcooled and reactive (DIERS) cases need other methods"
+        emit(out)

@@ -16,6 +16,9 @@ CATEGORIES: dict[str, list[tuple[str, str, str, str]]] = {
         ("MAWP", "Maximum allowable working pressure", "The highest gauge pressure a vessel may carry at its design temperature under its code.", "vessel_mech; ASME VIII"),
         ("Orifice letter", "", "The standard effective orifice area designation D to T for a relief valve; the required area is rounded up to the next letter.", "relief; API 526"),
         ("Kd, Kb, Kc, Kw, Kv", "Valve and flow coefficients", "Discharge coefficient (Kd), back-pressure correction (Kb), rupture-disk combination factor (Kc), liquid back-pressure factor (Kw) and viscosity correction (Kv).", "relief; API 520-I"),
+        ("Omega method", "Leung omega parameter", "A one-number description of how fast a flashing or two-phase fluid expands as pressure falls; gives the choked mass flux and relief area for two-phase service.", "twophase; API 520-I Annex C"),
+        ("Flashing flow", "", "A liquid near its boiling point that partly vaporises as pressure drops through the valve, so the discharge is a two-phase mixture and needs far more area than liquid sizing gives.", "twophase"),
+        ("HEM", "Homogeneous equilibrium model", "Two-phase flow modelled as one fluid, with the phases moving together and in thermal equilibrium.", "twophase"),
         ("Critical (choked) flow", "", "Gas flow through an orifice at the speed of sound: downstream pressure no longer raises the flow. Occurs when P2/P1 is below the critical ratio.", "relief"),
         ("Conventional / balanced / pilot-operated", "Valve types", "Conventional valves are affected by back pressure; balanced bellows and pilot-operated valves tolerate more of it.", "relief; API 520-II"),
         ("Wetted area", "", "Vessel surface in contact with liquid up to a height (7.6 m for fire), which absorbs fire heat and boils liquid.", "relief; API 521"),
@@ -32,6 +35,8 @@ CATEGORIES: dict[str, list[tuple[str, str, str, str]]] = {
     ],
     "Fire, explosion and dispersion": [
         ("LOC", "Loss of containment", "A release of material from its designed boundary (a hole in a pipe, a vessel rupture).", "qra"),
+        ("View factor", "Configuration factor", "The fraction of the radiation leaving one surface that reaches another; incident flux = emissive power x view factor x transmissivity.", "viewfactor"),
+        ("Solid-flame model", "", "Treats a flame as a hot radiating solid of defined shape and surface emissive power; better than a point source close to the fire.", "viewfactor, pool_fire"),
         ("Pool fire", "", "A fire burning on a liquid pool; flame size follows the burning rate and pool diameter.", "pool_fire"),
         ("Jet fire", "", "A fire from a pressurised release that burns as a momentum-driven flame.", "qra.effects"),
         ("Flash fire", "", "A short, low-overpressure fire as a flammable cloud burns back to its source; harm is inside the cloud.", "qra.effects"),

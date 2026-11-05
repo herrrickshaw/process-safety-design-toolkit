@@ -133,6 +133,8 @@ RANGES: dict[str, Range] = dict([
     _r("heat_flux_kW_m2", "kW/m2", "absorbed heat flux", **_POS, soft_min=10, soft_max=400),
     _r("power_kW", "kW", "power", **_POS, soft_max=10_000_000),
     _r("temperature_rise_K", "K", "temperature rise", **_POS, soft_min=1, soft_max=50),
+    _r("omega_parameter", "-", "omega compressibility parameter of a two-phase / flashing fluid", **_POS, soft_min=0.1, soft_max=500),
+    _r("emissive_power_kW_m2", "kW/m2", "flame surface emissive power (SEP)", **_POS, soft_min=20, soft_max=400),
     _r("fuel_consumption_g_kWh", "g/kWh", "specific fuel consumption (vendor data)", **_POS, soft_min=150, soft_max=350),
 ])
 

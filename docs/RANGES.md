@@ -54,4 +54,6 @@
 | `heat_flux_kW_m2` | kW/m2 | absorbed heat flux | (0, inf) | [10, 400] |  |
 | `power_kW` | kW | power | (0, inf) | (-inf, 1e+07] |  |
 | `temperature_rise_K` | K | temperature rise | (0, inf) | [1, 50] |  |
+| `omega_parameter` | - | omega compressibility parameter of a two-phase / flashing fluid | (0, inf) | [0.1, 500] |  |
+| `emissive_power_kW_m2` | kW/m2 | flame surface emissive power (SEP) | (0, inf) | [20, 400] |  |
 | `fuel_consumption_g_kWh` | g/kWh | specific fuel consumption (vendor data) | (0, inf) | [150, 350] |  |
