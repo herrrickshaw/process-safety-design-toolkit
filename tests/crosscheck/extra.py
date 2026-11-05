@@ -94,7 +94,7 @@ def run_extra(chk):
     # --- fluids: separators, drag, hydraulics, valve units, vessel geometry
     try:
         import fluids
-        from fluids import control_valve, friction, geometry
+        from fluids import control_valve, friction
         from fluids import separator as fsep
         rhoL, rhoG = 700.0, 20.0
         chk("separator.souders_brown_velocity", separator.souders_brown_velocity(rhoL, rhoG, 0.107),
