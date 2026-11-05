@@ -525,6 +525,71 @@
    "checked": "2026-11-06"
   },
   {
+   "id": "iqrm-qcra",
+   "title": "QCRA explained: quantitative cost risk analysis",
+   "publisher": "IQRM",
+   "kind": "guidance",
+   "url": "https://iqrm.net/blog/qcra-explained-quantitative-cost-risk-analysis-2026",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "monte-carlo",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "vendor blog; method background; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "soma-monte-carlo",
+   "title": "Monte Carlo is not magic",
+   "publisher": "SOMA Project Controls",
+   "kind": "guidance",
+   "url": "https://www.somaprojectcontrols.com/resources/guides/monte-carlo-is-not-magic/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "monte-carlo",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "consultancy guide; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "projectcontrolsonline",
+   "title": "Project Controls Online",
+   "publisher": "projectcontrolsonline.com",
+   "kind": "news",
+   "url": "https://projectcontrolsonline.com",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "project controls community site; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
    "id": "spe-focus-ps",
    "title": "SPE In Focus: Process Safety",
    "publisher": "Society of Petroleum Engineers",
@@ -539,7 +604,7 @@
    ],
    "modules": [],
    "note": "index of articles, papers on OnePetro (many paywalled)",
-   "http_status": 0,
+   "http_status": 200,
    "checked": "2026-11-06"
   },
   {

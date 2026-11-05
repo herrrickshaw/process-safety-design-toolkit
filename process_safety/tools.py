@@ -6,6 +6,7 @@
     thermal  TMRad / TD24 / Stoessel class / Semenov storage                    (thermal_runaway.py)
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
+    shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
 Every tool runs input checks first and writes a validation section to its summary.
 """
@@ -16,7 +17,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, fg_mapping, pha, ram, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, fg_mapping, pha, ram, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -97,6 +98,27 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         summ["criticality"] = full["criticality"][:10]
         pha.write_csv(full["criticality"], pre + "_criticality.csv")
         summ["files"] = [pre + "_criticality.csv"]
+    elif name == "shutdown":
+        errs = shutdown_risk.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (ids, ranges, probabilities, acyclic network)"]
+        if errs:
+            return summ
+        smp = shutdown_risk.simulate(data, runs=data.get("sample_runs", 500), seed=1, progress=progress, label="shutdown sample")
+        plan = shutdown_risk.plan_runs(smp, data.get("target_rel", 0.01))
+        full = shutdown_risk.simulate(data, runs=min(plan["runs_needed"], data.get("max_runs", 20000)), seed=2, progress=progress, label="shutdown full")
+        summ["plan"] = plan
+        summ["checks"] += [c.replace(": P80", ": sample (" + str(smp["runs"]) + " runs) P80", 1) for c in shutdown_risk.convergence(smp)] + [c.replace(": P80", ": full (" + str(full["runs"]) + " runs) P80", 1) for c in shutdown_risk.convergence(full)]
+        keep = ("runs", "base", "duration_days", "cost", "contingency", "opportunity", "P_meet_target_days", "P_meet_budget", "P_meet_both", "safety_critical", "notes")
+        summ["result"] = {k: full[k] for k in keep if k in full}
+        summ["criticality_top"] = sorted(full["criticality_index"].items(), key=lambda kv: -kv[1])[:8]
+        summ["tornado_duration_top"] = full["tornado_duration"][:6]
+        summ["tornado_cost_top"] = full["tornado_cost"][:6]
+        pha.write_csv(full["s_curve"], pre + "_s_curve.csv")
+        pha.write_csv([{"activity": k, "criticality_index": v} for k, v in full["criticality_index"].items()], pre + "_criticality.csv")
+        pha.write_csv(full["tornado_duration"], pre + "_tornado_duration.csv")
+        pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
+        shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
+        summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
     elif name == "pha":
         today = dt.date.fromisoformat(data["today"]) if data.get("today") else None
         files = []

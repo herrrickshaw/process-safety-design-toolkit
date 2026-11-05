@@ -68,6 +68,13 @@ Generated from `process_safety/glossary.py` (`python -m process_safety glossary 
 
 | Term | Meaning | Applies to |
 |---|---|---|
+| **Turnaround / shutdown** (Planned outage) | A planned period when a unit or plant is taken out of service for inspection, repair and reinstatement; its length and cost are the subject of schedule and cost risk analysis. | shutdown_risk |
+| **QSRA / QCRA** (Quantitative schedule / cost risk analysis) | Monte Carlo analysis of a project network (schedule) or cost estimate (cost) using ranges and risk events instead of single-point values. | shutdown_risk |
+| **P50 / P80** (Confidence levels) | The value that the outcome is at or below in 50% (P50) or 80% (P80) of simulated runs; contingency is often set as P80 minus the base estimate. | shutdown_risk |
+| **S-curve** (Cumulative probability curve) | The simulated outcomes sorted into cumulative probability against duration or cost, from which P-values are read. | shutdown_risk |
+| **Criticality index** | The share of simulation runs in which an activity lies on a zero-float (critical) path. | shutdown_risk |
+| **Opportunity cost (shutdown)** (Lost margin) | Contribution margin forgone for each operating day the plant is not producing, including ramp-down and ramp-up, less any production recoverable later. | shutdown_risk |
+| **On-stream factor** (Operating availability) | The share of the year a plant is operating; a shutdown overrun lowers it day for day. | shutdown_risk |
 | **HAZID** (Hazard identification) | A structured workshop listing hazards from a checklist of causes by area or activity. | qra.hazid |
 | **HAZOP** (Hazard and operability study) | A team review of each process node using guidewords (no, more, less) applied to parameters to find deviations and their causes. | hazop; IEC 61882 |
 | **PHA** (Process hazard analysis) | The umbrella term for HAZOP, what-if and similar studies; revalidated on a cycle. | pha; OSHA 1910.119 |

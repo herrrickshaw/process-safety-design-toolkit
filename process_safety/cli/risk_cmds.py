@@ -87,11 +87,11 @@ class Qra:
         return 1 if out["validation_results"]["errors"] else 0
 
 
-@command("tool", "JSON-driven study tools: bowtie, sif, fg, thermal, atex, ram, pha (see process_safety/tools.py)")
+@command("tool", "JSON-driven study tools: bowtie, sif, fg, thermal, atex, ram, shutdown, pha (see process_safety/tools.py)")
 class Tool:
     @staticmethod
     def add_arguments(tl):
-        tl.add_argument("name", choices=["bowtie", "sif", "fg", "thermal", "atex", "ram", "pha", "example"])
+        tl.add_argument("name", choices=["bowtie", "sif", "fg", "thermal", "atex", "ram", "shutdown", "pha", "example"])
         tl.add_argument("input", nargs="?", help="input JSON (tool example <name> copies a worked example)")
         tl.add_argument("--out", default="tool_out")
         tl.add_argument("--quiet", action="store_true")
@@ -102,7 +102,7 @@ class Tool:
         exdir = os.path.join(_PKG, "examples")
         if a.name == "example":
             if not a.input:
-                print("tool example <bowtie|sif|fg|thermal|atex|ram|pha>", file=sys.stderr)
+                print("tool example <bowtie|sif|fg|thermal|atex|ram|shutdown|pha>", file=sys.stderr)
                 return 2
             shutil.copy(os.path.join(exdir, f"{a.input}.json"), f"{a.input}.json")
             print(f"wrote {a.input}.json - run: python3 -m process_safety tool {a.input} {a.input}.json")

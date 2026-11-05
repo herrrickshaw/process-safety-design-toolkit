@@ -1,6 +1,6 @@
 # Literature and source index
 
-Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 49 sources, 22 read for the toolkit, the rest URL-checked only.
+Generated from `process_safety/data/literature.json` (compiled 2026-11-06). 52 sources, 22 read for the toolkit, the rest URL-checked only.
 Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md`. Search: `python -m process_safety literature TEXT [--topic T] [--module M]`.
 
 * **read**: `text` = document text read for the toolkit; `page` = the page or article read; `no` = listed, URL checked, content not read.
@@ -42,7 +42,9 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals](https://www.energy.gov/documents/doe-hdbk-1101-96) | US DOE | US | free | page | 200 | psm, audit | psm |  |
 | [OSHA Process Safety Management topic page](https://www.osha.gov/process-safety-management) | OSHA (US) | US | free | no | 200 | psm, regulation | psm | enforcement directives and NEP are linked from here |
 | [AIGA 99/20 Process safety management](https://asiaiga.org/uploaded_docs/en_AIGA_99_20_Process_Safety_Mangement.pdf) | AIGA | global | free | page | 200 | psm | psm |  |
+| [Monte Carlo is not magic](https://www.somaprojectcontrols.com/resources/guides/monte-carlo-is-not-magic/) | SOMA Project Controls | global | free | no | 200 | schedule-risk, cost-risk, monte-carlo, shutdown | shutdown_risk | consultancy guide; not read |
 | [OECD Guiding Principles for Chemical Accident Prevention, Preparedness and Response](https://www.oecd.org/en/topics/chemical-accidents.html) | OECD | global | free | no | 403 | international, guidance, psm |  | third edition supports the 2023 Council Recommendation |
+| [QCRA explained: quantitative cost risk analysis](https://iqrm.net/blog/qcra-explained-quantitative-cost-risk-analysis-2026) | IQRM | global | free | no | 200 | schedule-risk, cost-risk, monte-carlo, shutdown | shutdown_risk | vendor blog; method background; not read |
 
 ## Investigation
 
@@ -68,7 +70,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [Mary Kay O'Connor Process Safety Center](https://psc.tamu.edu/) | Texas A&M University | US | free | no | 200 | research, psm |  |  |
 | [Center for Chemical Process Safety](https://www.aiche.org/ccps) | AIChE | global | mixed | no | 403 | psm, guidelines, rbps | psm, hazop, sil | books are paywalled |
 | [IOGP safety, including Life-Saving Rules and process safety reports](https://www.iogp.org/safety/) | IOGP | global | free | no | 200 | life-saving-rules, psm, oil-gas |  |  |
-| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 0 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
+| [SPE In Focus: Process Safety](https://www.spe.org/en/focus/process-safety/) | Society of Petroleum Engineers | global | free | page | 200 | psm, oil-gas |  | index of articles, papers on OnePetro (many paywalled) |
 
 ## Journal
 
@@ -90,6 +92,7 @@ Regenerate: `python -m process_safety literature --markdown > docs/LITERATURE.md
 | [PSM News (James Klein)](https://psmnews.com/) | Process Safety Priorities LLC | US | free | page | 200 | psm, blog |  | single-author blog; low weight; nothing used |
 | [Are process safety standards and practices ready for the energy transition?](https://jpt.spe.org/are-process-safety-standards-and-practices-ready-for-the-energy-transition) | Journal of Petroleum Technology (SPE) | global | free | no | 200 | psm, management-of-change, energy-transition |  |  |
 | [Process Safety Beacon](https://ccps.aiche.org/process-safety-beacon) | CCPS | global | free | no | 403 | incident, awareness |  | returned a bot check (HTTP 403) on 2026-11-06; not read, no bypass |
+| [Project Controls Online](https://projectcontrolsonline.com) | projectcontrolsonline.com | global | free | no | 200 | schedule-risk, cost-risk, shutdown | shutdown_risk | project controls community site; not read |
 
 ## Data tool
 

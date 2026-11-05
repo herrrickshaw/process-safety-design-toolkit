@@ -61,6 +61,7 @@ TOPICS = {
     "Combustion / flare emissions": (["GHG Protocol", "CPCB/MoEFCC rules (not read)"], "emissions.*", "element balance; efficiency/GWP are inputs"),
     "Reaction hazard screening (chemicals / pharma)": (["Stoessel", "DIERS"], "reaction_hazard.*", "dT_ad and MTSR only; calorimetry, criticality classes, runaway vent sizing not"),
     "Two-phase / flashing relief discharge": (["API 520-I Annex C (method named, not read)", "DIERS"], "twophase.*", "omega method, homogeneous equilibrium, choked and subcritical flux; bundled CoolProp saturated-liquid data for 18 fluids (two-point omega within 2.2% of direct HEM integration); no subcooled, mixture or reactive-system (DIERS) sizing"),
+    "Shutdown / turnaround schedule and cost risk": (["AACE International risk analysis practices (named, not read)"], "shutdown_risk.*; tool shutdown", "Monte Carlo on a CPM network with risk events, common-cause factor, opportunity cost of lost operating days, safety-critical flags; calendar days only, no resource levelling, inputs are all user data"),
     "Near-field solid-flame radiation (view factor)": (["CCPS", "TNO Yellow Book"], "viewfactor.*", "numerical view factor from flat rectangular faces; no tilt model, no blockage"),
     "Pool fire (burn rate, flame, radiation)": (["CCPS", "TNO Yellow Book", "OISD-STD-116"], "pool_fire.*", "screening point-source; no wind tilt or spreading"),
     "Flammability, LOC, inerting / purging": (["NFPA 69", "CCPS", "API RP 2216"], "flammability.*", "Le Chatelier, LOC, purge cycles; limits/targets are inputs"),
