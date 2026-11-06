@@ -50,7 +50,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install fluids thermo CoolProp scipy
+      - run: pip install fluids thermo CoolProp scipy openpytea
       - run: python tests/crosscheck/validate.py --json crosscheck-results.json
       - uses: actions/upload-artifact@v4
         if: always()

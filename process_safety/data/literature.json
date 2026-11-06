@@ -974,7 +974,7 @@
    "kind": "data-tool",
    "url": "https://github.com/pbtamarona/OpenPyTEA",
    "access": "free",
-   "read": "no",
+   "read": "text",
    "region": "global",
    "topics": [
     "cost-estimation",
@@ -984,7 +984,7 @@
    "modules": [
     "recommendation_cost"
    ],
-   "note": "MIT; equipment cost estimation, cash flow and uncertainty for process plants; not run here",
+   "note": "MIT, v3.2.2 installed and run 2026-11-07 in a scratch venv; 421 published equipment-cost correlations (Turton, Seider, Towler & Sinnott, Perry) escalated with CEPCI; silently extrapolates outside a correlation range; bridged by scripts/openpytea_bridge.py",
    "http_status": 200,
    "checked": "2026-11-06"
   },
@@ -1705,6 +1705,195 @@
    "note": "",
    "http_status": 200,
    "checked": "2026-11-06"
+  },
+  {
+   "id": "ecoana",
+   "title": "ecoana: early-stage techno-economic tools",
+   "publisher": "PyPI",
+   "kind": "data-tool",
+   "url": "https://pypi.org/project/ecoana/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost",
+    "tea"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "0.0.1 release; equipment cost models from Turton, Seider, Smith, Peters, Towler and Guthrie with a basis year (you apply the index); not run here",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "chemengdppy",
+   "title": "ChemEngDPpy: chemical plant design in Python",
+   "publisher": "GitHub (weepctxb)",
+   "kind": "data-tool",
+   "url": "https://github.com/weepctxb/ChemEngDPpy",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "equipment sizing plus CAPEX/OPEX; CEPCI table covers only a few years in the snippets seen; not run here",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "flowcost-dwsim",
+   "title": "FlowCost (DWSIM-TEA-App): capital and operating cost from DWSIM exports",
+   "publisher": "FOSSEE / IIT Bombay fellowship report",
+   "kind": "data-tool",
+   "url": "https://static.fossee.in/fossee/reports-2026/Fellowship-2026/DWSIM/Divyansh%20Sharma.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "tea"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "open-source; parses DWSIM process data into capital (ISBL/OSBL, fixed capital, working capital) and operating-cost modules; version and validation not stated in the report; report body not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "cleopatra-vs-kbase",
+   "title": "Cleopatra Enterprise versus Kbase",
+   "publisher": "Cost Engineering Consultancy",
+   "kind": "guidance",
+   "url": "https://www.costengineering.eu/Downloads/articles/Cleopatra_Enterprise_versus_kbase.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "commercial-tool",
+    "vendor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "vendor-written comparison with Aspen Kbase; one-sided; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "aspen-capital-cost-estimator",
+   "title": "Aspen Capital Cost Estimator",
+   "publisher": "AspenTech",
+   "kind": "data-tool",
+   "url": "https://www.aspentech.com/en/products/pages/aspen-capital-cost-estimator",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "commercial-tool",
+    "vendor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "commercial; product page only; AACE Class IV to II estimates per the vendor; not evaluated",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "deltek-acumen-risk",
+   "title": "Acumen Risk",
+   "publisher": "Deltek",
+   "kind": "data-tool",
+   "url": "https://www.deltek.com/en/project-and-portfolio-management/acumen/risk-360",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "monte-carlo",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "commercial; combined cost and schedule Monte Carlo reading Primavera P6, MS Project and Open Plan files; quote-based; vendor page only",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "safran-vs-opra",
+   "title": "Primavera Risk Analysis versus Safran Risk",
+   "publisher": "Proadvise",
+   "kind": "guidance",
+   "url": "https://www.proadvise.com/en/company/blog/78-general/744-safran-risk-opra-key-differences",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "consultant comparison of two commercial Monte Carlo schedule/cost risk tools; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "vose-risk-tools",
+   "title": "The top project risk analysis tools",
+   "publisher": "Vose Software",
+   "kind": "guidance",
+   "url": "https://www.vosesoftware.com/Project-Risk/Six-Best-Project-Risk-Analysis-Tools.php",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "vendor-authored list (Vose sells one of the tools); treat as marketing; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "projectdecisions-risk-software",
+   "title": "Overview of schedule and cost risk analysis software",
+   "publisher": "Project Decisions",
+   "kind": "guidance",
+   "url": "https://projectdecisions.org/?p=842",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "neutral-looking overview of tools; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
   }
  ]
 }

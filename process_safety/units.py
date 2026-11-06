@@ -95,6 +95,9 @@ _UNITS = [
     Unit("kg/kmol", "molar_mass", 1.0), Unit("lb/lbmol", "molar_mass", 1.0),
     # per length
     Unit("1/m", "per_length", 1.0), Unit("1/ft", "per_length", 1 / FOOT_M),
+    Unit("m3/s", "volume_flow", 1.0), Unit("L/s", "volume_flow", 1e-3),
+    # mechanical horsepower = 550 ft lbf/s (exact from the foot, pound and standard gravity)
+    Unit("hp", "power", 550 * FOOT_M * LBF_N),
     # power, used as heat duty: kW is kept in both systems for electrical and data-centre work; Btu/h is offered for heat duty
     Unit("kW", "power", 1e3), Unit("W", "power", 1.0), Unit("Btu/h", "power", BTU_J / HOUR_S),
     # illuminance and luminous flux (SI lm and lux; US foot-candle = lm/ft2)

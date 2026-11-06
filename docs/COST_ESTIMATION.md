@@ -97,6 +97,34 @@ What this suggests for the toolkit: simulators such as UniSim and DWSIM already 
 
 Trademarks and copyright, as notified by their owners: PMI(R) and PMBOK(R) (c) Project Management Institute, Inc.; GAO(R) (c) U.S. Government Accountability Office; Cleopatra Enterprise(R) (c) Cost Engineering Consultancy; CostOS(R) (c) Nomitech Ltd.; Oracle(R) and Primavera Cloud (c) Oracle Corporation. All rights reserved by their owners. This toolkit has no affiliation with them, reproduces none of their content, and mentions the names only to say what they are and where they fit.
 
+## Open-source costing in practice: the OpenPyTEA bridge (added 2026-11-07)
+
+The toolkit ships no unit rates (see Limits). `scripts/openpytea_bridge.py` fills that gap on your machine from an open-source library without making the package depend on it:
+
+```bash
+pip install openpytea                                   # optional, MIT; only the bridge script needs it
+python scripts/openpytea_bridge.py list --category "Pressure vessels"     # correlations, native size unit, valid size range
+python scripts/openpytea_bridge.py cost templates/openpytea_equipment.example.json --csv table.csv \
+    --into process_safety/examples/recs.json --study-out my_study.json    # rate_book entries for `tool recs` / `tool workflow`
+python -m process_safety tool recs my_study.json
+```
+
+- **Input:** a list of equipment you sized (with the toolkit or elsewhere), each with a size in any unit the toolkit knows (`size_unit`: m3, ft3, gal, kW, hp, m2, ft2, kg, lb, gpm, ...). The bridge converts it to the unit the correlation uses with the same exact conversions as `--units us`. Two-parameter correlations and exotic size units take the number in the correlation's own unit (`size_unit: "native"`).
+- **Output:** purchased and direct (installed) cost in the target year's dollars, a `rate_book` entry per item with min/mode/max (the spread is yours, required, and has no default), and a CSV table. The correlation key and its source (for example Turton et al. 2018 Table A.1) travel with every number.
+- **Checked:** `tests/crosscheck/test_openpytea_bridge.py` (runs when OpenPyTEA is installed, in the CI `crosscheck` job) re-derives the Turton quadratic and the CEPCI escalation from the published coefficients and index values, and checks that a US-unit size gives the same cost, that cost scales with size with economies of scale, and that a bridged rate book runs through `tool recs`.
+- **Limits found while building it:** OpenPyTEA extrapolates silently outside a correlation's size range (a 5000 m3 pressure vessel is costed without complaint), so the bridge reports `in_range` and warns. When several correlations share a category and type, the first is used and a warning names it. The default installation factors (erection, piping, instrumentation, electrical, civil, structural, lagging) are OpenPyTEA's; replace them if your project has its own. The result is an AACE Class 4/5 style number, not a quote, and CEPCI values come from OpenPyTEA's file (the index itself is proprietary).
+
+## Other tools surveyed 2026-11-07 (all in the literature index; none installed except OpenPyTEA)
+
+| Tool | Kind | Status here |
+|---|---|---|
+| [ecoana](https://pypi.org/project/ecoana/) | open source, early-stage TEA equipment models from Turton, Seider, Peters, Towler, Guthrie | 0.0.1; not run. You apply the cost index yourself |
+| [ChemEngDPpy](https://github.com/weepctxb/ChemEngDPpy) | open source, sizing plus CAPEX/OPEX | CEPCI table short; not run |
+| [FlowCost / DWSIM-TEA-App](https://static.fossee.in/fossee/reports-2026/Fellowship-2026/DWSIM/Divyansh%20Sharma.pdf) | open source, capital and operating cost from DWSIM exports | report read in part; version and validation not stated. A DWSIM export could be bridged the same way |
+| [Aspen Capital Cost Estimator](https://www.aspentech.com/en/products/pages/aspen-capital-cost-estimator) | commercial | vendor page only; AACE Class IV to II per the vendor |
+| Cleopatra Enterprise vs Aspen Kbase ([vendor paper](https://www.costengineering.eu/Downloads/articles/Cleopatra_Enterprise_versus_kbase.pdf)) | commercial comparison | written by Cleopatra's vendor; one-sided |
+| [Deltek Acumen Risk](https://www.deltek.com/en/project-and-portfolio-management/acumen/risk-360), Primavera Risk Analysis and Safran Risk ([comparison](https://www.proadvise.com/en/company/blog/78-general/744-safran-risk-opra-key-differences)), @RISK, RiskyProject ([overviews](https://projectdecisions.org/?p=842)) | commercial cost and schedule Monte Carlo | vendor and consultant pages only. `shutdown_risk` does the cost and schedule Monte Carlo for a turnaround network inside the toolkit; these are what you would compare it against |
+
 ## Limits
 Published figures mix scopes (plant only, plant plus pipeline, integrated upstream splits), bases (FID budgets, outturns, EPC-only) and contingency treatment, and most are announced at FID; final costs are often higher. The OIES-derived factors reflect 2014-18 conditions. Gas richness, CO2 handling, multi-train effects, tanks and marine items are not adjusted individually here (ORIMIZ's tool does, with a register of site items). Use it to screen and to size study contingency, not to decide an investment.
 
