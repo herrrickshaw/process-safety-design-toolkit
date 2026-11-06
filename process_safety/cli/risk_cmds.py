@@ -27,6 +27,7 @@ class HazopCsv:
 
 @command("qra", "quantitative risk assessment workflow (HAZID -> frequency -> consequence -> risk -> ALARP -> mitigation)")
 class Qra:
+    units = {"grid_step": "m"}
     @staticmethod
     def add_arguments(q):
         q.add_argument("action", choices=["example", "validate", "run", "hazid", "buildings", "emergency"])

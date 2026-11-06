@@ -1,0 +1,30 @@
+{
+  "command": "fluid-data",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "fluid": null,
+    "P": null
+  },
+  "_guide": {
+    "fluid": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "fluid name (omit to list)"
+    },
+    "P": {
+      "flag": "--P",
+      "required": false,
+      "type": "float",
+      "unit": "psia",
+      "help": "pressure kPa absolute (omit for the constants only)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.145038,
+        "soft_max": 14503.773773
+      }
+    }
+  }
+}

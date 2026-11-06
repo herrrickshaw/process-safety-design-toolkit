@@ -18,6 +18,10 @@
 | `length_m` | m | length or diameter | (0, inf) | (-inf, 2000] |  |
 | `nonneg_length_m` | m | length that may be zero (elevation, release height, liquid level) | [0, inf) | (-inf, 200] |  |
 | `area_m2` | m2 | area | (0, inf) | [0.1, 100000] |  |
+| `illuminance_lux` | lux | target average maintained illuminance | (0, inf) | [1, 5000] | target comes from the standard the site follows; emergency and hazardous-area tasks have their own |
+| `luminous_flux_lm` | lm | luminaire flux | (0, inf) | (-inf, 200000] |  |
+| `walking_speed_m_s` | m/s | occupant walking speed on the escape route | (0, inf) | (-inf, 3] | depends on the occupants (mobility, stairs, smoke); take it from the study's basis |
+| `specific_flow` | persons/m/s | flow of people per metre of effective exit width | (0, inf) | (-inf, 3] |  |
 | `area_mm2` | mm2 | orifice or vent area | [0, inf) | (-inf, 1e+06] |  |
 | `volume_m3` | m3 | volume or capacity | (0, inf) | [0.001, 500000] |  |
 | `flow_m3_h` | m3/h | volumetric flow | [0, inf) | (-inf, 100000] |  |
@@ -53,7 +57,7 @@
 | `diameter_mm` | mm | pipe outside diameter | (0, inf) | [10, 2000] |  |
 | `heat_flux_kW_m2` | kW/m2 | absorbed heat flux | (0, inf) | [10, 400] |  |
 | `power_kW` | kW | power | (0, inf) | (-inf, 1e+07] |  |
-| `temperature_rise_K` | K | temperature rise | (0, inf) | [1, 50] |  |
+| `temperature_rise_K` | dK | temperature rise (a difference, not a reading) | (0, inf) | [1, 50] |  |
 | `omega_parameter` | - | omega compressibility parameter of a two-phase / flashing fluid | (0, inf) | [0.1, 500] |  |
 | `emissive_power_kW_m2` | kW/m2 | flame surface emissive power (SEP) | (0, inf) | [20, 400] |  |
 | `fuel_consumption_g_kWh` | g/kWh | specific fuel consumption (vendor data) | (0, inf) | [150, 350] |  |

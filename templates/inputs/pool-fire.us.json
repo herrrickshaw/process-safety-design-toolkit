@@ -1,0 +1,86 @@
+{
+  "command": "pool-fire",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "area": null,
+    "hc": null,
+    "hv": null,
+    "cp": null,
+    "tb": null,
+    "fraction": 0.25
+  },
+  "_guide": {
+    "area": {
+      "flag": "--area",
+      "required": true,
+      "type": "float",
+      "unit": "ft2",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.076391,
+        "soft_max": 1076391.041671
+      }
+    },
+    "hc": {
+      "flag": "--hc",
+      "required": true,
+      "type": "float",
+      "unit": "Btu/lb",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 429.922614,
+        "soft_max": 64488.392089
+      }
+    },
+    "hv": {
+      "flag": "--hv",
+      "required": true,
+      "type": "float",
+      "unit": "Btu/lb",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 21.496131,
+        "soft_max": 1074.806535
+      }
+    },
+    "cp": {
+      "flag": "--cp",
+      "required": true,
+      "type": "float",
+      "unit": "Btu/lb/degF",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.119423,
+        "soft_max": 2.388459
+      }
+    },
+    "tb": {
+      "flag": "--tb",
+      "required": true,
+      "type": "float",
+      "unit": "degF",
+      "help": "",
+      "range": {
+        "hard_min": -459.67,
+        "soft_min": -369.67,
+        "soft_max": 4940.33
+      }
+    },
+    "fraction": {
+      "flag": "--fraction",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0
+      }
+    }
+  }
+}

@@ -21,6 +21,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Unit tests (stdlib only, includes CLI golden outputs and generated-docs sync)
         run: python -m unittest discover tests -v
+      - name: Scenario suite (SI and US runs, oracles, metamorphic checks)
+        run: python scripts/run_scenarios.py --check
+      - name: Generated input templates in sync
+        run: python scripts/gen_input_templates.py
       - name: Smoke test the installed entry point
         run: |
           pip install .

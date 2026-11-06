@@ -140,9 +140,11 @@ class Blowdown:
 
     @staticmethod
     def add_arguments(bd):
-        for n in ("volume", "p0", "T0", "M", "k", "hole-d"):
-            bd.add_argument("--" + n, type=float, required=True)
-        bd.add_argument("--t-end", type=float, default=600.0)
+        helps = {"volume": "vessel volume, m3", "p0": "initial pressure, kPa abs", "T0": "initial temperature, K", "M": "molar mass, kg/kmol",
+                 "k": "Cp/Cv", "hole-d": "hole diameter, m (not mm)"}
+        for n, h in helps.items():
+            bd.add_argument("--" + n, type=float, required=True, help=h)
+        bd.add_argument("--t-end", type=float, default=600.0, help="end time, s")
 
     @staticmethod
     def run(a, p):
@@ -189,6 +191,7 @@ class Flare:
 
 @command("twophase", "two-phase / flashing discharge by the omega method: mass flux, choking, relief area")
 class TwoPhase:
+    units = {"v0": "m3/kg", "v9": "m3/kg"}
     ranges = {"P0": "pressure_abs_kPa", "back_p": "pressure_abs_kPa", "rho0": "density_kg_m3", "omega": "omega_parameter",
               "W": "mass_flow_kg_s", "Kd": "coefficient_0_1"}
 

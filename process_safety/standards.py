@@ -97,9 +97,9 @@ TOPICS = {
     "Data centre: generic HAZID prompts (fuel, battery, suppression, electrical, cooling)": (["CCPS HAZID practice"], "datacentre.HAZID_PROMPTS", "checklist to seed a study; not a study"),
     "Gas suppression / clean-agent room design": (["NFPA 2001", "ISO 14520", "NFPA 75/76"], None, "not implemented (standards not read; manufacturer calculation governs)"),
     "Load flow, harmonics, transient stability, switching transients": (["IEEE 399", "IEEE 519", "IEC 60909"], None, "not implemented (software studies)"),
-    "Illumination study": (["IS 3646 / EN 12464 / OISD-STD-113 (not read)"], None, "not implemented"),
+    "Illumination study": (["IS 3646 / EN 12464 / OISD-STD-113 (not read)"], "illumination.*", "lumen-method average lux only; targets, UF and MF are inputs; uniformity, glare and emergency duration not checked"),
     "Pulsation and vibration studies": (["API 618", "API 674", "API 688"], None, "not implemented"),
-    "Escape, evacuation and rescue analysis; ESSA": (["ISO 13702", "NORSOK S-001"], None, "not implemented"),
+    "Escape, evacuation and rescue analysis; ESSA": (["ISO 13702", "NORSOK S-001"], "egress.*", "RSET vs ASET arithmetic (travel or exit-flow bound); every time and speed is an input; the ESSA/EERA study itself is not"),
     "Tank venting (atmospheric / low-pressure)": (["API 2000 (5th ed. 1998 implemented; 7th ed. NOT)", "OISD-STD-108", "API 650/620"], "tank_venting.*", "implemented, 5th-edition text read; vent hardware sizing/flow curves not"),
 }
 

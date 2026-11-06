@@ -82,6 +82,16 @@ petrochemicals (vapour-filled fire, LOPA/SIL, hazard studies), LNG/terminals (ta
 pharma (reaction hazard, HAZOP, runaway screening, probits), power/utilities (surge, hydraulics, reliability), and general plant
 (vessel thickness, emissions, availability). `python3 -m process_safety coverage` lists each topic with its status.
 
+## Units: SI and US customary
+
+Every command works in SI; add `--units us` before the command and type psig, degF, ft, in, lb, gpm ... instead. Results gain US sibling keys.
+`template <command>` writes a fill-in input file (SI or US), `run <file>` executes it, `convert 150 psig kPag` prepares numbers for the JSON tools.
+The differences that cause mistakes (gauge versus absolute, temperature reading versus rise, lb versus lbf, standard volumes) are in
+[docs/UNITS.md](docs/UNITS.md); every parameter with its units and ranges is in [docs/INPUT_TEMPLATES.md](docs/INPUT_TEMPLATES.md)
+and `templates/inputs_all.csv`. The scenario suite (`python scripts/run_scenarios.py --check`, report in
+[docs/SCENARIO_REPORT.md](docs/SCENARIO_REPORT.md)) runs 150+ design cases, each command-line case in both unit systems.
+Escape-time (`egress`) and lumen-method lighting (`illumination`) checks were added with it.
+
 ## Examples
 ```bash
 python3 -m process_safety relief-fire --D 2.5 --L 8 --level 1.5 --latent 330
@@ -114,6 +124,9 @@ python3 -m process_safety lopa --ie 0.1 --ipl 0.1 0.01 --target 1e-6
 python3 -m process_safety plume --Q 50 --u 2 --H 10 --stability F --M 34.08 --threshold-ppm 10
 python3 -m process_safety blowdown --volume 20 --p0 2000 --T0 300 --M 20 --k 1.3 --hole-d 0.05
 python3 -m process_safety hazop-csv --node "Node 1" --intent "Feed naphtha to surge drum" --out node1_hazop.csv
+python3 -m process_safety --units us relief-gas --W 26455.5 --T 260.33 --set-g 217.557 --case fire --M 44 --k 1.13 --Z 0.9   # same case in US units
+python3 -m process_safety egress --distance 60 --speed 1.2 --people 200 --width 2 --specific-flow 1.3 --detect-s 30 --premove-s 60 --aset-s 300
+python3 -m process_safety illumination --area 100 --flux 3000 --uf 0.6 --mf 0.8 --target 300
 python3 -m process_safety qra example --out study.json          # worked LPG/fuel terminal study to edit
 python3 -m process_safety qra validate study.json               # input consistency checks
 python3 -m process_safety qra hazid study.json --out hazid/     # HAZID register, HAZOP worksheet, LOC register (CSV)

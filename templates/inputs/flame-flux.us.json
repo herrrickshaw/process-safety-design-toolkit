@@ -1,0 +1,99 @@
+{
+  "command": "flame-flux",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "width": null,
+    "height": null,
+    "distance": null,
+    "offset": 0.0,
+    "base": 0.0,
+    "sep": null,
+    "tau": 1.0,
+    "n": 200
+  },
+  "_guide": {
+    "width": {
+      "flag": "--width",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "flame face width m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "height": {
+      "flag": "--height",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "flame face height m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "distance": {
+      "flag": "--distance",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "target to flame plane, m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "offset": {
+      "flag": "--offset",
+      "required": false,
+      "type": "float",
+      "unit": "ft",
+      "help": "lateral offset of the flame centre from the target, m"
+    },
+    "base": {
+      "flag": "--base",
+      "required": false,
+      "type": "float",
+      "unit": "ft",
+      "help": "flame base height above the target, m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 656.167979
+      }
+    },
+    "sep": {
+      "flag": "--sep",
+      "required": true,
+      "type": "float",
+      "unit": "Btu/h/ft2",
+      "help": "surface emissive power kW/m2 (e.g. from pool-fire)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 6339.966613,
+        "soft_max": 126799.332251
+      }
+    },
+    "tau": {
+      "flag": "--tau",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "n": {
+      "flag": "--n",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": "integration cells per side"
+    }
+  }
+}

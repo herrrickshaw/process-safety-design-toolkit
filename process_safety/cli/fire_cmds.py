@@ -7,6 +7,7 @@ from .registry import command, emit
 
 @command("vapour-fire", "transient vapour-filled vessel fire: PSV vs rupture vs blowdown")
 class VapourFire:
+    units = {"p0_g": "kPag", "strength": "MPa", "h_in": "W/m2K"}
     ranges = {"volume": "volume_m3", "area": "area_m2", "D": "length_m", "wall_mm": "wall_mm", "M": "molar_mass_kg_kmol",
               "k": "heat_capacity_ratio", "q": "heat_flux_kW_m2", "psv_area": "area_mm2", "bdv_area": "area_mm2",
               "bdv_open_s": "time_nonneg_s", "t_end": "time_s", "psv_set_g": "set_pressure_kPag"}
@@ -106,6 +107,7 @@ class Fireball:
 
 @command("flame-flux", "solid-flame view-factor radiation to a target facing a vertical rectangular flame (near-field)")
 class FlameFlux:
+    units = {"offset": "m"}
     ranges = {"width": "length_m", "height": "length_m", "distance": "length_m", "base": "nonneg_length_m",
               "sep": "emissive_power_kW_m2", "tau": "coefficient_0_1"}
 

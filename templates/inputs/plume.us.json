@@ -1,0 +1,80 @@
+{
+  "command": "plume",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "Q": null,
+    "u": 9.842519685,
+    "H": 0.0,
+    "stability": "D",
+    "threshold_ppm": null,
+    "M": null
+  },
+  "_guide": {
+    "Q": {
+      "flag": "--Q",
+      "required": true,
+      "type": "float",
+      "unit": "lb/h",
+      "help": "release g/s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 79366414.386556
+      }
+    },
+    "u": {
+      "flag": "--u",
+      "required": false,
+      "type": "float",
+      "unit": "ft/s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.64042,
+        "soft_max": 82.020997
+      }
+    },
+    "H": {
+      "flag": "--H",
+      "required": false,
+      "type": "float",
+      "unit": "ft",
+      "help": "effective release height m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 656.167979
+      }
+    },
+    "stability": {
+      "flag": "--stability",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "threshold_ppm": {
+      "flag": "--threshold-ppm",
+      "required": false,
+      "type": "float",
+      "unit": "ppm",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.01,
+        "soft_max": 1000000
+      }
+    },
+    "M": {
+      "flag": "--M",
+      "required": false,
+      "type": "float",
+      "unit": "lb/lbmol",
+      "help": "molar mass for ppm conversion",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2.0,
+        "soft_max": 500.0
+      }
+    }
+  }
+}

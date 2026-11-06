@@ -1,0 +1,125 @@
+{
+  "command": "datacentre",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "it_kw": null,
+    "facility_kw": null,
+    "delta_t": null,
+    "heat_kw": null,
+    "autonomy_min": null,
+    "battery_eff": 0.95,
+    "battery_dod": 0.8,
+    "gen_hours": null,
+    "gen_load_kw": null,
+    "sfc": null
+  },
+  "_guide": {
+    "it_kw": {
+      "flag": "--it-kw",
+      "required": true,
+      "type": "float",
+      "unit": "kW",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000
+      }
+    },
+    "facility_kw": {
+      "flag": "--facility-kw",
+      "required": false,
+      "type": "float",
+      "unit": "kW",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000
+      }
+    },
+    "delta_t": {
+      "flag": "--delta-t",
+      "required": false,
+      "type": "float",
+      "unit": "dF",
+      "help": "cooling water dT, K",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.8,
+        "soft_max": 90.0
+      }
+    },
+    "heat_kw": {
+      "flag": "--heat-kw",
+      "required": false,
+      "type": "float",
+      "unit": "kW",
+      "help": "heat to remove (default: IT load)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000
+      }
+    },
+    "autonomy_min": {
+      "flag": "--autonomy-min",
+      "required": false,
+      "type": "float",
+      "unit": "min",
+      "help": ""
+    },
+    "battery_eff": {
+      "flag": "--battery-eff",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "battery_dod": {
+      "flag": "--battery-dod",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "gen_hours": {
+      "flag": "--gen-hours",
+      "required": false,
+      "type": "float",
+      "unit": "h",
+      "help": ""
+    },
+    "gen_load_kw": {
+      "flag": "--gen-load-kw",
+      "required": false,
+      "type": "float",
+      "unit": "kW",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000
+      }
+    },
+    "sfc": {
+      "flag": "--sfc",
+      "required": false,
+      "type": "float",
+      "unit": "g/kWh",
+      "help": "specific fuel consumption, g/kWh (vendor data)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 150,
+        "soft_max": 350
+      }
+    }
+  }
+}

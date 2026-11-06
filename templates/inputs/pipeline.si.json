@@ -1,0 +1,85 @@
+{
+  "command": "pipeline",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "smys": null,
+    "wall": null,
+    "od": null,
+    "class_location": 1,
+    "joint": 1.0,
+    "temp": 20.0,
+    "buildings": 0
+  },
+  "_guide": {
+    "smys": {
+      "flag": "--smys",
+      "required": true,
+      "type": "float",
+      "unit": "MPa",
+      "help": "MPa",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 100,
+        "soft_max": 900
+      }
+    },
+    "wall": {
+      "flag": "--wall",
+      "required": true,
+      "type": "float",
+      "unit": "mm",
+      "help": "mm",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 100
+      }
+    },
+    "od": {
+      "flag": "--od",
+      "required": true,
+      "type": "float",
+      "unit": "mm",
+      "help": "mm",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 10,
+        "soft_max": 2000
+      }
+    },
+    "class_location": {
+      "flag": "--class-location",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    },
+    "joint": {
+      "flag": "--joint",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": ""
+    },
+    "temp": {
+      "flag": "--temp",
+      "required": false,
+      "type": "float",
+      "unit": "degC",
+      "help": "",
+      "range": {
+        "hard_min": -273.15,
+        "soft_min": -200,
+        "soft_max": 800
+      }
+    },
+    "buildings": {
+      "flag": "--buildings",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    }
+  }
+}
