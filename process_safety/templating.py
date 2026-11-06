@@ -38,7 +38,7 @@ def describe(name: str, system: str = "si") -> list[dict]:
         rname = cmd.ranges.get(a.dest)
         row = {"command": name, "name": a.dest, "flag": a.option_strings[-1] if a.option_strings else "(positional)",
                "positional": not a.option_strings, "required": bool(a.required) or (not a.option_strings and a.nargs not in ("?", "*")),
-               "type": typ, "list": a.nargs in ("+", "*"), "default": a.default if a.default is not None and not flag else None,
+               "type": typ, "list": a.nargs in ("+", "*"), "default": a.default if a.default not in (None, []) and not flag else None,   # older Pythons give [] for an empty nargs="*"
                "choices": list(a.choices) if a.choices else None, "help": a.help or "",
                "unit_working": cli_u, "unit": units.display_unit(cli_u, system) if cli_u else None,
                "unit_si": cli_u, "unit_us": units.us_unit(cli_u) if cli_u else None, "range": rname,

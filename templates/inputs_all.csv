@@ -190,7 +190,7 @@ twophase,Kd,--Kd,,float,,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,discharge coefficient fo
 fluid-data,fluid,(positional),,str,,,,,,,,,,,,,fluid name (omit to list)
 fluid-data,P,--P,,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,pressure kPa absolute (omit for the constants only)
 lopa,ie,--ie,yes,float,,1/yr,1/yr,0.0,,0.0,100,0.0,,0.0,100,,initiating event freq /yr
-lopa,ipl,--ipl,,float list,[],-,-,0.0,1.0,,,0.0,1.0,,,,PFD of each independent protection layer
+lopa,ipl,--ipl,,float list,,-,-,0.0,1.0,,,0.0,1.0,,,,PFD of each independent protection layer
 lopa,target,--target,yes,float,,1/yr,1/yr,0.0,,0.0,100,0.0,,0.0,100,,tolerable frequency /yr
 lopa,modifier,--modifier,,float,1.0,-,-,0.0,1.0,,,0.0,1.0,,,,
 pfd,arch,--arch,yes,str,,,,,,,,,,,,1oo1 1oo2 2oo2 2oo3,

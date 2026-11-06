@@ -441,7 +441,7 @@ bundled CoolProp saturated-liquid screening data (omega, density, latent heat, c
 | Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
 |---|---|---|---|---|---|---|---|---|
 | `ie` | `--ie` | yes | 1/yr | 1/yr | 0.0 .. inf | 0.0 .. 100 |  | initiating event freq /yr |
-| `ipl` | `--ipl` |  | - | - | 0.0 .. 1.0 |  | [] | PFD of each independent protection layer |
+| `ipl` | `--ipl` |  | - | - | 0.0 .. 1.0 |  |  | PFD of each independent protection layer |
 | `target` | `--target` | yes | 1/yr | 1/yr | 0.0 .. inf | 0.0 .. 100 |  | tolerable frequency /yr |
 | `modifier` | `--modifier` |  | - | - | 0.0 .. 1.0 |  | 1.0 |  |
 
