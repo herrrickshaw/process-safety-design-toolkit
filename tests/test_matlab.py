@@ -86,6 +86,50 @@ class Matlab(unittest.TestCase):
         self.assertTrue(math.isclose(got[2], i["achieved_lux"], rel_tol=1e-12))
         self.assertEqual(int(got[3]), i["n_luminaires"])
 
+    def test_pool_fire_matches_python(self):
+        from process_safety import pool_fire
+        pf = pool_fire.pool_fire(314, 44000, 350, 2.2, 400)
+        got = numbers(run_octave("r = ps_pool_fire(314, 44000, 350, 2.2, 400, [], [], [], [30 60], 6.3);"
+                                 "printf('%.15g\\n', r.diameter_m, r.burning_rate_kg_m2_s, r.flame_height_m, r.Q_kW, r.sep_mudan_croce_kW_m2, r.flux_kW_m2, r.distance_to_target_m);"))
+        want = [pf["diameter_m"], pf["burning_rate_kg_m2_s"], pf["flame_height_m"], pf["Q_kW"], pf["sep_mudan_croce_kW_m2"],
+                pool_fire.incident_kW_m2(pf, 30), pool_fire.incident_kW_m2(pf, 60), pool_fire.distance_to_flux_m(pf, 6.3)]
+        for g, w in zip(got, want):
+            self.assertTrue(math.isclose(g, w, rel_tol=1e-9), (g, w))
+
+    def test_fireball_matches_python(self):
+        from process_safety import fireball
+        fb = fireball.fireball(10000, 46, 0.3)
+        got = numbers(run_octave("r = ps_fireball(10000, 46, 0.3, 1, [100 200], 12.5);"
+                                 "printf('%.15g\\n', r.diameter_m, r.duration_s, r.surface_emissive_power_kW_m2, r.flux_kW_m2, r.dose, r.distance_to_target_m);"))
+        want = [fb["diameter_m"], fb["duration_s"], fb["surface_emissive_power_kW_m2"], fireball.incident_kW_m2(fb, 100), fireball.incident_kW_m2(fb, 200),
+                fireball.thermal_dose(fireball.incident_kW_m2(fb, 100), fb["duration_s"]), fireball.thermal_dose(fireball.incident_kW_m2(fb, 200), fb["duration_s"]),
+                fireball.distance_to_flux_m(fb, 12.5)]
+        for g, w in zip(got, want):
+            self.assertTrue(math.isclose(g, w, rel_tol=1e-9), (g, w))
+
+    def test_jet_fire_matches_python(self):
+        from process_safety import flare
+        Q = 20 * 46 * 1e6
+        F = flare.radiant_fraction(20)
+        got = numbers(run_octave("r = ps_jet_fire(20, 46, 20, [], 1, [200 400], [4.73 9.46]);"
+                                 "printf('%.15g\\n', r.Q_MW, r.flame_length_m, r.radiant_fraction, r.flux_kW_m2, r.safe_distance_m);"))
+        want = [Q / 1e6, 0.00326 * Q ** 0.478, F, flare.radiation_kW_m2(Q, 200, F), flare.radiation_kW_m2(Q, 400, F),
+                flare.safe_distance_m(Q, 4.73, F), flare.safe_distance_m(Q, 9.46, F)]
+        for g, w in zip(got, want):
+            self.assertTrue(math.isclose(g, w, rel_tol=1e-12), (g, w))
+
+    def test_blast_and_bleve_match_python(self):
+        from process_safety import explosion
+        E = explosion.brode_burst_energy_J(2000, 101.325, 5, 1.4)
+        W = explosion.burst_tnt_equivalent_kg(E)
+        got = numbers(run_octave("b = ps_bleve(10000, 46, 5, 2000, 1.4, 0.3, 1, [100 200]);"
+                                 "printf('%.15g\\n', b.blast.brode_energy_J, b.blast.tnt_equivalent_kg, b.blast.overpressure_kpa);"
+                                 "printf('%.15g\\n', ps_blast('distance_m', 1000, 7), ps_blast('tnt_equivalent', 10000, 46, 0.05));"))
+        want = [E, W, explosion.kinney_graham_kpa(W, 100), explosion.kinney_graham_kpa(W, 200),
+                explosion.distance_for_overpressure_m(1000, 7), explosion.tnt_equivalent_kg(10000, 46)]
+        for g, w in zip(got, want):
+            self.assertTrue(math.isclose(g, w, rel_tol=1e-9), (g, w))
+
 
 if __name__ == "__main__":
     unittest.main()

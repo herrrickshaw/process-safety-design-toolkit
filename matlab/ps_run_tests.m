@@ -11,6 +11,7 @@ function ps_run_tests()
   results = [results; t_viewfactor()];
   results = [results; t_depressure()];
   results = [results; t_facility()];
+  results = [results; t_fires()];
   for i = 1:size(results, 1)
     n = n + 1;
     if ~results{i, 2}, fails{end + 1} = results{i, 1}; end %#ok<AGROW>
@@ -156,4 +157,61 @@ function out = t_facility()
   err = '';
   try, ps_illumination(100, 3000, 1.5, 0.8, 300); catch e, err = e.identifier; end
   out(end + 1, :) = {'illumination rejects UF > 1', strcmp(err, 'ps_illumination:input')};
+end
+
+function out = t_fires()
+  out = {};
+  % ---- pool fire
+  a = ps_pool_fire(314, 44000, 350, 2.2, 400, [], [], [], [30 60], 6.3);
+  out(end + 1, :) = {'pool: heat release = burn rate x area x Hc', close(a.Q_kW, a.burning_rate_kg_m2_s * 314 * 44000, 1e-14)};
+  out(end + 1, :) = {'pool: diameter from area', close(pi * a.diameter_m^2 / 4, 314, 1e-14)};
+  b = ps_pool_fire(314 * 4, 44000, 350, 2.2, 400);
+  out(end + 1, :) = {'pool: burning rate independent of area', close(b.burning_rate_kg_m2_s, a.burning_rate_kg_m2_s, 1e-14)};
+  out(end + 1, :) = {'pool: four times the area doubles the diameter', close(b.diameter_m / a.diameter_m, 2, 1e-14)};
+  out(end + 1, :) = {'pool: SEP between its asymptotes and falling with size', a.sep_mudan_croce_kW_m2 > 20 && a.sep_mudan_croce_kW_m2 < 140 && b.sep_mudan_croce_kW_m2 < a.sep_mudan_croce_kW_m2};
+  cryo = ps_pool_fire(100, 50000, 510, 3.4, 111.7);
+  out(end + 1, :) = {'pool: cryogenic pool drops the sensible-heat term', close(cryo.burning_rate_kg_m2_s, 0.001 * 50000 / 510, 1e-14)};
+  d = a.distance_to_target_m;
+  chk = ps_pool_fire(314, 44000, 350, 2.2, 400, [], [], [], d);
+  out(end + 1, :) = {'pool: flux at the reported distance equals the target', close(chk.flux_kW_m2, 6.3, 1e-9)};
+  far = ps_pool_fire(314, 44000, 350, 2.2, 400, [], [], [], [1e5 2e5]);
+  out(end + 1, :) = {'pool: far field obeys the inverse square law', close(far.flux_kW_m2(2) / far.flux_kW_m2(1), 0.25, 1e-6)};
+  % ---- fireball
+  f = ps_fireball(10000, 46, 0.3);
+  out(end + 1, :) = {'fireball: radiated energy is conserved', close(f.surface_emissive_power_kW_m2 * 1e3 * pi * f.diameter_m^2 * f.duration_s, 0.3 * 10000 * 46e6, 1e-13)};
+  f8 = ps_fireball(80000, 46, 0.3);
+  out(end + 1, :) = {'fireball: diameter scales with mass^(1/3)', close(f8.diameter_m / f.diameter_m, 2, 1e-13)};
+  g = ps_fireball(10000, 46, 0.3, 1, [], 12.5);
+  h = ps_fireball(10000, 46, 0.3, 1, g.distance_to_target_m);
+  out(end + 1, :) = {'fireball: flux at the reported distance equals the target', close(h.flux_kW_m2, 12.5, 1e-9)};
+  t = ps_fireball(10000, 46, 0.3, 0.5, 300);
+  u = ps_fireball(10000, 46, 0.3, 1.0, 300);
+  out(end + 1, :) = {'fireball: flux is linear in transmissivity', close(t.flux_kW_m2 / u.flux_kW_m2, 0.5, 1e-14)};
+  far2 = ps_fireball(10000, 46, 0.3, 1, [1e5]);
+  out(end + 1, :) = {'fireball: far field is SEP (D/2)^2 / d^2', close(far2.flux_kW_m2, f.surface_emissive_power_kW_m2 * (f.diameter_m / 2)^2 / 1e10, 1e-6)};
+  out(end + 1, :) = {'fireball: unreachable target returns NaN', isnan(ps_fireball(1000, 46, 0.3, 1, [], 1e6).distance_to_target_m)};
+  % ---- jet fire
+  j = ps_jet_fire(20, 46, 20, [], 1, [200 400], [4.73 9.46]);
+  out(end + 1, :) = {'jet: heat release = m Hc', close(j.Q_MW, 920, 1e-14)};
+  out(end + 1, :) = {'jet: Hajek-Ludwig radiant fraction', close(j.radiant_fraction, 0.048 * sqrt(20), 1e-14)};
+  big = ps_jet_fire(20, 46, 400);
+  out(end + 1, :) = {'jet: radiant fraction capped at 0.40', close(big.radiant_fraction, 0.40, 1e-14)};
+  j2 = ps_jet_fire(40, 46, 20);
+  out(end + 1, :) = {'jet: flame length scales with Q^0.478', close(j2.flame_length_m / j.flame_length_m, 2 ^ 0.478, 1e-13)};
+  out(end + 1, :) = {'jet: inverse square law', close(j.flux_kW_m2(2) / j.flux_kW_m2(1), 0.25, 1e-14)};
+  back = ps_jet_fire(20, 46, 20, [], 1, j.safe_distance_m);
+  out(end + 1, :) = {'jet: flux at the safe distance equals the allowable level', close(back.flux_kW_m2(1), 4.73, 1e-12) && close(back.flux_kW_m2(2), 9.46, 1e-12)};
+  out(end + 1, :) = {'jet: warns inside two flame lengths', ~isempty(ps_jet_fire(20, 46, 20, [], 1, 30).warnings) && isempty(ps_jet_fire(20, 46, 20, [], 1, 1000).warnings)};
+  % ---- blast and BLEVE
+  out(end + 1, :) = {'blast: Brode energy identity', close(ps_blast('brode_J', 2000, 101.325, 10, 1.4), (2000 - 101.325) * 1e3 * 10 / 0.4, 1e-14)};
+  out(end + 1, :) = {'blast: ground burst doubles the charge', close(ps_blast('burst_tnt_kg', 9e6, true), 2 * ps_blast('burst_tnt_kg', 9e6, false), 1e-14)};
+  out(end + 1, :) = {'blast: Hopkinson cube-root scaling', close(ps_blast('overpressure_kpa', 8000, 100), ps_blast('overpressure_kpa', 1000, 50), 1e-12)};
+  R = ps_blast('distance_m', 1000, 7);
+  out(end + 1, :) = {'blast: distance inverts the overpressure', close(ps_blast('overpressure_kpa', 1000, R), 7, 1e-9)};
+  out(end + 1, :) = {'blast: TNT equivalence', close(ps_blast('tnt_equivalent', 10000, 46, 0.05), 0.05 * 10000 * 46 / 4.5, 1e-14)};
+  bl = ps_bleve(10000, 46, 5, 2000, 1.4, 0.3, 1, [100 200]);
+  fb = ps_fireball(10000, 46, 0.3, 1, [100 200]);
+  out(end + 1, :) = {'bleve: fireball part equals ps_fireball', close(bl.fireball.diameter_m, fb.diameter_m, 1e-14) && all(abs(bl.fireball.flux_kW_m2 - fb.flux_kW_m2) < 1e-12)};
+  out(end + 1, :) = {'bleve: blast energy is the Brode vapour-space energy', close(bl.blast.brode_energy_J, (2000 - 101.325) * 1e3 * 5 / 0.4, 1e-14) && close(bl.blast.tnt_equivalent_kg, 2 * bl.blast.brode_energy_J / 4.5e6, 1e-14)};
+  out(end + 1, :) = {'bleve: overpressure falls with distance', bl.blast.overpressure_kpa(2) < bl.blast.overpressure_kpa(1)};
 end
