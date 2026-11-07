@@ -43,3 +43,16 @@ CoolProp (MIT), `thermo`, `chemicals`, `fluids` (MIT) feed `docs/VALIDATION.md` 
 
 ## Gaps found
 No open-source equivalent of a commercial two-phase flare network or blowdown dynamic tool was found; the multicomponent LNG liquefaction cycle models in the open tools were not verified against plant data here; the DWSIM source repository is archived. Add rows only after testing.
+
+## Fire, release and hydrogen consequence tools (searched 2026-11-07)
+Licences and activity from the GitHub API on 2026-11-07. **None of these was run**; capability statements come from their own descriptions or papers.
+| Tool | Licence (checked) | Activity | Fit | Caveats |
+|---|---|---|---|---|
+| [HyRAM+](https://github.com/sandialabs/hyram) (Sandia; docs at hyram.sandia.gov, hyram.readthedocs.io) | GPL-3.0 | push 2026-07-14, 53 stars | Hydrogen orifice flow, notional nozzle, jet/plume, enclosure accumulation, jet flames and QRA | GPL: use as an external cross-check, do not copy code into this MIT package; model-level detail not read |
+| [FDS](https://github.com/firemodels/fds) (NIST; mostly Fortran) | GitHub reports no SPDX licence (NOASSERTION); licence text not read | push 2026-11-06, 911 stars | LES fire and smoke code; a medium-scale propane jet fire was validated in a 2018 paper; Sandia evaluated FDS 6.5.3 on LNG dense-gas releases | generally over-predictive for dense-gas field releases per that evaluation; not validated for jet fire onto steel |
+| FireFOAM (OpenFOAM-based) | not checked: the repository path I tried returned 404 | not checked | Open fire solver; a 2017 Lund/RISE report says it is verified and not validated for a large set of fires | no study found of a FireFOAM or OpenFOAM jet fire with a flashing LPG source |
+| [fireSIM MATLAB toolbox](https://github.com/YakNazim/fireSIM-Matlab-toolbox) | MIT | last push 2020-01-11, 2 stars: inactive | Pool fire, fireball, jet fire (Shell-Chamberlain) and gas outflow apps, from Assael and Kakosimos | tiny, unmaintained, not validated; File Exchange page lists version 1.0.0 only |
+| DEGADIS (EPA, Fortran) | EPA SCRAM site; licence not read | not applicable (archive) | Dense-gas dispersion; EPA-450/4-89-019; source and readme at gaftp.epa.gov/aqmg/SCRAM/models/other/degadis | Windows-oriented; the MIT-licensed Python reimplementation DEGADISx does not redistribute the Fortran |
+| ALOHA (EPA/NOAA) | free download, not open source | not applicable | Toxic and heavy-gas dispersion, pool and jet fire, BLEVE, vapour cloud explosion; about 10 km limit | closed source |
+
+SLAB and HEGADAS source were not found. No open Fortran or MATLAB code was found for HEM or omega flashing, flame radiation, vessel heat-up in fire, or cryogenic fracture response.

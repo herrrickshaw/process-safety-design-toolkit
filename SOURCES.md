@@ -88,3 +88,18 @@ to this repository.
 | PHMSA NPRM (28 Oct 2026) to revise 49 CFR 193 around NFPA 59A-2026; comments due 4 Jan 2027 | National Law Review (Van Ness Feldman summary, 2 Nov 2026) | read (summary, not the NPRM text) | medium: proposed rule, not final; re-check against the Federal Register notice |
 | Early design choices, scale-up and thermal screening (CSB "about 60%" statistic as quoted) | Sigma-HSE article, 27 Nov 2025 | read; statistic not checked | medium |
 | CCPS Process Safety Beacon | ccps.aiche.org | not read: bot check (HTTP 403), no bypass | n/a |
+
+## Jet flame and material data (checked 2026-11-07)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Chamberlain vapour jet-flame equations (source diameter, Kalghatgi still-air length, length in wind, angle, lift-off, W1, W2, F_s, SEP, frustum area); beta 2.85; SEP cap 350 kW/m2 | DNV "Theory - Jet Fire" (JFSH), Dec 2023, section 2, public PDF (myworkspace.dnv.com, phast technical documentation) | full text extracted and read; equations used, no text copied (PDF forbids reproduction) | medium-high: eqs (18) and (25) were ambiguous in extraction and settled by a continuity test; Chamberlain 1987 and Kalghatgi 1984 not read |
+| Chamberlain field-trial inputs (trials 3A-D, 4A-C) | DNV JFSH validation document, Table 2 | read | used only for a plausibility run; measured results are plots only, so no per-test error exists |
+| Chamberlain model accuracy claims (frustum length within about 10%, SEP within 10% of mean) | same validation document, section 2.1.2 | read | as stated by DNV, not independently checked |
+| 304 stainless (UNS S30400) thermal conductivity and specific heat, 4-300 K, log10 polynomial fits (errors 2% and 5%); Young's modulus; linear expansion | NIST Cryogenic Material Properties, trc.nist.gov/cryogenics/materials/304Stainless/304Stainless_rev.htm | live page fetched; fit evaluated (15.1 W/m/K and 470 J/kg/K at 293 K) | high for 304; not yet in the code |
+| Nickel steels Fe-2.25/3.25/5.0/9.0Ni fits | NIST cryogenic pages | live pages fetched | NOT USED: 2.25Ni and 9.0Ni pages list identical specific-heat and linear-expansion coefficients, and the UNS labels look wrong (S21800 is not a 9% Ni steel by my recollection, unchecked) |
+| Carbon steel at low temperature (A516, A333) | none found | NIST index lists only nickel steels, 304, 304L, 310, 316 | gap |
+| Steel strength retention and thermal properties at fire temperatures | EN 1993-1-2:2005 Table 3.1 and thermal annex | paywalled; only unofficial copies and drafts found, not read | still medium: `structural_fire` and `vapour_fire` values remain recalled |
+| Creep and rupture of C and C-Mn steels | NIMS Creep Data Sheet, cds.nims.go.jp | site found; data not read; licence terms not found | pointer only |
+| Hydrogen compatibility of structural materials | Sandia "Technical Reference for Hydrogen Compatibility of Materials", SAND2012-7321, public | introduction located; no threshold values read | pointer only |
+| Ideal-gas thermochemistry to high T | NIST-JANAF tables (janaf.nist.gov), about 1,700 compounds, last data update 1998 | site read; no values taken | pointer only |
+| Pure-component properties incl. enthalpy of combustion | NIST/TRC Web Thermo Tables, Lite edition free (about 150 compounds), Professional is a subscription | search summary | pointer only; flammability-limit open source not found |
