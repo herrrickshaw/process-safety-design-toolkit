@@ -1,12 +1,13 @@
 """Fire, explosion and dispersion commands."""
 from __future__ import annotations
 
-from .. import dispersion, fireball, pool_fire, structural_fire, vapour_fire
+from .. import dispersion, fireball, pool_fire, structural_fire, vapour_fire, viewfactor
 from .registry import command, emit
 
 
 @command("vapour-fire", "transient vapour-filled vessel fire: PSV vs rupture vs blowdown")
 class VapourFire:
+    units = {"p0_g": "kPag", "strength": "MPa", "h_in": "W/m2K"}
     ranges = {"volume": "volume_m3", "area": "area_m2", "D": "length_m", "wall_mm": "wall_mm", "M": "molar_mass_kg_kmol",
               "k": "heat_capacity_ratio", "q": "heat_flux_kW_m2", "psv_area": "area_mm2", "bdv_area": "area_mm2",
               "bdv_open_s": "time_nonneg_s", "t_end": "time_s", "psv_set_g": "set_pressure_kPag"}
@@ -102,3 +103,26 @@ class Fireball:
     def run(a, p):
         b = fireball.fireball(a.mass, a.hc, a.fraction)
         emit({**b, "distance_to_kW_m2": {str(k): fireball.distance_to_flux_m(b, k) for k in (37.5, 12.5, 4.0)}})
+
+
+@command("flame-flux", "solid-flame view-factor radiation to a target facing a vertical rectangular flame (near-field)")
+class FlameFlux:
+    units = {"offset": "m"}
+    ranges = {"width": "length_m", "height": "length_m", "distance": "length_m", "base": "nonneg_length_m",
+              "sep": "emissive_power_kW_m2", "tau": "coefficient_0_1"}
+
+    @staticmethod
+    def add_arguments(ff):
+        ff.add_argument("--width", type=float, required=True, help="flame face width m"); ff.add_argument("--height", type=float, required=True, help="flame face height m")
+        ff.add_argument("--distance", type=float, required=True, help="target to flame plane, m")
+        ff.add_argument("--offset", type=float, default=0.0, help="lateral offset of the flame centre from the target, m")
+        ff.add_argument("--base", type=float, default=0.0, help="flame base height above the target, m")
+        ff.add_argument("--sep", type=float, required=True, help="surface emissive power kW/m2 (e.g. from pool-fire)")
+        ff.add_argument("--tau", type=float, default=1.0); ff.add_argument("--n", type=int, default=200, help="integration cells per side")
+
+    @staticmethod
+    def run(a, p):
+        face = viewfactor.vertical_flame_face(a.width, a.height, a.distance, a.offset, a.base)
+        r = viewfactor.flux_from_faces((-a.distance, 0.0, 0.0), (1.0, 0.0, 0.0), [face], a.sep, a.tau, a.n)
+        r["note"] = "flat vertical face, target facing it, no tilt or blockage; compare with pool-fire point-source distances"
+        emit(r)

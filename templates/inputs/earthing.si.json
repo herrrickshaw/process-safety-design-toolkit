@@ -1,0 +1,59 @@
+{
+  "command": "earthing",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "rho_s": null,
+    "t": null,
+    "rho": null,
+    "hs": null
+  },
+  "_guide": {
+    "rho_s": {
+      "flag": "--rho-s",
+      "required": true,
+      "type": "float",
+      "unit": "ohm m",
+      "help": "surface layer resistivity ohm-m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 10000
+      }
+    },
+    "t": {
+      "flag": "--t",
+      "required": true,
+      "type": "float",
+      "unit": "s",
+      "help": "fault duration s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "rho": {
+      "flag": "--rho",
+      "required": false,
+      "type": "float",
+      "unit": "ohm m",
+      "help": "underlying soil resistivity (with --hs for the Cs derating)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 10000
+      }
+    },
+    "hs": {
+      "flag": "--hs",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "surface layer thickness m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 2000
+      }
+    }
+  }
+}

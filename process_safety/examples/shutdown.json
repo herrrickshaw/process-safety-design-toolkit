@@ -1,0 +1,311 @@
+{
+ "_note": "ILLUSTRATIVE ranges, risk probabilities and rates for a generic 2-unit turnaround. NOT benchmark data: replace every number with your own estimate, vendor quote or turnaround history. Currency units are arbitrary (cost unit = your currency, e.g. lakh INR). The opportunity block (margin per operating day, ramp losses, recoverable fraction) is also illustrative: use finance's contribution margin and the plant's real ramp curves.",
+ "name": "Illustrative unit shutdown",
+ "currency": "cost units",
+ "distribution": "pert",
+ "target_days": 28,
+ "budget": 520,
+ "sample_runs": 500,
+ "max_runs": 20000,
+ "duration_cost_per_day": 6.0,
+ "overrun_cost_per_day": 14.0,
+ "common_factor": {
+  "min": 0.95,
+  "mode": 1.0,
+  "max": 1.25
+ },
+ "activities": [
+  {
+   "id": "A1",
+   "name": "Shut down, depressure, isolate",
+   "duration_days": {
+    "min": 1.5,
+    "mode": 2,
+    "max": 3.5
+   },
+   "safety_critical": true,
+   "cost_per_day": 2.0
+  },
+  {
+   "id": "A2",
+   "name": "Gas-free and entry certificates",
+   "predecessors": [
+    "A1"
+   ],
+   "duration_days": {
+    "min": 1,
+    "mode": 1.5,
+    "max": 3
+   },
+   "safety_critical": true,
+   "cost_per_day": 1.0
+  },
+  {
+   "id": "A3",
+   "name": "Scaffolding",
+   "predecessors": [
+    "A1"
+   ],
+   "duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 5
+   },
+   "cost_fixed": {
+    "min": 10,
+    "mode": 14,
+    "max": 22
+   }
+  },
+  {
+   "id": "A4",
+   "name": "Open and clean vessels",
+   "predecessors": [
+    "A2",
+    "A3"
+   ],
+   "duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 5
+   },
+   "cost_per_day": 4.0
+  },
+  {
+   "id": "A5",
+   "name": "Inspect vessels and piping",
+   "predecessors": [
+    "A4"
+   ],
+   "duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 6
+   },
+   "cost_per_day": 3.0
+  },
+  {
+   "id": "A6",
+   "name": "Repairs found in inspection",
+   "predecessors": [
+    "A5"
+   ],
+   "duration_days": {
+    "min": 3,
+    "mode": 6,
+    "max": 14
+   },
+   "cost_fixed": {
+    "min": 40,
+    "mode": 80,
+    "max": 200
+   }
+  },
+  {
+   "id": "A7",
+   "name": "Exchanger bundle pull and retube",
+   "predecessors": [
+    "A3"
+   ],
+   "duration_days": {
+    "min": 6,
+    "mode": 8,
+    "max": 13
+   },
+   "cost_fixed": {
+    "min": 50,
+    "mode": 70,
+    "max": 120
+   }
+  },
+  {
+   "id": "A8",
+   "name": "Relief valve overhaul and test",
+   "predecessors": [
+    "A1"
+   ],
+   "duration_days": {
+    "min": 3,
+    "mode": 4,
+    "max": 7
+   },
+   "cost_fixed": {
+    "min": 8,
+    "mode": 12,
+    "max": 20
+   }
+  },
+  {
+   "id": "A9",
+   "name": "Instrument and SIS proof tests",
+   "predecessors": [
+    "A1"
+   ],
+   "duration_days": {
+    "min": 3,
+    "mode": 5,
+    "max": 8
+   },
+   "safety_critical": true,
+   "cost_fixed": {
+    "min": 10,
+    "mode": 15,
+    "max": 25
+   }
+  },
+  {
+   "id": "A10",
+   "name": "Box up, leak test, hydrotest",
+   "predecessors": [
+    "A6",
+    "A7",
+    "A8"
+   ],
+   "duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 6
+   },
+   "cost_per_day": 3.0
+  },
+  {
+   "id": "A11",
+   "name": "Reinstate, remove scaffold, line-up",
+   "predecessors": [
+    "A10",
+    "A9"
+   ],
+   "duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 5
+   },
+   "cost_per_day": 2.0
+  },
+  {
+   "id": "A12",
+   "name": "Pre-startup safety review and start-up authorisation",
+   "predecessors": [
+    "A11"
+   ],
+   "duration_days": {
+    "min": 1,
+    "mode": 2,
+    "max": 4
+   },
+   "safety_critical": true,
+   "cost_per_day": 1.0
+  }
+ ],
+ "risks": [
+  {
+   "id": "R1",
+   "name": "Inspection finds extra damage",
+   "probability": 0.35,
+   "affects": [
+    "A6"
+   ],
+   "delay_days": {
+    "min": 2,
+    "mode": 5,
+    "max": 12
+   },
+   "extra_cost": {
+    "min": 20,
+    "mode": 50,
+    "max": 150
+   }
+  },
+  {
+   "id": "R2",
+   "name": "Long-lead spare late",
+   "probability": 0.2,
+   "affects": [
+    "A7"
+   ],
+   "delay_days": {
+    "min": 2,
+    "mode": 4,
+    "max": 10
+   },
+   "extra_cost": {
+    "min": 5,
+    "mode": 10,
+    "max": 30
+   }
+  },
+  {
+   "id": "R3",
+   "name": "Hot-work / SIMOPS permit clash",
+   "probability": 0.3,
+   "affects": [
+    "A4",
+    "A7"
+   ],
+   "delay_days": {
+    "min": 0.5,
+    "mode": 1,
+    "max": 3
+   },
+   "extra_cost": {
+    "min": 1,
+    "mode": 3,
+    "max": 8
+   }
+  },
+  {
+   "id": "R4",
+   "name": "Hydrotest fails, retest after rework",
+   "probability": 0.15,
+   "affects": [
+    "A10"
+   ],
+   "delay_days": {
+    "min": 1,
+    "mode": 2,
+    "max": 5
+   },
+   "extra_cost": {
+    "min": 5,
+    "mode": 10,
+    "max": 30
+   }
+  },
+  {
+   "id": "R5",
+   "name": "Contractor labour shortfall",
+   "probability": 0.25,
+   "affects": [
+    "A3",
+    "A4",
+    "A6"
+   ],
+   "delay_days": {
+    "min": 0.5,
+    "mode": 1,
+    "max": 3
+   },
+   "extra_cost": {
+    "min": 2,
+    "mode": 6,
+    "max": 15
+   }
+  }
+ ],
+ "opportunity": {
+  "margin_per_day": 90.0,
+  "ramp_down_days": {
+   "min": 0.3,
+   "mode": 0.5,
+   "max": 1.0
+  },
+  "ramp_up_days": {
+   "min": 0.5,
+   "mode": 1.0,
+   "max": 3.0
+  },
+  "recoverable_fraction": 0.1,
+  "operating_days_per_year": 350
+ },
+ "total_budget": 3200
+}

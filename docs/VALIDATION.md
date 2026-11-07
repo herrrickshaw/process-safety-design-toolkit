@@ -1,12 +1,12 @@
 # Validation
 
-Run on 2026-11-05 against independent libraries and closed-form literature formulas. **124 of 124 checks are within their stated tolerance.** Reproduce with `pip install fluids thermo CoolProp scipy` then `python tests/crosscheck/validate.py` (CI job `crosscheck`).
+Run on 2026-11-06 against independent libraries and closed-form literature formulas. **186 of 186 checks are within their stated tolerance.** Reproduce with `pip install fluids thermo CoolProp scipy` then `python tests/crosscheck/validate.py` (CI job `crosscheck`); regenerate this page with `scripts/gen_validation.py`.
 
 ## What this does and does not show
 
 * It shows the toolkit's equations and constants agree with independent implementations to the stated tolerance. The tolerance is set per check (0.1% for closed-form identities, 5% for property correlations against an equation of state, 12% where the reference is itself a range).
 * It does **not** show that a result is right for a plant. Inputs, scenario selection and the standard edition a project cites are outside the check.
-* References: `fluids` (API 520 gas, steam and liquid sizing, Darcy friction), `thermo` and `CoolProp` (vapour pressure, density, latent heat), and closed-form formulas typed from the open literature (API 521 fire heat input, Kinney-Graham, Roberts fireball, Burgess/Thomas/Mudan-Croce, IEC 60255, IEEE 80, OSHA 1910.95, Briggs dispersion coefficients, Eisenberg probit, IEC 61508-6, 49 CFR 192/193). Paywalled standards were not read; where a check uses one it is the formula as published in the open literature or in `fluids`.
+* References: `fluids` (API 520 gas, steam and liquid sizing, Darcy friction, separators, drag, tank geometry, valve units), `thermo` and `CoolProp` (vapour pressure, density, latent heat, real-gas isentropes, and a direct homogeneous-equilibrium integration for two-phase flow), and closed-form formulas typed from the open literature (API 521 fire heat input, Kinney-Graham, Roberts fireball, Burgess/Thomas/Mudan-Croce, IEC 60255, IEEE 80, OSHA 1910.95, Briggs dispersion coefficients, Eisenberg probit, IEC 61508-6, 49 CFR 192/193). Paywalled standards were not read; where a check uses one it is the formula as published in the open literature or in `fluids`.
 
 ## Differences to know about
 
@@ -14,6 +14,9 @@ Run on 2026-11-05 against independent libraries and closed-form literature formu
 * **Steam relief area** uses the Napier form with the older constant; `fluids` implements the 10th-edition form. They agree within the 5% tolerance for the cases checked; use the edition your project cites.
 * **API 2000 fire heat input** has a boundary at exactly 0.07 barg design pressure for wetted areas of 260 m2 and above, where the published table switches formula; the toolkit follows the table as read and the cross-check avoids the boundary.
 * **TNT energy** is compared with the literature range 4.184 to 4.69 MJ/kg, not a single value.
+* **Two-phase omega method.** With the two-point omega (isentropic, at 90% of the inlet pressure) the choked flux is within 0.7% of a direct CoolProp integration for propane, n-butane and ammonia, and within 2.2% across all 252 rows of the bundled table (18 fluids, up to 90% of the critical pressure). The single-point saturated omega is within 4% of the direct integration below 0.3 of the critical pressure and 7% below 0.5, then degrades toward the critical point (about 13% at 0.7 Pc, up to 38% at 0.9 Pc): use the two-point basis (the default) there.
+* **Depressuring minimum temperature.** The ideal-gas isentrope with the inlet-state k is 5 to 9% (10 to 20 K) colder than the real-gas isentrope for methane and nitrogen from 50 to 10 bar. The toolkit value is the lower, so it is conservative for MDMT screening; it is not the metal temperature. The check tolerance is set to 10% for that reason.
+* **Lee-Kesler and Rackett** correlations (`props`) agree with the CoolProp reference EOS within 4% (observed worst case 2.1%) for the seven hydrocarbons at Tr 0.6 to 0.8; they are not for polar fluids or near the critical point.
 
 ## All checks
 
@@ -143,3 +146,65 @@ Run on 2026-11-05 against independent libraries and closed-form literature formu
 | 122 | lng.impoundment_capacity_m3 single tank | 176000 m3 | 176000 | 0.000 | 0.1 | 49 CFR 193.2181: 110% of single-container capacity |
 | 123 | psm threshold chlorine kg (1,500 lb) | 680.389 kg | 680.389 | 0.000 | 0.1 | 29 CFR 1910.119 App. A |
 | 124 | fire_water.hazen_williams_bar_per_m | 0.0055625 bar/m | 0.0055625 | 0.000 | 0.1 | NFPA 13: p=6.05*Q^1.85/(C^1.85 d^4.87)*1e5 (bar/m) |
+| 125 | twophase flux, two-point omega (Propane sat. liquid, 1000 kPa) | 6897.52 kg/m2/s | 6861.74 | 0.522 | 20 | CoolProp isentropic HEM, maximum of rho*sqrt(2 dh) over P |
+| 126 | twophase flux, saturated omega (Propane, 1000 kPa) | 6825.61 kg/m2/s | 6861.74 | -0.527 | 5 | CoolProp isentropic HEM (single-point omega) |
+| 127 | twophase flux, two-point omega (Propane sat. liquid, 1900 kPa) | 10531 kg/m2/s | 10469.6 | 0.587 | 20 | CoolProp isentropic HEM, maximum of rho*sqrt(2 dh) over P |
+| 128 | twophase flux, saturated omega (Propane, 1900 kPa) | 10181.4 kg/m2/s | 10469.6 | -2.753 | 5 | CoolProp isentropic HEM (single-point omega) |
+| 129 | twophase flux, two-point omega (n-Butane sat. liquid, 1000 kPa) | 6465.46 kg/m2/s | 6435.76 | 0.461 | 20 | CoolProp isentropic HEM, maximum of rho*sqrt(2 dh) over P |
+| 130 | twophase flux, saturated omega (n-Butane, 1000 kPa) | 6407.91 kg/m2/s | 6435.76 | -0.433 | 5 | CoolProp isentropic HEM (single-point omega) |
+| 131 | twophase flux, two-point omega (Ammonia sat. liquid, 1500 kPa) | 8793.77 kg/m2/s | 8731.99 | 0.707 | 20 | CoolProp isentropic HEM, maximum of rho*sqrt(2 dh) over P |
+| 132 | twophase flux, saturated omega (Ammonia, 1500 kPa) | 8764.26 kg/m2/s | 8731.99 | 0.370 | 5 | CoolProp isentropic HEM (single-point omega) |
+| 133 | props.vapour_pressure_bar methane Tr=0.6 | 1.24236 bar | 1.25551 | -1.047 | 4 | CoolProp (Helmholtz EOS) |
+| 134 | props.liquid_density_kg_m3 methane Tr=0.6 | 417.383 kg/m3 | 418.433 | -0.251 | 4 | CoolProp (Helmholtz EOS) |
+| 135 | props.vapour_pressure_bar methane Tr=0.7 | 4.48403 bar | 4.47914 | 0.109 | 4 | CoolProp (Helmholtz EOS) |
+| 136 | props.liquid_density_kg_m3 methane Tr=0.7 | 387.122 kg/m3 | 388.379 | -0.324 | 4 | CoolProp (Helmholtz EOS) |
+| 137 | props.vapour_pressure_bar methane Tr=0.8 | 11.6266 bar | 11.5982 | 0.245 | 4 | CoolProp (Helmholtz EOS) |
+| 138 | props.liquid_density_kg_m3 methane Tr=0.8 | 351.649 kg/m3 | 352.9 | -0.354 | 4 | CoolProp (Helmholtz EOS) |
+| 139 | props.vapour_pressure_bar ethane Tr=0.6 | 0.926262 bar | 0.940125 | -1.475 | 4 | CoolProp (Helmholtz EOS) |
+| 140 | props.liquid_density_kg_m3 ethane Tr=0.6 | 542.593 kg/m3 | 545.548 | -0.542 | 4 | CoolProp (Helmholtz EOS) |
+| 141 | props.vapour_pressure_bar ethane Tr=0.7 | 3.87896 bar | 3.87428 | 0.121 | 4 | CoolProp (Helmholtz EOS) |
+| 142 | props.liquid_density_kg_m3 ethane Tr=0.7 | 502.429 kg/m3 | 505.254 | -0.559 | 4 | CoolProp (Helmholtz EOS) |
+| 143 | props.vapour_pressure_bar ethane Tr=0.8 | 11.0463 bar | 11.0018 | 0.404 | 4 | CoolProp (Helmholtz EOS) |
+| 144 | props.liquid_density_kg_m3 ethane Tr=0.8 | 455.435 kg/m3 | 458.138 | -0.590 | 4 | CoolProp (Helmholtz EOS) |
+| 145 | props.vapour_pressure_bar ethylene Tr=0.6 | 1.00542 bar | 1.01476 | -0.921 | 4 | CoolProp (Helmholtz EOS) |
+| 146 | props.liquid_density_kg_m3 ethylene Tr=0.6 | 562.681 kg/m3 | 567.618 | -0.870 | 4 | CoolProp (Helmholtz EOS) |
+| 147 | props.vapour_pressure_bar ethylene Tr=0.7 | 4.12596 bar | 4.12944 | -0.084 | 4 | CoolProp (Helmholtz EOS) |
+| 148 | props.liquid_density_kg_m3 ethylene Tr=0.7 | 521.148 kg/m3 | 525.036 | -0.741 | 4 | CoolProp (Helmholtz EOS) |
+| 149 | props.vapour_pressure_bar ethylene Tr=0.8 | 11.6004 bar | 11.5949 | 0.048 | 4 | CoolProp (Helmholtz EOS) |
+| 150 | props.liquid_density_kg_m3 ethylene Tr=0.8 | 472.54 kg/m3 | 475.545 | -0.632 | 4 | CoolProp (Helmholtz EOS) |
+| 151 | props.vapour_pressure_bar propane Tr=0.6 | 0.653626 bar | 0.664517 | -1.639 | 4 | CoolProp (Helmholtz EOS) |
+| 152 | props.liquid_density_kg_m3 propane Tr=0.6 | 589.884 kg/m3 | 591.311 | -0.241 | 4 | CoolProp (Helmholtz EOS) |
+| 153 | props.vapour_pressure_bar propane Tr=0.7 | 2.99361 bar | 2.99046 | 0.105 | 4 | CoolProp (Helmholtz EOS) |
+| 154 | props.liquid_density_kg_m3 propane Tr=0.7 | 545.668 kg/m3 | 547.262 | -0.291 | 4 | CoolProp (Helmholtz EOS) |
+| 155 | props.vapour_pressure_bar propane Tr=0.8 | 9.02024 bar | 8.97852 | 0.465 | 4 | CoolProp (Helmholtz EOS) |
+| 156 | props.liquid_density_kg_m3 propane Tr=0.8 | 493.992 kg/m3 | 495.913 | -0.387 | 4 | CoolProp (Helmholtz EOS) |
+| 157 | props.vapour_pressure_bar propylene Tr=0.6 | 0.736612 bar | 0.743176 | -0.883 | 4 | CoolProp (Helmholtz EOS) |
+| 158 | props.liquid_density_kg_m3 propylene Tr=0.6 | 614.351 kg/m3 | 618.153 | -0.615 | 4 | CoolProp (Helmholtz EOS) |
+| 159 | props.vapour_pressure_bar propylene Tr=0.7 | 3.31717 bar | 3.30873 | 0.255 | 4 | CoolProp (Helmholtz EOS) |
+| 160 | props.liquid_density_kg_m3 propylene Tr=0.7 | 568.409 kg/m3 | 571.284 | -0.503 | 4 | CoolProp (Helmholtz EOS) |
+| 161 | props.vapour_pressure_bar propylene Tr=0.8 | 9.88926 bar | 9.85143 | 0.384 | 4 | CoolProp (Helmholtz EOS) |
+| 162 | props.liquid_density_kg_m3 propylene Tr=0.8 | 514.706 kg/m3 | 516.818 | -0.409 | 4 | CoolProp (Helmholtz EOS) |
+| 163 | props.vapour_pressure_bar n-butane Tr=0.6 | 0.482233 bar | 0.492629 | -2.110 | 4 | CoolProp (Helmholtz EOS) |
+| 164 | props.liquid_density_kg_m3 n-butane Tr=0.6 | 621.019 kg/m3 | 619.753 | 0.204 | 4 | CoolProp (Helmholtz EOS) |
+| 165 | props.vapour_pressure_bar n-butane Tr=0.7 | 2.39519 bar | 2.39039 | 0.201 | 4 | CoolProp (Helmholtz EOS) |
+| 166 | props.liquid_density_kg_m3 n-butane Tr=0.7 | 573.935 kg/m3 | 573.491 | 0.077 | 4 | CoolProp (Helmholtz EOS) |
+| 167 | props.vapour_pressure_bar n-butane Tr=0.8 | 7.59574 bar | 7.53701 | 0.779 | 4 | CoolProp (Helmholtz EOS) |
+| 168 | props.liquid_density_kg_m3 n-butane Tr=0.8 | 518.965 kg/m3 | 519.56 | -0.114 | 4 | CoolProp (Helmholtz EOS) |
+| 169 | props.vapour_pressure_bar isobutane Tr=0.6 | 0.507994 bar | 0.504238 | 0.745 | 4 | CoolProp (Helmholtz EOS) |
+| 170 | props.liquid_density_kg_m3 isobutane Tr=0.6 | 613.645 kg/m3 | 611.793 | 0.303 | 4 | CoolProp (Helmholtz EOS) |
+| 171 | props.vapour_pressure_bar isobutane Tr=0.7 | 2.42698 bar | 2.39374 | 1.389 | 4 | CoolProp (Helmholtz EOS) |
+| 172 | props.liquid_density_kg_m3 isobutane Tr=0.7 | 567.374 kg/m3 | 565.924 | 0.256 | 4 | CoolProp (Helmholtz EOS) |
+| 173 | props.vapour_pressure_bar isobutane Tr=0.8 | 7.51028 bar | 7.42692 | 1.122 | 4 | CoolProp (Helmholtz EOS) |
+| 174 | props.liquid_density_kg_m3 isobutane Tr=0.8 | 513.326 kg/m3 | 512.592 | 0.143 | 4 | CoolProp (Helmholtz EOS) |
+| 175 | depressuring.min_gas_temperature_K Methane 50->10 bar | 180.809 K | 198.256 | -8.801 | 10 | KNOWN DIFFERENCE: ideal-gas isentrope with inlet-state k is 5-9% (10-20 K) colder than the real-gas isentrope at 50 bar; conservative for MDMT |
+| 176 | depressuring.min_gas_temperature_K Nitrogen 50->10 bar | 177.408 K | 187.364 | -5.314 | 10 | KNOWN DIFFERENCE: ideal-gas isentrope with inlet-state k is 5-9% (10-20 K) colder than the real-gas isentrope at 50 bar; conservative for MDMT |
+| 177 | release.gas_release_kg_s Methane 20 bar 10 mm hole | 0.274546 kg/s | 0.271641 | 1.069 | 5 | CoolProp real-gas isentropic choked flux |
+| 178 | release.gas_release_kg_s Nitrogen 20 bar 10 mm hole | 0.363915 kg/s | 0.362949 | 0.266 | 5 | CoolProp real-gas isentropic choked flux |
+| 179 | separator.souders_brown_velocity | 0.623912 m/s | 0.623912 | 0.000 | 0.1 | fluids.separator.v_Sounders_Brown |
+| 180 | separator.droplet_terminal_velocity 100 um | 0.135568 m/s | 0.131188 | 3.338 | 15 | fluids.drag.v_terminal (default drag correlation) |
+| 181 | separator.droplet_terminal_velocity 300 um | 0.408699 m/s | 0.421286 | -2.988 | 15 | fluids.drag.v_terminal (default drag correlation) |
+| 182 | hydraulics.incompressible_dp_kpa 100 m, 100 mm | 48.1935 kPa | 48.1935 | -0.000 | 1 | fluids.friction.one_phase_dP |
+| 183 | hydraulics.cv_from_kv | 115.61  | 115.61 | 0.000 | 0.1 | fluids.control_valve.Kv_to_Cv |
+| 184 | vessel_mech.liquid_inventory_m3 horizontal fill 0.25 | 3.68511 m3 | 3.68511 | 0.000 | 0.1 | fluids.geometry.TANK (plain cylinder, flat ends excluded) |
+| 185 | vessel_mech.liquid_inventory_m3 horizontal fill 0.5 | 9.42478 m3 | 9.42478 | 0.000 | 0.1 | fluids.geometry.TANK (plain cylinder, flat ends excluded) |
+| 186 | vessel_mech.liquid_inventory_m3 horizontal fill 0.8 | 16.1658 m3 | 16.1658 | 0.000 | 0.1 | fluids.geometry.TANK (plain cylinder, flat ends excluded) |

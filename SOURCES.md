@@ -85,3 +85,6 @@ to this repository.
 | H2S ERPG-3/2 = 100/30 ppm | recalled; example input only | not verified | medium: verify against AIHA |
 | Spurious-trip approximations (2 ls^2 MTTR, 6 ls^2 MTTR) | ISA TR84.00.02 style, recalled | not verified | medium |
 | FIBC type rules, gas zone by grade (medium/good, high dilution) | recalled summaries of IEC 61340-4-4 / IEC 60079-10-1 | not verified | medium: verify |
+| PHMSA NPRM (28 Oct 2026) to revise 49 CFR 193 around NFPA 59A-2026; comments due 4 Jan 2027 | National Law Review (Van Ness Feldman summary, 2 Nov 2026) | read (summary, not the NPRM text) | medium: proposed rule, not final; re-check against the Federal Register notice |
+| Early design choices, scale-up and thermal screening (CSB "about 60%" statistic as quoted) | Sigma-HSE article, 27 Nov 2025 | read; statistic not checked | medium |
+| CCPS Process Safety Beacon | ccps.aiche.org | not read: bot check (HTTP 403), no bypass | n/a |

@@ -1,0 +1,57 @@
+{
+  "command": "template",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "name": null,
+    "system": null,
+    "format": "json",
+    "all": null,
+    "list": null
+  },
+  "_guide": {
+    "name": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "command name (omit with --all or --list)"
+    },
+    "system": {
+      "flag": "--system",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "units written into the template (default: the global --units)",
+      "choices": [
+        "si",
+        "us"
+      ]
+    },
+    "format": {
+      "flag": "--format",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "json",
+        "csv"
+      ]
+    },
+    "all": {
+      "flag": "--all",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "every command as one CSV table (SI and US columns)"
+    },
+    "list": {
+      "flag": "--list",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "list the command names that have templates"
+    }
+  }
+}

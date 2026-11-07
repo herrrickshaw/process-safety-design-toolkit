@@ -1,0 +1,705 @@
+{
+ "_note": "ILLUSTRATIVE quantities, unit rates, indirects, risk reductions and VPF for six hypothetical study recommendations. NOT benchmark data and NOT from any real study: replace every number with your own quantities, contractor rates or estimating database, and your own risk numbers and ALARP policy values.",
+ "currency": "cost units",
+ "distribution": "pert",
+ "runs": 5000,
+ "capex_basis": "P50",
+ "indirects": {
+  "engineering_pct": 12,
+  "procurement_pct": 4,
+  "construction_mgmt_pct": 8,
+  "owner_pct": 5,
+  "commissioning_pct": 3,
+  "escalation_pct": 4
+ },
+ "rate_factor": {
+  "min": 0.95,
+  "mode": 1.0,
+  "max": 1.2
+ },
+ "alarp": {
+  "vpf": 9000,
+  "disproportion_factor": 3,
+  "lifetime_yr": 25,
+  "discount_rate": 0.035
+ },
+ "rate_book": {
+  "pipe_cs_150": {
+   "unit": "m installed",
+   "rate": {
+    "min": 0.8,
+    "mode": 1.0,
+    "max": 1.5
+   },
+   "note": "illustrative"
+  },
+  "pipe_tie_in": {
+   "unit": "each",
+   "rate": {
+    "min": 6,
+    "mode": 9,
+    "max": 16
+   }
+  },
+  "valve_sdv": {
+   "unit": "each installed",
+   "rate": {
+    "min": 10,
+    "mode": 14,
+    "max": 22
+   }
+  },
+  "concrete": {
+   "unit": "m3",
+   "rate": {
+    "min": 0.18,
+    "mode": 0.24,
+    "max": 0.35
+   }
+  },
+  "steel_struct": {
+   "unit": "tonne",
+   "rate": {
+    "min": 1.4,
+    "mode": 1.8,
+    "max": 2.6
+   }
+  },
+  "cable_power": {
+   "unit": "m installed",
+   "rate": {
+    "min": 0.06,
+    "mode": 0.08,
+    "max": 0.13
+   }
+  },
+  "cable_inst": {
+   "unit": "m installed",
+   "rate": {
+    "min": 0.03,
+    "mode": 0.04,
+    "max": 0.07
+   }
+  },
+  "ex_junction_box": {
+   "unit": "each",
+   "rate": {
+    "min": 0.6,
+    "mode": 0.9,
+    "max": 1.5
+   }
+  },
+  "transmitter": {
+   "unit": "each installed",
+   "rate": {
+    "min": 1.5,
+    "mode": 2.2,
+    "max": 3.5
+   }
+  },
+  "sis_logic_loop": {
+   "unit": "loop",
+   "rate": {
+    "min": 6,
+    "mode": 9,
+    "max": 16
+   }
+  },
+  "ups_battery": {
+   "unit": "set",
+   "rate": {
+    "min": 18,
+    "mode": 26,
+    "max": 40
+   }
+  }
+ },
+ "recommendations": [
+  {
+   "id": "R1",
+   "title": "Independent high-level shutdown on feed drum (SIF)",
+   "source": "LOPA scenario 4, overfill",
+   "requires_shutdown": false,
+   "pll_before": 0.0008,
+   "pll_after": 8e-05,
+   "opex_pct_of_capex": 4,
+   "lines": [
+    {
+     "discipline": "instrumentation",
+     "description": "level transmitters",
+     "rate_key": "transmitter",
+     "qty": {
+      "min": 2,
+      "mode": 2,
+      "max": 3
+     }
+    },
+    {
+     "discipline": "instrumentation",
+     "description": "SIS logic and loop",
+     "rate_key": "sis_logic_loop",
+     "qty": {
+      "min": 1,
+      "mode": 1,
+      "max": 2
+     }
+    },
+    {
+     "discipline": "electrical",
+     "description": "instrument cable",
+     "rate_key": "cable_inst",
+     "qty": {
+      "min": 300,
+      "mode": 400,
+      "max": 650
+     }
+    }
+   ]
+  },
+  {
+   "id": "R2",
+   "title": "Replace undersized relief header section and add tie-in",
+   "source": "HAZOP node 3, action 7",
+   "requires_shutdown": true,
+   "work_duration_days": {
+    "min": 3,
+    "mode": 4,
+    "max": 7
+   },
+   "pll_before": 0.0006,
+   "pll_after": 0.0002,
+   "opex_pct_of_capex": 1,
+   "lines": [
+    {
+     "discipline": "piping",
+     "description": "CS 150# header, installed",
+     "rate_key": "pipe_cs_150",
+     "qty": {
+      "min": 60,
+      "mode": 80,
+      "max": 120
+     }
+    },
+    {
+     "discipline": "piping",
+     "description": "tie-ins",
+     "rate_key": "pipe_tie_in",
+     "qty": {
+      "min": 2,
+      "mode": 3,
+      "max": 5
+     }
+    },
+    {
+     "discipline": "civil",
+     "description": "pipe support foundations",
+     "rate_key": "concrete",
+     "qty": {
+      "min": 8,
+      "mode": 12,
+      "max": 20
+     }
+    },
+    {
+     "discipline": "mechanical",
+     "description": "pipe support steel",
+     "rate_key": "steel_struct",
+     "qty": {
+      "min": 3,
+      "mode": 4,
+      "max": 7
+     }
+    }
+   ]
+  },
+  {
+   "id": "R3",
+   "title": "Remote-operated isolation valves on inventory line",
+   "source": "QRA mitigation M2",
+   "requires_shutdown": true,
+   "work_duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 5
+   },
+   "pll_before": 0.0012,
+   "pll_after": 0.0007,
+   "opex_pct_of_capex": 3,
+   "lines": [
+    {
+     "discipline": "piping",
+     "description": "SDV installed",
+     "rate_key": "valve_sdv",
+     "qty": {
+      "min": 2,
+      "mode": 2,
+      "max": 3
+     }
+    },
+    {
+     "discipline": "piping",
+     "description": "tie-ins",
+     "rate_key": "pipe_tie_in",
+     "qty": {
+      "min": 2,
+      "mode": 2,
+      "max": 4
+     }
+    },
+    {
+     "discipline": "electrical",
+     "description": "power and signal cable",
+     "rate_key": "cable_power",
+     "qty": {
+      "min": 250,
+      "mode": 350,
+      "max": 600
+     }
+    },
+    {
+     "discipline": "instrumentation",
+     "description": "limit switches and solenoids",
+     "rate": {
+      "min": 1.0,
+      "mode": 1.6,
+      "max": 2.6
+     },
+     "qty": {
+      "min": 2,
+      "mode": 2,
+      "max": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "R4",
+   "title": "Blast-resistant wall for control-room side",
+   "source": "QRA occupied-building study",
+   "requires_shutdown": false,
+   "pll_before": 0.0015,
+   "pll_after": 0.0004,
+   "opex_pct_of_capex": 0.5,
+   "lines": [
+    {
+     "discipline": "civil",
+     "description": "reinforced concrete wall and foundation",
+     "rate_key": "concrete",
+     "qty": {
+      "min": 120,
+      "mode": 160,
+      "max": 260
+     }
+    },
+    {
+     "discipline": "mechanical",
+     "description": "reinforcement and embedded steel",
+     "rate_key": "steel_struct",
+     "qty": {
+      "min": 14,
+      "mode": 20,
+      "max": 34
+     }
+    }
+   ]
+  },
+  {
+   "id": "R5",
+   "title": "Replace non-Ex junction boxes in reclassified zone",
+   "source": "hazardous area review",
+   "requires_shutdown": true,
+   "work_duration_days": {
+    "min": 2,
+    "mode": 3,
+    "max": 6
+   },
+   "pll_before": 0.0003,
+   "pll_after": 0.00015,
+   "opex_pct_of_capex": 1,
+   "lines": [
+    {
+     "discipline": "electrical",
+     "description": "Ex-rated junction boxes",
+     "rate_key": "ex_junction_box",
+     "qty": {
+      "min": 18,
+      "mode": 24,
+      "max": 40
+     }
+    },
+    {
+     "discipline": "electrical",
+     "description": "cable re-termination and glands",
+     "rate": {
+      "min": 0.05,
+      "mode": 0.08,
+      "max": 0.14
+     },
+     "qty": {
+      "min": 200,
+      "mode": 300,
+      "max": 500
+     }
+    }
+   ]
+  },
+  {
+   "id": "R6",
+   "title": "UPS for ESD valve actuators and F&G",
+   "source": "PSSR finding",
+   "requires_shutdown": false,
+   "pll_before": 0.0004,
+   "pll_after": 0.0002,
+   "opex_pct_of_capex": 6,
+   "lines": [
+    {
+     "discipline": "electrical",
+     "description": "UPS battery set",
+     "rate_key": "ups_battery",
+     "qty": {
+      "min": 1,
+      "mode": 1,
+      "max": 1
+     }
+    },
+    {
+     "discipline": "electrical",
+     "description": "power cable",
+     "rate_key": "cable_power",
+     "qty": {
+      "min": 150,
+      "mode": 200,
+      "max": 350
+     }
+    },
+    {
+     "discipline": "civil",
+     "description": "battery room works",
+     "rate": {
+      "min": 4,
+      "mode": 6,
+      "max": 11
+     },
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "shutdown_model": {
+  "name": "Illustrative unit shutdown",
+  "currency": "cost units",
+  "distribution": "pert",
+  "target_days": 28,
+  "budget": 520,
+  "sample_runs": 500,
+  "max_runs": 20000,
+  "duration_cost_per_day": 6.0,
+  "overrun_cost_per_day": 14.0,
+  "common_factor": {
+   "min": 0.95,
+   "mode": 1.0,
+   "max": 1.25
+  },
+  "activities": [
+   {
+    "id": "A1",
+    "name": "Shut down, depressure, isolate",
+    "duration_days": {
+     "min": 1.5,
+     "mode": 2,
+     "max": 3.5
+    },
+    "safety_critical": true,
+    "cost_per_day": 2.0
+   },
+   {
+    "id": "A2",
+    "name": "Gas-free and entry certificates",
+    "predecessors": [
+     "A1"
+    ],
+    "duration_days": {
+     "min": 1,
+     "mode": 1.5,
+     "max": 3
+    },
+    "safety_critical": true,
+    "cost_per_day": 1.0
+   },
+   {
+    "id": "A3",
+    "name": "Scaffolding",
+    "predecessors": [
+     "A1"
+    ],
+    "duration_days": {
+     "min": 2,
+     "mode": 3,
+     "max": 5
+    },
+    "cost_fixed": {
+     "min": 10,
+     "mode": 14,
+     "max": 22
+    }
+   },
+   {
+    "id": "A4",
+    "name": "Open and clean vessels",
+    "predecessors": [
+     "A2",
+     "A3"
+    ],
+    "duration_days": {
+     "min": 2,
+     "mode": 3,
+     "max": 5
+    },
+    "cost_per_day": 4.0
+   },
+   {
+    "id": "A5",
+    "name": "Inspect vessels and piping",
+    "predecessors": [
+     "A4"
+    ],
+    "duration_days": {
+     "min": 2,
+     "mode": 3,
+     "max": 6
+    },
+    "cost_per_day": 3.0
+   },
+   {
+    "id": "A6",
+    "name": "Repairs found in inspection",
+    "predecessors": [
+     "A5"
+    ],
+    "duration_days": {
+     "min": 3,
+     "mode": 6,
+     "max": 14
+    },
+    "cost_fixed": {
+     "min": 40,
+     "mode": 80,
+     "max": 200
+    }
+   },
+   {
+    "id": "A7",
+    "name": "Exchanger bundle pull and retube",
+    "predecessors": [
+     "A3"
+    ],
+    "duration_days": {
+     "min": 6,
+     "mode": 8,
+     "max": 13
+    },
+    "cost_fixed": {
+     "min": 50,
+     "mode": 70,
+     "max": 120
+    }
+   },
+   {
+    "id": "A8",
+    "name": "Relief valve overhaul and test",
+    "predecessors": [
+     "A1"
+    ],
+    "duration_days": {
+     "min": 3,
+     "mode": 4,
+     "max": 7
+    },
+    "cost_fixed": {
+     "min": 8,
+     "mode": 12,
+     "max": 20
+    }
+   },
+   {
+    "id": "A9",
+    "name": "Instrument and SIS proof tests",
+    "predecessors": [
+     "A1"
+    ],
+    "duration_days": {
+     "min": 3,
+     "mode": 5,
+     "max": 8
+    },
+    "safety_critical": true,
+    "cost_fixed": {
+     "min": 10,
+     "mode": 15,
+     "max": 25
+    }
+   },
+   {
+    "id": "A10",
+    "name": "Box up, leak test, hydrotest",
+    "predecessors": [
+     "A6",
+     "A7",
+     "A8"
+    ],
+    "duration_days": {
+     "min": 2,
+     "mode": 3,
+     "max": 6
+    },
+    "cost_per_day": 3.0
+   },
+   {
+    "id": "A11",
+    "name": "Reinstate, remove scaffold, line-up",
+    "predecessors": [
+     "A10",
+     "A9"
+    ],
+    "duration_days": {
+     "min": 2,
+     "mode": 3,
+     "max": 5
+    },
+    "cost_per_day": 2.0
+   },
+   {
+    "id": "A12",
+    "name": "Pre-startup safety review and start-up authorisation",
+    "predecessors": [
+     "A11"
+    ],
+    "duration_days": {
+     "min": 1,
+     "mode": 2,
+     "max": 4
+    },
+    "safety_critical": true,
+    "cost_per_day": 1.0
+   }
+  ],
+  "risks": [
+   {
+    "id": "R1",
+    "name": "Inspection finds extra damage",
+    "probability": 0.35,
+    "affects": [
+     "A6"
+    ],
+    "delay_days": {
+     "min": 2,
+     "mode": 5,
+     "max": 12
+    },
+    "extra_cost": {
+     "min": 20,
+     "mode": 50,
+     "max": 150
+    }
+   },
+   {
+    "id": "R2",
+    "name": "Long-lead spare late",
+    "probability": 0.2,
+    "affects": [
+     "A7"
+    ],
+    "delay_days": {
+     "min": 2,
+     "mode": 4,
+     "max": 10
+    },
+    "extra_cost": {
+     "min": 5,
+     "mode": 10,
+     "max": 30
+    }
+   },
+   {
+    "id": "R3",
+    "name": "Hot-work / SIMOPS permit clash",
+    "probability": 0.3,
+    "affects": [
+     "A4",
+     "A7"
+    ],
+    "delay_days": {
+     "min": 0.5,
+     "mode": 1,
+     "max": 3
+    },
+    "extra_cost": {
+     "min": 1,
+     "mode": 3,
+     "max": 8
+    }
+   },
+   {
+    "id": "R4",
+    "name": "Hydrotest fails, retest after rework",
+    "probability": 0.15,
+    "affects": [
+     "A10"
+    ],
+    "delay_days": {
+     "min": 1,
+     "mode": 2,
+     "max": 5
+    },
+    "extra_cost": {
+     "min": 5,
+     "mode": 10,
+     "max": 30
+    }
+   },
+   {
+    "id": "R5",
+    "name": "Contractor labour shortfall",
+    "probability": 0.25,
+    "affects": [
+     "A3",
+     "A4",
+     "A6"
+    ],
+    "delay_days": {
+     "min": 0.5,
+     "mode": 1,
+     "max": 3
+    },
+    "extra_cost": {
+     "min": 2,
+     "mode": 6,
+     "max": 15
+    }
+   }
+  ],
+  "opportunity": {
+   "margin_per_day": 90.0,
+   "ramp_down_days": {
+    "min": 0.3,
+    "mode": 0.5,
+    "max": 1.0
+   },
+   "ramp_up_days": {
+    "min": 0.5,
+    "mode": 1.0,
+    "max": 3.0
+   },
+   "recoverable_fraction": 0.1,
+   "operating_days_per_year": 350
+  },
+  "total_budget": 3200
+ },
+ "insert_after": [
+  "A5"
+ ],
+ "insert_before": [
+  "A10"
+ ],
+ "shutdown_runs": 4000
+}

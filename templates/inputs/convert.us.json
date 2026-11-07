@@ -1,0 +1,49 @@
+{
+  "command": "convert",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "value": null,
+    "src": null,
+    "dst": null,
+    "across_atmosphere": null,
+    "table": null
+  },
+  "_guide": {
+    "value": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": ""
+    },
+    "src": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "unit of the value, e.g. psig, degF, ft, lb/h"
+    },
+    "dst": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "unit to convert to, e.g. kPag, degC, m, kg/h"
+    },
+    "across_atmosphere": {
+      "flag": "--across-atmosphere",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "convert between a GAUGE and an ABSOLUTE pressure unit (adds or subtracts 101.325 kPa); refused without this flag"
+    },
+    "table": {
+      "flag": "--table",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "list every unit, its dimension and the factor to the SI base unit"
+    }
+  }
+}

@@ -14,6 +14,9 @@ Generated from `process_safety/glossary.py` (`python -m process_safety glossary 
 | **MAWP** (Maximum allowable working pressure) | The highest gauge pressure a vessel may carry at its design temperature under its code. | vessel_mech; ASME VIII |
 | **Orifice letter** | The standard effective orifice area designation D to T for a relief valve; the required area is rounded up to the next letter. | relief; API 526 |
 | **Kd, Kb, Kc, Kw, Kv** (Valve and flow coefficients) | Discharge coefficient (Kd), back-pressure correction (Kb), rupture-disk combination factor (Kc), liquid back-pressure factor (Kw) and viscosity correction (Kv). | relief; API 520-I |
+| **Omega method** (Leung omega parameter) | A one-number description of how fast a flashing or two-phase fluid expands as pressure falls; gives the choked mass flux and relief area for two-phase service. | twophase; API 520-I Annex C |
+| **Flashing flow** | A liquid near its boiling point that partly vaporises as pressure drops through the valve, so the discharge is a two-phase mixture and needs far more area than liquid sizing gives. | twophase |
+| **HEM** (Homogeneous equilibrium model) | Two-phase flow modelled as one fluid, with the phases moving together and in thermal equilibrium. | twophase |
 | **Critical (choked) flow** | Gas flow through an orifice at the speed of sound: downstream pressure no longer raises the flow. Occurs when P2/P1 is below the critical ratio. | relief |
 | **Conventional / balanced / pilot-operated** (Valve types) | Conventional valves are affected by back pressure; balanced bellows and pilot-operated valves tolerate more of it. | relief; API 520-II |
 | **Wetted area** | Vessel surface in contact with liquid up to a height (7.6 m for fire), which absorbs fire heat and boils liquid. | relief; API 521 |
@@ -33,6 +36,8 @@ Generated from `process_safety/glossary.py` (`python -m process_safety glossary 
 | Term | Meaning | Applies to |
 |---|---|---|
 | **LOC** (Loss of containment) | A release of material from its designed boundary (a hole in a pipe, a vessel rupture). | qra |
+| **View factor** (Configuration factor) | The fraction of the radiation leaving one surface that reaches another; incident flux = emissive power x view factor x transmissivity. | viewfactor |
+| **Solid-flame model** | Treats a flame as a hot radiating solid of defined shape and surface emissive power; better than a point source close to the fire. | viewfactor, pool_fire |
 | **Pool fire** | A fire burning on a liquid pool; flame size follows the burning rate and pool diameter. | pool_fire |
 | **Jet fire** | A fire from a pressurised release that burns as a momentum-driven flame. | qra.effects |
 | **Flash fire** | A short, low-overpressure fire as a flammable cloud burns back to its source; harm is inside the cloud. | qra.effects |
@@ -63,6 +68,43 @@ Generated from `process_safety/glossary.py` (`python -m process_safety glossary 
 
 | Term | Meaning | Applies to |
 |---|---|---|
+| **FEL 1 / Class 5 estimate** (Front-end loading 1; AACE Class 5) | The concept-stage capital estimate, based on analog projects or capacity factoring, with a wide accuracy range; good for screening, not for a budget or investment decision. | lng_cost |
+| **Analog (cost estimating)** (Reference project) | A past project with published cost used, after adjustment for size, date, location and scope, to estimate a new one. | lng_cost |
+| **Capacity factoring / size exponent** (Six-tenths rule and variants) | Scaling cost with capacity raised to an exponent below 1 (0.6 to 0.8 for LNG trains) to reflect economies of scale. | lng_cost |
+| **Location factor / cost index** | Multipliers for where and when a plant is built relative to a reference (for example US Gulf Coast at a base date); the toolkit ships none and requires them as inputs. | lng_cost |
+| **PCN** (Process control network) | The network of controllers, I/O, switches and servers that runs the process control and safety systems; modifying it needs engineering, factory and site acceptance testing, cybersecurity measures and change control. | design_workflow |
+| **SIF voting (1oo1, 2oo3)** (Sensor voting architecture) | How many redundant sensors must agree to trip: 2oo3 tolerates one sensor failure without a spurious trip or a missed demand, at the cost of more instruments, cable and I/O. | sil, design_workflow |
+| **FAT / SAT** (Factory / site acceptance test) | Testing of control or safety system changes at the vendor (FAT) and after installation on site (SAT) before they go live. | design_workflow |
+| **Pipeline rerouting** | Replacing a line with a new route: demolition of the old line, new pipe, fittings, supports, tie-ins and civil work, with the hydraulic effect of the longer route checked. | design_workflow |
+| **HMB** (Heat and material balance) | The table of flow, composition, temperature, pressure, phase and energy for every stream in a flowsheet, for each operating case, produced by a process simulator. | hmb |
+| **PFS / PEFS / PSFS** (Process flow scheme / process engineering flow scheme / process safeguarding flow scheme) | Operator document names for the flow diagram, the P&ID-level engineering diagram, and the diagram showing the safeguards (relief, trips, detection) relied on by the studies; expansions assumed from common usage. | plant_model |
+| **Proteus / DEXPI** (P&ID exchange format) | An XML schema (ProteusXML) and information model (DEXPI) for exchanging piping and instrumentation diagram data between engineering tools. | plant_model |
+| **Why chain** | The reasoning from a process condition to a scenario, the gap it exposes, and the recommendation type a study raises, with the numbers at each step. | scenario_ingest |
+| **DEP / design practice** (Design and engineering practice) | A company's controlled document set stating mandatory (shall) and recommended (should) design requirements; projects run a gap analysis of their design against it. | requirements_extract |
+| **Process safeguarding memorandum** | A project document that records the safeguards (relief, trips, interlocks, detection) relied on to control each hazard and the basis for them, kept alongside the flow schemes. | plant_model, scenario_ingest |
+| **Process control narrative** | A written description of how the control and shutdown systems are intended to operate, including set points, interlocks and operating modes. | design_workflow |
+| **Shall / should** (Normative language) | In requirement documents, 'shall' states a mandatory requirement and 'should' a recommendation; 'shall not' a prohibition. | requirements_extract |
+| **Derogation** | A formal, recorded and approved departure from a mandatory (MUST) design requirement for a stated scope and period, backed by a justification, a risk assessment, compensating measures and an approver of enough seniority; it expires or is reviewed. Not available for statutory requirements, which need the regulator's exemption. | compliance |
+| **Must / should / can (compliance tiers)** | MUST: comply or hold an approved derogation. SHOULD: comply or explain (documented justification, discipline-level approval). CAN: optional, record whether adopted; no derogation is needed. | compliance |
+| **TA1 / TA2 / TA3** (Technical authority levels) | Tiers of engineering sign-off authority, here TA3 (site / discipline) < TA2 (project / regional discipline) < TA1 (principal / corporate); the approval matrix sets which a derogation needs from its tier and consequence class. Level meanings are an assumption to adapt. | compliance |
+| **PESTLE** (Political, Economic, Social, Technological, Legal, Environmental) | A checklist for mapping the wider consequences of a scenario; in the compliance module each factor is rated 0-5 for a derogation's failure scenario, a rating of 3 or more needs a management action, and the highest rating sets the consequence class. | compliance |
+| **Seveso III Article 11** (Modification of an installation or establishment) | Directive 2012/18/EU: for a modification that could have significant consequences for major-accident hazards, the operator reviews and where necessary updates the notification, MAPP, safety management system and safety report, and informs the competent authority in advance; an internal derogation that changes a major-accident scenario can be one. | compliance |
+| **MAPP** (Major-accident prevention policy) | The written policy, required of Seveso establishments, setting out the operator's overall aims, management role and safety management system for controlling major-accident hazards. | compliance |
+| **Technical premium** | The premium an actuary builds from expected loss plus a risk load and expenses, before market effects; here (expected loss x uncertainty factor + k x standard deviation) / (1 - expense ratio). | insurance_impact |
+| **Error factor** (EF = P95/P50) | The ratio of the 95th percentile to the median of an uncertain frequency, treated as lognormal; a larger error factor raises the mean above the median and so the modelled premium. | insurance_impact |
+| **Credibility** | The weight Z = n/(n+k) given to a site's own claims experience when blending it with an exposure-based premium; zero for a new project. | insurance_impact |
+| **Retained loss** | The part of expected loss the owner bears: the deductible and anything above the policy limit. | insurance_impact |
+| **Comply or explain** | The rule for recommended (SHOULD) requirements: follow them, or record why a different approach is acceptable; no formal derogation is required. | compliance |
+| **ICAF** (Implied cost of averting a fatality) | Cost of a risk-reduction measure divided by the fatalities it is expected to avert over its life; compared with the value of preventing a fatality in the ALARP cost-benefit test. | recommendation_cost, qra.alarp |
+| **Indirect costs** | Costs on top of direct construction cost: engineering, procurement, construction management, owner's cost, commissioning and escalation, usually as percentages of direct cost. | recommendation_cost |
+| **Safety study recommendation** (HAZOP / LOPA / QRA action) | A change proposed by a hazard study to reduce risk: for example a piping change, a civil protection, an electrical upgrade or an instrumented function. | recommendation_cost |
+| **Turnaround / shutdown** (Planned outage) | A planned period when a unit or plant is taken out of service for inspection, repair and reinstatement; its length and cost are the subject of schedule and cost risk analysis. | shutdown_risk |
+| **QSRA / QCRA** (Quantitative schedule / cost risk analysis) | Monte Carlo analysis of a project network (schedule) or cost estimate (cost) using ranges and risk events instead of single-point values. | shutdown_risk |
+| **P50 / P80** (Confidence levels) | The value that the outcome is at or below in 50% (P50) or 80% (P80) of simulated runs; contingency is often set as P80 minus the base estimate. | shutdown_risk |
+| **S-curve** (Cumulative probability curve) | The simulated outcomes sorted into cumulative probability against duration or cost, from which P-values are read. | shutdown_risk |
+| **Criticality index** | The share of simulation runs in which an activity lies on a zero-float (critical) path. | shutdown_risk |
+| **Opportunity cost (shutdown)** (Lost margin) | Contribution margin forgone for each operating day the plant is not producing, including ramp-down and ramp-up, less any production recoverable later. | shutdown_risk |
+| **On-stream factor** (Operating availability) | The share of the year a plant is operating; a shutdown overrun lowers it day for day. | shutdown_risk |
 | **HAZID** (Hazard identification) | A structured workshop listing hazards from a checklist of causes by area or activity. | qra.hazid |
 | **HAZOP** (Hazard and operability study) | A team review of each process node using guidewords (no, more, less) applied to parameters to find deviations and their causes. | hazop; IEC 61882 |
 | **PHA** (Process hazard analysis) | The umbrella term for HAZOP, what-if and similar studies; revalidated on a cycle. | pha; OSHA 1910.119 |

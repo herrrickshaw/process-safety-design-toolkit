@@ -6,6 +6,11 @@
     thermal  TMRad / TD24 / Stoessel class / Semenov storage                    (thermal_runaway.py)
     atex     zone, EPL, ATEX category, dust class, FIBC, EPD register           (atex.py)
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
+    shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
+    plant    ingest PFS/HMB streams, P&ID registers (+Proteus XML), PHA register: balances, scenarios, P&ID review, why-chain, common recommendations, workflow skeleton  (plant_model, hmb, pid_review, scenario_ingest)
+    workflow safety simulation -> resizing/design -> BOQ -> capex and opex (devices, pipeline rerouting, sensors, PCN modification), ALARP, shutdown merge  (design_workflow.py)
+    lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
+    recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
 Every tool runs input checks first and writes a validation section to its summary.
 """
@@ -16,7 +21,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, fg_mapping, pha, ram, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -97,6 +102,132 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         summ["criticality"] = full["criticality"][:10]
         pha.write_csv(full["criticality"], pre + "_criticality.csv")
         summ["files"] = [pre + "_criticality.csv"]
+    elif name == "shutdown":
+        errs = shutdown_risk.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (ids, ranges, probabilities, acyclic network)"]
+        if errs:
+            return summ
+        smp = shutdown_risk.simulate(data, runs=data.get("sample_runs", 500), seed=1, progress=progress, label="shutdown sample")
+        plan = shutdown_risk.plan_runs(smp, data.get("target_rel", 0.01))
+        full = shutdown_risk.simulate(data, runs=min(plan["runs_needed"], data.get("max_runs", 20000)), seed=2, progress=progress, label="shutdown full")
+        summ["plan"] = plan
+        summ["checks"] += [c.replace(": P80", ": sample (" + str(smp["runs"]) + " runs) P80", 1) for c in shutdown_risk.convergence(smp)] + [c.replace(": P80", ": full (" + str(full["runs"]) + " runs) P80", 1) for c in shutdown_risk.convergence(full)]
+        keep = ("runs", "base", "duration_days", "cost", "contingency", "opportunity", "P_meet_target_days", "P_meet_budget", "P_meet_both", "safety_critical", "notes")
+        summ["result"] = {k: full[k] for k in keep if k in full}
+        summ["criticality_top"] = sorted(full["criticality_index"].items(), key=lambda kv: -kv[1])[:8]
+        summ["tornado_duration_top"] = full["tornado_duration"][:6]
+        summ["tornado_cost_top"] = full["tornado_cost"][:6]
+        pha.write_csv(full["s_curve"], pre + "_s_curve.csv")
+        pha.write_csv([{"activity": k, "criticality_index": v} for k, v in full["criticality_index"].items()], pre + "_criticality.csv")
+        pha.write_csv(full["tornado_duration"], pre + "_tornado_duration.csv")
+        pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
+        shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
+        summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "plant":
+        m = plant_model.load(data, base_dir=data.get("base_dir"))
+        errs = plant_model.validate(m)
+        summ["checks"] = errs and ["WARN: " + e for e in errs] or ["PASS: references (stream ends, device and instrument units) resolve"]
+        reg = scenario_ingest.read_register(data["register"]) if data.get("register") else []
+        regsum = scenario_ingest.classify_register(reg) if reg else None
+        rat = scenario_ingest.rationale(m, data.get("params"), reg, data.get("isolation_inventory_kg"))
+        summ["balance"] = hmb.balance(m)
+        summ["hazards"] = hmb.unit_hazards(m)
+        summ["hmb_scenarios"] = rat["hmb_scenarios"]
+        summ["pid_findings"] = rat["pid_findings"]
+        summ["rationale"] = rat["rationale"]
+        summ["triggered_recommendation_types"] = rat["triggered_counts"]
+        if regsum:
+            summ["register"] = regsum
+            summ["gaps_not_in_register"] = [{"unit": g["unit"], "rec_id": g["rec_id"], "recommendation": g["recommendation"], "reasons": g["reasons"]} for g in rat["gaps_not_in_register"]]
+        summ["workflow_skeleton"] = scenario_ingest.workflow_skeleton(m, rat)
+        summ["notes"] = m["notes"]
+        pha.write_csv([{"unit": r["unit"], "rec_id": r["rec_id"], "recommendation": r["recommendation"], "cost_scope": r["cost_scope"], "sources": ";".join(r["sources"]),
+                        "in_register": r["in_register"], "why": " | ".join(r["reasons"])} for r in rat["rationale"]], pre + "_rationale.csv")
+        pha.write_csv([{"unit": s_["unit"], "scenario": s_["scenario"], "status": s_["status"], "why": s_["why"], "missing": ",".join(s_["missing"])} for s_ in rat["hmb_scenarios"]], pre + "_scenarios.csv")
+        with open(pre + "_workflow_skeleton.json", "w", encoding="utf-8") as fh:
+            json.dump(summ["workflow_skeleton"], fh, indent=1, default=str)
+        summ["files"] = [pre + "_rationale.csv", pre + "_scenarios.csv", pre + "_workflow_skeleton.json"]
+    elif name == "workflow":
+        errs = design_workflow.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (modes, rate keys in the rate book, opex book present)"]
+        if errs:
+            return summ
+        r = design_workflow.run(data, runs=data.get("runs", 5000))
+        summ["screen_and_resize"] = r["stage1_2_screen_and_resize"]
+        if "stage4_capex" in r:
+            est = r["stage4_capex"]
+            summ["capex"] = {"portfolio": est["portfolio"], "by_scope": [{k: v for k, v in x.items() if k in ("id", "requires_shutdown", "total_mode", "capex", "contingency_P80", "work_duration_days")} for x in est["recommendations"]]}
+            summ["opex"] = r["stage5_opex"]
+            summ["lifecycle"] = r["lifecycle"]
+            summ["alarp_per_unit_package"] = r["stage6_alarp_per_unit_package"]
+            summ["notes"] = r["notes"]
+            boq = [{"scope": b["id"], "description": ln["description"], "discipline": ln["discipline"], "rate_key": ln.get("rate_key", "inline"),
+                    "qty_mode": ln["qty"]["mode"] if isinstance(ln["qty"], dict) else ln["qty"]} for b in r["stage3_bill_of_quantities"] for ln in b["lines"]]
+            pha.write_csv(boq, pre + "_bill_of_quantities.csv")
+            pha.write_csv([{"scope": x["id"], "requires_shutdown": x["requires_shutdown"], "total_mode": x["total_mode"], "P50": x["capex"]["P50"], "P80": x["capex"]["P80"],
+                            "contingency_P80": x["contingency_P80"]} for x in est["recommendations"]], pre + "_capex.csv")
+            pha.write_csv([{"unit": u["tag"], "annual_opex": u["annual_opex"], "lifecycle_opex_pv": u["lifecycle_opex_pv"], **{f"part_{k}": v for k, v in u["parts"].items()}} for u in r["stage5_opex"]["units"]], pre + "_opex.csv")
+            summ["files"] = [pre + "_bill_of_quantities.csv", pre + "_capex.csv", pre + "_opex.csv"]
+            if "shutdown_model" in data:
+                from . import recommendation_cost as _rc
+                sm = data["shutdown_model"]
+                merged = _rc.merge_into_shutdown(sm, est, data["insert_after"], data["insert_before"])
+                b = shutdown_risk.simulate(sm, data.get("shutdown_runs", 3000), seed=1)
+                m = shutdown_risk.simulate(merged, data.get("shutdown_runs", 3000), seed=1)
+                summ["shutdown_effect"] = {"delta_duration_days": {k: m["duration_days"][k] - b["duration_days"][k] for k in ("P50", "P80", "P90")},
+                                           "delta_direct_cost": {k: m["cost"][k] - b["cost"][k] for k in ("P50", "P80", "P90")},
+                                           **({"delta_lost_operating_days": {k: m["opportunity"]["lost_operating_days"][k] - b["opportunity"]["lost_operating_days"][k] for k in ("P50", "P80", "P90")},
+                                               "delta_total_cost": {k: m["opportunity"]["total_cost"][k] - b["opportunity"]["total_cost"][k] for k in ("P50", "P80", "P90")}} if "opportunity" in b else {})}
+        else:
+            summ["notes"] = [r.get("note", "")]
+    elif name == "lngcost":
+        errs = lng_cost.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (target, cost index or escalation rate, location factors)"]
+        if errs:
+            return summ
+        r = lng_cost.estimate(data, runs=data.get("runs", 10000))
+        summ["result"] = {k: v for k, v in r.items() if k not in ("analogs", "excluded")}
+        summ["excluded"] = r["excluded"]
+        pha.write_csv([{k: v for k, v in a.items() if k != "source_url"} | {"source_url": a["source_url"]} for a in r["analogs"]], pre + "_analogs.csv")
+        summ["files"] = [pre + "_analogs.csv"]
+        if "daily_margin" in data:
+            dm = data["daily_margin"]
+            summ["daily_margin_musd_per_day"] = lng_cost.daily_margin(data["capacity_mtpa"], dm["margin_usd_per_mmbtu"], dm["mmbtu_per_tonne"], dm["operating_days_per_year"])
+        if "recommendations_capex_musd" in data:
+            summ["safety_spend_share_of_plant_capex_P50"] = lng_cost.safety_spend_ratio(data["recommendations_capex_musd"], r["total_musd"]["P50"])
+    elif name == "recs":
+        errs = recommendation_cost.check(data)
+        summ["checks"] = errs and ["FAIL: " + e for e in errs] or ["PASS: inputs (disciplines, rates, ranges, shutdown durations)"]
+        if errs:
+            return summ
+        est = recommendation_cost.estimate(data, runs=data.get("runs", 5000))
+        summ["estimate"] = {k: v for k, v in est.items() if k != "recommendations"}
+        summ["recommendations"] = [{k: v for k, v in r.items() if k != "direct_by_discipline_mode"} for r in est["recommendations"]]
+        rows = [{"id": r["id"], "title": r["title"], "requires_shutdown": r["requires_shutdown"], **{f"direct_{k}": v for k, v in r["direct_by_discipline_mode"].items()},
+                 "total_mode": r["total_mode"], "P50": r["capex"]["P50"], "P80": r["capex"]["P80"], "contingency_P80": r["contingency_P80"],
+                 "cost_benefit_ratio": r.get("cba", {}).get("cost_benefit_ratio", ""), "decision": r.get("cba", {}).get("decision", "")} for r in est["recommendations"]]
+        keys = sorted({k for r in rows for k in r}, key=lambda k: (k not in ("id", "title", "requires_shutdown"), k))
+        pha.write_csv([{k: r.get(k, "") for k in keys} for r in rows], pre + "_recommendations.csv")
+        summ["files"] = [pre + "_recommendations.csv"]
+        if "shutdown_model" in data:
+            sm = data["shutdown_model"]
+            merged = recommendation_cost.merge_into_shutdown(sm, est, data["insert_after"], data["insert_before"])
+            b = shutdown_risk.simulate(sm, data.get("shutdown_runs", 4000), seed=1)
+            m = shutdown_risk.simulate(merged, data.get("shutdown_runs", 4000), seed=1)
+            def d(a, c):
+                return {k: c[k] - a[k] for k in ("P50", "P80", "P90")}
+            comp = {"duration_days_without": b["duration_days"], "duration_days_with": m["duration_days"], "delta_duration_days": d(b["duration_days"], m["duration_days"]),
+                    "direct_cost_without": b["cost"], "direct_cost_with": m["cost"], "delta_direct_cost": d(b["cost"], m["cost"])}
+            if "opportunity" in b:
+                comp["total_cost_delta"] = d(b["opportunity"]["total_cost"], m["opportunity"]["total_cost"])
+                comp["lost_operating_days_delta"] = d(b["opportunity"]["lost_operating_days"], m["opportunity"]["lost_operating_days"])
+            if "P_meet_target_days" in b:
+                comp["P_meet_target_days"] = {"without": b["P_meet_target_days"], "with": m["P_meet_target_days"]}
+            summ["shutdown_effect"] = comp
+            summ["shutdown_effect_notes"] = ["the same seed is used for both runs, so differences reflect the added work, not sampling noise (the added activities change the random stream, so small differences remain)"]
+            with open(pre + "_merged_shutdown_model.json", "w", encoding="utf-8") as fh:
+                json.dump(merged, fh, indent=1)
+            summ["files"].append(pre + "_merged_shutdown_model.json")
     elif name == "pha":
         today = dt.date.fromisoformat(data["today"]) if data.get("today") else None
         files = []

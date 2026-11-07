@@ -1,0 +1,60 @@
+{
+ "currency": "USD",
+ "value_per_day": 1500000,
+ "programme": {
+  "deductible": 10000000,
+  "limit": 500000000
+ },
+ "pricing": {
+  "expense_ratio": 0.25,
+  "risk_load_k": 0.5,
+  "discount_rate": 0.08,
+  "years": 10
+ },
+ "pml_return_period": 1000,
+ "cases": [
+  "baseline",
+  "derogated",
+  "derogated_with_compensation"
+ ],
+ "error_factor": {
+  "baseline": 5,
+  "derogated": 5,
+  "derogated_with_compensation": 3
+ },
+ "measure_cost": 2500000,
+ "scenarios": [
+  {
+   "name": "vent release ignites, pump house fire",
+   "freq_per_yr": 0.0004,
+   "pd_loss": 60000000,
+   "bi_days": 40,
+   "pfd": {
+    "baseline": 0.01,
+    "derogated": 0.1,
+    "derogated_with_compensation": 0.03
+   }
+  },
+  {
+   "name": "feed drum overfill, fire",
+   "freq_per_yr": 0.0008,
+   "pd_loss": 25000000,
+   "bi_days": 20,
+   "pfd": {
+    "baseline": 0.01,
+    "derogated": 0.03,
+    "derogated_with_compensation": 0.03
+   }
+  },
+  {
+   "name": "large LOC from tank farm, vapour cloud explosion",
+   "freq_per_yr": 5e-05,
+   "pd_loss": 400000000,
+   "bi_days": 240,
+   "loss_factor": {
+    "derogated": 1.15,
+    "derogated_with_compensation": 1.05
+   }
+  }
+ ]
+}

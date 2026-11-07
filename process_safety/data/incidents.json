@@ -1,0 +1,414 @@
+{
+ "compiled": "2026-11-06",
+ "source": "US Chemical Safety and Hazard Investigation Board investigation pages (csb.gov), read 2026-11-06",
+ "note": "facts as the CSB page states; lessons and design_steps are the toolkit's mapping (steps = rows of docs/DESIGN_AWARENESS.md section 1)",
+ "incidents": [
+  {
+   "id": "texas-city-2005",
+   "name": "BP America Texas City refinery explosion",
+   "date": "2005-03-23",
+   "location": "Texas City, TX",
+   "final_report": "2007-03-20",
+   "deaths": 15,
+   "injured": 180,
+   "sector": "refining",
+   "source": "https://www.csb.gov/bp-america-texas-city-refinery-explosion/",
+   "recommendation": "API 2005-4-I-TX-2 (text not captured)",
+   "lesson": "isomerisation unit restart: distillation tower flooded and overpressurised, geyser from a vent stack near occupied trailers: level protection, blowdown to a closed system, siting of occupied buildings",
+   "modules": [
+    "overfill",
+    "separator",
+    "flare_system",
+    "explosion",
+    "psm"
+   ],
+   "design_steps": [
+    4,
+    6,
+    8,
+    9
+   ],
+   "note": "CSB also issued reports on management of change and positive material verification"
+  },
+  {
+   "id": "kleen-energy-2010",
+   "name": "Kleen Energy natural gas explosion",
+   "date": "2010-02-07",
+   "location": "Middletown, CT",
+   "final_report": "2010-06-28",
+   "deaths": 6,
+   "injured": null,
+   "sector": "power",
+   "source": "https://www.csb.gov/kleen-energy-natural-gas-explosion/",
+   "recommendation": "ASME 2010-07-I-CT-3: require inherently safer fuel gas piping cleaning methods in B31.1 instead of natural gas blows",
+   "lesson": "high-pressure natural gas (about 650 psi) used to blow debris from new piping found an ignition source: choose a method that removes the fuel from the activity",
+   "modules": [
+    "flammability",
+    "explosion",
+    "electrical"
+   ],
+   "design_steps": [
+    1,
+    11
+   ],
+   "note": ""
+  },
+  {
+   "id": "tesoro-anacortes-2010",
+   "name": "Tesoro Anacortes refinery fatal explosion and fire",
+   "date": "2010-04-02",
+   "location": "Anacortes, WA",
+   "final_report": "2014-05-01",
+   "deaths": 7,
+   "injured": null,
+   "sector": "refining",
+   "source": "https://www.csb.gov/tesoro-anacortes-refinery-fatal-explosion-and-fire-/",
+   "recommendation": "API 2010-08-I-WA-10: revise API RP 941, Steels for Hydrogen Service at Elevated Temperatures",
+   "lesson": "a nearly forty-year-old heat exchanger failed catastrophically while a maintenance step switched streams between exchanger banks: damage-mechanism assessment and aging-asset integrity",
+   "modules": [
+    "psm",
+    "hazop",
+    "vessel_mech"
+   ],
+   "design_steps": [
+    5,
+    12
+   ],
+   "note": ""
+  },
+  {
+   "id": "t2-2007",
+   "name": "T2 Laboratories reactive chemical explosion",
+   "date": "2007-12-19",
+   "location": "Jacksonville, FL",
+   "final_report": "2009-09-15",
+   "deaths": 4,
+   "injured": 13,
+   "sector": "chemicals",
+   "source": "https://www.csb.gov/t2-laboratories-inc-reactive-chemical-explosion/",
+   "recommendation": "ABET 2008-03-I-FL-3: add reactive hazard awareness to chemical engineering curricula",
+   "lesson": "runaway during production of a gasoline additive: reactive hazard screening and relief for runaway are design inputs, not afterthoughts",
+   "modules": [
+    "reaction_hazard",
+    "thermal_runaway",
+    "plant_units"
+   ],
+   "design_steps": [
+    1,
+    5,
+    6
+   ],
+   "note": "injured = taken to hospital"
+  },
+  {
+   "id": "imperial-sugar-2008",
+   "name": "Imperial Sugar dust explosion and fire",
+   "date": "2008-02-07",
+   "location": "Port Wentworth, GA",
+   "final_report": "2009-09-24",
+   "deaths": 14,
+   "injured": 38,
+   "sector": "food processing",
+   "source": "https://www.csb.gov/imperial-sugar-company-dust-explosion-and-fire/",
+   "recommendation": "American Bakers Association 2008-05-I-GA-8: promote combustible dust hazard awareness and control",
+   "lesson": "massive accumulations of sugar dust throughout the packaging building fuelled the explosion: dust hazard analysis, housekeeping and explosion protection by design",
+   "modules": [
+    "atex",
+    "flammability"
+   ],
+   "design_steps": [
+    3,
+    5,
+    11
+   ],
+   "note": ""
+  },
+  {
+   "id": "ddw-2003",
+   "name": "D.D. Williamson catastrophic vessel failure",
+   "date": "2003-04-11",
+   "location": "Louisville, KY",
+   "final_report": "2004-03-12",
+   "deaths": 1,
+   "injured": null,
+   "sector": "food additives",
+   "source": "https://www.csb.gov/d-d-williamson-and-co-catastrophic-vessel-failure/",
+   "recommendation": "Commonwealth of Kentucky 2003-11-I-KY-7 (text not captured)",
+   "lesson": "a process vessel became overpressurised and failed, releasing aqueous ammonia: pressure relief on every vessel that can be overpressured",
+   "modules": [
+    "relief",
+    "vessel_mech",
+    "relief_piping"
+   ],
+   "design_steps": [
+    6
+   ],
+   "note": "the CSB announcement URL text cites lack of emergency relief valves; the report body was not read"
+  },
+  {
+   "id": "capeco-2009",
+   "name": "Caribbean Petroleum (CAPECO) refinery tank explosion and fire",
+   "date": "2009-10-23",
+   "location": "Bayamon, PR",
+   "final_report": "2015-10-21",
+   "deaths": null,
+   "injured": null,
+   "sector": "terminals",
+   "source": "https://www.csb.gov/caribbean-petroleum-corporation-capeco-refinery-tank-explosion-and-fire/",
+   "recommendation": "API 2010-02-I-PR-7: revise ANSI/API 2350 to require automatic overfill prevention systems at bulk aboveground tanks storing flammable liquids with NFPA 704 rating 3 or higher",
+   "lesson": "tank overfill and vapour cloud: independent automatic overfill protection, not operator vigilance",
+   "modules": [
+    "overfill",
+    "tank_venting",
+    "explosion"
+   ],
+   "design_steps": [
+    4,
+    6,
+    8
+   ],
+   "note": ""
+  },
+  {
+   "id": "west-fertilizer-2013",
+   "name": "West Fertilizer explosion and fire",
+   "date": "2013-04-17",
+   "location": "West, TX",
+   "final_report": "2016-01-28",
+   "deaths": 14,
+   "injured": null,
+   "sector": "fertiliser storage",
+   "source": "https://www.csb.gov/west-fertilizer-explosion-and-fire-/",
+   "recommendation": "FEMA 2013-02-I-TX-7 (training recommendation; text not captured)",
+   "lesson": "twelve volunteer firefighters and two members of the public killed: hazard communication to responders and siting of facilities relative to the community",
+   "modules": [
+    "mah",
+    "rmp",
+    "qra"
+   ],
+   "design_steps": [
+    2,
+    9,
+    10
+   ],
+   "note": "deaths = 12 firefighters + 2 public, as the page states"
+  },
+  {
+   "id": "williams-olefins-2013",
+   "name": "Williams Olefins plant explosion and fire",
+   "date": "2013-06-13",
+   "location": "Geismar, LA",
+   "final_report": "2016-10-19",
+   "deaths": 2,
+   "injured": null,
+   "sector": "petrochemicals",
+   "source": "https://www.csb.gov/williams-olefins-plant-explosion-and-fire-/",
+   "recommendation": "API 2013-3-I-LA-4: strengthen API 521 for a pressure vessel in a special operating status",
+   "lesson": "a pressure vessel in a special operating status ruptured (per the recommendation to strengthen API 521): relief and depressuring should cover non-routine operating modes",
+   "modules": [
+    "relief",
+    "depressuring",
+    "vapour_fire"
+   ],
+   "design_steps": [
+    5,
+    6,
+    7
+   ],
+   "note": ""
+  },
+  {
+   "id": "chevron-richmond-2012",
+   "name": "Chevron Richmond refinery fire",
+   "date": "2012-08-06",
+   "location": "Richmond, CA",
+   "final_report": "2015-01-28",
+   "deaths": null,
+   "injured": null,
+   "sector": "refining",
+   "source": "https://www.csb.gov/chevron-richmond-refinery-fire/",
+   "recommendation": "API 2012-03-I-CA-26: revise API RP 939-C on sulfidation corrosion for low-silicon carbon steel piping",
+   "lesson": "release of flammable vapour; the recommendation concerns sulfidation corrosion of low-silicon carbon steel piping: material selection and inspection for damage mechanisms",
+   "modules": [
+    "psm",
+    "pool_fire",
+    "vapour_fire"
+   ],
+   "design_steps": [
+    1,
+    5,
+    12
+   ],
+   "note": "CSB issued interim, regulatory and final reports"
+  },
+  {
+   "id": "arkema-2017",
+   "name": "Arkema Crosby chemical plant fire",
+   "date": "2017-08-29",
+   "location": "Crosby, TX",
+   "final_report": "2018-05-24",
+   "deaths": null,
+   "injured": null,
+   "sector": "chemicals",
+   "source": "https://www.csb.gov/arkema-inc-chemical-plant-fire-/",
+   "recommendation": "recommendation text not captured",
+   "lesson": "flooding from Hurricane Harvey disabled refrigeration; organic peroxides in trailers warmed and spontaneously combusted: loss of utilities and natural hazards in the design basis for temperature-sensitive materials",
+   "modules": [
+    "thermal_runaway",
+    "reaction_hazard",
+    "mah"
+   ],
+   "design_steps": [
+    1,
+    5,
+    10
+   ],
+   "note": "1.5 mile evacuation; the page does not state casualties"
+  },
+  {
+   "id": "didion-2017",
+   "name": "Didion Milling explosion and fire",
+   "date": "2017-05-31",
+   "location": "Cambria, WI",
+   "final_report": "2023-12-06",
+   "deaths": 5,
+   "injured": 14,
+   "sector": "food processing",
+   "source": "https://www.csb.gov/didion-milling-company-explosion-and-fire-/",
+   "recommendation": "Didion Milling 2017-07-I-WI-1: engage a third party to develop a combustible dust process safety management system modelled on OSHA PSM",
+   "lesson": "combustible dust explosions killed five of 19 night-shift employees: dust PSM, hazard analysis and explosion protection",
+   "modules": [
+    "atex",
+    "psm",
+    "flammability"
+   ],
+   "design_steps": [
+    3,
+    5,
+    12
+   ],
+   "note": ""
+  },
+  {
+   "id": "pes-2019",
+   "name": "Philadelphia Energy Solutions refinery fire and explosions",
+   "date": "2019-06-21",
+   "location": "Philadelphia, PA",
+   "final_report": "2022-10-11",
+   "deaths": null,
+   "injured": null,
+   "sector": "refining",
+   "source": "https://www.csb.gov/philadelphia-energy-solutions-pes-refinery-fire-and-explosions-/",
+   "recommendation": "API 2019-04-I-PA-4: update API RP 751 on hydrofluoric acid alkylation, including protection of critical safeguards",
+   "lesson": "vapour release in an alkylation unit ignited and caused multiple explosions: protect safeguards from the hazard they guard against",
+   "modules": [
+    "explosion",
+    "psm",
+    "hazop"
+   ],
+   "design_steps": [
+    4,
+    5,
+    8
+   ],
+   "note": ""
+  },
+  {
+   "id": "itc-2019",
+   "name": "Intercontinental Terminals tank fire",
+   "date": "2019-03-17",
+   "location": "Deer Park, TX",
+   "final_report": "2023-07-06",
+   "deaths": null,
+   "injured": null,
+   "sector": "terminals",
+   "source": "https://www.csb.gov/intercontinental-terminals-company-itc-tank-fire/",
+   "recommendation": "API 2019-01-I-TX-6: update API STD 2610 on terminal and tank facilities",
+   "lesson": "massive tank fire at a terminal: tank farm layout, remote isolation, fire protection",
+   "modules": [
+    "pool_fire",
+    "fire_water",
+    "tank_venting",
+    "structural_fire"
+   ],
+   "design_steps": [
+    4,
+    7,
+    9
+   ],
+   "note": "page status text says ongoing although a 2023 final report is listed"
+  },
+  {
+   "id": "tpc-2019",
+   "name": "TPC Port Neches explosions and fire",
+   "date": "2019-11-27",
+   "location": "Port Neches, TX",
+   "final_report": "2022-12-19",
+   "deaths": null,
+   "injured": null,
+   "sector": "petrochemicals",
+   "source": "https://www.csb.gov/tpc-port-neches-explosions-and-fire/",
+   "recommendation": "American Chemistry Council 2020-02-I-TX-4: butadiene guidance on identifying and eliminating dead legs and the popcorn polymer hazard",
+   "lesson": "dead legs in butadiene service allow runaway popcorn polymer: line design and spare-equipment isolation",
+   "modules": [
+    "reaction_hazard",
+    "plant_units",
+    "hazop"
+   ],
+   "design_steps": [
+    3,
+    5
+   ],
+   "note": ""
+  },
+  {
+   "id": "oregon-ohio-2022",
+   "name": "BP-Husky Oregon (Toledo) refinery chemical release and fire",
+   "date": "2022-09-20",
+   "location": "Oregon, OH",
+   "final_report": "2024-06-24",
+   "deaths": 2,
+   "injured": null,
+   "sector": "refining",
+   "source": "https://www.csb.gov/bp---husky-oregon-chemical-release-and-fire-/",
+   "recommendation": "API 2022-01-I-OH-5: develop or revise a publication such as API RP 556 on instrumentation (text partly captured)",
+   "lesson": "naphtha entered the fuel gas system during an upset and ignited: overfill/level safeguards, relief basis, and PHA accuracy (see also OSHA findings in DESIGN_AWARENESS.md)",
+   "modules": [
+    "overfill",
+    "relief",
+    "psm",
+    "hazop"
+   ],
+   "design_steps": [
+    5,
+    6,
+    8
+   ],
+   "note": ""
+  },
+  {
+   "id": "pemex-2024",
+   "name": "PEMEX Deer Park hydrogen sulfide release",
+   "date": "2024-10-10",
+   "location": "Deer Park, TX",
+   "final_report": "2026-02-23",
+   "deaths": 2,
+   "injured": 13,
+   "sector": "refining",
+   "source": "https://www.csb.gov/pemex-deer-park-chemical-release-/",
+   "recommendation": "ASME 2024-05-I-TX-4: develop written guidelines for marking equipment (text partly captured)",
+   "lesson": "workers removing an isolation blind from piping that normally carries H2S: positive isolation, marking and permit design",
+   "modules": [
+    "dispersion",
+    "consequence",
+    "psm"
+   ],
+   "design_steps": [
+    5,
+    11,
+    12
+   ],
+   "note": "page shows both 2026-02-23 and 'February 23, 2025' as release date; 2026-02-23 used"
+  }
+ ]
+}

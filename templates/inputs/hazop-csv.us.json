@@ -1,0 +1,41 @@
+{
+  "command": "hazop-csv",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "node": null,
+    "intent": "",
+    "params": null,
+    "out": null
+  },
+  "_guide": {
+    "node": {
+      "flag": "--node",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "intent": {
+      "flag": "--intent",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "params": {
+      "flag": "--params",
+      "required": false,
+      "type": "str list",
+      "unit": null,
+      "help": ""
+    },
+    "out": {
+      "flag": "--out",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    }
+  }
+}

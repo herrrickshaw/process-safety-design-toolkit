@@ -1,0 +1,53 @@
+{
+  "command": "psm-check",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "chemical": null,
+    "kg": null,
+    "flammable": null,
+    "workplace_fuel": null,
+    "atmospheric_below_bp": null
+  },
+  "_guide": {
+    "chemical": {
+      "flag": "--chemical",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "name or CAS"
+    },
+    "kg": {
+      "flag": "--kg",
+      "required": true,
+      "type": "float",
+      "unit": "lb",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 22046226218.48776
+      }
+    },
+    "flammable": {
+      "flag": "--flammable",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    },
+    "workplace_fuel": {
+      "flag": "--workplace-fuel",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    },
+    "atmospheric_below_bp": {
+      "flag": "--atmospheric-below-bp",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    }
+  }
+}

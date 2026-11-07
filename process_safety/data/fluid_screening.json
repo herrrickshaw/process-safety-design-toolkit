@@ -1,0 +1,2689 @@
+{
+ "source": "CoolProp 8.0.0 (MIT), Helmholtz-energy equations of state, saturated liquid",
+ "generated": "2026-11-06",
+ "note": "screening data for relief sizing and fire cases; verify against your property package and design conditions",
+ "fluids": {
+  "methane": {
+   "coolprop_name": "Methane",
+   "M_kg_kmol": 16.0428,
+   "Tc_K": 190.564,
+   "Pc_kPa": 4599.2,
+   "Tb_K": 111.667,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 111.508,
+     "rho_liq_kg_m3": 422.588,
+     "h_lg_kJ_kg": 511.119,
+     "cp_liq_kJ_kgK": 3.4799,
+     "omega_two_point": 19.6443,
+     "omega_saturated": 19.3247,
+     "G_hem_kg_m2_s": 1306.5
+    },
+    {
+     "P_kPa": 133.162,
+     "T_K": 115.092,
+     "rho_liq_kg_m3": 417.311,
+     "h_lg_kJ_kg": 504.413,
+     "cp_liq_kJ_kgK": 3.5072,
+     "omega_two_point": 16.2197,
+     "omega_saturated": 15.9947,
+     "G_hem_kg_m2_s": 1626.3
+    },
+    {
+     "P_kPa": 177.32,
+     "T_K": 118.929,
+     "rho_liq_kg_m3": 411.539,
+     "h_lg_kJ_kg": 496.816,
+     "cp_liq_kJ_kgK": 3.5396,
+     "omega_two_point": 13.422,
+     "omega_saturated": 13.2753,
+     "G_hem_kg_m2_s": 2018.6
+    },
+    {
+     "P_kPa": 236.122,
+     "T_K": 123.042,
+     "rho_liq_kg_m3": 405.193,
+     "h_lg_kJ_kg": 488.138,
+     "cp_liq_kJ_kgK": 3.5787,
+     "omega_two_point": 11.1305,
+     "omega_saturated": 11.0501,
+     "G_hem_kg_m2_s": 2498.3
+    },
+    {
+     "P_kPa": 314.424,
+     "T_K": 127.461,
+     "rho_liq_kg_m3": 398.174,
+     "h_lg_kJ_kg": 478.134,
+     "cp_liq_kJ_kgK": 3.6269,
+     "omega_two_point": 9.2487,
+     "omega_saturated": 9.226,
+     "G_hem_kg_m2_s": 3082.6
+    },
+    {
+     "P_kPa": 418.692,
+     "T_K": 132.218,
+     "rho_liq_kg_m3": 390.354,
+     "h_lg_kJ_kg": 466.482,
+     "cp_liq_kJ_kgK": 3.6875,
+     "omega_two_point": 7.6989,
+     "omega_saturated": 7.7286,
+     "G_hem_kg_m2_s": 3791.2
+    },
+    {
+     "P_kPa": 557.536,
+     "T_K": 137.349,
+     "rho_liq_kg_m3": 381.568,
+     "h_lg_kJ_kg": 452.759,
+     "cp_liq_kJ_kgK": 3.7658,
+     "omega_two_point": 6.4185,
+     "omega_saturated": 6.4985,
+     "G_hem_kg_m2_s": 4646.9
+    },
+    {
+     "P_kPa": 742.424,
+     "T_K": 142.891,
+     "rho_liq_kg_m3": 371.593,
+     "h_lg_kJ_kg": 436.383,
+     "cp_liq_kJ_kgK": 3.8704,
+     "omega_two_point": 5.3572,
+     "omega_saturated": 5.4891,
+     "G_hem_kg_m2_s": 5674.5
+    },
+    {
+     "P_kPa": 988.623,
+     "T_K": 148.889,
+     "rho_liq_kg_m3": 360.115,
+     "h_lg_kJ_kg": 416.536,
+     "cp_liq_kJ_kgK": 4.0157,
+     "omega_two_point": 4.4738,
+     "omega_saturated": 4.6642,
+     "G_hem_kg_m2_s": 6900.9
+    },
+    {
+     "P_kPa": 1316.466,
+     "T_K": 155.387,
+     "rho_liq_kg_m3": 346.671,
+     "h_lg_kJ_kg": 392.014,
+     "cp_liq_kJ_kgK": 4.2294,
+     "omega_two_point": 3.7351,
+     "omega_saturated": 3.9985,
+     "G_hem_kg_m2_s": 8352.6
+    },
+    {
+     "P_kPa": 1753.026,
+     "T_K": 162.433,
+     "rho_liq_kg_m3": 330.515,
+     "h_lg_kJ_kg": 360.914,
+     "cp_liq_kJ_kgK": 4.5705,
+     "omega_two_point": 3.1135,
+     "omega_saturated": 3.4801,
+     "G_hem_kg_m2_s": 10050.4
+    },
+    {
+     "P_kPa": 2334.356,
+     "T_K": 170.071,
+     "rho_liq_kg_m3": 310.295,
+     "h_lg_kJ_kg": 319.867,
+     "cp_liq_kJ_kgK": 5.1952,
+     "omega_two_point": 2.586,
+     "omega_saturated": 3.1263,
+     "G_hem_kg_m2_s": 11996.1
+    },
+    {
+     "P_kPa": 3108.465,
+     "T_K": 178.333,
+     "rho_liq_kg_m3": 282.934,
+     "h_lg_kJ_kg": 261.526,
+     "cp_liq_kJ_kgK": 6.7089,
+     "omega_two_point": 2.1333,
+     "omega_saturated": 3.0698,
+     "G_hem_kg_m2_s": 14124.6
+    },
+    {
+     "P_kPa": 4139.28,
+     "T_K": 187.198,
+     "rho_liq_kg_m3": 236.022,
+     "h_lg_kJ_kg": 157.969,
+     "cp_liq_kJ_kgK": 16.4306,
+     "omega_two_point": 1.7445,
+     "omega_saturated": 5.0721,
+     "G_hem_kg_m2_s": 16006.9
+    }
+   ]
+  },
+  "ethane": {
+   "coolprop_name": "Ethane",
+   "M_kg_kmol": 30.069,
+   "Tc_K": 305.322,
+   "Pc_kPa": 4872.2,
+   "Tb_K": 184.569,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 184.325,
+     "rho_liq_kg_m3": 544.133,
+     "h_lg_kJ_kg": 489.724,
+     "cp_liq_kJ_kgK": 2.4385,
+     "omega_two_point": 25.0162,
+     "omega_saturated": 24.5734,
+     "G_hem_kg_m2_s": 1334.6
+    },
+    {
+     "P_kPa": 133.754,
+     "T_K": 189.877,
+     "rho_liq_kg_m3": 537.122,
+     "h_lg_kJ_kg": 482.294,
+     "cp_liq_kJ_kgK": 2.4623,
+     "omega_two_point": 20.5771,
+     "omega_saturated": 20.2576,
+     "G_hem_kg_m2_s": 1669.8
+    },
+    {
+     "P_kPa": 178.9,
+     "T_K": 195.809,
+     "rho_liq_kg_m3": 529.48,
+     "h_lg_kJ_kg": 473.996,
+     "cp_liq_kJ_kgK": 2.4906,
+     "omega_two_point": 16.9709,
+     "omega_saturated": 16.7521,
+     "G_hem_kg_m2_s": 2082.9
+    },
+    {
+     "P_kPa": 239.285,
+     "T_K": 202.161,
+     "rho_liq_kg_m3": 521.104,
+     "h_lg_kJ_kg": 464.66,
+     "cp_liq_kJ_kgK": 2.5245,
+     "omega_two_point": 14.0339,
+     "omega_saturated": 13.8986,
+     "G_hem_kg_m2_s": 2590.2
+    },
+    {
+     "P_kPa": 320.052,
+     "T_K": 208.974,
+     "rho_liq_kg_m3": 511.867,
+     "h_lg_kJ_kg": 454.067,
+     "cp_liq_kJ_kgK": 2.5656,
+     "omega_two_point": 11.635,
+     "omega_saturated": 11.5708,
+     "G_hem_kg_m2_s": 3210.7
+    },
+    {
+     "P_kPa": 428.081,
+     "T_K": 216.297,
+     "rho_liq_kg_m3": 501.606,
+     "h_lg_kJ_kg": 441.933,
+     "cp_liq_kJ_kgK": 2.6163,
+     "omega_two_point": 9.6695,
+     "omega_saturated": 9.6678,
+     "G_hem_kg_m2_s": 3966.2
+    },
+    {
+     "P_kPa": 572.573,
+     "T_K": 224.184,
+     "rho_liq_kg_m3": 490.111,
+     "h_lg_kJ_kg": 427.878,
+     "cp_liq_kJ_kgK": 2.68,
+     "omega_two_point": 8.0532,
+     "omega_saturated": 8.1094,
+     "G_hem_kg_m2_s": 4881.9
+    },
+    {
+     "P_kPa": 765.837,
+     "T_K": 232.692,
+     "rho_liq_kg_m3": 477.096,
+     "h_lg_kJ_kg": 411.377,
+     "cp_liq_kJ_kgK": 2.7621,
+     "omega_two_point": 6.7184,
+     "omega_saturated": 6.832,
+     "G_hem_kg_m2_s": 5985.8
+    },
+    {
+     "P_kPa": 1024.334,
+     "T_K": 241.885,
+     "rho_liq_kg_m3": 462.162,
+     "h_lg_kJ_kg": 391.683,
+     "cp_liq_kJ_kgK": 2.8718,
+     "omega_two_point": 5.6103,
+     "omega_saturated": 5.7861,
+     "G_hem_kg_m2_s": 7308.6
+    },
+    {
+     "P_kPa": 1370.083,
+     "T_K": 251.832,
+     "rho_liq_kg_m3": 444.714,
+     "h_lg_kJ_kg": 367.692,
+     "cp_liq_kJ_kgK": 3.0258,
+     "omega_two_point": 4.6846,
+     "omega_saturated": 4.9354,
+     "G_hem_kg_m2_s": 8881.3
+    },
+    {
+     "P_kPa": 1832.534,
+     "T_K": 262.6,
+     "rho_liq_kg_m3": 423.789,
+     "h_lg_kJ_kg": 337.65,
+     "cp_liq_kJ_kgK": 3.2599,
+     "omega_two_point": 3.9043,
+     "omega_saturated": 4.2588,
+     "G_hem_kg_m2_s": 10731.2
+    },
+    {
+     "P_kPa": 2451.078,
+     "T_K": 274.254,
+     "rho_liq_kg_m3": 397.636,
+     "h_lg_kJ_kg": 298.449,
+     "cp_liq_kJ_kgK": 3.6667,
+     "omega_two_point": 3.2373,
+     "omega_saturated": 3.7636,
+     "G_hem_kg_m2_s": 12868.1
+    },
+    {
+     "P_kPa": 3278.404,
+     "T_K": 286.836,
+     "rho_liq_kg_m3": 362.258,
+     "h_lg_kJ_kg": 243.324,
+     "cp_liq_kJ_kgK": 4.6027,
+     "omega_two_point": 2.6529,
+     "omega_saturated": 3.5677,
+     "G_hem_kg_m2_s": 15240.1
+    },
+    {
+     "P_kPa": 4384.98,
+     "T_K": 300.301,
+     "rho_liq_kg_m3": 301.43,
+     "h_lg_kJ_kg": 146.398,
+     "cp_liq_kJ_kgK": 10.485,
+     "omega_two_point": 2.119,
+     "omega_saturated": 5.4215,
+     "G_hem_kg_m2_s": 17428.5
+    }
+   ]
+  },
+  "ethylene": {
+   "coolprop_name": "Ethylene",
+   "M_kg_kmol": 28.0538,
+   "Tc_K": 282.35,
+   "Pc_kPa": 5041.69,
+   "Tb_K": 169.379,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 169.155,
+     "rho_liq_kg_m3": 567.974,
+     "h_lg_kJ_kg": 482.735,
+     "cp_liq_kJ_kgK": 2.4172,
+     "omega_two_point": 23.6889,
+     "omega_saturated": 23.2573,
+     "G_hem_kg_m2_s": 1396.4
+    },
+    {
+     "P_kPa": 134.106,
+     "T_K": 174.291,
+     "rho_liq_kg_m3": 560.577,
+     "h_lg_kJ_kg": 475.168,
+     "cp_liq_kJ_kgK": 2.4269,
+     "omega_two_point": 19.3602,
+     "omega_saturated": 19.0516,
+     "G_hem_kg_m2_s": 1753.5
+    },
+    {
+     "P_kPa": 179.844,
+     "T_K": 179.786,
+     "rho_liq_kg_m3": 552.516,
+     "h_lg_kJ_kg": 466.771,
+     "cp_liq_kJ_kgK": 2.4407,
+     "omega_two_point": 15.8653,
+     "omega_saturated": 15.6566,
+     "G_hem_kg_m2_s": 2195.1
+    },
+    {
+     "P_kPa": 241.181,
+     "T_K": 185.676,
+     "rho_liq_kg_m3": 543.684,
+     "h_lg_kJ_kg": 457.375,
+     "cp_liq_kJ_kgK": 2.4598,
+     "omega_two_point": 13.0366,
+     "omega_saturated": 12.9104,
+     "G_hem_kg_m2_s": 2739.0
+    },
+    {
+     "P_kPa": 323.438,
+     "T_K": 192.004,
+     "rho_liq_kg_m3": 533.949,
+     "h_lg_kJ_kg": 446.759,
+     "cp_liq_kJ_kgK": 2.4859,
+     "omega_two_point": 10.741,
+     "omega_saturated": 10.6848,
+     "G_hem_kg_m2_s": 3406.1
+    },
+    {
+     "P_kPa": 433.749,
+     "T_K": 198.815,
+     "rho_liq_kg_m3": 523.142,
+     "h_lg_kJ_kg": 434.639,
+     "cp_liq_kJ_kgK": 2.5216,
+     "omega_two_point": 8.8726,
+     "omega_saturated": 8.8779,
+     "G_hem_kg_m2_s": 4220.3
+    },
+    {
+     "P_kPa": 581.682,
+     "T_K": 206.161,
+     "rho_liq_kg_m3": 511.04,
+     "h_lg_kJ_kg": 420.635,
+     "cp_liq_kJ_kgK": 2.5703,
+     "omega_two_point": 7.3467,
+     "omega_saturated": 7.4091,
+     "G_hem_kg_m2_s": 5209.3
+    },
+    {
+     "P_kPa": 780.069,
+     "T_K": 214.099,
+     "rho_liq_kg_m3": 497.345,
+     "h_lg_kJ_kg": 404.229,
+     "cp_liq_kJ_kgK": 2.6376,
+     "omega_two_point": 6.0959,
+     "omega_saturated": 6.215,
+     "G_hem_kg_m2_s": 6403.5
+    },
+    {
+     "P_kPa": 1046.118,
+     "T_K": 222.692,
+     "rho_liq_kg_m3": 481.636,
+     "h_lg_kJ_kg": 384.691,
+     "cp_liq_kJ_kgK": 2.7332,
+     "omega_two_point": 5.0658,
+     "omega_saturated": 5.2464,
+     "G_hem_kg_m2_s": 7836.0
+    },
+    {
+     "P_kPa": 1402.906,
+     "T_K": 232.006,
+     "rho_liq_kg_m3": 463.291,
+     "h_lg_kJ_kg": 360.941,
+     "cp_liq_kJ_kgK": 2.8743,
+     "omega_two_point": 4.2123,
+     "omega_saturated": 4.4674,
+     "G_hem_kg_m2_s": 9539.8
+    },
+    {
+     "P_kPa": 1881.378,
+     "T_K": 242.109,
+     "rho_liq_kg_m3": 441.304,
+     "h_lg_kJ_kg": 331.27,
+     "cp_liq_kJ_kgK": 3.0981,
+     "omega_two_point": 3.4993,
+     "omega_saturated": 3.8578,
+     "G_hem_kg_m2_s": 11542.5
+    },
+    {
+     "P_kPa": 2523.037,
+     "T_K": 253.067,
+     "rho_liq_kg_m3": 413.851,
+     "h_lg_kJ_kg": 292.637,
+     "cp_liq_kJ_kgK": 3.5016,
+     "omega_two_point": 2.8967,
+     "omega_saturated": 3.4267,
+     "G_hem_kg_m2_s": 13851.1
+    },
+    {
+     "P_kPa": 3383.539,
+     "T_K": 264.923,
+     "rho_liq_kg_m3": 376.746,
+     "h_lg_kJ_kg": 238.375,
+     "cp_liq_kJ_kgK": 4.4628,
+     "omega_two_point": 2.3782,
+     "omega_saturated": 3.2987,
+     "G_hem_kg_m2_s": 16397.7
+    },
+    {
+     "P_kPa": 4537.523,
+     "T_K": 277.642,
+     "rho_liq_kg_m3": 312.931,
+     "h_lg_kJ_kg": 142.843,
+     "cp_liq_kJ_kgK": 10.6361,
+     "omega_two_point": 1.9191,
+     "omega_saturated": 5.2428,
+     "G_hem_kg_m2_s": 18693.1
+    }
+   ]
+  },
+  "propane": {
+   "coolprop_name": "Propane",
+   "M_kg_kmol": 44.0956,
+   "Tc_K": 369.89,
+   "Pc_kPa": 4251.17,
+   "Tb_K": 231.036,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 230.738,
+     "rho_liq_kg_m3": 581.227,
+     "h_lg_kJ_kg": 425.905,
+     "cp_liq_kJ_kgK": 2.2447,
+     "omega_two_point": 29.4016,
+     "omega_saturated": 28.8937,
+     "G_hem_kg_m2_s": 1284.6
+    },
+    {
+     "P_kPa": 132.358,
+     "T_K": 237.277,
+     "rho_liq_kg_m3": 573.61,
+     "h_lg_kJ_kg": 418.914,
+     "cp_liq_kJ_kgK": 2.2756,
+     "omega_two_point": 24.4476,
+     "omega_saturated": 24.0748,
+     "G_hem_kg_m2_s": 1592.5
+    },
+    {
+     "P_kPa": 175.186,
+     "T_K": 244.245,
+     "rho_liq_kg_m3": 565.324,
+     "h_lg_kJ_kg": 411.17,
+     "cp_liq_kJ_kgK": 2.3112,
+     "omega_two_point": 20.3827,
+     "omega_saturated": 20.1206,
+     "G_hem_kg_m2_s": 1968.9
+    },
+    {
+     "P_kPa": 231.873,
+     "T_K": 251.684,
+     "rho_liq_kg_m3": 556.264,
+     "h_lg_kJ_kg": 402.524,
+     "cp_liq_kJ_kgK": 2.3523,
+     "omega_two_point": 17.0376,
+     "omega_saturated": 16.8678,
+     "G_hem_kg_m2_s": 2427.1
+    },
+    {
+     "P_kPa": 306.902,
+     "T_K": 259.64,
+     "rho_liq_kg_m3": 546.297,
+     "h_lg_kJ_kg": 392.783,
+     "cp_liq_kJ_kgK": 2.4003,
+     "omega_two_point": 14.2762,
+     "omega_saturated": 14.1849,
+     "G_hem_kg_m2_s": 2983.1
+    },
+    {
+     "P_kPa": 406.21,
+     "T_K": 268.163,
+     "rho_liq_kg_m3": 535.254,
+     "h_lg_kJ_kg": 381.7,
+     "cp_liq_kJ_kgK": 2.4571,
+     "omega_two_point": 11.9884,
+     "omega_saturated": 11.9661,
+     "G_hem_kg_m2_s": 3655.1
+    },
+    {
+     "P_kPa": 537.651,
+     "T_K": 277.311,
+     "rho_liq_kg_m3": 522.912,
+     "h_lg_kJ_kg": 368.946,
+     "cp_liq_kJ_kgK": 2.5251,
+     "omega_two_point": 10.0852,
+     "omega_saturated": 10.1263,
+     "G_hem_kg_m2_s": 4463.9
+    },
+    {
+     "P_kPa": 711.623,
+     "T_K": 287.144,
+     "rho_liq_kg_m3": 508.974,
+     "h_lg_kJ_kg": 354.079,
+     "cp_liq_kJ_kgK": 2.6086,
+     "omega_two_point": 8.494,
+     "omega_saturated": 8.5972,
+     "G_hem_kg_m2_s": 5433.0
+    },
+    {
+     "P_kPa": 941.89,
+     "T_K": 297.728,
+     "rho_liq_kg_m3": 493.022,
+     "h_lg_kJ_kg": 336.477,
+     "cp_liq_kJ_kgK": 2.7142,
+     "omega_two_point": 7.1551,
+     "omega_saturated": 7.3245,
+     "G_hem_kg_m2_s": 6588.3
+    },
+    {
+     "P_kPa": 1246.667,
+     "T_K": 309.133,
+     "rho_liq_kg_m3": 474.435,
+     "h_lg_kJ_kg": 315.227,
+     "cp_liq_kJ_kgK": 2.8543,
+     "omega_two_point": 6.0192,
+     "omega_saturated": 6.267,
+     "G_hem_kg_m2_s": 7957.0
+    },
+    {
+     "P_kPa": 1650.062,
+     "T_K": 321.429,
+     "rho_liq_kg_m3": 452.21,
+     "h_lg_kJ_kg": 288.895,
+     "cp_liq_kJ_kgK": 3.055,
+     "omega_two_point": 5.0442,
+     "omega_saturated": 5.3986,
+     "G_hem_kg_m2_s": 9564.7
+    },
+    {
+     "P_kPa": 2183.989,
+     "T_K": 334.676,
+     "rho_liq_kg_m3": 424.52,
+     "h_lg_kJ_kg": 254.929,
+     "cp_liq_kJ_kgK": 3.3854,
+     "omega_two_point": 4.1923,
+     "omega_saturated": 4.7213,
+     "G_hem_kg_m2_s": 11426.2
+    },
+    {
+     "P_kPa": 2890.683,
+     "T_K": 348.906,
+     "rho_liq_kg_m3": 387.177,
+     "h_lg_kJ_kg": 207.631,
+     "cp_liq_kJ_kgK": 4.113,
+     "omega_two_point": 3.4256,
+     "omega_saturated": 4.35,
+     "G_hem_kg_m2_s": 13511.2
+    },
+    {
+     "P_kPa": 3826.049,
+     "T_K": 364.052,
+     "rho_liq_kg_m3": 323.196,
+     "h_lg_kJ_kg": 125.59,
+     "cp_liq_kJ_kgK": 8.4254,
+     "omega_two_point": 2.6841,
+     "omega_saturated": 5.9824,
+     "G_hem_kg_m2_s": 15509.2
+    }
+   ]
+  },
+  "propylene": {
+   "coolprop_name": "Propylene",
+   "M_kg_kmol": 42.0797,
+   "Tc_K": 364.211,
+   "Pc_kPa": 4554.99,
+   "Tb_K": 225.531,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 225.242,
+     "rho_liq_kg_m3": 610.415,
+     "h_lg_kJ_kg": 439.205,
+     "cp_liq_kJ_kgK": 2.1884,
+     "omega_two_point": 29.0238,
+     "omega_saturated": 28.5082,
+     "G_hem_kg_m2_s": 1324.0
+    },
+    {
+     "P_kPa": 133.063,
+     "T_K": 231.708,
+     "rho_liq_kg_m3": 602.342,
+     "h_lg_kJ_kg": 431.919,
+     "cp_liq_kJ_kgK": 2.2133,
+     "omega_two_point": 23.989,
+     "omega_saturated": 23.6127,
+     "G_hem_kg_m2_s": 1649.9
+    },
+    {
+     "P_kPa": 177.057,
+     "T_K": 238.606,
+     "rho_liq_kg_m3": 593.562,
+     "h_lg_kJ_kg": 423.863,
+     "cp_liq_kJ_kgK": 2.2426,
+     "omega_two_point": 19.8836,
+     "omega_saturated": 19.6206,
+     "G_hem_kg_m2_s": 2049.9
+    },
+    {
+     "P_kPa": 235.596,
+     "T_K": 245.979,
+     "rho_liq_kg_m3": 583.962,
+     "h_lg_kJ_kg": 414.885,
+     "cp_liq_kJ_kgK": 2.2772,
+     "omega_two_point": 16.5258,
+     "omega_saturated": 16.3566,
+     "G_hem_kg_m2_s": 2539.4
+    },
+    {
+     "P_kPa": 313.491,
+     "T_K": 253.875,
+     "rho_liq_kg_m3": 573.401,
+     "h_lg_kJ_kg": 404.791,
+     "cp_liq_kJ_kgK": 2.3184,
+     "omega_two_point": 13.7705,
+     "omega_saturated": 13.6803,
+     "G_hem_kg_m2_s": 3135.8
+    },
+    {
+     "P_kPa": 417.139,
+     "T_K": 262.347,
+     "rho_liq_kg_m3": 561.701,
+     "h_lg_kJ_kg": 393.326,
+     "cp_liq_kJ_kgK": 2.368,
+     "omega_two_point": 11.5008,
+     "omega_saturated": 11.4796,
+     "G_hem_kg_m2_s": 3859.7
+    },
+    {
+     "P_kPa": 555.056,
+     "T_K": 271.453,
+     "rho_liq_kg_m3": 548.627,
+     "h_lg_kJ_kg": 380.154,
+     "cp_liq_kJ_kgK": 2.4285,
+     "omega_two_point": 9.623,
+     "omega_saturated": 9.6649,
+     "G_hem_kg_m2_s": 4734.7
+    },
+    {
+     "P_kPa": 738.573,
+     "T_K": 281.257,
+     "rho_liq_kg_m3": 533.864,
+     "h_lg_kJ_kg": 364.818,
+     "cp_liq_kJ_kgK": 2.5038,
+     "omega_two_point": 8.0615,
+     "omega_saturated": 8.1649,
+     "G_hem_kg_m2_s": 5787.4
+    },
+    {
+     "P_kPa": 982.764,
+     "T_K": 291.827,
+     "rho_liq_kg_m3": 516.972,
+     "h_lg_kJ_kg": 346.682,
+     "cp_liq_kJ_kgK": 2.6008,
+     "omega_two_point": 6.7547,
+     "omega_saturated": 6.9235,
+     "G_hem_kg_m2_s": 7047.5
+    },
+    {
+     "P_kPa": 1307.692,
+     "T_K": 303.236,
+     "rho_liq_kg_m3": 497.294,
+     "h_lg_kJ_kg": 324.81,
+     "cp_liq_kJ_kgK": 2.732,
+     "omega_two_point": 5.6524,
+     "omega_saturated": 5.8988,
+     "G_hem_kg_m2_s": 8545.8
+    },
+    {
+     "P_kPa": 1740.05,
+     "T_K": 315.556,
+     "rho_liq_kg_m3": 473.774,
+     "h_lg_kJ_kg": 297.722,
+     "cp_liq_kJ_kgK": 2.9242,
+     "omega_two_point": 4.7128,
+     "omega_saturated": 5.0649,
+     "G_hem_kg_m2_s": 10311.2
+    },
+    {
+     "P_kPa": 2315.357,
+     "T_K": 328.851,
+     "rho_liq_kg_m3": 444.472,
+     "h_lg_kJ_kg": 262.773,
+     "cp_liq_kJ_kgK": 3.2487,
+     "omega_two_point": 3.8997,
+     "omega_saturated": 4.4261,
+     "G_hem_kg_m2_s": 12359.4
+    },
+    {
+     "P_kPa": 3080.875,
+     "T_K": 343.161,
+     "rho_liq_kg_m3": 404.933,
+     "h_lg_kJ_kg": 214.129,
+     "cp_liq_kJ_kgK": 3.9794,
+     "omega_two_point": 3.1783,
+     "omega_saturated": 4.0988,
+     "G_hem_kg_m2_s": 14651.5
+    },
+    {
+     "P_kPa": 4099.494,
+     "T_K": 358.428,
+     "rho_liq_kg_m3": 337.408,
+     "h_lg_kJ_kg": 129.781,
+     "cp_liq_kJ_kgK": 8.3183,
+     "omega_two_point": 2.495,
+     "omega_saturated": 5.734,
+     "G_hem_kg_m2_s": 16829.9
+    }
+   ]
+  },
+  "n-butane": {
+   "coolprop_name": "n-Butane",
+   "M_kg_kmol": 58.1222,
+   "Tc_K": 425.125,
+   "Pc_kPa": 3796.0,
+   "Tb_K": 272.66,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 272.314,
+     "rho_liq_kg_m3": 601.63,
+     "h_lg_kJ_kg": 386.017,
+     "cp_liq_kJ_kgK": 2.308,
+     "omega_two_point": 35.7405,
+     "omega_saturated": 35.1159,
+     "G_hem_kg_m2_s": 1197.9
+    },
+    {
+     "P_kPa": 131.21,
+     "T_K": 279.66,
+     "rho_liq_kg_m3": 593.666,
+     "h_lg_kJ_kg": 379.373,
+     "cp_liq_kJ_kgK": 2.343,
+     "omega_two_point": 29.9183,
+     "omega_saturated": 29.4497,
+     "G_hem_kg_m2_s": 1475.6
+    },
+    {
+     "P_kPa": 172.161,
+     "T_K": 287.47,
+     "rho_liq_kg_m3": 585.016,
+     "h_lg_kJ_kg": 372.036,
+     "cp_liq_kJ_kgK": 2.3826,
+     "omega_two_point": 25.104,
+     "omega_saturated": 24.7637,
+     "G_hem_kg_m2_s": 1813.1
+    },
+    {
+     "P_kPa": 225.892,
+     "T_K": 295.784,
+     "rho_liq_kg_m3": 575.571,
+     "h_lg_kJ_kg": 363.873,
+     "cp_liq_kJ_kgK": 2.4274,
+     "omega_two_point": 21.1115,
+     "omega_saturated": 20.8782,
+     "G_hem_kg_m2_s": 2222.0
+    },
+    {
+     "P_kPa": 296.393,
+     "T_K": 304.652,
+     "rho_liq_kg_m3": 565.194,
+     "h_lg_kJ_kg": 354.713,
+     "cp_liq_kJ_kgK": 2.4785,
+     "omega_two_point": 17.7898,
+     "omega_saturated": 17.6473,
+     "G_hem_kg_m2_s": 2715.8
+    },
+    {
+     "P_kPa": 388.897,
+     "T_K": 314.125,
+     "rho_liq_kg_m3": 553.715,
+     "h_lg_kJ_kg": 344.338,
+     "cp_liq_kJ_kgK": 2.5375,
+     "omega_two_point": 15.016,
+     "omega_saturated": 14.9527,
+     "G_hem_kg_m2_s": 3310.1
+    },
+    {
+     "P_kPa": 510.271,
+     "T_K": 324.26,
+     "rho_liq_kg_m3": 540.907,
+     "h_lg_kJ_kg": 332.461,
+     "cp_liq_kJ_kgK": 2.6063,
+     "omega_two_point": 12.6895,
+     "omega_saturated": 12.6982,
+     "G_hem_kg_m2_s": 4022.9
+    },
+    {
+     "P_kPa": 669.526,
+     "T_K": 335.119,
+     "rho_liq_kg_m3": 526.467,
+     "h_lg_kJ_kg": 318.694,
+     "cp_liq_kJ_kgK": 2.6884,
+     "omega_two_point": 10.7276,
+     "omega_saturated": 10.8053,
+     "G_hem_kg_m2_s": 4874.6
+    },
+    {
+     "P_kPa": 878.485,
+     "T_K": 346.767,
+     "rho_liq_kg_m3": 509.973,
+     "h_lg_kJ_kg": 302.5,
+     "cp_liq_kJ_kgK": 2.7888,
+     "omega_two_point": 9.0615,
+     "omega_saturated": 9.2107,
+     "G_hem_kg_m2_s": 5888.1
+    },
+    {
+     "P_kPa": 1152.661,
+     "T_K": 359.271,
+     "rho_liq_kg_m3": 490.8,
+     "h_lg_kJ_kg": 283.075,
+     "cp_liq_kJ_kgK": 2.9175,
+     "omega_two_point": 7.6329,
+     "omega_saturated": 7.8645,
+     "G_hem_kg_m2_s": 7088.6
+    },
+    {
+     "P_kPa": 1512.405,
+     "T_K": 372.696,
+     "rho_liq_kg_m3": 467.945,
+     "h_lg_kJ_kg": 259.14,
+     "cp_liq_kJ_kgK": 3.095,
+     "omega_two_point": 6.3916,
+     "omega_saturated": 6.7322,
+     "G_hem_kg_m2_s": 8501.5
+    },
+    {
+     "P_kPa": 1984.427,
+     "T_K": 387.092,
+     "rho_liq_kg_m3": 439.587,
+     "h_lg_kJ_kg": 228.462,
+     "cp_liq_kJ_kgK": 3.3762,
+     "omega_two_point": 5.2908,
+     "omega_saturated": 5.8064,
+     "G_hem_kg_m2_s": 10147.3
+    },
+    {
+     "P_kPa": 2603.766,
+     "T_K": 402.468,
+     "rho_liq_kg_m3": 401.55,
+     "h_lg_kJ_kg": 186.244,
+     "cp_liq_kJ_kgK": 3.9784,
+     "omega_two_point": 4.2808,
+     "omega_saturated": 5.1884,
+     "G_hem_kg_m2_s": 12016.4
+    },
+    {
+     "P_kPa": 3416.4,
+     "T_K": 418.706,
+     "rho_liq_kg_m3": 336.476,
+     "h_lg_kJ_kg": 114.102,
+     "cp_liq_kJ_kgK": 7.5527,
+     "omega_two_point": 3.2957,
+     "omega_saturated": 6.5912,
+     "G_hem_kg_m2_s": 13869.8
+    }
+   ]
+  },
+  "isobutane": {
+   "coolprop_name": "IsoButane",
+   "M_kg_kmol": 58.1222,
+   "Tc_K": 407.81,
+   "Pc_kPa": 3629.0,
+   "Tb_K": 261.401,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 261.065,
+     "rho_liq_kg_m3": 594.193,
+     "h_lg_kJ_kg": 365.399,
+     "cp_liq_kJ_kgK": 2.2205,
+     "omega_two_point": 33.3377,
+     "omega_saturated": 32.783,
+     "G_hem_kg_m2_s": 1228.1
+    },
+    {
+     "P_kPa": 130.757,
+     "T_K": 268.104,
+     "rho_liq_kg_m3": 586.319,
+     "h_lg_kJ_kg": 359.038,
+     "cp_liq_kJ_kgK": 2.2561,
+     "omega_two_point": 28.0299,
+     "omega_saturated": 27.6156,
+     "G_hem_kg_m2_s": 1506.8
+    },
+    {
+     "P_kPa": 170.973,
+     "T_K": 275.588,
+     "rho_liq_kg_m3": 577.77,
+     "h_lg_kJ_kg": 352.021,
+     "cp_liq_kJ_kgK": 2.2959,
+     "omega_two_point": 23.6206,
+     "omega_saturated": 23.3227,
+     "G_hem_kg_m2_s": 1844.3
+    },
+    {
+     "P_kPa": 223.559,
+     "T_K": 283.556,
+     "rho_liq_kg_m3": 568.442,
+     "h_lg_kJ_kg": 344.223,
+     "cp_liq_kJ_kgK": 2.3406,
+     "omega_two_point": 19.9475,
+     "omega_saturated": 19.7472,
+     "G_hem_kg_m2_s": 2251.5
+    },
+    {
+     "P_kPa": 292.318,
+     "T_K": 292.055,
+     "rho_liq_kg_m3": 558.203,
+     "h_lg_kJ_kg": 335.486,
+     "cp_liq_kJ_kgK": 2.3914,
+     "omega_two_point": 16.878,
+     "omega_saturated": 16.7613,
+     "G_hem_kg_m2_s": 2741.6
+    },
+    {
+     "P_kPa": 382.225,
+     "T_K": 301.134,
+     "rho_liq_kg_m3": 546.884,
+     "h_lg_kJ_kg": 325.608,
+     "cp_liq_kJ_kgK": 2.4497,
+     "omega_two_point": 14.3036,
+     "omega_saturated": 14.2607,
+     "G_hem_kg_m2_s": 3329.2
+    },
+    {
+     "P_kPa": 499.785,
+     "T_K": 310.847,
+     "rho_liq_kg_m3": 534.266,
+     "h_lg_kJ_kg": 314.32,
+     "cp_liq_kJ_kgK": 2.5178,
+     "omega_two_point": 12.1353,
+     "omega_saturated": 12.1602,
+     "G_hem_kg_m2_s": 4031.6
+    },
+    {
+     "P_kPa": 653.502,
+     "T_K": 321.253,
+     "rho_liq_kg_m3": 520.051,
+     "h_lg_kJ_kg": 301.264,
+     "cp_liq_kJ_kgK": 2.5989,
+     "omega_two_point": 10.2996,
+     "omega_saturated": 10.3905,
+     "G_hem_kg_m2_s": 4867.8
+    },
+    {
+     "P_kPa": 854.497,
+     "T_K": 332.415,
+     "rho_liq_kg_m3": 503.82,
+     "h_lg_kJ_kg": 285.936,
+     "cp_liq_kJ_kgK": 2.6986,
+     "omega_two_point": 8.7348,
+     "omega_saturated": 8.8955,
+     "G_hem_kg_m2_s": 5859.3
+    },
+    {
+     "P_kPa": 1117.311,
+     "T_K": 344.396,
+     "rho_liq_kg_m3": 484.947,
+     "h_lg_kJ_kg": 267.581,
+     "cp_liq_kJ_kgK": 2.827,
+     "omega_two_point": 7.389,
+     "omega_saturated": 7.6316,
+     "G_hem_kg_m2_s": 7028.9
+    },
+    {
+     "P_kPa": 1460.959,
+     "T_K": 357.258,
+     "rho_liq_kg_m3": 462.421,
+     "h_lg_kJ_kg": 244.976,
+     "cp_liq_kJ_kgK": 3.0052,
+     "omega_two_point": 6.2176,
+     "omega_saturated": 6.5713,
+     "G_hem_kg_m2_s": 8399.0
+    },
+    {
+     "P_kPa": 1910.301,
+     "T_K": 371.056,
+     "rho_liq_kg_m3": 434.385,
+     "h_lg_kJ_kg": 216.002,
+     "cp_liq_kJ_kgK": 3.2892,
+     "omega_two_point": 5.1801,
+     "omega_saturated": 5.7155,
+     "G_hem_kg_m2_s": 9984.0
+    },
+    {
+     "P_kPa": 2497.846,
+     "T_K": 385.82,
+     "rho_liq_kg_m3": 396.576,
+     "h_lg_kJ_kg": 176.172,
+     "cp_liq_kJ_kgK": 3.8921,
+     "omega_two_point": 4.2296,
+     "omega_saturated": 5.173,
+     "G_hem_kg_m2_s": 11765.5
+    },
+    {
+     "P_kPa": 3266.1,
+     "T_K": 401.491,
+     "rho_liq_kg_m3": 332.298,
+     "h_lg_kJ_kg": 108.823,
+     "cp_liq_kJ_kgK": 7.2377,
+     "omega_two_point": 3.2776,
+     "omega_saturated": 6.5634,
+     "G_hem_kg_m2_s": 13521.6
+    }
+   ]
+  },
+  "ammonia": {
+   "coolprop_name": "Ammonia",
+   "M_kg_kmol": 17.0305,
+   "Tc_K": 405.56,
+   "Pc_kPa": 11363.39,
+   "Tb_K": 239.834,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 239.573,
+     "rho_liq_kg_m3": 681.956,
+     "h_lg_kJ_kg": 1370.445,
+     "cp_liq_kJ_kgK": 4.4643,
+     "omega_two_point": 51.3687,
+     "omega_saturated": 50.1237,
+     "G_hem_kg_m2_s": 1082.8
+    },
+    {
+     "P_kPa": 142.757,
+     "T_K": 246.889,
+     "rho_liq_kg_m3": 672.88,
+     "h_lg_kJ_kg": 1348.358,
+     "cp_liq_kJ_kgK": 4.4924,
+     "omega_two_point": 39.7156,
+     "omega_saturated": 38.8141,
+     "G_hem_kg_m2_s": 1444.0
+    },
+    {
+     "P_kPa": 203.794,
+     "T_K": 254.737,
+     "rho_liq_kg_m3": 662.937,
+     "h_lg_kJ_kg": 1323.747,
+     "cp_liq_kJ_kgK": 4.5239,
+     "omega_two_point": 30.7898,
+     "omega_saturated": 30.1481,
+     "G_hem_kg_m2_s": 1918.9
+    },
+    {
+     "P_kPa": 290.93,
+     "T_K": 263.175,
+     "rho_liq_kg_m3": 651.982,
+     "h_lg_kJ_kg": 1296.13,
+     "cp_liq_kJ_kgK": 4.5605,
+     "omega_two_point": 23.9352,
+     "omega_saturated": 23.4917,
+     "G_hem_kg_m2_s": 2540.3
+    },
+    {
+     "P_kPa": 415.322,
+     "T_K": 272.271,
+     "rho_liq_kg_m3": 639.832,
+     "h_lg_kJ_kg": 1264.88,
+     "cp_liq_kJ_kgK": 4.6051,
+     "omega_two_point": 18.6571,
+     "omega_saturated": 18.367,
+     "G_hem_kg_m2_s": 3349.3
+    },
+    {
+     "P_kPa": 592.899,
+     "T_K": 282.104,
+     "rho_liq_kg_m3": 626.258,
+     "h_lg_kJ_kg": 1229.166,
+     "cp_liq_kJ_kgK": 4.6616,
+     "omega_two_point": 14.5811,
+     "omega_saturated": 14.4121,
+     "G_hem_kg_m2_s": 4396.6
+    },
+    {
+     "P_kPa": 846.403,
+     "T_K": 292.76,
+     "rho_liq_kg_m3": 610.96,
+     "h_lg_kJ_kg": 1187.867,
+     "cp_liq_kJ_kgK": 4.7359,
+     "omega_two_point": 11.4232,
+     "omega_saturated": 11.3533,
+     "G_hem_kg_m2_s": 5744.1
+    },
+    {
+     "P_kPa": 1208.296,
+     "T_K": 304.338,
+     "rho_liq_kg_m3": 593.533,
+     "h_lg_kJ_kg": 1139.427,
+     "cp_liq_kJ_kgK": 4.8373,
+     "omega_two_point": 8.9674,
+     "omega_saturated": 8.9834,
+     "G_hem_kg_m2_s": 7466.3
+    },
+    {
+     "P_kPa": 1724.922,
+     "T_K": 316.948,
+     "rho_liq_kg_m3": 573.408,
+     "h_lg_kJ_kg": 1081.634,
+     "cp_liq_kJ_kgK": 4.981,
+     "omega_two_point": 7.0491,
+     "omega_saturated": 7.146,
+     "G_hem_kg_m2_s": 9650.3
+    },
+    {
+     "P_kPa": 2462.44,
+     "T_K": 330.711,
+     "rho_liq_kg_m3": 549.735,
+     "h_lg_kJ_kg": 1011.217,
+     "cp_liq_kJ_kgK": 5.1958,
+     "omega_two_point": 5.542,
+     "omega_saturated": 5.7254,
+     "G_hem_kg_m2_s": 12394.1
+    },
+    {
+     "P_kPa": 3515.296,
+     "T_K": 345.756,
+     "rho_liq_kg_m3": 521.144,
+     "h_lg_kJ_kg": 923.025,
+     "cp_liq_kJ_kgK": 5.5438,
+     "omega_two_point": 4.3491,
+     "omega_saturated": 4.6417,
+     "G_hem_kg_m2_s": 15797.8
+    },
+    {
+     "P_kPa": 5018.317,
+     "T_K": 362.212,
+     "rho_liq_kg_m3": 485.108,
+     "h_lg_kJ_kg": 807.989,
+     "cp_liq_kJ_kgK": 6.1966,
+     "omega_two_point": 3.3953,
+     "omega_saturated": 3.8608,
+     "G_hem_kg_m2_s": 19934.3
+    },
+    {
+     "P_kPa": 7163.979,
+     "T_K": 380.178,
+     "rho_liq_kg_m3": 435.675,
+     "h_lg_kJ_kg": 646.193,
+     "cp_liq_kJ_kgK": 7.8664,
+     "omega_two_point": 2.6225,
+     "omega_saturated": 3.4847,
+     "G_hem_kg_m2_s": 24732.7
+    },
+    {
+     "P_kPa": 10227.052,
+     "T_K": 399.615,
+     "rho_liq_kg_m3": 346.931,
+     "h_lg_kJ_kg": 355.666,
+     "cp_liq_kJ_kgK": 21.1398,
+     "omega_two_point": 1.9712,
+     "omega_saturated": 5.6834,
+     "G_hem_kg_m2_s": 29184.7
+    }
+   ]
+  },
+  "water": {
+   "coolprop_name": "Water",
+   "M_kg_kmol": 18.0153,
+   "Tc_K": 647.096,
+   "Pc_kPa": 22064.0,
+   "Tb_K": 373.124,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 372.756,
+     "rho_liq_kg_m3": 958.632,
+     "h_lg_kJ_kg": 2257.444,
+     "cp_liq_kJ_kgK": 4.2152,
+     "omega_two_point": 87.137,
+     "omega_saturated": 84.7067,
+     "G_hem_kg_m2_s": 1006.2
+    },
+    {
+     "P_kPa": 150.232,
+     "T_K": 384.546,
+     "rho_liq_kg_m3": 949.88,
+     "h_lg_kJ_kg": 2225.852,
+     "cp_liq_kJ_kgK": 4.2303,
+     "omega_two_point": 64.3903,
+     "omega_saturated": 62.6744,
+     "G_hem_kg_m2_s": 1412.5
+    },
+    {
+     "P_kPa": 225.698,
+     "T_K": 397.224,
+     "rho_liq_kg_m3": 939.788,
+     "h_lg_kJ_kg": 2190.65,
+     "cp_liq_kJ_kgK": 4.2505,
+     "omega_two_point": 47.7577,
+     "omega_saturated": 46.5549,
+     "G_hem_kg_m2_s": 1974.3
+    },
+    {
+     "P_kPa": 339.071,
+     "T_K": 410.896,
+     "rho_liq_kg_m3": 928.132,
+     "h_lg_kJ_kg": 2151.004,
+     "cp_liq_kJ_kgK": 4.2775,
+     "omega_two_point": 35.5571,
+     "omega_saturated": 34.7246,
+     "G_hem_kg_m2_s": 2746.9
+    },
+    {
+     "P_kPa": 509.395,
+     "T_K": 425.684,
+     "rho_liq_kg_m3": 914.627,
+     "h_lg_kJ_kg": 2105.817,
+     "cp_liq_kJ_kgK": 4.3139,
+     "omega_two_point": 26.5766,
+     "omega_saturated": 26.0139,
+     "G_hem_kg_m2_s": 3802.7
+    },
+    {
+     "P_kPa": 765.276,
+     "T_K": 441.725,
+     "rho_liq_kg_m3": 898.903,
+     "h_lg_kJ_kg": 2053.63,
+     "cp_liq_kJ_kgK": 4.3629,
+     "omega_two_point": 19.9418,
+     "omega_saturated": 19.5784,
+     "G_hem_kg_m2_s": 5236.2
+    },
+    {
+     "P_kPa": 1149.692,
+     "T_K": 459.181,
+     "rho_liq_kg_m3": 880.469,
+     "h_lg_kJ_kg": 1992.472,
+     "cp_liq_kJ_kgK": 4.4299,
+     "omega_two_point": 15.0199,
+     "omega_saturated": 14.8075,
+     "G_hem_kg_m2_s": 7167.9
+    },
+    {
+     "P_kPa": 1727.21,
+     "T_K": 478.233,
+     "rho_liq_kg_m3": 858.657,
+     "h_lg_kJ_kg": 1919.615,
+     "cp_liq_kJ_kgK": 4.5231,
+     "omega_two_point": 11.3521,
+     "omega_saturated": 11.2594,
+     "G_hem_kg_m2_s": 9750.3
+    },
+    {
+     "P_kPa": 2594.829,
+     "T_K": 499.089,
+     "rho_liq_kg_m3": 832.515,
+     "h_lg_kJ_kg": 1831.149,
+     "cp_liq_kJ_kgK": 4.6567,
+     "omega_two_point": 8.6047,
+     "omega_saturated": 8.6142,
+     "G_hem_kg_m2_s": 13170.9
+    },
+    {
+     "P_kPa": 3898.274,
+     "T_K": 521.981,
+     "rho_liq_kg_m3": 800.626,
+     "h_lg_kJ_kg": 1721.201,
+     "cp_liq_kJ_kgK": 4.8578,
+     "omega_two_point": 6.5336,
+     "omega_saturated": 6.6418,
+     "G_hem_kg_m2_s": 17652.6
+    },
+    {
+     "P_kPa": 5856.471,
+     "T_K": 547.16,
+     "rho_liq_kg_m3": 760.701,
+     "h_lg_kJ_kg": 1580.328,
+     "cp_liq_kJ_kgK": 5.1857,
+     "omega_two_point": 4.9594,
+     "omega_saturated": 5.1819,
+     "G_hem_kg_m2_s": 23442.0
+    },
+    {
+     "P_kPa": 8798.316,
+     "T_K": 574.873,
+     "rho_liq_kg_m3": 708.568,
+     "h_lg_kJ_kg": 1391.563,
+     "cp_liq_kJ_kgK": 5.8017,
+     "omega_two_point": 3.7486,
+     "omega_saturated": 4.1411,
+     "G_hem_kg_m2_s": 30760.0
+    },
+    {
+     "P_kPa": 13217.921,
+     "T_K": 605.3,
+     "rho_liq_kg_m3": 634.668,
+     "h_lg_kJ_kg": 1117.31,
+     "cp_liq_kJ_kgK": 7.3651,
+     "omega_two_point": 2.7971,
+     "omega_saturated": 3.5645,
+     "G_hem_kg_m2_s": 39601.0
+    },
+    {
+     "P_kPa": 19857.6,
+     "T_K": 638.302,
+     "rho_liq_kg_m3": 494.63,
+     "h_lg_kJ_kg": 601.174,
+     "cp_liq_kJ_kgK": 21.7109,
+     "omega_two_point": 2.0399,
+     "omega_saturated": 5.9068,
+     "G_hem_kg_m2_s": 48051.4
+    }
+   ]
+  },
+  "carbon-dioxide": {
+   "coolprop_name": "CarbonDioxide",
+   "M_kg_kmol": 44.0098,
+   "Tc_K": 304.128,
+   "Pc_kPa": 7377.3,
+   "Tb_K": 185.152,
+   "rows": [
+    {
+     "P_kPa": 776.947,
+     "T_K": 226.399,
+     "rho_liq_kg_m3": 1142.414,
+     "h_lg_kJ_kg": 334.262,
+     "cp_liq_kJ_kgK": 1.9824,
+     "omega_two_point": 8.3021,
+     "omega_saturated": 8.3278,
+     "G_hem_kg_m2_s": 8568.7
+    },
+    {
+     "P_kPa": 916.356,
+     "T_K": 230.685,
+     "rho_liq_kg_m3": 1126.037,
+     "h_lg_kJ_kg": 326.822,
+     "cp_liq_kJ_kgK": 2.0,
+     "omega_two_point": 7.4346,
+     "omega_saturated": 7.495,
+     "G_hem_kg_m2_s": 9653.9
+    },
+    {
+     "P_kPa": 1080.779,
+     "T_K": 235.157,
+     "rho_liq_kg_m3": 1108.486,
+     "h_lg_kJ_kg": 318.763,
+     "cp_liq_kJ_kgK": 2.0221,
+     "omega_two_point": 6.661,
+     "omega_saturated": 6.7558,
+     "G_hem_kg_m2_s": 10862.1
+    },
+    {
+     "P_kPa": 1274.706,
+     "T_K": 239.824,
+     "rho_liq_kg_m3": 1089.594,
+     "h_lg_kJ_kg": 309.987,
+     "cp_liq_kJ_kgK": 2.0498,
+     "omega_two_point": 5.9701,
+     "omega_saturated": 6.1002,
+     "G_hem_kg_m2_s": 12204.6
+    },
+    {
+     "P_kPa": 1503.429,
+     "T_K": 244.698,
+     "rho_liq_kg_m3": 1069.156,
+     "h_lg_kJ_kg": 300.378,
+     "cp_liq_kJ_kgK": 2.085,
+     "omega_two_point": 5.3523,
+     "omega_saturated": 5.5196,
+     "G_hem_kg_m2_s": 13692.6
+    },
+    {
+     "P_kPa": 1773.193,
+     "T_K": 249.79,
+     "rho_liq_kg_m3": 1046.912,
+     "h_lg_kJ_kg": 289.784,
+     "cp_liq_kJ_kgK": 2.13,
+     "omega_two_point": 4.7987,
+     "omega_saturated": 5.007,
+     "G_hem_kg_m2_s": 15337.2
+    },
+    {
+     "P_kPa": 2091.361,
+     "T_K": 255.111,
+     "rho_liq_kg_m3": 1022.522,
+     "h_lg_kJ_kg": 278.017,
+     "cp_liq_kJ_kgK": 2.1884,
+     "omega_two_point": 4.3017,
+     "omega_saturated": 4.5566,
+     "G_hem_kg_m2_s": 17149.0
+    },
+    {
+     "P_kPa": 2466.618,
+     "T_K": 260.673,
+     "rho_liq_kg_m3": 995.529,
+     "h_lg_kJ_kg": 264.827,
+     "cp_liq_kJ_kgK": 2.2658,
+     "omega_two_point": 3.8539,
+     "omega_saturated": 4.1645,
+     "G_hem_kg_m2_s": 19137.2
+    },
+    {
+     "P_kPa": 2909.209,
+     "T_K": 266.487,
+     "rho_liq_kg_m3": 965.304,
+     "h_lg_kJ_kg": 249.873,
+     "cp_liq_kJ_kgK": 2.3718,
+     "omega_two_point": 3.4488,
+     "omega_saturated": 3.8298,
+     "G_hem_kg_m2_s": 21307.6
+    },
+    {
+     "P_kPa": 3431.215,
+     "T_K": 272.562,
+     "rho_liq_kg_m3": 930.939,
+     "h_lg_kJ_kg": 232.661,
+     "cp_liq_kJ_kgK": 2.5244,
+     "omega_two_point": 3.0812,
+     "omega_saturated": 3.5569,
+     "G_hem_kg_m2_s": 23659.3
+    },
+    {
+     "P_kPa": 4046.886,
+     "T_K": 278.907,
+     "rho_liq_kg_m3": 890.999,
+     "h_lg_kJ_kg": 212.422,
+     "cp_liq_kJ_kgK": 2.761,
+     "omega_two_point": 2.7462,
+     "omega_saturated": 3.3609,
+     "G_hem_kg_m2_s": 26176.7
+    },
+    {
+     "P_kPa": 4773.027,
+     "T_K": 285.523,
+     "rho_liq_kg_m3": 842.931,
+     "h_lg_kJ_kg": 187.821,
+     "cp_liq_kJ_kgK": 3.1765,
+     "omega_two_point": 2.4392,
+     "omega_saturated": 3.2879,
+     "G_hem_kg_m2_s": 28812.8
+    },
+    {
+     "P_kPa": 5629.462,
+     "T_K": 292.404,
+     "rho_liq_kg_m3": 781.213,
+     "h_lg_kJ_kg": 156.033,
+     "cp_liq_kJ_kgK": 4.0966,
+     "omega_two_point": 2.1591,
+     "omega_saturated": 3.5046,
+     "G_hem_kg_m2_s": 31433.3
+    },
+    {
+     "P_kPa": 6639.569,
+     "T_K": 299.519,
+     "rho_liq_kg_m3": 688.063,
+     "h_lg_kJ_kg": 108.188,
+     "cp_liq_kJ_kgK": 7.9397,
+     "omega_two_point": 1.8993,
+     "omega_saturated": 5.2373,
+     "G_hem_kg_m2_s": 33576.0
+    }
+   ]
+  },
+  "hydrogen-sulfide": {
+   "coolprop_name": "HydrogenSulfide",
+   "M_kg_kmol": 34.0809,
+   "Tc_K": 373.101,
+   "Pc_kPa": 8998.87,
+   "Tb_K": 212.855,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 212.596,
+     "rho_liq_kg_m3": 949.648,
+     "h_lg_kJ_kg": 546.71,
+     "cp_liq_kJ_kgK": 1.9952,
+     "omega_two_point": 35.2488,
+     "omega_saturated": 34.466,
+     "G_hem_kg_m2_s": 1514.7
+    },
+    {
+     "P_kPa": 140.218,
+     "T_K": 219.486,
+     "rho_liq_kg_m3": 937.458,
+     "h_lg_kJ_kg": 538.508,
+     "cp_liq_kJ_kgK": 1.9945,
+     "omega_two_point": 27.6842,
+     "omega_saturated": 27.1226,
+     "G_hem_kg_m2_s": 1983.9
+    },
+    {
+     "P_kPa": 196.61,
+     "T_K": 226.899,
+     "rho_liq_kg_m3": 924.11,
+     "h_lg_kJ_kg": 529.415,
+     "cp_liq_kJ_kgK": 1.9967,
+     "omega_two_point": 21.8176,
+     "omega_saturated": 21.4261,
+     "G_hem_kg_m2_s": 2588.6
+    },
+    {
+     "P_kPa": 275.681,
+     "T_K": 234.894,
+     "rho_liq_kg_m3": 909.406,
+     "h_lg_kJ_kg": 519.234,
+     "cp_liq_kJ_kgK": 2.0028,
+     "omega_two_point": 17.254,
+     "omega_saturated": 16.9949,
+     "G_hem_kg_m2_s": 3364.0
+    },
+    {
+     "P_kPa": 386.553,
+     "T_K": 243.541,
+     "rho_liq_kg_m3": 893.093,
+     "h_lg_kJ_kg": 507.709,
+     "cp_liq_kJ_kgK": 2.0139,
+     "omega_two_point": 13.6923,
+     "omega_saturated": 13.5382,
+     "G_hem_kg_m2_s": 4353.3
+    },
+    {
+     "P_kPa": 542.016,
+     "T_K": 252.918,
+     "rho_liq_kg_m3": 874.851,
+     "h_lg_kJ_kg": 494.503,
+     "cp_liq_kJ_kgK": 2.0318,
+     "omega_two_point": 10.9028,
+     "omega_saturated": 10.8346,
+     "G_hem_kg_m2_s": 5608.2
+    },
+    {
+     "P_kPa": 760.001,
+     "T_K": 263.115,
+     "rho_liq_kg_m3": 854.256,
+     "h_lg_kJ_kg": 479.159,
+     "cp_liq_kJ_kgK": 2.0591,
+     "omega_two_point": 8.7093,
+     "omega_saturated": 8.7147,
+     "G_hem_kg_m2_s": 7190.3
+    },
+    {
+     "P_kPa": 1065.655,
+     "T_K": 274.233,
+     "rho_liq_kg_m3": 830.735,
+     "h_lg_kJ_kg": 461.048,
+     "cp_liq_kJ_kgK": 2.1001,
+     "omega_two_point": 6.9768,
+     "omega_saturated": 7.0498,
+     "G_hem_kg_m2_s": 9171.8
+    },
+    {
+     "P_kPa": 1494.235,
+     "T_K": 286.387,
+     "rho_liq_kg_m3": 803.48,
+     "h_lg_kJ_kg": 439.266,
+     "cp_liq_kJ_kgK": 2.1622,
+     "omega_two_point": 5.6011,
+     "omega_saturated": 5.7425,
+     "G_hem_kg_m2_s": 11633.9
+    },
+    {
+     "P_kPa": 2095.179,
+     "T_K": 299.704,
+     "rho_liq_kg_m3": 771.293,
+     "h_lg_kJ_kg": 412.46,
+     "cp_liq_kJ_kgK": 2.2591,
+     "omega_two_point": 4.5013,
+     "omega_saturated": 4.7212,
+     "G_hem_kg_m2_s": 14664.7
+    },
+    {
+     "P_kPa": 2937.809,
+     "T_K": 314.319,
+     "rho_liq_kg_m3": 732.252,
+     "h_lg_kJ_kg": 378.449,
+     "cp_liq_kJ_kgK": 2.421,
+     "omega_two_point": 3.6141,
+     "omega_saturated": 3.9388,
+     "G_hem_kg_m2_s": 18347.7
+    },
+    {
+     "P_kPa": 4119.323,
+     "T_K": 330.369,
+     "rho_liq_kg_m3": 682.872,
+     "h_lg_kJ_kg": 333.305,
+     "cp_liq_kJ_kgK": 2.7286,
+     "omega_two_point": 2.888,
+     "omega_saturated": 3.3845,
+     "G_hem_kg_m2_s": 22732.6
+    },
+    {
+     "P_kPa": 5776.014,
+     "T_K": 347.952,
+     "rho_liq_kg_m3": 615.23,
+     "h_lg_kJ_kg": 268.247,
+     "cp_liq_kJ_kgK": 3.5098,
+     "omega_two_point": 2.279,
+     "omega_saturated": 3.169,
+     "G_hem_kg_m2_s": 27723.6
+    },
+    {
+     "P_kPa": 8098.984,
+     "T_K": 366.996,
+     "rho_liq_kg_m3": 495.233,
+     "h_lg_kJ_kg": 147.278,
+     "cp_liq_kJ_kgK": 9.7389,
+     "omega_two_point": 1.7526,
+     "omega_saturated": 5.4481,
+     "G_hem_kg_m2_s": 32262.1
+    }
+   ]
+  },
+  "methanol": {
+   "coolprop_name": "Methanol",
+   "M_kg_kmol": 32.0422,
+   "Tc_K": 513.38,
+   "Pc_kPa": 8215.85,
+   "Tb_K": 337.632,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 337.298,
+     "rho_liq_kg_m3": 748.691,
+     "h_lg_kJ_kg": 1101.717,
+     "cp_liq_kJ_kgK": 2.8229,
+     "omega_two_point": 41.2609,
+     "omega_saturated": 40.2766,
+     "G_hem_kg_m2_s": 1253.2
+    },
+    {
+     "P_kPa": 139.239,
+     "T_K": 345.931,
+     "rho_liq_kg_m3": 740.01,
+     "h_lg_kJ_kg": 1084.468,
+     "cp_liq_kJ_kgK": 2.8988,
+     "omega_two_point": 32.7843,
+     "omega_saturated": 32.0556,
+     "G_hem_kg_m2_s": 1629.7
+    },
+    {
+     "P_kPa": 193.875,
+     "T_K": 355.075,
+     "rho_liq_kg_m3": 730.568,
+     "h_lg_kJ_kg": 1064.974,
+     "cp_liq_kJ_kgK": 2.9842,
+     "omega_two_point": 26.1467,
+     "omega_saturated": 25.6157,
+     "G_hem_kg_m2_s": 2111.8
+    },
+    {
+     "P_kPa": 269.95,
+     "T_K": 364.777,
+     "rho_liq_kg_m3": 720.214,
+     "h_lg_kJ_kg": 1042.725,
+     "cp_liq_kJ_kgK": 3.0806,
+     "omega_two_point": 20.9307,
+     "omega_saturated": 20.5545,
+     "G_hem_kg_m2_s": 2726.3
+    },
+    {
+     "P_kPa": 375.876,
+     "T_K": 375.09,
+     "rho_liq_kg_m3": 708.755,
+     "h_lg_kJ_kg": 1017.055,
+     "cp_liq_kJ_kgK": 3.1901,
+     "omega_two_point": 16.8163,
+     "omega_saturated": 16.563,
+     "G_hem_kg_m2_s": 3505.7
+    },
+    {
+     "P_kPa": 523.366,
+     "T_K": 386.074,
+     "rho_liq_kg_m3": 695.94,
+     "h_lg_kJ_kg": 987.086,
+     "cp_liq_kJ_kgK": 3.3157,
+     "omega_two_point": 13.5571,
+     "omega_saturated": 13.4039,
+     "G_hem_kg_m2_s": 4489.7
+    },
+    {
+     "P_kPa": 728.731,
+     "T_K": 397.794,
+     "rho_liq_kg_m3": 681.434,
+     "h_lg_kJ_kg": 951.651,
+     "cp_liq_kJ_kgK": 3.462,
+     "omega_two_point": 10.9627,
+     "omega_saturated": 10.8941,
+     "G_hem_kg_m2_s": 5725.2
+    },
+    {
+     "P_kPa": 1014.678,
+     "T_K": 410.321,
+     "rho_liq_kg_m3": 664.778,
+     "h_lg_kJ_kg": 909.2,
+     "cp_liq_kJ_kgK": 3.6359,
+     "omega_two_point": 8.8855,
+     "omega_saturated": 8.893,
+     "G_hem_kg_m2_s": 7268.3
+    },
+    {
+     "P_kPa": 1412.828,
+     "T_K": 423.732,
+     "rho_liq_kg_m3": 645.32,
+     "h_lg_kJ_kg": 857.77,
+     "cp_liq_kJ_kgK": 3.8493,
+     "omega_two_point": 7.2116,
+     "omega_saturated": 7.2943,
+     "G_hem_kg_m2_s": 9183.4
+    },
+    {
+     "P_kPa": 1967.209,
+     "T_K": 438.109,
+     "rho_liq_kg_m3": 622.09,
+     "h_lg_kJ_kg": 795.391,
+     "cp_liq_kJ_kgK": 4.1238,
+     "omega_two_point": 5.856,
+     "omega_saturated": 6.0257,
+     "G_hem_kg_m2_s": 11540.6
+    },
+    {
+     "P_kPa": 2739.124,
+     "T_K": 453.564,
+     "rho_liq_kg_m3": 593.494,
+     "h_lg_kJ_kg": 721.777,
+     "cp_liq_kJ_kgK": 4.5059,
+     "omega_two_point": 4.7664,
+     "omega_saturated": 5.0579,
+     "G_hem_kg_m2_s": 14398.8
+    },
+    {
+     "P_kPa": 3813.931,
+     "T_K": 470.273,
+     "rho_liq_kg_m3": 556.481,
+     "h_lg_kJ_kg": 637.034,
+     "cp_liq_kJ_kgK": 5.1255,
+     "omega_two_point": 3.9084,
+     "omega_saturated": 4.3948,
+     "G_hem_kg_m2_s": 17756.1
+    },
+    {
+     "P_kPa": 5310.483,
+     "T_K": 488.307,
+     "rho_liq_kg_m3": 503.632,
+     "h_lg_kJ_kg": 513.682,
+     "cp_liq_kJ_kgK": 6.6234,
+     "omega_two_point": 3.1412,
+     "omega_saturated": 4.0296,
+     "G_hem_kg_m2_s": 21509.9
+    },
+    {
+     "P_kPa": 7394.268,
+     "T_K": 507.235,
+     "rho_liq_kg_m3": 403.378,
+     "h_lg_kJ_kg": 283.866,
+     "cp_liq_kJ_kgK": 17.4739,
+     "omega_two_point": 2.2426,
+     "omega_saturated": 6.4671,
+     "G_hem_kg_m2_s": 25199.7
+    }
+   ]
+  },
+  "benzene": {
+   "coolprop_name": "Benzene",
+   "M_kg_kmol": 78.1118,
+   "Tc_K": 562.02,
+   "Pc_kPa": 4906.29,
+   "Tb_K": 353.216,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 352.789,
+     "rho_liq_kg_m3": 813.898,
+     "h_lg_kJ_kg": 393.975,
+     "cp_liq_kJ_kgK": 1.9035,
+     "omega_two_point": 46.8985,
+     "omega_saturated": 46.0538,
+     "G_hem_kg_m2_s": 1232.2
+    },
+    {
+     "P_kPa": 133.825,
+     "T_K": 362.532,
+     "rho_liq_kg_m3": 802.872,
+     "h_lg_kJ_kg": 386.656,
+     "cp_liq_kJ_kgK": 1.9371,
+     "omega_two_point": 38.8445,
+     "omega_saturated": 38.2083,
+     "G_hem_kg_m2_s": 1541.8
+    },
+    {
+     "P_kPa": 179.092,
+     "T_K": 372.928,
+     "rho_liq_kg_m3": 790.915,
+     "h_lg_kJ_kg": 378.673,
+     "cp_liq_kJ_kgK": 1.9739,
+     "omega_two_point": 32.2558,
+     "omega_saturated": 31.7875,
+     "G_hem_kg_m2_s": 1924.2
+    },
+    {
+     "P_kPa": 239.67,
+     "T_K": 384.044,
+     "rho_liq_kg_m3": 777.882,
+     "h_lg_kJ_kg": 369.899,
+     "cp_liq_kJ_kgK": 2.0144,
+     "omega_two_point": 26.8475,
+     "omega_saturated": 26.5156,
+     "G_hem_kg_m2_s": 2395.0
+    },
+    {
+     "P_kPa": 320.74,
+     "T_K": 395.952,
+     "rho_liq_kg_m3": 763.593,
+     "h_lg_kJ_kg": 360.172,
+     "cp_liq_kJ_kgK": 2.0592,
+     "omega_two_point": 22.3916,
+     "omega_saturated": 22.1722,
+     "G_hem_kg_m2_s": 2972.8
+    },
+    {
+     "P_kPa": 429.231,
+     "T_K": 408.732,
+     "rho_liq_kg_m3": 747.82,
+     "h_lg_kJ_kg": 349.283,
+     "cp_liq_kJ_kgK": 2.1092,
+     "omega_two_point": 18.7052,
+     "omega_saturated": 18.5806,
+     "G_hem_kg_m2_s": 3679.7
+    },
+    {
+     "P_kPa": 574.419,
+     "T_K": 422.474,
+     "rho_liq_kg_m3": 730.266,
+     "h_lg_kJ_kg": 336.952,
+     "cp_liq_kJ_kgK": 2.1659,
+     "omega_two_point": 15.6411,
+     "omega_saturated": 15.5992,
+     "G_hem_kg_m2_s": 4541.6
+    },
+    {
+     "P_kPa": 768.718,
+     "T_K": 437.274,
+     "rho_liq_kg_m3": 710.527,
+     "h_lg_kJ_kg": 322.796,
+     "cp_liq_kJ_kgK": 2.2315,
+     "omega_two_point": 13.0802,
+     "omega_saturated": 13.1143,
+     "G_hem_kg_m2_s": 5589.1
+    },
+    {
+     "P_kPa": 1028.739,
+     "T_K": 453.236,
+     "rho_liq_kg_m3": 688.034,
+     "h_lg_kJ_kg": 306.272,
+     "cp_liq_kJ_kgK": 2.3098,
+     "omega_two_point": 10.9255,
+     "omega_saturated": 11.0351,
+     "G_hem_kg_m2_s": 6857.4
+    },
+    {
+     "P_kPa": 1376.712,
+     "T_K": 470.467,
+     "rho_liq_kg_m3": 661.925,
+     "h_lg_kJ_kg": 286.559,
+     "cp_liq_kJ_kgK": 2.4082,
+     "omega_two_point": 9.097,
+     "omega_saturated": 9.2904,
+     "G_hem_kg_m2_s": 8385.9
+    },
+    {
+     "P_kPa": 1842.389,
+     "T_K": 489.072,
+     "rho_liq_kg_m3": 630.772,
+     "h_lg_kJ_kg": 262.325,
+     "cp_liq_kJ_kgK": 2.5424,
+     "omega_two_point": 7.5267,
+     "omega_saturated": 7.8285,
+     "G_hem_kg_m2_s": 10216.9
+    },
+    {
+     "P_kPa": 2465.582,
+     "T_K": 509.138,
+     "rho_liq_kg_m3": 591.877,
+     "h_lg_kJ_kg": 231.123,
+     "cp_liq_kJ_kgK": 2.7548,
+     "omega_two_point": 6.1528,
+     "omega_saturated": 6.6286,
+     "G_hem_kg_m2_s": 12387.3
+    },
+    {
+     "P_kPa": 3299.571,
+     "T_K": 530.694,
+     "rho_liq_kg_m3": 538.83,
+     "h_lg_kJ_kg": 187.43,
+     "cp_liq_kJ_kgK": 3.2122,
+     "omega_two_point": 4.9058,
+     "omega_saturated": 5.7782,
+     "G_hem_kg_m2_s": 14895.9
+    },
+    {
+     "P_kPa": 4415.66,
+     "T_K": 553.576,
+     "rho_liq_kg_m3": 445.399,
+     "h_lg_kJ_kg": 109.915,
+     "cp_liq_kJ_kgK": 5.9736,
+     "omega_two_point": 3.6333,
+     "omega_saturated": 6.9896,
+     "G_hem_kg_m2_s": 17466.5
+    }
+   ]
+  },
+  "toluene": {
+   "coolprop_name": "Toluene",
+   "M_kg_kmol": 92.1384,
+   "Tc_K": 591.749,
+   "Pc_kPa": 4126.35,
+   "Tb_K": 383.746,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 383.283,
+     "rho_liq_kg_m3": 779.619,
+     "h_lg_kJ_kg": 361.003,
+     "cp_liq_kJ_kgK": 2.0013,
+     "omega_two_point": 51.1072,
+     "omega_saturated": 50.1857,
+     "G_hem_kg_m2_s": 1159.5
+    },
+    {
+     "P_kPa": 132.055,
+     "T_K": 393.345,
+     "rho_liq_kg_m3": 769.196,
+     "h_lg_kJ_kg": 354.301,
+     "cp_liq_kJ_kgK": 2.0398,
+     "omega_two_point": 42.7185,
+     "omega_saturated": 42.0121,
+     "G_hem_kg_m2_s": 1436.0
+    },
+    {
+     "P_kPa": 174.385,
+     "T_K": 404.041,
+     "rho_liq_kg_m3": 757.883,
+     "h_lg_kJ_kg": 346.942,
+     "cp_liq_kJ_kgK": 2.0814,
+     "omega_two_point": 35.7794,
+     "omega_saturated": 35.2481,
+     "G_hem_kg_m2_s": 1774.4
+    },
+    {
+     "P_kPa": 230.284,
+     "T_K": 415.43,
+     "rho_liq_kg_m3": 745.537,
+     "h_lg_kJ_kg": 338.801,
+     "cp_liq_kJ_kgK": 2.1266,
+     "omega_two_point": 30.0211,
+     "omega_saturated": 29.6338,
+     "G_hem_kg_m2_s": 2187.3
+    },
+    {
+     "P_kPa": 304.101,
+     "T_K": 427.578,
+     "rho_liq_kg_m3": 731.979,
+     "h_lg_kJ_kg": 329.719,
+     "cp_liq_kJ_kgK": 2.1761,
+     "omega_two_point": 25.2258,
+     "omega_saturated": 24.9583,
+     "G_hem_kg_m2_s": 2689.9
+    },
+    {
+     "P_kPa": 401.58,
+     "T_K": 440.556,
+     "rho_liq_kg_m3": 716.98,
+     "h_lg_kJ_kg": 319.49,
+     "cp_liq_kJ_kgK": 2.2307,
+     "omega_two_point": 21.2162,
+     "omega_saturated": 21.0504,
+     "G_hem_kg_m2_s": 3300.0
+    },
+    {
+     "P_kPa": 530.306,
+     "T_K": 454.439,
+     "rho_liq_kg_m3": 700.239,
+     "h_lg_kJ_kg": 307.841,
+     "cp_liq_kJ_kgK": 2.2918,
+     "omega_two_point": 17.8473,
+     "omega_saturated": 17.7708,
+     "G_hem_kg_m2_s": 4038.6
+    },
+    {
+     "P_kPa": 700.296,
+     "T_K": 469.311,
+     "rho_liq_kg_m3": 681.347,
+     "h_lg_kJ_kg": 294.403,
+     "cp_liq_kJ_kgK": 2.3614,
+     "omega_two_point": 15.0001,
+     "omega_saturated": 15.0058,
+     "G_hem_kg_m2_s": 4930.4
+    },
+    {
+     "P_kPa": 924.775,
+     "T_K": 485.256,
+     "rho_liq_kg_m3": 659.726,
+     "h_lg_kJ_kg": 278.652,
+     "cp_liq_kJ_kgK": 2.4431,
+     "omega_two_point": 12.5758,
+     "omega_saturated": 12.663,
+     "G_hem_kg_m2_s": 6004.3
+    },
+    {
+     "P_kPa": 1221.21,
+     "T_K": 502.358,
+     "rho_liq_kg_m3": 634.511,
+     "h_lg_kJ_kg": 259.812,
+     "cp_liq_kJ_kgK": 2.5435,
+     "omega_two_point": 10.4911,
+     "omega_saturated": 10.6683,
+     "G_hem_kg_m2_s": 7293.2
+    },
+    {
+     "P_kPa": 1612.667,
+     "T_K": 520.691,
+     "rho_liq_kg_m3": 604.307,
+     "h_lg_kJ_kg": 236.645,
+     "cp_liq_kJ_kgK": 2.6767,
+     "omega_two_point": 8.6732,
+     "omega_saturated": 8.9659,
+     "G_hem_kg_m2_s": 8834.2
+    },
+    {
+     "P_kPa": 2129.606,
+     "T_K": 540.306,
+     "rho_liq_kg_m3": 566.579,
+     "h_lg_kJ_kg": 206.954,
+     "cp_liq_kJ_kgK": 2.8795,
+     "omega_two_point": 7.0535,
+     "omega_saturated": 7.5283,
+     "G_hem_kg_m2_s": 10664.5
+    },
+    {
+     "P_kPa": 2812.249,
+     "T_K": 561.193,
+     "rho_liq_kg_m3": 515.681,
+     "h_lg_kJ_kg": 166.01,
+     "cp_liq_kJ_kgK": 3.2948,
+     "omega_two_point": 5.5548,
+     "omega_saturated": 6.4327,
+     "G_hem_kg_m2_s": 12802.8
+    },
+    {
+     "P_kPa": 3713.712,
+     "T_K": 583.206,
+     "rho_liq_kg_m3": 429.448,
+     "h_lg_kJ_kg": 96.927,
+     "cp_liq_kJ_kgK": 5.714,
+     "omega_two_point": 4.0364,
+     "omega_saturated": 7.3894,
+     "G_hem_kg_m2_s": 15081.7
+    }
+   ]
+  },
+  "n-hexane": {
+   "coolprop_name": "n-Hexane",
+   "M_kg_kmol": 86.1754,
+   "Tc_K": 507.82,
+   "Pc_kPa": 3044.12,
+   "Tb_K": 341.866,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 341.447,
+     "rho_liq_kg_m3": 613.781,
+     "h_lg_kJ_kg": 335.457,
+     "cp_liq_kJ_kgK": 2.4696,
+     "omega_two_point": 45.526,
+     "omega_saturated": 44.7339,
+     "G_hem_kg_m2_s": 1084.5
+    },
+    {
+     "P_kPa": 129.001,
+     "T_K": 349.76,
+     "rho_liq_kg_m3": 605.456,
+     "h_lg_kJ_kg": 329.06,
+     "cp_liq_kJ_kgK": 2.511,
+     "omega_two_point": 38.585,
+     "omega_saturated": 37.9727,
+     "G_hem_kg_m2_s": 1318.5
+    },
+    {
+     "P_kPa": 166.412,
+     "T_K": 358.557,
+     "rho_liq_kg_m3": 596.44,
+     "h_lg_kJ_kg": 322.055,
+     "cp_liq_kJ_kgK": 2.5561,
+     "omega_two_point": 32.7554,
+     "omega_saturated": 32.2928,
+     "G_hem_kg_m2_s": 1599.7
+    },
+    {
+     "P_kPa": 214.673,
+     "T_K": 367.88,
+     "rho_liq_kg_m3": 586.628,
+     "h_lg_kJ_kg": 314.333,
+     "cp_liq_kJ_kgK": 2.6056,
+     "omega_two_point": 27.8453,
+     "omega_saturated": 27.5083,
+     "G_hem_kg_m2_s": 1936.9
+    },
+    {
+     "P_kPa": 276.93,
+     "T_K": 377.773,
+     "rho_liq_kg_m3": 575.887,
+     "h_lg_kJ_kg": 305.757,
+     "cp_liq_kJ_kgK": 2.66,
+     "omega_two_point": 23.6964,
+     "omega_saturated": 23.4665,
+     "G_hem_kg_m2_s": 2340.2
+    },
+    {
+     "P_kPa": 357.242,
+     "T_K": 388.286,
+     "rho_liq_kg_m3": 564.046,
+     "h_lg_kJ_kg": 296.153,
+     "cp_liq_kJ_kgK": 2.7206,
+     "omega_two_point": 20.1778,
+     "omega_saturated": 20.0413,
+     "G_hem_kg_m2_s": 2821.4
+    },
+    {
+     "P_kPa": 460.846,
+     "T_K": 399.468,
+     "rho_liq_kg_m3": 550.884,
+     "h_lg_kJ_kg": 285.292,
+     "cp_liq_kJ_kgK": 2.789,
+     "omega_two_point": 17.181,
+     "omega_saturated": 17.1286,
+     "G_hem_kg_m2_s": 3394.1
+    },
+    {
+     "P_kPa": 594.495,
+     "T_K": 411.377,
+     "rho_liq_kg_m3": 536.103,
+     "h_lg_kJ_kg": 272.87,
+     "cp_liq_kJ_kgK": 2.8677,
+     "omega_two_point": 14.6149,
+     "omega_saturated": 14.6423,
+     "G_hem_kg_m2_s": 4074.0
+    },
+    {
+     "P_kPa": 766.903,
+     "T_K": 424.067,
+     "rho_liq_kg_m3": 519.279,
+     "h_lg_kJ_kg": 258.451,
+     "cp_liq_kJ_kgK": 2.9612,
+     "omega_two_point": 12.403,
+     "omega_saturated": 12.5116,
+     "G_hem_kg_m2_s": 4878.9
+    },
+    {
+     "P_kPa": 989.312,
+     "T_K": 437.594,
+     "rho_liq_kg_m3": 499.777,
+     "h_lg_kJ_kg": 241.365,
+     "cp_liq_kJ_kgK": 3.0779,
+     "omega_two_point": 10.4807,
+     "omega_saturated": 10.6822,
+     "G_hem_kg_m2_s": 5828.2
+    },
+    {
+     "P_kPa": 1276.221,
+     "T_K": 452.008,
+     "rho_liq_kg_m3": 476.551,
+     "h_lg_kJ_kg": 220.52,
+     "cp_liq_kJ_kgK": 3.2354,
+     "omega_two_point": 8.7925,
+     "omega_saturated": 9.1168,
+     "G_hem_kg_m2_s": 6941.8
+    },
+    {
+     "P_kPa": 1646.336,
+     "T_K": 467.348,
+     "rho_liq_kg_m3": 447.657,
+     "h_lg_kJ_kg": 194.079,
+     "cp_liq_kJ_kgK": 3.4786,
+     "omega_two_point": 7.2825,
+     "omega_saturated": 7.8016,
+     "G_hem_kg_m2_s": 8235.4
+    },
+    {
+     "P_kPa": 2123.787,
+     "T_K": 483.618,
+     "rho_liq_kg_m3": 408.756,
+     "h_lg_kJ_kg": 158.136,
+     "cp_liq_kJ_kgK": 3.9796,
+     "omega_two_point": 5.8787,
+     "omega_saturated": 6.8219,
+     "G_hem_kg_m2_s": 9706.7
+    },
+    {
+     "P_kPa": 2739.704,
+     "T_K": 500.687,
+     "rho_liq_kg_m3": 343.48,
+     "h_lg_kJ_kg": 97.862,
+     "cp_liq_kJ_kgK": 6.6651,
+     "omega_two_point": 4.4306,
+     "omega_saturated": 7.7215,
+     "G_hem_kg_m2_s": 11222.6
+    }
+   ]
+  },
+  "acetone": {
+   "coolprop_name": "Acetone",
+   "M_kg_kmol": 58.0791,
+   "Tc_K": 508.1,
+   "Pc_kPa": 4692.42,
+   "Tb_K": 329.225,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 328.84,
+     "rho_liq_kg_m3": 749.404,
+     "h_lg_kJ_kg": 501.849,
+     "cp_liq_kJ_kgK": 2.2282,
+     "omega_two_point": 44.0895,
+     "omega_saturated": 43.1991,
+     "G_hem_kg_m2_s": 1216.3
+    },
+    {
+     "P_kPa": 133.367,
+     "T_K": 337.495,
+     "rho_liq_kg_m3": 739.065,
+     "h_lg_kJ_kg": 492.172,
+     "cp_liq_kJ_kgK": 2.2558,
+     "omega_two_point": 36.2091,
+     "omega_saturated": 35.5374,
+     "G_hem_kg_m2_s": 1524.5
+    },
+    {
+     "P_kPa": 177.868,
+     "T_K": 346.694,
+     "rho_liq_kg_m3": 727.834,
+     "h_lg_kJ_kg": 481.555,
+     "cp_liq_kJ_kgK": 2.2871,
+     "omega_two_point": 29.8041,
+     "omega_saturated": 29.3083,
+     "G_hem_kg_m2_s": 1905.6
+    },
+    {
+     "P_kPa": 237.218,
+     "T_K": 356.488,
+     "rho_liq_kg_m3": 715.567,
+     "h_lg_kJ_kg": 469.829,
+     "cp_liq_kJ_kgK": 2.3227,
+     "omega_two_point": 24.5826,
+     "omega_saturated": 24.2297,
+     "G_hem_kg_m2_s": 2375.5
+    },
+    {
+     "P_kPa": 316.371,
+     "T_K": 366.934,
+     "rho_liq_kg_m3": 702.084,
+     "h_lg_kJ_kg": 456.779,
+     "cp_liq_kJ_kgK": 2.3635,
+     "omega_two_point": 20.3117,
+     "omega_saturated": 20.0766,
+     "G_hem_kg_m2_s": 2953.0
+    },
+    {
+     "P_kPa": 421.935,
+     "T_K": 378.091,
+     "rho_liq_kg_m3": 687.159,
+     "h_lg_kJ_kg": 442.126,
+     "cp_liq_kJ_kgK": 2.4111,
+     "omega_two_point": 16.8051,
+     "omega_saturated": 16.6695,
+     "G_hem_kg_m2_s": 3660.2
+    },
+    {
+     "P_kPa": 562.723,
+     "T_K": 390.028,
+     "rho_liq_kg_m3": 670.493,
+     "h_lg_kJ_kg": 425.501,
+     "cp_liq_kJ_kgK": 2.4671,
+     "omega_two_point": 13.9131,
+     "omega_saturated": 13.8646,
+     "G_hem_kg_m2_s": 4523.2
+    },
+    {
+     "P_kPa": 750.489,
+     "T_K": 402.815,
+     "rho_liq_kg_m3": 651.691,
+     "h_lg_kJ_kg": 406.404,
+     "cp_liq_kJ_kgK": 2.5348,
+     "omega_two_point": 11.5155,
+     "omega_saturated": 11.5474,
+     "G_hem_kg_m2_s": 5572.5
+    },
+    {
+     "P_kPa": 1000.906,
+     "T_K": 416.526,
+     "rho_liq_kg_m3": 630.2,
+     "h_lg_kJ_kg": 384.13,
+     "cp_liq_kJ_kgK": 2.6191,
+     "omega_two_point": 9.5147,
+     "omega_saturated": 9.6268,
+     "G_hem_kg_m2_s": 6843.0
+    },
+    {
+     "P_kPa": 1334.881,
+     "T_K": 431.237,
+     "rho_liq_kg_m3": 605.218,
+     "h_lg_kJ_kg": 357.645,
+     "cp_liq_kJ_kgK": 2.7293,
+     "omega_two_point": 7.8308,
+     "omega_saturated": 8.032,
+     "G_hem_kg_m2_s": 8374.2
+    },
+    {
+     "P_kPa": 1780.293,
+     "T_K": 447.015,
+     "rho_liq_kg_m3": 575.484,
+     "h_lg_kJ_kg": 325.323,
+     "cp_liq_kJ_kgK": 2.8852,
+     "omega_two_point": 6.3973,
+     "omega_saturated": 6.7125,
+     "G_hem_kg_m2_s": 10207.9
+    },
+    {
+     "P_kPa": 2374.328,
+     "T_K": 463.913,
+     "rho_liq_kg_m3": 538.777,
+     "h_lg_kJ_kg": 284.331,
+     "cp_liq_kJ_kgK": 3.138,
+     "omega_two_point": 5.1561,
+     "omega_saturated": 5.6483,
+     "G_hem_kg_m2_s": 12381.4
+    },
+    {
+     "P_kPa": 3166.576,
+     "T_K": 481.939,
+     "rho_liq_kg_m3": 490.193,
+     "h_lg_kJ_kg": 228.636,
+     "cp_liq_kJ_kgK": 3.686,
+     "omega_two_point": 4.0517,
+     "omega_saturated": 4.9253,
+     "G_hem_kg_m2_s": 14897.5
+    },
+    {
+     "P_kPa": 4223.175,
+     "T_K": 500.982,
+     "rho_liq_kg_m3": 409.794,
+     "h_lg_kJ_kg": 136.259,
+     "cp_liq_kJ_kgK": 6.972,
+     "omega_two_point": 3.0139,
+     "omega_saturated": 6.1497,
+     "G_hem_kg_m2_s": 17480.7
+    }
+   ]
+  },
+  "hydrogen": {
+   "coolprop_name": "Hydrogen",
+   "M_kg_kmol": 2.0159,
+   "Tc_K": 33.144,
+   "Pc_kPa": 1296.36,
+   "Tb_K": 20.369,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 20.324,
+     "rho_liq_kg_m3": 70.899,
+     "h_lg_kJ_kg": 448.915,
+     "cp_liq_kJ_kgK": 9.7476,
+     "omega_two_point": 3.7971,
+     "omega_saturated": 3.8739,
+     "G_hem_kg_m2_s": 1036.7
+    },
+    {
+     "P_kPa": 120.802,
+     "T_K": 20.98,
+     "rho_liq_kg_m3": 70.139,
+     "h_lg_kJ_kg": 445.63,
+     "cp_liq_kJ_kgK": 10.1254,
+     "omega_two_point": 3.4565,
+     "omega_saturated": 3.5513,
+     "G_hem_kg_m2_s": 1173.1
+    },
+    {
+     "P_kPa": 145.931,
+     "T_K": 21.671,
+     "rho_liq_kg_m3": 69.304,
+     "h_lg_kJ_kg": 441.45,
+     "cp_liq_kJ_kgK": 10.5545,
+     "omega_two_point": 3.1508,
+     "omega_saturated": 3.265,
+     "G_hem_kg_m2_s": 1325.4
+    },
+    {
+     "P_kPa": 176.288,
+     "T_K": 22.4,
+     "rho_liq_kg_m3": 68.382,
+     "h_lg_kJ_kg": 436.186,
+     "cp_liq_kJ_kgK": 11.0477,
+     "omega_two_point": 2.876,
+     "omega_saturated": 3.0117,
+     "G_hem_kg_m2_s": 1495.1
+    },
+    {
+     "P_kPa": 212.96,
+     "T_K": 23.171,
+     "rho_liq_kg_m3": 67.36,
+     "h_lg_kJ_kg": 429.601,
+     "cp_liq_kJ_kgK": 11.6231,
+     "omega_two_point": 2.6286,
+     "omega_saturated": 2.7888,
+     "G_hem_kg_m2_s": 1683.7
+    },
+    {
+     "P_kPa": 257.26,
+     "T_K": 23.986,
+     "rho_liq_kg_m3": 66.219,
+     "h_lg_kJ_kg": 421.398,
+     "cp_liq_kJ_kgK": 12.3063,
+     "omega_two_point": 2.4053,
+     "omega_saturated": 2.5945,
+     "G_hem_kg_m2_s": 1892.8
+    },
+    {
+     "P_kPa": 310.775,
+     "T_K": 24.848,
+     "rho_liq_kg_m3": 64.937,
+     "h_lg_kJ_kg": 411.193,
+     "cp_liq_kJ_kgK": 13.1366,
+     "omega_two_point": 2.2036,
+     "omega_saturated": 2.4278,
+     "G_hem_kg_m2_s": 2123.5
+    },
+    {
+     "P_kPa": 375.423,
+     "T_K": 25.759,
+     "rho_liq_kg_m3": 63.483,
+     "h_lg_kJ_kg": 398.478,
+     "cp_liq_kJ_kgK": 14.1764,
+     "omega_two_point": 2.0209,
+     "omega_saturated": 2.2892,
+     "G_hem_kg_m2_s": 2376.9
+    },
+    {
+     "P_kPa": 453.519,
+     "T_K": 26.723,
+     "rho_liq_kg_m3": 61.813,
+     "h_lg_kJ_kg": 382.558,
+     "cp_liq_kJ_kgK": 15.5324,
+     "omega_two_point": 1.8551,
+     "omega_saturated": 2.1818,
+     "G_hem_kg_m2_s": 2653.6
+    },
+    {
+     "P_kPa": 547.86,
+     "T_K": 27.743,
+     "rho_liq_kg_m3": 59.865,
+     "h_lg_kJ_kg": 362.429,
+     "cp_liq_kJ_kgK": 17.4047,
+     "omega_two_point": 1.7046,
+     "omega_saturated": 2.113,
+     "G_hem_kg_m2_s": 2952.7
+    },
+    {
+     "P_kPa": 661.826,
+     "T_K": 28.823,
+     "rho_liq_kg_m3": 57.536,
+     "h_lg_kJ_kg": 336.535,
+     "cp_liq_kJ_kgK": 20.2178,
+     "omega_two_point": 1.5682,
+     "omega_saturated": 2.1012,
+     "G_hem_kg_m2_s": 3271.3
+    },
+    {
+     "P_kPa": 799.5,
+     "T_K": 29.963,
+     "rho_liq_kg_m3": 54.643,
+     "h_lg_kJ_kg": 302.175,
+     "cp_liq_kJ_kgK": 25.0694,
+     "omega_two_point": 1.4458,
+     "omega_saturated": 2.1961,
+     "G_hem_kg_m2_s": 3601.1
+    },
+    {
+     "P_kPa": 965.813,
+     "T_K": 31.165,
+     "rho_liq_kg_m3": 50.777,
+     "h_lg_kJ_kg": 253.604,
+     "cp_liq_kJ_kgK": 35.9692,
+     "omega_two_point": 1.3408,
+     "omega_saturated": 2.5803,
+     "G_hem_kg_m2_s": 3919.8
+    },
+    {
+     "P_kPa": 1166.722,
+     "T_K": 32.425,
+     "rho_liq_kg_m3": 44.48,
+     "h_lg_kJ_kg": 171.311,
+     "cp_liq_kJ_kgK": 88.4344,
+     "omega_two_point": 1.2767,
+     "omega_saturated": 4.8036,
+     "G_hem_kg_m2_s": 4143.0
+    }
+   ]
+  },
+  "n-pentane": {
+   "coolprop_name": "n-Pentane",
+   "M_kg_kmol": 72.1488,
+   "Tc_K": 469.7,
+   "Pc_kPa": 3367.52,
+   "Tb_K": 309.209,
+   "rows": [
+    {
+     "P_kPa": 100.0,
+     "T_K": 308.824,
+     "rho_liq_kg_m3": 610.365,
+     "h_lg_kJ_kg": 358.014,
+     "cp_liq_kJ_kgK": 2.3665,
+     "omega_two_point": 40.6384,
+     "omega_saturated": 39.9303,
+     "G_hem_kg_m2_s": 1138.7
+    },
+    {
+     "P_kPa": 130.007,
+     "T_K": 316.717,
+     "rho_liq_kg_m3": 602.193,
+     "h_lg_kJ_kg": 351.564,
+     "cp_liq_kJ_kgK": 2.4052,
+     "omega_two_point": 34.2551,
+     "omega_saturated": 33.715,
+     "G_hem_kg_m2_s": 1392.6
+    },
+    {
+     "P_kPa": 169.017,
+     "T_K": 325.086,
+     "rho_liq_kg_m3": 593.333,
+     "h_lg_kJ_kg": 344.462,
+     "cp_liq_kJ_kgK": 2.4481,
+     "omega_two_point": 28.9315,
+     "omega_saturated": 28.5305,
+     "G_hem_kg_m2_s": 1699.4
+    },
+    {
+     "P_kPa": 219.734,
+     "T_K": 333.973,
+     "rho_liq_kg_m3": 583.677,
+     "h_lg_kJ_kg": 336.585,
+     "cp_liq_kJ_kgK": 2.4956,
+     "omega_two_point": 24.479,
+     "omega_saturated": 24.1945,
+     "G_hem_kg_m2_s": 2068.9
+    },
+    {
+     "P_kPa": 285.668,
+     "T_K": 343.425,
+     "rho_liq_kg_m3": 573.091,
+     "h_lg_kJ_kg": 327.778,
+     "cp_liq_kJ_kgK": 2.5487,
+     "omega_two_point": 20.7432,
+     "omega_saturated": 20.5578,
+     "G_hem_kg_m2_s": 2512.7
+    },
+    {
+     "P_kPa": 371.388,
+     "T_K": 353.493,
+     "rho_liq_kg_m3": 561.404,
+     "h_lg_kJ_kg": 317.847,
+     "cp_liq_kJ_kgK": 2.6085,
+     "omega_two_point": 17.5971,
+     "omega_saturated": 17.498,
+     "G_hem_kg_m2_s": 3044.3
+    },
+    {
+     "P_kPa": 482.829,
+     "T_K": 364.231,
+     "rho_liq_kg_m3": 548.394,
+     "h_lg_kJ_kg": 306.54,
+     "cp_liq_kJ_kgK": 2.677,
+     "omega_two_point": 14.9359,
+     "omega_saturated": 14.9149,
+     "G_hem_kg_m2_s": 3679.2
+    },
+    {
+     "P_kPa": 627.71,
+     "T_K": 375.697,
+     "rho_liq_kg_m3": 533.763,
+     "h_lg_kJ_kg": 293.514,
+     "cp_liq_kJ_kgK": 2.7568,
+     "omega_two_point": 12.673,
+     "omega_saturated": 12.7264,
+     "G_hem_kg_m2_s": 4435.2
+    },
+    {
+     "P_kPa": 816.065,
+     "T_K": 387.954,
+     "rho_liq_kg_m3": 517.092,
+     "h_lg_kJ_kg": 278.294,
+     "cp_liq_kJ_kgK": 2.8527,
+     "omega_two_point": 10.7361,
+     "omega_saturated": 10.8661,
+     "G_hem_kg_m2_s": 5332.1
+    },
+    {
+     "P_kPa": 1060.939,
+     "T_K": 401.063,
+     "rho_liq_kg_m3": 497.76,
+     "h_lg_kJ_kg": 260.174,
+     "cp_liq_kJ_kgK": 2.9734,
+     "omega_two_point": 9.0645,
+     "omega_saturated": 9.2818,
+     "G_hem_kg_m2_s": 6391.6
+    },
+    {
+     "P_kPa": 1379.291,
+     "T_K": 415.084,
+     "rho_liq_kg_m3": 474.764,
+     "h_lg_kJ_kg": 238.035,
+     "cp_liq_kJ_kgK": 3.1378,
+     "omega_two_point": 7.6054,
+     "omega_saturated": 7.9377,
+     "G_hem_kg_m2_s": 7635.8
+    },
+    {
+     "P_kPa": 1793.17,
+     "T_K": 430.063,
+     "rho_liq_kg_m3": 446.26,
+     "h_lg_kJ_kg": 209.879,
+     "cp_liq_kJ_kgK": 3.3952,
+     "omega_two_point": 6.3102,
+     "omega_saturated": 6.8261,
+     "G_hem_kg_m2_s": 9081.3
+    },
+    {
+     "P_kPa": 2331.24,
+     "T_K": 446.015,
+     "rho_liq_kg_m3": 407.989,
+     "h_lg_kJ_kg": 171.311,
+     "cp_liq_kJ_kgK": 3.9341,
+     "omega_two_point": 5.1242,
+     "omega_saturated": 6.0472,
+     "G_hem_kg_m2_s": 10718.4
+    },
+    {
+     "P_kPa": 3030.767,
+     "T_K": 462.84,
+     "rho_liq_kg_m3": 342.691,
+     "h_lg_kJ_kg": 105.523,
+     "cp_liq_kJ_kgK": 6.9295,
+     "omega_two_point": 3.9402,
+     "omega_saturated": 7.216,
+     "G_hem_kg_m2_s": 12358.2
+    }
+   ]
+  }
+ }
+}

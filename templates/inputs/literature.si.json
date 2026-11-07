@@ -1,0 +1,65 @@
+{
+  "command": "literature",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "text": null,
+    "topic": null,
+    "module": null,
+    "region": null,
+    "kind": null,
+    "read_only": null,
+    "markdown": null
+  },
+  "_guide": {
+    "text": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "text to search in title, publisher, note and topics"
+    },
+    "topic": {
+      "flag": "--topic",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "module": {
+      "flag": "--module",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "region": {
+      "flag": "--region",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "e.g. US, UK, EU, IN, SG, AU, ME, global"
+    },
+    "kind": {
+      "flag": "--kind",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "regulation, standard, guidance, investigation, database, association, journal, news, data-tool"
+    },
+    "read_only": {
+      "flag": "--read-only",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "only sources whose content was read for the toolkit"
+    },
+    "markdown": {
+      "flag": "--markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print the whole index as Markdown (docs/LITERATURE.md)"
+    }
+  }
+}

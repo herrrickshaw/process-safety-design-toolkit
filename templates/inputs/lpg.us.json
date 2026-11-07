@@ -1,0 +1,43 @@
+{
+  "command": "lpg",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "component": null,
+    "fill_C": 59.0,
+    "max_C": 122.0
+  },
+  "_guide": {
+    "component": {
+      "flag": "(positional)",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "fill_C": {
+      "flag": "--fill-C",
+      "required": false,
+      "type": "float",
+      "unit": "degF",
+      "help": "",
+      "range": {
+        "hard_min": -459.67,
+        "soft_min": -328.0,
+        "soft_max": 1472.0
+      }
+    },
+    "max_C": {
+      "flag": "--max-C",
+      "required": false,
+      "type": "float",
+      "unit": "degF",
+      "help": "",
+      "range": {
+        "hard_min": -459.67,
+        "soft_min": -328.0,
+        "soft_max": 1472.0
+      }
+    }
+  }
+}
