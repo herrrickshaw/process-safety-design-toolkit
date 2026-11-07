@@ -57,3 +57,17 @@ jobs:
         with:
           name: crosscheck-results
           path: crosscheck-results.json
+
+  octave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GNU Octave
+        run: sudo apt-get update && sudo apt-get install -y octave
+      - name: MATLAB/Octave tools, identity tests
+        run: octave-cli --eval "addpath('matlab'); ps_run_tests"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Octave versus Python models
+        run: python -m unittest tests.test_matlab -v

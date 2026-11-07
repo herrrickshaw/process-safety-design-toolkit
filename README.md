@@ -92,6 +92,7 @@ The differences that cause mistakes (gauge versus absolute, temperature reading 
 and `templates/inputs_all.csv`. The scenario suite (`python scripts/run_scenarios.py --check`, report in
 [docs/SCENARIO_REPORT.md](docs/SCENARIO_REPORT.md)) runs 150+ design cases, each command-line case in both unit systems.
 Escape-time (`egress`) and lumen-method lighting (`illumination`) checks were added with it.
+MATLAB and GNU Octave users: [matlab/](matlab/README.md) has the relief, two-phase flux, flame view-factor, depressuring, escape-time, lighting and unit tools as plain `.m` files, tested against the Python models.
 
 ## Examples
 ```bash
