@@ -1,6 +1,6 @@
 # Building an open jet-fire model, and being honest about what it does not prove
 
-*Draft for review. Demo and repository links are at the bottom.*
+*Live demo: https://jet-flame-screening.lovable.app. Code: this repository, `process_safety/jet_flame.py` and `process_safety/expansion.py`.*
 
 A jet fire from a pressurised release is one of the hazards process-safety engineers screen most often, and the usual tools for it (Phast, FRED, EFFECTS) are commercial. I wanted to know how much of that workflow can be built from open material, and where the open material runs out. This post is what I found, what I built, and what I could not prove.
 
@@ -48,7 +48,7 @@ I also built a small browser calculator that runs the same equations and draws t
 ## What I would do next
 
 1. Digitise the measured flame lengths and emissive powers from the validation plots, or find Chamberlain's tables, and add a real cross-check with an error band.
-2. Add a flashing-release source term so the density and velocity come from the same toolchain.
+2. Extend the new `expansion` module (an atmospheric-expansion step that now turns a gas orifice release into post-expansion velocity, density and temperature, and gives a flash fraction for liquids) with a rainout model and DNV's two-phase flame correlations. Rainout is an input today, and a flashing result is deliberately refused as a vapour jet-flame input.
 3. Replace the recalled steel-strength values with the Eurocode table once someone with access reads it.
 
 **Repository:** https://github.com/herrrickshaw/process-safety-design-toolkit (branch `feature/jet-flame-chamberlain`).

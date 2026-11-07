@@ -151,6 +151,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `python -m process_safety glossary TERM` searches `docs/GLOSSARY.md` (about 115 terms and abbreviations).
 
 ## Docs
+* `docs/BLOG_JET_FLAME.md`: article on building the open `jet_flame` and `expansion` modules, what the open sources do and do not cover, and what is not validated; links the [live browser calculator](https://jet-flame-screening.lovable.app).
 * `docs/PUBLIC_REQUIREMENTS_SURVEY.md`: counts of normative statements by recommendation type across 23 public oil, gas, LNG and safety-in-design documents (counts only, no quoted text).
 * `docs/REQUIREMENTS_EXTRACT.md`: a local extractor for "shall"/"should" statements in standards and design practices you hold (private output only), with the project documents it connects to.
 * `docs/INSURANCE_IMPACT.md`: actuarial view of how derogations, compensating measures and better-documented risk change a project's insurance cost (`insurance` command).
