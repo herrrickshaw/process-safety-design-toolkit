@@ -15,6 +15,7 @@ ruff check --select E9,F63,F7,F82,F401,F811,F841 --target-version py310 process_
 python tests/crosscheck/validate.py        # optional: pip install fluids thermo CoolProp scipy
 python scripts/gen_fluid_table.py          # regenerate data/fluid_screening.json (needs CoolProp)
 python scripts/gen_validation.py xc.json   # after validate.py --json xc.json
+octave-cli --eval "addpath('matlab'); ps_run_tests"   # the MATLAB/Octave ports (needs Octave); tests/test_matlab.py compares them with Python
 python scripts/run_scenarios.py --check    # the design-scenario suite (SI and US runs, oracles, metamorphic checks)
 python scripts/run_scenarios.py --write    # regenerate docs/SCENARIO_REPORT.md; --update re-captures snapshots after a deliberate change
 python scripts/gen_input_templates.py --write   # regenerate docs/INPUT_TEMPLATES.md and templates/ after adding or changing an argument
