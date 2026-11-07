@@ -1,0 +1,54 @@
+{
+  "command": "tank-normal",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "volume": null,
+    "fill": 0.0,
+    "empty": 0.0,
+    "volatile": null
+  },
+  "_guide": {
+    "volume": {
+      "flag": "--volume",
+      "required": true,
+      "type": "float",
+      "unit": "m3",
+      "help": "tank capacity m3",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.001,
+        "soft_max": 500000
+      }
+    },
+    "fill": {
+      "flag": "--fill",
+      "required": false,
+      "type": "float",
+      "unit": "m3/h",
+      "help": "max filling rate m3/h",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 100000
+      }
+    },
+    "empty": {
+      "flag": "--empty",
+      "required": false,
+      "type": "float",
+      "unit": "m3/h",
+      "help": "max emptying rate m3/h",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 100000
+      }
+    },
+    "volatile": {
+      "flag": "--volatile",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "flash point < 37.8 C or boiling point < 148.9 C"
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+ "_note": "ILLUSTRATIVE plant data for a hypothetical gas plant: invented streams, units, devices and register rows to show the ingestion and the reasoning chain. Replace with your PFS/HMB export, P&ID registers and PHA register.",
+ "name": "Illustrative gas plant",
+ "units": [
+  {
+   "tag": "V-101",
+   "type": "vessel",
+   "design_P_kpag": 1700,
+   "design_T_C": 80,
+   "mdmt_C": -20,
+   "volume_m3": 20,
+   "D_m": 2.4,
+   "L_m": 6.0
+  },
+  {
+   "tag": "V-102",
+   "type": "drum",
+   "design_P_kpag": 700,
+   "design_T_C": 80,
+   "volume_m3": 8,
+   "D_m": 1.6,
+   "L_m": 4.0
+  },
+  {
+   "tag": "T-201",
+   "type": "vessel",
+   "design_P_kpag": 1900,
+   "design_T_C": 60,
+   "volume_m3": 100,
+   "level_pct": 90,
+   "D_m": 3.0,
+   "L_m": 14.0,
+   "operator_response_min": 10,
+   "valve_closure_s": 60,
+   "latent_heat_kJ_kg": 330,
+   "inventory_kg": 45000,
+   "fire": {
+    "mode": "liquid_wetted",
+    "fluid": {
+     "M": 44.1,
+     "k": 1.13,
+     "Z": 0.9,
+     "relieving_T_K": 330,
+     "mu_Pa_s": 8e-06
+    },
+    "vessel": {
+     "D_m": 3.0,
+     "L_m": 14.0,
+     "level_m": 2.0,
+     "orientation": "horizontal",
+     "elevation_m": 1.0,
+     "latent_heat_kJ_kg": 330,
+     "F": 1.0,
+     "adequate_drainage": true
+    },
+    "inlet_id_m": 0.1023,
+    "inlet_length_m": 5.0,
+    "inlet_candidates": [
+     {
+      "id_m": 0.1541,
+      "rate_key": "pipe_6in"
+     },
+     {
+      "id_m": 0.2027,
+      "rate_key": "pipe_8in"
+     }
+    ]
+   }
+  },
+  {
+   "tag": "E-301",
+   "type": "exchanger",
+   "design_P_kpag": 9000,
+   "design_T_C": 120
+  }
+ ],
+ "streams": [
+  {
+   "id": "S0",
+   "from": "battery_limit",
+   "to": "V-101",
+   "phase": "vapour",
+   "T_C": 40,
+   "P_kpag": 1400,
+   "mass_kg_h": 50000,
+   "mw": 20,
+   "k": 1.3,
+   "components": {
+    "methane": 0.7,
+    "ethane": 0.15,
+    "propane": 0.15
+   }
+  },
+  {
+   "id": "S2",
+   "from": "V-101",
+   "to": "V-102",
+   "phase": "vapour",
+   "T_C": 40,
+   "P_kpag": 1400,
+   "mass_kg_h": 30000,
+   "mw": 20,
+   "k": 1.3,
+   "components": {
+    "methane": 0.7,
+    "ethane": 0.15,
+    "propane": 0.15
+   }
+  },
+  {
+   "id": "S3",
+   "from": "V-101",
+   "to": "T-201",
+   "phase": "liquid",
+   "T_C": 30,
+   "P_kpag": 1000,
+   "mass_kg_h": 20000,
+   "rho_kg_m3": 500,
+   "components": {
+    "propane": 0.9,
+    "butane": 0.1
+   }
+  },
+  {
+   "id": "S4",
+   "from": "V-102",
+   "to": "battery_limit",
+   "phase": "vapour",
+   "T_C": 35,
+   "P_kpag": 500,
+   "mass_kg_h": 30000,
+   "mw": 20,
+   "k": 1.3,
+   "components": {
+    "methane": 0.7,
+    "ethane": 0.15,
+    "propane": 0.15
+   }
+  },
+  {
+   "id": "S5",
+   "from": "T-201",
+   "to": "battery_limit",
+   "phase": "liquid",
+   "T_C": 30,
+   "P_kpag": 900,
+   "mass_kg_h": 20000,
+   "rho_kg_m3": 500,
+   "components": {
+    "propane": 0.9,
+    "butane": 0.1
+   }
+  }
+ ],
+ "lines": [
+  {
+   "line_no": "L-2001",
+   "from": "V-101",
+   "to": "V-102",
+   "nps": 6,
+   "length_m": 40,
+   "design_P_kpag": 1700,
+   "fluid": "gas"
+  },
+  {
+   "line_no": "L-2002",
+   "from": "V-101",
+   "to": "T-201",
+   "nps": 4,
+   "length_m": 25,
+   "design_P_kpag": 1700,
+   "fluid": "propane"
+  }
+ ],
+ "relief_devices": [
+  {
+   "tag": "PSV-101",
+   "unit": "V-101",
+   "type": "PSV",
+   "set_kpag": 1500,
+   "orifice": "J",
+   "outlet_to": "flare"
+  },
+  {
+   "tag": "PSV-201",
+   "unit": "T-201",
+   "type": "PSV",
+   "set_kpag": 1700,
+   "orifice": "K",
+   "outlet_to": "atmosphere"
+  }
+ ],
+ "instruments": [
+  {
+   "tag": "LT-101",
+   "type": "LT",
+   "unit": "V-101",
+   "loop": "BPCS",
+   "function": "control"
+  },
+  {
+   "tag": "GD-101",
+   "type": "GD",
+   "unit": "V-101",
+   "loop": "F&G",
+   "function": "detect"
+  },
+  {
+   "tag": "LT-201",
+   "type": "LT",
+   "unit": "T-201",
+   "loop": "BPCS",
+   "function": "control"
+  },
+  {
+   "tag": "PT-201",
+   "type": "PT",
+   "unit": "T-201",
+   "loop": "SIS",
+   "function": "trip",
+   "voting": "1oo1"
+  }
+ ],
+ "valves": [
+  {
+   "tag": "XV-101",
+   "type": "SDV",
+   "unit": "V-101"
+  }
+ ],
+ "exchangers": [
+  {
+   "tag": "E-301",
+   "hp_unit": "V-101",
+   "lp_unit": "V-102",
+   "tube_id_mm": 19,
+   "hp_design_kpag": 9000,
+   "lp_design_kpag": 5000,
+   "hp_P_kpag": 8000,
+   "lp_P_kpag": 2500,
+   "phase": "vapour",
+   "T_K": 350,
+   "M": 20,
+   "k": 1.3
+  }
+ ],
+ "params": {
+  "overfill_safety_factor": 2.0
+ },
+ "isolation_inventory_kg": 20000,
+ "register": [
+  {
+   "id": "H1",
+   "node": "Node 1 V-101 separator",
+   "deviation": "More pressure",
+   "cause": "blocked gas outlet",
+   "consequence": "overpressure of V-101",
+   "safeguards": "PSV-101",
+   "recommendation": "Confirm PSV-101 capacity for blocked outlet and check flare header load",
+   "owner": "Process",
+   "status": "open"
+  },
+  {
+   "id": "H2",
+   "node": "Node 2 V-102 drum",
+   "deviation": "More pressure",
+   "cause": "high pressure gas from V-101",
+   "consequence": "V-102 exceeds design pressure",
+   "safeguards": "",
+   "recommendation": "Install a pressure relief valve on V-102",
+   "owner": "Process",
+   "status": "open"
+  },
+  {
+   "id": "H3",
+   "node": "Node 3 T-201 propane bullet",
+   "deviation": "More level",
+   "cause": "inlet valve fails open",
+   "consequence": "overfill and release",
+   "safeguards": "LT-201 level alarm",
+   "recommendation": "Add independent high-high level trip to close the inlet",
+   "owner": "Instrumentation",
+   "status": "open"
+  },
+  {
+   "id": "H4",
+   "node": "Node 3 T-201 propane bullet",
+   "deviation": "More temperature",
+   "cause": "external fire",
+   "consequence": "boiling liquid, vessel failure",
+   "safeguards": "PSV-201",
+   "recommendation": "Review fire water coverage",
+   "owner": "Safety",
+   "status": "open"
+  },
+  {
+   "id": "H5",
+   "node": "Node 1 V-101 separator",
+   "deviation": "Other than: operations",
+   "cause": "start-up with wrong line-up",
+   "consequence": "loss of containment",
+   "safeguards": "procedure",
+   "recommendation": "Update start-up procedure and train operators",
+   "owner": "Operations",
+   "status": "closed"
+  },
+  {
+   "id": "H6",
+   "node": "Node 4 E-301 exchanger",
+   "deviation": "Other than: composition",
+   "cause": "tube leak",
+   "consequence": "high pressure gas into LP side",
+   "safeguards": "",
+   "recommendation": "Evaluate tube rupture relief on the low pressure side",
+   "owner": "Process",
+   "status": "open"
+  }
+ ]
+}

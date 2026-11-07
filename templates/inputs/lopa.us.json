@@ -1,0 +1,59 @@
+{
+  "command": "lopa",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "ie": null,
+    "ipl": null,
+    "target": null,
+    "modifier": 1.0
+  },
+  "_guide": {
+    "ie": {
+      "flag": "--ie",
+      "required": true,
+      "type": "float",
+      "unit": "1/yr",
+      "help": "initiating event freq /yr",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.0,
+        "soft_max": 100
+      }
+    },
+    "ipl": {
+      "flag": "--ipl",
+      "required": false,
+      "type": "float list",
+      "unit": "-",
+      "help": "PFD of each independent protection layer",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0
+      }
+    },
+    "target": {
+      "flag": "--target",
+      "required": true,
+      "type": "float",
+      "unit": "1/yr",
+      "help": "tolerable frequency /yr",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.0,
+        "soft_max": 100
+      }
+    },
+    "modifier": {
+      "flag": "--modifier",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0
+      }
+    }
+  }
+}

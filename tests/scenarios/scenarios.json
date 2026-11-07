@@ -1,0 +1,6977 @@
+{
+ "description": "Design scenarios run against the toolkit; see scripts/scenario_lib.py for what each kind of check means.",
+ "gaps": {
+  "Layout / separation distances": "Table-based inter-unit spacing is not implemented (OISD-STD-118 and company spacing tables were not read). Consequence-based distances are covered through FIR-01 to FIR-03 (pool-fire and flame-flux), FIR-08 (plume), REG-05 (RMP) and QRA-02 (emergency planning).",
+  "F&G detector mapping": "3D detector geometry is not implemented; the 2D coverage optimiser is exercised by WRK-05 under 'Fire & gas mapping'.",
+  "Gas suppression / clean-agent room design": "Not implemented: the standards were not read and the manufacturer's calculation governs.",
+  "Load flow, harmonics, transient stability, switching transients": "Not implemented: these are software studies, not hand calculations; the toolkit covers the hand-calculation forms (ELE-08 to ELE-13).",
+  "Pulsation and vibration studies": "Not implemented: needs acoustic and structural dynamic models that were not built."
+ },
+ "scenarios": [
+  {
+   "id": "REL-01",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "Gas PSV, fire case, 1500 kPag set (refinery drum)",
+   "args": [
+    "relief-gas",
+    "--W",
+    "12000",
+    "--T",
+    "400",
+    "--set-g",
+    "1500",
+    "--back-g",
+    "100",
+    "--case",
+    "fire",
+    "--M",
+    "44",
+    "--k",
+    "1.13",
+    "--Z",
+    "0.9"
+   ],
+   "expect": [
+    {
+     "path": "required_area_mm2",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "regime",
+     "op": "eq",
+     "value": "critical"
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--W",
+      "factor": 2
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--set-g",
+      "factor": 2
+     },
+     "path": "required_area_mm2",
+     "relation": "decreasing"
+    },
+    {
+     "vary": {
+      "flag": "--M",
+      "factor": 4
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--T",
+      "factor": 4
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--back-g",
+      "factor": 1
+     },
+     "path": "required_area_mm2",
+     "relation": "unchanged"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "required_area_mm2": 733.2703918377899,
+    "orifice": "J",
+    "n_valves": 1,
+    "regime": "critical"
+   }
+  },
+  {
+   "id": "REL-02",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "Gas PSV, ordinary overpressure case, lower set pressure and compressibility effect",
+   "args": [
+    "relief-gas",
+    "--W",
+    "5000",
+    "--T",
+    "350",
+    "--set-g",
+    "500",
+    "--M",
+    "30",
+    "--k",
+    "1.2",
+    "--Z",
+    "1.0"
+   ],
+   "expect": [
+    {
+     "path": "required_area_mm2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--W",
+      "factor": 3
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 3,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--Z",
+      "factor": 1.5
+     },
+     "path": "required_area_mm2",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "required_area_mm2": 1050.3275869340098,
+    "orifice": "K",
+    "n_valves": 1,
+    "regime": "critical"
+   }
+  },
+  {
+   "id": "REL-03",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "Steam relief valve area",
+   "args": [
+    "relief-steam",
+    "--W",
+    "5000",
+    "--set-g",
+    "1000",
+    "--Ksh",
+    "1.0"
+   ],
+   "expect": [
+    {
+     "path": "required_area_mm2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--W",
+      "factor": 2
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--Ksh",
+      "factor": 1.1
+     },
+     "path": "required_area_mm2",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "required_area_mm2": 813.2046506341554,
+    "orifice": "J",
+    "n_valves": 1,
+    "regime": "napier"
+   }
+  },
+  {
+   "id": "REL-04",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "Liquid relief area, 50 m3/h of a light hydrocarbon",
+   "args": [
+    "relief-liquid",
+    "--Q",
+    "50",
+    "--rho",
+    "800",
+    "--set-g",
+    "1000",
+    "--mu",
+    "1"
+   ],
+   "expect": [
+    {
+     "path": "required_area_mm2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--Q",
+      "factor": 2
+     },
+     "path": "required_area_mm2",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "flag": "--rho",
+      "factor": 4
+     },
+     "path": "required_area_mm2",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "required_area_mm2": 407.4626449767488,
+    "orifice": "H",
+    "n_valves": 1,
+    "regime": "liquid"
+   }
+  },
+  {
+   "id": "REL-05",
+   "topics": [
+    "Fire case relief (liquid-wetted)"
+   ],
+   "title": "Liquid-wetted fire case, horizontal vessel",
+   "args": [
+    "relief-fire",
+    "--D",
+    "3",
+    "--L",
+    "10",
+    "--level",
+    "1.5",
+    "--orientation",
+    "horizontal",
+    "--latent",
+    "350"
+   ],
+   "expect": [
+    {
+     "path": "relief_rate_kg_h",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "wetted_area_m2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "relief_rate_kg_h",
+     "formula": "$heat_input_kW*3600/350",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--latent",
+      "factor": 2
+     },
+     "path": "relief_rate_kg_h",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--latent",
+      "factor": 2
+     },
+     "path": "heat_input_kW",
+     "relation": "unchanged"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "wetted_area_m2": 56.87988980384689,
+    "heat_input_kW": 1187.2711609047346,
+    "relief_rate_kg_h": 12211.931940734414
+   }
+  },
+  {
+   "id": "REL-06",
+   "topics": [
+    "Tank venting (atmospheric / low-pressure)"
+   ],
+   "title": "Normal venting of a 5000 m3 volatile tank",
+   "args": [
+    "tank-normal",
+    "--volume",
+    "5000",
+    "--fill",
+    "500",
+    "--empty",
+    "400",
+    "--volatile"
+   ],
+   "expect": [
+    {
+     "path": "outbreathing_Nm3h",
+     "op": "gt",
+     "value": 500
+    },
+    {
+     "path": "inbreathing_Nm3h",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--volume",
+      "factor": 2
+     },
+     "path": "outbreathing_Nm3h",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "flag": "--fill",
+      "factor": 2
+     },
+     "path": "outbreathing_Nm3h",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "outbreathing_Nm3h": 1797.0,
+    "inbreathing_Nm3h": 1163.0
+   }
+  },
+  {
+   "id": "REL-07",
+   "topics": [
+    "Tank venting (atmospheric / low-pressure)"
+   ],
+   "title": "Emergency (fire) venting, vertical tank",
+   "args": [
+    "tank-fire",
+    "--shape",
+    "vertical",
+    "--D",
+    "20",
+    "--L",
+    "15",
+    "--design-barg",
+    "0.5",
+    "--F",
+    "1.0"
+   ],
+   "expect": [
+    {
+     "path": "required_Nm3h_eq1B",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--D",
+      "factor": 1.5
+     },
+     "path": "required_Nm3h_eq1B",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "flag": "--F",
+      "factor": 0.5
+     },
+     "path": "required_Nm3h_eq1B",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "wetted_area_m2": 574.2831370762142,
+    "F": 1.0,
+    "required_Nm3h_eq1B": 38092.92021343559,
+    "required_Nm3h_simplified": 38103.4322734193,
+    "additional_emergency_vent_Nm3h": 38092.92021343559
+   }
+  },
+  {
+   "id": "REL-08",
+   "topics": [
+    "Release source terms / blowdown"
+   ],
+   "title": "Adiabatic blowdown through a 25 mm hole (0.025 m)",
+   "args": [
+    "blowdown",
+    "--volume",
+    "10",
+    "--p0",
+    "5000",
+    "--T0",
+    "300",
+    "--M",
+    "20",
+    "--k",
+    "1.3",
+    "--hole-d",
+    "0.025"
+   ],
+   "expect": [
+    {
+     "path": "released_kg",
+     "op": "le_path",
+     "value": "initial_mass_kg"
+    },
+    {
+     "path": "time_to_atm_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "initial_mass_kg",
+     "formula": "5000*10*20/(8.314462618*300)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--hole-d",
+      "factor": 2
+     },
+     "path": "time_to_atm_s",
+     "relation": "decreasing"
+    },
+    {
+     "vary": {
+      "flag": "--volume",
+      "factor": 2
+     },
+     "path": "initial_mass_kg",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "initial_rate_kg_s": 3.941783145340961,
+    "initial_mass_kg": 400.90785014980906,
+    "released_kg": 380.9227810696184,
+    "time_to_atm_s": 415.6000000000602
+   }
+  },
+  {
+   "id": "REL-09",
+   "topics": [
+    "Emergency depressuring / blowdown + MDMT"
+   ],
+   "title": "Depressuring from 5000 to 1000 kPa through 800 mm2",
+   "args": [
+    "depressure",
+    "--volume",
+    "30",
+    "--p0",
+    "5000",
+    "--pt",
+    "1000",
+    "--T0",
+    "300",
+    "--M",
+    "20",
+    "--k",
+    "1.3",
+    "--area",
+    "800"
+   ],
+   "expect": [
+    {
+     "path": "adiabatic_s",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "min_gas_temperature_K_isentropic",
+     "op": "lt",
+     "value": 300
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--area",
+      "factor": 2
+     },
+     "path": "isothermal_s",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--area",
+      "factor": 2
+     },
+     "path": "adiabatic_s",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--area",
+      "factor": 2
+     },
+     "path": "min_gas_temperature_K_isentropic",
+     "relation": "unchanged"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "isothermal_s": 301.30000000003423,
+    "adiabatic_s": 254.70000000002366,
+    "min_gas_temperature_K_isentropic": 206.9285833225892
+   }
+  },
+  {
+   "id": "REL-10",
+   "topics": [
+    "Two-phase / flashing relief discharge"
+   ],
+   "title": "Two-phase relief, propane at 1900 kPa abs",
+   "args": [
+    "twophase",
+    "--fluid",
+    "propane",
+    "--P0",
+    "1900",
+    "--W",
+    "8",
+    "--Kd",
+    "0.85"
+   ],
+   "expect": [
+    {
+     "path": "omega",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "required_area_mm2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--W",
+      "factor": 2
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--Kd",
+      "factor": 0.5
+     },
+     "path": "required_area_mm2",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "G_kg_m2_s": 10509.532573034778,
+    "eta_critical": 0.7824300540373136,
+    "eta_used": 0.7824300540373136,
+    "regime": "choked",
+    "omega": 4.615603367929481,
+    "required_area_mm2": 895.5455098004012,
+    "fluid": "propane",
+    "G_hem_reference_kg_m2_s": 10501.233197088006
+   }
+  },
+  {
+   "id": "REL-11",
+   "topics": [
+    "Two-phase / flashing relief discharge"
+   ],
+   "title": "Two-phase flux from a given omega and inlet density",
+   "args": [
+    "twophase",
+    "--omega",
+    "5",
+    "--P0",
+    "1500",
+    "--rho0",
+    "500",
+    "--W",
+    "6",
+    "--Kd",
+    "0.85"
+   ],
+   "expect": [
+    {
+     "path": "G_kg_m2_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--omega",
+      "factor": 2
+     },
+     "path": "G_kg_m2_s",
+     "relation": "decreasing"
+    },
+    {
+     "vary": {
+      "flag": "--rho0",
+      "factor": 4
+     },
+     "path": "G_kg_m2_s",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "G_kg_m2_s": 9676.222896267498,
+    "eta_critical": 0.7900602893610139,
+    "eta_used": 0.7900602893610139,
+    "regime": "choked",
+    "omega": 5.0,
+    "required_area_mm2": 729.5019559889048
+   }
+  },
+  {
+   "id": "REL-12",
+   "topics": [
+    "Fire case relief (vapour-filled)"
+   ],
+   "title": "Vapour-filled drum in a pool fire, PSV only (wall fails before relief saves it)",
+   "args": [
+    "vapour-fire",
+    "--volume",
+    "15",
+    "--area",
+    "36",
+    "--D",
+    "2",
+    "--wall-mm",
+    "20",
+    "--M",
+    "20",
+    "--k",
+    "1.3",
+    "--p0-g",
+    "1000",
+    "--psv-area",
+    "830",
+    "--psv-set-g",
+    "1500"
+   ],
+   "expect": [
+    {
+     "path": "t_rupture_s",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "protected",
+     "op": "false"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "t_rupture_s": 700.0,
+    "t_relief_onset_s": 319.0,
+    "t_wall_593C_s": 577.0,
+    "peak_pressure_kpag": 1502.6131618630293,
+    "peak_wall_K": 952.4520374699312,
+    "mass_discharged_kg": 52.3847039674405,
+    "final_pressure_kpag": 1458.3978403032836,
+    "protected": false
+   }
+  },
+  {
+   "id": "REL-13",
+   "topics": [
+    "Fire case relief (vapour-filled)"
+   ],
+   "title": "Same drum with a blowdown valve opening at 60 s",
+   "args": [
+    "vapour-fire",
+    "--volume",
+    "15",
+    "--area",
+    "36",
+    "--D",
+    "2",
+    "--wall-mm",
+    "20",
+    "--M",
+    "20",
+    "--k",
+    "1.3",
+    "--p0-g",
+    "1000",
+    "--psv-area",
+    "830",
+    "--psv-set-g",
+    "1500",
+    "--bdv-area",
+    "800",
+    "--bdv-open-s",
+    "60"
+   ],
+   "expect": [
+    {
+     "path": "protected",
+     "op": "true"
+    },
+    {
+     "path": "t_rupture_s",
+     "op": "is_none"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "t_wall_593C_s": 564.0,
+    "peak_pressure_kpag": 1024.838922743381,
+    "peak_wall_K": 1219.9872452093748,
+    "mass_discharged_kg": 119.97229564099474,
+    "final_pressure_kpag": 0.025411699131453247,
+    "protected": true
+   }
+  },
+  {
+   "id": "REL-14",
+   "topics": [
+    "Two-phase / flashing relief discharge"
+   ],
+   "title": "Bundled saturated-liquid data for propane",
+   "args": [
+    "fluid-data",
+    "propane",
+    "--P",
+    "1900"
+   ],
+   "expect": [
+    {
+     "path": "saturated_liquid",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "coolprop_name": "Propane",
+    "M_kg_kmol": 44.0956,
+    "Tc_K": 369.89,
+    "Pc_kPa": 4251.17,
+    "Tb_K": 231.036
+   }
+  },
+  {
+   "id": "REL-15",
+   "topics": [
+    "Other relief scenarios (thermal expansion, tube rupture, flare header)"
+   ],
+   "title": "Catalogue of relief scenarios (coverage command)",
+   "args": [
+    "coverage"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "PSV / relief sizing"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output, no inputs",
+   "regression": {}
+  },
+  {
+   "id": "REL-16",
+   "topics": [
+    "Other relief scenarios (thermal expansion, tube rupture, flare header)"
+   ],
+   "title": "Blocked-in liquid thermal expansion rate",
+   "call": "scenarios.thermal_expansion_relief_m3h",
+   "kwargs": {
+    "heat_input_W": 50000,
+    "alpha_per_K": 0.001,
+    "rho": 800,
+    "cp_J_kgK": 2200
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1e-3*50000/(800*2200)*3600",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "heat_input_W",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.10227272727272728
+   }
+  },
+  {
+   "id": "REL-17",
+   "topics": [
+    "Other relief scenarios (thermal expansion, tube rupture, flare header)"
+   ],
+   "title": "Tube rupture: 10/13 rule exemption and double-ended break flow",
+   "call": "scenarios.tube_rupture_flow_kg_s",
+   "kwargs": {
+    "tube_id_m": 0.02,
+    "P_hp_kpa": 5000,
+    "P_lp_kpa": 500,
+    "phase": "liquid",
+    "rho": 800
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.62*2*pi*0.02**2/4*sqrt(2*800*(5000-500)*1000)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "tube_id_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 4,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 33.05504905989824
+   }
+  },
+  {
+   "id": "REL-18",
+   "topics": [
+    "Other relief scenarios (thermal expansion, tube rupture, flare header)"
+   ],
+   "title": "10/13 rule: 8000 kPag low side against 10000 kPag high side",
+   "call": "scenarios.tube_rupture_exempt",
+   "kwargs": {
+    "P_hp_design_kpag": 10000,
+    "P_lp_design_kpag": 8000
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "true"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": true
+   }
+  },
+  {
+   "id": "REL-19",
+   "topics": [
+    "Other relief scenarios (thermal expansion, tube rupture, flare header)"
+   ],
+   "title": "Flare header diameter at Mach 0.5",
+   "call": "scenarios.flare_header_diameter_m",
+   "kwargs": {
+    "mass_kg_s": 50,
+    "P_kpa_abs": 200,
+    "T_K": 350,
+    "M": 30,
+    "k": 1.2,
+    "mach": 0.5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "sqrt(4*50/(pi*(200000*0.030/(8.314462618*350))*0.5*sqrt(1.2*8.314462618*350/0.030)))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "mass_kg_s",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "mach",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.42544163953732367
+   }
+  },
+  {
+   "id": "REL-20",
+   "topics": [
+    "Vessel sizing (separator, flare KO drum)"
+   ],
+   "title": "Souders-Brown allowable gas velocity",
+   "call": "separator.souders_brown_velocity",
+   "kwargs": {
+    "rho_L": 800,
+    "rho_G": 20,
+    "K": 0.1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.1*sqrt((800-20)/20)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "K",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.6244997998398398
+   }
+  },
+  {
+   "id": "REL-21",
+   "topics": [
+    "Vessel sizing (separator, flare KO drum)"
+   ],
+   "title": "Horizontal separator sizing",
+   "call": "separator.horizontal_separator",
+   "kwargs": {
+    "Qg_m3_s": 1.0,
+    "Ql_m3_s": 0.01,
+    "rho_L": 800,
+    "rho_G": 20
+   },
+   "expect": [
+    {
+     "path": "diameter_m",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "L_over_D",
+     "op": "between",
+     "value": 2.5,
+     "hi": 5.0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "Qg_m3_s",
+      "factor": 4
+     },
+     "path": "diameter_m",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "diameter_m": 1.6500000000000008,
+    "length_m": 4.15,
+    "L_over_D": 2.5,
+    "gas_velocity_m_s": 0.9353458547182085,
+    "design_gas_velocity_m_s": 0.9367496997597597
+   }
+  },
+  {
+   "id": "REL-22",
+   "topics": [
+    "Vessel sizing (separator, flare KO drum)"
+   ],
+   "title": "Vertical flare knock-out drum for a 300 micron droplet",
+   "call": "separator.knockout_drum_vertical",
+   "kwargs": {
+    "Qg_m3_s": 2.0,
+    "rho_L": 800,
+    "rho_G": 10,
+    "mu_G": 1.2e-05
+   },
+   "expect": [
+    {
+     "path": "diameter_m",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "settling_velocity_m_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "Qg_m3_s",
+      "factor": 4
+     },
+     "path": "diameter_m",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 0.05
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "diameter_m": 2.1,
+    "settling_velocity_m_s": 0.5789795936622403,
+    "droplet_um": 300.0
+   }
+  },
+  {
+   "id": "REL-23",
+   "topics": [
+    "PSV inlet loss (3%) and outlet reaction force"
+   ],
+   "title": "Inlet pressure-loss check at the 3 percent limit",
+   "call": "relief_piping.inlet_loss_check",
+   "kwargs": {
+    "dp_inlet_kpa": 30,
+    "set_kpag": 1000
+   },
+   "expect": [
+    {
+     "path": "ok",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "inlet_loss_fraction",
+     "formula": "30/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "dp_inlet_kpa",
+      "factor": 2
+     },
+     "path": "inlet_loss_fraction",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "inlet_loss_fraction": 0.03,
+    "limit": 0.03,
+    "ok": true,
+    "action": "ok"
+   }
+  },
+  {
+   "id": "REL-24",
+   "topics": [
+    "PSV inlet loss (3%) and outlet reaction force"
+   ],
+   "title": "Reaction force at a relief outlet",
+   "call": "relief_piping.reaction_force_N",
+   "kwargs": {
+    "mass_flow_kg_s": 10,
+    "v_exit_m_s": 200,
+    "P_exit_kpa_abs": 150,
+    "A_exit_m2": 0.02
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "10*200+(150-101.325)*1000*0.02",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "mass_flow_kg_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2973.5
+   }
+  },
+  {
+   "id": "FIR-01",
+   "topics": [
+    "Pool fire (burn rate, flame, radiation)"
+   ],
+   "title": "Pool fire of a 20 m diameter pool",
+   "args": [
+    "pool-fire",
+    "--area",
+    "314",
+    "--hc",
+    "44000",
+    "--hv",
+    "350",
+    "--cp",
+    "2.2",
+    "--tb",
+    "400"
+   ],
+   "expect": [
+    {
+     "path": "flame_height_m",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "diameter_m",
+     "formula": "sqrt(4*314/pi)",
+     "rtol": 1e-06
+    },
+    {
+     "path": "Q_kW",
+     "formula": "$mass_burn_rate_kg_s*44000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--area",
+      "factor": 4
+     },
+     "path": "diameter_m",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "diameter_m": 19.994929783493642,
+    "burning_rate_kg_m2_s": 0.07664570522758547,
+    "mass_burn_rate_kg_s": 24.06675144146184,
+    "flame_height_m": 31.348142781254964,
+    "heat_release_MW": 1058.937063424321,
+    "sep_mudan_croce_kW_m2": 30.89277982923271,
+    "radiant_fraction": 0.25,
+    "tau": 1.0,
+    "Q_kW": 1058937.063424321
+   }
+  },
+  {
+   "id": "FIR-02",
+   "topics": [
+    "Near-field solid-flame radiation (view factor)"
+   ],
+   "title": "Near-field flux at 15 m from the flame face",
+   "args": [
+    "flame-flux",
+    "--width",
+    "20",
+    "--height",
+    "31",
+    "--distance",
+    "15",
+    "--sep",
+    "30.9",
+    "--tau",
+    "0.8"
+   ],
+   "expect": [
+    {
+     "path": "view_factor",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "incident_kW_m2",
+     "formula": "0.8*30.9*$view_factor",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--distance",
+      "factor": 3
+     },
+     "path": "incident_kW_m2",
+     "relation": "decreasing"
+    },
+    {
+     "vary": {
+      "flag": "--sep",
+      "factor": 2
+     },
+     "path": "incident_kW_m2",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "view_factor": 0.2653209349206346,
+    "incident_kW_m2": 6.558733511238087,
+    "tau": 0.8,
+    "sep_kW_m2": 30.9
+   }
+  },
+  {
+   "id": "FIR-03",
+   "topics": [
+    "Near-field solid-flame radiation (view factor)"
+   ],
+   "title": "Same flame at 40 m (view factor falls with distance)",
+   "args": [
+    "flame-flux",
+    "--width",
+    "20",
+    "--height",
+    "31",
+    "--distance",
+    "40",
+    "--sep",
+    "30.9",
+    "--tau",
+    "0.8"
+   ],
+   "expect": [
+    {
+     "path": "view_factor",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--width",
+      "factor": 2
+     },
+     "path": "view_factor",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "view_factor": 0.08781144394776753,
+    "incident_kW_m2": 2.1706988943888135,
+    "tau": 0.8,
+    "sep_kW_m2": 30.9
+   }
+  },
+  {
+   "id": "FIR-04",
+   "topics": [
+    "BLEVE / fireball"
+   ],
+   "title": "Fireball of 10 t of propane-type fuel",
+   "args": [
+    "fireball",
+    "--mass",
+    "10000",
+    "--hc",
+    "46",
+    "--fraction",
+    "0.3"
+   ],
+   "expect": [
+    {
+     "path": "diameter_m",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "duration_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--mass",
+      "factor": 8
+     },
+     "path": "diameter_m",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--mass",
+      "factor": 8
+     },
+     "path": "duration_s",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "diameter_m": 124.95721202184922,
+    "duration_s": 9.694956105143474,
+    "surface_emissive_power_kW_m2": 290.1754808651285,
+    "centre_height_m": 62.47860601092461
+   }
+  },
+  {
+   "id": "FIR-05",
+   "topics": [
+    "Structural fire / passive fire protection"
+   ],
+   "title": "Steel time to 550 C in a hydrocarbon fire",
+   "args": [
+    "steel-fire",
+    "--am-v",
+    "150",
+    "--crit",
+    "550",
+    "--minutes",
+    "60"
+   ],
+   "expect": [
+    {
+     "path": "time_to_critical_min",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--am-v",
+      "factor": 2
+     },
+     "path": "time_to_critical_min",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "time_to_critical_min": 4,
+    "critical_C": 550.0
+   }
+  },
+  {
+   "id": "FIR-06",
+   "topics": [
+    "Structural fire / passive fire protection"
+   ],
+   "title": "Same section in the ISO 834 cellulosic curve (slower than hydrocarbon)",
+   "args": [
+    "steel-fire",
+    "--am-v",
+    "150",
+    "--crit",
+    "550",
+    "--minutes",
+    "60",
+    "--iso"
+   ],
+   "expect": [
+    {
+     "path": "time_to_critical_min",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "time_to_critical_min": 11,
+    "critical_C": 550.0
+   }
+  },
+  {
+   "id": "FIR-07",
+   "topics": [
+    "Flare & cold-vent radiation / dispersion"
+   ],
+   "title": "Flare radiation and heat release",
+   "args": [
+    "flare",
+    "--mass",
+    "20",
+    "--lhv",
+    "46",
+    "--mw",
+    "20"
+   ],
+   "expect": [
+    {
+     "path": "radiant_fraction",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "heat_release_MW",
+     "formula": "20*46",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--mass",
+      "factor": 2
+     },
+     "path": "heat_release_MW",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "heat_release_MW": 920.0,
+    "radiant_fraction": 0.21466252583997983
+   }
+  },
+  {
+   "id": "FIR-08",
+   "topics": [
+    "Atmospheric dispersion (screening)"
+   ],
+   "title": "Gaussian plume, neutral release",
+   "args": [
+    "plume",
+    "--Q",
+    "100",
+    "--u",
+    "3",
+    "--H",
+    "10",
+    "--stability",
+    "D",
+    "--threshold-ppm",
+    "50",
+    "--M",
+    "34"
+   ],
+   "expect": [
+    {
+     "path": "max_ground_conc_g_m3",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "at_distance_m",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--Q",
+      "factor": 2
+     },
+     "path": "max_ground_conc_g_m3",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--u",
+      "factor": 2
+     },
+     "path": "max_ground_conc_g_m3",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--H",
+      "factor": 2
+     },
+     "path": "max_ground_conc_g_m3",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "max_ground_conc_g_m3": 0.05398730564198324,
+    "at_distance_m": 125.37977819252204,
+    "max_ground_conc_ppm": 38.84768314771061
+   }
+  },
+  {
+   "id": "FIR-09",
+   "topics": [
+    "LNG: impoundment, boil-off, regas duty, liquefaction work"
+   ],
+   "title": "LNG impoundment, boil-off and regas duty",
+   "args": [
+    "lng",
+    "--tanks",
+    "160000",
+    "--heat-kw",
+    "100",
+    "--regas-kg-s",
+    "100"
+   ],
+   "expect": [
+    {
+     "path": "impoundment_m3",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--heat-kw",
+      "factor": 2
+     },
+     "path": "boil_off_kg_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--regas-kg-s",
+      "factor": 2
+     },
+     "path": "regas_duty_MW",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "impoundment_m3": 176000.0,
+    "basis": "49 CFR 193.2181",
+    "boil_off_kg_s": 0.19607843137254902,
+    "boil_off_pct_per_day_largest_tank": 0.025090604962364094,
+    "regas_duty_MW": 88.7278,
+    "seawater_m3_s_open_rack": 4.339032948224219
+   }
+  },
+  {
+   "id": "FIR-10",
+   "topics": [
+    "LPG: vapour pressure, density, filling ratio, boil-off"
+   ],
+   "title": "Propane bullet vapour pressure and fill limit",
+   "args": [
+    "lpg",
+    "propane",
+    "--fill-C",
+    "15",
+    "--max-C",
+    "50"
+   ],
+   "expect": [
+    {
+     "path": "max_fill_fraction_thermodynamic_ceiling",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--max-C",
+      "factor": 1.4
+     },
+     "path": "vapour_pressure_kPag_at_max",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "flag": "--max-C",
+      "factor": 1.4
+     },
+     "path": "max_fill_fraction_thermodynamic_ceiling",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "vapour_pressure_kPag_at_max": 1616.043339805953,
+    "liquid_density_kg_m3_at_fill": 505.63084235302125,
+    "max_fill_fraction_thermodynamic_ceiling": 0.8841681918293294
+   }
+  },
+  {
+   "id": "FIR-11",
+   "topics": [
+    "Furnace purge, peroxide decomposition, exotherm bookkeeping"
+   ],
+   "title": "Hydrogen peroxide decomposition products",
+   "args": [
+    "h2o2",
+    "--kg-h",
+    "1000"
+   ],
+   "expect": [
+    {
+     "path": "heat_kW",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "o2_kg_h",
+     "formula": "1000*(2*15.999)/(2*(2*1.008+2*15.999))",
+     "rtol": 0.001
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--kg-h",
+      "factor": 2
+     },
+     "path": "o2_kg_h",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "o2_kg_h": 470.3554639611698,
+    "o2_per_kg_h2o2": 0.4703554639611698,
+    "heat_kW": 801.9408602097851,
+    "max_steam_kg_h": 1279.1258736177344,
+    "solution_wt_fraction": 1.0
+   }
+  },
+  {
+   "id": "FIR-12",
+   "topics": [
+    "Explosion overpressure"
+   ],
+   "title": "TNT equivalence of an unconfined flammable release",
+   "call": "explosion.tnt_equivalent_kg",
+   "kwargs": {
+    "fuel_kg": 10000,
+    "heat_of_combustion_MJ_kg": 46
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.05*10000*46/4.5",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "fuel_kg",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 5111.111111111111
+   }
+  },
+  {
+   "id": "FIR-13",
+   "topics": [
+    "Explosion overpressure"
+   ],
+   "title": "Blast overpressure obeys Hopkinson cube-root scaling",
+   "call": "explosion.kinney_graham_kpa",
+   "kwargs": {
+    "W_tnt_kg": 1000,
+    "R_m": 50
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": [
+      {
+       "kwarg": "W_tnt_kg",
+       "factor": 8
+      },
+      {
+       "kwarg": "R_m",
+       "factor": 2
+      }
+     ],
+     "path": "value",
+     "relation": "unchanged"
+    },
+    {
+     "vary": {
+      "kwarg": "R_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 29.238106780401033
+   }
+  },
+  {
+   "id": "FIR-14",
+   "topics": [
+    "Explosion overpressure"
+   ],
+   "title": "Distance to a 7 kPa overpressure scales with the cube root of charge mass",
+   "call": "explosion.distance_for_overpressure_m",
+   "kwargs": {
+    "W_tnt_kg": 1000,
+    "target_kpa": 7
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "W_tnt_kg",
+      "factor": 8
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 0.0001
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 132.79394955980877
+   }
+  },
+  {
+   "id": "FIR-15",
+   "topics": [
+    "Explosion overpressure"
+   ],
+   "title": "Brode energy of a burst vessel",
+   "call": "explosion.brode_burst_energy_J",
+   "kwargs": {
+    "P1_kpa_abs": 2000,
+    "P0_kpa_abs": 101.325,
+    "V_m3": 10,
+    "gamma": 1.4
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "(2000-101.325)*1000*10/(1.4-1)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "V_m3",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 47466875.00000001
+   }
+  },
+  {
+   "id": "FIR-16",
+   "topics": [
+    "Atmospheric dispersion (screening)"
+   ],
+   "title": "Plume maximum ground concentration and its distance",
+   "call": "dispersion.max_ground_concentration",
+   "kwargs": {
+    "Q_g_s": 100,
+    "u_m_s": 3,
+    "H_m": 10
+   },
+   "expect": [
+    {
+     "path": "value[0]",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "value[1]",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "Q_g_s",
+      "factor": 2
+     },
+     "path": "value[0]",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "u_m_s",
+      "factor": 2
+     },
+     "path": "value[0]",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {}
+  },
+  {
+   "id": "FIR-17",
+   "topics": [
+    "Atmospheric dispersion (screening)"
+   ],
+   "title": "mg/m3 to ppm at 25 C and 1 atm",
+   "call": "dispersion.mg_m3_to_ppm",
+   "kwargs": {
+    "mg_m3": 100,
+    "M": 34
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100*8.314462618*298.15/101.325/34",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "M",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 71.95706969584475
+   }
+  },
+  {
+   "id": "FIR-18",
+   "topics": [
+    "Injury probits (thermal, toxic)"
+   ],
+   "title": "Thermal probit rises with exposure time",
+   "call": "consequence.probit_thermal",
+   "kwargs": {
+    "I_kW_m2": 12.5,
+    "t_s": 30
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "t_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "kwarg": "I_kW_m2",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2.4282190696272945
+   }
+  },
+  {
+   "id": "FIR-19",
+   "topics": [
+    "Injury probits (thermal, toxic)"
+   ],
+   "title": "Probit 5 is 50 percent",
+   "call": "consequence.fraction_from_probit",
+   "kwargs": {
+    "pr": 5.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "close",
+     "value": 0.5,
+     "rtol": 1e-09
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.5
+   }
+  },
+  {
+   "id": "FIR-20",
+   "topics": [
+    "Injury probits (thermal, toxic)"
+   ],
+   "title": "Time to 50 percent fatality falls as flux rises",
+   "call": "consequence.time_to_fraction_thermal_s",
+   "kwargs": {
+    "I_kW_m2": 12.5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "I_kW_m2",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 81.92459963384037
+   }
+  },
+  {
+   "id": "FIR-21",
+   "topics": [
+    "Flammability, LOC, inerting / purging"
+   ],
+   "title": "Le Chatelier lower flammable limit of a mixture",
+   "call": "flammability.le_chatelier",
+   "kwargs": {
+    "fractions": [
+     0.5,
+     0.5
+    ],
+    "limits": [
+     5.0,
+     2.0
+    ]
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1/(0.5/5+0.5/2)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2.857142857142857
+   }
+  },
+  {
+   "id": "FIR-22",
+   "topics": [
+    "Flammability, LOC, inerting / purging"
+   ],
+   "title": "Limiting oxygen concentration of propane",
+   "call": "flammability.loc_vol_pct",
+   "kwargs": {
+    "lfl_vol_pct": 2.1,
+    "formula": "C3H8"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "2.1*5",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "lfl_vol_pct",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 10.5
+   }
+  },
+  {
+   "id": "FIR-23",
+   "topics": [
+    "Flammability, LOC, inerting / purging"
+   ],
+   "title": "Pressure purge cycles to reach a target oxygen fraction",
+   "call": "flammability.pressure_purge_cycles",
+   "kwargs": {
+    "y0": 0.21,
+    "y_target": 0.05,
+    "P_high_kpa": 500,
+    "P_low_kpa": 101.325
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "ge",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "ceil(log(0.05/0.21)/log(101.325/500))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 1
+   }
+  },
+  {
+   "id": "FIR-24",
+   "topics": [
+    "Flammability, LOC, inerting / purging"
+   ],
+   "title": "Sweep-through purge time",
+   "call": "flammability.sweep_through_time_h",
+   "kwargs": {
+    "C0": 0.21,
+    "C_target": 0.05,
+    "C_in": 0.0,
+    "Q_m3_h": 100,
+    "V_m3": 50
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "50/100*log(0.21/0.05)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "V_m3",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.7175422626446613
+   }
+  },
+  {
+   "id": "FIR-25",
+   "topics": [
+    "Static electricity (relaxation, v.d)"
+   ],
+   "title": "Charge relaxation time of a hydrocarbon",
+   "call": "flammability.relaxation_time_s",
+   "kwargs": {
+    "conductivity_S_m": 1e-12
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "8.8541878128e-12*2/1e-12",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "conductivity_S_m",
+      "factor": 10
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.1,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 17.708375625600002
+   }
+  },
+  {
+   "id": "FIR-26",
+   "topics": [
+    "Static electricity (relaxation, v.d)"
+   ],
+   "title": "Pipe charging v.d criterion",
+   "call": "flammability.pipe_charging_check",
+   "kwargs": {
+    "v_m_s": 2.0,
+    "d_m": 0.1
+   },
+   "expect": [
+    {
+     "path": "ok",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "v_times_d_m2_s",
+     "formula": "2.0*0.1",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "v_m_s",
+      "factor": 5
+     },
+     "path": "v_times_d_m2_s",
+     "relation": "ratio",
+     "value": 5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "v_times_d_m2_s": 0.2,
+    "limit": 0.5,
+    "ok": true
+   }
+  },
+  {
+   "id": "FIR-27",
+   "topics": [
+    "Hazardous area classification"
+   ],
+   "title": "Zone from hours of release per year (duration rule of thumb)",
+   "call": "flammability.zone_from_release_hours",
+   "kwargs": {
+    "hours_per_year": 500
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "eq",
+     "value": "Zone 1"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": "Zone 1"
+   }
+  },
+  {
+   "id": "FIR-28",
+   "topics": [
+    "Overfill protection (alarm placement)"
+   ],
+   "title": "High-high alarm height before overfill",
+   "call": "overfill.alarm_height_m",
+   "kwargs": {
+    "critical_high_m": 10,
+    "tank_area_m2": 100,
+    "fill_rate_m3_h": 500,
+    "operator_response_s": 600,
+    "valve_closure_s": 60
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "lt",
+     "value": 10
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "10-500*(600+60)/3600/100",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "fill_rate_m3_h",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 9.083333333333334
+   }
+  },
+  {
+   "id": "FIR-29",
+   "topics": [
+    "Overfill protection (alarm placement)"
+   ],
+   "title": "Time to overfill",
+   "call": "overfill.time_to_overfill_s",
+   "kwargs": {
+    "spare_volume_m3": 100,
+    "fill_rate_m3_h": 500
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100/500*3600",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "fill_rate_m3_h",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 720.0
+   }
+  },
+  {
+   "id": "FIR-30",
+   "topics": [
+    "Combustion / flare emissions"
+   ],
+   "title": "CO2 per kg of methane burned",
+   "call": "emissions.co2_per_kg_fuel",
+   "kwargs": {
+    "formula": "CH4"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "(12.011+2*15.999)/(12.011+4*1.008)",
+     "rtol": 0.0001
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2.7431901764009226
+   }
+  },
+  {
+   "id": "FIR-31",
+   "topics": [
+    "Combustion / flare emissions"
+   ],
+   "title": "Flare emissions from combustion efficiency",
+   "call": "emissions.flare_emissions",
+   "kwargs": {
+    "gas_kg": 1000,
+    "carbon_mass_fraction": 0.75
+   },
+   "expect": [
+    {
+     "path": "co2e_kg",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "co2_kg",
+     "formula": "1000*0.75*0.98*44.009/12.011",
+     "rtol": 0.0001
+    },
+    {
+     "path": "unburned_hc_kg",
+     "formula": "1000*(1-0.98)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "gas_kg",
+      "factor": 2
+     },
+     "path": "co2_kg",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "co2_kg": 2693.0825909582886,
+    "unburned_hc_kg": 20.000000000000018,
+    "co2e_kg": 3253.082590958289
+   }
+  },
+  {
+   "id": "FIR-32",
+   "topics": [
+    "Combustion / flare emissions"
+   ],
+   "title": "Molar mass from a formula",
+   "call": "emissions.molar_mass",
+   "kwargs": {
+    "formula": "C3H8"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "3*12.011+8*1.008",
+     "rtol": 0.0001
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 44.097
+   }
+  },
+  {
+   "id": "FIR-33",
+   "topics": [
+    "Reaction hazard screening (chemicals / pharma)"
+   ],
+   "title": "Adiabatic temperature rise of a reaction",
+   "call": "reaction_hazard.adiabatic_temperature_rise_K",
+   "kwargs": {
+    "delta_H_kJ_mol": -100,
+    "conc_mol_L": 2,
+    "rho_kg_m3": 1000,
+    "cp_kJ_kgK": 2.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100*2*1000/(1000*2.0)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "conc_mol_L",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 100.0
+   }
+  },
+  {
+   "id": "FIR-34",
+   "topics": [
+    "Reaction hazard screening (chemicals / pharma)"
+   ],
+   "title": "MTSR screen against MTT, boiling and TD24",
+   "call": "reaction_hazard.screen",
+   "kwargs": {
+    "T_process_C": 80,
+    "dT_ad_K": 100,
+    "accumulation_fraction": 0.3,
+    "T_boiling_C": 150,
+    "MTT_C": 200,
+    "TD24_C": 140
+   },
+   "expect": [
+    {
+     "path": "flags",
+     "op": "len_ge",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "MTSR_C",
+     "formula": "80+0.3*100",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "accumulation_fraction",
+      "factor": 2
+     },
+     "path": "MTSR_C",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "MTSR_C": 110.0
+   }
+  },
+  {
+   "id": "FIR-35",
+   "topics": [
+    "Thermal runaway (TMRad, TD24, Stoessel class)"
+   ],
+   "title": "Thermal-runaway tool on the worked example",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "thermal"
+    ],
+    [
+     "tool",
+     "thermal",
+     "thermal.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "cases",
+     "op": "len_ge",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "thermal"
+   }
+  },
+  {
+   "id": "FS-01",
+   "topics": [
+    "SIL assessment (LOPA)"
+   ],
+   "title": "LOPA: required risk reduction",
+   "args": [
+    "lopa",
+    "--ie",
+    "0.1",
+    "--ipl",
+    "0.1",
+    "0.01",
+    "--target",
+    "1e-6"
+   ],
+   "expect": [
+    {
+     "path": "sil_needed",
+     "op": "eq",
+     "value": "SIL 1"
+    },
+    {
+     "path": "meets_target_without_sif",
+     "op": "false"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "mitigated_per_yr",
+     "formula": "0.1*0.1*0.01",
+     "rtol": 1e-06
+    },
+    {
+     "path": "required_rrf",
+     "formula": "$mitigated_per_yr/1e-6",
+     "rtol": 1e-06
+    },
+    {
+     "path": "required_pfd",
+     "formula": "1e-6/$mitigated_per_yr",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--target",
+      "factor": 10
+     },
+     "path": "required_rrf",
+     "relation": "ratio",
+     "value": 0.1,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "unmitigated_per_yr": 0.1,
+    "mitigated_per_yr": 0.0001,
+    "tolerable_per_yr": 1e-06,
+    "required_pfd": 0.009999999999999998,
+    "required_rrf": 100.00000000000001,
+    "sil_needed": "SIL 1",
+    "meets_target_without_sif": false
+   }
+  },
+  {
+   "id": "FS-02",
+   "topics": [
+    "SIL verification (PFDavg)"
+   ],
+   "title": "1oo2 pair with a yearly proof test",
+   "args": [
+    "pfd",
+    "--arch",
+    "1oo2",
+    "--lambda-du",
+    "2e-6",
+    "--ti-years",
+    "1",
+    "--beta",
+    "0.05"
+   ],
+   "expect": [
+    {
+     "path": "pfd_avg",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--ti-years",
+      "factor": 3
+     },
+     "path": "pfd_avg",
+     "relation": "increasing"
+    },
+    {
+     "vary": {
+      "flag": "--beta",
+      "factor": 2
+     },
+     "path": "pfd_avg",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "pfd_avg": 0.0005303409120000001,
+    "rrf": 1885.5795911140265,
+    "achieves": "SIL 3"
+   }
+  },
+  {
+   "id": "FS-03",
+   "topics": [
+    "SIL verification (PFDavg)"
+   ],
+   "title": "Single channel: PFDavg is lambda_DU x TI / 2",
+   "args": [
+    "pfd",
+    "--arch",
+    "1oo1",
+    "--lambda-du",
+    "2e-6",
+    "--ti-years",
+    "1"
+   ],
+   "expect": [
+    {
+     "path": "pfd_avg",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "pfd_avg",
+     "formula": "2e-6*8760/2",
+     "rtol": 0.001
+    },
+    {
+     "path": "rrf",
+     "formula": "1/$pfd_avg",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--lambda-du",
+      "factor": 2
+     },
+     "path": "pfd_avg",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "pfd_avg": 0.00876,
+    "rrf": 114.15525114155251,
+    "achieves": "SIL 2"
+   }
+  },
+  {
+   "id": "FS-04",
+   "topics": [
+    "SIL verification / SRS / risk graph"
+   ],
+   "title": "Safe failure fraction",
+   "call": "sil_lifecycle.sff",
+   "kwargs": {
+    "lambda_s": 1e-06,
+    "lambda_dd": 3e-06,
+    "lambda_du": 1e-07
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "(1e-6+3e-6)/(1e-6+3e-6+1e-7)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.975609756097561
+   }
+  },
+  {
+   "id": "FS-05",
+   "topics": [
+    "SIL verification / SRS / risk graph"
+   ],
+   "title": "SIL from a risk reduction factor",
+   "call": "sil_lifecycle.sil_from_rrf",
+   "kwargs": {
+    "rrf": 500
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "eq",
+     "value": 2
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2
+   }
+  },
+  {
+   "id": "FS-06",
+   "topics": [
+    "SIL verification / SRS / risk graph"
+   ],
+   "title": "Hardware fault tolerance of 1oo2",
+   "call": "sil_lifecycle.hft_of",
+   "kwargs": {
+    "arch": "1oo2"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "eq",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 1
+   }
+  },
+  {
+   "id": "FS-07",
+   "topics": [
+    "SIL verification / SRS / risk graph"
+   ],
+   "title": "Safety instrumented function verification (sif tool)",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "sif"
+    ],
+    [
+     "tool",
+     "sif",
+     "sif.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "verification",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "sif",
+    "risk_graph_result": "SIL 1"
+   }
+  },
+  {
+   "id": "FS-08",
+   "topics": [
+    "Bow-tie / barrier management / SCE"
+   ],
+   "title": "Quantified bow-tie conserves the top-event frequency",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "bowtie"
+    ],
+    [
+     "tool",
+     "bowtie",
+     "bowtie.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "top_per_yr",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "bowtie",
+    "top_per_yr": 0.00016590000000000002
+   }
+  },
+  {
+   "id": "FS-09",
+   "topics": [
+    "Fault tree / event tree / availability / FMEA"
+   ],
+   "title": "Availability MTBF/(MTBF+MTTR)",
+   "call": "reliability.availability",
+   "kwargs": {
+    "mtbf_h": 1000,
+    "mttr_h": 10
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1000/(1000+10)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "mttr_h",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.9900990099009901
+   }
+  },
+  {
+   "id": "FS-10",
+   "topics": [
+    "Fault tree / event tree / availability / FMEA"
+   ],
+   "title": "2-out-of-3 voting failure probability",
+   "call": "reliability.koon_failure_probability",
+   "kwargs": {
+    "k_required": 2,
+    "n": 3,
+    "p_fail": 0.1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "3*0.1**2*0.9+0.1**3",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "p_fail",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.028000000000000008
+   }
+  },
+  {
+   "id": "FS-11",
+   "topics": [
+    "Fault tree / event tree / availability / FMEA"
+   ],
+   "title": "Event tree outcomes sum to the initiating frequency",
+   "call": "reliability.event_tree",
+   "kwargs": {
+    "initiating_freq_per_yr": 0.1,
+    "barriers": [
+     [
+      "a",
+      0.9
+     ],
+     [
+      "b",
+      0.99
+     ]
+    ]
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "len_ge",
+     "value": 4
+    },
+    {
+     "path": "value",
+     "op": "sum_close",
+     "value": 0.1,
+     "key": "frequency_per_yr"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {}
+  },
+  {
+   "id": "FS-12",
+   "topics": [
+    "Fault tree / event tree / availability / FMEA"
+   ],
+   "title": "FMEA risk priority number",
+   "call": "reliability.rpn",
+   "kwargs": {
+    "severity": 5,
+    "occurrence": 4,
+    "detection": 3
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "eq",
+     "value": 60
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 60
+   }
+  },
+  {
+   "id": "FS-13",
+   "topics": [
+    "Fault tree / event tree / availability / FMEA"
+   ],
+   "title": "Two parallel units at 0.9 availability each",
+   "call": "reliability.parallel_availability",
+   "kwargs": {
+    "avails": [
+     0.9,
+     0.9
+    ]
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0.9
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1-(1-0.9)*(1-0.9)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.99
+   }
+  },
+  {
+   "id": "FS-14",
+   "topics": [
+    "RAM"
+   ],
+   "title": "Reliability-availability-maintainability tool (Monte Carlo with analytic check)",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "ram"
+    ],
+    [
+     "tool",
+     "ram",
+     "ram.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "ram"
+   }
+  },
+  {
+   "id": "REG-01",
+   "topics": [
+    "MAH classification (Seveso sum rule)"
+   ],
+   "title": "Seveso III tier for chlorine and hydrogen sulphide",
+   "args": [
+    "seveso",
+    "Chlorine:H=6",
+    "Hydrogen sulphide:H=3"
+   ],
+   "expect": [
+    {
+     "path": "tier",
+     "op": "in",
+     "value": [
+      "lower-tier",
+      "upper-tier"
+     ]
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "quantities are tonnes in both systems; short tons are not accepted",
+   "regression": {
+    "tier": "lower-tier"
+   }
+  },
+  {
+   "id": "REG-02",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "OSHA PSM applicability of 700 kg chlorine",
+   "args": [
+    "psm-check",
+    "--chemical",
+    "chlorine",
+    "--kg",
+    "700"
+   ],
+   "expect": [
+    {
+     "path": "covered",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "threshold_kg",
+     "formula": "1500*0.45359237",
+     "rtol": 1e-06
+    },
+    {
+     "path": "quantity_kg",
+     "formula": "700",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--kg",
+      "factor": 0.5
+     },
+     "path": "quantity_kg",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "found": true,
+    "chemical": "Chlorine",
+    "cas": "7782-50-5",
+    "threshold_lb": 1500,
+    "threshold_kg": 680.3885550150532,
+    "quantity_kg": 700.0,
+    "covered": true
+   }
+  },
+  {
+   "id": "REG-03",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "PSM due dates (PHA and audit overdue on the fixed date)",
+   "args": [
+    "psm-due",
+    "--pha",
+    "2021-03-15",
+    "--audit",
+    "2023-06-01",
+    "--today",
+    "2026-11-03"
+   ],
+   "expect": [
+    {
+     "path": "pha_revalidation.status",
+     "op": "eq",
+     "value": "overdue"
+    },
+    {
+     "path": "pha_revalidation.days_remaining",
+     "op": "lt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "dates only",
+   "regression": {}
+  },
+  {
+   "id": "REG-04",
+   "topics": [
+    "US EPA RMP applicability and worst-case criteria"
+   ],
+   "title": "EPA RMP threshold, 1200 kg chlorine",
+   "args": [
+    "rmp-check",
+    "chlorine",
+    "--kg",
+    "1200"
+   ],
+   "expect": [
+    {
+     "path": "covered",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "threshold_kg",
+     "formula": "2500*0.45359237",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "found": true,
+    "name": "Chlorine",
+    "kind": "toxic",
+    "threshold_lb": 2500,
+    "threshold_kg": 1133.9809250250885,
+    "quantity_counted_kg": 1200.0,
+    "covered": true
+   }
+  },
+  {
+   "id": "REG-05",
+   "topics": [
+    "US EPA RMP applicability and worst-case criteria"
+   ],
+   "title": "RMP worst case, 20 t propane (1 psi vapour cloud explosion)",
+   "args": [
+    "rmp-worst",
+    "propane",
+    "--kg",
+    "20000",
+    "--hc",
+    "46.3"
+   ],
+   "expect": [
+    {
+     "path": "distance_to_1psi_m",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--kg",
+      "factor": 8
+     },
+     "path": "tnt_equivalent_kg",
+     "relation": "ratio",
+     "value": 8,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--kg",
+      "factor": 8
+     },
+     "path": "distance_to_1psi_m",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "tnt_equivalent_kg": 20577.777777777777,
+    "distance_to_1psi_m": 368.5467198170003
+   }
+  },
+  {
+   "id": "REG-06",
+   "topics": [
+    "Gas pipeline design pressure / impact radius"
+   ],
+   "title": "49 CFR 192 design pressure and potential impact radius",
+   "args": [
+    "pipeline",
+    "--smys",
+    "448",
+    "--wall",
+    "12.7",
+    "--od",
+    "610"
+   ],
+   "expect": [
+    {
+     "path": "potential_impact_radius_m_natural_gas_at_that_pressure",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "design_pressure_kPag",
+     "formula": "2*448*12.7/610*0.72*1000",
+     "rtol": 0.001
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--wall",
+      "factor": 2
+     },
+     "path": "design_pressure_kPag",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--od",
+      "factor": 2
+     },
+     "path": "design_pressure_kPag",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "design_pressure_kPag": 13431.186885245901,
+    "design_pressure_bar": 134.311868852459,
+    "potential_impact_radius_m_natural_gas_at_that_pressure": 222.92453854369776,
+    "hca_criterion_iii": false,
+    "note": "49 CFR 192 basis (US), natural gas only"
+   }
+  },
+  {
+   "id": "REG-07",
+   "topics": [
+    "Plant data ingestion and recommendation rationale (PFS/HMB, P&ID, PHA register)"
+   ],
+   "title": "Plant tool on the worked example",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "plant"
+    ],
+    [
+     "tool",
+     "plant",
+     "plant.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "balance",
+     "op": "len_ge",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "plant"
+   }
+  },
+  {
+   "id": "REG-08",
+   "topics": [
+    "CHAZOP / What-if / SWIFT / PSSR / SIMOPS / PHA revalidation"
+   ],
+   "title": "PHA action tracking and revalidation (pha tool)",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "pha"
+    ],
+    [
+     "tool",
+     "pha",
+     "pha.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "actions.overdue",
+     "op": "ge",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "pha"
+   }
+  },
+  {
+   "id": "REG-09",
+   "topics": [
+    "HAZOP worksheet generation"
+   ],
+   "title": "HAZOP worksheet skeleton written as CSV",
+   "steps": [
+    [
+     "hazop-csv",
+     "--node",
+     "N1",
+     "--out",
+     "h.csv"
+    ]
+   ],
+   "files": [
+    "h.csv"
+   ],
+   "expect": [
+    {
+     "path": "rows",
+     "op": "ge",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "rows": 25
+   }
+  },
+  {
+   "id": "REG-10",
+   "topics": [
+    "ATEX / EPD / dust class"
+   ],
+   "title": "ATEX classification register",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "atex"
+    ],
+    [
+     "tool",
+     "atex",
+     "atex.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "register",
+     "op": "len_ge",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "atex"
+   }
+  },
+  {
+   "id": "REG-11",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Compliance register with MUST/SHOULD/CAN tiers and derogations",
+   "args": [
+    "compliance",
+    "process_safety/examples/compliance.json"
+   ],
+   "expect": [
+    {
+     "path": "ready_for_gate",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "register JSON, no unit-bearing inputs",
+   "regression": {
+    "as_of": "2026-11-05",
+    "should_complied_pct": 0.0,
+    "ready_for_gate": false
+   }
+  },
+  {
+   "id": "REG-12",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Derogation approval matrix",
+   "args": [
+    "compliance",
+    "--matrix"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "TA1"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "REG-13",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Legal clauses on exemptions in EU law",
+   "args": [
+    "legal-clauses",
+    "--region",
+    "EU",
+    "--topic",
+    "exemption"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "Seveso"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "REG-14",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Insurance impact of derogations",
+   "args": [
+    "insurance",
+    "process_safety/examples/insurance.json"
+   ],
+   "expect": [
+    {
+     "path": "currency",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON input, currency amounts",
+   "regression": {
+    "currency": "USD",
+    "baseline": "baseline"
+   }
+  },
+  {
+   "id": "REG-15",
+   "topics": [
+    "Quantitative risk assessment (LSIR, IRPA, F-N, PLL, ALARP)"
+   ],
+   "title": "QRA study validation (LPG terminal example)",
+   "args": [
+    "qra",
+    "validate",
+    "process_safety/qra/examples/lpg_terminal.json"
+   ],
+   "expect": [
+    {
+     "path": "loc_scenarios",
+     "op": "ge",
+     "value": 1
+    },
+    {
+     "path": "total_loc_frequency_per_yr",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "study JSON, SI inside",
+   "regression": {
+    "loc_scenarios": 18,
+    "total_loc_frequency_per_yr": 0.043508599
+   }
+  },
+  {
+   "id": "REG-16",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Incident library lookup by module",
+   "args": [
+    "incidents",
+    "--module",
+    "relief"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "REG-17",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Literature index lookup",
+   "args": [
+    "literature",
+    "csb"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "CSB"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "REG-18",
+   "topics": [
+    "Plant data ingestion and recommendation rationale (PFS/HMB, P&ID, PHA register)"
+   ],
+   "title": "Recommendation catalogue classification",
+   "args": [
+    "catalog",
+    "independent",
+    "level",
+    "trip"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "HLL-SIF"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "REG-19",
+   "topics": [
+    "Plant data ingestion and recommendation rationale (PFS/HMB, P&ID, PHA register)"
+   ],
+   "title": "Requirements extraction from a text document (nothing committed)",
+   "steps": [
+    {
+     "write": "doc.txt",
+     "text": "The relief valve shall be sized for the fire case. The operator should record the set pressure.\n"
+    },
+    [
+     "requirements",
+     "--out",
+     "req.csv",
+     "--allow-tracked",
+     "doc.txt"
+    ]
+   ],
+   "files": [
+    "req.csv"
+   ],
+   "expect": [
+    {
+     "path": "$files",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "statements": 2,
+    "written_to": "req.csv",
+    "n": 2,
+    "unclassified": 1
+   }
+  },
+  {
+   "id": "ELE-01",
+   "topics": [
+    "Arc flash (screening)"
+   ],
+   "title": "Arc flash at a 480 V, 20 kA board",
+   "args": [
+    "arc-flash",
+    "--kv",
+    "0.48",
+    "--ka",
+    "20",
+    "--t",
+    "0.2",
+    "--dist-mm",
+    "455"
+   ],
+   "expect": [
+    {
+     "path": "incident_energy_J_cm2",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "incident_energy_cal_cm2",
+     "formula": "$incident_energy_J_cm2/4.184",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--t",
+      "factor": 2
+     },
+     "path": "incident_energy_J_cm2",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--dist-mm",
+      "factor": 2
+     },
+     "path": "incident_energy_J_cm2",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "incident_energy_J_cm2": 19.865426880811498,
+    "incident_energy_cal_cm2": 4.747950975337356,
+    "boundary_mm_second_degree_burn": 905.124851065275
+   }
+  },
+  {
+   "id": "ELE-02",
+   "topics": [
+    "Overcurrent relay curves and grading"
+   ],
+   "title": "IDMT relay operating time at 10 times pickup",
+   "args": [
+    "idmt",
+    "--i",
+    "2000",
+    "--pickup",
+    "200",
+    "--tms",
+    "0.3"
+   ],
+   "expect": [
+    {
+     "path": "multiple_of_pickup",
+     "op": "close",
+     "value": 10
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--tms",
+      "factor": 2
+     },
+     "path": "operating_time_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--i",
+      "factor": 2
+     },
+     "path": "operating_time_s",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "operating_time_s": 0.8911795872565246,
+    "multiple_of_pickup": 10.0
+   }
+  },
+  {
+   "id": "ELE-03",
+   "topics": [
+    "Earthing: tolerable touch/step voltage, rod resistance"
+   ],
+   "title": "Tolerable touch and step voltage",
+   "args": [
+    "earthing",
+    "--rho-s",
+    "3000",
+    "--t",
+    "0.5",
+    "--rho",
+    "75",
+    "--hs",
+    "0.2"
+   ],
+   "expect": [
+    {
+     "path": "touch_V_50kg",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "step_V_50kg",
+     "op": "ge_path",
+     "value": "touch_V_50kg"
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--t",
+      "factor": 4
+     },
+     "path": "touch_V_50kg",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--t",
+      "factor": 4
+     },
+     "path": "step_V_50kg",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "Cs": 0.8209183673469388,
+    "touch_V_50kg": 770.0667031383595,
+    "step_V_50kg": 2588.120492847601,
+    "touch_V_70kg": 1042.2454516614002,
+    "step_V_70kg": 3502.887218767874
+   }
+  },
+  {
+   "id": "ELE-04",
+   "topics": [
+    "Occupational noise"
+   ],
+   "title": "OSHA noise dose 85 dBA for 8 h plus 95 dBA for 2 h",
+   "args": [
+    "noise",
+    "85:8",
+    "95:2"
+   ],
+   "expect": [
+    {
+     "path": "above_action_level",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "dose_pct",
+     "formula": "100*(8/(8/2**((85-90)/5))+2/(8/2**((95-90)/5)))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "dBA and hours are the same in both systems",
+   "regression": {
+    "dose_pct": 100.0,
+    "twa_dBA": 90.0,
+    "exceeds_pel": false,
+    "above_action_level": true,
+    "basis": "OSHA 1910.95 Table G-16 / App. A"
+   }
+  },
+  {
+   "id": "ELE-05",
+   "topics": [
+    "Machinery safety (PL, safeguard distance)"
+   ],
+   "title": "ISO 13855 minimum distance (pre-2024 form)",
+   "args": [
+    "safeguard",
+    "--stop-s",
+    "0.3",
+    "--d-mm",
+    "14"
+   ],
+   "expect": [
+    {
+     "path": "min_distance_mm",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--stop-s",
+      "factor": 2
+     },
+     "path": "min_distance_mm",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "min_distance_mm": 500
+   }
+  },
+  {
+   "id": "ELE-06",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "Data-centre supporting systems for a 10 MW IT load",
+   "args": [
+    "datacentre",
+    "--it-kw",
+    "10000",
+    "--facility-kw",
+    "13000",
+    "--delta-t",
+    "8",
+    "--autonomy-min",
+    "10",
+    "--gen-hours",
+    "48",
+    "--sfc",
+    "210"
+   ],
+   "expect": [
+    {
+     "path": "pue",
+     "op": "gt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "pue",
+     "formula": "13000/10000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--delta-t",
+      "factor": 2
+     },
+     "path": "cooling_water_m3_h",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": [
+      {
+       "flag": "--it-kw",
+       "factor": 2
+      },
+      {
+       "flag": "--facility-kw",
+       "factor": 2
+      }
+     ],
+     "path": "cooling_water_m3_h",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": [
+      {
+       "flag": "--it-kw",
+       "factor": 2
+      },
+      {
+       "flag": "--facility-kw",
+       "factor": 2
+      }
+     ],
+     "path": "pue",
+     "relation": "unchanged"
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "it_kw": 10000.0,
+    "pue": 1.3,
+    "cooling_water_m3_h": 1076.555023923445,
+    "battery_nameplate_kwh": 2192.982456140351,
+    "diesel_m3": 156.0
+   }
+  },
+  {
+   "id": "ELE-07",
+   "topics": [
+    "Data centre: redundancy availability (N+1, 2N)"
+   ],
+   "title": "k-of-n availability of N+1 units",
+   "call": "datacentre.k_of_n_availability",
+   "kwargs": {
+    "k_required": 3,
+    "n": 4,
+    "unit_availability": 0.99
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "between",
+     "value": 0,
+     "hi": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "unit_availability",
+      "factor": 1.005
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.99940797
+   }
+  },
+  {
+   "id": "ELE-08",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Transformer fault level",
+   "call": "electrical.transformer_fault_kA",
+   "kwargs": {
+    "S_MVA": 2.5,
+    "V_ll_kV": 0.433,
+    "z_percent": 6
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "2.5/(sqrt(3)*0.433*0.06)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "z_percent",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 55.557185256892396
+   }
+  },
+  {
+   "id": "ELE-09",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Full-load current of a 100 kW motor",
+   "call": "electrical.full_load_current_A",
+   "kwargs": {
+    "P_kW": 100,
+    "V_ll_V": 415,
+    "pf": 0.85,
+    "efficiency": 0.92
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100000/(sqrt(3)*415*0.85*0.92)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "P_kW",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 177.90351252260984
+   }
+  },
+  {
+   "id": "ELE-10",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Voltage drop in a feeder",
+   "call": "electrical.voltage_drop_pct",
+   "kwargs": {
+    "I_A": 100,
+    "L_km": 0.2,
+    "R_ohm_km": 0.5,
+    "X_ohm_km": 0.08,
+    "pf": 0.85,
+    "V_ll_V": 415
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "sqrt(3)*100*0.2*(0.5*0.85+0.08*sqrt(1-0.85**2))/415*100",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "L_km",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 3.8993481618330197
+   }
+  },
+  {
+   "id": "ELE-11",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Minimum earth-conductor area (adiabatic)",
+   "call": "electrical.min_csa_mm2",
+   "kwargs": {
+    "I_fault_kA": 20,
+    "t_s": 1.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "I_fault_kA",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "t_s",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 139.86013986013987
+   }
+  },
+  {
+   "id": "ELE-12",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Motor starting voltage dip",
+   "call": "electrical.motor_start_dip_pct",
+   "kwargs": {
+    "S_start_MVA": 2,
+    "S_fault_MVA": 40
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100*2/(2+40)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "S_start_MVA",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 4.761904761904762
+   }
+  },
+  {
+   "id": "ELE-13",
+   "topics": [
+    "Short-circuit levels, cable sizing, voltage drop, motor starting"
+   ],
+   "title": "Power-factor correction",
+   "call": "electrical.pf_correction_kvar",
+   "kwargs": {
+    "P_kW": 500,
+    "pf_from": 0.8,
+    "pf_to": 0.95
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "500*(sqrt(1-0.8**2)/0.8-sqrt(1-0.95**2)/0.95)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "P_kW",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 210.65794741056828
+   }
+  },
+  {
+   "id": "ELE-14",
+   "topics": [
+    "Lightning protection (rolling sphere, collection area)"
+   ],
+   "title": "Rolling-sphere protected radius at ground level",
+   "call": "electrical.protected_radius_at_ground_m",
+   "kwargs": {
+    "h_mast_m": 30,
+    "R_sphere_m": 45
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "sqrt(30*(2*45-30))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "h_mast_m",
+      "factor": 1.2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 42.42640687119285
+   }
+  },
+  {
+   "id": "ELE-15",
+   "topics": [
+    "Lightning protection (rolling sphere, collection area)"
+   ],
+   "title": "Collection area of a structure (3H rule)",
+   "call": "electrical.collection_area_m2",
+   "kwargs": {
+    "L_m": 50,
+    "W_m": 30,
+    "H_m": 10
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "50*30+2*(3*10)*(50+30)+pi*(3*10)**2",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "H_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 9127.433388230813
+   }
+  },
+  {
+   "id": "ELE-16",
+   "topics": [
+    "Hazardous-area electrical equipment selection (Ex)"
+   ],
+   "title": "Allowed temperature classes for an autoignition temperature of 300 C",
+   "call": "electrical.allowed_t_classes",
+   "kwargs": {
+    "autoignition_C": 300
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "contains",
+     "value": "T3"
+    },
+    {
+     "path": "value",
+     "op": "len_ge",
+     "value": 1
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {}
+  },
+  {
+   "id": "ELE-17",
+   "topics": [
+    "Hazardous-area electrical equipment selection (Ex)"
+   ],
+   "title": "Minimum equipment protection level for Zone 1",
+   "call": "electrical.min_epl_for_zone",
+   "kwargs": {
+    "zone": 1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "eq",
+     "value": "Gb"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": "Gb"
+   }
+  },
+  {
+   "id": "ELE-18",
+   "topics": [
+    "Earthing: tolerable touch/step voltage, rod resistance"
+   ],
+   "title": "Earth rod resistance",
+   "call": "electrical.rod_resistance_ohm",
+   "kwargs": {
+    "rho_ohm_m": 100,
+    "length_m": 3,
+    "radius_m": 0.0095
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100/(2*pi*3)*(log(4*3/0.0095)-1)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "rho_ohm_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 32.580980452415346
+   }
+  },
+  {
+   "id": "ELE-19",
+   "topics": [
+    "Machinery safety (PL, safeguard distance)"
+   ],
+   "title": "Required performance level from the risk graph",
+   "call": "mechanical_safety.required_pl",
+   "kwargs": {
+    "severity": "S2",
+    "frequency": "F2",
+    "possibility": "P2"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "in",
+     "value": [
+      "d",
+      "e"
+     ]
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": "e"
+   }
+  },
+  {
+   "id": "MEC-01",
+   "topics": [
+    "Lifting, dropped objects, vehicle/ship impact"
+   ],
+   "title": "Impact energy",
+   "call": "mechanical_safety.impact_energy_kJ",
+   "kwargs": {
+    "mass_kg": 1000,
+    "v_m_s": 3
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.5*1000*3**2/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "v_m_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 4,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 4.5
+   }
+  },
+  {
+   "id": "MEC-02",
+   "topics": [
+    "Lifting, dropped objects, vehicle/ship impact"
+   ],
+   "title": "Free-fall velocity of a dropped object",
+   "call": "mechanical_safety.drop_velocity_m_s",
+   "kwargs": {
+    "height_m": 10
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "sqrt(2*9.80665*10)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "height_m",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 14.00474919446971
+   }
+  },
+  {
+   "id": "MEC-03",
+   "topics": [
+    "Lifting, dropped objects, vehicle/ship impact"
+   ],
+   "title": "Sling leg tension",
+   "call": "mechanical_safety.sling_leg_tension_N",
+   "kwargs": {
+    "load_kg": 1000,
+    "legs_bearing": 2,
+    "angle_from_vertical_deg": 30
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1000*9.80665/(2*cos(radians(30)))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "load_kg",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 5661.872017348443
+   }
+  },
+  {
+   "id": "MEC-04",
+   "topics": [
+    "Pipe spans, thermal growth, bolt torque"
+   ],
+   "title": "Maximum pipe span",
+   "call": "mechanical_safety.max_pipe_span_m",
+   "kwargs": {
+    "OD_mm": 168.3,
+    "wall_mm": 7.1,
+    "fluid_density": 800
+   },
+   "expect": [
+    {
+     "path": "max_span_m",
+     "op": "le_path",
+     "value": "L_deflection_m"
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "fluid_density",
+      "factor": 3
+     },
+     "path": "max_span_m",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "w_N_m": 423.1191273300089,
+    "L_deflection_m": 8.073203457301114,
+    "L_stress_m": 11.465661677368137,
+    "max_span_m": 8.073203457301114
+   }
+  },
+  {
+   "id": "MEC-05",
+   "topics": [
+    "Pipe spans, thermal growth, bolt torque"
+   ],
+   "title": "Thermal growth of a pipe run",
+   "call": "mechanical_safety.thermal_growth_mm",
+   "kwargs": {
+    "length_m": 100,
+    "delta_T_K": 100
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1.2e-5*100*100*1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "delta_T_K",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 120.00000000000001
+   }
+  },
+  {
+   "id": "MEC-06",
+   "topics": [
+    "Pipe spans, thermal growth, bolt torque"
+   ],
+   "title": "Bolt torque from target load",
+   "call": "mechanical_safety.bolt_torque_Nm",
+   "kwargs": {
+    "bolt_diameter_mm": 20,
+    "target_load_N": 100000
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.2*0.020*100000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "target_load_N",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 400.0
+   }
+  },
+  {
+   "id": "FAC-01",
+   "topics": [
+    "Escape, evacuation and rescue analysis; ESSA"
+   ],
+   "title": "Escape time of 200 people against an available safe egress time of 300 s",
+   "args": [
+    "egress",
+    "--distance",
+    "60",
+    "--speed",
+    "1.2",
+    "--people",
+    "200",
+    "--width",
+    "2",
+    "--specific-flow",
+    "1.3",
+    "--detect-s",
+    "30",
+    "--premove-s",
+    "60",
+    "--aset-s",
+    "300"
+   ],
+   "expect": [
+    {
+     "path": "escape_before_untenable",
+     "op": "true"
+    },
+    {
+     "path": "margin_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "rset_s",
+     "formula": "30+60+max(60/1.2,200/(1.3*2))",
+     "rtol": 1e-06
+    },
+    {
+     "path": "margin_s",
+     "formula": "300-$rset_s",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--width",
+      "factor": 2
+     },
+     "path": "t_flow_s",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--distance",
+      "factor": 2
+     },
+     "path": "t_travel_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "t_travel_s": 50.0,
+    "t_flow_s": 76.92307692307692,
+    "governing": "flow through the exit",
+    "rset_s": 166.9230769230769,
+    "aset_s": 300.0,
+    "margin_s": 133.0769230769231,
+    "aset_over_rset": 1.7972350230414749,
+    "escape_before_untenable": true
+   }
+  },
+  {
+   "id": "FAC-02",
+   "topics": [
+    "Escape, evacuation and rescue analysis; ESSA"
+   ],
+   "title": "Narrow exit makes flow, not distance, govern",
+   "args": [
+    "egress",
+    "--distance",
+    "20",
+    "--speed",
+    "1.2",
+    "--people",
+    "500",
+    "--width",
+    "1",
+    "--specific-flow",
+    "1.3",
+    "--detect-s",
+    "30",
+    "--premove-s",
+    "60"
+   ],
+   "expect": [
+    {
+     "path": "governing",
+     "op": "eq",
+     "value": "flow through the exit"
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--people",
+      "factor": 2
+     },
+     "path": "t_flow_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "t_travel_s": 16.666666666666668,
+    "t_flow_s": 384.6153846153846,
+    "governing": "flow through the exit",
+    "rset_s": 474.6153846153846
+   }
+  },
+  {
+   "id": "FAC-03",
+   "topics": [
+    "Illumination study"
+   ],
+   "title": "Luminaires for 300 lux in a 100 m2 room",
+   "args": [
+    "illumination",
+    "--area",
+    "100",
+    "--flux",
+    "3000",
+    "--uf",
+    "0.6",
+    "--mf",
+    "0.8",
+    "--target",
+    "300"
+   ],
+   "expect": [
+    {
+     "path": "achieved_lux",
+     "op": "ge",
+     "value": 300
+    }
+   ],
+   "oracle": [
+    {
+     "path": "n_exact",
+     "formula": "300*100/(3000*0.6*0.8)",
+     "rtol": 1e-06
+    },
+    {
+     "path": "n_luminaires",
+     "formula": "ceil($n_exact)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "flag": "--area",
+      "factor": 2
+     },
+     "path": "n_exact",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--flux",
+      "factor": 2
+     },
+     "path": "n_exact",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "flag": "--target",
+      "factor": 2
+     },
+     "path": "n_exact",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": true,
+   "regression": {
+    "n_exact": 20.833333333333332,
+    "n_luminaires": 21,
+    "achieved_lux": 302.4
+   }
+  },
+  {
+   "id": "FAC-04",
+   "topics": [
+    "Illumination study"
+   ],
+   "title": "Lux achieved by an existing 21 luminaires",
+   "args": [
+    "illumination",
+    "--area",
+    "100",
+    "--flux",
+    "3000",
+    "--uf",
+    "0.6",
+    "--mf",
+    "0.8",
+    "--count",
+    "21"
+   ],
+   "expect": [
+    {
+     "path": "achieved_lux",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "achieved_lux",
+     "formula": "21*3000*0.6*0.8/100",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": true,
+   "regression": {
+    "achieved_lux": 302.4
+   }
+  },
+  {
+   "id": "HYD-01",
+   "topics": [
+    "Line sizing / hydraulics / erosional velocity"
+   ],
+   "title": "Liquid line pressure drop (Darcy-Weisbach)",
+   "call": "hydraulics.incompressible_dp_kpa",
+   "kwargs": {
+    "Q_m3_s": 0.05,
+    "D": 0.15,
+    "L": 100,
+    "rho": 800,
+    "mu_Pa_s": 0.001
+   },
+   "expect": [
+    {
+     "path": "dp_total_kPa",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "velocity_m_s",
+     "formula": "0.05/(pi*0.15**2/4)",
+     "rtol": 1e-06
+    },
+    {
+     "path": "dp_friction_kPa",
+     "formula": "$f*100/0.15*800*$velocity_m_s**2/2/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "L",
+      "factor": 2
+     },
+     "path": "dp_total_kPa",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "velocity_m_s": 2.8294212105225838,
+    "Re": 339530.54526271,
+    "f": 0.016828822125417378,
+    "dp_friction_kPa": 35.92672768113042,
+    "dp_fittings_kPa": 0.0,
+    "dp_static_kPa": 0.0,
+    "dp_total_kPa": 35.92672768113042,
+    "dp_per_100m_kPa": 35.92672768113042
+   }
+  },
+  {
+   "id": "HYD-02",
+   "topics": [
+    "Line sizing / hydraulics / erosional velocity"
+   ],
+   "title": "Gas line outlet pressure (isothermal)",
+   "call": "hydraulics.isothermal_gas_outlet_kpa",
+   "kwargs": {
+    "mass_kg_s": 5,
+    "D": 0.3,
+    "L": 1000,
+    "P1_kpa": 2000,
+    "T_K": 300,
+    "M": 18,
+    "mu_Pa_s": 1.1e-05
+   },
+   "expect": [
+    {
+     "path": "P2_kPa",
+     "op": "lt",
+     "value": 2000
+    },
+    {
+     "path": "P2_kPa",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "mass_kg_s",
+      "factor": 2
+     },
+     "path": "P2_kPa",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "P2_kPa": 1992.0945758600617,
+    "f": 0.013652541471490602,
+    "Re": 1929150.825356307,
+    "outlet_velocity_m_s": 4.920515398411256,
+    "outlet_mach_isothermal": 0.013218102883863506,
+    "dp_kPa": 7.905424139938317
+   }
+  },
+  {
+   "id": "HYD-03",
+   "topics": [
+    "Line sizing / hydraulics / erosional velocity"
+   ],
+   "title": "Erosional velocity limit from C = 100 (US form) in SI",
+   "call": "hydraulics.erosional_velocity_m_s",
+   "kwargs": {
+    "rho_kg_m3": 50
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "100/sqrt(50/(0.45359237/0.3048**3))*0.3048",
+     "rtol": 0.0001
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "rho_kg_m3",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 17.252037230431004
+   }
+  },
+  {
+   "id": "HYD-04",
+   "topics": [
+    "Control valve (liquid) / pump NPSH / affinity"
+   ],
+   "title": "Liquid control valve Kv",
+   "call": "hydraulics.kv_liquid",
+   "kwargs": {
+    "Q_m3_h": 50,
+    "rho": 1000,
+    "dP_bar": 1.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "50*sqrt((1000/1000)/1.0)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "dP_bar",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 50.0
+   }
+  },
+  {
+   "id": "HYD-05",
+   "topics": [
+    "Control valve (liquid) / pump NPSH / affinity"
+   ],
+   "title": "NPSH available",
+   "call": "hydraulics.npsha_m",
+   "kwargs": {
+    "P_suction_kpa_abs": 200,
+    "Pv_kpa_abs": 50,
+    "rho": 800,
+    "static_head_m": 3,
+    "line_loss_m": 1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "(200-50)*1000/(800*9.80665)+3-1",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "static_head_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 21.119678993336155
+   }
+  },
+  {
+   "id": "HYD-06",
+   "topics": [
+    "Control valve (liquid) / pump NPSH / affinity"
+   ],
+   "title": "Pump affinity laws at half speed",
+   "call": "hydraulics.pump_affinity",
+   "kwargs": {
+    "Q1": 100,
+    "H1": 50,
+    "P1": 20,
+    "N1": 2900,
+    "N2": 1450
+   },
+   "expect": [
+    {
+     "path": "Q",
+     "op": "lt",
+     "value": 100
+    }
+   ],
+   "oracle": [
+    {
+     "path": "Q",
+     "formula": "100*1450/2900",
+     "rtol": 1e-06
+    },
+    {
+     "path": "H",
+     "formula": "50*(1450/2900)**2",
+     "rtol": 1e-06
+    },
+    {
+     "path": "P",
+     "formula": "20*(1450/2900)**3",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "Q": 50.0,
+    "H": 12.5,
+    "P": 2.5
+   }
+  },
+  {
+   "id": "HYD-07",
+   "topics": [
+    "Surge / water hammer"
+   ],
+   "title": "Joukowsky pressure rise",
+   "call": "hydraulics.joukowsky_kpa",
+   "kwargs": {
+    "rho": 1000,
+    "a_m_s": 1200,
+    "dv_m_s": 2
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1000*1200*2/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "dv_m_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2400.0
+   }
+  },
+  {
+   "id": "HYD-08",
+   "topics": [
+    "Surge / water hammer"
+   ],
+   "title": "Surge screen: critical closure time is 2L/a",
+   "call": "hydraulics.surge_screen",
+   "kwargs": {
+    "L_m": 1000,
+    "a_m_s": 1000,
+    "closure_s": 1.0,
+    "rho": 1000,
+    "dv_m_s": 2
+   },
+   "expect": [
+    {
+     "path": "rapid_closure",
+     "op": "true"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "critical_time_s",
+     "formula": "2*1000/1000",
+     "rtol": 1e-06
+    },
+    {
+     "path": "joukowsky_kPa",
+     "formula": "1000*1000*2/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "L_m",
+      "factor": 2
+     },
+     "path": "critical_time_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "critical_time_s": 2.0,
+    "joukowsky_kPa": 2000.0,
+    "estimated_kPa": 2000.0,
+    "rapid_closure": true
+   }
+  },
+  {
+   "id": "FW-01",
+   "topics": [
+    "Fire water hydraulics and demand"
+   ],
+   "title": "Fire-water demand and storage for two simultaneous zones",
+   "call": "fire_water.demand_summary",
+   "kwargs": {
+    "zones": {
+     "A": 5000,
+     "B": 3000
+    },
+    "simultaneous": [
+     "A",
+     "B"
+    ],
+    "duration_h": 4
+   },
+   "expect": [
+    {
+     "path": "largest_zone",
+     "op": "eq",
+     "value": "A"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "design_flow_lpm",
+     "formula": "5000+3000",
+     "rtol": 1e-06
+    },
+    {
+     "path": "storage_m3",
+     "formula": "8000*60*4/1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "duration_h",
+      "factor": 2
+     },
+     "path": "storage_m3",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "design_flow_lpm": 8000.0,
+    "design_flow_m3_h": 480.0,
+    "storage_m3": 1920.0,
+    "largest_zone": "A"
+   }
+  },
+  {
+   "id": "FW-02",
+   "topics": [
+    "Fire water hydraulics and demand"
+   ],
+   "title": "Water-spray demand from area and density",
+   "call": "fire_water.spray_demand_lpm",
+   "kwargs": {
+    "area_m2": 200
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "200*10.2",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "area_m2",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 2039.9999999999998
+   }
+  },
+  {
+   "id": "FW-03",
+   "topics": [
+    "Fire water hydraulics and demand"
+   ],
+   "title": "Hazen-Williams line loss (exponent 1.85 vs 1.852 forms differ by under 1 percent)",
+   "call": "fire_water.line_loss_bar",
+   "kwargs": {
+    "Q_lpm": 5000,
+    "d_mm": 200,
+    "L_m": 500
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "10.67*500*(5000/60000)**1.852/(120**1.852*0.2**4.87)*9806.65/1e5",
+     "rtol": 0.01
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "L_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "Q_lpm",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 1.867748958628269
+   }
+  },
+  {
+   "id": "VES-01",
+   "topics": [
+    "Pressure-vessel thickness / MAWP"
+   ],
+   "title": "Cylinder shell thickness (thin wall)",
+   "call": "vessel_mech.cylinder_thickness_mm",
+   "kwargs": {
+    "P_kpag": 1500,
+    "R_in_mm": 1000,
+    "S_MPa": 138,
+    "E": 0.85,
+    "CA_mm": 3
+   },
+   "expect": [
+    {
+     "path": "t_required_mm",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "t_circumferential_mm",
+     "formula": "1.5*1000/(138*0.85-0.6*1.5)",
+     "rtol": 1e-06
+    },
+    {
+     "path": "t_with_CA_mm",
+     "formula": "$t_required_mm+3",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "P_kpag",
+      "factor": 0.5
+     },
+     "path": "t_required_mm",
+     "relation": "decreasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "t_circumferential_mm": 12.88659793814433,
+    "t_longitudinal_mm": 6.377551020408164,
+    "t_required_mm": 12.88659793814433,
+    "t_with_CA_mm": 15.88659793814433
+   }
+  },
+  {
+   "id": "VES-02",
+   "topics": [
+    "Pressure-vessel thickness / MAWP"
+   ],
+   "title": "MAWP of a 15 mm shell",
+   "call": "vessel_mech.cylinder_mawp_kpag",
+   "kwargs": {
+    "t_mm": 15,
+    "R_in_mm": 1000,
+    "S_MPa": 138,
+    "E": 0.85,
+    "CA_mm": 3
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "138*0.85*12/(1000+0.6*12)*1000",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "S_MPa",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 0.1
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 1397.537728355838
+   }
+  },
+  {
+   "id": "VES-03",
+   "topics": [
+    "Pressure-vessel thickness / MAWP"
+   ],
+   "title": "Sphere thickness is about half the cylinder's",
+   "call": "vessel_mech.sphere_thickness_mm",
+   "kwargs": {
+    "P_kpag": 1500,
+    "R_in_mm": 1000,
+    "S_MPa": 138
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "1.5*1000/(2*138-0.2*1.5)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "R_in_mm",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "increasing"
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 5.4406964091403704
+   }
+  },
+  {
+   "id": "VES-04",
+   "topics": [
+    "Pressure-vessel thickness / MAWP"
+   ],
+   "title": "Liquid inventory of a half-full horizontal cylinder",
+   "call": "vessel_mech.liquid_inventory_m3",
+   "kwargs": {
+    "D_m": 3,
+    "L_m": 10,
+    "fill_fraction": 0.5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "pi*3**2/4*10*0.5",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "L_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 35.34291735288517
+   }
+  },
+  {
+   "id": "RLS-01",
+   "topics": [
+    "Release source terms / blowdown"
+   ],
+   "title": "Choked gas release through a 25 mm hole",
+   "call": "release.gas_release_kg_s",
+   "kwargs": {
+    "hole_d_m": 0.025,
+    "P_kpa_abs": 1000,
+    "T_K": 300,
+    "M": 20,
+    "k": 1.3
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.85*pi*0.025**2/4*1000000*sqrt(1.3*0.020/(8.314462618*300))*(2/2.3)**(2.3/(2*0.3))",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "hole_d_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 4,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "P_kpa_abs",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 0.7883566290681923
+   }
+  },
+  {
+   "id": "RLS-02",
+   "topics": [
+    "Release source terms / blowdown"
+   ],
+   "title": "Liquid release through a hole",
+   "call": "release.liquid_release_kg_s",
+   "kwargs": {
+    "hole_d_m": 0.025,
+    "rho": 800,
+    "dP_Pa": 500000
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.62*pi*0.025**2/4*sqrt(2*800*500000)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "dP_Pa",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 8.608085692681835
+   }
+  },
+  {
+   "id": "RLS-03",
+   "topics": [
+    "Release source terms / blowdown"
+   ],
+   "title": "Tank drain time (Torricelli)",
+   "call": "release.tank_drain_time_s",
+   "kwargs": {
+    "A_tank_m2": 50,
+    "hole_d_m": 0.05,
+    "h0_m": 8
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "50/(0.62*pi*0.05**2/4)*sqrt(2*8/9.80665)",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "h0_m",
+      "factor": 4
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2.0,
+     "rtol": 1e-06
+    },
+    {
+     "vary": {
+      "kwarg": "hole_d_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.25,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 52462.39081189863
+   }
+  },
+  {
+   "id": "FLS-01",
+   "topics": [
+    "Refinery/petrochemical flare-system loads (coincident relief)"
+   ],
+   "title": "Coincident-relief event load (mass, mixture molar mass, temperature)",
+   "call": "flare_system.event_load",
+   "kwargs": {
+    "devices": [
+     {
+      "name": "PSV-1",
+      "kg_s": 10,
+      "mw": 30,
+      "T_K": 350
+     },
+     {
+      "name": "PSV-2",
+      "kg_s": 5,
+      "mw": 20,
+      "T_K": 300
+     }
+    ]
+   },
+   "expect": [
+    {
+     "path": "kg_s",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "kg_s",
+     "formula": "10+5",
+     "rtol": 1e-06
+    },
+    {
+     "path": "mw",
+     "formula": "15/(10/30+5/20)",
+     "rtol": 1e-06
+    },
+    {
+     "path": "T_K",
+     "formula": "(10*350+5*300)/15",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "kg_s": 15,
+    "mw": 25.71428571428572,
+    "T_K": 333.3333333333333,
+    "n": 2
+   }
+  },
+  {
+   "id": "PLU-01",
+   "topics": [
+    "Furnace purge, peroxide decomposition, exotherm bookkeeping"
+   ],
+   "title": "Furnace purge time for five volume changes",
+   "call": "plant_units.furnace_purge_time_s",
+   "kwargs": {
+    "firebox_volume_m3": 100,
+    "purge_flow_m3_s": 5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "5*100/5",
+     "rtol": 1e-06
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "purge_flow_m3_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": 100.0
+   }
+  },
+  {
+   "id": "PLU-02",
+   "topics": [
+    "Furnace purge, peroxide decomposition, exotherm bookkeeping"
+   ],
+   "title": "Hydrogenation heat per kg of feed",
+   "call": "plant_units.hydrogenation_heat_kJ_kg_feed",
+   "kwargs": {
+    "h2_consumption_nm3_per_m3_feed": 50,
+    "feed_density_kg_m3": 850,
+    "dH_kJ_per_mol_H2": -125
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "exists"
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "-50*1000/22.414*125/850",
+     "rtol": 0.001
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "h2_consumption_nm3_per_m3_feed",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-06
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {
+    "value": -328.05127047696027
+   }
+  },
+  {
+   "id": "WRK-01",
+   "topics": [
+    "Safety device resizing with capex/opex of installation (workflow)"
+   ],
+   "title": "Safety-device resizing workflow tool",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "workflow"
+    ],
+    [
+     "tool",
+     "workflow",
+     "workflow.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "workflow"
+   }
+  },
+  {
+   "id": "WRK-02",
+   "topics": [
+    "LNG plant concept-stage capital cost (analog method)"
+   ],
+   "title": "LNG capital-cost analog tool",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "lngcost"
+    ],
+    [
+     "tool",
+     "lngcost",
+     "lngcost.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "result",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "lngcost",
+    "daily_margin_musd_per_day": 1.4857142857142858,
+    "safety_spend_share_of_plant_capex_P50": 0.005845902979747047
+   }
+  },
+  {
+   "id": "WRK-03",
+   "topics": [
+    "Cost of implementing study recommendations (piping, civil, electrical)"
+   ],
+   "title": "Recommendation costing tool",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "recs"
+    ],
+    [
+     "tool",
+     "recs",
+     "recs.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "estimate",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "recs"
+   }
+  },
+  {
+   "id": "WRK-04",
+   "topics": [
+    "Shutdown / turnaround schedule and cost risk"
+   ],
+   "title": "Shutdown schedule and cost-risk tool",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "shutdown"
+    ],
+    [
+     "tool",
+     "shutdown",
+     "shutdown.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "shutdown"
+   }
+  },
+  {
+   "id": "WRK-05",
+   "topics": [
+    "Fire & gas mapping"
+   ],
+   "title": "Fire and gas detector coverage mapping",
+   "steps": [
+    [
+     "tool",
+     "example",
+     "fg"
+    ],
+    [
+     "tool",
+     "fg",
+     "fg.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "tool": "fg"
+   }
+  },
+  {
+   "id": "UNI-01",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "convert: 1 psi in kPa from the definition of the pound-force",
+   "args": [
+    "convert",
+    "1",
+    "psi",
+    "kPa"
+   ],
+   "expect": [
+    {
+     "path": "result",
+     "op": "gt",
+     "value": 6.89
+    },
+    {
+     "path": "result",
+     "op": "lt",
+     "value": 6.9
+    }
+   ],
+   "oracle": [
+    {
+     "path": "result",
+     "formula": "0.45359237*9.80665/0.0254**2/1000",
+     "rtol": 1e-12
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "unit command",
+   "regression": {
+    "value": 1.0,
+    "from": "psi",
+    "to": "kPa",
+    "result": 6.894757293168361
+   }
+  },
+  {
+   "id": "UNI-02",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "convert: 212 degF is 100 degC (temperature reading offset)",
+   "args": [
+    "convert",
+    "212",
+    "degF",
+    "degC"
+   ],
+   "expect": [
+    {
+     "path": "result",
+     "op": "close",
+     "value": 100.0,
+     "rtol": 1e-09
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "unit command",
+   "regression": {
+    "value": 212.0,
+    "from": "degF",
+    "to": "degC",
+    "result": 100.00000000000006
+   }
+  },
+  {
+   "id": "UNI-03",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "convert: a temperature difference of 10 dF is 5.5556 dK (no offset)",
+   "args": [
+    "convert",
+    "10",
+    "dF",
+    "dK"
+   ],
+   "expect": [
+    {
+     "path": "result",
+     "op": "close",
+     "value": 5.555555555555555,
+     "rtol": 1e-12
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "unit command",
+   "regression": {
+    "value": 10.0,
+    "from": "dF",
+    "to": "dK",
+    "result": 5.555555555555555
+   }
+  },
+  {
+   "id": "UNI-04",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "convert: 0 psig is 1 atmosphere absolute (needs --across-atmosphere)",
+   "args": [
+    "convert",
+    "0",
+    "psig",
+    "psia",
+    "--across-atmosphere"
+   ],
+   "expect": [
+    {
+     "path": "result",
+     "op": "close",
+     "value": 14.69594877551345,
+     "rtol": 1e-09
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "unit command",
+   "regression": {
+    "value": 0.0,
+    "from": "psig",
+    "to": "psia",
+    "result": 14.69594877551345
+   }
+  },
+  {
+   "id": "UNI-05",
+   "topics": [
+    "Data centre: PUE, cooling-water balance, evaporative water, UPS battery, diesel storage"
+   ],
+   "title": "template: a US-unit fill-in template for relief-gas",
+   "args": [
+    "template",
+    "relief-gas",
+    "--system",
+    "us"
+   ],
+   "expect": [
+    {
+     "path": "units",
+     "op": "eq",
+     "value": "us"
+    },
+    {
+     "path": "inputs.W",
+     "op": "is_none"
+    },
+    {
+     "path": "_guide.W.unit",
+     "op": "eq",
+     "value": "lb/h"
+    },
+    {
+     "path": "_guide.set_g.unit",
+     "op": "eq",
+     "value": "psig"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "template command",
+   "regression": {
+    "command": "relief-gas",
+    "units": "us"
+   }
+  },
+  {
+   "id": "UNI-06",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "run: a filled US-unit template gives the SI answer",
+   "steps": [
+    {
+     "write": "in.json",
+     "json": {
+      "command": "relief-gas",
+      "units": "us",
+      "inputs": {
+       "W": 26455.5,
+       "T": 260.33,
+       "set_g": 217.557,
+       "case": "fire",
+       "M": 44,
+       "k": 1.13,
+       "Z": 0.9
+      }
+     }
+    },
+    [
+     "run",
+     "in.json"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "required_area_mm2",
+     "op": "between",
+     "value": 730.0,
+     "hi": 737.0
+    },
+    {
+     "path": "required_area_in2",
+     "op": "between",
+     "value": 1.13,
+     "hi": 1.14
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "required_area_mm2": 733.2699269724377,
+    "required_area_in2": 1.1365706599485983,
+    "orifice": "J",
+    "n_valves": 1,
+    "regime": "critical"
+   }
+  },
+  {
+   "id": "QRA-01",
+   "topics": [
+    "Occupied building risk / building radiation impact"
+   ],
+   "title": "Occupied-building risk for the LPG terminal example",
+   "args": [
+    "qra",
+    "buildings",
+    "process_safety/qra/examples/lpg_terminal.json",
+    "--quiet"
+   ],
+   "expect": [
+    {
+     "path": "buildings",
+     "op": "len_ge",
+     "value": 1
+    },
+    {
+     "path": "buildings[0].IRPA_per_yr",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "buildings[0].PLL_per_yr",
+     "formula": "$buildings[0].IRPA_per_yr*6",
+     "rtol": 0.05
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "study JSON, SI inside",
+   "regression": {}
+  },
+  {
+   "id": "QRA-02",
+   "topics": [
+    "MCLS, emergency planning zones, ERDMP"
+   ],
+   "title": "Emergency planning distances and site emergency level",
+   "args": [
+    "qra",
+    "emergency",
+    "process_safety/qra/examples/lpg_terminal.json",
+    "--quiet"
+   ],
+   "expect": [
+    {
+     "path": "site_emergency_level",
+     "op": "in",
+     "value": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "path": "mcls[\"d_12.5kW_m2\"].worst_case_m",
+     "op": "ge_path",
+     "value": "mcls[\"d_12.5kW_m2\"].credible_m"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "study JSON, SI inside",
+   "regression": {
+    "site_emergency_level": 3
+   }
+  },
+  {
+   "id": "QRA-03",
+   "topics": [
+    "Pool/jet fire, explosion, dispersion (QRA)",
+    "Quantitative risk assessment (LSIR, IRPA, F-N, PLL, ALARP)"
+   ],
+   "title": "QRA sample run on two scenarios of the LPG terminal example (summary frequencies)",
+   "steps": [
+    [
+     "qra",
+     "run",
+     "@ROOT@/process_safety/qra/examples/lpg_terminal.json",
+     "--sample",
+     "2",
+     "--no-xlsx",
+     "--no-mitigation",
+     "--quiet",
+     "--out",
+     "qout"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "scenarios_run",
+     "op": "eq",
+     "value": 2
+    },
+    {
+     "path": "total_loc_frequency_per_yr",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "max_LSIR_per_yr",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool or file-writing command, inputs are SI inside the JSON",
+   "regression": {
+    "study": "Illustrative LPG / fuel terminal QRA (hypothetical site)",
+    "mode": "sample",
+    "scenarios_run": 2,
+    "scenarios_total": 18,
+    "total_loc_frequency_per_yr": 0.00017999999999999998,
+    "max_LSIR_per_yr": 1.1299302850877092e-05,
+    "PLL_per_yr": 3.0848076410447394e-05,
+    "events_integrated": 1306,
+    "effects_built": 12,
+    "societal_region": "BROADLY ACCEPTABLE"
+   }
+  },
+  {
+   "id": "DCN-01",
+   "topics": [
+    "Data centre: generic HAZID prompts (fuel, battery, suppression, electrical, cooling)"
+   ],
+   "title": "The HAZID prompt list that seeds a data-centre study",
+   "call": "datacentre.HAZID_PROMPTS",
+   "kwargs": {},
+   "expect": [
+    {
+     "path": "value",
+     "op": "len_ge",
+     "value": 5
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; the unit systems are exercised by the CLI scenarios",
+   "regression": {}
+  },
+  {
+   "id": "UTL-01",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Glossary lookup",
+   "args": [
+    "glossary",
+    "LOPA"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "Layer of protection"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
+   "id": "UTL-02",
+   "topics": [
+    "PSV / relief sizing (overpressure scenarios)"
+   ],
+   "title": "Accepted input range lookup",
+   "args": [
+    "ranges",
+    "set_pressure_kPag"
+   ],
+   "expect": [
+    {
+     "path": "name",
+     "op": "eq",
+     "value": "set_pressure_kPag"
+    },
+    {
+     "path": "unit",
+     "op": "eq",
+     "value": "kPag"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "range table",
+   "regression": {
+    "name": "set_pressure_kPag",
+    "unit": "kPag",
+    "description": "relief or design set pressure (gauge)",
+    "hard_range": "(0, inf)",
+    "soft_range": "[7, 40000]"
+   }
+  }
+ ]
+}

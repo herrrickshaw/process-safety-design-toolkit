@@ -57,3 +57,50 @@
 
 **Excluded on purpose:** content of licensed standards or company documents (e.g. company design practices, vendor datasheets). Do not add them
 to this repository.
+
+## QRA (0.7.0, checked 2026-11-05)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Generic LOC frequencies: vessels 5e-6 rupture / 1e-4 10 mm; piping by diameter band; tanks; hoses 4e-2; transfer arm 3e-4 | US DOT PHMSA LNG Failure Rate Table rev. 2015-02-11 (FERC nominal), primis.phmsa.dot.gov | search-engine excerpts of the public PDF (direct fetch blocked by robots.txt) | medium-high: rows as printed; check the current FRT |
+| Large atmospheric tank catastrophic 5e-6, major 1e-4 | HSE PCAG ch. 6K v12 (2012) | search excerpt | medium-high |
+| HSE generic pressure-vessel catastrophic 2e-6 /vessel-yr | Nussey (2006) HSE vs Netherlands comparison, quoting FRED | search excerpt | medium-high |
+| Cox, Lees & Ang (1990) ignition 0.01/0.07/0.30 gas, 0.01/0.03/0.08 liquid; explosion 0.04/0.12/0.30 | EU JRC RAPID-N property estimators citing Cox et al. 1990; CET journal table | read | high (as tabulated) |
+| HSE R2P2: IR 1e-3 workers, 1e-4 public, 1e-6 broadly acceptable; N>=50 at 2e-4/yr intolerable | Risktec paper (traficom.fi), IGEM guidance note, EU criteria review | secondary, consistent | high |
+| F-N lines 1e-2/N (max tolerable) and 1e-4/N (broadly acceptable) | IGEM note (states it derives from the R2P2 50-fatality point) | read | medium: IGEM rendering, not R2P2 text |
+| Netherlands: PR 1e-6/yr; societal guide value 1e-3/N^2 for installations (N >= 10) | CET vol. 31 (2013); TU Delft notes; Jonkman et al. (2010) | secondary, consistent | high |
+| Eisenberg probits: lung haemorrhage Pr = -77.1 + 6.91 ln P[Pa]; structural damage -23.8 + 2.92 ln P | Purdue P2SAC note; Crowl & Louvar problem sets | secondary, consistent | medium-high |
+| Flare/jet flame length L = 0.00326 Q^0.478 (Q in W) | TCEQ technical basis (4.56e-3 q^0.478, cal/s, flame at 45 deg) = same curve; forum fits of API 521 Fig. | regulator doc + secondary | medium: API figure fit |
+| India QRA criteria | no single national value found; OISD-STD-118 (2025), PNGRB T4S, MSIHC reference QRA | consultancy summaries only | n/a: use `custom` |
+
+## Study tools (0.8.0, checked 2026-11-05)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Stoessel criticality classes 1-5 (Tp, MTSR, MTT, TD24) | Masaryk Univ. safety lecture notes; TUV SUD Schweiz EPSC 2020 award lecture (worked examples: class 3, class 5) | read | high |
+| Purple Book building vulnerability: > 0.3 barg 1 in/out; 0.1-0.3 barg 0.025 indoors, 0 outdoors; flame/35 kW/m2 -> 1 | DNV Phast vulnerability model theory note; US LNG QRA filings | read | high |
+| Indoor fire vulnerability below 35 kW/m2 = 0 | assumption (not read in the Purple Book) | n/a | low: override |
+| IEC 61511-1:2016 Table 6 minimum HFT (as corrected by COR1) | iteh.ai sample of IEC 61511-1:2016/COR1:2016 | read | high |
+| IEC 61508-2 Route 1H tables (type A/B, SFF x HFT) | exida blog; PR electronics SIL poster | secondary, consistent | high |
+| KSt classes St1 <= 200, St2 200-300, St3 > 300 bar.m/s | explosion-testing labs; OSHA NEP table as quoted | secondary, consistent | high |
+| Damage criteria 37.5/12.5/4 kW/m2; 0.3/0.1/0.03 bar | MoEF EIA Technical Guidance Manual (thermal power plants, 2010), Table 3-19/3-21 | read | high (as Indian reporting basis) |
+| H2S ERPG-3/2 = 100/30 ppm | recalled; example input only | not verified | medium: verify against AIHA |
+| Spurious-trip approximations (2 ls^2 MTTR, 6 ls^2 MTTR) | ISA TR84.00.02 style, recalled | not verified | medium |
+| FIBC type rules, gas zone by grade (medium/good, high dilution) | recalled summaries of IEC 61340-4-4 / IEC 60079-10-1 | not verified | medium: verify |
+| PHMSA NPRM (28 Oct 2026) to revise 49 CFR 193 around NFPA 59A-2026; comments due 4 Jan 2027 | National Law Review (Van Ness Feldman summary, 2 Nov 2026) | read (summary, not the NPRM text) | medium: proposed rule, not final; re-check against the Federal Register notice |
+| Early design choices, scale-up and thermal screening (CSB "about 60%" statistic as quoted) | Sigma-HSE article, 27 Nov 2025 | read; statistic not checked | medium |
+| CCPS Process Safety Beacon | ccps.aiche.org | not read: bot check (HTTP 403), no bypass | n/a |
+
+## Jet flame and material data (checked 2026-11-07)
+| Item | Source | How obtained | Confidence |
+|---|---|---|---|
+| Chamberlain vapour jet-flame equations (source diameter, Kalghatgi still-air length, length in wind, angle, lift-off, W1, W2, F_s, SEP, frustum area); beta 2.85; SEP cap 350 kW/m2 | DNV "Theory - Jet Fire" (JFSH), Dec 2023, section 2, public PDF (myworkspace.dnv.com, phast technical documentation) | full text extracted and read; equations used, no text copied (PDF forbids reproduction) | medium-high: eqs (18) and (25) were ambiguous in extraction and settled by a continuity test; Chamberlain 1987 and Kalghatgi 1984 not read |
+| Chamberlain field-trial inputs (trials 3A-D, 4A-C) | DNV JFSH validation document, Table 2 | read | used only for a plausibility run; measured results are plots only, so no per-test error exists |
+| Chamberlain model accuracy claims (frustum length within about 10%, SEP within 10% of mean) | same validation document, section 2.1.2 | read | as stated by DNV, not independently checked |
+| 304 stainless (UNS S30400) thermal conductivity and specific heat, 4-300 K, log10 polynomial fits (errors 2% and 5%); Young's modulus; linear expansion | NIST Cryogenic Material Properties, trc.nist.gov/cryogenics/materials/304Stainless/304Stainless_rev.htm | live page fetched; fit evaluated (15.1 W/m/K and 470 J/kg/K at 293 K) | high for 304; not yet in the code |
+| Nickel steels Fe-2.25/3.25/5.0/9.0Ni fits | NIST cryogenic pages | live pages fetched | NOT USED: 2.25Ni and 9.0Ni pages list identical specific-heat and linear-expansion coefficients, and the UNS labels look wrong (S21800 is not a 9% Ni steel by my recollection, unchecked) |
+| Carbon steel at low temperature (A516, A333) | none found | NIST index lists only nickel steels, 304, 304L, 310, 316 | gap |
+| Steel strength retention and thermal properties at fire temperatures | EN 1993-1-2:2005 Table 3.1 and thermal annex | paywalled; only unofficial copies and drafts found, not read | still medium: `structural_fire` and `vapour_fire` values remain recalled |
+| Creep and rupture of C and C-Mn steels | NIMS Creep Data Sheet, cds.nims.go.jp | site found; data not read; licence terms not found | pointer only |
+| Hydrogen compatibility of structural materials | Sandia "Technical Reference for Hydrogen Compatibility of Materials", SAND2012-7321, public | introduction located; no threshold values read | pointer only |
+| Ideal-gas thermochemistry to high T | NIST-JANAF tables (janaf.nist.gov), about 1,700 compounds, last data update 1998 | site read; no values taken | pointer only |
+| Pure-component properties incl. enthalpy of combustion | NIST/TRC Web Thermo Tables, Lite edition free (about 150 compounds), Professional is a subscription | search summary | pointer only; flammability-limit open source not found |
+| ATEX expansion equations (1)-(10): mass, momentum, energy conservation, choked ideal-gas vena contracta, velocity cap, sonic-air-jet verification and British Gas natural-gas validation cases | Witlox and Fernandez, IChemE Symposium Series 161 (Hazards 26), 2016, icheme.org open PDF | full text extracted and read; momentum and energy forms derived from (1)-(3) | high for the ideal-gas path; droplet and rainout correlations not read |

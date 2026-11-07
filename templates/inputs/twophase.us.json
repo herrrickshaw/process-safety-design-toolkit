@@ -1,0 +1,122 @@
+{
+  "command": "twophase",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "P0": null,
+    "fluid": null,
+    "omega_basis": "two_point",
+    "rho0": null,
+    "omega": null,
+    "v0": null,
+    "v9": null,
+    "back_p": null,
+    "W": null,
+    "Kd": null
+  },
+  "_guide": {
+    "P0": {
+      "flag": "--P0",
+      "required": true,
+      "type": "float",
+      "unit": "psia",
+      "help": "inlet (relieving) pressure, kPa absolute",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.145038,
+        "soft_max": 14503.773773
+      }
+    },
+    "fluid": {
+      "flag": "--fluid",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "saturated liquid from the bundled CoolProp table (python -m process_safety fluid-data lists them); sets rho0 and omega"
+    },
+    "omega_basis": {
+      "flag": "--omega-basis",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "which tabulated omega to use with --fluid",
+      "choices": [
+        "two_point",
+        "saturated"
+      ]
+    },
+    "rho0": {
+      "flag": "--rho0",
+      "required": false,
+      "type": "float",
+      "unit": "lb/ft3",
+      "help": "inlet fluid density kg/m3 (or give --v0)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.003121,
+        "soft_max": 156.069901
+      }
+    },
+    "omega": {
+      "flag": "--omega",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "omega parameter, if known",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.1,
+        "soft_max": 500
+      }
+    },
+    "v0": {
+      "flag": "--v0",
+      "required": false,
+      "type": "float",
+      "unit": "ft3/lb",
+      "help": "inlet specific volume m3/kg"
+    },
+    "v9": {
+      "flag": "--v9",
+      "required": false,
+      "type": "float",
+      "unit": "ft3/lb",
+      "help": "specific volume at 0.9*P0, m3/kg"
+    },
+    "back_p": {
+      "flag": "--back-p",
+      "required": false,
+      "type": "float",
+      "unit": "psia",
+      "help": "back pressure kPa absolute (default: choked)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.145038,
+        "soft_max": 14503.773773
+      }
+    },
+    "W": {
+      "flag": "--W",
+      "required": false,
+      "type": "float",
+      "unit": "lb/s",
+      "help": "required relief rate kg/s, to size the area",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 22046.226218
+      }
+    },
+    "Kd": {
+      "flag": "--Kd",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "discharge coefficient for two-phase service (no default: use your valve data)",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    }
+  }
+}

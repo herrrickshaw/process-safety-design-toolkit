@@ -1,0 +1,99 @@
+{
+  "command": "depressure",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "volume": null,
+    "p0": null,
+    "pt": null,
+    "T0": null,
+    "M": null,
+    "k": null,
+    "area": null
+  },
+  "_guide": {
+    "volume": {
+      "flag": "--volume",
+      "required": true,
+      "type": "float",
+      "unit": "m3",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.001,
+        "soft_max": 500000
+      }
+    },
+    "p0": {
+      "flag": "--p0",
+      "required": true,
+      "type": "float",
+      "unit": "kPa abs",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 100000
+      }
+    },
+    "pt": {
+      "flag": "--pt",
+      "required": true,
+      "type": "float",
+      "unit": "kPa abs",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 100000
+      }
+    },
+    "T0": {
+      "flag": "--T0",
+      "required": true,
+      "type": "float",
+      "unit": "K",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 50,
+        "soft_max": 3000
+      }
+    },
+    "M": {
+      "flag": "--M",
+      "required": true,
+      "type": "float",
+      "unit": "kg/kmol",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2,
+        "soft_max": 500
+      }
+    },
+    "k": {
+      "flag": "--k",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 1.0,
+        "soft_max": 1.67
+      }
+    },
+    "area": {
+      "flag": "--area",
+      "required": true,
+      "type": "float",
+      "unit": "m2",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.1,
+        "soft_max": 100000
+      }
+    }
+  }
+}

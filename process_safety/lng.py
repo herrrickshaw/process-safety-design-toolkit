@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import math
 
-from . import props
 
 # methane defaults at 1 atm (kJ/kg, kJ/kg/K, K): latent heat at the boiling point, liquid and gas cp, net heating value (MJ/kg)
 METHANE = {"latent_kJ_kg": 510.0, "cp_liq": 3.5, "cp_gas": 2.2, "Tb_K": 111.66, "lhv_MJ_kg": 50.0}

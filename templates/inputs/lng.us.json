@@ -1,0 +1,67 @@
+{
+  "command": "lng",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "tanks": null,
+    "surge": null,
+    "heat_kw": null,
+    "regas_kg_s": null,
+    "sw_dT": 9.0
+  },
+  "_guide": {
+    "tanks": {
+      "flag": "--tanks",
+      "required": true,
+      "type": "float list",
+      "unit": "ft3",
+      "help": "tank capacities m3",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.035315,
+        "soft_max": 17657333.360744
+      }
+    },
+    "surge": {
+      "flag": "--surge",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    },
+    "heat_kw": {
+      "flag": "--heat-kw",
+      "required": false,
+      "type": "float",
+      "unit": "kW",
+      "help": "heat ingress kW (boil-off)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000
+      }
+    },
+    "regas_kg_s": {
+      "flag": "--regas-kg-s",
+      "required": false,
+      "type": "float",
+      "unit": "lb/s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 22046.226218
+      }
+    },
+    "sw_dT": {
+      "flag": "--sw-dT",
+      "required": false,
+      "type": "float",
+      "unit": "dF",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.8,
+        "soft_max": 90.0
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "command": "pfd",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "arch": null,
+    "lambda_du": null,
+    "ti_years": null,
+    "beta": 0.0
+  },
+  "_guide": {
+    "arch": {
+      "flag": "--arch",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "1oo1",
+        "1oo2",
+        "2oo2",
+        "2oo3"
+      ]
+    },
+    "lambda_du": {
+      "flag": "--lambda-du",
+      "required": true,
+      "type": "float",
+      "unit": "1/h",
+      "help": "per hour",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.0,
+        "soft_max": 0.0001
+      }
+    },
+    "ti_years": {
+      "flag": "--ti-years",
+      "required": true,
+      "type": "float",
+      "unit": "yr",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.01,
+        "soft_max": 20
+      }
+    },
+    "beta": {
+      "flag": "--beta",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_max": 0.2
+      }
+    }
+  }
+}

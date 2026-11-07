@@ -11,6 +11,8 @@ coordination study, an earthing design to IEEE 80/IEC 61936/EN 50522, or a light
 """
 from __future__ import annotations
 
+from .ranges import validated
+
 import math
 
 # --- short circuit and cable ----------------------------------------------------------------------------------------
@@ -64,6 +66,7 @@ def motor_start_dip_pct(S_start_MVA: float, S_fault_MVA: float) -> float:
 IDMT = {"standard_inverse": (0.14, 0.02), "very_inverse": (13.5, 1.0), "extremely_inverse": (80.0, 2.0), "long_time_inverse": (120.0, 1.0)}
 
 
+@validated(I_A="current_A", I_pickup_A="current_A", tms="relay_tms")
 def idmt_time_s(I_A: float, I_pickup_A: float, tms: float, curve: str = "standard_inverse") -> float:
     """t = TMS k / ((I/Is)^alpha - 1); infinite at or below pickup."""
     k, a = IDMT[curve]

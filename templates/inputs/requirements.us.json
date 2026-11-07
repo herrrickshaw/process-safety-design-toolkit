@@ -1,0 +1,49 @@
+{
+  "command": "requirements",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "files": null,
+    "out": null,
+    "register": null,
+    "show": 0,
+    "allow_tracked": null
+  },
+  "_guide": {
+    "files": {
+      "flag": "(positional)",
+      "required": true,
+      "type": "str list",
+      "unit": null,
+      "help": ".txt .md .docx (or .pdf if pdftotext is installed)"
+    },
+    "out": {
+      "flag": "--out",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": "CSV to write the statements to; must be outside version control or git-ignored"
+    },
+    "register": {
+      "flag": "--register",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "PHA register CSV to compare requirement types against"
+    },
+    "show": {
+      "flag": "--show",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": "print this many statements to the screen (default 0: counts only)"
+    },
+    "allow_tracked": {
+      "flag": "--allow-tracked",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "write even if the output path is inside a git repository and not ignored"
+    }
+  }
+}

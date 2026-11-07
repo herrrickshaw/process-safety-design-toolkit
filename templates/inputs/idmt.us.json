@@ -1,0 +1,60 @@
+{
+  "command": "idmt",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "i": null,
+    "pickup": null,
+    "tms": null,
+    "curve": "standard_inverse"
+  },
+  "_guide": {
+    "i": {
+      "flag": "--i",
+      "required": true,
+      "type": "float",
+      "unit": "A",
+      "help": "fault current A",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200000
+      }
+    },
+    "pickup": {
+      "flag": "--pickup",
+      "required": true,
+      "type": "float",
+      "unit": "A",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200000
+      }
+    },
+    "tms": {
+      "flag": "--tms",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.025,
+        "soft_max": 1.5
+      }
+    },
+    "curve": {
+      "flag": "--curve",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "standard_inverse",
+        "very_inverse",
+        "extremely_inverse",
+        "long_time_inverse"
+      ]
+    }
+  }
+}

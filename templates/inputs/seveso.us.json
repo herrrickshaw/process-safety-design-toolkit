@@ -1,0 +1,17 @@
+{
+  "command": "seveso",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "items": null
+  },
+  "_guide": {
+    "items": {
+      "flag": "(positional)",
+      "required": true,
+      "type": "str list",
+      "unit": null,
+      "help": ""
+    }
+  }
+}
