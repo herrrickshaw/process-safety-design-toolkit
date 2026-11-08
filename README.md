@@ -1,5 +1,7 @@
 # process-safety-design-toolkit
 
+> **Walkthrough:** [How-to post on masaladeutsch](https://masaladeutsch.blogspot.com/2026/11/screen-process-safety-question-in-five.html) · [Video on YouTube](https://www.youtube.com/watch?v=a33IiE1vPYA)
+
 Dependency-free (Python stdlib only) calculators for the equations and screening models used in process-safety and relief-system
 design, tied to the standards engineers are held to: API 520/521/526/2000, IEC 61511/CCPS LOPA, and the Indian OISD list.
 Built from the safety scope of a typical process-safety consultancy brochure (HAZOP/QRA/SIL, relief and flare, F&G, loss prevention).
