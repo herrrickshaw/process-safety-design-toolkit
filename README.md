@@ -176,7 +176,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `docs/DESIGN_AWARENESS.md`: process safety review steps, the design choices each drives, results from the use cases, and incident instances, with the toolkit command for each.
 * `docs/USE_CASES.md`: eight worked scenarios (refinery fire case, flashing LPG relief, terminal siting, LOPA to proof-test interval, regulatory screen, electrical, data centre, occupational) with the real commands and outputs; every command is run by the tests.
 * `docs/VALIDATION.md`: 186 cross-checks against fluids, thermo, CoolProp and closed-form literature formulas, with the differences to know about.
-* `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `CONTRIBUTING.md`: checks to run, releasing.
+* `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `docs/ARCHITECTURE_DDD.md`: proposed domain-driven layout and scaling options. `CONTRIBUTING.md`: checks to run, releasing.
 * `docs/RANGES.md`, `docs/GLOSSARY.md`: generated from `ranges.py` and `glossary.py`; a test keeps them in sync.
 * `docs/PROJECT_PIPELINE.md`: tender and upcoming-project monitoring, WBS, scheduling, planning and portfolio reporting around the HAZOP, PHA and shutdown tools: spec, inputs, refusals, identities and limits.
 * `docs/STUDIES.md`: bow-tie, occupied buildings, emergency zones/MCLS, SIL lifecycle, F&G mapping, PHA management, thermal runaway/ATEX, RAM.
