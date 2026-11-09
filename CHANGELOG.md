@@ -1,5 +1,8 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-09: feature gap analysis and licence ledger
+* `docs/FEATURE_GAP_ANALYSIS.md` sorts missing features into build now, needs information and protected, using the README "Not implemented" list and the tool survey. Read the licence texts of JuPedSim (LGPL-3.0 or later), FDS (NIST notice), OpenFOAM (GPL-3.0 or later), thermopack (Apache-2.0), pandapipes and Cantera (BSD-style; clauses not counted). Decisions: copyleft tools are external cross-checks only and published equations are implemented independently, never from re-typed GPL source; rejected: porting FDS or agent-based egress. Nothing was built; the pool-fire theory document, Vadere's repository and AERMOD's licence remain unconfirmed.
+
 ## Unreleased - 2026-11-09: commercial tool capability map
 * `docs/SIMULATION_TOOLS.md` gains a table mapping Aspen HYSYS, Flare System Analyzer and a pasted list of commercial safety tools to toolkit modules, open options and gaps, plus four ranked candidate modules. The CMU Aspen page has no feature list, so HYSYS and Flare System Analyzer capabilities come from the AspenTech product pages; the pasted-list rows are marked unverified. New candidates checked on GitHub: JuPedSim, pandapipes, ht, thermopack. Decisions: no code added; Vadere's repository and the AERMOD licence were not confirmed and the table says so; rejected: reimplementing agent-based evacuation or CFD.
 
