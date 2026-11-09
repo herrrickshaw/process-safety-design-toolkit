@@ -1,97 +1,133 @@
-# Tender requirements against the toolkit: comparison and gaps to fill
+# Middle East tender requirements against iFluids' record and the toolkit: comparison and gaps
 
-Written 2026-11-09 on branch `feature/project-pipeline-planning`. It compares what a small set of **published tender documents and regulator guidance** ask for with what this repository offers today, and sorts the gaps with the same classes as `docs/FEATURE_GAP_ANALYSIS.md` (build now, needs information, protected or out of scope). Nothing here was built or run. "Offering" means the repository's modules, not a consultancy's staff, credentials or software licences.
+Written 2026-11-09 on branch `feature/project-pipeline-planning`. It replaces the earlier India and Singapore version (still in git history, commit `c623f65`): all of iFluids' external clients are in the Middle East, so the requirements, the iFluids evidence and the gaps below are Gulf-specific. Gap classes follow `docs/FEATURE_GAP_ANALYSIS.md` (build now, needs information, protected or out of scope). Nothing here was built or run.
 
-## Sources read (and what was not)
-Five sources. They are a thin sample: three Indian tender records, one expression of interest, one regulator's guidance. Treat the requirement list as a starting checklist, not a market survey.
+**The evidence is weaker than the earlier version.** The Gulf operators' own requirements (ADNOC, Saudi Aramco, QatarEnergy, KOC, PDO and OQ) sit in standards and tender packages that are not public. No operator standard and no full tender document was read. Requirements are inferred from a tender listing, contractor-published award notices, a plan, secondary summaries and job postings, and each source is graded:
 
-| Id | Source | What it is | Route | Limits |
+* **B**: a listing or contractor-published description of a real tender or award.
+* **C**: a secondary summary, a plan seen only through a search summary, or a job posting. Indicative only.
+
+There is no grade A (a primary document read in full).
+
+## Sources
+| Id | Source | Grade | What it gave | Limits |
 |---|---|---|---|---|
-| NRL | Numaligarh Refinery pre-bid minutes, ref PUR-TS-1004878, 17 Jan 2023 ([PDF](https://www.nrl.co.in/UPLOAD/Tender/NRL117202325015PM_Pre_Bid_MoM_2968033.pdf)) | Periodic HAZOP of all process units and utilities, GeM bid GEM/2023/B/2968033 | PDF text extracted locally | One page of minutes. The tender document itself, the second qualification criterion (B) and the scope text were **not** read |
-| IOCL | Indian Oil Marketing Division, Kandla LPG import terminal, GeM/2025/B/6914271, via a [tender aggregator listing](https://tenderdekho.com/tender-detail/td-3j5ibruWee) | HAZOP and QRA, ERDMP manual update, safety report; consultancy only | Aggregator page summarised by a fetch tool | Not the bid document. Turnover figure shown without a unit, EMD, timeline and payment terms not shown. The listing names Parbind Petsafety as L1 and iFluids Engineering as L2; iFluids also appears among the attendees in the NRL minutes |
-| OIL | Oil India pre-bid replies, tender CGI3675P24, 26 Jun 2023 ([PDF](https://www.oil-india.com/files/oldtender/national/PREBID_CGI3675P24.pdf)) | Residual life assessment, fit-for-purpose/service and QRA of two cross-country pipelines | PDF text extracted locally | Four pages of bidder queries. The table of ten threat categories and the deliverable units are images and were not read. These are bidders' proposals; OIL's replies mostly say "as per tender document" |
-| BMC | Brunei Methanol Company EOI WR 6012297, Health Risk Assessment consultancy, 2023 ([page](https://www.brunei-methanol.com/eoi-hraconsultancy)) | Expression of interest | Page summarised by a fetch tool | Summary only |
-| SG | Singapore Major Hazards Department QRA information guide (Rev 0, Dec 2025) and NEA QRA Criteria Guidelines Rev 2, 11 Jul 2024 ([guide](https://www.nea.gov.sg/docs/default-source/our-services/building-planning/qra-info-guide-and-assessment-checklist.pdf)) | Regulator guidance on what a QRA submission must meet; **not a tender** | PDF text extracted locally | The QRA Technical Guidance and Submission Format it points to were not read |
+| QE | QatarEnergy Refinery Mesaieed, international competitive bid LT24107800, "HAZOP revalidation and other safety studies", via a [TenderDetail listing](https://www.tenderdetail.com/Global-Tenders/TenderNotice/87894343/3DD34C2B-E3A1-4435-B5FC-C72857C4A137); closed 25 Nov 2024 | B | Scope in two parts; 120-day offer validity; 150-day bond; mandatory vendor registration and SAP vendor code; document purchase window | Issuer and country fields hidden on the page (Qatar inferred from Mesaieed); qualification criteria, evaluation, duration and currencies not shown; documents gated |
+| SA | [Apave, Saudi petrochemical HAZOP award, Oct 2024](https://middle-east.apave.com/en/News/Apave-secures-major-process-safety-study-for-leading-petrochemical-company-in-Saudi-Arabia) (contractor press release) | B | Scope list, SABIC standards for inherently safer design, 18 to 24 months with concurrent units | No deliverables, software or client name |
+| BG | Velosi, [Borouge 1 and 2 retrospective HAZOP and SIL](https://velosiaims.com/tr/velosi-news/contractaward2), Abu Dhabi (contractor press release) | B | HAZOP, SIL classification and verification, SRS; "latest ADNOC and international standards" | Award date unclear |
+| DG | Velosi, [Dalma Gas Development HAZOP and SIL](https://velosiaims.com/tr/velosi-news/hazop-sil-studies-for-dalma-gas-development-project), Abu Dhabi, Jan 2022 | B | HAZOP and SIL of a gas turbine generator and export compressor; BS IEC 61882 | Client not named in the text |
+| KP | KIPIC Annual Plan 2024 to 2025 (Kuwait): a six-month lump-sum tender for a HAZOP of refinery process units, April 2024 | C | A planned HAZOP tender | Seen only in a search summary; the PDF would not open (certificate error), so the document was not read |
+| LC | Local-content regimes: ADNOC and the Unified ICV programme; Saudi Aramco IKTVA ([Aramco supplier page](https://aramco.com/en/what-we-do/suppliers/become-a-supplier), law-firm summaries) | C | ICV certificate and IKTVA reports scored in bids | Consultants disagree on whether an ICV certificate is mandatory or only scored; no official ADNOC page read; IKTVA summaries date from 2017 to 2018 |
+| AD | ADNOC contractor HSE Management Standard (named in ADNOC's 2023 sustainability report, via a search summary) | C | Minimum HSE prequalification and selection criteria exist | Standard not read |
+| JP | Gulf job postings (QatarEnergy LNG, ADNOC Onshore, Ras Laffan roles) | C | Studies operators expect: QRA, HAZOP and SIL baseline and revalidation, HAZID, What-if, LOPA, FERA, EERA, dropped objects; certified functional safety credentials | Employer wishes, not tender rules |
+| AR | Saudi Aramco HAZOP guideline AER-5437 (2009 copy) and SAEP-343 risk-based inspection (copy, 2015 and 2019 issues) | C | HAZOP as one hazard-identification step; RBI per API RP 580 | Secondary copies; current SAEPs may differ |
+| RC | Royal Commission Environmental Regulations (RCER-2015) for Jubail, Yanbu and Ras Al Khair | C | A best-available-technology assessment for new and modified facilities | An environmental assessment, not a QRA; no RCER risk-assessment text found |
 
-Not used: a UK listing titled "M0070 QRA Service" (it turned out to be project risk management, not process safety); a JTC requirements link (404); a Contracts Finder attachment (403, not bypassed). Full GeM documents were not available to me.
+Not used: a KOC technical specification (its visible page names neither KOC nor any HAZOP rule, so a search summary's "KOC-L-017, third-party team leader" claim stays unconfirmed); all Indian and Singapore sources; an OMRAN (Oman) invitation, which is general consultancy. Nothing was found that sets HAZOP or QRA requirements for Oman.
 
 ## Requirements found
 | # | Requirement | Seen in |
 |---|---|---|
-| R1 | Pre-qualification by past experience measured in a quantity under one contract: 300 P&IDs of HAZOP under a single work order; 156 km of pipeline assessment in one contract within 7 years; 7 years of HAZOP/QRA and ERDMP experience | NRL, OIL, IOCL |
-| R2 | Financial and statutory proof: turnover threshold, solvency or financial statements, GST and PAN, earnest-money deposit with exemption for micro and small enterprises | IOCL, NRL |
-| R3 | Bid mechanics: two-packet bid, bid validity (120 days), pre-bid query round, value-wise evaluation, technical bid with a methodology statement | IOCL, NRL, OIL |
-| R4 | Regulator-registered consultant for the QRA | SG |
-| R5 | Study carried out at the client's site only | NRL |
-| R6 | Periodic HAZOP of every process unit and utility | NRL |
-| R7 | HAZOP and QRA together with an ERDMP manual update and a safety report | IOCL |
-| R8 | Pipeline residual life, fit-for-purpose and QRA with a probabilistic risk engine, in-line-inspection data, Monte Carlo per defect, ten threat categories, results per chainage and for years 1 to 5 | OIL (as proposed by bidders) |
-| R9 | QRA that meets published criteria: individual risk of fatality and injury, cumulative escalation, occupied buildings; contours confined within the boundary or to industrial land and not reaching sensitive receptors; cluster boundaries | SG |
-| R10 | Structured ALARP demonstration, including why further reduction is grossly disproportionate; top risk contributors carried into ALARP prioritisation | SG |
-| R11 | Three QRA types: fixed installation, pipeline, bulk road transport | SG |
-| R12 | Follow-on deliverables: emergency response plan, process hazard analysis, fire safety plan, pollution impact study | SG |
-| R13 | Prescribed submission format with electronic files, completeness check, at most two comment rounds, about 4 to 6 months to clear | SG |
-| R14 | Early-stage QRA allowed on coarse data (maximum inventory, expected conditions, key equipment, anticipated layout), updated as design firms up | SG |
-| R15 | Health risk assessment of manned buildings: physical, chemical, biological, ergonomic and psychosocial hazards, with measurements, risk ranking and an action plan | BMC |
-| R16 | Team CVs, a project timeline with milestones, a methodology and standards statement | BMC, IOCL |
+| R1 | Vendor registration with the operator and purchase of the tender document inside the issue window | QE |
+| R2 | Bid bond, with bond and offer validity (120 and 150 days in QE) | QE |
+| R3 | Local-content scoring: ICV certificate (ADNOC and Unified programme), IKTVA reports (Aramco) | LC |
+| R4 | Contractor HSE prequalification | AD |
+| R5 | HAZOP revalidation and baseline HAZOP of operating units | QE, KP, SA |
+| R6 | SIL studies for new safety instrumented functions; retrospective SIL classification and verification with an SRS | QE, BG, DG |
+| R7 | Method and standards: BS IEC 61882, operator and client standards (ADNOC, SABIC) | DG, BG, SA |
+| R8 | LOPA, flare system analysis, management-of-change and incident review, fire and dust explosion, human factors, external events, utilities | SA |
+| R9 | Emergency escape, evacuation and rescue assessment (EERA) and pre-incident plans for major accident scenarios | QE |
+| R10 | PSV design review for staggered set points | QE |
+| R11 | Credentialed, independent HAZOP leader | JP |
+| R12 | Front-end QRA, including land-use planning | JP |
+| R13 | Multi-unit programme delivery: 18 to 24 months with concurrent units | SA |
+| R14 | Fire and explosion risk analysis (FERA) and dropped-object studies | JP |
+| R15 | Risk-based inspection per SAEP-343 and API RP 580 | AR |
+| R16 | Environmental best-available-technology assessment | RC |
 
-SG gives numbers for R9 that the toolkit can check against, read from the 2024 criteria guideline: fixed installations, individual risk of fatality 5e-5 per year confined within the boundary and 5e-6 confined to industrial land, with 3e-7 also listed; injury 3e-7; cumulative escalation 1e-4 confined within the boundary; on-site occupied buildings 1e-3 not to be exceeded. Pipelines and bulk transport have lower values in the same document.
+## iFluids' stated Middle East record
+Everything below is a company statement, not verified. India client names in the brochure data are set aside because iFluids' external clients are in the Middle East.
 
-## Comparison with the offering
-Status: **yes** = a module covers it; **partial** = screening or one part; **no** = nothing in the repository.
+* **Gulf clients (brochure data in the landscape deck):** QAFCO, Qatar Energy, ORPIC, OQ and Aramco's Jubail refinery. No project detail.
+* **Presence (iFluids presentation):** offices or associates in Oman, Qatar, Kuwait and the UAE, besides Chennai and Mumbai.
+* **Named projects (iFluids presentation, no clients or dates):** flare radiation analysis of Rumaitha/Shanayel facilities; fire and explosion risk assessment study; detailed engineering for fire detection and protection; lightning protection assessment for 43 buildings; arc flash and illumination for offshore rigs; crude tanks and SBM feasibility; OLGA model; as-built drafting to PDO standards.
+* **Services (iFluids profile):** HAZOP and HAZID, QRA, SIL assessment, LOPA, ALARP demonstration, ERDMP, risk-based inspection, pipeline asset integrity, environmental risk assessment and emission study.
+* **Tools:** PHAST and PHAST Risk, PHA-Pro, exSILentia, Bow-Tie, Isograph, FlareNet, PIPENET, OLGA, HYSYS, Primavera.
+* **Certification:** ISO 9001:2008 in one deck, none in the other profile, 2015 on a third-party contact page: check the current certificate.
 
-| # | Toolkit offering today | Status | Gap |
-|---|---|---|---|
-| R1 | `tender_register` tracks tenders, but nothing tests a requirement such as "300 P&IDs under one work order" against a reference list | no | eligibility check against a references register |
-| R2 | none (company records) | no | out of scope |
-| R3 | `tender_register` (deadlines, missed bids, bid score), `wbs` and `schedule` for the timeline | partial | no bid-validity or compliance-matrix tracking |
-| R4 | none | no | credential, not software |
-| R5 | none | n/a | commercial term |
-| R6 | `hazop.generate`, `pha` (worksheets, actions, revalidation, carry-forward), `pid_review`, `plant` ingestion of P&ID registers, `wbs` HAZOP template | partial | nothing turns an ingested P&ID register into a node list and a WBS with effort per P&ID |
-| R7 | `qra` (screening), `qra.emergency` (zones, MCLS, ERDMP-style level), `pha` | partial | no ERDMP manual or safety report skeleton; the PNGRB and OISD clause text was not read |
-| R8 | `pipeline` (design pressure, wall thickness, impact radius) only | no | no residual-life, fitness-for-service, inspection-data or probabilistic pipeline engine |
-| R9 | `qra.risk` (LSIR contours, IRPA, F-N, PLL), `qra.alarp` (R2P2 and Bevi sets plus custom), `qra.buildings` | partial | no Singapore criteria set; no boundary or land-use confinement check; no injury contours; cumulative escalation is qualitative only (`hazid` lists domino as a prompt) |
-| R10 | `qra.alarp`, `qra.mitigation` (VPF, disproportion factor, ICAF cost-benefit) | yes | no structured ALARP demonstration document |
-| R11 | fixed installation only | partial | no pipeline or road-transport QRA |
-| R12 | `pha`, `structural_fire`, `fire_water`, `emissions`, `qra.emergency` | partial | scattered calculations, no deliverable assembly |
-| R13 | `qra.report` writes HTML, Excel and CSV | partial | no regulator submission format (the NEA Submission Format was not read) |
-| R14 | `qra run --sample`, screening-level by design, limits stated in `docs/QRA.md` | yes | none beyond stated screening limits |
-| R15 | `noise` (OSHA exposure only) | no | no health risk assessment |
-| R16 | `docs/QRA.md`, `docs/VALIDATION.md`, `SOURCES.md` give citable method and limits; `wbs`, `schedule` give timeline | partial | no proposal or methodology-statement generator |
+## Comparison
+Evidence: **stated** = iFluids says it offers this; **partly** = related work or a service without a project; **not stated** = nothing found. Toolkit: **covered** = a module does it; **partial** = screening or one part; **missing** = nothing in the repository.
 
-## Gaps to fill, by class
-### Build now (a source in hand or no external constant needed)
-| Gap | Where | Why it can be built |
+| # | iFluids stated evidence | Evidence | Toolkit support | Toolkit |
+|---|---|---|---|---|
+| R1 | Not stated | not stated | `tender_register` tracks deadlines; no field for the purchase window or registration status | partial |
+| R2 | Not stated | not stated | no bond or validity tracking | missing |
+| R3 | Offices in four Gulf countries; certificates not stated | partly | none | missing |
+| R4 | Not stated | not stated | none | missing |
+| R5 | HAZOP, HAZID, PHA-Pro; Gulf clients named without projects | stated | `hazop`, `pha` (revalidation, carry-forward, actions), `pid_review`, `wbs` template | partial |
+| R6 | SIL assignment, verification, validation; exSILentia | stated | `sil`, `sil_lifecycle` (PFD, HFT and SFF, SRS skeleton); no systematic capability or proof-test coverage | partial |
+| R7 | PDO standards named for drafting; IEC 61882 use not stated | partly | `hazop` uses IEC 61882 guidewords only; operator standards unread | partial |
+| R8 | LOPA and flare radiation analysis stated; dust explosion and human factors not | partly | `sil.lopa`, `flare`, `flare_system`, `dust_explosion`, `atex`; no human factors | partial |
+| R9 | Egress design, evacuation modelling, ERDMP; EERA by name not stated | partly | `egress` (RSET against ASET), `qra.emergency` | partial |
+| R10 | Not stated | not stated | `relief` has accumulation for multiple valves; no set-point review | partial |
+| R11 | Independent HAZOP service; leader credentials not stated | partly | none: people and independence | missing |
+| R12 | QRA with PHAST Risk | stated | `qra` (contours, F-N, ALARP, buildings, override hook); no Gulf criteria set | partial |
+| R13 | 900+ process safety projects claimed; Primavera | partly | `wbs`, `schedule`, `portfolio`, `pha` action tracking | covered |
+| R14 | Fire and explosion risk assessment study (named) | partly | `qra.effects`, `explosion`, `structural_fire`, `mechanical_safety` (dropped objects) | partial |
+| R15 | Risk-based inspection listed | stated | none | missing |
+| R16 | Environmental risk assessment and emission study listed | partly | `emissions` | partial |
+
+Counts. iFluids evidence: 4 stated, 8 partly, 4 not stated. Toolkit: 1 covered, 10 partial, 5 missing.
+
+## Gaps to fill
+### Gaps iFluids has to close itself (evidence and capability)
+| # | Gap | What to assemble or decide |
 |---|---|---|
-| G1 Singapore criteria set and contour-confinement check: IR (fatality) contours against the site boundary and land-use polygons, with the thresholds above as a sourced criteria set beside R2P2 and Bevi | `qra.alarp`, `qra.risk` | thresholds read from the NEA guideline; geometry is stdlib. Tests: a contour inside the boundary passes, scaling frequencies by a factor moves the contour outward monotonically |
-| G2 Eligibility checker: tender criteria (minimum quantity in one contract, years, value) against a references register, with the evidence listed | `tender_register` | every criterion is an input; pass or fail arithmetic |
-| G3 P&ID register to HAZOP node list to WBS, so effort can be tracked per P&ID | `plant_model`, `pha`, `wbs` | existing ingestion; effort values stay inputs |
-| G4 Compliance matrix: requirement, evidence, module, status, for the bid response | `tender_register` or `compliance` | structure only |
-| G5 ALARP demonstration skeleton filled from `mitigation` results | `qra.report` | structure follows what SG says a demonstration must contain |
+| E1 | Gulf reference register | Per client, facility and year: units or P&IDs, study types (HAZOP, SIL, EERA, FERA), completion letters. Named projects lack client and date |
+| E2 | Vendor registrations | QatarEnergy needs registration and a SAP vendor code before the tender document can be bought; check ADNOC, Aramco, OQ, PDO and KOC status |
+| E3 | Local-content certificates | ICV (UAE and Oman) and IKTVA (Saudi) status and scores: not stated |
+| E4 | HSE prequalification pack and ISO certificate | ADNOC-type contractor HSE standard; resolve the ISO 9001 edition conflict |
+| E5 | PSV design review capability | Not stated: decide whether to offer it, partner or decline |
+| E6 | HAZOP leader credentials and independence | Names, certifications (for example certified functional safety professional) and an independence statement |
+| E7 | Bid bond and guarantee facility | QE-type bonds with 150-day validity |
 
-### Needs additional information
-| Gap | What is missing |
-|---|---|
-| G6 Pipeline QRA and residual-life or fitness-for-service (R8, R11) | the governing methods (API 579, ASME B31G and similar) are paywalled and were not read; a probabilistic engine with inspection data needs defect-growth and failure-prediction models with sourced parameters |
-| G7 Injury contours and cumulative escalation (R9) | the injury harm criteria and escalation method sit in the NEA QRA Technical Guidance, which was not read |
-| G8 Road-transport QRA (R11) | route and accident frequency data |
-| G9 ERDMP manual and safety report structure (R7) | the PNGRB and OISD clause text was not read; `docs/DATA_REGISTER.md` records the official purchase route for OISD editions |
-| G10 Regulator submission format (R13) | the NEA Submission Format document |
-| G11 Health risk assessment (R15) | exposure limit tables and measurement methods to be read from primary sources |
-| G12 HAZOP effort per P&ID for pricing (R6) | the company's own productivity data; the toolkit holds no rates |
+### Toolkit: build now
+| # | Gap | Extends | Why it can be built now |
+|---|---|---|---|
+| M1 | Gulf bid mechanics: purchase window, registration status, bond amount and validity, offer validity, ICV or IKTVA status, with date checks | `tender_register` | Fields and date arithmetic; every value is an input |
+| M2 | Eligibility checker against the reference register | `tender_register` | Criteria are inputs |
+| M3 | WBS templates for HAZOP revalidation, SIL for new SIFs, EERA and FERA | `wbs` | Structure only, no numbers |
+| M4 | P&ID register to HAZOP nodes to WBS | `plant_model`, `pha`, `wbs` | Existing ingestion |
+| M5 | Bid compliance matrix: requirement, evidence, module, status | `tender_register` | Structure only |
+
+### Toolkit: needs additional information
+| # | Gap | What is missing |
+|---|---|---|
+| N1 | Operator standards (ADNOC, Aramco SAEP and SAES, QatarEnergy, SABIC, KOC, PDO) | Not public; obtained through registration, tender packages or contracts |
+| N2 | Local-content scoring rules | Official ADNOC and Unified ICV, Aramco IKTVA, Oman and Qatar pages (only secondary summaries read) |
+| N3 | PSV staggered set-point review | API 520 and 521 text (paywalled); the toolkit's accumulation figures are secondary-source values marked "verify" |
+| N4 | Risk-based inspection | API RP 580 and 581, SAEP-343 text |
+| N5 | EERA and pre-incident plan methods | Operator procedures and the governing standard, unread |
+| N6 | Gulf QRA criteria and land-use rules | Not found; the toolkit has only UK R2P2 and Dutch Bevi sets |
+| N7 | RCER best-available-technology procedure | RCER Volume II, published by the Royal Commission, not read |
+| N8 | Dust explosion and human factors methods | NFPA and guidance text, unread |
 
 ### Protected or out of scope
-| Item | Why |
-|---|---|
-| Regulator registration (R4), turnover, GST and PAN (R2), on-site delivery (R5), team CVs (R16) | credentials, company records and commercial terms, not software |
-| A named proprietary risk engine (R8, Muhlbauer-type or an equivalent) | vendor models; the override hook can accept a result, not reproduce the engine |
-| Certified or signed studies | the toolkit's limits statement stands: screening aids, not certified design |
+Vendor registrations and bonds; ICV and IKTVA certification by approved auditors; operator-internal standards (confidential); signed or certified studies; the commercial tools iFluids delivers in (PHAST, PHA-Pro, exSILentia), which the toolkit cross-checks and does not replace.
+
+## Data needed to close the gaps
+| From | Data | Closes |
+|---|---|---|
+| iFluids project records | Gulf reference register; registration status and codes; ICV and IKTVA certificates; HSE pack; current ISO certificate; credentials of HAZOP leaders; HAZOP hours per node | E1 to E7, M2, M4 |
+| Operators (via registration or tender packages) | ADNOC contractor HSE standard and process safety standards; Aramco SAEP and SAES; QatarEnergy tender documents; SABIC and PDO specifications | N1, N3, N5, N6 |
+| Official public pages | ADNOC and Unified ICV, Aramco IKTVA, Oman and Qatar local-content rules; RCER Volume II | N2, N7 |
+| Paywalled standards | API 520, 521, 580, 581; IEC 61882; NFPA dust-explosion text | N3, N4, N8 |
 
 ## Suggested order
-1. G1, then G2 and G4: small, sourced, and they make the next bid checkable.
-2. G3 and G5 next; they reuse the existing ingestion and `mitigation` work.
-3. Obtain the NEA Technical Guidance and Submission Format (G7, G10) and the OISD or PNGRB text (G9) before any code for those items.
-4. G6 only after the pipeline-assessment standards have been read; do not type remembered values.
+1. Build the Gulf reference register from iFluids records (E1): it drives the eligibility checker and every bid response.
+2. M1, M2 and M5: bid mechanics, eligibility and compliance matrix.
+3. M3 and M4: study templates and the P&ID-to-WBS path.
+4. Obtain the operator documents (N1) as registrations allow; do not code anything from them until read.
 
 ## Not checked
-Whether the pattern across these five sources holds for other operators; the PQC criterion (B) at NRL; the OIL scope table; whether a client would accept a screening-level QRA for R9 without a validated consequence tool.
+Whether the pattern holds for operators not covered (PDO, OQ, KNPC, Bapco); the actual qualification criteria of the QatarEnergy tender; whether ICV certificates are mandatory for consultancy bids; any HAZOP or QRA requirement in Oman; the KIPIC plan text; iFluids' current registrations and certificates.

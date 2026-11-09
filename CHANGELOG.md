@@ -1,5 +1,9 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-09: tender analysis re-based on the Middle East
+* `docs/TENDER_REQUIREMENTS_GAP.md` rewritten for the Gulf because all of iFluids' external clients are in the Middle East; the India and Singapore version stays in history (`c623f65`). Requirements now come from a QatarEnergy Mesaieed tender listing, contractor-published Saudi and Abu Dhabi award notices, a Kuwait plan, local-content summaries (ADNOC and Unified ICV, Aramco IKTVA) and job postings. Each source is graded B or C; there is no grade A because no operator standard or full tender document was read.
+* Decisions: the India client names in the brochure data and the India tender record are set aside; a search summary's claim of a KOC "third-party team leader" rule was dropped when the page did not confirm it; the toolkit gaps are now Gulf bid mechanics (registration, bond, validity, local content) and study templates, with operator standards listed as needs-information. Rejected: inferring Oman requirements without a source, and treating job postings as tender rules.
+
 ## Unreleased - 2026-11-09: tender requirements against the toolkit
 * `docs/TENDER_REQUIREMENTS_GAP.md` compares requirements read from five public sources (NRL pre-bid minutes, an IOCL Kandla listing, Oil India pre-bid replies, a Brunei Methanol EOI, Singapore QRA guidance and criteria) with the toolkit and sorts gaps into build now, needs information and protected. Decisions: the requirement list is a checklist from a thin sample, not a market survey; a UK "QRA service" listing was excluded because it was project risk management; blocked pages (403) were not bypassed; the Singapore thresholds are recorded because the criteria guideline was read, while its Technical Guidance and Submission Format were not. Nothing was built.
 
