@@ -34,6 +34,10 @@ python3 -m process_safety qra emergency study.json --out qra/
 | F&G | Coarse (4 m) vs fine grid coverage within 5 points; point-detector coverage equals πr²/area on an open square |
 | Thermal | TMRad(TD24) = 24 h; Semenov point is a tangency (generation equals cooling, and their slopes match); exact vs R·T²/Ea approximation |
 | RAM | Attributed downtime sums exactly to 1 − production availability; simulated full-capacity availability matches the analytic binomial product within its CI |
+| WBS | A parent's effort and cost equal the sum of its children; percent complete lies between its children's |
+| Schedule | Seven-day calendar with FS links gives the `shutdown` base-case duration; critical-path durations sum to the project duration; no negative float without a deadline; weekly load sums to effort |
+| Tenders | By-stage weighted value sums to the total; scaling bid weights leaves the score unchanged; win rate = won / (won + lost) |
+| Portfolio | EV = PV when reported equals planned percent; SPI = EV / PV; CPI = EV / AC; no budget gives no earned value |
 
 ## Worked examples (illustrative inputs)
 
