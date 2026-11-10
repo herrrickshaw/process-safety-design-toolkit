@@ -83,12 +83,13 @@ def _fs(vj: float, MW: float, model: str) -> float:
 def chamberlain(m_kg_s: float, rho_j_kg_m3: float, rho_amb_kg_m3: float, MW: float, Hc_J_kg: float, wind_m_s: float,
                 release_angle_deg: float, v_j_m_s: float | None = None, r_j_m: float | None = None, W_st: float | None = None,
                 beta: float = BETA_PARAFFIN, fs_model: str = "chamberlain", sep_max_kW_m2: float = SEP_MAX_KW_M2,
-                rho_vap_kg_m3: float | None = None) -> dict:
+                rho_vap_kg_m3: float | None = None, w1_model: str = "chamberlain") -> dict:
     """Chamberlain vapour jet flame. SI. Give exactly one of v_j_m_s (post-expansion velocity) or r_j_m (expanded radius).
 
     release_angle_deg: angle of the hole axis above the horizontal, -90..90 (90 = vertical up, 0 = horizontal).
     W_st: stoichiometric fuel mass fraction; default is Chamberlain's paraffin form (16) from MW.
     Hc_J_kg: heat of combustion of the fuel (an input; no default). fs_model: 'chamberlain' (32) or 'cook' (33).
+    w1_model: 'cook' uses the simpler Cook et al. frustum base width (eq 26), 'chamberlain' eq 25.
     rho_vap_kg_m3: give the saturated vapour density at the atmospheric boiling point to use the DNV JFSH-Cook liquid / two-phase source
     diameter, Ds = 2 r_j sqrt(rho_j / rho_vap) (DNV Jet Fire Theory, December 2023, eq 58), with rho_vap taking the place of the jet density in
     the width correlations. With this option the three Bennett/Sekulin tests are reproduced within 2 % of DNV's published flame lengths
@@ -100,6 +101,8 @@ def chamberlain(m_kg_s: float, rho_j_kg_m3: float, rho_amb_kg_m3: float, MW: flo
         raise ValueError("mass rate, densities, MW, Hc, beta and the SEP cap must be positive; wind must not be negative")
     if not -90.0 <= release_angle_deg <= 180.0:
         raise ValueError("release_angle_deg must lie in -90..180 (from the horizontal, or from the wind vector)")
+    if w1_model not in ("chamberlain", "cook"):
+        raise ValueError("w1_model must be 'chamberlain' or 'cook'")
     if rho_vap_kg_m3 is not None and not rho_vap_kg_m3 > 0:
         raise ValueError("rho_vap_kg_m3 must be positive")
     if fs_model not in ("chamberlain", "cook"):
@@ -150,8 +153,11 @@ def chamberlain(m_kg_s: float, rho_j_kg_m3: float, rho_amb_kg_m3: float, MW: flo
     R_L = math.sqrt(max(L_B * L_B - B * B * math.sin(a) ** 2, 0.0)) - B * math.cos(a)   # (23)
     xi_ds = n_ri * Ds
     c = 1000.0 * math.exp(-100.0 * R) + 0.8
-    W1 = Ds * (13.5 * math.exp(-6.0 * R) + 1.5) * (1.0 - (1.0 - math.sqrt(rho_amb_kg_m3 / rho_w) / 15.0)
-                                                   * math.exp(-70.0 * R * xi_ds ** c))      # (25)
+    if w1_model == "cook":
+        W1 = Ds * (13.5 * math.exp(-6.0 * R) + 1.5) * (1.0 - (1.0 - math.sqrt(rho_amb_kg_m3 / rho_w) / 15.0) * math.exp(-7.5 * R))      # (26) Cook et al.
+    else:
+        W1 = Ds * (13.5 * math.exp(-6.0 * R) + 1.5) * (1.0 - (1.0 - math.sqrt(rho_amb_kg_m3 / rho_w) / 15.0)
+                                                       * math.exp(-70.0 * R * xi_ds ** c))      # (25)
     W2 = L_B * (0.18 * math.exp(-1.5 * R) + 0.31) * (1.0 - 0.47 * math.exp(-25.0 * R))       # (28)
     area = frustum_area_m2(W1, W2, R_L)
     fs = _fs(v_j, MW, fs_model)

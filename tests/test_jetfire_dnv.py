@@ -57,5 +57,36 @@ class DnvTwoPhase(unittest.TestCase):
             jf.chamberlain(2.0, 5.0, 1.2, 44.1, 4.6e7, 5.0, 90.0, v_j_m_s=100.0, rho_vap_kg_m3=0.0)
 
 
+class DnvCookDefault(unittest.TestCase):
+    """lg_release uses the DNV JFSH-Cook set by default; the pure-vapour Chamberlain set stays selectable."""
+    def _run(self, **fire):
+        import json, os
+        from process_safety import lg_release, tools
+        path = os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json")
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        data["fire"] = dict(data.get("fire", {}), **fire)
+        return lg_release.run(data)
+
+    def test_default_is_cook_and_switch_changes_flame(self):
+        a, b = self._run(), self._run(model="chamberlain_vapour")
+        self.assertEqual(a["jet"]["model"], "dnv_cook")
+        self.assertEqual(b["jet"]["model"], "chamberlain_vapour")
+        self.assertNotAlmostEqual(a["jet"]["flame"]["L_B_m"], b["jet"]["flame"]["L_B_m"], places=3)
+
+    def test_bad_model_refused(self):
+        with self.assertRaises(ValueError):
+            self._run(model="nonsense")
+
+    def test_cook_w1_formula(self):
+        out = jf.chamberlain(2.0, 5.0, 1.2, 44.1, 4.6e7, 5.0, 90.0, v_j_m_s=100.0, rho_vap_kg_m3=2.0, w1_model="cook")
+        base = jf.chamberlain(2.0, 5.0, 1.2, 44.1, 4.6e7, 5.0, 90.0, v_j_m_s=100.0, rho_vap_kg_m3=2.0)
+        self.assertNotAlmostEqual(out["W1_m"], base["W1_m"], places=6)
+
+    def test_w1_model_refused(self):
+        with self.assertRaises(ValueError):
+            jf.chamberlain(2.0, 5.0, 1.2, 44.1, 4.6e7, 5.0, 90.0, v_j_m_s=100.0, w1_model="x")
+
+
 if __name__ == "__main__":
     unittest.main()

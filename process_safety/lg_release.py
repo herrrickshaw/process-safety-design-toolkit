@@ -149,10 +149,18 @@ def run(data: dict) -> dict:
 
     # --- jet fire on the airborne part
     if superheated:
-        m_jet = rain["q_nett_air_kg_s"]
-        rho_vap = Pa * M / (R * Tb) if fire.get("dnv_two_phase_source_diameter") else None       # DNV JFSH-Cook eq 58, optional
+        # Default: DNV JFSH-Cook liquid / two-phase jet fire (Jet Fire Theory, Dec 2023): source diameter eq 58, Cook radiant fraction eq 33, Cook base width eq 26,
+        # flammable mass eq 59 m = Md min(1, 3 (1 - rain-out)). fire.model = "chamberlain_vapour" restores the pure-vapour treatment (eq 3, eq 32, eq 25, all airborne).
+        fmodel = fire.get("model", "dnv_cook")
+        if fmodel not in ("dnv_cook", "chamberlain_vapour"):
+            raise ValueError("fire.model must be 'dnv_cook' or 'chamberlain_vapour'")
+        cook = fmodel == "dnv_cook"
+        m_jet = W * min(1.0, fire.get("jet_mass_parameter", 3.0) * (1.0 - f_rain)) if cook else rain["q_nett_air_kg_s"]
+        use_58 = fire.get("dnv_two_phase_source_diameter", cook)
+        rho_vap = Pa * M / (R * Tb) if use_58 else None
         j = jet_flame.chamberlain(m_jet, jet["rho_f_kg_m3"], rho_a, M * 1000.0, Hc, amb["wind_m_s"], 90.0, v_j_m_s=jet["u_f_m_s"],
-                                  fs_model=fire.get("fs_model", "chamberlain"), rho_vap_kg_m3=rho_vap)
+                                  fs_model=fire.get("fs_model", "cook" if cook else "chamberlain"), rho_vap_kg_m3=rho_vap,
+                                  w1_model="cook" if cook else "chamberlain")
         zr, zt, tau = fire["release_height_m"], fire["target_height_m"], fire["tau"]
         t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
         pv = fire.get("probit", "hydrocarbon")
@@ -165,7 +173,7 @@ def run(data: dict) -> dict:
         grid = [{"x_m": xx, **{f"y{yy}": jet_radiation.flux_kW_m2(j, zr, xx, yy, zt, tau) for yy in (0, 10, 20, 30, 40)}} for xx in (-30, -20, -10, 0, 10, 20, 30, 40, 60, 80)]
         out["jet"] = {"m_airborne_kg_s": m_jet, "flame": {k: j[k] for k in ("Ds_m", "L_B0_m", "L_B_m", "alpha_deg", "B_m", "R_L_m", "W1_m", "W2_m", "area_m2", "F_s", "radiated_power_kW", "SEP_kW_m2")},
                       "exposure_time_s": t_exp, "reach_m": reach, "flux_grid_kW_m2": grid, "near_field_radius_m": jet_radiation.near_field_radius_m(j),
-                      "notes": j["notes"] + ["Source state is the two-phase mixture (DNV two-phase jet source not implemented); line-source flux map, vertical release only."]}
+                      "model": fmodel, "notes": j["notes"] + ["Flame: " + ("DNV JFSH-Cook liquid / two-phase model (eq 58, 33, 26, 59)" if cook else "pure-vapour Chamberlain model (eq 3, 32, 25)") + "; line-source flux map, vertical release only."]}
     else:
         out["jet"] = None
 

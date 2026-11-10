@@ -1,5 +1,11 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: DNV JFSH-Cook is now the default jet-fire model for liquid and two-phase leaks
+* Owner decision ("trust DNV models"): `lg_release` `fire.model` defaults to `dnv_cook` (Ds eq 58, Cook radiant fraction eq 33, Cook base width eq 26 through new `jet_flame.chamberlain(w1_model="cook")`, flammable mass m = Md min[1, 3(1 - rain-out)] eq 59, SEP capped at 350 kW/m2). `chamberlain_vapour` keeps the earlier pure-vapour set.
+* Effect on the hot-leak studies: propane flame 14.2 to 10.8 m, SEP 189 to 350 (cap), reach to 1 % lethality 15.4 to 19.1 m; n-butane 10.7 to 7.8 m, SEP 142 to 350, reach 12.3 to 15.5 m. The flame is shorter but hotter and wider, so harm distances grow.
+* Comparison with Shell FRED (Barker, Cracknell) and SAFETI-NL JFSH-Cook in the `Shell_FRED_Comparison` sheet of `Model_Shortfalls_Deep_Dive.xlsx`, using RIVM 620550005 Tables 5 and 7 outputs only (the Barker and Cracknell equations were not available). Toolkit width and radiant fraction match JFSH-Cook within 3 %; flame length is 25 to 85 % above the measurements, as is DNV's own.
+* Rejected: keeping the old default (understates reach); implementing Barker or Cracknell from output tables (no equations, would be a fit).
+
 ## Unreleased - 2026-11-10: DNV two-phase source diameter (eq 58) as an option; flame-length findings corrected
 * `jet_flame.chamberlain` gains `rho_vap_kg_m3` (DNV JFSH-Cook eq 58) and accepts `release_angle_deg` up to 180 (angle between release and wind, DNV eq 4); `lg_release` gains `fire.dnv_two_phase_source_diameter` and `fire.fs_model`. With eq 58 the three Bennett/Sekulin tests are reproduced within 2 % of DNV's Table 13 (`tests/test_jetfire_dnv.py`, 6 tests). The existing refusal test now refuses 190 degrees instead of 120. Defaults are unchanged so goldens and scenarios do not move; the DNV-consistent settings change the hot-leak result (flame 24 % to 27 % shorter, harm reach 24 % to 26 % longer) and the choice of default is left to the owner. The earlier changelog and ledger statements that the horizontal angle factor was unverified are withdrawn. 549 tests pass. Rejected: making the DNV settings the default without the owner's decision; Cook W1 (eq 26), low effect.
 * Fixed a lint failure introduced earlier (unused import in `tests/test_vce.py`).

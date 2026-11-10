@@ -234,3 +234,10 @@ Both discharge bases give no rain-out for the hot saturated release, so a pool f
 | API 520 Part I (omega annex), ISO 4126-10 | API, ISO | paywalled; limits quoted through the Melhem white paper |
 
 Unofficial copies on Scribd, kupdf, docshare and similar were found for several of the above and are not used.
+
+## Eleventh batch (2026-11-10): jet-fire default and Shell FRED comparison
+
+| Item | Source | Use |
+|---|---|---|
+| Cook radiant fraction (eq 33), base width (eq 26), Ds (eq 58), flammable mass (eq 59), SEP cap 350 kW/m2 | DNV Jet Fire Model Theory (Dec 2023), supplied by the owner | default `fire.model = dnv_cook` in `lg_release` |
+| Barker, Cracknell and SAFETI-NL JFSH-Cook outputs for Project AA 3026/3029 and JIVE 8051 | RIVM 620550005/2012 Tables 5 and 7 | `Shell_FRED_Comparison` sheet; outputs only, the Barker and Cracknell equations were not obtained |
