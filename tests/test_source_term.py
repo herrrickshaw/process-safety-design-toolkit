@@ -426,6 +426,14 @@ class Vulnerability(unittest.TestCase):
         with self.assertRaises(ValueError):
             V.heat_probit(30000.0, 10.0, variant="other")
 
+    def test_thermal_dose_flux_round_trip_and_dutch_versus_uk_fifty_percent(self):
+        from process_safety import vulnerability as V
+        for dose, t in ((1000.0, 20.0), (2000.0, 20.0), (290.0, 10.0)):
+            self.assertAlmostEqual(V.flux_for_thermal_dose_kW_m2(dose, t) ** (4.0 / 3.0) * t, dose, places=9)
+        q50 = V.flux_for_probability_kW_m2(0.5)                       # Dutch hydrocarbon probit, 20 s
+        self.assertAlmostEqual(q50 ** (4.0 / 3.0) * 20.0, 1040.0, delta=15.0)     # about half the UK offshore 2000 dose
+        self.assertLess(q50, V.flux_for_thermal_dose_kW_m2(V.THERMAL_DOSE_CRITERIA["fatality_50pct_offshore"], 20.0))
+
     def test_dsb_form_is_the_same_probit(self):
         from process_safety import vulnerability as V
         for q, t in ((5.0, 30.0), (15.0, 12.0), (35.0, 5.0)):
@@ -463,6 +471,79 @@ class Vulnerability(unittest.TestCase):
         self.assertEqual(V.direct_ignition_probability(100.5, "gas_low"), 0.09)
         with self.assertRaises(ValueError):
             V.direct_ignition_probability(5, "plasma")
+
+
+class IgnitionUkooa(unittest.TestCase):
+    def test_all_thirty_curves_load_and_are_non_decreasing_after_sorting(self):
+        from process_safety import ignition_ukooa as U
+        self.assertEqual(sorted(U.CASES), list(range(1, 31)))
+        for c in U.CASES:
+            pts = U.points(c)
+            self.assertTrue(all(b[1] >= a[1] - 1e-12 for a, b in zip(pts, pts[1:])), U.CASES[c][0])
+            self.assertEqual(pts[-1][0], 100000.0)
+
+    def test_interpolation_equation_at_nodes_and_midpoint(self):
+        from process_safety import ignition_ukooa as U
+        pts = U.points(8)
+        for q, p in pts:
+            self.assertAlmostEqual(U.ignition_probability(q, 8), p, places=12)
+        (q0, p0), (q1, p1) = pts[3], pts[4]                # 1 kg/s and 100 kg/s
+        self.assertAlmostEqual(U.ignition_probability(math.sqrt(q0 * q1), 8), math.sqrt(p0 * p1), places=12)   # geometric mean in log-log space
+
+    def test_constant_beyond_the_end_points(self):
+        from process_safety import ignition_ukooa as U
+        self.assertEqual(U.ignition_probability(1e-6, 5), U.points(5)[0][1])
+        self.assertEqual(U.ignition_probability(1e7, 5), U.points(5)[-1][1])
+
+    def test_table_1_maximum_probabilities_equal_the_last_point(self):
+        """Table 1 of the same paper lists each curve's maximum probability; it equals the last point of the Table 2 transcription."""
+        from process_safety import ignition_ukooa as U
+        table_1_max = {1: 0.07, 2: 0.007, 3: 1.0, 4: 1.0, 5: 0.6, 6: 0.1, 7: 0.013, 8: 0.65, 9: 0.13, 10: 0.05, 11: 0.7, 12: 0.12, 13: 0.015, 14: 1.0, 15: 1.0,
+                       16: 0.5, 17: 0.0175, 18: 0.01, 19: 0.025, 20: 0.04, 21: 0.05, 22: 0.04, 23: 0.025, 24: 0.15, 25: 0.15, 26: 0.028, 27: 0.1, 28: 0.3, 29: 0.08, 30: 0.0024}
+        for c, mx in table_1_max.items():
+            self.assertAlmostEqual(U.points(c)[-1][1], mx, places=9, msg=U.CASES[c][0])
+
+    def test_gas_liquid_combination(self):
+        from process_safety import ignition_ukooa as U
+        self.assertAlmostEqual(U.combine_gas_and_liquid(0.1, 0.2), 1 - 0.9 * 0.8, places=12)
+        self.assertAlmostEqual(U.combine_gas_and_liquid(0.0, 0.3), 0.3, places=12)
+        with self.assertRaises(ValueError):
+            U.combine_gas_and_liquid(1.2, 0.1)
+
+    def test_cox_curves_in_the_paper_match_the_toolkit_cox_values_in_their_bands(self):
+        """The paper's curve 28 (Cox, Lees and Ang gas) holds 0.30 above 100 kg/s; the toolkit's Cox table has 0.30 above 50 kg/s."""
+        from process_safety import ignition_ukooa as U
+        from process_safety.qra import frequency as F
+        self.assertEqual(U.ignition_probability(200.0, 28), F.cox_ignition(200.0, "gas"))
+
+
+class StepValidation(unittest.TestCase):
+    """EEC STEP propane flashing-jet measurements as summarised in HSE CRR 403/2002 (read through an archived copy): saturated propane released from 2 and 5 mm
+    orifices at 5, 11 and 17 bar; measured Sauter mean diameters at 60 mm downstream were 39 to 49 micrometres (5 bar), 30 to 31 (11 bar) and below 30 (17 bar);
+    no droplet above 80 micrometres at 5 bar; the report concludes very little rain-out is expected at 11 bar. Pressures are taken as absolute here (the summary does
+    not say; a 1 bar shift changes the prediction by well under the margins below)."""
+    def _d(self, bar, basis):
+        path = os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json")
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        data.update(P0_kPa=bar * 100.0, hole_d_m=0.005, discharge_basis=basis)
+        from process_safety import lg_release
+        return lg_release.run(data)["droplet"]
+
+    def test_liquid_orifice_basis_is_within_a_factor_of_two_of_the_measured_mean_sizes(self):
+        for bar, lo, hi in ((5, 39.0, 49.0), (11, 30.0, 31.0)):
+            d = self._d(bar, "yellow_book_liquid")["d_d_m"] * 1e6
+            self.assertGreater(d, lo / 2.0, f"{bar} bar")
+            self.assertLess(d, hi * 2.0, f"{bar} bar")
+
+    def test_no_rainout_predicted_where_the_measurements_show_little(self):
+        for basis in ("omega", "yellow_book_liquid"):
+            self.assertEqual(self._d(11, basis)["rainout_kg_s"], 0.0)
+
+    def test_predicted_droplets_decrease_with_pressure_as_measured(self):
+        for basis in ("omega", "yellow_book_liquid"):
+            d = [self._d(b, basis)["d_d_m"] for b in (5, 11, 17)]
+            self.assertTrue(d[0] > d[1] > d[2])
 
 
 class LgReleaseTool(unittest.TestCase):
@@ -507,6 +588,13 @@ class LgReleaseTool(unittest.TestCase):
         p = s["pool"][0]
         self.assertAlmostEqual(p["feed_kg_s"], s["droplet"]["rainout_kg_s"], places=9)
         self.assertTrue(p["from_yellow_book_method"])
+
+    def test_three_ignition_models_are_reported(self):
+        ig = self._run("A")["ignition"]
+        self.assertEqual(ig["purple_book_direct_ignition"], 0.2)
+        self.assertEqual(ig["cox_lees_ang_total_ignition"], 0.07)
+        self.assertEqual(len(ig["ukooa_total_ignition"]), 3)
+        self.assertTrue(all(0 < v < 0.05 for v in ig["ukooa_total_ignition"].values()))
 
     def test_missing_inputs_are_refused(self):
         s = tools.run_tool("lgrelease", {"fluid": "propane"}, tempfile.mkdtemp(), progress=False)

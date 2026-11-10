@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import math
 
-from . import droplet, flash_release, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
+from . import droplet, flash_release, ignition_ukooa, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
 from .constants import R
 
 REQUIRED = {"ambient": ["P_kPa", "T_K", "wind_m_s"], "fire": ["release_height_m", "target_height_m", "tau"], "pool": ["C_T", "r0_m", "h0_m"]}
@@ -148,6 +148,7 @@ def run(data: dict) -> dict:
         pv = fire.get("probit", "hydrocarbon")
         levels = {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp, pv), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp, pv),
                   "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}
+        levels.update({f"TDU_{k}": vulnerability.flux_for_thermal_dose_kW_m2(v, t_exp) for k, v in vulnerability.THERMAL_DOSE_CRITERIA.items()})
         levels.update({f"IAEA_{x}": x for x in vulnerability.IAEA_EFFECT_LEVELS_KW_M2 if x != vulnerability.BUILDING_IGNITION_KW_M2})
         levels.update({f"user_{x}": x for x in fire.get("extra_flux_levels_kW_m2", [])})
         reach = {k: {"flux_kW_m2": v, **{d: jet_radiation.reach_m(j, zr, v, d, zt, tau) for d in ("downwind", "upwind", "crosswind")}} for k, v in levels.items()}
@@ -182,9 +183,14 @@ def run(data: dict) -> dict:
                             "spread_samples": sp["samples"], "reach": reach})
     if not out["pool"]:
         out["notes"].append("Yellow Book rain-out is zero: no pool fire evaluated. Add pool.extra_rainout_fractions to test a hypothesis (for example ground impingement).")
-    # --- ignition (Purple Book Table 4.5) for the airborne release
+    # --- ignition: three published models, reported side by side (they differ by more than an order of magnitude)
+    from .qra import frequency as _qf
+    ig = data.get("ignition", {})
+    uk = {ignition_ukooa.case_names()[c]: ignition_ukooa.ignition_probability(W, c) for c in ig.get("ukooa_cases", [3, 5, 8])}
     out["ignition"] = {"purple_book_direct_ignition": vulnerability.direct_ignition_probability(W, vulnerability.REACTIVITY[fl]), "substance_class": vulnerability.REACTIVITY[fl],
-                       "note": "Purple Book Table 4.5, continuous release band; the Cox, Lees and Ang values in qra.frequency are an alternative (secondary source)."}
+                       "ukooa_total_ignition": uk, "cox_lees_ang_total_ignition": _qf.cox_ignition(W, "gas"),
+                       "note": ("Purple Book Table 4.5 is DIRECT ignition only; the UKOOA/Energy Institute curves (IChemE Hazards XXIII Table 2) and Cox, Lees and Ang are TOTAL "
+                                "(immediate plus delayed). The spread between the models is part of the uncertainty of the event tree; choose the curve for the facility type.")}
     out["checks"] = _checks(out, data)
     return out
 

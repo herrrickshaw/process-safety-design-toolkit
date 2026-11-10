@@ -52,6 +52,28 @@ Updated 2026-11-10 after the owner supplied the TNO Yellow Book (`TNO-2005-yello
 | `Introduction to Process Safety.pdf`, `risk_based_process_safety_overview.pdf`, `francis-stoessel-thermal-safety...pdf` | CCPS introductory and management texts; reaction thermal safety | no ignition, thermal-radiation or two-phase discharge content for this chain (checked by search for the relevant terms). |
 | `PGS2-1997-v0.1-physical-effects.pdf` (two copies), `TNO-2005-yellow.pdf`, `PGS3-1999-...pdf`, `Guidelinesforchemicalquantitativeriskassessment.pdf` | already used | the PGS2 and PGS3 files are byte-identical to the publisher copies already read; the CPQRA file is the same 79-page extract (front matter and chapter 1). |
 
+## Third batch: open search for the pending items (2026-11-10)
+
+| Item | Found | Result |
+|---|---|---|
+| HSE CRR 403/2002 (Witlox and Bowen, review of flashing liquid jets) | The hse.gov.uk path is gone (404); the Internet Archive holds the official PDF (`web.archive.org/web/2016id_/http://www.hse.gov.uk/research/crr_pdf/2002/crr02403.pdf`, 78 pages). Read. | Critical Weber number 10 to 20 is what "all atmospheric dispersion codes" use, but the report **does not endorse it as a correlator of mean droplet size** (it bounds the maximum stable droplet; it is independent of orifice size). DeVaull and King confirmed (eta_R = eta*(1 - (x/0.145)^1.8), eta* = 1 - 2.33 (T_a - T_as)/T_a); Kletz "performs not so well". **EEC STEP propane data**: saturated propane, 2, 5, 8 mm orifices, 5, 11, 17 bar; no droplet above 80 micrometres even closest to the nozzle; SMD 39 to 49 micrometres at 5 bar (60 mm downstream), 30 to 31 at 11 bar, below 30 at 17 bar; "very little if any rainout" expected at 11 bar. Used as the validation set below. |
+| UKOOA / Energy Institute ignition look-up curves | IChemE Symposium Series 158 (Hazards XXIII) paper "Practical application of the UKOOA ignition model", open on icheme.org, reproduces all 30 curves (Table 2) and the interpolation equation | New `ignition_ukooa`: log-log interpolation, 30 curves, gas-and-liquid combination rule; tests check Table 1 maxima and the interpolation identities. For the propane example (2.34 kg/s): UKOOA 0.006 to 0.011 total, Cox 0.07 total, Purple Book 0.2 **direct** only; the tool reports all three. The Energy Institute report itself and IOGP 434-06 were not obtained (unofficial copies exist; not used). |
+| UK HSE thermal dose criteria (HSL/2004/04) | The HSE PDF is not retrievable; an ioMosaic paper "Risk-Based Approach - Damage Criteria" (open) tabulates the criteria and quotes HSE | `vulnerability.THERMAL_DOSE_CRITERIA`: 290 escape impeded, 1000 for 1 % fatality, 1800 (public, fireball) and 2000 (offshore) for 50 % [(kW/m2)^(4/3) s]. **The UK 50 % dose is about twice the Dutch hydrocarbon probit's** (1040 at 20 s: 19.5 against 31.6 kW/m2). Reach to these levels is reported beside the probit levels. |
+| Leung omega method, CCPS relief guideline | Only citations: Leung, Chem. Eng. Progress 92(12), 28-50 (1996); IoMosaic DIERS bibliography; a vendor sheet reproducing API 520 Annex C section headings (equations are images, not extractable) | still no primary text for omega; the API 520 scenario list confirms saturated liquid propane entering a PRV and flashing is the omega method's case 1 (methods C.2.1 or C.2.2). |
+| Other candidates found, not used | Energy Institute and IOGP ignition reports (Scribd, kupdf, docshare copies); ResearchGate pages (login); HSE CRR 403 copies on Scribd | unofficial or behind a login; not used |
+
+### Validation against measurements (EEC STEP propane flashing jets, as reported in HSE CRR 403/2002)
+
+Predicted initial droplet diameter by the tool (Yellow Book 2.143b) against the measured Sauter mean diameter at 60 mm downstream. Pressures taken as absolute; the 5 mm orifice (droplet size in the model does not depend on orifice size once the jet state is fixed by the pressure).
+
+| Storage pressure | Measured SMD | Liquid-orifice basis | Omega basis | CCPS flashing correlation as printed by DNV (not used by the tool) |
+|---|---|---|---|---|
+| 5 bar | 39 to 49 micrometres | 56 | 19 | 221 |
+| 11 bar | 30 to 31 | 20 | 8.7 | 166 |
+| 17 bar | below 30 | 12 | 5.7 | 138 |
+
+The Yellow Book formula on the liquid-orifice jet state is within a factor of two of the measured means; on the omega state it under-predicts by two to three times; the CCPS flashing correlation as implemented over-predicts about five times, so it is only a comparison in the tool. Rain-out is zero at 11 bar on both bases, as measured. The measurements are mean sizes after some evaporation, not the initial size, so this is a consistency check, not a calibration; it is encoded in `tests/test_source_term.py` (class `StepValidation`).
+
 ## Still open
 
 | Item | Status |
@@ -60,7 +82,7 @@ Updated 2026-11-10 after the owner supplied the TNO Yellow Book (`TNO-2005-yello
 | CCPS Guidelines for Pressure Relief and Effluent Handling Systems (Leung omega method) | only the front matter and chapter 1 were supplied (57-page preview); chapters 2 and 3 hold the method. API 520 Part I Annex C is quoted by Melhem and by a calculator page; one transcription of the critical-ratio fit gives 0.806 and the other 0.8127 against the exact root 0.8126; the toolkit uses the exact root. |
 | Yellow Book jet-flame models (ch. 6.5.3) and pool spreading (ch. 3) | read only in outline; not implemented. |
 | Thermal threshold values 37.5, 12.5, 4.7 kW/m2 | no primary source found for those round numbers (the Green Book gives its own thresholds, Table 3-6, and the probit); replaced in the tool by the Purple Book probit levels (1 % and 50 % death for a 20 s exposure: 9.8 and 19.5 kW/m2) and the 35 kW/m2 ignition level; extra levels can still be added as inputs. |
-| IOGP 434-06 ignition curves | behind a registration form; not submitted. The Purple Book Table 4.5 replaces the Cox values in the tool output; the Cox values remain in `qra.frequency` as a secondary alternative. |
+| IOGP 434-06 and the Energy Institute ignition report | behind a registration form or purchase; not submitted. The curves themselves are now in `ignition_ukooa` through the open IChemE paper. The Purple Book Table 4.5 replaces the Cox values in the tool output; the Cox values remain in `qra.frequency` as a secondary alternative. |
 
 ## Results on the worked example (propane, 25 mm, 12 bar(a), saturated liquid, 5 m/s wind), rerun through `tool lgrelease`
 
