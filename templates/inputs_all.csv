@@ -209,7 +209,7 @@ qra,grid_step,--grid-step,,float,,m,ft,,,,,,,,,,"override grid step, m"
 qra,no_mitigation,--no-mitigation,,flag,,,,,,,,,,,,,
 qra,no_xlsx,--no-xlsx,,flag,,,,,,,,,,,,,
 qra,quiet,--quiet,,flag,,,,,,,,,,,,,no progress bar
-tool,name,(positional),yes,str,,,,,,,,,,,,bowtie sif fg thermal atex ram shutdown recs lngcost workflow plant pha example,
+tool,name,(positional),yes,str,,,,,,,,,,,,bowtie sif fg thermal atex ram shutdown recs lngcost workflow plant pha lgrelease example,
 tool,input,(positional),,str,,,,,,,,,,,,,input JSON (tool example <name> copies a worked example)
 tool,out,--out,,str,tool_out,,,,,,,,,,,,
 tool,quiet,--quiet,,flag,,,,,,,,,,,,,

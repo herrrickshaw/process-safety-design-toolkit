@@ -6972,6 +6972,326 @@
     "hard_range": "(0, inf)",
     "soft_range": "[7, 40000]"
    }
+  },
+  {
+   "id": "LGR-01",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Flashing release: continuity, momentum and energy balances close (flash_release)",
+   "call": "flash_release.saturated_liquid_release",
+   "kwargs": {
+    "P0_kPa": 1200.0,
+    "rho0_kg_m3": 476.9645,
+    "omega": 6.410917,
+    "area_m2": 0.0004908738521234052,
+    "Cd": 0.62,
+    "T0_K": 307.5809,
+    "Tb_K": 231.036,
+    "cp_mean_J_kgK": 2493.63,
+    "h_fg_Tb_J_kg": 425592.0,
+    "rho_L_Tb_kg_m3": 580.883,
+    "rho_V_Tb_kg_m3": 2.41611
+   },
+   "expect": [
+    {
+     "path": "W_kg_s",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "x_vapour",
+     "op": "lt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "W_kg_s",
+     "formula": "$rho_f_kg_m3*$A_f_m2*$u_f_m_s"
+    },
+    {
+     "path": "P_choke_kPa",
+     "formula": "101.325 + $G_kg_m2_s*($u_f_m_s-$u_choke_m_s)/1000"
+    },
+    {
+     "path": "x_vapour",
+     "formula": "$x_isenthalpic - $KE_share_of_h_fg"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "area_m2",
+      "factor": 2
+     },
+     "path": "W_kg_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-09
+    },
+    {
+     "vary": {
+      "kwarg": "Cd",
+      "factor": 0.5
+     },
+     "path": "W_kg_s",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; property values are CoolProp-derived test inputs",
+   "regression": {
+    "G_kg_m2_s": 7678.178445255297,
+    "W_kg_s": 2.336790559042287,
+    "regime": "choked",
+    "eta_c": 0.8126146176490991,
+    "P_choke_kPa": 975.1375411789189,
+    "rho_choke_kg_m3": 192.45403271186146,
+    "u_choke_m_s": 39.89616812421344,
+    "u_f_m_s": 153.70083513073348,
+    "x_isenthalpic": 0.4484921215318896,
+    "x_vapour": 0.4207379030316771,
+    "rho_f_kg_m3": 5.709856036134421,
+    "A_f_m2": 0.002662676489933355
+   }
+  },
+  {
+   "id": "LGR-02",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Largest Weber-stable droplet scales with 1/u^2 (droplet)",
+   "call": "droplet.weber_max_diameter_m",
+   "kwargs": {
+    "sigma_N_m": 0.0157,
+    "u_f_m_s": 150.0,
+    "rho_air_kg_m3": 1.18,
+    "We_crit": 12.5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.0157*12.5/(150**2*1.18)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "u_f_m_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.25,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 7.391713747645951e-06
+   }
+  },
+  {
+   "id": "LGR-03",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Droplet evaporation time follows the d-squared law (droplet)",
+   "call": "droplet.evaporation_time_s",
+   "kwargs": {
+    "d_m": 0.0002,
+    "rho_L": 580.0,
+    "h_fg_J_kg": 420000.0,
+    "k_gas_W_mK": 0.026,
+    "dT_K": 67.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "580*4.2e5*(2e-4)**2/(8*0.026*67)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "d_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 4,
+     "rtol": 1e-09
+    },
+    {
+     "vary": {
+      "kwarg": "dT_K",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 0.6991963260619977
+   }
+  },
+  {
+   "id": "LGR-04",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Pool burn-off area balances feed and burning (pool_spread)",
+   "call": "pool_spread.equilibrium_area_m2",
+   "kwargs": {
+    "m_feed_kg_s": 2.0,
+    "burn_flux_kg_m2_s": 0.1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "2.0/0.1"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "m_feed_kg_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 20.0
+   }
+  },
+  {
+   "id": "LGR-05",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Propane leak study closes its balances (lgrelease tool)",
+   "steps": [
+    {
+     "write": "lgrelease.json",
+     "json": {
+      "_note": "Worked example: propane, 25 mm hole. Property values marked (CoolProp 8.0.0) were computed with CoolProp outside the toolkit; Hc is the NIST higher value less latent heat (derivation unconfirmed); We_crit is the Yellow Book value quoted by DNV; drag constants and C_T are recalled/quoted values to verify. Illustrative inputs, not a site study.",
+      "fluid": "propane",
+      "mode": "saturated",
+      "P0_kPa": 1200.0,
+      "hole_d_m": 0.025,
+      "Cd": 0.62,
+      "properties": {
+       "cp_mean_J_kgK": 2493.63,
+       "rho_vapour_Tb_kg_m3": 2.41611
+      },
+      "ambient": {
+       "P_kPa": 101.325,
+       "T_K": 298.15,
+       "rho_air_kg_m3": 1.18432,
+       "mu_air_Pa_s": 1.84481e-05,
+       "k_air_W_mK": 0.0262469,
+       "wind_m_s": 5.0
+      },
+      "droplet": {
+       "We_crit": 12.5,
+       "sigma_N_m": 0.0156717,
+       "fall_height_m": 2.0,
+       "drag": {
+        "law": "schiller_naumann",
+        "c1": 0.15,
+        "c2": 0.687
+       },
+       "horizontal": false
+      },
+      "fire": {
+       "Hc_J_kg": 46330000.0,
+       "release_height_m": 2.0,
+       "release_angle_deg": 90,
+       "thresholds_kW_m2": [
+        37.5,
+        12.5,
+        4.7
+       ],
+       "tau": 1.0,
+       "target_height_m": 1.5
+      },
+      "pool": {
+       "C_T": 0.001,
+       "r0_m": 0.05,
+       "h0_m": 0.01,
+       "extra_rainout_fractions": []
+      }
+     }
+    },
+    [
+     "tool",
+     "lgrelease",
+     "lgrelease.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "droplet.lautkaski",
+     "op": "close",
+     "value": 0.0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "release.W_kg_s",
+     "formula": "$release.rho_f_kg_m3*$release.A_f_m2*$release.u_f_m_s"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool; illustrative propane inputs (CoolProp-derived properties) written by the first step",
+   "regression": {
+    "tool": "lgrelease",
+    "mode": "saturated",
+    "pool_burning_flux_kg_m2_s": 0.1088640305185813
+   }
   }
  ]
 }

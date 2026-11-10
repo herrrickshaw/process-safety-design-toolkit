@@ -37,6 +37,7 @@ TOPICS = {
     "Occupied building risk / building radiation impact": (["API RP 752/753", "Purple Book"], "qra.buildings", "Purple Book discrete or custom curves; no BDL/P-I"),
     "MCLS, emergency planning zones, ERDMP": (["PNGRB ERDMP 2010", "MSIHC 1989", "MoEF EIA TGM"], "qra.emergency", "distances, zones A/B/C, Level 1/2/3 approximation"),
     "SIL verification / SRS / risk graph": (["IEC 61511-1:2016 Table 6", "IEC 61508-2 Route 1H"], "sil_lifecycle", "PFD + HFT/SFF; no SC or proof-test coverage"),
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire": (["ISO 4126-10 limits as quoted by Melhem 2023", "DNV Phast droplet-size theory report (quotes TNO Yellow Book, CCPS RELEASE)", "Webber 2010 pool spreading as quoted by Basha 2013"], "flash_release, droplet, pool_spread, jet_radiation, lg_release", "implemented as a screen: omega discharge and flash, Weber and flashing droplet size, Kletz/Lautkaski rainout, Chamberlain jet with line-source flux map, pool spread and burn-off; the Yellow Book and CCPS books were not read, rainout fraction is not predicted from a droplet distribution, vertical jet only"),
     "Fire & gas mapping": (["ISA TR84.00.07"], "fg_mapping", "2D geographic coverage + greedy optimiser"),
     "CHAZOP / What-if / SWIFT / PSSR / SIMOPS / PHA revalidation": (["CCPS", "OSHA 1910.119(e)(6)"], "pha", "worksheets, action tracking, revalidation"),
     "Thermal runaway (TMRad, TD24, Stoessel class)": (["Stoessel"], "thermal_runaway", "zero-order screening"),

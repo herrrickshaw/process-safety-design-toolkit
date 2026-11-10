@@ -12,6 +12,7 @@
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
+    lgrelease liquefied-gas leak: omega discharge and flash, droplet and rainout screen, jet fire with flux map, pool spreading and pool fire  (lg_release.py)
 Every tool runs input checks first and writes a validation section to its summary.
 """
 from __future__ import annotations
@@ -21,7 +22,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, lg_release, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
 
 
 def _dump(obj, path):
@@ -254,6 +255,16 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
                 files.append(f"{pre}_{kind}.csv")
         summ["files"] = sorted(set(files))
         summ["checks"] = ["PASS: action dates parsed" if "actions" in data else "INFO: no actions"]
+    elif name == "lgrelease":
+        errs = lg_release.check(data)
+        summ["checks"] = ["FAIL: " + e for e in errs] or ["PASS: inputs (all required properties and sources present)"]
+        if errs:
+            return summ
+        res = lg_release.run(data)
+        summ["checks"] += res.pop("checks")
+        pha.write_csv(res["jet"]["flux_grid_kW_m2"], pre + "_jet_flux_grid.csv") if res["jet"] else None
+        summ.update(res)
+        summ["files"] = [pre + "_jet_flux_grid.csv"] if res["jet"] else []
     else:
         raise ValueError(f"unknown tool {name!r}")
     _dump(summ, pre + "_summary.json")
