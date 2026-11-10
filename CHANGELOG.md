@@ -1,5 +1,8 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: vapour cloud explosion screening (Purple Book 4.8)
+* New `process_safety/vce.py` and `tests/test_vce.py` (8 tests): flash fire / explosion split 0.6 / 0.4, multi-energy radii R = 1.5 and 3 (f_obstr E/Pa)^(1/3), the equivalence with the older 0.03 and 0.06 (0.1 E)^(1/3) formulas as the oracle, and a screening estimate of the flammable mass in a momentum jet (Ricou-Spalding). Added a VCE sheet to `docs/Propane_Failure_Modes.xlsx`. Rejected: implementing the multi-energy curves for other blast strengths (graphs), and a mass-in-LFL-contour model for dense clouds (needs a validated dispersion tool). The rupture cloud mass is an upper bound; the jet mass is for still air.
+
 ## Unreleased - 2026-11-10: BLEVE fireball model and propane vessel failure-mode register
 * New `process_safety/bleve.py` (Yellow Book 6.5.7 fireball chain with the Purple Book frequency, ignition and BLEVE rules) and `tests/test_bleve.py` (the book's 6.6.5 example is the oracle; identities for the heat balance, scaling and event-tree sums). 535 tests pass. `fireball.py` is left as it is (its coefficients are the Roberts/CCPS values, now confirmed by the HSL paper, but it uses a different centre height and SEP basis); `bleve.py` is the sourced version. Rejected: implementing blast and fragments (the method depends on Baker et al. graphs), and using the graph-based transmissivity (6.24). Added `docs/Propane_Failure_Modes.xlsx` (register of 11 failure modes with model status, BLEVE for four vessel sizes with live formulas, Yellow Book example check, HSL validation, event tree, release modes, overfill and cold depressuring).
 
