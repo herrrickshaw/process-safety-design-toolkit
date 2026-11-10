@@ -106,6 +106,22 @@ Dropbox: a search for the CCPS relief and CPQRA topics returned only LNG and pro
 - **Check of `jet_flame.chamberlain` against Project AA** (not in the toolkit's tests, finding only): run horizontal (angle 0), wind 3.7 and 2.0 m/s, jet velocity from the report, jet density from the toolkit flash, the model gives flame lengths of 55 m (test 3026) and 69 m (test 3029) against measured 31.1 and 30.7 m and JFSH-Cook 38.3 and 49.4. It therefore overpredicts length by about 1.8 to 2.2 times for horizontal two-phase LPG jets. The toolkit's angle factor (1 - 0.00607 (theta - 90)) raises a horizontal flame by 55 %; with the vertical factor the length is 35.6 m. The two-phase Cook modification and buoyancy are not implemented (the model is the pure-vapour Chamberlain form). Surface emissive power comes out at 96 (Chamberlain fraction 0.24) or 139 kW/m2 (Cook fraction 0.35) against measured 331. The worked example in this ledger is a vertical jet, where this bias is not demonstrated, but jet lengths for horizontal or two-phase releases should not be taken from this model without a check.
 - **PHMSA-2011-0075-0003, DNV Phast UDM 6.6 validation submission** (DNV to PHMSA, 25 October 2010; grade B, qualitative). It lists what the droplet, rain-out and pool sub-models were validated against (initial droplet size in the droplet JIP, rain-out against CCPS experiments and Phase IV JIP water and xylene, EEC elevated two-phase propane jet for dispersion, PVAP pool spreading for propane and butane) but prints no droplet or rain-out numbers in the parts read, so it adds no new validation data. Useful as a pointer to the DNV droplet papers (Witlox and Bowen 2002; Witlox et al. 2010), which are the sources to obtain next.
 
+
+### Validation against Project AA propane jets (RIVM 620550005/2012 Table 5; toolkit chain run 2026-11-10)
+
+Conditions: 97 % propane, 52 mm orifice, vessel 7.53 bar(a) at 5.5 C (test 3026) and 7.34 bar(a) at 3.2 C (test 3029), 67 m line, horizontal release, wind 3.7 and 2.0 m/s. The liquid is subcooled by about 2 bar, so the omega (saturated) route does not apply; the Yellow Book liquid route is used. Jet state is computed at the measured release rate.
+
+| Quantity | Test 3026 measured | Barker / Cracknell / JFSH-Cook | Toolkit | Test 3029 measured | Toolkit |
+|---|---|---|---|---|---|
+| Release rate, kg/s | 16.1 | - | 34 to 55 (orifice, Cd 0.62 to 1) | 18.0 | 34 to 55 |
+| Expanded jet velocity, m/s | not reported | 79 / 76 / 153 | 75 | not reported | 74 |
+| Flame length, m | 31.1 | 37.7 / 34.3 / 38.3 | 59.6 horizontal factor, 38.5 vertical factor | 30.7 | 73.6, 47.6 |
+| Surface emissive power, kW/m2 | 331 | 231 / 178 / 253 | 112 horizontal, 265 vertical | 294 | 97, 232 |
+| Droplet diameter, micron | not reported | - | 34 | not reported | 34 |
+
+Reading: (1) the expansion step agrees with the Barker and Cracknell velocities (75 against 69 to 79), not with the DNV JFSH value of 153 m/s. (2) The release rate is over-predicted 2 to 3.5 times because the toolkit has no 67 m line: the real flow is limited by line friction and flashing in the pipe (the orifice would see a pressure below the vapour pressure), and a saturated-liquid-in-a-vessel model cannot reproduce it. Feed the measured rate to the jet steps, as done above. (3) Flame length is over-predicted 1.9 to 2.4 times with the horizontal-release factor; the factor is 1.55 and is the whole discrepancy for test 3026 (38.5 m with the vertical factor, 24 % high). The sign of the horizontal angle correction in DNV eq (4) should be checked against the JFSH document. (4) Emissive power follows the length error: low by 3 times (horizontal factor), low by 20 % (vertical factor). (5) Droplet size of 34 micron is of the same order as the STEP propane measurements (30 to 49 micron) at different conditions.
+Not validated: the omega discharge (no experiment here with a short hole and saturated liquid), rain-out and pool fire (no data reported), probit and frequency (not measurable). The vertical-release flame in the leak study therefore has an unquantified bias; the horizontal tests show the model can be 24 % to 2.4 times long depending on the angle factor.
+
 ## Still open
 
 | Item | Status |
