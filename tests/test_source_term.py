@@ -434,6 +434,23 @@ class Vulnerability(unittest.TestCase):
         self.assertAlmostEqual(q50 ** (4.0 / 3.0) * 20.0, 1040.0, delta=15.0)     # about half the UK offshore 2000 dose
         self.assertLess(q50, V.flux_for_thermal_dose_kW_m2(V.THERMAL_DOSE_CRITERIA["fatality_50pct_offshore"], 20.0))
 
+    def test_hsl_table_2_values_and_probit_ranking(self):
+        """HSL/2004/04 Table 2 doses, and its finding that Eisenberg's and Lees' probits are more optimistic than Tsao and Perry's (the default)."""
+        from process_safety import vulnerability as V
+        self.assertEqual(V.THERMAL_DOSE_CRITERIA, {"escape_impeded": 290.0, "fatality_1pct": 1000.0, "fatality_50pct_front_or_back_only": 1000.0,
+                                                   "fatality_50pct_offshore": 2000.0, "fatality_100pct": 3500.0})
+        for q in (5.0, 10.0, 20.0, 35.0):
+            tp = V.death_probability(q, 20.0)
+            self.assertGreaterEqual(tp, V.death_probability(q, 20.0, variant="eisenberg"))
+            self.assertGreaterEqual(tp, V.death_probability(q, 20.0, variant="lees") - 1e-12 if q >= 5 else 0.0)
+
+    def test_unit_conversion_of_the_tabulated_probit_constants(self):
+        """Dlabka et al. Table 4 lists each probit with a for q in W/m2 and for q in kW/m2: a_kW = a_W + b ln(1000^(4/3)) must hold for all three."""
+        from process_safety import vulnerability as V
+        for name, a_kw in (("hydrocarbon", -12.8), ("eisenberg", -14.9), ("lees", -10.69)):
+            conv = V.PROBIT_INTERCEPT[name] + V.PROBIT_SLOPE[name] * math.log(1000.0 ** (4.0 / 3.0))
+            self.assertAlmostEqual(conv, a_kw, delta=0.02, msg=name)
+
     def test_dsb_form_is_the_same_probit(self):
         from process_safety import vulnerability as V
         for q, t in ((5.0, 30.0), (15.0, 12.0), (35.0, 5.0)):
@@ -517,6 +534,162 @@ class LeungOmegaPrimaryText(unittest.TestCase):
         self.assertAlmostEqual(v9 / v0, w * (1.0 / 0.9 - 1.0) + 1.0, places=12)
 
 
+class ReleaseFrequencyIogp(unittest.TestCase):
+    """IOGP 434-01 v1.1 datasheets. TABULATION holds the report's own tables (five hole classes for each equipment size or inlet category) for sheets 1 to 7, copied
+    from the supplied PDF text; the equations must reproduce them within the report's two-figure rounding (6 %), apart from the one cell listed in KNOWN."""
+    TABULATION = {
+        "1|2006-2015": [
+            [1.5e-05, 6.4e-06, 2.8e-06, 1e-06, None],
+            [9.5e-06, 3.9e-06, 1.6e-06, 3.2e-07, 2e-07],
+            [8.6e-06, 4.2e-06, 2.1e-06, 5.2e-07, 4.6e-07],
+            [8.1e-06, 4.8e-06, 3e-06, 9.7e-07, 1.3e-06],
+            [7.7e-06, 4.9e-06, 3.3e-06, 1.2e-06, 1.7e-06],
+            [7.7e-06, 4.9e-06, 3.3e-06, 1.2e-06, 1.7e-06],
+        ],
+        "1|1992-2015": [
+            [3.6e-05, 1.5e-05, 6.6e-06, 2.4e-06, None],
+            [1.6e-05, 6.7e-06, 2.7e-06, 5.6e-07, 3.5e-07],
+            [1.1e-05, 5.1e-06, 2.5e-06, 6.4e-07, 5.6e-07],
+            [7.8e-06, 4.6e-06, 2.9e-06, 9.4e-07, 1.2e-06],
+            [6.9e-06, 4.4e-06, 3e-06, 1e-06, 1.6e-06],
+            [6.9e-06, 4.4e-06, 3e-06, 1e-06, 1.6e-06],
+        ],
+        "2|2006-2015": [
+            [4.4e-06, 2e-06, 9.1e-07, 3.8e-07, None],
+            [7e-06, 3.1e-06, 1.4e-06, 3.2e-07, 5.7e-07],
+            [1.3e-05, 5e-06, 1.9e-06, 3.7e-07, 1.3e-06],
+            [1.9e-05, 6.5e-06, 2.1e-06, 3.4e-07, 2e-06],
+            [2.1e-05, 6.9e-06, 2.2e-06, 3.3e-07, 2.2e-06],
+            [2.1e-05, 6.9e-06, 2.2e-06, 3.3e-07, 2.2e-06],
+        ],
+        "2|1992-2015": [
+            [1.3e-05, 6e-06, 2.8e-06, 1.2e-06, None],
+            [2.2e-05, 9.6e-06, 4.3e-06, 9.9e-07, 1.7e-06],
+            [3.9e-05, 1.5e-05, 5.9e-06, 1.1e-06, 3.9e-06],
+            [5.9e-05, 2e-05, 6.6e-06, 1e-06, 6e-06],
+            [6.6e-05, 2.1e-05, 6.6e-06, 9.9e-07, 6.7e-06],
+            [6.6e-05, 2.1e-05, 6.6e-06, 9.9e-07, 6.7e-06],
+        ],
+        "3|2006-2015": [
+            [1.5e-05, 8e-06, 4.6e-06, 2.7e-06, None],
+            [1.7e-05, 8e-06, 3.8e-06, 9.1e-07, 7.2e-07],
+            [2.9e-05, 1.5e-05, 8e-06, 2.2e-06, 2.2e-06],
+            [3.9e-05, 2.2e-05, 1.4e-05, 4.3e-06, 5.5e-06],
+            [4.1e-05, 2.5e-05, 1.6e-05, 5.3e-06, 7.2e-06],
+            [4.1e-05, 2.5e-05, 1.6e-05, 5.3e-06, 7.2e-06],
+        ],
+        "3|1992-2015": [
+            [2.4e-05, 1.3e-05, 7.4e-06, 4.3e-06, None],
+            [2.8e-05, 1.3e-05, 6.2e-06, 1.5e-06, 1.2e-06],
+            [4.8e-05, 2.4e-05, 1.3e-05, 3.5e-06, 3.5e-06],
+            [6.3e-05, 3.6e-05, 2.3e-05, 7.1e-06, 9e-06],
+            [6.7e-05, 4e-05, 2.6e-05, 8.6e-06, 1.2e-05],
+            [6.7e-05, 4e-05, 2.6e-05, 8.6e-06, 1.2e-05],
+        ],
+        "4|2006-2015": [
+            [0.00014, 5.8e-05, 2.3e-05, 7.3e-06, None],
+            [7.9e-05, 3.7e-05, 1.8e-05, 4.3e-06, 3.6e-06],
+            [7.5e-05, 3.3e-05, 1.5e-05, 3.3e-06, 2.6e-06],
+            [8.4e-05, 3.3e-05, 1.3e-05, 2.6e-06, 1.7e-06],
+            [8.6e-05, 3.3e-05, 1.3e-05, 2.4e-06, 1.4e-06],
+            [8.6e-05, 3.3e-05, 1.3e-05, 2.4e-06, 1.4e-06],
+        ],
+        "4|1992-2015": [
+            [0.00024, 9.7e-05, 3.9e-05, 1.2e-05, None],
+            [0.00013, 6.2e-05, 3e-05, 7.2e-06, 6.1e-06],
+            [0.00013, 5.5e-05, 2.5e-05, 5.6e-06, 4.3e-06],
+            [0.00014, 5.6e-05, 2.2e-05, 4.4e-06, 2.8e-06],
+            [0.00015, 5.6e-05, 2.2e-05, 4.1e-06, 2.4e-06],
+            [0.00015, 5.6e-05, 2.2e-05, 4.1e-06, 2.4e-06],
+        ],
+        "5|2006-2015": [
+            [0.00012, 5e-05, 2.7e-05, None, None],
+            [0.00012, 5e-05, 2e-05, 6.6e-06, None],
+        ],
+        "5|1992-2015": [
+            [0.00021, 8.5e-05, 4.6e-05, None, None],
+            [0.00021, 8.5e-05, 3.5e-05, 1.1e-05, None],
+        ],
+        "6|2006-2015": [
+            [0.00033, 0.00017, 9.3e-05, 4.9e-05, None],
+            [0.00033, 0.00017, 9.3e-05, 2.5e-05, 2.4e-05],
+        ],
+        "7|2006-2015": [
+            [0.0027, 0.00064, 0.00014, 1.8e-05, None],
+            [0.0027, 0.00064, 0.00014, 1.4e-05, 4e-06],
+        ],
+        "7|1992-2015": [
+            [0.0059, 0.0014, 0.0003, 3.9e-05, None],
+            [0.0059, 0.0014, 0.0003, 3e-05, 8.9e-06],
+        ],
+    }
+    
+    KNOWN = {("1|2006-2015", 450, 4)}          # the report's table gives 1.3E-06, its equation 1.2E-06 (8 %)
+    SIZES = {1: (50, 150, 300, 450, 600, 900), 2: (50, 150, 300, 450, 600, 900), 3: (50, 150, 300, 450, 600, 900), 4: (50, 150, 300, 450, 600, 900),
+             5: (25, 50), 6: (100, 1000), 7: (100, 1000)}
+
+    def test_equations_reproduce_the_report_tabulations(self):
+        from process_safety import release_frequency as R
+        checked = 0
+        for key, cols in self.TABULATION.items():
+            sheet, period = int(key.split("|")[0]), key.split("|")[1]
+            for D, col in zip(self.SIZES[sheet], cols):
+                calc = R.class_frequencies(sheet, D, period)
+                for i, tab in enumerate(col):
+                    if tab is None:
+                        self.assertEqual(calc[i], 0.0, f"{key} D={D} class {i}")
+                    else:
+                        tol = 0.09 if (key, D, i) in self.KNOWN else 0.06
+                        self.assertAlmostEqual(calc[i] / tab, 1.0, delta=tol, msg=f"{key} D={D} class {i}: {calc[i]:.3g} vs {tab}")
+                        checked += 1
+        self.assertGreater(checked, 250)
+
+    def test_total_equals_exceedance_at_one_millimetre_and_sum_of_classes(self):
+        from process_safety import release_frequency as R
+        for sheet, D in ((1, 150), (2, 300), (3, 50), (5, 25), (6, 200), (7, 100)):
+            self.assertAlmostEqual(R.total_frequency(sheet, D), R.exceedance(sheet, D, 1.0 + 1e-9), delta=1e-9 * R.total_frequency(sheet, D) + 1e-18)
+
+    def test_exceedance_decreases_with_hole_size_and_vanishes_above_the_equipment_size(self):
+        from process_safety import release_frequency as R
+        vals = [R.exceedance(1, 300, d) for d in (2, 5, 20, 100, 300)]
+        self.assertEqual(vals, sorted(vals, reverse=True))
+        self.assertEqual(R.exceedance(1, 300, 301), 0.0)
+
+    def test_interpolation_hits_the_tabulated_diameters(self):
+        from process_safety import release_frequency as R
+        anchors, Cs, ms, Bs = R.SIZED[1]["2006-2015"]
+        self.assertAlmostEqual(R.exceedance(1, 170, 10.0), Cs[1] * 10.0 ** ms[1] + Bs[1], places=15)
+        self.assertAlmostEqual(R.exceedance(1, 700, 10.0), Cs[2] * 10.0 ** ms[2] + Bs[2], places=15)     # above 508 mm the 508 mm column applies
+
+    def test_recent_period_is_lower_for_pipes_and_valves(self):
+        from process_safety import release_frequency as R
+        for sheet in (1, 2, 3, 4):
+            self.assertLess(R.total_frequency(sheet, 150, "2006-2015"), R.total_frequency(sheet, 150, "1992-2015"))
+
+    def test_hole_classes_and_representative_sizes(self):
+        from process_safety import release_frequency as R
+        self.assertEqual([R.hole_class(x) for x in (1.0, 2.9, 3.0, 9.9, 10.0, 49.9, 50.0, 149.9, 150.0, 500.0)], [0, 0, 1, 1, 2, 2, 3, 3, 4, 4])
+        self.assertAlmostEqual(R.representative_hole_mm(2, 300.0), 22.36, delta=0.01)        # the report's worked example for 10-50 mm
+        self.assertEqual(R.representative_hole_mm(4, 80.0), 80.0)                           # top class limited to the equipment size
+        self.assertEqual(R.representative_hole_mm(3, 60.0), 60.0)                           # geometric mean 86.6 limited to a 60 mm item
+
+    def test_leak_frequency_scales_with_count_and_drops_empty_classes(self):
+        from process_safety import release_frequency as R
+        one = R.leak_frequency(6, 100.0)
+        ten = R.leak_frequency(6, 100.0, 10.0)
+        self.assertEqual(len(one), len(ten))
+        for a, b in zip(one, ten):
+            self.assertAlmostEqual(b["frequency_per_year"], 10.0 * a["frequency_per_year"], places=15)
+        self.assertEqual(len(R.leak_frequency(1, 50.0)), 4)           # a 50 mm pipe has no class above 150 mm
+
+    def test_refusals(self):
+        from process_safety import release_frequency as R
+        for call in (lambda: R.exceedance(99, 100, 10), lambda: R.exceedance(1, 100, 10, "2020"), lambda: R.exceedance(8, 100, 10, "2006-2015"),
+                     lambda: R.exceedance(1, -1, 10), lambda: R.hole_class(0.5), lambda: R.leak_frequency(1, 100, 0)):
+            with self.assertRaises(ValueError):
+                call()
+
+
 class IgnitionUkooa(unittest.TestCase):
     def test_all_thirty_curves_load_and_are_non_decreasing_after_sorting(self):
         from process_safety import ignition_ukooa as U
@@ -546,6 +719,24 @@ class IgnitionUkooa(unittest.TestCase):
                        16: 0.5, 17: 0.0175, 18: 0.01, 19: 0.025, 20: 0.04, 21: 0.05, 22: 0.04, 23: 0.025, 24: 0.15, 25: 0.15, 26: 0.028, 27: 0.1, 28: 0.3, 29: 0.08, 30: 0.0024}
         for c, mx in table_1_max.items():
             self.assertAlmostEqual(U.points(c)[-1][1], mx, places=9, msg=U.CASES[c][0])
+
+    def test_curves_match_iogp_434_06_table_3_1_rows(self):
+        """Rows copied from IOGP 434-06 Table 3-1 (the primary source) for the gas/LPG plant, pipeline and tank curves and the Cox curve."""
+        from process_safety import ignition_ukooa as U
+        iogp = {5: [(0.01, 0.001), (0.07654, 0.001), (0.1, 0.0011), (1.0, 0.0025), (3.0, 0.014), (498.991, 0.6), (100000.0, 0.6)],
+                8: [(0.01, 0.001), (0.07654, 0.001), (0.1, 0.0011), (1.0, 0.0025), (100.0, 0.25), (260.0, 0.65), (100000.0, 0.65)],
+                11: [(0.01, 0.001), (0.07654, 0.001), (0.1, 0.0011), (1.0, 0.0025), (70.0, 0.43), (325.028, 0.7), (100000.0, 0.7)],
+                3: [(0.01, 0.001), (0.08791, 0.001), (0.1, 0.0011), (1000.0, 1.0), (100000.0, 1.0)],
+                28: [(0.01, 0.00081), (0.5, 0.01), (100.0, 0.3), (100000.0, 0.3)]}
+        for case, pts in iogp.items():
+            self.assertEqual(U.points(case), sorted(pts))
+
+    def test_immediate_probability_and_timing_table(self):
+        from process_safety import ignition_ukooa as U
+        self.assertEqual(U.IMMEDIATE_IGNITION_PROBABILITY, 0.001)
+        cum = [p for _, p in U.PLANT_TIMING_CUMULATIVE]
+        self.assertEqual(cum, sorted(cum))
+        self.assertLess(cum[-1], 1.0)
 
     def test_gas_liquid_combination(self):
         from process_safety import ignition_ukooa as U
@@ -632,6 +823,38 @@ class LgReleaseTool(unittest.TestCase):
         p = s["pool"][0]
         self.assertAlmostEqual(p["feed_kg_s"], s["droplet"]["rainout_kg_s"], places=9)
         self.assertTrue(p["from_yellow_book_method"])
+
+    def test_release_frequency_block_gives_jet_fire_frequency(self):
+        path = os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json")
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        data["frequency"] = {"sheet": 1, "D_mm": 150.0, "count": 200.0, "period": "2006-2015"}
+        out = tempfile.mkdtemp()
+        try:
+            r = tools.run_tool("lgrelease", data, out, progress=False)
+        finally:
+            shutil.rmtree(out, ignore_errors=True)
+        self.assertFalse([c for c in r["checks"] if c.startswith("FAIL")])
+        f = r["frequency"]
+        self.assertEqual(tuple(f["hole_class_mm"]), (10.0, 50.0))              # a 25 mm hole sits in the 10-50 mm class
+        from process_safety import release_frequency as R
+        self.assertAlmostEqual(f["frequency_of_hole_class_per_year"], 200.0 * R.class_frequencies(1, 150.0)[2], places=12)
+        ign = r["ignition"]
+        key = "Cox, Lees and Ang (total)"
+        self.assertAlmostEqual(f["jet_fire_frequency_per_year"][key], f["frequency_of_hole_class_per_year"] * ign["cox_lees_ang_total_ignition"], places=15)
+        self.assertEqual(ign["immediate_ignition_probability_ukooa"], 0.001)
+
+    def test_bad_frequency_block_is_refused(self):
+        path = os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json")
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        data["frequency"] = {"sheet": 99, "D_mm": 150.0}
+        out = tempfile.mkdtemp()
+        try:
+            r = tools.run_tool("lgrelease", data, out, progress=False)
+        finally:
+            shutil.rmtree(out, ignore_errors=True)
+        self.assertTrue(any(c.startswith("FAIL") for c in r["checks"]))
 
     def test_three_ignition_models_are_reported(self):
         ig = self._run("A")["ignition"]

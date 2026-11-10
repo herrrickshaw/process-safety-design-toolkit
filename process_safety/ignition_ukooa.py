@@ -1,12 +1,18 @@
-"""Ignition probability look-up correlations (Energy Institute / UKOOA model, 2006) as reproduced in an open conference paper.
-
-Source: "Practical application of the UKOOA ignition model", IChemE Symposium Series 158 (Hazards XXIII), 2012, `icheme.org/media/9183/paper47-hazards-23.pdf`,
-Table 2 (the 30 curves as release-rate and ignition-probability points) and the interpolation equation printed beside it:
+"""Ignition probability look-up correlations (Energy Institute / UKOOA model) from IOGP Report 434-06, "Risk Assessment Data Directory: Ignition Probabilities" (September 2019,
+version 1.1 of May 2021), Table 3-1, read from the owner-supplied PDF. All 30 curves in this module were compared with that table (parsed from the PDF text) and agree exactly; they were
+first transcribed from an open conference paper, "Practical application of the UKOOA ignition model", IChemE Symposium Series 158 (Hazards XXIII), 2012, Table 2. IOGP section 3.2 gives the
+interpolation (recommended method) and the guidance below:
     P_ign = exp( ln P_n + (ln Q - ln Q_n)(ln P_{n+1} - ln P_n) / (ln Q_{n+1} - ln Q_n) ),  Q_n <= Q <= Q_{n+1}
 (log-log interpolation between adjacent points). The paper's Table 2 lists points 2 and 1 of curves 14, 15, 16 and 19 out of order (point 2 at a lower Q than
 point 1); this module sorts the points by Q. The paper also gives the way to treat a two-phase release (combine gas and liquid curves as
 1 - (1 - P_gas)(1 - P_liquid), or take the larger) and notes the original report is the Energy Institute's "Ignition Probability Review, Model Development and
 Look-Up Correlations" (January 2006), which was not read. The probabilities are TOTAL (immediate plus delayed) ignition.
+IOGP 434-06 guidance carried here: the model assumes an IMMEDIATE ignition probability of 0.001 irrespective of release size (section 2.2), the curves give TOTAL ignition; except for very short
+or high-water-cut releases a sustained jet or spray fire should be assumed whatever the time of ignition, without double counting the flash fire; for a liquid significantly above its normal
+boiling point use the gas/LPG curves (3 and 4 pipeline, 5 small plant up to 1200 m2 and 35 000 m2 site, 8 large plant, 11 congested, 14 to 16 tank farm; Table 2-1); the curves are not valid
+for LNG, for high-pressure natural gas pipelines or for refrigerated condensed gases. The CCPS ignition model (CCPS "Guidelines for determining the probability of ignition of a released flammable
+mass") has three levels and modification factors for release magnitude, minimum ignition energy, temperature, indoors or outdoors, ignition control and ventilation; IOGP describes it
+without equations (section 5.3).
 Limits: onshore and offshore curves for hydrocarbon releases; not suitable for refrigerated condensed gases, subsonic gas or non-momentum-driven releases (stated
 for the model in the Norwegian DSB guideline, section 3.6.3). Screening aid, not certified design.
 """
@@ -78,3 +84,7 @@ def combine_gas_and_liquid(p_gas: float, p_liquid: float) -> float:
     if not (0 <= p_gas <= 1 and 0 <= p_liquid <= 1):
         raise ValueError("probabilities must be in [0, 1]")
     return 1.0 - (1.0 - p_gas) * (1.0 - p_liquid)
+
+
+IMMEDIATE_IGNITION_PROBABILITY = 0.001      # IOGP 434-06 section 2.2: independent of release size
+PLANT_TIMING_CUMULATIVE = ((1.0, 0.22), (10.0, 0.29), (30.0, 0.36), (100.0, 0.63), (1000.0, 0.94))   # IOGP 434-06 Table 2-4, plant: time (s) and relative cumulative probability given ignition

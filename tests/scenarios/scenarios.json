@@ -7355,6 +7355,86 @@
    "regression": {
     "value": 0.5
    }
+  },
+  {
+   "id": "LGR-08",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Process vessel leak frequency follows the IOGP 434-01 power law (release_frequency)",
+   "call": "release_frequency.exceedance",
+   "kwargs": {
+    "sheet": 6,
+    "D_mm": 200.0,
+    "hole_mm": 10.0,
+    "period": "2006-2015"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "6.5e-4*10**(-0.66)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "hole_mm",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.6329,
+     "rtol": 0.0002
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario; the equation F(d) = 6.50e-4 d^-0.66 is printed in IOGP 434-01 datasheet 6; ratio = 2^-0.66",
+   "regression": {
+    "value": 0.00014220450555672089
+   }
+  },
+  {
+   "id": "LGR-09",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "UKOOA large-plant gas/LPG ignition probability by log-log interpolation (ignition_ukooa)",
+   "call": "ignition_ukooa.ignition_probability",
+   "kwargs": {
+    "rate_kg_s": 2.34,
+    "case": 8
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "value",
+     "op": "lt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "exp(log(0.0025) + (log(2.34) - log(1.0)) * (log(0.25) - log(0.0025)) / (log(100.0) - log(1.0)))"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario; points 1 kg/s 0.0025 and 100 kg/s 0.25 are from IOGP 434-06 Table 3-1, curve 8",
+   "regression": {
+    "value": 0.005850000000000001
+   }
   }
  ]
 }

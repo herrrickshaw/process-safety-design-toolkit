@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import math
 
-from . import droplet, flash_release, ignition_ukooa, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
+from . import droplet, flash_release, ignition_ukooa, release_frequency, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
 from .constants import R
 
 REQUIRED = {"ambient": ["P_kPa", "T_K", "wind_m_s"], "fire": ["release_height_m", "target_height_m", "tau"], "pool": ["C_T", "r0_m", "h0_m"]}
@@ -44,8 +44,16 @@ def check(data: dict) -> list[str]:
         errs.append("mode must be 'saturated' or 'refrigerated'")
     if data.get("discharge_basis", "omega") not in ("omega", "yellow_book_liquid"):
         errs.append("discharge_basis must be 'omega' or 'yellow_book_liquid'")
+    fq = data.get("frequency")
+    if fq is not None:
+        if fq.get("sheet") not in release_frequency.equipment_types():
+            errs.append(f"frequency.sheet must be one of {sorted(release_frequency.equipment_types())} (IOGP 434-01 datasheet number)")
+        if not (fq.get("D_mm", 0) > 0 and fq.get("count", 1) > 0):
+            errs.append("frequency.D_mm and frequency.count must be positive")
+        if fq.get("period", "2006-2015") not in release_frequency.PERIODS:
+            errs.append(f"frequency.period must be one of {release_frequency.PERIODS}")
     if data.get("fire", {}).get("probit", "hydrocarbon") not in vulnerability.PROBIT_INTERCEPT:
-        errs.append("fire.probit must be 'hydrocarbon' (default) or 'eisenberg'")
+        errs.append("fire.probit must be 'hydrocarbon' (default), 'eisenberg' or 'lees'")
     if data.get("fire", {}).get("release_angle_deg", 90) != 90:
         errs.append("only a vertical release (release_angle_deg = 90) is implemented for the jet flux map")
     return errs
@@ -188,9 +196,26 @@ def run(data: dict) -> dict:
     ig = data.get("ignition", {})
     uk = {ignition_ukooa.case_names()[c]: ignition_ukooa.ignition_probability(W, c) for c in ig.get("ukooa_cases", [3, 5, 8])}
     out["ignition"] = {"purple_book_direct_ignition": vulnerability.direct_ignition_probability(W, vulnerability.REACTIVITY[fl]), "substance_class": vulnerability.REACTIVITY[fl],
-                       "ukooa_total_ignition": uk, "cox_lees_ang_total_ignition": _qf.cox_ignition(W, "gas"),
+                       "ukooa_total_ignition": uk, "cox_lees_ang_total_ignition": _qf.cox_ignition(W, "gas"), "immediate_ignition_probability_ukooa": ignition_ukooa.IMMEDIATE_IGNITION_PROBABILITY,
                        "note": ("Purple Book Table 4.5 is DIRECT ignition only; the UKOOA/Energy Institute curves (IChemE Hazards XXIII Table 2) and Cox, Lees and Ang are TOTAL "
                                 "(immediate plus delayed). The spread between the models is part of the uncertainty of the event tree; choose the curve for the facility type.")}
+    # --- release frequency (IOGP 434-01) and the frequency of the resulting jet fire
+    fq = data.get("frequency")
+    if fq:
+        sheet, D_mm, count, period = fq["sheet"], fq["D_mm"], fq.get("count", 1.0), fq.get("period", "2006-2015")
+        hole_mm = data["hole_d_m"] * 1000.0
+        classes = release_frequency.leak_frequency(sheet, D_mm, count, period)
+        idx = release_frequency.hole_class(hole_mm)
+        f_class = next((c["frequency_per_year"] for c in classes if c["hole_range_mm"] == release_frequency.HOLE_CLASSES[idx]), 0.0)
+        ign = out["ignition"]
+        pmap = {**{f"UKOOA {k} (total)": v for k, v in ign["ukooa_total_ignition"].items()}, "Cox, Lees and Ang (total)": ign["cox_lees_ang_total_ignition"]}
+        out["frequency"] = {"equipment": release_frequency.equipment_types()[sheet], "D_mm": D_mm, "count": count, "period": period, "study_hole_mm": hole_mm,
+                            "hole_class_mm": release_frequency.HOLE_CLASSES[idx], "frequency_of_hole_class_per_year": f_class, "all_classes": classes,
+                            "jet_fire_frequency_per_year": {k: f_class * v for k, v in pmap.items()},
+                            "notes": ["IOGP 434-01 hole classes: the class frequency covers every hole in its range, so it is the frequency of releases of about the study hole size or the class representative size (geometric mean, "
+                                      + f"{release_frequency.representative_hole_mm(idx, D_mm):.1f} mm), not of exactly {hole_mm:.0f} mm.",
+                                      "Jet fire frequency = class frequency x TOTAL ignition probability (IOGP 434-06: a sustained jet fire follows whatever the time of ignition); the Purple Book direct-ignition value is not used for this.",
+                                      "Leak frequency only: no catastrophic vessel failure, no zero-pressure releases, and a check against the installation's own record is advised (IOGP 434-01 section 1.3)."]}
     out["checks"] = _checks(out, data)
     return out
 
