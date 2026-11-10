@@ -1,44 +1,22 @@
 {
- "_note": "Worked example: propane, 25 mm hole. Property values marked (CoolProp 8.0.0) were computed with CoolProp outside the toolkit; Hc is the NIST higher value less latent heat (derivation unconfirmed); We_crit is the Yellow Book value quoted by DNV; drag constants and C_T are recalled/quoted values to verify. Illustrative inputs, not a site study.",
+ "_note": "Worked example: propane, 25 mm hole, saturated liquid at 1200 kPa(a). Properties come from the Yellow Book Annex; only the study inputs are listed. Illustrative inputs, not a site study.",
  "fluid": "propane",
  "mode": "saturated",
  "P0_kPa": 1200.0,
  "hole_d_m": 0.025,
  "Cd": 0.62,
- "properties": {
-  "cp_mean_J_kgK": 2493.63,
-  "rho_vapour_Tb_kg_m3": 2.41611
- },
+ "discharge_basis": "omega",
  "ambient": {
   "P_kPa": 101.325,
-  "T_K": 298.15,
-  "rho_air_kg_m3": 1.18432,
-  "mu_air_Pa_s": 1.84481e-05,
-  "k_air_W_mK": 0.0262469,
+  "T_K": 288.15,
   "wind_m_s": 5.0
  },
- "droplet": {
-  "We_crit": 12.5,
-  "sigma_N_m": 0.0156717,
-  "fall_height_m": 2.0,
-  "drag": {
-   "law": "schiller_naumann",
-   "c1": 0.15,
-   "c2": 0.687
-  },
-  "horizontal": false
- },
  "fire": {
-  "Hc_J_kg": 46330000.0,
   "release_height_m": 2.0,
   "release_angle_deg": 90,
-  "thresholds_kW_m2": [
-   37.5,
-   12.5,
-   4.7
-  ],
+  "target_height_m": 1.5,
   "tau": 1.0,
-  "target_height_m": 1.5
+  "exposure_time_s": 20.0
  },
  "pool": {
   "C_T": 0.001,

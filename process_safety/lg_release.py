@@ -1,30 +1,26 @@
-"""Pressurised liquefied-gas leak: source term, droplet and rainout screen, jet fire and pool fire in one JSON-driven study.
+"""Pressurised liquefied-gas leak: source term, droplet and rain-out, jet fire and pool fire in one JSON-driven study.
 
     python -m process_safety tool lgrelease input.json --out dir
 
-Chain: saturated-liquid omega discharge and flash (`flash_release`) or, for a refrigerated or subcooled liquid, Bernoulli head-driven flow
-(`release.liquid_release_kg_s`); droplet and rainout screen (`droplet`); Chamberlain jet flame (`jet_flame`) with a line-source flux map
-(`jet_radiation`) for the airborne part; pool spreading and burn-off (`pool_spread`) and pool-fire radiation (`pool_fire`, `viewfactor`)
-for the rained-out part. Sources and limits: docs/SOURCE_TERM_SOURCES.md and the docstring of each module.
+Sources (all read; docs/SOURCE_TERM_SOURCES.md): TNO Yellow Book CPR 14E (2005) ch. 2 spray release, ch. 6 pool fire and its Annex property data
+(`yb_spray`, `yb_poolfire`, `yb_annex`); Dutch Purple Book (`vulnerability`); omega discharge (`flash_release`, with ISO 4126-10 limits quoted
+by Melhem 2023); Chamberlain jet flame from the DNV jet-fire theory report (`jet_flame`) with a line-source flux map (`jet_radiation`);
+Webber-form pool spreading as quoted by Basha 2013 (`pool_spread`).
 
-Inputs the toolkit does not hold (surface tension, air viscosity and conductivity, heat of combustion, thresholds, critical Weber number,
-drag constants, friction coefficient) are REQUIRED in the file, so each carries its own source note. Saturated-liquid properties come from the
-bundled CoolProp-generated table (`fluiddata`); the vapour density at the boiling point is ideal-gas unless you supply `rho_vapour_Tb_kg_m3`
-(about 4 % low for propane).
+Fluids: propane and n-butane only, because their property correlations are transcribed from the Yellow Book Annex (add a fluid there first).
+Discharge bases for a saturated liquid (mode 'saturated'): 'omega' (HEM-type, choked) and 'yellow_book_liquid' (the book's liquid-orifice route:
+hole in the liquid space, exit at vessel conditions, flashing after the exit); both are always computed and the chosen one drives the fires.
+Mode 'refrigerated': liquid at its atmospheric boiling point driven by head and overpressure, no flash.
+Not modelled: horizontal jets, jet impingement, pool-fire flame drag, ground heat to the pool, droplet break-up at free-fall speed.
 """
 from __future__ import annotations
 
 import math
 
-from . import droplet, flash_release, fluiddata, jet_flame, jet_radiation, pool_fire, pool_spread, release, viewfactor
+from . import droplet, flash_release, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
 from .constants import R
 
-REQUIRED = {
-    "ambient": ["P_kPa", "T_K", "rho_air_kg_m3", "mu_air_Pa_s", "k_air_W_mK", "wind_m_s"],
-    "droplet": ["We_crit", "fall_height_m", "sigma_N_m"],
-    "fire": ["Hc_J_kg", "release_height_m", "thresholds_kW_m2", "tau", "target_height_m"],
-    "pool": ["C_T", "r0_m", "h0_m"],
-}
+REQUIRED = {"ambient": ["P_kPa", "T_K", "wind_m_s"], "fire": ["release_height_m", "target_height_m", "tau"], "pool": ["C_T", "r0_m", "h0_m"]}
 
 
 def check(data: dict) -> list[str]:
@@ -32,6 +28,8 @@ def check(data: dict) -> list[str]:
     for k in ("fluid", "mode", "hole_d_m", "Cd"):
         if k not in data:
             errs.append(f"missing '{k}'")
+    if data.get("fluid") not in yb_annex.DATA:
+        errs.append(f"fluid must be one of {sorted(yb_annex.DATA)} (Yellow Book Annex data)")
     for sec, keys in REQUIRED.items():
         if sec not in data:
             errs.append(f"missing section '{sec}'")
@@ -44,129 +42,150 @@ def check(data: dict) -> list[str]:
         errs.append("mode 'refrigerated' needs overpressure_kPa_g and head_m")
     if mode not in ("saturated", "refrigerated"):
         errs.append("mode must be 'saturated' or 'refrigerated'")
+    if data.get("discharge_basis", "omega") not in ("omega", "yellow_book_liquid"):
+        errs.append("discharge_basis must be 'omega' or 'yellow_book_liquid'")
     if data.get("fire", {}).get("release_angle_deg", 90) != 90:
         errs.append("only a vertical release (release_angle_deg = 90) is implemented for the jet flux map")
-    dr = data.get("droplet", {}).get("drag", {"law": "stokes"})
-    if dr.get("law") == "schiller_naumann" and not all(k in dr for k in ("c1", "c2")):
-        errs.append("drag law schiller_naumann needs c1 and c2")
     return errs
 
 
-def _drag(spec):
-    if spec.get("law", "stokes") == "stokes":
-        return droplet.stokes_drag
-    return droplet.schiller_naumann(spec["c1"], spec["c2"])
+def _jet_state_omega(rel):
+    """Jet state after the ATEX-style expansion from the omega choke state, in the keys the Yellow Book steps use."""
+    return {"u_f_m_s": rel["u_f_m_s"], "Phi_f": rel["x_vapour"], "rho_f_kg_m3": rel["rho_f_kg_m3"], "A_f_m2": rel["A_f_m2"], "b_f_m": math.sqrt(rel["A_f_m2"] / math.pi),
+            "u_e_m_s": rel["u_choke_m_s"], "rho_e_kg_m3": rel["rho_choke_kg_m3"]}
+
+
+def _yb_liquid(fl, data, T0, P0_Pa, Pa_Pa, Tb):
+    """Yellow Book route: liquid orifice at vessel conditions, then flashing (steps 1)."""
+    A = math.pi * data["hole_d_m"] ** 2 / 4
+    rho_L = yb_annex.liquid_density_kg_m3(fl, T0)
+    q = data["Cd"] * A * math.sqrt(2.0 * rho_L * (P0_Pa - Pa_Pa))
+    Ae = data["Cd"] * A
+    M = yb_annex.molar_mass_kg_mol(fl)
+    Lv_e, Lv_f = yb_annex.heat_of_vaporisation_J_kg(fl, T0), yb_annex.heat_of_vaporisation_J_kg(fl, Tb)
+    dHv = Lv_f - Lv_e - yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0)          # H_V,f - H_V,e from the liquid-side balance (docs)
+    jet = yb_spray.jet_after_flash(q, Ae, P0_Pa, Pa_Pa, 0.0, rho_L, P0_Pa * M / (R * T0), dHv, Lv_e, Lv_f, yb_annex.liquid_density_kg_m3(fl, Tb), Pa_Pa * M / (R * Tb))
+    return q, jet
 
 
 def run(data: dict) -> dict:
-    amb, dr, fire, pool = data["ambient"], data["droplet"], data["fire"], data["pool"]
+    amb, fire, pool = data["ambient"], data["fire"], data["pool"]
     fl = data["fluid"]
-    const = fluiddata.fluid_constants(fl)
-    Mw, Tb, Tc, Pc = const["M_kg_kmol"], const["Tb_K"], const["Tc_K"], const["Pc_kPa"]
-    Pa = amb["P_kPa"]
-    atm = fluiddata.at_pressure(fl, Pa)
-    rho_L_b, hfg_b = atm["rho_liq_kg_m3"], atm["h_lg_kJ_kg"] * 1000.0
-    rho_V_b = data.get("properties", {}).get("rho_vapour_Tb_kg_m3") or Pa * 1000.0 * Mw / (R * 1000.0 * Tb)
+    Pa = amb["P_kPa"] * 1000.0
+    Ta = amb["T_K"]
+    M = yb_annex.molar_mass_kg_mol(fl)
+    Tb = yb_annex.normal_boiling_point_K(fl)
+    rho_a = Pa * yb_annex.AIR["M_kg_kmol"] / 1000.0 / (R * Ta)
+    nu_a = amb.get("nu_air_m2_s", yb_annex.AIR["nu_288K_m2_s"])
+    Sc, Pr = amb.get("Sc", 0.7), yb_annex.AIR["Pr"]
+    lam = yb_annex.air_conductivity_W_mK()
     area = math.pi * data["hole_d_m"] ** 2 / 4
+    Hc = fire.get("Hc_J_kg", yb_annex.net_heat_of_combustion_J_kg(fl))
     out = {"mode": data["mode"], "warnings": [], "notes": []}
     superheated = data["mode"] == "saturated"
-    jet_possible = superheated
+    basis = data.get("discharge_basis", "omega")
 
     if superheated:
-        s0 = fluiddata.at_pressure(fl, data["P0_kPa"])
-        T0, rho0, omega = s0["T_K"], s0["rho_liq_kg_m3"], s0["omega_saturated"]
-        cp_mean = data.get("properties", {}).get("cp_mean_J_kgK") or 0.5 * (s0["cp_liq_kJ_kgK"] + atm["cp_liq_kJ_kgK"]) * 1000.0
-        if "cp_mean_J_kgK" not in data.get("properties", {}):
-            out["notes"].append("cp_mean is the average of the table cp at T0 and at Tb; supply properties.cp_mean_J_kgK (e.g. from enthalpies) for better accuracy")
-        out["warnings"] += flash_release.iso4126_10_check(T0, Tc, data["P0_kPa"], Pc, omega)
-        rel = flash_release.saturated_liquid_release(data["P0_kPa"], rho0, omega, area, data["Cd"], T0, Tb, cp_mean, hfg_b, rho_L_b, rho_V_b, Pa)
-        rel.update(T0_K=T0, omega=omega, cp_mean_J_kgK=cp_mean)
-        W, u_f, xH = rel["W_kg_s"], rel["u_f_m_s"], rel["x_isenthalpic"]
-        v_st = 1.0 / rho0
-        Ep = droplet.partial_expansion_energy_J_kg(data["P0_kPa"] * 1000.0, Pa * 1000.0, v_st, data["P0_kPa"] * 1000.0, -0.5 * u_f * u_f)
-        P_for_validity = data["P0_kPa"]
+        P0 = data["P0_kPa"] * 1000.0
+        T0 = yb_annex.saturation_temperature_K(fl, P0)
+        s0 = fluiddata.at_pressure(fl if fl in fluiddata.names() else "propane", data["P0_kPa"])
+        omega = s0["omega_saturated"]
+        const = fluiddata.fluid_constants(fl)
+        out["warnings"] += flash_release.iso4126_10_check(T0, const["Tc_K"], data["P0_kPa"], const["Pc_kPa"], omega)
+        cp_mean = yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb)
+        rho0 = yb_annex.liquid_density_kg_m3(fl, T0)
+        hfg_b = yb_annex.heat_of_vaporisation_J_kg(fl, Tb)
+        rel = flash_release.saturated_liquid_release(data["P0_kPa"], rho0, omega, area, data["Cd"], T0, Tb, cp_mean, hfg_b, yb_annex.liquid_density_kg_m3(fl, Tb), Pa * M / (R * Tb), amb["P_kPa"])
+        q_yb, jet_yb = _yb_liquid(fl, data, T0, P0, Pa, Tb)
+        jet_om = _jet_state_omega(rel)
+        out["discharge"] = {"omega": {"W_kg_s": rel["W_kg_s"], "u_f_m_s": jet_om["u_f_m_s"], "Phi_f": jet_om["Phi_f"], "omega": omega, "eta_c": rel["eta_c"], "T0_K": T0},
+                            "yellow_book_liquid": {"W_kg_s": q_yb, "u_f_m_s": jet_yb["u_f_m_s"], "Phi_f": jet_yb["Phi_f"]}, "basis_used": basis}
+        W, jet = (rel["W_kg_s"], jet_om) if basis == "omega" else (q_yb, jet_yb)
+        out["release"] = {**rel, "T0_K": T0, "basis": basis, "W_used_kg_s": W}
+        out["notes"].append("The two discharge bases differ by a large factor for a saturated liquid; the Yellow Book treats a hole in the liquid space as liquid outflow, the omega method as flashing choked flow. Treat them as a bracket.")
+        orifice_kPa = data["P0_kPa"]
     else:
         T0 = data.get("T0_K", Tb)
         dP = data["overpressure_kPa_g"] * 1000.0
-        W = release.liquid_release_kg_s(data["hole_d_m"], rho_L_b, dP, data["head_m"], data["Cd"])
-        u_f = math.sqrt(2.0 * (dP + rho_L_b * 9.80665 * data["head_m"]) / rho_L_b)
-        rel = {"W_kg_s": W, "u_f_m_s": u_f, "T0_K": T0, "regime": "liquid Bernoulli (no flash)", "x_vapour": 0.0, "x_isenthalpic": 0.0}
-        xH, Ep = 0.0, None
-        P_for_validity = Pa + data["overpressure_kPa_g"]
-        out["notes"].append("Refrigerated/subcooled liquid: Bernoulli head-driven flow at the vena contracta velocity; no flash, no jet fire from the liquid.")
-    out["release"] = rel
+        rho_L0 = yb_annex.liquid_density_kg_m3(fl, Tb)
+        W = release.liquid_release_kg_s(data["hole_d_m"], rho_L0, dP, data["head_m"], data["Cd"])
+        u = math.sqrt(2.0 * (dP + rho_L0 * 9.80665 * data["head_m"]) / rho_L0)
+        Ae = data["Cd"] * area
+        jet = {"u_f_m_s": u, "Phi_f": 0.0, "b_f_m": math.sqrt(Ae / math.pi), "u_e_m_s": u, "rho_f_kg_m3": rho_L0, "A_f_m2": Ae}
+        out["release"] = {"W_kg_s": W, "W_used_kg_s": W, "u_f_m_s": u, "regime": "liquid Bernoulli (no flash)", "x_vapour": 0.0, "T0_K": T0}
+        out["notes"].append("Refrigerated/subcooled liquid: Bernoulli head-driven flow, jet leaves at ambient pressure; no flash, no jet fire from the liquid.")
+        orifice_kPa = amb["P_kPa"] + data["overpressure_kPa_g"]
 
-    smoke_drag = _drag(dr.get("drag", {"law": "stokes"}))
-    scr = droplet.screen(sigma_N_m=dr["sigma_N_m"], u_f_m_s=u_f, rho_air=amb["rho_air_kg_m3"], mu_air=amb["mu_air_Pa_s"], k_air=amb["k_air_W_mK"],
-                         We_crit=dr["We_crit"], rho_L=rho_L_b, h_fg_J_kg=hfg_b, dT_K=amb["T_K"] - Tb, fall_height_m=dr["fall_height_m"],
-                         superheated=superheated, x_isenthalpic=xH, Ep_J_kg=Ep, drag=smoke_drag, orifice_mm=data["hole_d_m"] * 1000.0,
-                         P_kPa=P_for_validity, horizontal=dr.get("horizontal", False))
-    out["droplet"] = scr
-    out["warnings"] += scr.get("validity_warnings", [])
-    if dr.get("drag", {"law": "stokes"}).get("law", "stokes") == "stokes":
-        out["warnings"].append("Stokes drag is exact only for Re << 1; settling of droplets near 100 micrometres or larger is overestimated, so use schiller_naumann with sourced constants")
+    # --- Yellow Book steps 2 and 3: droplet diameter and rain-out
+    rho_Lf = yb_annex.liquid_density_kg_m3(fl, Tb)
+    nu_L = yb_annex.liquid_viscosity_Pa_s(fl, Tb) / rho_Lf
+    sigma = yb_annex.surface_tension_N_m(fl, Tb)
+    dd = yb_spray.droplet_diameter_m(jet["b_f_m"], jet["u_f_m_s"], nu_L, rho_Lf, sigma, rho_a, T0, Tb, data.get("C_ds", yb_spray.C_DS_RECOMMENDED))
+    D = nu_a / Sc
+    kB_func = lambda T: yb_spray.k_B_m2_s(M, D, Pa, rho_Lf, Ta, yb_annex.vapour_pressure_Pa(fl, T))
+    ud = yb_spray.free_fall_velocity_m_s(dd["d_d_m"], rho_Lf, nu_a, rho_a)
+    Re_d = ud * dd["d_d_m"] / nu_a
+    lo_T = max(yb_annex.DATA[fl]["vp"][1][0], yb_annex.DATA[fl]["hv"][1][0]) + 1.0
+    Td, kB = yb_spray.droplet_temperature_K(Ta, Re_d, Sc, Pr, lam, lambda T: yb_annex.heat_of_vaporisation_J_kg(fl, T), rho_Lf, kB_func, T_low_K=lo_T)
+    hs = fire["release_height_m"]
+    rain = yb_spray.rainout(jet=jet, d_d_m=dd["d_d_m"], q_kg_s=W, h_s_m=hs, kB=kB, Sc=Sc, rho_L_f=rho_Lf, rho_a=rho_a, nu_a=nu_a)
+    xH = droplet.isenthalpic_flash_fraction(yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb) if T0 > Tb else 1.0, T0, Tb, yb_annex.heat_of_vaporisation_J_kg(fl, Tb))
+    out["droplet"] = {**dd, "T_droplet_K": Td, "k_B_m2_s": kB, **{k: rain[k] for k in ("u_d_m_s", "Re_d", "d_M_m", "formula_applicable_d_M", "d_ground_m", "rainout_kg_s", "rainout_fraction_of_release", "q_nett_air_kg_s")},
+                      "Phi_f": jet["Phi_f"], "kletz_comparison": droplet.rainout_kletz(xH, not superheated), "lautkaski_comparison": droplet.rainout_lautkaski(xH),
+                      "validity_warnings": droplet.validity_warnings(data["hole_d_m"] * 1000.0, orifice_kPa, hs, False),
+                      "notes": [rain["breakup_flag"], "Kletz and Lautkaski (DNV report, simple correlations) are shown only for comparison with the Yellow Book method."]}
+    out["warnings"] += ["Kletz/Lautkaski comparison: " + w for w in out["droplet"]["validity_warnings"]]
+    f_rain = rain["rainout_fraction_of_release"]
 
-    # jet fire on the airborne part of a flashing release
-    if jet_possible:
-        f_ref = min(scr["kletz"], scr["lautkaski"])
-        m_jet = W * (1.0 - f_ref)
-        v_j = u_f
-        j = jet_flame.chamberlain(m_jet, rel["rho_f_kg_m3"], amb["rho_air_kg_m3"], Mw, fire["Hc_J_kg"], amb["wind_m_s"], 90.0, v_j_m_s=v_j)
+    # --- jet fire on the airborne part
+    if superheated:
+        m_jet = rain["q_nett_air_kg_s"]
+        j = jet_flame.chamberlain(m_jet, jet["rho_f_kg_m3"], rho_a, M * 1000.0, Hc, amb["wind_m_s"], 90.0, v_j_m_s=jet["u_f_m_s"])
         zr, zt, tau = fire["release_height_m"], fire["target_height_m"], fire["tau"]
-        reach = {thr: {d: jet_radiation.reach_m(j, zr, thr, d, zt, tau) for d in ("downwind", "upwind", "crosswind")} for thr in fire["thresholds_kW_m2"]}
-        grid = []
-        for xx in (-30, -20, -10, 0, 10, 20, 30, 40, 60, 80):
-            grid.append({"x_m": xx, **{f"y{yy}": jet_radiation.flux_kW_m2(j, zr, xx, yy, zt, tau) for yy in (0, 10, 20, 30, 40)}})
-        out["jet"] = {"m_airborne_kg_s": m_jet, "rainout_used_for_jet": f_ref, "flame": {k: j[k] for k in ("Ds_m", "L_B0_m", "L_B_m", "alpha_deg", "B_m", "R_L_m", "W1_m", "W2_m", "area_m2", "F_s", "radiated_power_kW", "SEP_kW_m2")},
-                      "reach_m": {str(k): v for k, v in reach.items()}, "flux_grid_kW_m2": grid, "near_field_radius_m": jet_radiation.near_field_radius_m(j),
+        t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
+        levels = {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp),
+                  "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}
+        levels.update({f"user_{x}": x for x in fire.get("extra_flux_levels_kW_m2", [])})
+        reach = {k: {"flux_kW_m2": v, **{d: jet_radiation.reach_m(j, zr, v, d, zt, tau) for d in ("downwind", "upwind", "crosswind")}} for k, v in levels.items()}
+        grid = [{"x_m": xx, **{f"y{yy}": jet_radiation.flux_kW_m2(j, zr, xx, yy, zt, tau) for yy in (0, 10, 20, 30, 40)}} for xx in (-30, -20, -10, 0, 10, 20, 30, 40, 60, 80)]
+        out["jet"] = {"m_airborne_kg_s": m_jet, "flame": {k: j[k] for k in ("Ds_m", "L_B0_m", "L_B_m", "alpha_deg", "B_m", "R_L_m", "W1_m", "W2_m", "area_m2", "F_s", "radiated_power_kW", "SEP_kW_m2")},
+                      "exposure_time_s": t_exp, "reach_m": reach, "flux_grid_kW_m2": grid, "near_field_radius_m": jet_radiation.near_field_radius_m(j),
                       "notes": j["notes"] + ["Source state is the two-phase mixture (DNV two-phase jet source not implemented); line-source flux map, vertical release only."]}
     else:
         out["jet"] = None
 
-    # pool fire on the rained-out part
-    cases = sorted({round(c, 6) for c in (scr["kletz"], scr["lautkaski"]) if c > 0} | {round(c, 6) for c in pool.get("extra_rainout_fractions", []) if c > 0})
-    mflux = pool_fire.burning_rate_kg_m2_s(fire["Hc_J_kg"] / 1000.0, hfg_b / 1000.0, atm["cp_liq_kJ_kgK"], Tb, amb["T_K"])
-    out["pool_burning_flux_kg_m2_s"] = mflux
+    # --- pool fire on the rained-out part (Yellow Book chapter 6)
     out["pool"] = []
-    for fr in cases:
+    m_inf, kbeta = yb_poolfire.LARGE_POOL[fl]
+    cases = [f_rain] if f_rain > 1e-6 else []
+    cases += [c for c in pool.get("extra_rainout_fractions", []) if c > 0]
+    for fr in sorted(set(cases)):
         mr = fr * W
-        pf = pool_fire.pool_fire(pool_spread.equilibrium_area_m2(mr, mflux), fire["Hc_J_kg"] / 1000.0, hfg_b / 1000.0, atm["cp_liq_kJ_kgK"], Tb, amb["T_K"])
-        sp = pool_spread.spread(mr, rho_L_b, amb["rho_air_kg_m3"], mflux, pool["r0_m"], pool["h0_m"], pool["C_T"])
-        reach = {}
-        for thr in fire["thresholds_kW_m2"]:
-            reach[str(thr)] = {"point_source_m": pool_fire.distance_to_flux_m(pf, thr), "solid_flame_m": _solid_flame_reach(pf, thr)}
-        out["pool"].append({"rainout_fraction": fr, "feed_kg_s": mr, "D_eq_m": pf["diameter_m"], "A_eq_m2": pf["diameter_m"] ** 2 * math.pi / 4, "flame_height_m": pf["flame_height_m"],
-                            "heat_release_MW": pf["heat_release_MW"], "SEP_kW_m2": pf["sep_mudan_croce_kW_m2"], "t_to_equilibrium_s": sp["t_to_equilibrium_s"],
+        Deq = yb_poolfire.equilibrium_diameter_m(mr, m_inf, kbeta)
+        mflux = yb_poolfire.burning_flux_kg_m2_s(Deq, m_inf, kbeta)
+        fl_len = yb_poolfire.flame_length_m(Deq, mflux, rho_a, amb["wind_m_s"])
+        sep = 140.0 * math.exp(-0.12 * Deq) + 20.0 * (1.0 - math.exp(-0.12 * Deq))      # Yellow Book (6.19): c3 140, c4 20 kW/m2, c5 0.12 1/m
+        sp = pool_spread.spread(mr, rho_Lf, rho_a, mflux, pool["r0_m"], pool["h0_m"], pool["C_T"])
+        pf = {"diameter_m": Deq, "flame_height_m": fl_len["L_m"], "sep_mudan_croce_kW_m2": sep, "tau": fire["tau"]}
+        t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
+        reach = {k: {"flux_kW_m2": v, "solid_flame_m": _solid_flame_reach(pf, v)} for k, v in
+                 {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp),
+                  "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}.items()}
+        out["pool"].append({"rainout_fraction": fr, "from_yellow_book_method": abs(fr - f_rain) < 1e-12, "feed_kg_s": mr, "D_eq_m": Deq, "A_eq_m2": math.pi * Deq ** 2 / 4,
+                            "burning_flux_kg_m2_s": mflux, "flame_length_m": fl_len["L_m"], "flame_tilt_deg": yb_poolfire.flame_tilt_deg(Deq, amb["wind_m_s"], nu_a),
+                            "heat_release_MW": mflux * math.pi * Deq ** 2 / 4 * Hc / 1e6, "SEP_kW_m2": sep, "t_to_equilibrium_s": sp["t_to_equilibrium_s"],
                             "spread_samples": sp["samples"], "reach": reach})
-    if not cases:
-        out["notes"].append("Neither published rainout correlation gives any rainout: no pool fire evaluated. Add pool.extra_rainout_fractions to test a hypothesis (for example ground impingement).")
+    if not out["pool"]:
+        out["notes"].append("Yellow Book rain-out is zero: no pool fire evaluated. Add pool.extra_rainout_fractions to test a hypothesis (for example ground impingement).")
+    # --- ignition (Purple Book Table 4.5) for the airborne release
+    out["ignition"] = {"purple_book_direct_ignition": vulnerability.direct_ignition_probability(W, vulnerability.REACTIVITY[fl]), "substance_class": vulnerability.REACTIVITY[fl],
+                       "note": "Purple Book Table 4.5, continuous release band; the Cox, Lees and Ang values in qra.frequency are an alternative (secondary source)."}
     out["checks"] = _checks(out, data)
     return out
 
 
-def _checks(out: dict, data: dict) -> list[str]:
-    c = []
-    r = out["release"]
-    if "A_f_m2" in r:
-        err = abs(r["A_f_m2"] * r["rho_f_kg_m3"] * r["u_f_m_s"] - r["W_kg_s"]) / r["W_kg_s"]
-        c.append(("PASS" if err < 1e-9 else "FAIL") + ": mass continuity A_f rho_f u_f = W")
-        err = abs(r["G_kg_m2_s"] * (r["u_f_m_s"] - r["u_choke_m_s"]) - (r["P_choke_kPa"] - data["ambient"]["P_kPa"]) * 1000.0) / (r["G_kg_m2_s"] * r["u_f_m_s"])
-        c.append(("PASS" if err < 1e-9 else "FAIL") + ": momentum balance across the expansion")
-    for p in out["pool"]:
-        err = abs(p["feed_kg_s"] - out["pool_burning_flux_kg_m2_s"] * p["A_eq_m2"]) / p["feed_kg_s"]
-        c.append(("PASS" if err < 1e-9 else "FAIL") + f": burn-off balance for rainout {p['rainout_fraction']}")
-    if out["jet"]:
-        thr = data["fire"]["thresholds_kW_m2"][0]
-        d = out["jet"]["reach_m"][str(thr)]["downwind"]
-        q = jet_radiation.flux_kW_m2(_rebuild_flame(out), data["fire"]["release_height_m"], d, 0.0, data["fire"]["target_height_m"], data["fire"]["tau"]) if d > 0 else thr
-        c.append(("PASS" if abs(q - thr) < 1e-6 * thr else "FAIL") + ": flux at the reported downwind reach equals the threshold")
-    c += ["WARN: " + w for w in out["warnings"]]
-    c.append("INFO: inputs without a primary-text source (see docs/SOURCE_TERM_SOURCES.md): We_crit, Hc, thresholds, drag constants, C_T")
-    return c
-
-
 def _solid_flame_reach(pf: dict, thr: float) -> float:
-    """Distance from the pool CENTRE to the flux `thr` for a target at base level facing a flat vertical flame face (D wide, H high), at SEP of Mudan-Croce."""
+    """Distance from the pool CENTRE to flux `thr` for a target at base level facing a flat vertical flame face (D wide, H high) at the Yellow Book SEP."""
     def f(r):
         face = viewfactor.vertical_flame_face(pf["diameter_m"], pf["flame_height_m"], r)
         return viewfactor.flux_from_faces((-r, 0.0, 0.0), (1.0, 0.0, 0.0), [face], pf["sep_mudan_croce_kW_m2"], pf["tau"], 40)["incident_kW_m2"]
@@ -179,5 +198,24 @@ def _solid_flame_reach(pf: dict, thr: float) -> float:
     return 0.5 * (lo + hi) + pf["diameter_m"] / 2
 
 
-def _rebuild_flame(out: dict) -> dict:
-    return out["jet"]["flame"]
+def _checks(out: dict, data: dict) -> list[str]:
+    c = []
+    r = out["release"]
+    if "A_f_m2" in r:
+        err = abs(r["A_f_m2"] * r["rho_f_kg_m3"] * r["u_f_m_s"] - r["W_kg_s"]) / r["W_kg_s"]
+        c.append(("PASS" if err < 1e-9 else "FAIL") + ": mass continuity A_f rho_f u_f = W (omega basis)")
+    d = out["droplet"]
+    err = abs(d["rainout_kg_s"] + d["q_nett_air_kg_s"] - r["W_used_kg_s"]) / r["W_used_kg_s"]
+    c.append(("PASS" if err < 1e-9 else "FAIL") + ": rain-out plus airborne equals the release rate")
+    for p in out["pool"]:
+        err = abs(p["feed_kg_s"] - p["burning_flux_kg_m2_s"] * p["A_eq_m2"]) / p["feed_kg_s"]
+        c.append(("PASS" if err < 1e-9 else "FAIL") + f": burn-off balance for rainout {p['rainout_fraction']:.3g}")
+    if out["jet"]:
+        lvl = next(iter(out["jet"]["reach_m"].values()))
+        dist = lvl["downwind"]
+        if dist > 0:
+            q = jet_radiation.flux_kW_m2(out["jet"]["flame"], data["fire"]["release_height_m"], dist, 0.0, data["fire"]["target_height_m"], data["fire"]["tau"])
+            c.append(("PASS" if abs(q - lvl["flux_kW_m2"]) < 1e-6 * lvl["flux_kW_m2"] else "FAIL") + ": flux at the reported downwind reach equals its level")
+    c += ["WARN: " + w for w in out["warnings"]]
+    c.append("INFO: C_ds = 15 (Yellow Book recommendation), Sc = 0.7 (Yellow Book default), pool-spreading C_T = input; Cd, hole size, wind are study inputs")
+    return c

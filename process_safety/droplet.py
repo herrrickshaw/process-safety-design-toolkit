@@ -3,7 +3,9 @@
 Sources (public documents read; see docs/SOURCE_TERM_SOURCES.md; the TNO Yellow Book and CCPS books themselves were NOT obtained):
   DNV, Phast "Droplet size model: theory and validation" (JIP Phase IV report): eq. (10) mechanical (Weber) break-up
       d = sigma We_crit / (u_f^2 rho_a), rho_a = AMBIENT AIR density, u_f = post-expansion velocity, sigma at the post-expansion temperature;
-      We_crit = 12.5 quoted from the TNO Yellow Book (Brown and York 1962, Hinze 1955); Melhem quotes 10 to 20.
+      We_crit = 12.5 as the DNV report attributes it to the Yellow Book (Brown and York 1962, Hinze 1955); Melhem quotes 10 to 20. NOTE: the Yellow Book
+      text itself (section 2.5.3.7, eq. 2.143b) writes d = C_ds sigma / (u_f^2 rho_a) and recommends C_ds = 15 (literature 10 to 20); the tool `lgrelease`
+      uses that, through `yb_spray`. This module is kept for the simple DNV correlations and as a cross-check.
       eq. (11) flashing SMD (CCPS RELEASE book, Woodward and Papadourakis): d = 0.833e-3 - 0.0734e-3 ln(Ep) m, Ep in J/kg
       eq. (12)-(13) partial expansion energy Ep; modified-CCPS rule: mechanical size for subcooled, flashing size for superheated releases.
       Section 6.1 rainout correlations: Kletz eta_R = max(0, 1 - 2 xH) (1 if subcooled); Lautkaski eta_R = 0.6 (1 - 3 xH), xH < 1/3, else 0;

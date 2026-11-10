@@ -225,34 +225,258 @@ class JetRadiation(unittest.TestCase):
             jet_radiation.reach_m(f, 2.0, 12.5, "sideways")
 
 
+class YbAnnex(unittest.TestCase):
+    """The Annex prints its own values at 288.15 K; reproducing them checks the coefficient transcription."""
+    PRINTED = {"propane": dict(rho=509.2712, vp=7.307659e5, hv=348160.99, cpl=2582.192, mu=1.030978e-4, sigma=8.154658e-3),
+               "n-butane": dict(rho=584.4904, vp=1.821095e5, hv=362140.53, cpl=2457.016, mu=1.649110e-4, sigma=1.397065e-2)}
+
+    def test_values_printed_in_the_annex_at_288_15_K(self):
+        from process_safety import yb_annex as A
+        for f, v in self.PRINTED.items():
+            got = dict(rho=A.liquid_density_kg_m3(f, 288.15), vp=A.vapour_pressure_Pa(f, 288.15), hv=A.heat_of_vaporisation_J_kg(f, 288.15),
+                       cpl=A.liquid_heat_capacity_J_kgK(f, 288.15), mu=A.liquid_viscosity_Pa_s(f, 288.15), sigma=A.surface_tension_N_m(f, 288.15))
+            for k in v:
+                self.assertAlmostEqual(got[k] / v[k], 1.0, delta=3e-4, msg=f"{f} {k}")
+
+    def test_vapour_pressure_equals_ambient_at_the_boiling_point(self):
+        from process_safety import yb_annex as A
+        for f in ("propane", "n-butane"):
+            self.assertAlmostEqual(A.vapour_pressure_Pa(f, A.normal_boiling_point_K(f)) / 101325.0, 1.0, delta=0.06)       # the Annex correlations are not exact at the boiling point (propane 0.5 %, butane 4 %)
+
+    def test_saturation_temperature_inverts_vapour_pressure(self):
+        from process_safety import yb_annex as A
+        T = A.saturation_temperature_K("propane", 1.2e6)
+        self.assertAlmostEqual(A.vapour_pressure_Pa("propane", T), 1.2e6, delta=1.0)
+
+    def test_enthalpy_change_is_additive_and_antisymmetric(self):
+        from process_safety import yb_annex as A
+        a, b, c = 231.0, 260.0, 300.0
+        self.assertAlmostEqual(A.liquid_enthalpy_change_J_kg("propane", a, c), A.liquid_enthalpy_change_J_kg("propane", a, b) + A.liquid_enthalpy_change_J_kg("propane", b, c), places=6)
+        self.assertAlmostEqual(A.liquid_enthalpy_change_J_kg("propane", a, b), -A.liquid_enthalpy_change_J_kg("propane", b, a), places=9)
+
+    def test_out_of_range_is_refused(self):
+        from process_safety import yb_annex as A
+        with self.assertRaises(ValueError):
+            A.liquid_density_kg_m3("propane", 500.0)
+        with self.assertRaises(ValueError):
+            A.liquid_density_kg_m3("water", 300.0)
+
+
+class YbSprayWorkedExample(unittest.TestCase):
+    """The Yellow Book's own worked butane example (section 2.6.3.5, Table 2.6) is the oracle."""
+    def setUp(self):
+        from process_safety import yb_annex as A, yb_spray as S
+        self.A, self.S = A, S
+        self.jet = S.jet_after_flash(41.34, 0.00363, 174549, 101325, 0.0, 584.49, 4.233, 428806 - 473622, 362140, 376740, 600.72, 2.5964)
+        self.dd = S.droplet_diameter_m(self.jet["b_f_m"], self.jet["u_f_m_s"], 0.000197, 600.72, 0.0159, 1.225, 288.15, 272.7)
+
+    def test_step1_jet_state_matches_table(self):
+        j = self.jet
+        self.assertAlmostEqual(j["u_f_m_s"], 25.91, delta=0.01)
+        self.assertAlmostEqual(j["Phi_f"], 0.15732, delta=2e-5)
+        self.assertAlmostEqual(j["A_f_m2"], 0.099, delta=1e-3)
+        self.assertAlmostEqual(j["b_f_m"], 0.177, delta=1e-3)
+
+    def test_step2_droplet_diameter_matches_table(self):
+        self.assertEqual(self.dd["branch"], "b")
+        self.assertAlmostEqual(self.dd["d_d_m"] * 1000.0, 0.29, delta=0.005)
+        self.assertAlmostEqual(self.dd["We_f"] / 9012339.0, 1.0, delta=2e-3)
+
+    def test_step2_branch_a_for_small_weber_number(self):
+        r = self.S.droplet_diameter_m(0.002, 5.0, 1e-6, 600.0, 0.02, 1.2, 280.0, 272.7)
+        self.assertEqual(r["branch"], "a")
+        self.assertAlmostEqual(r["d_d_m"], 3.78 * 0.002 * math.sqrt(1.0 + 3.0 * (2 * 0.002 * 25 * 600 / 0.02) / (2 * 0.002 * 5 / 1e-6)), places=12)
+        hot = self.S.droplet_diameter_m(0.002, 5.0, 1e-6, 600.0, 0.02, 1.2, 320.0, 272.7)       # T_e above 1.11 T_B: the other branch
+        self.assertEqual(hot["branch"], "b")
+        self.assertAlmostEqual(hot["d_d_m"], 15.0 * 0.02 / (25.0 * 1.2), places=12)
+
+    def test_step3_free_fall_droplet_temperature_and_no_rainout(self):
+        A, S = self.A, self.S
+        d = self.dd["d_d_m"]
+        ud = S.free_fall_velocity_m_s(d, 600.72, 1.71e-5, 1.225, 9.8)
+        Re = ud * d / 1.71e-5
+        self.assertAlmostEqual(ud, 1.313, delta=0.005)
+        self.assertAlmostEqual(Re, 22.25, delta=0.05)
+        D = 1.71e-5 / 0.7
+        kBf = lambda T: S.k_B_m2_s(0.0581, D, 101325, 600.72, 288.15, A.vapour_pressure_Pa("n-butane", T))
+        Td, kB = S.droplet_temperature_K(288.15, Re, 0.7, 0.87, A.air_conductivity_W_mK(), lambda T: A.heat_of_vaporisation_J_kg("n-butane", T), 600.72, kBf, T_low_K=200.0)
+        self.assertAlmostEqual(Td, 215.09, delta=0.5)           # air conductivity is not given in the book; ours is derived from its Prandtl number
+        self.assertAlmostEqual(kB / 2.87e-8, 1.0, delta=0.03)
+        r = S.rainout(jet=self.jet, d_d_m=d, q_kg_s=41.34, h_s_m=1.0, kB=kB, Sc=0.7, rho_L_f=600.72, rho_a=1.225, nu_a=1.71e-5, g=9.8)
+        self.assertEqual(r["rainout_kg_s"], 0.0)                 # the book's "nett mass released to the air" equals the full 41.34 kg/s
+        self.assertAlmostEqual(r["q_nett_air_kg_s"], 41.34, places=9)
+        self.assertAlmostEqual(r["d_M_m"] * 1000.0, 0.47, delta=0.02)   # the book prints "47 mm": a misprint for 0.47 mm
+
+    def test_energy_balance_closes_for_a_two_phase_exit(self):
+        """Total enthalpy plus kinetic energy is conserved: H_V,e - (1-Phi_e) L_e + u_e^2/2 = H_V,f - (1-Phi_f) L_f + u_f^2/2."""
+        S = self.S
+        He, Hf, Le, Lf, Phi_e = 470000.0, 430000.0, 362000.0, 376000.0, 0.1
+        j = S.jet_after_flash(30.0, 0.004, 400000.0, 101325.0, Phi_e, 584.0, 7.0, Hf - He, Le, Lf, 600.0, 2.6)
+        lhs = He - (1 - Phi_e) * Le + 0.5 * j["u_e_m_s"] ** 2
+        rhs = Hf - (1 - j["Phi_f"]) * Lf + 0.5 * j["u_f_m_s"] ** 2
+        self.assertAlmostEqual(lhs, rhs, places=6)
+        self.assertAlmostEqual(j["rho_e_kg_m3"], 1.0 / (0.9 / 584.0 + 0.1 / 7.0), places=9)
+
+    def test_rainout_mass_is_the_liquid_fraction_times_diameter_ratio_cubed(self):
+        S = self.S
+        jet = {"Phi_f": 0.2}
+        rho_a, nu_a, kB, h, rho_L, g = 1.225, 1.71e-5, 2.8e-8, 1.0, 600.0, 9.81
+        d0 = 1.15 * (72 * rho_a * nu_a * kB * h / (rho_L * g)) ** 0.25
+        r = S.rainout(jet=jet, d_d_m=d0, q_kg_s=10.0, h_s_m=h, kB=kB, Sc=1e-12, rho_L_f=rho_L, rho_a=rho_a, nu_a=nu_a, g=g)   # Sc -> 0 removes the convection term
+        self.assertGreater(r["d_ground_m"], 0.0)
+        self.assertLess(r["d_ground_m"], d0)
+        self.assertAlmostEqual(r["rainout_kg_s"], 0.8 * 10.0 * (r["d_ground_m"] / d0) ** 3, places=12)
+        self.assertAlmostEqual(r["rainout_kg_s"] + r["q_nett_air_kg_s"], 10.0, places=12)
+
+    def test_flash_energy_balance_is_the_liquid_side_balance(self):
+        A = self.A
+        # for a saturated-liquid exit, (2.140) equals (h_L,e - h_L,f - KE)/L_f when dH_V = L_f - L_e - (h_L,e - h_L,f)
+        Te, Tf = 288.15, 272.7
+        Le, Lf = A.heat_of_vaporisation_J_kg("n-butane", Te), A.heat_of_vaporisation_J_kg("n-butane", Tf)
+        dh = A.liquid_enthalpy_change_J_kg("n-butane", Tf, Te)
+        dHv = Lf - Le - dh
+        j = self.S.jet_after_flash(41.34, 0.00363, 174549, 101325, 0.0, 584.49, 4.233, dHv, Le, Lf, 600.72, 2.5964)
+        ke = 0.5 * (j["u_f_m_s"] ** 2 - j["u_e_m_s"] ** 2)
+        self.assertAlmostEqual(j["Phi_f"], (dh - ke) / Lf, places=9)
+
+
+class YbMath(unittest.TestCase):
+    def test_zeroth_order_max_rainout_diameter_from_the_integration(self):
+        """With Stokes fall and no convection, d(d)/dt = -kB/d: the largest droplet that just evaporates on reaching the ground has
+        d0^4 = 72 rho_a nu_a kB h / (rho_L g). Integrating (2.149)-(2.150) with the convection term removed must agree (Sc -> 0 removes it)."""
+        from process_safety import yb_spray as S
+        rho_a, nu_a, kB, h, rho_L, g = 1.225, 1.71e-5, 2.8e-8, 1.0, 600.0, 9.81
+        d0 = (72 * rho_a * nu_a * kB * h / (rho_L * g)) ** 0.25
+        below = S.fall_and_evaporate(d0 * 0.98, h, kB, 1e-12, rho_L, rho_a, nu_a, g)
+        above = S.fall_and_evaporate(d0 * 1.02, h, kB, 1e-12, rho_L, rho_a, nu_a, g)
+        self.assertEqual(below["d_ground_m"], 0.0)
+        self.assertGreater(above["d_ground_m"], 0.0)
+
+    def test_burning_flux_limits_and_equilibrium_balance(self):
+        from process_safety import yb_poolfire as P
+        self.assertAlmostEqual(P.burning_flux_kg_m2_s(50.0, 0.099, 1.4), 0.099, places=9)
+        D = P.equilibrium_diameter_m(2.0, 0.099, 1.4)
+        self.assertAlmostEqual(P.burning_flux_kg_m2_s(D, 0.099, 1.4) * math.pi * D * D / 4.0, 2.0, delta=1e-9)
+        self.assertGreater(P.equilibrium_diameter_m(4.0, 0.099, 1.4), D)
+
+    def test_flame_length_against_the_formula_and_wind_exponent(self):
+        from process_safety import yb_poolfire as P
+        D, m, rho = 3.0, 0.1, 1.2
+        L0 = D * 55.0 * (m / (rho * math.sqrt(g_acc * D))) ** 0.67
+        self.assertAlmostEqual(P.flame_length_m(D, m, rho, 0.0)["L_m"], L0, places=12)
+        uc = (g_acc * m * D / rho) ** (1.0 / 3.0)
+        w = P.flame_length_m(D, m, rho, 3.0 * uc)
+        self.assertAlmostEqual(w["L_m"] / L0, 3.0 ** -0.21, places=12)
+        self.assertEqual(P.flame_length_m(D, m, rho, 0.9 * uc)["L_m"], L0)           # below u_c the scaled wind speed is one
+
+    def test_flame_length_grows_with_diameter_and_u_star_floor(self):
+        from process_safety import yb_poolfire as P
+        a = P.flame_length_m(3.0, 0.1, 1.2, 0.0)
+        b = P.flame_length_m(6.0, 0.1, 1.2, 0.0)
+        self.assertGreater(b["L_m"], a["L_m"])
+        self.assertEqual(a["u_star"], 1.0)
+        self.assertLess(P.flame_length_m(3.0, 0.1, 1.2, 8.0)["L_m"], a["L_m"])      # wind shortens the flame (u*^-0.21)
+
+    def test_tilt_satisfies_its_defining_relation(self):
+        from process_safety import yb_poolfire as P
+        D, u, nu = 4.0, 5.0, 1.5e-5
+        th = math.radians(P.flame_tilt_deg(D, u, nu))
+        c = 0.666 * (u * u / (g_acc * D)) ** 0.333 * (u * D / nu) ** 0.117
+        self.assertAlmostEqual(math.tan(th) / math.cos(th), c, places=9)
+        self.assertEqual(P.flame_tilt_deg(D, 0.0, nu), 0.0)
+
+
+class Vulnerability(unittest.TestCase):
+    TABLE_5_1 = {0.01: 2.67, 0.1: 3.72, 0.2: 4.16, 0.5: 5.00, 0.7: 5.52, 0.9: 6.28, 0.99: 7.33}
+
+    def test_probit_to_probability_matches_the_purple_book_table(self):
+        from process_safety import vulnerability as V
+        for P, Pr in self.TABLE_5_1.items():
+            self.assertAlmostEqual(V.probability_from_probit(Pr), P, delta=0.003)
+
+    def test_symmetry_and_monotonicity(self):
+        from process_safety import vulnerability as V
+        for z in (0.5, 1.0, 2.0):
+            self.assertAlmostEqual(V.probability_from_probit(5 + z) + V.probability_from_probit(5 - z), 1.0, places=12)
+        self.assertLess(V.death_probability(10.0), V.death_probability(20.0))
+        self.assertLess(V.death_probability(10.0, 5.0), V.death_probability(10.0, 20.0))
+
+    def test_probit_literal_value(self):
+        from process_safety import vulnerability as V
+        self.assertAlmostEqual(V.heat_probit(20000.0, 20.0), -36.38 + 2.56 * math.log(20000.0 ** (4.0 / 3.0) * 20.0), places=12)
+
+    def test_probit_time_and_flux_scaling(self):
+        from process_safety import vulnerability as V
+        self.assertAlmostEqual(V.heat_probit(1e4, 10.0) - V.heat_probit(1e4, 5.0), 2.56 * math.log(2.0), places=12)
+        self.assertAlmostEqual(V.heat_probit(2e4, 10.0) - V.heat_probit(1e4, 10.0), 2.56 * (4.0 / 3.0) * math.log(2.0), places=12)
+        self.assertEqual(V.heat_probit(1e4, 60.0), V.heat_probit(1e4, 20.0))          # exposure time capped at 20 s
+
+    def test_inverse_round_trip(self):
+        from process_safety import vulnerability as V
+        for P in (0.01, 0.5, 0.9):
+            self.assertAlmostEqual(V.death_probability(V.flux_for_probability_kW_m2(P)), P, places=9)
+
+    def test_clothing_and_building_threshold(self):
+        from process_safety import vulnerability as V
+        self.assertEqual(V.outdoor_fatality_fraction(35.0), 1.0)
+        self.assertAlmostEqual(V.outdoor_fatality_fraction(20.0), 0.14 * V.death_probability(20.0), places=12)
+
+    def test_table_4_5_bands(self):
+        from process_safety import vulnerability as V
+        self.assertEqual(V.direct_ignition_probability(5, "gas_average_high"), 0.2)
+        self.assertEqual(V.direct_ignition_probability(50, "gas_average_high"), 0.5)
+        self.assertEqual(V.direct_ignition_probability(500, "gas_average_high"), 0.7)
+        self.assertEqual(V.direct_ignition_probability(5, "k1_liquid"), 0.065)
+        self.assertEqual(V.direct_ignition_probability(9.99, "gas_low"), 0.02)
+        self.assertEqual(V.direct_ignition_probability(10.0, "gas_low"), 0.04)
+        self.assertEqual(V.direct_ignition_probability(100.0, "gas_low"), 0.04)
+        self.assertEqual(V.direct_ignition_probability(100.5, "gas_low"), 0.09)
+        with self.assertRaises(ValueError):
+            V.direct_ignition_probability(5, "plasma")
+
+
 class LgReleaseTool(unittest.TestCase):
     def _run(self, name):
         path = os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json")
-        data = json.load(open(path))
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
         if name == "B":
             data.update(mode="refrigerated", overpressure_kPa_g=10.0, head_m=5.0)
-            data.pop("P0_kPa"); data["properties"] = {}
+            data.pop("P0_kPa")
+        if name == "C":
+            data["discharge_basis"] = "yellow_book_liquid"
         out = tempfile.mkdtemp()
         try:
             return tools.run_tool("lgrelease", data, out, progress=False)
         finally:
             shutil.rmtree(out, ignore_errors=True)
 
-    def test_saturated_example_passes_its_checks(self):
+    def test_saturated_omega_example_passes_its_checks(self):
         s = self._run("A")
         self.assertFalse([c for c in s["checks"] if c.startswith("FAIL")])
-        self.assertAlmostEqual(s["release"]["W_kg_s"], 2.3368, delta=2e-3)
-        self.assertEqual(s["droplet"]["lautkaski"], 0.0)
+        self.assertAlmostEqual(s["release"]["W_kg_s"], 2.34, delta=0.02)
+        self.assertEqual(s["droplet"]["rainout_kg_s"], 0.0)
         self.assertIsNotNone(s["jet"])
+        self.assertEqual(s["pool"], [])
+
+    def test_both_discharge_bases_are_reported_and_yellow_book_is_larger(self):
+        s = self._run("A")
+        self.assertGreater(s["discharge"]["yellow_book_liquid"]["W_kg_s"], 3.0 * s["discharge"]["omega"]["W_kg_s"])
+
+    def test_yellow_book_basis_gives_larger_flame(self):
+        a, c = self._run("A"), self._run("C")
+        self.assertFalse([x for x in c["checks"] if x.startswith("FAIL")])
+        self.assertGreater(c["jet"]["flame"]["L_B_m"], a["jet"]["flame"]["L_B_m"])
+        self.assertGreater(c["jet"]["reach_m"]["P_death_1pct"]["downwind"], a["jet"]["reach_m"]["P_death_1pct"]["downwind"])
 
     def test_refrigerated_has_pool_and_no_jet(self):
         s = self._run("B")
         self.assertFalse([c for c in s["checks"] if c.startswith("FAIL")])
         self.assertIsNone(s["jet"])
-        self.assertEqual(s["droplet"]["kletz"], 1.0)
-        self.assertTrue(s["pool"])
-        big = max(s["pool"], key=lambda p: p["rainout_fraction"])
-        self.assertAlmostEqual(big["feed_kg_s"], big["rainout_fraction"] * s["release"]["W_kg_s"], places=9)
+        self.assertGreater(s["droplet"]["rainout_fraction_of_release"], 0.5)
+        p = s["pool"][0]
+        self.assertAlmostEqual(p["feed_kg_s"], s["droplet"]["rainout_kg_s"], places=9)
+        self.assertTrue(p["from_yellow_book_method"])
 
     def test_missing_inputs_are_refused(self):
         s = tools.run_tool("lgrelease", {"fluid": "propane"}, tempfile.mkdtemp(), progress=False)

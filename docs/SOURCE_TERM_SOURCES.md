@@ -1,40 +1,66 @@
-# Public sources for the source-term, rainout, pool and jet-fire inputs
+# Sources for the liquefied-gas leak chain (discharge, droplets, rain-out, jet and pool fire)
 
-Compiled 2026-11-10 for the planned modules (droplet and rainout screen, pool spreading, jet-fire flux map). Purpose: replace "recalled" constants with values read in a public document, and say plainly what is still open.
+Updated 2026-11-10 after the owner supplied the TNO Yellow Book (`TNO-2005-yellow.pdf`, `PGS2-1997-v0.1-physical-effects.pdf`) and the CCPS CPQRA PDF, and after both publishers' official copies were downloaded and found identical to them (same checksums).
 
-**Grades.** B = the document itself was downloaded and the passage read. C = a search summary or a web page that only transcribes a standard. "Secondary" means the document quotes the TNO Yellow Book or a CCPS book; **neither book itself was obtained** (TNO page returned HTTP 522, the Dutch publisher page was empty, the only full copies found were unofficial Scribd uploads, one HTTP 410, and I do not use unverified uploads).
+**Grades.** A = the standard or book text itself was read. B = a public document that quotes the standard was read. C = a web page or search summary.
 
-## Items now backed by a public document
+## What is now backed by the primary text (grade A)
 
-| Item | Value or form | Source (read) | Grade | Notes |
-|---|---|---|---|---|
-| Critical Weber number | We_crit = 12.5 (replaces my 12) | DNV, Phast "Droplet size model: theory and validation" (JIP Phase IV report), eq. (10) and text; `myworkspace.dnv.com/download/public/phast/technical_documentation/05_dispersion/udm/thermodynamics/Droplet size Model Theory_Validation.pdf` | B, secondary | Cites the TNO Yellow Book, Brown and York (1962), Hinze (1955). Melhem's version quotes 10 to 20, typical 12. The Yellow Book branch for finite-duration sprays uses 15. Keep as a required input; default 12.5 only with this citation. |
-| Mechanical droplet size | d = sigma We_crit / (u_f^2 rho_a), with the **atmospheric air density** rho_a and the post-expansion velocity u_f, sigma at the post-expansion temperature | same, eq. (10) | B, secondary | **Corrects my earlier calculation**, which used the flashed-vapour density. |
-| Flashing droplet size (SMD) | d = 0.833e-3 - 0.0734e-3 ln(Ep) m, Ep in J/kg; Ep = -dh - (P_st - P_a) v_st for a liquid at its saturation pressure; subcooled: Ep = (P_st - P_a) v_st | same, eq. (11) to (13); from Woodward and Papadourakis, CCPS RELEASE book | B, secondary | "Modified CCPS" (Phast default): mechanical size for subcooled releases, flashing size for superheated. Derived from leak experiments only. Cut-offs 0.01 and 10 000 (units as printed). |
-| Rainout, simple correlations | Kletz: eta_R = max(0, 1 - 2 x_H) superheated, 1 if subcooled. Lautkaski: eta_R = 0.6 (1 - 3 x_H) for x_H < 1/3, else 0. DeVaull and King: needs the adiabatic saturation temperature | same, section 6.1, eq. (53) to (60) | B, secondary | x_H = cp (T_st - T_sat(P_a)) / dH_vap, cp at the mean temperature. **Validity (Ramsdale and Tickle, quoted there): release height about 1.22 m, horizontal, orifice 3.2 to 12.7 mm, pressure 26.7 to 979 kPa.** My 25 mm, 1200 kPa case lies outside. DNV notes no correlation does well across all superheats; DeVaull and King under-predicts the HSL subcooled tests (25 to 29 % against 85 % and above). |
-| Omega method equations | omega = 9 (v9/v0 - 1); critical-ratio fit; G equations | Melhem, "Forget the Omega Method and Master vdP Integration Instead", ioMosaic white paper, 12 Jan 2023 (the PDF you sent), eq. (37) to (41); enground.com/PSV/2phasepsv.html (calculator page that transcribes API 520 Part I C.15 to C.17) | B (paper), C (page) | The toolkit's exact maximisation gives eta_c = 0.8126 for omega = 6.411. The Simpson fit with a minus sign on the 0.0093431 term gives 0.8127 (paper, eq. 39); the plus-sign form on the enground page gives 0.806. One of the two is mistranscribed; the API text is needed to settle which. The toolkit uses the exact root, so it does not depend on either. |
-| Omega validity limits | ISO 4126-10, quoted in Melhem Table 1: flashing flow T/Tc < 0.9 and P/Pc < 0.5; omega between 0 and 100 at P/Po = 0.9; mixtures NBP range under 100 K; no dissolved gases | Melhem white paper, Table 1 | B, secondary | **Propane 12 bar passes**: T/Tc = 307.58/369.89 = 0.83, P/Pc = 1200/4251 = 0.28, omega = 6.4. The paper's view: direct vdP integration is preferred for mixtures and reacting systems; for a single pure fluid the omega method is acceptable within these limits. |
-| Heat of combustion of propane | Gas, standard: -2219.2 +/- 0.46 kJ/mol, i.e. 50.33 MJ/kg (water as liquid, higher value) | NIST Chemistry WebBook (propane, C74986), Pittam and Pilcher 1972 | B | The lower value (water as vapour) needs the heat of vaporisation of water, which I did not fetch; with 44.01 kJ/mol (not read) it is about 46.3 MJ/kg, so my 46.35 is consistent but its derivation is unconfirmed. |
-| LPG pool burning rate (validation point) | 0.13 kg/m2 s measured for a 20 m LPG pool (about 60 % propane, 40 % propene); LNG 0.106; kerosene 0.06 | Mizner, IChemE Symposium Series 71 (1982), `icheme.org/media/25178/...mizner.pdf` | B | The toolkit's Burgess form gives 0.109 for propane, 16 % below this measurement. Use as a check, not a calibration. |
-| Pool spreading law | d2r/dt2 = 4 g' h / r - C_T (1/h) (dr/dt)^2, h = area-average depth, C_T of order 1e-3 depending on ground roughness | Basha et al., Chemical Engineering Transactions 31 (2013) 43 to 48, `aidic.it/cet/13/31/008.pdf`, quoting Webber et al. (2010) "improved integral model" | B (paper), C for the original | **Replaces my front-speed form dR/dt = Fr sqrt(g' h)**, whose constant had no source. It has an exact first integral without friction, which gives an identity test. Evaporation there is conduction from the ground for LNG; for a burning pool the burn-off balance A = m_r / m'' stays as derived. |
+| Item | Where in the source | Used in |
+|---|---|---|
+| Jet state after flashing: exit density (2.138), jet velocity (2.139), vapour fraction after flashing (2.140), jet area and radius (2.141) | Yellow Book CPR 14E (2005), ch. 2, section 2.5.3.7 step 1 | `yb_spray.jet_after_flash` |
+| Droplet diameter: Reynolds and Weber numbers (2.142), two correlations (2.143a, b), **C_ds = 15 recommended (literature 10 to 20)** | same, step 2 | `yb_spray.droplet_diameter_m` |
+| Free-fall velocity (2.145), evaporation coefficient k_B (2.146), droplet temperature (2.147), maximum rain-out droplet (2.148), droplet integration (2.149, 2.150), net mass to air (2.151) | same, step 3 | `yb_spray` |
+| Worked butane example with every intermediate value (Table 2.6, section 2.6.3.5) | ch. 2, section 2.6.3.5 | the oracle in `tests/test_source_term.py` (jet state, vapour fraction, droplet diameter, Reynolds number, free-fall speed, droplet temperature within 0.3 K, k_B within 2 %, and zero rain-out all reproduced) |
+| Property correlations and constants for **propane and n-butane** (liquid density, vapour pressure, heat of vaporisation, liquid heat capacity, liquid viscosity, surface tension, net heat of combustion 46.013 MJ/kg for propane, boiling points) and for air | Yellow Book Annex "Physical properties of chemicals", annex-47, annex-17, annex-13 | `yb_annex`; the tests reproduce the values the Annex prints at 288.15 K to 3e-4 |
+| Pool burning rate m'' = m_inf (1 - exp(-k beta D)) (6.66) and Table 6.5 (LPG m_inf 0.099 kg/m2 s, k beta 1.4; butane 0.078, 2.7); Burgess form with c8 = 0.001 (6.67) | ch. 6, section 6.5.4.2 | `yb_poolfire` |
+| Pool flame length L/D = 55 (m''/(rho_a (gD)^0.5))^0.67 (u*)^-0.21 (6.12), characteristic wind (6.14), tilt (6.68 to 6.70) | ch. 6, section 6.5.4.3 steps 3 to 6 | `yb_poolfire` |
+| Pool surface emissive power SEP = c3 exp(-c5 D) + c4 (1 - exp(-c5 D)), c3 = 140, c4 = 20 kW/m2, c5 = 0.12 1/m (6.19) | ch. 6, section 6.3.4.6 | `lg_release` (and the toolkit's existing `pool_fire` uses the same constants: **confirmed**) |
+| Heat-radiation probit Pr = -36.38 + 2.56 ln(Q^(4/3) t), exposure limited to 20 s, building and clothing ignition at 35 kW/m2, clothing factor 0.14 | Dutch Purple Book (PGS 3, CPR 18E, 1999), eq. 5.4 and notes, section 5.2.3 | `vulnerability` |
+| Probit against probability (Table 5.1) | Purple Book ch. 5 | test oracle for `probability_from_probit` |
+| Direct ignition probabilities by release rate and reactivity class (Table 4.5); propane and butane are class "average" (Table 4.7) | Purple Book ch. 4, section 4.7.1 | `vulnerability.direct_ignition_probability` |
+| Release frequencies per vessel, pipe and pump (Tables 3.3, 3.7 and others) | Purple Book ch. 3 | not yet used by a module (recorded here for the frequency step) |
+
+## Still from public secondary documents (grade B)
+
+| Item | Source | Notes |
+|---|---|---|
+| Omega-method equations and ISO 4126-10 limits (T/Tc < 0.9, P/Pc < 0.5, omega 0 to 100 at P/Po = 0.9) | Melhem, ioMosaic white paper 2023 (the PDF you sent), eq. 37 to 41 and Table 1 | The Yellow Book does not present the omega method; it cites Leung and DIERS papers. The CCPS Relief and Effluent Handling guideline, which the problem statement names for it, was not supplied. |
+| Jet-fire Chamberlain frustum model, SEP cap | DNV, "Theory - Jet Fire" (read earlier, grade B) | the Yellow Book has its own jet-flame models in ch. 6 (sections 6.3.2 and 6.5.3); not yet implemented here |
+| Pool spreading law d2r/dt2 = 4 g' h / r - C_T (dr/dt)^2 / h | Basha et al., Chemical Engineering Transactions 31 (2013), quoting Webber et al. (2010) | C_T of order 1e-3 is an input; the Yellow Book ch. 3 spreading model was not used |
+| Simple rainout correlations (Kletz, Lautkaski) and their validity range | DNV Phast droplet-size report | now only a comparison beside the Yellow Book method |
+
+## Corrections made after reading the primary text
+
+* The DNV report attributes a critical Weber number of 12.5 to the Yellow Book. The Yellow Book itself writes d = C_ds sigma / (u_f^2 rho_a) with **C_ds = 15** recommended. The tool uses 15.
+* The DNV report's Kletz and Lautkaski correlations are not the Yellow Book method. The Yellow Book integrates the droplet evaporation while it falls (2.149, 2.150) and gives a rain-out mass directly.
+* Misprints in the Yellow Book found while reproducing its worked example: (2.140) prints (1 + Phi_e) where (1 - Phi_e) reproduces the table; (2.146) prints ln(1 - P_s/P_a), negative, while the example's k_B is positive (the module uses minus that logarithm); the example's "d_M = 47 mm" is 0.47 mm (the zeroth-order result 0.29 mm times the convection factor 1.63) and its quoted Re_d of 3671 does not follow from either. These are recorded in the `yb_spray` docstring. The example also uses the number 1.97e-4, labelled dynamic viscosity, as a kinematic viscosity in Re_f; the choice between (2.143a) and (2.143b) is unaffected.
+* Heat of combustion: the Annex net value for propane is 46.013 MJ/kg (the earlier 46.33 was my derivation from a NIST higher value and water's latent heat; replaced).
+* LPG pool burning rate: Yellow Book Table 6.5 gives 0.099 kg/m2 s for large pools; Mizner (1982) measured 0.13 for a 20 m propane-propene pool; the Burgess form gives about 0.11 for propane. The tool uses Table 6.5 with the diameter correction.
+* **The two discharge bases differ by a factor of four for propane at 12 bar.** The Yellow Book (2.5.3.4) treats a hole in the liquid space as liquid outflow, Bernoulli with the full pressure difference, and flashes the liquid after the exit; the omega method treats the same hole as flashing, choked flow. For the 25 mm hole: 9.87 kg/s against 2.34 kg/s. The tool computes both and lets you choose which drives the fire calculation.
 
 ## Still open
 
-| Item | What was tried | Status |
+| Item | Status |
+|---|---|
+| CCPS Guidelines for Chemical Process Quantitative Risk Analysis, 2nd ed. | The supplied PDF has 79 pages: the front matter, contents and chapter 1 (introduction). It contains no ignition-probability tables, no thermal vulnerability criteria, no consequence models. Its only relevant statement is an illustration of an effect-zone criterion at 5 kW/m2 (page of the definitions in chapter 1). Please share chapter 2 (consequence models), section 5.2.2 (ignition sources and data) and the thermal-effects tables, or the whole book. |
+| CCPS Guidelines for Pressure Relief and Effluent Handling Systems (Leung omega method) | not supplied. API 520 Part I Annex C is quoted by Melhem and by a calculator page; one transcription of the critical-ratio fit gives 0.806 and the other 0.8127 against the exact root 0.8126; the toolkit uses the exact root. |
+| Yellow Book jet-flame models (ch. 6.5.3) and pool spreading (ch. 3) | read only in outline; not implemented. |
+| Thermal threshold values 37.5, 12.5, 4.7 kW/m2 | no primary source found; replaced in the tool by the Purple Book probit levels (1 % and 50 % death for a 20 s exposure: 9.8 and 19.5 kW/m2) and the 35 kW/m2 ignition level; extra levels can still be added as inputs. |
+| IOGP 434-06 ignition curves | behind a registration form; not submitted. The Purple Book Table 4.5 replaces the Cox values in the tool output; the Cox values remain in `qra.frequency` as a secondary alternative. |
+
+## Results on the worked example (propane, 25 mm, 12 bar(a), saturated liquid, 5 m/s wind), rerun through `tool lgrelease`
+
+| | Omega basis | Yellow Book liquid-orifice basis |
 |---|---|---|
-| TNO Yellow Book (CPR 14E) text | tno.nl page HTTP 522; publisher page empty; Scribd HTTP 410 | not obtained. DNV's manual is the closest public secondary. |
-| CCPS Relief and Effluent Handling; CPQRA | paywalled | not obtained. |
-| Thermal vulnerability thresholds (37.5, 12.5, 4.7 kW/m2) | search only | no primary public source. HSE report HSL/2004/04 (offshore human vulnerability) is reported to favour a thermal dose, LD50 about 2000 (kW/m2)^(4/3) s; the PDF was not retrievable (hse.gov.uk path 404, National Archives copy HTTP 405 to automated requests, not bypassed). Keep the thresholds as inputs. |
-| Ignition probabilities | IOGP 434-06 (v2.00, 2019): free download is behind a form asking for name, company and email | not submitted on your behalf. The toolkit's Cox, Lees and Ang values (via JRC RAPID-N) stay, labelled secondary. |
-| Purple Book (CPR 18E) | RIVM repository HTTP 403 | not obtained. |
-| HSE CRR 403/2002 (Witlox and Bowen review) | PDF path 404 | not obtained; the DNV report covers its follow-on work. |
-| Two web pages sent or found | industrialmonitordirect.com article: unsigned, internally inconsistent (cites no Leung paper, undefined correction factor); enground.com: calculator transcription only | grade C, not used for any constant. |
+| Release rate | 2.34 kg/s | 9.87 kg/s |
+| Jet velocity after flashing / vapour fraction | 153.5 m/s / 0.414 | 101.7 m/s / 0.434 |
+| Droplet diameter (2.143b) | 8 micrometres | 18 micrometres |
+| Rain-out (Yellow Book integration) | 0 | 0 |
+| Flame length / SEP | 14.2 m / 189 kW/m2 | 27.8 m / 204 kW/m2 |
+| Downwind reach, 1 % death / 50 % death / 35 kW/m2 | 15.4 / 9.9 / 5.8 m | 35.0 / 23.9 / 15.8 m |
+| Direct ignition probability (Purple Book Table 4.5, under 10 kg/s, average-reactive gas) | 0.2 | 0.2 |
 
-## What changes in the worked example
+Refrigerated propane tank (5 m head, 10 kPa(g), 25 mm hole): 2.04 kg/s at 11.5 m/s, droplets 1.4 mm, **rain-out 96 % by the Yellow Book integration**, pool 5.0 m across, flame 10.9 m (tilted 57 degrees at 5 m/s), 90 MW, SEP 86 kW/m2; solid-flame reach from the pool centre 11.6 m (1 % death), 7.2 m (50 %), 4.3 m (35 kW/m2).
 
-* We_crit 12.5 and the atmospheric density in the Weber formula: the maximum stable droplet in Scenario A becomes 0.01567 x 12.5 / (153.7^2 x 1.184) = **7.0 micrometres** (was 3.3).
-* The modified-CCPS flashing size for Scenario A: Ep = u_f^2/2 - (P_st - P_a) v_st = 11 812 - 2 303 = 9 509 J/kg, so d = 0.833e-3 - 0.0734e-3 ln(9509) = **161 micrometres**, which is below the 348 micrometres that evaporate in a 2 m fall, so rainout stays small. Lautkaski gives 0 (x_H = 0.448 is above 1/3); Kletz gives 1 - 2 x 0.4485 = 0.103, so Kletz is the one that leaves a small pool (about 0.24 kg/s). Both correlations are outside their stated validity range for this release. (An earlier draft of this note said Kletz also gave 0; that was an arithmetic slip, found when the new module reproduced the case.)
-* Scenario B (subcooled, mechanical break-up): d = 0.01567 x 12.5 / (11.5^2 x 1.184) = **1.25 millimetres**, above 348 micrometres. Kletz gives eta_R = 1 (subcooled); Lautkaski gives 0.6 at x_H = 0. So 1.0 is the upper bound and 0.6 is the lower of the two published values; 0.5 was an arbitrary figure of mine.
-* Propane heat of combustion: unchanged at about 46.3 MJ/kg, now tied to NIST for the higher value.
-
-These figures were rerun through the new modules (`tool lgrelease`) and agree with the hand values.
+Both discharge bases give no rain-out for the hot saturated release, so a pool fire there is a hypothesis (ground impingement) and is evaluated only when `pool.extra_rainout_fractions` is given.
