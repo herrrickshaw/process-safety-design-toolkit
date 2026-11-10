@@ -122,6 +122,19 @@ Conditions: 97 % propane, 52 mm orifice, vessel 7.53 bar(a) at 5.5 C (test 3026)
 Reading: (1) the expansion step agrees with the Barker and Cracknell velocities (75 against 69 to 79), not with the DNV JFSH value of 153 m/s. (2) The release rate is over-predicted 2 to 3.5 times because the toolkit has no 67 m line: the real flow is limited by line friction and flashing in the pipe (the orifice would see a pressure below the vapour pressure), and a saturated-liquid-in-a-vessel model cannot reproduce it. Feed the measured rate to the jet steps, as done above. (3) Flame length is over-predicted 1.9 to 2.4 times with the horizontal-release factor; the factor is 1.55 and is the whole discrepancy for test 3026 (38.5 m with the vertical factor, 24 % high). The sign of the horizontal angle correction in DNV eq (4) should be checked against the JFSH document. (4) Emissive power follows the length error: low by 3 times (horizontal factor), low by 20 % (vertical factor). (5) Droplet size of 34 micron is of the same order as the STEP propane measurements (30 to 49 micron) at different conditions.
 Not validated: the omega discharge (no experiment here with a short hole and saturated liquid), rain-out and pool fire (no data reported), probit and frequency (not measurable). The vertical-release flame in the leak study therefore has an unquantified bias; the horizontal tests show the model can be 24 % to 2.4 times long depending on the angle factor.
 
+### Validation against JIVE butane test 8051 (RIVM 620550005/2012 Table 7; toolkit chain run 2026-11-10)
+
+Conditions: commercial butane (95.6 % n-butane, taken as n-butane), vessel 19.85 bar(a) at 1.9 C, 40 mm orifice, 79 m line, horizontal release at 75 degrees to a 0.5 m/s wind, measured release rate 6.86 kg/s. The liquid is highly subcooled (vapour pressure 1.15 bar), so it leaves as a nearly liquid jet (flash 1.5 %), and the jet steps were fed the measured rate with the exit at ambient pressure.
+
+| Quantity | Measured | JFSH-Cook / Barker / Cracknell | Toolkit |
+|---|---|---|---|
+| Expanded jet velocity, m/s | not reported | 9.3 / 15 / 28 | 9.1 |
+| Flame length, m | 18.3 (20 % occurrence tail; 16.6 horizontal to 50 %) | 32.8 / 27.4 / 23.4 | 72.7 horizontal factor; 51.3 at 75 deg; 47.0 vertical factor |
+| Surface emissive power, kW/m2 | not comparable | 240 / 255 / 175 | 24 to 94 (Chamberlain or Cook fraction, by angle) |
+| Release rate from vessel conditions, kg/s | 6.86 | - | about 37 (liquid orifice, Cd 0.62), 5 times high: no line friction modelled |
+
+Reading: the expansion velocity agrees with JFSH-Cook (9.1 against 9.3). Flame length is over-predicted 2.6 to 4.0 times against the measurement and 1.4 to 2.2 times against JFSH-Cook. The toolkit uses the pure-vapour Chamberlain form, which is not suited to a near-liquid jet (jet density 135 kg/m3 against 2.6 for vapour); the Cook two-phase and liquid modification is not implemented, and buoyancy is ignored (the report notes a clearly buoyant flame, tail about 6 m above the orifice). Together with Project AA this shows the flame model is unvalidated for butane and for liquid-like jets. The butane leak case in the workbook (saturated liquid at 4 bar(a), 26 % flash) is much closer to a vapour-dominated jet than JIVE 8051, but is not itself validated.
+
 ## Still open
 
 | Item | Status |
