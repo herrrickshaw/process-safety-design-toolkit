@@ -473,6 +473,50 @@ class Vulnerability(unittest.TestCase):
             V.direct_ignition_probability(5, "plasma")
 
 
+class LeungOmegaPrimaryText(unittest.TestCase):
+    """Leung, 'Easily Size Relief Devices and Piping for Two-Phase Flow', Chemical Engineering Progress 92(12), Dec 1996 (page images read from the owner's Drive copy):
+    eq. 28a v/v0 = w (P0/P - 1) + 1; eq. 29a (saturated liquid) w = (cp T0 P0 / v0)(v_fg0/h_fg0)^2; eq. 31 nozzle flux; eq. 32 the transcendental equation for the
+    critical ratio; eq. 33 G_c / sqrt(P0 rho0) = eta_c / sqrt(w); eq. 35 and 37 the limits w = 1 (eta_c = 0.606) and w = 0 (Bernoulli)."""
+    OMEGAS = (0.5, 1.0, 2.0, 6.41, 20.0, 100.0)
+
+    def test_critical_ratio_satisfies_equation_32(self):
+        from process_safety import twophase
+        for w in self.OMEGAS:
+            e = twophase.critical_pressure_ratio(w)
+            resid = e ** 2 + (w * w - 2 * w) * (1 - e) ** 2 + 2 * w * w * math.log(e) + 2 * w * w * (1 - e)
+            self.assertAlmostEqual(resid / (2.0 * w * w), 0.0, delta=1e-8, msg=f"omega {w}")      # residual scaled by the size of the omega^2 terms
+
+    def test_choked_flux_equals_equation_33(self):
+        from process_safety import twophase
+        P0, rho0 = 1.2e6 / 1000.0, 477.0                    # kPa, kg/m3
+        for w in self.OMEGAS:
+            m = twophase.mass_flux(P0, rho0, w)
+            self.assertAlmostEqual(m["G_kg_m2_s"], m["eta_critical"] * math.sqrt(P0 * 1000.0 * rho0 / w), delta=1e-6 * m["G_kg_m2_s"], msg=f"omega {w}")
+
+    def test_equation_35_limit_omega_one(self):
+        from process_safety import twophase
+        self.assertAlmostEqual(twophase.critical_pressure_ratio(1.0), 0.606, delta=1e-3)          # Leung's 0.606 is the k = 1.001 value
+        self.assertAlmostEqual(twophase.critical_pressure_ratio(1.0), math.exp(-0.5), places=7)  # the exact omega = 1 limit
+
+    def test_equation_37_limit_small_omega_is_bernoulli(self):
+        from process_safety import twophase
+        P0, rho0 = 1000.0, 600.0
+        m = twophase.mass_flux(P0, rho0, 1e-6, P_back_kPa=500.0)
+        self.assertAlmostEqual(m["G_kg_m2_s"], math.sqrt(2.0 * rho0 * (P0 - 500.0) * 1000.0), delta=2e-3 * m["G_kg_m2_s"])
+
+    def test_equation_29a_matches_the_toolkit_saturated_omega(self):
+        from process_safety import twophase
+        cp, T, P, vl, vg, hfg = 2835.0, 307.58, 1.2e6, 1 / 477.0, 1 / 26.24, 318119.0
+        v_lg = vg - vl
+        self.assertAlmostEqual(twophase.omega_saturated_liquid(cp, T, P, vl, v_lg, hfg), (cp * T * P / vl) * (v_lg / hfg) ** 2, places=9)
+
+    def test_equation_28a_is_the_two_point_omega(self):
+        from process_safety import twophase
+        v0, v9 = 2.0e-3, 2.18e-3
+        w = twophase.omega_two_point(v0, v9)
+        self.assertAlmostEqual(v9 / v0, w * (1.0 / 0.9 - 1.0) + 1.0, places=12)
+
+
 class IgnitionUkooa(unittest.TestCase):
     def test_all_thirty_curves_load_and_are_non_decreasing_after_sorting(self):
         from process_safety import ignition_ukooa as U
