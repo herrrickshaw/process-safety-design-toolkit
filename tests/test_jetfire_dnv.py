@@ -74,6 +74,19 @@ class DnvCookDefault(unittest.TestCase):
         self.assertEqual(b["jet"]["model"], "chamberlain_vapour")
         self.assertNotAlmostEqual(a["jet"]["flame"]["L_B_m"], b["jet"]["flame"]["L_B_m"], places=3)
 
+    def test_reference_property_basis_runs_and_stays_close(self):
+        a = self._run()
+        import json, os
+        from process_safety import lg_release, tools
+        with open(os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json"), encoding="utf-8") as fh:
+            data = json.load(fh)
+        data["property_basis"] = "reference"
+        ref = lg_release.run(data)
+        self.assertAlmostEqual(ref["release"]["W_used_kg_s"] / a["release"]["W_used_kg_s"], 1.0, delta=0.03)
+        data["property_basis"] = "bogus"
+        with self.assertRaises(ValueError):
+            lg_release.run(data)
+
     def test_bad_model_refused(self):
         with self.assertRaises(ValueError):
             self._run(model="nonsense")

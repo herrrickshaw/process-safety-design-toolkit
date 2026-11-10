@@ -21,7 +21,7 @@ from __future__ import annotations
 
 import math
 
-from . import yb_annex as y
+from . import props_ref, yb_annex
 
 R_GAS = 8.314462618
 
@@ -42,7 +42,12 @@ def colebrook_f(Re: float, rel_rough: float) -> float:
 
 
 class _Fluid:
-    def __init__(self, fluid: str, T0: float, P0: float):
+    def __init__(self, fluid: str, T0: float, P0: float, props: str = "reference"):
+        if props not in ("reference", "yb_annex"):
+            raise ValueError("props must be 'reference' (NIST table, real-gas vapour volume) or 'yb_annex' (Yellow Book Annex, ideal gas)")
+        self.y = props_ref if props == "reference" else yb_annex
+        self.real_gas = props == "reference"
+        y = self.y
         self.fl, self.T0, self.P0 = fluid, T0, P0
         self.M = y.molar_mass_kg_mol(fluid)
         self.Pv0 = y.vapour_pressure_Pa(fluid, T0)
@@ -53,9 +58,10 @@ class _Fluid:
         """(specific volume m3/kg, quality) at pressure P and mass flux G with stagnation enthalpy conserved."""
         if P >= self.Pv0:
             return self.vl0, 0.0
+        y = self.y
         T = y.saturation_temperature_K(self.fl, P)
         vl = 1.0 / y.liquid_density_kg_m3(self.fl, T)
-        vg = R_GAS * T / (P * self.M)
+        vg = 1.0 / y.vapour_density_kg_m3(self.fl, T) if self.real_gas else R_GAS * T / (P * self.M)
         Lv = y.heat_of_vaporisation_J_kg(self.fl, T)
         a = -y.liquid_enthalpy_change_J_kg(self.fl, self.T0, T)  # h0 - h_f(T) > 0
 
@@ -142,7 +148,7 @@ def _march(F: _Fluid, W: float, segments, k_fit: float, eps: float, Pa: float, k
 
 
 def line_discharge(fluid: str, T0_K: float, P0_Pa: float, Pa_Pa: float, segments: list[tuple[float, float]], *, roughness_m: float = 1.5e-6,
-                   k_fittings: float = 0.0, k_entry: float = 0.5) -> dict:
+                   k_fittings: float = 0.0, k_entry: float = 0.5, props: str = "reference") -> dict:
     """Largest mass flow (kg/s) a series of straight segments [(length m, inner diameter m), ...] passes from a vessel of liquid at (T0, P0) to ambient Pa.
 
     k_fittings: total loss coefficient of valves and bends, applied to 0.5 G^2 v in the last segment (caller-supplied; not defaulted from data).
@@ -152,7 +158,7 @@ def line_discharge(fluid: str, T0_K: float, P0_Pa: float, Pa_Pa: float, segments
         raise ValueError("need P0 > Pa > 0, T0 > 0 and non-negative roughness and loss coefficients")
     if not segments or any(L <= 0 or D <= 0 for L, D in segments):
         raise ValueError("segments must be a non-empty list of (length, diameter) with positive values")
-    F = _Fluid(fluid, T0_K, P0_Pa)
+    F = _Fluid(fluid, T0_K, P0_Pa, props)
     Amax = math.pi / 4.0 * max(D for _, D in segments) ** 2
     lo, hi = 1e-6, 3.0e4 * Amax
     if _march(F, lo, segments, k_fittings, roughness_m, Pa_Pa, k_entry) is None:

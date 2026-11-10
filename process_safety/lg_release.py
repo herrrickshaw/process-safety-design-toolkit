@@ -17,11 +17,13 @@ from __future__ import annotations
 
 import math
 
-from . import droplet, flash_release, ignition_ukooa, release_frequency, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
+from . import droplet, flash_release, ignition_ukooa, props_ref, release_frequency, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
 from .constants import R
 
 REQUIRED = {"ambient": ["P_kPa", "T_K", "wind_m_s"], "fire": ["release_height_m", "target_height_m", "tau"], "pool": ["C_T", "r0_m", "h0_m"]}
 
+
+_P = yb_annex   # property set; run() switches it to props_ref when data['property_basis'] == 'reference' (not thread-safe)
 
 def check(data: dict) -> list[str]:
     errs = []
@@ -68,44 +70,63 @@ def _jet_state_omega(rel):
 def _yb_liquid(fl, data, T0, P0_Pa, Pa_Pa, Tb):
     """Yellow Book route: liquid orifice at vessel conditions, then flashing (steps 1)."""
     A = math.pi * data["hole_d_m"] ** 2 / 4
-    rho_L = yb_annex.liquid_density_kg_m3(fl, T0)
+    rho_L = _P.liquid_density_kg_m3(fl, T0)
     q = data["Cd"] * A * math.sqrt(2.0 * rho_L * (P0_Pa - Pa_Pa))
     Ae = data["Cd"] * A
-    M = yb_annex.molar_mass_kg_mol(fl)
-    Lv_e, Lv_f = yb_annex.heat_of_vaporisation_J_kg(fl, T0), yb_annex.heat_of_vaporisation_J_kg(fl, Tb)
-    dHv = Lv_f - Lv_e - yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0)          # H_V,f - H_V,e from the liquid-side balance (docs)
-    jet = yb_spray.jet_after_flash(q, Ae, P0_Pa, Pa_Pa, 0.0, rho_L, P0_Pa * M / (R * T0), dHv, Lv_e, Lv_f, yb_annex.liquid_density_kg_m3(fl, Tb), Pa_Pa * M / (R * Tb))
+    M = _P.molar_mass_kg_mol(fl)
+    Lv_e, Lv_f = _P.heat_of_vaporisation_J_kg(fl, T0), _P.heat_of_vaporisation_J_kg(fl, Tb)
+    dHv = Lv_f - Lv_e - _P.liquid_enthalpy_change_J_kg(fl, Tb, T0)          # H_V,f - H_V,e from the liquid-side balance (docs)
+    jet = yb_spray.jet_after_flash(q, Ae, P0_Pa, Pa_Pa, 0.0, rho_L, _rho_v(fl, T0, P0_Pa, M), dHv, Lv_e, Lv_f, _P.liquid_density_kg_m3(fl, Tb), _rho_v(fl, Tb, Pa_Pa, M))
     return q, jet
 
 
+def _rho_v(fl: str, T: float, P: float, M: float) -> float:
+    """Saturated-vapour density: real gas from the reference table when selected, else ideal gas."""
+    return _P.vapour_density_kg_m3(fl, T) if _P is props_ref else P * M / (R * T)
+
+
 def run(data: dict) -> dict:
+    """Run the study. data['property_basis']: 'yb_annex' (default, Yellow Book Annex correlations, ideal-gas vapour) or 'reference' (NIST-tabulated
+    saturation properties with real-gas vapour density; recommended for n-butane, whose Annex correlations are crude)."""
+    global _P
+    basis = data.get("property_basis", "yb_annex")
+    if basis not in ("yb_annex", "reference"):
+        raise ValueError("property_basis must be 'yb_annex' or 'reference'")
+    prev, _P = _P, (props_ref if basis == "reference" else yb_annex)
+    try:
+        return _run(data)
+    finally:
+        _P = prev
+
+
+def _run(data: dict) -> dict:
     amb, fire, pool = data["ambient"], data["fire"], data["pool"]
     fl = data["fluid"]
     Pa = amb["P_kPa"] * 1000.0
     Ta = amb["T_K"]
-    M = yb_annex.molar_mass_kg_mol(fl)
-    Tb = yb_annex.normal_boiling_point_K(fl)
-    rho_a = Pa * yb_annex.AIR["M_kg_kmol"] / 1000.0 / (R * Ta)
-    nu_a = amb.get("nu_air_m2_s", yb_annex.AIR["nu_288K_m2_s"])
-    Sc, Pr = amb.get("Sc", 0.7), yb_annex.AIR["Pr"]
-    lam = yb_annex.air_conductivity_W_mK()
+    M = _P.molar_mass_kg_mol(fl)
+    Tb = _P.normal_boiling_point_K(fl)
+    rho_a = Pa * _P.AIR["M_kg_kmol"] / 1000.0 / (R * Ta)
+    nu_a = amb.get("nu_air_m2_s", _P.AIR["nu_288K_m2_s"])
+    Sc, Pr = amb.get("Sc", 0.7), _P.AIR["Pr"]
+    lam = _P.air_conductivity_W_mK()
     area = math.pi * data["hole_d_m"] ** 2 / 4
-    Hc = fire.get("Hc_J_kg", yb_annex.net_heat_of_combustion_J_kg(fl))
+    Hc = fire.get("Hc_J_kg", _P.net_heat_of_combustion_J_kg(fl))
     out = {"mode": data["mode"], "warnings": [], "notes": []}
     superheated = data["mode"] == "saturated"
     basis = data.get("discharge_basis", "omega")
 
     if superheated:
         P0 = data["P0_kPa"] * 1000.0
-        T0 = yb_annex.saturation_temperature_K(fl, P0)
+        T0 = _P.saturation_temperature_K(fl, P0)
         s0 = fluiddata.at_pressure(fl if fl in fluiddata.names() else "propane", data["P0_kPa"])
         omega = s0["omega_saturated"]
         const = fluiddata.fluid_constants(fl)
         out["warnings"] += flash_release.iso4126_10_check(T0, const["Tc_K"], data["P0_kPa"], const["Pc_kPa"], omega)
-        cp_mean = yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb)
-        rho0 = yb_annex.liquid_density_kg_m3(fl, T0)
-        hfg_b = yb_annex.heat_of_vaporisation_J_kg(fl, Tb)
-        rel = flash_release.saturated_liquid_release(data["P0_kPa"], rho0, omega, area, data["Cd"], T0, Tb, cp_mean, hfg_b, yb_annex.liquid_density_kg_m3(fl, Tb), Pa * M / (R * Tb), amb["P_kPa"])
+        cp_mean = _P.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb)
+        rho0 = _P.liquid_density_kg_m3(fl, T0)
+        hfg_b = _P.heat_of_vaporisation_J_kg(fl, Tb)
+        rel = flash_release.saturated_liquid_release(data["P0_kPa"], rho0, omega, area, data["Cd"], T0, Tb, cp_mean, hfg_b, _P.liquid_density_kg_m3(fl, Tb), Pa * M / (R * Tb), amb["P_kPa"])
         q_yb, jet_yb = _yb_liquid(fl, data, T0, P0, Pa, Tb)
         jet_om = _jet_state_omega(rel)
         out["discharge"] = {"omega": {"W_kg_s": rel["W_kg_s"], "u_f_m_s": jet_om["u_f_m_s"], "Phi_f": jet_om["Phi_f"], "omega": omega, "eta_c": rel["eta_c"], "T0_K": T0},
@@ -117,7 +138,7 @@ def run(data: dict) -> dict:
     else:
         T0 = data.get("T0_K", Tb)
         dP = data["overpressure_kPa_g"] * 1000.0
-        rho_L0 = yb_annex.liquid_density_kg_m3(fl, Tb)
+        rho_L0 = _P.liquid_density_kg_m3(fl, Tb)
         W = release.liquid_release_kg_s(data["hole_d_m"], rho_L0, dP, data["head_m"], data["Cd"])
         u = math.sqrt(2.0 * (dP + rho_L0 * 9.80665 * data["head_m"]) / rho_L0)
         Ae = data["Cd"] * area
@@ -127,19 +148,19 @@ def run(data: dict) -> dict:
         orifice_kPa = amb["P_kPa"] + data["overpressure_kPa_g"]
 
     # --- Yellow Book steps 2 and 3: droplet diameter and rain-out
-    rho_Lf = yb_annex.liquid_density_kg_m3(fl, Tb)
-    nu_L = yb_annex.liquid_viscosity_Pa_s(fl, Tb) / rho_Lf
-    sigma = yb_annex.surface_tension_N_m(fl, Tb)
+    rho_Lf = _P.liquid_density_kg_m3(fl, Tb)
+    nu_L = _P.liquid_viscosity_Pa_s(fl, Tb) / rho_Lf
+    sigma = _P.surface_tension_N_m(fl, Tb)
     dd = yb_spray.droplet_diameter_m(jet["b_f_m"], jet["u_f_m_s"], nu_L, rho_Lf, sigma, rho_a, T0, Tb, data.get("C_ds", yb_spray.C_DS_RECOMMENDED))
     D = nu_a / Sc
-    kB_func = lambda T: yb_spray.k_B_m2_s(M, D, Pa, rho_Lf, Ta, yb_annex.vapour_pressure_Pa(fl, T))
+    kB_func = lambda T: yb_spray.k_B_m2_s(M, D, Pa, rho_Lf, Ta, _P.vapour_pressure_Pa(fl, T))
     ud = yb_spray.free_fall_velocity_m_s(dd["d_d_m"], rho_Lf, nu_a, rho_a)
     Re_d = ud * dd["d_d_m"] / nu_a
-    lo_T = max(yb_annex.DATA[fl]["vp"][1][0], yb_annex.DATA[fl]["hv"][1][0]) + 1.0
-    Td, kB = yb_spray.droplet_temperature_K(Ta, Re_d, Sc, Pr, lam, lambda T: yb_annex.heat_of_vaporisation_J_kg(fl, T), rho_Lf, kB_func, T_low_K=lo_T)
+    lo_T = max(_P.DATA[fl]["vp"][1][0], _P.DATA[fl]["hv"][1][0]) + 1.0
+    Td, kB = yb_spray.droplet_temperature_K(Ta, Re_d, Sc, Pr, lam, lambda T: _P.heat_of_vaporisation_J_kg(fl, T), rho_Lf, kB_func, T_low_K=lo_T)
     hs = fire["release_height_m"]
     rain = yb_spray.rainout(jet=jet, d_d_m=dd["d_d_m"], q_kg_s=W, h_s_m=hs, kB=kB, Sc=Sc, rho_L_f=rho_Lf, rho_a=rho_a, nu_a=nu_a)
-    xH = droplet.isenthalpic_flash_fraction(yb_annex.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb) if T0 > Tb else 1.0, T0, Tb, yb_annex.heat_of_vaporisation_J_kg(fl, Tb))
+    xH = droplet.isenthalpic_flash_fraction(_P.liquid_enthalpy_change_J_kg(fl, Tb, T0) / (T0 - Tb) if T0 > Tb else 1.0, T0, Tb, _P.heat_of_vaporisation_J_kg(fl, Tb))
     out["droplet"] = {**dd, "T_droplet_K": Td, "k_B_m2_s": kB, **{k: rain[k] for k in ("u_d_m_s", "Re_d", "d_M_m", "formula_applicable_d_M", "d_ground_m", "rainout_kg_s", "rainout_fraction_of_release", "q_nett_air_kg_s")},
                       "Phi_f": jet["Phi_f"], "kletz_comparison": droplet.rainout_kletz(xH, not superheated), "lautkaski_comparison": droplet.rainout_lautkaski(xH),
                       "validity_warnings": droplet.validity_warnings(data["hole_d_m"] * 1000.0, orifice_kPa, hs, False),

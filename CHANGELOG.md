@@ -1,5 +1,9 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: NIST-tabulated reference properties and real-gas vapour density
+* Re-checked the Annex n-butane page: transcription is exact, the Annex data are crude. Added `props_ref.py` (NIST WebBook saturation tables) with `lg_release` option `property_basis: "reference"` and `line_flow` default; tests in `tests/test_props_ref.py`. Defaults of `lg_release` unchanged (Yellow Book worked examples remain its oracle).
+* Rejected: replacing the Annex correlations in place (would change the worked-example oracle); typing a generalised-correlation compressibility from memory (the tabulated real-gas density is sourced instead).
+
 ## Unreleased - 2026-11-10: property check against CoolProp (`docs/PROPERTY_CHECK.md`)
 * Propane Annex correlations agree with CoolProp to 0.1 to 2 % (viscosity worse above 290 K). The n-butane set does not: vapour pressure +10 % at 240 K and +3 to +4 % at 275 to 330 K, cp up to +7 %, viscosity down to -17 %, surface tension +5 to +8 %; some coefficients look like placeholders. Ideal-gas vapour volume is 12 to 27 % high at storage conditions (Z 0.79 for propane at 12 bar). No numbers changed; the butane coefficients need re-checking against the Annex page. `tests/crosscheck/check_properties.py` reproduces the comparison when CoolProp is installed.
 

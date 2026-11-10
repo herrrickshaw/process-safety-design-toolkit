@@ -24,3 +24,16 @@ for fl, cn in NAMES.items():
             except ValueError:
                 row.append("%s out of range" % nm)
         print("  %5.0f K  " % T + "  ".join(row))
+
+# reference table (props_ref) against CoolProp, including between-table temperatures (interpolation error)
+from process_safety import props_ref as pr  # noqa: E402
+
+for fl, cn in NAMES.items():
+    worst = {}
+    for T in range(232, 349, 3):
+        T = float(T)
+        pairs = {"Pv": (pr.vapour_pressure_Pa(fl, T), CP("P", "T", T, "Q", 0, cn)), "rho_L": (pr.liquid_density_kg_m3(fl, T), CP("Dmass", "T", T, "Q", 0, cn)),
+                 "rho_V": (pr.vapour_density_kg_m3(fl, T), CP("Dmass", "T", T, "Q", 1, cn)), "cp_L": (pr.liquid_heat_capacity_J_kgK(fl, T), CP("Cpmass", "T", T, "Q", 0, cn))}
+        for k, (a, b) in pairs.items():
+            worst[k] = max(worst.get(k, 0.0), abs(a / b - 1.0))
+    print("props_ref", fl, "  ".join("%s %.2f%%" % (k, 100 * v) for k, v in worst.items()))
