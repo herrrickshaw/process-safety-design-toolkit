@@ -1,5 +1,4 @@
 """Vapour cloud explosion screening (Purple Book 4.8): the book's own consistency statement and scaling identities."""
-import math
 import unittest
 
 from process_safety import vce
