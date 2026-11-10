@@ -35,5 +35,35 @@ class HslFireCase(unittest.TestCase):
         self.assertAlmostEqual(a2 / a1, 0.673 ** 0.5, places=6)
 
 
+
+class RealGasFlux(unittest.TestCase):
+    """API 520-I (supplied copy) 5.6.1, 5.6.3.2.2 and Annex B.3.5: Z = 1.0 when no valid calculated Z exists; ideal-gas equation valid for Z about 0.8 to 1.1."""
+    P1, T, M, K = 2187.365, 334.75, 44.096, 1.115
+
+    def test_effective_z_of_an_ideal_gas_flux_is_one(self):
+        G1, _ = relief.gas_mass_flux(self.P1, 101.325, self.T, self.M, self.K, 1.0)
+        self.assertAlmostEqual(relief.effective_Z(G1, self.P1, self.T, self.M, self.K), 1.0, places=9)
+
+    def test_area_from_flux_reproduces_the_gas_equation_at_the_effective_z(self):
+        G_real = 6225.1   # CoolProp isentropic integration for saturated propane at this relieving state (tests/crosscheck/check_real_gas_flux.py)
+        z = relief.effective_Z(G_real, self.P1, self.T, self.M, self.K)
+        a_eq = relief.gas_area(28863.0, self.T, self.P1, 101.325, self.M, self.K, z).required_area_mm2
+        a_flux = relief.gas_area_from_flux(28863.0, G_real)
+        self.assertAlmostEqual(a_eq / a_flux, 1.0, places=6)
+
+    def test_z_one_is_conservative_against_the_real_gas_flux_for_saturated_propane(self):
+        z = relief.effective_Z(6225.1, self.P1, self.T, self.M, self.K)
+        self.assertTrue(0.75 < z < 0.82)          # about 0.78: Z = 1 over-sizes by about 13 %, the calculated Z of 0.673 under-sizes by about 7 %
+        a1 = relief.gas_area(28863.0, self.T, self.P1, 101.325, self.M, self.K, 1.0).required_area_mm2
+        a_real = relief.gas_area_from_flux(28863.0, 6225.1)
+        self.assertGreater(a1, a_real)
+        a_calc = relief.gas_area(28863.0, self.T, self.P1, 101.325, self.M, self.K, 0.673).required_area_mm2
+        self.assertLess(a_calc, a_real)
+
+    def test_refusals(self):
+        with self.assertRaises(ValueError):
+            relief.gas_area_from_flux(0.0, 5000.0)
+
+
 if __name__ == "__main__":
     unittest.main()

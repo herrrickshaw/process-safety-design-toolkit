@@ -259,3 +259,9 @@ Unofficial copies on Scribd, kupdf, docshare and similar were found for several 
 | Mignemi, Dal Lago, Barozzi, Copelli, "Analytical and numerical modelling of pseudo-horizontal jet fires of hydrocarbon gases", Fire Safety J. 161 (2026) 104660, in `ScienceDirect_articles_10Nov2026_*.zip` (grade B, secondary) | Univ. Insubria | Reviews Chamberlain, Johnson, Barker, Cracknell, JFSH-Cook; its statement that Barker works very well for propane but over-predicts crude oil and butane, and Cook under-predicts propane and butane lift-off and over-predicts butane length, is taken from RIVM 620550005 (checked). Frustum view factor with convergence study; its procedure under-predicts peak irradiance on an engulfed column by about two thirds and the authors say such cases need CFD |
 | Same zips, other titles (14 more Fire Safety Journal 2026 articles) | Elsevier | Reviewed by title and abstract only; the intumescent-coating survey covers cellulosic-fire furnace tests (EN 13381-8, BS 476), not hydrocarbon jet-fire tests, so it does not support a jet-fire protection rating; the two zips contain the same 15 articles; none contains Barker or Cracknell equations |
 | Bangladesh Accord fire inspection report | owner file | Garment-factory building fire safety; not relevant to LPG consequence modelling; not used |
+
+## Fourteenth batch (2026-11-10): API 520 Part I
+
+| Item | Source | Use |
+|---|---|---|
+| API Std 520 Part I, Sizing and Selection (owner-supplied scanned copy, read by OCR and by eye; grade A for the clauses cited, not copied) | API | 5.6.1 applicability (Z about 0.8 to 1.1), 5.6.2.4 ideal-gas k, 5.6.3.1 Z at inlet relieving conditions, 5.6.3.2.2 Z = 1.0 when not calculated, Table 8 and figures 32 and 33 (C from k; SI form 0.03948 sqrt(k (2/(k+1))^((k+1)/(k-1)))), B.1 direct integration of the isentropic flux, B.3.5 refinery vapours, 5.10 and Annex C two-phase (not used). Decision in `docs/RELIEF_Z_DETERMINATION.md` |

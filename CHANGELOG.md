@@ -1,5 +1,10 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: compressibility Z for fire-case relief determined from API 520 Part I
+* Read API 520 Part I (supplied copy; clauses 5.6.1, 5.6.2.4, 5.6.3.2.2, Annex B) and reproduced its Annex B real-gas isentropic flux with CoolProp (`tests/crosscheck/check_real_gas_flux.py`). Result in `docs/RELIEF_Z_DETERMINATION.md`: Z = 1.0 (API default) over-sizes by 13 % for propane and 6 % for n-butane against the real-gas flux; the calculated Z (0.673, 0.807) under-sizes by 7 % and 4.5 % and, for propane, falls outside the Z = 0.8 to 1.1 range of clause 5.6.1; equivalent Z 0.78 and 0.885.
+* Both relief workbooks now size with Z = 1.0, show the calculated Z and the real-gas flux as information, and add a real-gas-flux area column (propane V3: 1,496 mm2 at Z = 1.0, 1,321 mm2 real gas; was 1,227 mm2 at Z = 0.673). `relief.gas_area_from_flux` and `relief.effective_Z` added with tests; no existing number in the code changed (the Z argument was always caller-supplied).
+* Rejected: using the calculated saturated-vapour Z in the API equation (unsafe and outside 5.6.1); using the real-gas flux as the only basis (needs an equation of state the toolkit does not have).
+
 ## Unreleased - 2026-11-10: owner-supplied papers read; Shell FRED search of owner's cloud, Zotero and SQLite
 * Read Roberts et al. (IChemE SS 149, 2003): HSL propane vessel jet-fire and pool-fire trials against API 521. New `tests/test_relief_hsl.py` checks API 521 heat input against Table 3 (404 and 664 kW at 15.3 m2: 0.1 % and 0.0 %) and the API 520 critical-flow area against the published 296 and 486 mm2 (-5 % with Z = 1; Z = 0.673 would give -22 %, a sensitivity the relief workbook records). The paper's 5 tonne pool-fire row (577 kW at 25.7 m2) is inconsistent with the formula and is not used as an oracle.
 * Read Gomez-Mares et al. (2010): gas-fed sonic propane flames radiate only about 7 % of the heat; the toolkit's vapour-jet forms (Fs 0.20 to 0.32) over-predict about 3 to 4.5 times for small flames. Documented, not changed: no calibration without a validation set at the right scale.

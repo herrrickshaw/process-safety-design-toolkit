@@ -83,6 +83,22 @@ def gas_area(W_kg_h, T_K, P1_kpa, P2_kpa, M, k, Z=1.0, Kd=0.975, Kb=1.0, Kc=1.0,
     return _finish(A, regime, notes, {"G_kg_m2_s": G, "pressure_ratio": r, "critical_ratio": rc, "Kd": Kd, "Kb": kb, "Kc": Kc})
 
 
+def gas_area_from_flux(W_kg_h, G_kg_m2_s, Kd=0.975, Kb=1.0, Kc=1.0) -> float:
+    """Required effective area (mm2) from a theoretical mass flux G supplied by the caller: A = W / (Kd Kb Kc G).
+    Use it with the real-gas isentropic flux of API 520-I Annex B (direct integration of the nozzle flux with an equation of state) when the vapour is outside the
+    Z = 0.8 to 1.1 range in which the ideal-gas equations of 5.6 are stated to apply (5.6.1). The caller computes G; the toolkit has no equation of state."""
+    if not (W_kg_h > 0 and G_kg_m2_s > 0 and Kd > 0 and Kb > 0 and Kc > 0):
+        raise ValueError("flow, flux and correction factors must be positive")
+    return W_kg_h / 3600.0 / (Kd * Kb * Kc * G_kg_m2_s) * 1e6
+
+
+def effective_Z(G_real_kg_m2_s, P1_kpa, T_K, M, k) -> float:
+    """The Z that makes the critical-flow gas equation (gas_mass_flux) reproduce a given real-gas flux: Z = (G(Z = 1) / G_real)^2.
+    Z below 1 means Z = 1 over-sizes the valve (conservative); Z above 1 means it under-sizes."""
+    G1, regime = gas_mass_flux(P1_kpa, 0.0001, T_K, M, k, 1.0)
+    return (G1 / G_real_kg_m2_s) ** 2
+
+
 def steam_area(W_kg_h, P1_kpa, Ksh=1.0, Kd=0.975, Kb=1.0, Kc=1.0) -> ReliefResult:
     """API 520-I steam (Napier). Ksh = 1 for saturated steam; take superheat factor from API 520 table for superheated."""
     notes = []
