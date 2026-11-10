@@ -408,6 +408,24 @@ class Vulnerability(unittest.TestCase):
             self.assertAlmostEqual(V.heat_probit(q * 1000.0, t, cap_s=None), 5.0, delta=0.08, msg=f"{t} s at {q} kW/m2")
             self.assertAlmostEqual(V.death_probability(q, t, cap_s=None), 0.5, delta=0.04)
 
+    def test_green_book_table_4_1_dose_values_for_the_eisenberg_form(self):
+        """Dutch Green Book (PGS 1 Deel 1A, 2003) Table 4-1 B: the 1, 50 and 99 % lethality fluxes for pulse durations of 1.43, 10.1 and 45.2 s lie near probit 2.67, 5.00, 7.33 on eq. 4.1: the 50 % rows to 0.2, the 1 % and 99 % rows only to 0.45 (the equation fits the median; the tabulated tails imply a slope of about 2.5)."""
+        from process_safety import vulnerability as V
+        rows = [(1, 1.43, 146e3, 2.67), (1, 10.1, 33.1e3, 2.67), (1, 45.2, 10.2e3, 2.67), (50, 1.43, 263.6e3, 5.0), (50, 10.1, 57.95e3, 5.0), (50, 45.2, 18.5e3, 5.0),
+                (99, 1.43, 586e3, 7.33), (99, 10.1, 128e3, 7.33), (99, 45.2, 39.8e3, 7.33)]
+        for pct, t, q, pr in rows:
+            self.assertAlmostEqual(V.heat_probit(q, t, cap_s=None, variant="eisenberg"), pr, delta=0.2 if pct == 50 else 0.45, msg=f"{pct} % at {t} s")
+
+    def test_hydrocarbon_form_sits_above_eisenberg_by_the_ir_dose_factor(self):
+        """Eq. 4.5 - eq. 4.1 = 2.10 in probit, i.e. the dose for the same lethality is lower by exp(2.10/2.56) = 2.27, close to the factor 2.23 the book cites for infrared against ultraviolet radiation."""
+        from process_safety import vulnerability as V
+        d = V.heat_probit(30000.0, 10.0) - V.heat_probit(30000.0, 10.0, variant="eisenberg")
+        self.assertAlmostEqual(d, 2.10, places=9)
+        self.assertAlmostEqual(math.exp(d / 2.56), 2.23, delta=0.06)
+        self.assertGreater(V.death_probability(15.0, 20.0), V.death_probability(15.0, 20.0, variant="eisenberg"))
+        with self.assertRaises(ValueError):
+            V.heat_probit(30000.0, 10.0, variant="other")
+
     def test_dsb_form_is_the_same_probit(self):
         from process_safety import vulnerability as V
         for q, t in ((5.0, 30.0), (15.0, 12.0), (35.0, 5.0)):

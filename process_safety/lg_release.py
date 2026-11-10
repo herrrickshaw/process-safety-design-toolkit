@@ -44,6 +44,8 @@ def check(data: dict) -> list[str]:
         errs.append("mode must be 'saturated' or 'refrigerated'")
     if data.get("discharge_basis", "omega") not in ("omega", "yellow_book_liquid"):
         errs.append("discharge_basis must be 'omega' or 'yellow_book_liquid'")
+    if data.get("fire", {}).get("probit", "hydrocarbon") not in vulnerability.PROBIT_INTERCEPT:
+        errs.append("fire.probit must be 'hydrocarbon' (default) or 'eisenberg'")
     if data.get("fire", {}).get("release_angle_deg", 90) != 90:
         errs.append("only a vertical release (release_angle_deg = 90) is implemented for the jet flux map")
     return errs
@@ -143,7 +145,8 @@ def run(data: dict) -> dict:
         j = jet_flame.chamberlain(m_jet, jet["rho_f_kg_m3"], rho_a, M * 1000.0, Hc, amb["wind_m_s"], 90.0, v_j_m_s=jet["u_f_m_s"])
         zr, zt, tau = fire["release_height_m"], fire["target_height_m"], fire["tau"]
         t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
-        levels = {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp),
+        pv = fire.get("probit", "hydrocarbon")
+        levels = {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp, pv), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp, pv),
                   "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}
         levels.update({f"IAEA_{x}": x for x in vulnerability.IAEA_EFFECT_LEVELS_KW_M2 if x != vulnerability.BUILDING_IGNITION_KW_M2})
         levels.update({f"user_{x}": x for x in fire.get("extra_flux_levels_kW_m2", [])})
@@ -169,8 +172,9 @@ def run(data: dict) -> dict:
         sp = pool_spread.spread(mr, rho_Lf, rho_a, mflux, pool["r0_m"], pool["h0_m"], pool["C_T"])
         pf = {"diameter_m": Deq, "flame_height_m": fl_len["L_m"], "sep_mudan_croce_kW_m2": sep, "tau": fire["tau"]}
         t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
+        pv = fire.get("probit", "hydrocarbon")
         reach = {k: {"flux_kW_m2": v, "solid_flame_m": _solid_flame_reach(pf, v)} for k, v in
-                 {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp),
+                 {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp, pv), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp, pv),
                   "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}.items()}
         out["pool"].append({"rainout_fraction": fr, "from_yellow_book_method": abs(fr - f_rain) < 1e-12, "feed_kg_s": mr, "D_eq_m": Deq, "A_eq_m2": math.pi * Deq ** 2 / 4,
                             "burning_flux_kg_m2_s": mflux, "flame_length_m": fl_len["L_m"], "flame_tilt_deg": yb_poolfire.flame_tilt_deg(Deq, amb["wind_m_s"], nu_a),
