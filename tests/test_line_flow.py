@@ -31,6 +31,13 @@ class LineFlow(unittest.TestCase):
     def test_flashing_release_is_choked(self):
         self.assertEqual(lf.line_discharge("propane", 278.65, 7.5e5, 1.013e5, [(30.0, 0.08)])["regime"], "choked at exit")
 
+    def test_low_driving_pressure_does_not_crash_and_is_ordered(self):
+        # the entrance loss alone can exceed the available head at trial flows; the solver must treat that as infeasible, not raise
+        low = lf.line_discharge("n-butane", 287.0, 2.6e5, 1.013e5, [(1.85, 0.04)])["W_kg_s"]
+        high = lf.line_discharge("n-butane", 287.0, 6.0e5, 1.013e5, [(1.85, 0.04)])["W_kg_s"]
+        self.assertGreater(low, 0.0)
+        self.assertGreater(high, low)
+
     def test_colebrook_limits(self):
         self.assertAlmostEqual(lf.colebrook_f(1000.0, 0.0), 0.064, places=9)
         self.assertAlmostEqual(lf.colebrook_f(1e5, 0.0), 0.0180, delta=0.0005)  # smooth-pipe value from the Blasius/Colebrook tables

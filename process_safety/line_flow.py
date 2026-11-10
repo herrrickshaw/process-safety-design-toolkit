@@ -118,6 +118,8 @@ def _march(F: _Fluid, W: float, segments, k_fit: float, eps: float, Pa: float, k
     G = W / (math.pi / 4.0 * D0 * D0)
     v, _ = F.state(F.P0, G)
     P = F.P0 - k_entry * 0.5 * G * G * v - 0.5 * G * G * v  # entrance loss plus acceleration to the line velocity
+    if P <= Pa:
+        return None
     for i, (L, D) in enumerate(segments):
         if i > 0:
             Dp = segments[i - 1][1]
