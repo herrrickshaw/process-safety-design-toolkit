@@ -1,5 +1,9 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: DNV two-phase source diameter (eq 58) as an option; flame-length findings corrected
+* `jet_flame.chamberlain` gains `rho_vap_kg_m3` (DNV JFSH-Cook eq 58) and accepts `release_angle_deg` up to 180 (angle between release and wind, DNV eq 4); `lg_release` gains `fire.dnv_two_phase_source_diameter` and `fire.fs_model`. With eq 58 the three Bennett/Sekulin tests are reproduced within 2 % of DNV's Table 13 (`tests/test_jetfire_dnv.py`, 6 tests). The existing refusal test now refuses 190 degrees instead of 120. Defaults are unchanged so goldens and scenarios do not move; the DNV-consistent settings change the hot-leak result (flame 24 % to 27 % shorter, harm reach 24 % to 26 % longer) and the choice of default is left to the owner. The earlier changelog and ledger statements that the horizontal angle factor was unverified are withdrawn. 549 tests pass. Rejected: making the DNV settings the default without the owner's decision; Cook W1 (eq 26), low effect.
+* Fixed a lint failure introduced earlier (unused import in `tests/test_vce.py`).
+
 ## Unreleased - 2026-11-10: vapour cloud explosion screening (Purple Book 4.8)
 * New `process_safety/vce.py` and `tests/test_vce.py` (8 tests): flash fire / explosion split 0.6 / 0.4, multi-energy radii R = 1.5 and 3 (f_obstr E/Pa)^(1/3), the equivalence with the older 0.03 and 0.06 (0.1 E)^(1/3) formulas as the oracle, and a screening estimate of the flammable mass in a momentum jet (Ricou-Spalding). Added a VCE sheet to `docs/Propane_Failure_Modes.xlsx`. Rejected: implementing the multi-energy curves for other blast strengths (graphs), and a mass-in-LFL-contour model for dense clouds (needs a validated dispersion tool). The rupture cloud mass is an upper bound; the jet mass is for still air.
 

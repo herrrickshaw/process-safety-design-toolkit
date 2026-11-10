@@ -150,7 +150,9 @@ def run(data: dict) -> dict:
     # --- jet fire on the airborne part
     if superheated:
         m_jet = rain["q_nett_air_kg_s"]
-        j = jet_flame.chamberlain(m_jet, jet["rho_f_kg_m3"], rho_a, M * 1000.0, Hc, amb["wind_m_s"], 90.0, v_j_m_s=jet["u_f_m_s"])
+        rho_vap = Pa * M / (R * Tb) if fire.get("dnv_two_phase_source_diameter") else None       # DNV JFSH-Cook eq 58, optional
+        j = jet_flame.chamberlain(m_jet, jet["rho_f_kg_m3"], rho_a, M * 1000.0, Hc, amb["wind_m_s"], 90.0, v_j_m_s=jet["u_f_m_s"],
+                                  fs_model=fire.get("fs_model", "chamberlain"), rho_vap_kg_m3=rho_vap)
         zr, zt, tau = fire["release_height_m"], fire["target_height_m"], fire["tau"]
         t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
         pv = fire.get("probit", "hydrocarbon")
