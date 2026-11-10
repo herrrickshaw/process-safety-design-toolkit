@@ -1,5 +1,12 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: owner-supplied papers read; Shell FRED search of owner's cloud, Zotero and SQLite
+* Read Roberts et al. (IChemE SS 149, 2003): HSL propane vessel jet-fire and pool-fire trials against API 521. New `tests/test_relief_hsl.py` checks API 521 heat input against Table 3 (404 and 664 kW at 15.3 m2: 0.1 % and 0.0 %) and the API 520 critical-flow area against the published 296 and 486 mm2 (-5 % with Z = 1; Z = 0.673 would give -22 %, a sensitivity the relief workbook records). The paper's 5 tonne pool-fire row (577 kW at 25.7 m2) is inconsistent with the formula and is not used as an oracle.
+* Read Gomez-Mares et al. (2010): gas-fed sonic propane flames radiate only about 7 % of the heat; the toolkit's vapour-jet forms (Fs 0.20 to 0.32) over-predict about 3 to 4.5 times for small flames. Documented, not changed: no calibration without a validation set at the right scale.
+* Corrected `docs/PROPANE_JET_FIRE_COMPARISON_AND_DESIGN.md`: the 200 kW/m2 jet-fire flux is supported by the HSL trials (180 to 200 kW/m2); the 1.5 kg/s, 12.7 mm test is still unsupported.
+* Searched Google Drive, Dropbox, Zotero (63 CMP items) and local SQLite stores: no Shell FRED, Barker or Cracknell data anywhere (`docs/DOWNLOAD_LINKS.md` section 9). The 14 other Fire Safety Journal 2026 articles were reviewed by abstract only; none carries those equations. The Bangladesh Accord report is not relevant and was not used.
+* Rejected: back-fitting the vapour-jet radiant fraction to the Gomez-Mares gas data; treating the 2026 Fire Safety Journal summary of RIVM as a source for Barker or Cracknell (it is a secondary restatement of RIVM).
+
 ## Unreleased - 2026-11-10: closing the gaps that can be closed now
 * Gas viscosity: `yb_annex.vapour_viscosity_Pa_s` (Annex formula 7, matches the printed values) and a McAdams two-phase viscosity in `line_flow`; AA rates unchanged to 0.1 kg/s.
 * `line` input in `lg_release` (HEM supply-line cap on the release; exit area scaled to the line-limited flow) with tests; `property_basis` now defaults to `auto`: NIST reference table for n-butane, Annex for propane (Annex butane vapour pressure is 3 to 20 % off). No golden file changed.

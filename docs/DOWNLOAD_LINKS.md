@@ -58,3 +58,6 @@ Yellow Book (CPR 14E) chapter 7 already holds fragment initial velocity and rang
 
 ## 8. Real vessel data
 Not available online: vessel diameter, length, set pressure, contents, layout, release points, and whether API 2510 or NFPA 15 governs (the authority having jurisdiction decides).
+
+## 9. Where the owner's own stores were searched (2026-11-10)
+Google Drive, Dropbox, the Zotero library and the local SQLite stores were searched for Shell FRED, Barker, Cracknell, jet fire, Phast and JFSH. Result: **no Shell FRED, Barker or Cracknell material exists in any of them.** Drive holds only copies of documents already in this project (RIVM 620550005, DNV JFSH theory and validation, the DNV/PHMSA submission, the IChemE papers, Roberts et al. 2003). Dropbox holds nothing on jet fire models (one unrelated PDF, `int_gtr143`). The Zotero library has 63 items, all on chemical mechanical polishing (ceria slurries), none on process safety. claude-mem and the other local databases have no mention of the models. The FRED descriptions are Shell/DNV-internal; request them from DNV (Phast support) or Shell Global Solutions.
