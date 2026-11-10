@@ -145,6 +145,7 @@ def run(data: dict) -> dict:
         t_exp = fire.get("exposure_time_s", vulnerability.MAX_EXPOSURE_S)
         levels = {"P_death_1pct": vulnerability.flux_for_probability_kW_m2(0.01, t_exp), "P_death_50pct": vulnerability.flux_for_probability_kW_m2(0.5, t_exp),
                   "building_or_clothing_ignition": vulnerability.BUILDING_IGNITION_KW_M2}
+        levels.update({f"IAEA_{x}": x for x in vulnerability.IAEA_EFFECT_LEVELS_KW_M2 if x != vulnerability.BUILDING_IGNITION_KW_M2})
         levels.update({f"user_{x}": x for x in fire.get("extra_flux_levels_kW_m2", [])})
         reach = {k: {"flux_kW_m2": v, **{d: jet_radiation.reach_m(j, zr, v, d, zt, tau) for d in ("downwind", "upwind", "crosswind")}} for k, v in levels.items()}
         grid = [{"x_m": xx, **{f"y{yy}": jet_radiation.flux_kW_m2(j, zr, xx, yy, zt, tau) for yy in (0, 10, 20, 30, 40)}} for xx in (-30, -20, -10, 0, 10, 20, 30, 40, 60, 80)]

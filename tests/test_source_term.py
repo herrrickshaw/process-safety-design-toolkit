@@ -401,6 +401,18 @@ class Vulnerability(unittest.TestCase):
         self.assertLess(V.death_probability(10.0), V.death_probability(20.0))
         self.assertLess(V.death_probability(10.0, 5.0), V.death_probability(10.0, 20.0))
 
+    def test_norwegian_dsb_table_of_50_percent_fatality_fluxes(self):
+        """DSB guideline (2021) Table 4.1, from the same TNO probit: the listed duration and flux pairs each give Pr = 5 (probability 0.5)."""
+        from process_safety import vulnerability as V
+        for t, q in ((610, 1.5), (415, 2.0), (242, 3.0), (165, 4.0), (122, 5.0), (49, 10.0), (28, 15.0)):
+            self.assertAlmostEqual(V.heat_probit(q * 1000.0, t, cap_s=None), 5.0, delta=0.08, msg=f"{t} s at {q} kW/m2")
+            self.assertAlmostEqual(V.death_probability(q, t, cap_s=None), 0.5, delta=0.04)
+
+    def test_dsb_form_is_the_same_probit(self):
+        from process_safety import vulnerability as V
+        for q, t in ((5.0, 30.0), (15.0, 12.0), (35.0, 5.0)):
+            self.assertAlmostEqual(V.heat_probit(q * 1000.0, t, cap_s=None), -12.8 + 2.56 * math.log(t * q ** (4.0 / 3.0)), delta=0.01)
+
     def test_probit_literal_value(self):
         from process_safety import vulnerability as V
         self.assertAlmostEqual(V.heat_probit(20000.0, 20.0), -36.38 + 2.56 * math.log(20000.0 ** (4.0 / 3.0) * 20.0), places=12)
