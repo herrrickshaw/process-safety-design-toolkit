@@ -241,3 +241,11 @@ Unofficial copies on Scribd, kupdf, docshare and similar were found for several 
 |---|---|---|
 | Cook radiant fraction (eq 33), base width (eq 26), Ds (eq 58), flammable mass (eq 59), SEP cap 350 kW/m2 | DNV Jet Fire Model Theory (Dec 2023), supplied by the owner | default `fire.model = dnv_cook` in `lg_release` |
 | Barker, Cracknell and SAFETI-NL JFSH-Cook outputs for Project AA 3026/3029 and JIVE 8051 | RIVM 620550005/2012 Tables 5 and 7 | `Shell_FRED_Comparison` sheet; outputs only, the Barker and Cracknell equations were not obtained |
+
+## Twelfth batch (2026-11-10): public DNV droplet report, fluids cross-check
+
+| Item | Source | Use |
+|---|---|---|
+| DNV Phast "Droplet size model: theory and validation" (JIP Phase IV report, v8.5), public PDF on myworkspace.dnv.com (downloaded to scratch, not committed) | https://myworkspace.dnv.com/download/public/phast/technical_documentation/05_dispersion/udm/thermodynamics/Droplet%20size%20Model%20Theory_Validation.pdf | Phast default is the **modified CCPS rule**: Weber diameter for sub-cooled releases, flashing diameter (eq 11 with partial expansion energy, eq 12) for superheated; Phase III tri-linear correlation eqs 33 to 42 read; STEP propane 5 mm at 10.75 bar(a): measured 32.4 micron (27 x 1.2 shielding correction) at 95 mm; DNV's own predictions: Yellow Book 531 or 4.6, CCPS flashing 97, JIP-II 26.3, JIP-III 75, Melhem 8.4. **No published correlation is within 10 % of STEP**; the toolkit's 56 micron (liquid state) and 19 micron (omega state) lie inside that spread |
+| CalebBell/fluids 1.3.1 (MIT, scratch environment only) | https://github.com/CalebBell/fluids | API 520 vapour area, Colebrook friction, contraction and entrance K, Crane valve K |
+| Yellow Book Annex formula 7 (vapour viscosity), pages annex-47 and annex-17 | TNO-2005-yellow.pdf | `yb_annex.vapour_viscosity_Pa_s`, reproduces the Annex's printed 288.15 K values (7.9898e-6 and 7.2976e-6 Pa s) |

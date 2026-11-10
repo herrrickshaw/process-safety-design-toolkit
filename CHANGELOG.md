@@ -1,5 +1,14 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-10: closing the gaps that can be closed now
+* Gas viscosity: `yb_annex.vapour_viscosity_Pa_s` (Annex formula 7, matches the printed values) and a McAdams two-phase viscosity in `line_flow`; AA rates unchanged to 0.1 kg/s.
+* `line` input in `lg_release` (HEM supply-line cap on the release; exit area scaled to the line-limited flow) with tests; `property_basis` now defaults to `auto`: NIST reference table for n-butane, Annex for propane (Annex butane vapour pressure is 3 to 20 % off). No golden file changed.
+* Cross-checks with fluids 1.3.1 (`tests/crosscheck/check_fluids.py`): API 520 vapour area and Colebrook friction match to 0.00 %; toolkit contraction K 0.44 to 0.47 against 0.54 to 0.56 and entrance 0.5 against 0.57 (under 1 % effect on the AA rates); fully open 6 inch valves K 0.04 to 5 against the JIVE implied 73, so the JIVE loss is a throttled valve or restriction.
+* Workbooks refreshed: Property_Basis and Line_Model sheets added to the leak, butane and breakdown workbooks; validation table re-run (18 of 37 within 10 %, 19 above).
+* Droplets: the public DNV report was read. Phast's default uses the flashing (CCPS) diameter for superheated releases, and no correlation, including Phase III (75 micron) and the DNV Table 4 set, is within 10 % of STEP (measured 32.4 micron). A first implementation of the Phase III equations did not reproduce DNV's own tabulated 75 to 77 micron (the Table 4 column looks like an earlier proposal) and was **not adopted**; the gap stays open.
+* `docs/DOWNLOAD_LINKS.md`: links, access type and a status check for the documents still needed. Barker, Cracknell, Bennett and Sekulin reports are confidential or not online.
+* Rejected: shipping an unvalidated Phase III implementation; changing the contraction and entrance K without a validation case.
+
 ## Unreleased - 2026-11-10: NIST-tabulated reference properties and real-gas vapour density
 * Re-checked the Annex n-butane page: transcription is exact, the Annex data are crude. Added `props_ref.py` (NIST WebBook saturation tables) with `lg_release` option `property_basis: "reference"` and `line_flow` default; tests in `tests/test_props_ref.py`. Defaults of `lg_release` unchanged (Yellow Book worked examples remain its oracle).
 * Rejected: replacing the Annex correlations in place (would change the worked-example oracle); typing a generalised-correlation compressibility from memory (the tabulated real-gas density is sourced instead).

@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import math
 
-from . import droplet, flash_release, ignition_ukooa, props_ref, release_frequency, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
+from . import droplet, flash_release, ignition_ukooa, line_flow, props_ref, release_frequency, fluiddata, jet_flame, jet_radiation, pool_spread, release, viewfactor, vulnerability, yb_annex, yb_poolfire, yb_spray
 from .constants import R
 
 REQUIRED = {"ambient": ["P_kPa", "T_K", "wind_m_s"], "fire": ["release_height_m", "target_height_m", "tau"], "pool": ["C_T", "r0_m", "h0_m"]}
@@ -46,6 +46,13 @@ def check(data: dict) -> list[str]:
         errs.append("mode must be 'saturated' or 'refrigerated'")
     if data.get("discharge_basis", "omega") not in ("omega", "yellow_book_liquid"):
         errs.append("discharge_basis must be 'omega' or 'yellow_book_liquid'")
+    ln = data.get("line")
+    if ln is not None:
+        seg = ln.get("segments")
+        if not (isinstance(seg, list) and seg and all(isinstance(x, (list, tuple)) and len(x) == 2 and x[0] > 0 and x[1] > 0 for x in seg)):
+            errs.append("line.segments must be a non-empty list of [length_m, inner_diameter_m] pairs with positive values")
+        if data.get("mode") != "saturated":
+            errs.append("line is only implemented for mode 'saturated'")
     fq = data.get("frequency")
     if fq is not None:
         if fq.get("sheet") not in release_frequency.equipment_types():
@@ -86,12 +93,14 @@ def _rho_v(fl: str, T: float, P: float, M: float) -> float:
 
 
 def run(data: dict) -> dict:
-    """Run the study. data['property_basis']: 'yb_annex' (default, Yellow Book Annex correlations, ideal-gas vapour) or 'reference' (NIST-tabulated
-    saturation properties with real-gas vapour density; recommended for n-butane, whose Annex correlations are crude)."""
+    """Run the study. data['property_basis']: 'auto' (default: 'reference' for n-butane, 'yb_annex' for propane), 'yb_annex' (Yellow Book Annex
+    correlations, ideal-gas vapour) or 'reference' (NIST-tabulated saturation properties with real-gas vapour density)."""
     global _P
-    basis = data.get("property_basis", "yb_annex")
-    if basis not in ("yb_annex", "reference"):
-        raise ValueError("property_basis must be 'yb_annex' or 'reference'")
+    basis = data.get("property_basis", "auto")
+    if basis not in ("auto", "yb_annex", "reference"):
+        raise ValueError("property_basis must be 'auto', 'yb_annex' or 'reference'")
+    if basis == "auto":   # propane: Annex agrees with NIST to about 2 %; n-butane: Annex vapour pressure is 3 to 20 % off, use the NIST table
+        basis = "reference" if data.get("fluid") == "n-butane" else "yb_annex"
     prev, _P = _P, (props_ref if basis == "reference" else yb_annex)
     try:
         return _run(data)
@@ -133,6 +142,18 @@ def _run(data: dict) -> dict:
                             "yellow_book_liquid": {"W_kg_s": q_yb, "u_f_m_s": jet_yb["u_f_m_s"], "Phi_f": jet_yb["Phi_f"]}, "basis_used": basis}
         W, jet = (rel["W_kg_s"], jet_om) if basis == "omega" else (q_yb, jet_yb)
         out["release"] = {**rel, "T0_K": T0, "basis": basis, "W_used_kg_s": W}
+        ln = data.get("line")
+        if ln:
+            lr = line_flow.line_discharge(fl, T0, P0, Pa, [(float(a), float(b)) for a, b in ln["segments"]], roughness_m=ln.get("roughness_m", 1.5e-6),
+                                          k_fittings=ln.get("k_fittings", 0.0), k_entry=ln.get("k_entry", 0.5), props="reference" if _P is props_ref else "yb_annex")
+            out["line"] = lr
+            if lr["W_kg_s"] < W:
+                scale = lr["W_kg_s"] / W
+                jet = {**jet, "A_f_m2": jet["A_f_m2"] * scale, "b_f_m": math.sqrt(jet["A_f_m2"] * scale / math.pi)}
+                out["release"]["W_used_kg_s"] = W = lr["W_kg_s"]
+                out["notes"].append("Supply line limits the release: rate set by the HEM line model (line_flow), exit area scaled to the line-limited flow at the same exit state.")
+            else:
+                out["notes"].append("Line model passes more than the hole: the hole limits the release.")
         out["notes"].append("The two discharge bases differ by a large factor for a saturated liquid; the Yellow Book treats a hole in the liquid space as liquid outflow, the omega method as flashing choked flow. Treat them as a bracket.")
         orifice_kPa = data["P0_kPa"]
     else:

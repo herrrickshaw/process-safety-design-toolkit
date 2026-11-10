@@ -10,8 +10,8 @@ Model (constant mass flow W through pipe segments in series, adiabatic, no slip,
 * area changes: ideal Bernoulli step 0.5 (G2^2 - G1^2) v plus a contraction loss K = 0.5 (1 - beta^2) on 0.5 G2^2 v (Crane, as quoted in Perry);
 * fittings (valves, bends) enter only as a loss coefficient K_fittings the caller supplies, applied to 0.5 G^2 v of the last segment: the toolkit has no
   fittings data and refuses to guess;
-* friction factor: Darcy-Weisbach with Colebrook, Reynolds number from the liquid viscosity (the gas viscosity is not in the property set; a two-phase
-  viscosity would raise Re slightly and lower f by a few per cent).
+* friction factor: Darcy-Weisbach with Colebrook; Reynolds number from the McAdams homogeneous viscosity, with the vapour viscosity from Yellow Book
+  Annex formula 7 (`yb_annex.vapour_viscosity_Pa_s`).
 The largest W for which the line can pass the pressure drop (choke at the exit or exit at ambient pressure) is returned.
 
 Limits: homogeneous flow (no slip, instant flashing, no nucleation delay) usually over-predicts the flow of a subcooled liquid through a short line and
@@ -54,12 +54,22 @@ class _Fluid:
         self.vl0 = 1.0 / y.liquid_density_kg_m3(fluid, T0)
         self.mu = y.liquid_viscosity_Pa_s(fluid, T0)
 
+    def mixture_viscosity(self, x: float) -> float:
+        """McAdams homogeneous viscosity 1/mu = x/mu_g + (1 - x)/mu_l at the temperature of the last `state` call; liquid viscosity when x = 0."""
+        if x <= 0.0:
+            return self.mu
+        mul = self.y.liquid_viscosity_Pa_s(self.fl, self._T)
+        mug = yb_annex.vapour_viscosity_Pa_s(self.fl, self._T)
+        return 1.0 / (x / mug + (1.0 - x) / mul)
+
     def state(self, P: float, G: float) -> tuple[float, float]:
         """(specific volume m3/kg, quality) at pressure P and mass flux G with stagnation enthalpy conserved."""
         if P >= self.Pv0:
+            self._T = self.T0
             return self.vl0, 0.0
         y = self.y
         T = y.saturation_temperature_K(self.fl, P)
+        self._T = T
         vl = 1.0 / y.liquid_density_kg_m3(self.fl, T)
         vg = 1.0 / y.vapour_density_kg_m3(self.fl, T) if self.real_gas else R_GAS * T / (P * self.M)
         Lv = y.heat_of_vaporisation_J_kg(self.fl, T)
@@ -81,11 +91,12 @@ class _Fluid:
 
 def _dz_dP(F: _Fluid, P: float, G: float, D: float, eps: float) -> float:
     """dz/dP (negative while the flow can still accelerate); zero or positive at the choke."""
-    v, _ = F.state(P, G)
+    v, x = F.state(P, G)
+    mu = F.mixture_viscosity(x)
     dP = max(1.0, 1e-5 * P)
     v2, _ = F.state(P - dP, G)
     dv_dP = (v2 - v) / (-dP)
-    f = colebrook_f(G * D / F.mu, eps / D)
+    f = colebrook_f(G * D / mu, eps / D)
     return -(1.0 + G * G * dv_dP) / (f * G * G * v / (2.0 * D))
 
 

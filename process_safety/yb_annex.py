@@ -24,6 +24,7 @@ DATA = {
         "cpl": ((0.3326, 2.332e-3, -1.336e-5, 3.016e-8), (85.3, 353.0)),
         "mu": ((-3.372, 313.5, 1.034e-2, -2.026e-5), (85.3, 369.7)),
         "sigma": ((22.0, 183.0, 369.7, 1.1982), (85.3, 369.7)),
+        "mug": ((4.912, 0.2712, -3.806e-5), (193.0, 1273.0)),
     },
     "n-butane": {
         "M_kg_kmol": 58.1, "Tc_K": 425.2, "Tb_K": 272.7, "net_heat_of_combustion_J_kg": 4.586e7,
@@ -33,6 +34,7 @@ DATA = {
         "cpl": ((0.3, 2.5e-3, -1.3e-5, 2.7e-8), (120.0, 400.0)),
         "mu": ((-3.168, 313.5, 1.034e-2, -2.026e-5), (120.0, 400.0)),
         "sigma": ((22.0, 225.0, 425.2, 1.1982), (120.0, 400.0)),
+        "mug": ((0.3762, 0.2491, 9.901e-6), (200.0, 800.0)),
     },
 }
 AIR = {"rho_288K_kg_m3": 1.225, "nu_288K_m2_s": 1.4607e-5, "Pr": 0.7104, "M_kg_kmol": 28.96, "cp_J_kgK": 1003.217, "mu_Pa_s": 1.66836e-5}
@@ -74,6 +76,12 @@ def liquid_heat_capacity_J_kgK(fluid: str, T_K: float) -> float:
 def liquid_viscosity_Pa_s(fluid: str, T_K: float) -> float:
     Ea, Eb, Ed, Ee = _in(fluid, "mu", T_K)
     return 10.0 ** (Ea + Eb / T_K + Ed * T_K + Ee * T_K ** 2) * 1e-3
+
+
+def vapour_viscosity_Pa_s(fluid: str, T_K: float) -> float:
+    """Low-pressure vapour viscosity, Annex formula 7: mu = A + B T + C T^2 in micropoise (propane page annex-47, n-butane annex-17); 1 micropoise = 1e-7 Pa s."""
+    A, B, C = _in(fluid, "mug", T_K)
+    return (A + B * T_K + C * T_K * T_K) * 1e-7
 
 
 def surface_tension_N_m(fluid: str, T_K: float) -> float:

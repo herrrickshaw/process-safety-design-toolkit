@@ -54,5 +54,34 @@ class LineFlow(unittest.TestCase):
             lf.colebrook_f(0.0, 0.0)
 
 
+
+class LineInStudy(unittest.TestCase):
+    def _data(self, **extra):
+        import json, os
+        from process_safety import tools
+        with open(os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json"), encoding="utf-8") as fh:
+            d = json.load(fh)
+        d.update(extra)
+        return d
+
+    def test_long_thin_line_reduces_release_and_flame(self):
+        from process_safety import lg_release
+        base = lg_release.run(self._data())
+        out = lg_release.run(self._data(line={"segments": [[60.0, 0.025]], "k_fittings": 5.0}))
+        self.assertLess(out["release"]["W_used_kg_s"], base["release"]["W_used_kg_s"])
+        self.assertLess(out["jet"]["flame"]["L_B_m"], base["jet"]["flame"]["L_B_m"])
+
+    def test_generous_line_leaves_the_hole_in_control(self):
+        from process_safety import lg_release
+        base = lg_release.run(self._data())
+        out = lg_release.run(self._data(line={"segments": [[2.0, 0.15]]}))
+        self.assertEqual(out["release"]["W_used_kg_s"], base["release"]["W_used_kg_s"])
+
+    def test_bad_line_refused(self):
+        from process_safety import lg_release
+        with self.assertRaises(ValueError):
+            lg_release.run(self._data(line={"segments": []}))
+
+
 if __name__ == "__main__":
     unittest.main()

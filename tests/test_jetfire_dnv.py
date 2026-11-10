@@ -87,6 +87,20 @@ class DnvCookDefault(unittest.TestCase):
         with self.assertRaises(ValueError):
             lg_release.run(data)
 
+    def test_auto_basis_uses_reference_for_butane_only(self):
+        import copy, json, os
+        from process_safety import lg_release, tools
+        with open(os.path.join(os.path.dirname(tools.__file__), "examples", "lgrelease.json"), encoding="utf-8") as fh:
+            d = json.load(fh)
+        d["fluid"], d["P0_kPa"] = "n-butane", 400.0
+        a = lg_release.run(d)["release"]["W_used_kg_s"]
+        r = lg_release.run({**copy.deepcopy(d), "property_basis": "reference"})["release"]["W_used_kg_s"]
+        y = lg_release.run({**copy.deepcopy(d), "property_basis": "yb_annex"})["release"]["W_used_kg_s"]
+        self.assertEqual(a, r)
+        self.assertNotEqual(a, y)
+        d["fluid"], d["P0_kPa"] = "propane", 1200.0
+        self.assertEqual(lg_release.run(d)["release"]["W_used_kg_s"], lg_release.run({**d, "property_basis": "yb_annex"})["release"]["W_used_kg_s"])
+
     def test_bad_model_refused(self):
         with self.assertRaises(ValueError):
             self._run(model="nonsense")
