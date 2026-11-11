@@ -110,3 +110,23 @@ def oisd() -> dict:
 
 def oisd_lookup(number: str) -> dict | None:
     return oisd()["standards"].get(number)
+
+
+def oisd_refinery_scope() -> dict:
+    """OISD's own 2020 table of the 60 standards applicable to refineries and gas processing plants (Annexure A of its comment letter to
+    PNGRB), with a scope statement for each, the ten the letter calls statutory, and a comparison of each number with the 2026 official list.
+    Read from the letter, not from the standards themselves."""
+    return json.loads(resources.files("process_safety").joinpath("data/oisd_refinery_scope.json").read_text())
+
+
+def oisd_scope(number: str) -> dict | None:
+    """Scope entry by either the letter's number or the current official number (e.g. 'OISD-STD-178' or 'OISD-GDN-178')."""
+    for e in oisd_refinery_scope()["entries"]:
+        if number in (e["letter_id"], e["official_id"]):
+            return e
+    return None
+
+
+def oisd_mandatory() -> list[str]:
+    """Standards the letter says are mandatory through statutes (letter numbering)."""
+    return [e["letter_id"] for e in oisd_refinery_scope()["entries"] if e["mandatory_per_letter"]]

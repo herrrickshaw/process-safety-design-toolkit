@@ -1,0 +1,7 @@
+﻿id,requires_shutdown,title,P50,P80,contingency_P80,cost_benefit_ratio,decision,direct_civil,direct_electrical,direct_instrumentation,direct_mechanical,direct_piping,total_mode
+R1,False,Independent high-level shutdown on feed drum (SIF),163.12770445066252,178.99058363927028,31.57591156415114,2.534371033084615,IMPLEMENT (cost not grossly disproportionate),,16.0,13.4,77.98248257220217,,147.41467207511914
+R2,True,Replace undersized relief header section and add tie-in,180.15892067784725,204.0393003810917,43.31187638109168,3.536821649889342,NOT REASONABLY PRACTICABLE on CBA alone,2.88,,,7.2,107.0,160.727424
+R3,True,Remote-operated isolation valves on inventory line,125.43421959973595,139.3246996506736,33.344539650673596,2.5274726377206935,IMPLEMENT (cost not grossly disproportionate),,28.0,3.2,,46.0,105.98016000000001
+R4,False,Blast-resistant wall for control-room side,114.34116439765279,129.73580349360938,27.59948349360937,0.7585096646051964,IMPLEMENT (cost not grossly disproportionate),38.4,,,36.0,,102.13632000000001
+R5,True,Replace non-Ex junction boxes in reclassified zone,71.1651761839895,83.32445486309481,20.724774863094815,3.7255779123410773,NOT REASONABLY PRACTICABLE on CBA alone,,45.6,,,,62.59968
+R6,False,UPS for ESD valve actuators and F&G,72.30299904152994,80.20921662742147,14.314816627421465,4.847274814812366,NOT REASONABLY PRACTICABLE on CBA alone,6.0,42.0,,,,65.8944

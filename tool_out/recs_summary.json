@@ -1,0 +1,321 @@
+{
+  "tool": "recs",
+  "checks": [
+    "PASS: inputs (disciplines, rates, ranges, shutdown durations)"
+  ],
+  "estimate": {
+    "runs": 5000,
+    "seed": 1,
+    "currency": "cost units",
+    "portfolio": {
+      "total_mode": 644.7526560751191,
+      "capex": {
+        "mean": 734.1822909288069,
+        "P10": 671.6348281825526,
+        "P50": 731.7625275155211,
+        "P80": 776.0690807528252,
+        "P90": 799.3928144611183
+      },
+      "contingency_P80": 131.3164246777061,
+      "shutdown_work_total_mode": 329.30726400000003,
+      "online_work_total_mode": 315.4453920751192,
+      "direct_by_discipline_mode": {
+        "piping": 153.0,
+        "civil": 47.28,
+        "electrical": 131.6,
+        "instrumentation": 16.6,
+        "mechanical": 121.18248257220218
+      }
+    },
+    "indirect_factor": 1.3728,
+    "ranking_by_ICAF": [
+      {
+        "id": "R4",
+        "title": "Blast-resistant wall for control-room side",
+        "ICAF": 4500.49971800899,
+        "cost_benefit_ratio": 0.7585096646051964,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      },
+      {
+        "id": "R3",
+        "title": "Remote-operated isolation valves on inventory line",
+        "ICAF": 14996.36777767102,
+        "cost_benefit_ratio": 2.5274726377206935,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      },
+      {
+        "id": "R1",
+        "title": "Independent high-level shutdown on feed drum (SIF)",
+        "ICAF": 15037.2983390584,
+        "cost_benefit_ratio": 2.534371033084615,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      },
+      {
+        "id": "R2",
+        "title": "Replace undersized relief header section and add tie-in",
+        "ICAF": 20985.183947867168,
+        "cost_benefit_ratio": 3.536821649889342,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      },
+      {
+        "id": "R5",
+        "title": "Replace non-Ex junction boxes in reclassified zone",
+        "ICAF": 22105.140021701278,
+        "cost_benefit_ratio": 3.7255779123410773,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      },
+      {
+        "id": "R6",
+        "title": "UPS for ESD valve actuators and F&G",
+        "ICAF": 28760.555013534213,
+        "cost_benefit_ratio": 4.847274814812366,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      }
+    ],
+    "notes": [
+      "shutdown-dependent items add duration and lost operating days: merge them into the shutdown model (tool recs with shutdown_model) rather than reading their cost alone",
+      "every modification needs management of change and a pre-startup safety review before start-up; add those lines or schedule activities if they are not already in the estimate",
+      "CBA is one input to ALARP: legal requirements, relevant good practice and measures that remove an intolerable risk are expected regardless of the ratio"
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "R1",
+      "title": "Independent high-level shutdown on feed drum (SIF)",
+      "source": "LOPA scenario 4, overfill",
+      "requires_shutdown": false,
+      "direct_mode": 107.38248257220218,
+      "total_mode": 147.41467207511914,
+      "capex": {
+        "mean": 164.44105788924787,
+        "P10": 142.9296695158008,
+        "P50": 163.12770445066252,
+        "P80": 178.99058363927028,
+        "P90": 187.52769802677113
+      },
+      "contingency_P80": 31.57591156415114,
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 163.12770445066252,
+        "delta_pll_per_yr": 0.00072,
+        "benefit": 106.8002145580135,
+        "cost": 270.67137010305123,
+        "cost_benefit_ratio": 2.534371033084615,
+        "ICAF": 15037.2983390584,
+        "disproportion_factor": 3,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      }
+    },
+    {
+      "id": "R2",
+      "title": "Replace undersized relief header section and add tie-in",
+      "source": "HAZOP node 3, action 7",
+      "requires_shutdown": true,
+      "direct_mode": 117.08,
+      "total_mode": 160.727424,
+      "capex": {
+        "mean": 182.10173013799107,
+        "P10": 150.39901191874526,
+        "P50": 180.15892067784725,
+        "P80": 204.0393003810917,
+        "P90": 217.3529581192436
+      },
+      "contingency_P80": 43.31187638109168,
+      "work_duration_days": {
+        "min": 3,
+        "mode": 4,
+        "max": 7
+      },
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 180.15892067784725,
+        "delta_pll_per_yr": 0.00039999999999999996,
+        "benefit": 59.333452532229714,
+        "cost": 209.85183947867165,
+        "cost_benefit_ratio": 3.536821649889342,
+        "ICAF": 20985.183947867168,
+        "disproportion_factor": 3,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      }
+    },
+    {
+      "id": "R3",
+      "title": "Remote-operated isolation valves on inventory line",
+      "source": "QRA mitigation M2",
+      "requires_shutdown": true,
+      "direct_mode": 77.2,
+      "total_mode": 105.98016000000001,
+      "capex": {
+        "mean": 126.67276831461545,
+        "P10": 107.71090236824932,
+        "P50": 125.43421959973595,
+        "P80": 139.3246996506736,
+        "P90": 147.09724956080822
+      },
+      "contingency_P80": 33.344539650673596,
+      "work_duration_days": {
+        "min": 2,
+        "mode": 3,
+        "max": 5
+      },
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 125.43421959973595,
+        "delta_pll_per_yr": 0.0004999999999999999,
+        "benefit": 74.16681566528713,
+        "cost": 187.4545972208877,
+        "cost_benefit_ratio": 2.5274726377206935,
+        "ICAF": 14996.36777767102,
+        "disproportion_factor": 3,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      }
+    },
+    {
+      "id": "R4",
+      "title": "Blast-resistant wall for control-room side",
+      "source": "QRA occupied-building study",
+      "requires_shutdown": false,
+      "direct_mode": 74.4,
+      "total_mode": 102.13632000000001,
+      "capex": {
+        "mean": 115.73221642222789,
+        "P10": 94.64625595685442,
+        "P50": 114.34116439765279,
+        "P80": 129.73580349360938,
+        "P90": 138.12220606328097
+      },
+      "contingency_P80": 27.59948349360937,
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 114.34116439765279,
+        "delta_pll_per_yr": 0.0011,
+        "benefit": 163.16699446363174,
+        "cost": 123.76374224524724,
+        "cost_benefit_ratio": 0.7585096646051964,
+        "ICAF": 4500.49971800899,
+        "disproportion_factor": 3,
+        "decision": "IMPLEMENT (cost not grossly disproportionate)"
+      }
+    },
+    {
+      "id": "R5",
+      "title": "Replace non-Ex junction boxes in reclassified zone",
+      "source": "hazardous area review",
+      "requires_shutdown": true,
+      "direct_mode": 45.6,
+      "total_mode": 62.59968,
+      "capex": {
+        "mean": 72.37181450630474,
+        "P10": 56.12779250391743,
+        "P50": 71.1651761839895,
+        "P80": 83.32445486309481,
+        "P90": 90.31740598505723
+      },
+      "contingency_P80": 20.724774863094815,
+      "work_duration_days": {
+        "min": 2,
+        "mode": 3,
+        "max": 6
+      },
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 71.1651761839895,
+        "delta_pll_per_yr": 0.00015,
+        "benefit": 22.25004469958614,
+        "cost": 82.89427508137979,
+        "cost_benefit_ratio": 3.7255779123410773,
+        "ICAF": 22105.140021701278,
+        "disproportion_factor": 3,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      }
+    },
+    {
+      "id": "R6",
+      "title": "UPS for ESD valve actuators and F&G",
+      "source": "PSSR finding",
+      "requires_shutdown": false,
+      "direct_mode": 48.0,
+      "total_mode": 65.8944,
+      "capex": {
+        "mean": 72.86270365841995,
+        "P10": 61.83100312651916,
+        "P50": 72.30299904152994,
+        "P80": 80.20921662742147,
+        "P90": 84.56015843877378
+      },
+      "contingency_P80": 14.314816627421465,
+      "cba": {
+        "capex_basis": "P50",
+        "capex_used": 72.30299904152994,
+        "delta_pll_per_yr": 0.0002,
+        "benefit": 29.66672626611486,
+        "cost": 143.80277506767106,
+        "cost_benefit_ratio": 4.847274814812366,
+        "ICAF": 28760.555013534213,
+        "disproportion_factor": 3,
+        "decision": "NOT REASONABLY PRACTICABLE on CBA alone"
+      }
+    }
+  ],
+  "files": [
+    "tool_out/recs_recommendations.csv",
+    "tool_out/recs_merged_shutdown_model.json"
+  ],
+  "shutdown_effect": {
+    "duration_days_without": {
+      "mean": 32.06266462983384,
+      "P10": 26.5588946472091,
+      "P50": 31.628127325001163,
+      "P80": 35.737956661353756,
+      "P90": 38.11762817237171
+    },
+    "duration_days_with": {
+      "mean": 32.11190781802624,
+      "P10": 26.623572300567083,
+      "P50": 31.7056883467424,
+      "P80": 35.83508978782266,
+      "P90": 38.20475025436676
+    },
+    "delta_duration_days": {
+      "P50": 0.07756102174123569,
+      "P80": 0.09713312646890415,
+      "P90": 0.087122081995048
+    },
+    "direct_cost_without": {
+      "mean": 547.2687343213213,
+      "P10": 414.2062163144277,
+      "P50": 530.3408795612843,
+      "P80": 644.3229516490208,
+      "P90": 705.2629292126004
+    },
+    "direct_cost_with": {
+      "mean": 926.4852840757653,
+      "P10": 790.3723267952406,
+      "P50": 911.4224468370935,
+      "P80": 1025.545485666793,
+      "P90": 1088.0055006389493
+    },
+    "delta_direct_cost": {
+      "P50": 381.0815672758092,
+      "P80": 381.2225340177722,
+      "P90": 382.74257142634895
+    },
+    "total_cost_delta": {
+      "P50": 378.70190041255864,
+      "P80": 384.90207640026256,
+      "P90": 403.96288751968586
+    },
+    "lost_operating_days_delta": {
+      "P50": -0.05576951709728917,
+      "P80": 0.07771356053196854,
+      "P90": 0.15154582511267023
+    },
+    "P_meet_target_days": {
+      "without": 0.19025,
+      "with": 0.18675
+    }
+  },
+  "shutdown_effect_notes": [
+    "the same seed is used for both runs, so differences reflect the added work, not sampling noise (the added activities change the random stream, so small differences remain)"
+  ]
+}
