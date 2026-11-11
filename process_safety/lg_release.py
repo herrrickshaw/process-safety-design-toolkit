@@ -7,7 +7,7 @@ Sources (all read; docs/SOURCE_TERM_SOURCES.md): TNO Yellow Book CPR 14E (2005) 
 by Melhem 2023); Chamberlain jet flame from the DNV jet-fire theory report (`jet_flame`) with a line-source flux map (`jet_radiation`);
 Webber-form pool spreading as quoted by Basha 2013 (`pool_spread`).
 
-Fluids: propane and n-butane only, because their property correlations are transcribed from the Yellow Book Annex (add a fluid there first).
+Fluids: propane and n-butane (Yellow Book Annex or NIST table) plus isobutane, propylene, ammonia and ethane (CoolProp-generated table, `property_basis` reference; the caller supplies fire.Hc_J_kg).
 Discharge bases for a saturated liquid (mode 'saturated'): 'omega' (HEM-type, choked) and 'yellow_book_liquid' (the book's liquid-orifice route:
 hole in the liquid space, exit at vessel conditions, flashing after the exit); both are always computed and the chosen one drives the fires.
 Mode 'refrigerated': liquid at its atmospheric boiling point driven by head and overpressure, no flash.
@@ -30,8 +30,16 @@ def check(data: dict) -> list[str]:
     for k in ("fluid", "mode", "hole_d_m", "Cd"):
         if k not in data:
             errs.append(f"missing '{k}'")
-    if data.get("fluid") not in yb_annex.DATA:
-        errs.append(f"fluid must be one of {sorted(yb_annex.DATA)} (Yellow Book Annex data)")
+    fl = data.get("fluid")
+    if fl not in props_ref._TABLE:
+        errs.append(f"fluid must be one of {sorted(props_ref._TABLE)} (propane and n-butane: Yellow Book Annex or NIST table; others: CoolProp-generated table)")
+    elif fl == "ammonia":
+        errs.append("ammonia: this chain is for flammable hydrocarbons (the Yellow Book droplet step has no valid temperature for ammonia in dry air); use props_ref and line_flow for the discharge, and a toxic-dispersion model for the cloud")
+    elif fl not in yb_annex.DATA:
+        if data.get("property_basis", "auto") == "yb_annex":
+            errs.append(f"{fl}: only property_basis 'reference' (or 'auto') is available; the Yellow Book Annex holds propane and n-butane only")
+        if "Hc_J_kg" not in data.get("fire", {}):
+            errs.append(f"{fl}: supply fire.Hc_J_kg (net heat of combustion, J/kg) from your own source; the toolkit holds none for this fluid")
     for sec, keys in REQUIRED.items():
         if sec not in data:
             errs.append(f"missing section '{sec}'")
@@ -100,7 +108,7 @@ def run(data: dict) -> dict:
     if basis not in ("auto", "yb_annex", "reference"):
         raise ValueError("property_basis must be 'auto', 'yb_annex' or 'reference'")
     if basis == "auto":   # propane: Annex agrees with NIST to about 2 %; n-butane: Annex vapour pressure is 3 to 20 % off, use the NIST table
-        basis = "reference" if data.get("fluid") == "n-butane" else "yb_annex"
+        basis = "reference" if data.get("fluid") not in ("propane",) else "yb_annex"
     prev, _P = _P, (props_ref if basis == "reference" else yb_annex)
     try:
         return _run(data)
@@ -120,7 +128,7 @@ def _run(data: dict) -> dict:
     Sc, Pr = amb.get("Sc", 0.7), _P.AIR["Pr"]
     lam = _P.air_conductivity_W_mK()
     area = math.pi * data["hole_d_m"] ** 2 / 4
-    Hc = fire.get("Hc_J_kg", _P.net_heat_of_combustion_J_kg(fl))
+    Hc = fire["Hc_J_kg"] if "Hc_J_kg" in fire else _P.net_heat_of_combustion_J_kg(fl)
     out = {"mode": data["mode"], "warnings": [], "notes": []}
     superheated = data["mode"] == "saturated"
     basis = data.get("discharge_basis", "omega")
@@ -221,8 +229,15 @@ def _run(data: dict) -> dict:
 
     # --- pool fire on the rained-out part (Yellow Book chapter 6)
     out["pool"] = []
-    m_inf, kbeta = yb_poolfire.LARGE_POOL[fl]
+    if fl in yb_poolfire.LARGE_POOL:
+        m_inf, kbeta = yb_poolfire.LARGE_POOL[fl]
+    else:   # the Yellow Book large-pool burning constants are tabulated for propane and n-butane only
+        m_inf, kbeta = pool.get("m_inf_kg_m2_s"), pool.get("kbeta_1_m")
     cases = [f_rain] if f_rain > 1e-6 else []
+    if m_inf is None or kbeta is None:
+        if cases or pool.get("extra_rainout_fractions"):
+            out["warnings"].append(f"pool fire not computed for {fl}: supply pool.m_inf_kg_m2_s and pool.kbeta_1_m (Yellow Book large-pool burning constants are tabulated for propane and n-butane only)")
+        cases, pool = [], {**pool, "extra_rainout_fractions": []}
     cases += [c for c in pool.get("extra_rainout_fractions", []) if c > 0]
     for fr in sorted(set(cases)):
         mr = fr * W
@@ -247,7 +262,10 @@ def _run(data: dict) -> dict:
     from .qra import frequency as _qf
     ig = data.get("ignition", {})
     uk = {ignition_ukooa.case_names()[c]: ignition_ukooa.ignition_probability(W, c) for c in ig.get("ukooa_cases", [3, 5, 8])}
-    out["ignition"] = {"purple_book_direct_ignition": vulnerability.direct_ignition_probability(W, vulnerability.REACTIVITY[fl]), "substance_class": vulnerability.REACTIVITY[fl],
+    sclass = ig.get("substance_class", vulnerability.REACTIVITY.get(fl))   # Purple Book Table 4.7 class: tabulated here for propane and n-butane only
+    if sclass is None:
+        out["warnings"].append(f"Purple Book direct ignition not computed for {fl}: supply ignition.substance_class (a Table 4.5 class from your reading of Table 4.7)")
+    out["ignition"] = {"purple_book_direct_ignition": None if sclass is None else vulnerability.direct_ignition_probability(W, sclass), "substance_class": sclass,
                        "ukooa_total_ignition": uk, "cox_lees_ang_total_ignition": _qf.cox_ignition(W, "gas"), "immediate_ignition_probability_ukooa": ignition_ukooa.IMMEDIATE_IGNITION_PROBABILITY,
                        "note": ("Purple Book Table 4.5 is DIRECT ignition only; the UKOOA/Energy Institute curves (IChemE Hazards XXIII Table 2) and Cox, Lees and Ang are TOTAL "
                                 "(immediate plus delayed). The spread between the models is part of the uncertainty of the event tree; choose the curve for the facility type.")}

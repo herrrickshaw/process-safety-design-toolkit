@@ -85,3 +85,22 @@ class LineInStudy(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DelayedEquilibrium(unittest.TestCase):
+    """Relaxation-length option: identities only (the closure is an input, not validated)."""
+    SEG = [(67.0, 0.152), (13.0, 0.052)]
+    CASE = ("propane", 278.65, 7.53e5)
+
+    def w(self, **kw):
+        return lf.line_discharge(*self.CASE, 101325.0, self.SEG, **kw)["W_kg_s"]
+
+    def test_short_relaxation_length_recovers_hem_and_flow_rises_with_length(self):
+        hem, w1, w10 = self.w(), self.w(relaxation_length_m=1.0), self.w(relaxation_length_m=10.0)
+        self.assertLess(abs(w1 / hem - 1.0), 0.03)  # L_r -> 0 limit is HEM
+        self.assertTrue(hem < w1 < w10)  # later flashing -> denser mixture -> more flow
+
+    def test_rejects_non_positive_length(self):
+        for bad in (0.0, -1.0):
+            with self.assertRaises(ValueError):
+                self.w(relaxation_length_m=bad)

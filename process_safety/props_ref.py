@@ -12,7 +12,9 @@ Enthalpies share NIST's default reference state; only differences are used.
 """
 from __future__ import annotations
 
+import json
 import math
+import os
 
 from . import yb_annex as _yb
 
@@ -68,13 +70,25 @@ _TABLE = {
         (350.0, 2951400.0000, 383.770, 77.02800, 426700.0, 629950.0, 4207.6, 5.0870e-05, 0.001443),
     ),
 }
+# Further liquefied gases (isobutane, propylene, ammonia, ethane): CoolProp-generated rows in the same layout plus the vapour viscosity (column 9),
+# stored in data/props_ref_extra.json by scripts/gen_props_ref_extra.py. No heat of combustion is held for them (the caller supplies Hc).
+_MUV: dict = {}
+_M_EXTRA: dict = {}
+try:
+    with open(os.path.join(os.path.dirname(__file__), "data", "props_ref_extra.json"), encoding="utf-8") as _fh:
+        for _fl, _d in json.load(_fh)["fluids"].items():
+            _TABLE[_fl] = tuple(tuple(r[:9]) for r in _d["rows"])
+            _MUV[_fl] = tuple((r[0], r[9]) for r in _d["rows"])
+            _M_EXTRA[_fl] = _d["M_kg_mol"]
+except FileNotFoundError:  # the shipped table is optional: propane and n-butane work without it
+    pass
 DATA = {fl: {"vp": (None, (rows[0][0], rows[-1][0])), "hv": (None, (rows[0][0], rows[-1][0]))} for fl, rows in _TABLE.items()}
 AIR = _yb.AIR
 
 
 def _rows(fluid: str):
     if fluid not in _TABLE:
-        raise ValueError(f"{fluid!r} is not tabulated (propane, n-butane)")
+        raise ValueError("%r is not tabulated (%s)" % (fluid, ", ".join(sorted(_TABLE))))
     return _TABLE[fluid]
 
 
@@ -139,11 +153,24 @@ def saturation_temperature_K(fluid: str, P_Pa: float) -> float:
 
 def compressibility_saturated_vapour(fluid: str, T_K: float) -> float:
     """Z = P / (rho_v R T / M) of the saturated vapour."""
-    return vapour_pressure_Pa(fluid, T_K) * _yb.molar_mass_kg_mol(fluid) / (vapour_density_kg_m3(fluid, T_K) * R * T_K)
+    return vapour_pressure_Pa(fluid, T_K) * molar_mass_kg_mol(fluid) / (vapour_density_kg_m3(fluid, T_K) * R * T_K)
 
 
 def molar_mass_kg_mol(fluid: str) -> float:
-    return _yb.molar_mass_kg_mol(fluid)
+    return _M_EXTRA[fluid] if fluid in _M_EXTRA else _yb.molar_mass_kg_mol(fluid)
+
+
+def vapour_viscosity_Pa_s(fluid: str, T_K: float) -> float:
+    """Low-pressure vapour viscosity: Yellow Book Annex formula 7 for propane and n-butane, the tabulated saturated-vapour value for the others."""
+    if fluid not in _MUV:
+        return _yb.vapour_viscosity_Pa_s(fluid, T_K)
+    rows = _MUV[fluid]
+    if not rows[0][0] <= T_K <= rows[-1][0]:
+        raise ValueError(f"{fluid}: {T_K:g} K is outside the tabulated range {rows[0][0]:g} to {rows[-1][0]:g} K")
+    for a, b in zip(rows, rows[1:]):
+        if a[0] <= T_K <= b[0]:
+            return a[1] + (T_K - a[0]) / (b[0] - a[0]) * (b[1] - a[1])
+    return rows[-1][1]
 
 
 def normal_boiling_point_K(fluid: str) -> float:
@@ -151,6 +178,8 @@ def normal_boiling_point_K(fluid: str) -> float:
 
 
 def net_heat_of_combustion_J_kg(fluid: str) -> float:
+    if fluid in _M_EXTRA:
+        raise ValueError(f"no heat of combustion is held for {fluid!r}: supply it from your own source (lg_release input fire.Hc_J_kg)")
     return _yb.net_heat_of_combustion_J_kg(fluid)
 
 
