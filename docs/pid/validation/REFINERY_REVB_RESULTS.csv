@@ -1,0 +1,15 @@
+metric,rev_a,rev_b,reference,deviation_a_pct,deviation_b_pct,status
+"Crude slate S, wt%",2.90,2.26,2.264 (2.10-2.39) IOCL EC report 2020 Annex-4,28.25,0.00,"closed (fitted to it; two-target refit, a fit not a purchase list)"
+"Petcoke, % of crude",11.92,8.20,7.77 (7.2-8.2) EC report; 8.0 investor slide 7,53.39,5.53,"closed (within 7.2-8.2, top edge)"
+"Coker coke, wt% of VR",43.60,30.00,"27-35, central 30 (UOP 2021, JIP T41, WRI); PTQ 1.23 x CCR = 30.7",30.16,0.00,closed
+"Coker gas, wt% of VR",11.72,9.07,PTQ 7.8+0.051 CCR (9.19 at CCR 27.25),27.58,0.00,closed (equals the correlation at the new CCR by construction)
+"Coker naphtha, wt% of VR",9.83,11.09,PTQ 25.37-0.573 CCR (9.75 at CCR 27.25),0.80,0.00,unchanged in kind: tracks the correlation; value rises because the slate CCR fell to 24.9
+"Coker gas oil, wt% of VR",34.84,49.84,47.5 (by difference at coke 33.5),-26.64,4.93,reduced to +5 % (by difference; follows coke 30 vs 33.5)
+"SR naphtha to NHT, Mt/yr",1.61,1.28,3.96 NHT nameplate (IOCL OEP sec 1.2),-59.33,-67.76,"unchanged cause, WORSE: lighter-end-poor slate; 200 C end point reaches 2.05 (2.50 with coker naphtha); no source explains nameplate"
+"Treated VGO to FCC, Mt/yr",4.10,4.49,4.17 INDMAX (OEP),-1.66,7.57,WORSE but within 10 %: cost of the sulphur fit
+"Vacuum residue to coker, Mt/yr",4.10,4.10,4.4 DCU nameplate,-6.82,-6.82,unchanged (fitted to 4.1/15)
+"HT sulphur to SRU, t/d",481.30,374.63,696 t/d product S (EC report),-30.85,-46.17,"unchanged cause, WORSE: coker and FCC sulphur routing not modelled"
+"LPG+gasoline+middle distillate, % crude",79.34,83.58,81 (investor slide 7),-2.06,3.19,within 10 % before and after
+"Crude heater duty, MW",216.59,210.56,independent PR flash 183-199 MW (ideal-gas n-alkane: 202),7.22,+6 to +15,unchanged (no plant value); independent route is now Peng-Robinson
+"HT H2, scf/bbl (diesel / VGO)",S-only 167 / 358 (Rev A),S-only 123 / 255,"150-300 scf/bbl (ENERGY STAR, secondary)",,,"unchanged (floor kept, range on sheet 3)"
+FCC yields,reference case,reference case,"none found; repo run on this VGO differs (LPG -5, LCO+slurry +7 points)",,,"unchanged; stated as reference case, not run on this VGO"
