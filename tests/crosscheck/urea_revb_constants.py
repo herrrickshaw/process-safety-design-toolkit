@@ -69,8 +69,7 @@ for T in (240.15, 313.15):
 
 # Part 4
 if len(sys.argv) > 1 and not sys.argv[1].startswith("--"):
-    from thermo import PRMIX, CEOSGas
-    from chemicals import molecular_weight
+    from thermo import PRMIX
     cases = json.load(open(sys.argv[1]))
     ids = {"H2": "hydrogen", "N2": "nitrogen", "CO": "carbon monoxide", "CO2": "carbon dioxide", "H2O": "water", "H2S": "hydrogen sulfide",
            "NH3": "ammonia", "O2": "oxygen", "CH4": "methane"}

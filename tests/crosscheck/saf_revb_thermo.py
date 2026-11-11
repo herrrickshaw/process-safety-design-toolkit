@@ -75,7 +75,6 @@ out["E402_KW"] = round(Qreb, 1); out["E401_KW"] = round(Qcond, 1)
 # ---- 4. bubble / dew checks ----
 for nme, kind in (("C11", 0), ("C16", 0), ("C7", 1)):
     ff, _ = mk([nme, "H2"]); T = 150
-    import scipy.optimize as so
     fn = lambda t: (ff.flash(P=1.5e5, VF=kind, zs=[1.0]).T - 273.15) if False else 0
     rb = ff.flash(P=1.5e5, VF=float(kind), zs=[1 - 1e-7, 1e-7]); print("sat T at 1.5 bar", nme, "VF", kind, rb.T - 273.15)
 # ---- 5. independent recomputations ----
