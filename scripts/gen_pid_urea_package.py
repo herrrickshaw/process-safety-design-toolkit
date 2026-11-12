@@ -7,7 +7,7 @@ Runs every area's build(pkg), then a whole-package lint (duplicate tags, relief 
 ESD valve per sheet, line-size and velocity sanity), writes one printable HTML and the registers (line list, instrument index, equipment
 list, relief schedule, valve list, stream table). Conceptual, screening basis, not for construction.
 """
-import sys, os, importlib, collections
+import sys, os, importlib, collections, re, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from urea_basis import *
 from pid_unit import *
@@ -48,6 +48,33 @@ def lint(pkg):
     return out, adv
 
 
+TXT = re.compile(r'<text x="([-\d.]+)" y="([-\d.]+)" font-size="([\d.]+)" font-weight="(\d+)" text-anchor="(\w+)"[^>]*>([^<]*)</text>')
+
+
+def text_boxes(sh):
+    """approximate bounding boxes of every text element of a sheet (width = chars x size x 0.52, bold 0.56; screening estimate)"""
+    out = []
+    for e in sh.p:
+        for x, y, sz, w, an, tx in TXT.findall(e):
+            x, y, sz = float(x), float(y), float(sz); tx = html.unescape(tx)
+            wd = len(tx) * sz * (0.56 if int(w) >= 600 else 0.52)
+            x0 = x - wd if an == "end" else x - wd / 2 if an == "middle" else x
+            out.append((x0, y - sz * 0.8, x0 + wd, y + sz * 0.25, tx))
+    return out
+
+
+def overlaps(sh, min_area=6.0):
+    """pairs of text boxes that overlap by more than min_area px2, and boxes that leave the sheet frame (1600 x 1130)"""
+    b = [x for x in text_boxes(sh) if x[1] > 80]; bad = []   # header band excluded (title font is shrunk at render time)
+    for i in range(len(b)):
+        for j in range(i + 1, len(b)):
+            a, c = b[i], b[j]
+            w = min(a[2], c[2]) - max(a[0], c[0]); h = min(a[3], c[3]) - max(a[1], c[1])
+            if w > 0 and h > 0 and w * h > min_area and a[4] != c[4]: bad.append((a[4][:28], c[4][:28]))
+    out = [f"{t[:28]!r} leaves the frame" for t in (x[4] for x in b if x[2] > 1592 or x[0] < 8 or x[3] > 1122)]
+    return bad, out
+
+
 def main():
     argv = sys.argv[1:]
     out = argv[0] if argv and not argv[0].startswith("--") else "urea_package.html"
@@ -66,6 +93,11 @@ def main():
     if "--registers" in argv: pkg.write_registers(argv[argv.index("--registers") + 1])
     print("areas:", ", ".join(f"{a}={n}" for a, n in built))
     print(f"{len(pkg.sheets)} sheets, {len(pkg.lines)} lines, {len(pkg.inst)} instruments, {len(pkg.equip)} equipment, {len(pkg.relief)} relief, {len(pkg.valves)} valves, {len(STREAMS)} streams")
+    ov = {sh.no: overlaps(sh) for sh in pkg.sheets}
+    tot = sum(len(v[0]) for v in ov.values()); worst = sorted(ov.items(), key=lambda kv: -len(kv[1][0]) - len(kv[1][1]))[:15]
+    print(f"text overlaps: {tot} pairs on {sum(1 for v in ov.values() if v[0])} sheets; frame overruns: {sum(len(v[1]) for v in ov.values())}")
+    for no, (a, b) in worst:
+        if a or b: print(f"  sheet {no}: {len(a)} overlaps, {len(b)} overruns; e.g. {a[0] if a else b[0]}")
     print(f"lint: {len(problems)} error(s), {len(adv)} advisory(ies)")
     for p in problems[:60]: print("  ERROR -", p)
     for p in adv[:80]: print("  advisory -", p)

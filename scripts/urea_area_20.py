@@ -118,6 +118,7 @@ def duct_fix(pkg, sh):
 
 
 def fix_tank(sh, tag, name, vol, hours, impound):
+    return   # Rev C0: the shared tank template now places its labels and bund correctly, nothing to overpaint
     """sheet_tank draws the bund box over the left-hand tank labels (template defect): overpaint and redraw them, and move the box"""
     D = math.sqrt(4 * vol / (math.pi * 20.0))
     R(sh, 146, 326, 150, 140, "#fff", "none", 0); R(sh, 30, 344, 324, 50, "#fff", "none", 0)

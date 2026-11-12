@@ -34,6 +34,12 @@ def nps_for(q_m3_s, v):
 def round_up(x, step): return math.ceil(x / step) * step
 
 
+def pg(x):
+    """compact number text for tables (no float noise)"""
+    try: return f"{float(x):g}"
+    except (TypeError, ValueError): return x
+
+
 def fm(x, d=1): return f"{x:,.{d}f}"
 
 
@@ -71,6 +77,9 @@ class USheet(Sheet):
 
     def svg(self):
         t = super().svg()
+        n = len(self.title)
+        if n * 21 * 0.56 > 1040:   # long title: reduce the font so it stops before the right-hand banner text
+            fs = max(13.0, 1040 / (n * 0.56)); t = t.replace('font-size="21"', f'font-size="{fs:.1f}"', 1)
         return (t.replace("Rev A", f"Rev {self.pkg.rev}").replace("Draft A. Screening aid", f"Draft {self.pkg.rev}. Screening aid")
                  .replace(f"-00{self.no}", f"-{self.no:03d}").replace(f"Sheet {self.no} of 0", f"Sheet {sorted(x.no for x in self.pkg.sheets).index(self.no)+1} of {len(self.pkg.sheets)}"))
 
@@ -147,10 +156,10 @@ def data_panel(s, pkg, sh, tag, name, rows, notes):
     y = section(s, 1135, 84, 445, f"{tag}  {name}")
     wrapped = [("Item", "Value", "Basis")]
     for a, b, c in rows:       # values longer than the column are wrapped onto continuation rows instead of overflowing the panel
-        parts = textwrap.wrap(str(b), 36) or [""]
-        wrapped.append((a, parts[0], c))
-        wrapped += [("", p, "") for p in parts[1:]]
-    y = table(s, 1135, y + 2, [150, 215, 80], wrapped, rh=18, size=10)
+        parts = textwrap.wrap(str(b), 34) or [""]; cparts = textwrap.wrap(str(c), 15) or [""]
+        for k in range(max(len(parts), len(cparts))):
+            wrapped.append((a if k == 0 else "", parts[k] if k < len(parts) else "", cparts[k] if k < len(cparts) else ""))
+    y = table(s, 1135, y + 2, [120, 220, 105], wrapped, rh=18, size=10)
     y = section(s, 1135, y + 10, 445, "Notes")
     for n in notes: y = WRAP(s, 1143, y + 16, n, 72, 10, 12.5, bullet=True) - 2
     return y
@@ -240,7 +249,7 @@ def sheet_vessel(pkg, area, no, title, u):
             pkg.equip.append([f"{pt}A/B", f"{u['name']} pump (duty/spare)", "centrifugal", f"{fm(liq.flow)} t/h, dP {dp:g} bar (A)", "-", f"{fm(kw)} kW shaft (D: Q dP / eff 0.70 A)", "A", "A", no])
     # relief valve on gas space
     psv_at(s, pkg, sh, cx - 30, top - 34, f"PSV-{lp}01", u["tag"], u.get("relief_case", "blocked outlet; fire"), dP, u.get("relief_dest", "flare header"), "not sized: needs relief load (fire wetted area, vapour generation)")
-    PL(s, [(cx - 30, top - 52), (cx - 30, 112), (60, 112)], 1.6, INK, "6 3"); lab(s, 64, 107, "PSV to flare header (A)", 8.5, 400, "start", GREY)
+    PL(s, [(cx - 30, top - 52), (cx - 30, 112), (60, 112)], 1.6, INK, "6 3"); lab(s, 64, 107, f"PSV to {u.get('relief_dest', 'flare header')} (A)", 8.5, 400, "start", GREY)
     # drains, vent, N2 purge
     yd = top + h + 30
     PL(s, [(cx - 50, yd), (cx - 50, yd + 26)], 2.0)
@@ -254,7 +263,7 @@ def sheet_vessel(pkg, area, no, title, u):
             ("Material", u.get("mat", "to be set"), "A"), ("Relief", f"PSV-{lp}01 set {dP:g} bar g", "A"), ("Hazard", u.get("hazard", "see HAZOP sheet"), "-")]
     data_panel(s, pkg, sh, u["tag"], u["name"], rows, u.get("notes", []) + ["Instrument alarm and trip levels are screening fractions of range (A); trip logic needs the licensor cause-and-effect.", "Lines are sized by the screening velocity limits in pid_unit.RULES (A)."])
     li = [r for r in pkg.lines if r[-1] == sh.no][-6:]
-    bottom_tables(s, sh, [[r[0], r[4], r[6], r[7], r[8], r[9], r[10]] for r in li], [[r[0], r[3], r[4], r[5]] for r in pkg.inst if r[-1] == sh.no][-11:])
+    bottom_tables(s, sh, [[r[0], r[4], pg(r[6]), pg(r[7]), r[8], r[9], r[10]] for r in li], [[r[0], r[3], r[4], r[5]] for r in pkg.inst if r[-1] == sh.no][-11:])
     frame(s, pkg.total)
     pkg.add_sheet(sh)
     return sh

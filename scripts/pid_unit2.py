@@ -21,7 +21,7 @@ def run(s, pkg, sh, lp, area, st, pts, frm, to, spec, svc, idx, esd=False, label
         ex, ey = at(0.66)
         blockv(s, pkg, sh, ex, ey, 0 if hor else 90, f"XV-{lp}{idx+50:02d}", no, n, "ball", "ESD isolation", act=True)
         pkg.valves[-1][5] = "FC (ESD)"
-        lab(s, ex, ey - 24, f"XV-{lp}{idx+50:02d}", 8.5, 700, "middle", RED)
+        lab(s, ex, ey + 17, f"XV-{lp}{idx+50:02d}", 8.5, 700, "middle", RED)
     if diamond:
         dx, dy = at(0.12 if seg > 120 else 0.5)
         strm(s, dx, dy, st.n)
@@ -40,7 +40,7 @@ def head(pkg, area, no, title, tag, name):
 def finish(pkg, sh, area, tag, name, rows, notes, relief_tag=None):
     data_panel(sh, pkg, sh, tag, name, rows, notes + ["Alarm/trip levels, margins and velocity limits are screening rules (A) in pid_unit.RULES; trip logic needs licensor cause-and-effect."])
     li = [r for r in pkg.lines if r[-1] == sh.no]
-    bottom_tables(sh, sh, [[r[0], r[4], r[6], r[7], r[8], r[9], r[10]] for r in li[-11:]], [[r[0], r[3], r[4], r[5]] for r in pkg.inst if r[-1] == sh.no][-11:])
+    bottom_tables(sh, sh, [[r[0], r[4], pg(r[6]), pg(r[7]), r[8], r[9], r[10]] for r in li[-11:]], [[r[0], r[3], r[4], r[5]] for r in pkg.inst if r[-1] == sh.no][-11:])
     frame(sh, pkg.total); pkg.add_sheet(sh); return sh
 
 
@@ -135,7 +135,7 @@ def sheet_reactor(pkg, area, no, title, u):
     bub(s, pkg, sh, cx - 60, 130, "PAHH", f"{lp}42", u["tag"], "pressure high-high (trip)", f"0-{round_up(dP,10):g} bar", f"HH {P*1.1:.0f} bar (A)", panel=True)
     bub(s, pkg, sh, cx + 140, 150, "PDI", f"{lp}43", u["tag"], "bed differential pressure", "0-5 bar", "H 3 bar")
     psv_at(s, pkg, sh, cx + 30, top - 34, f"PSV-{lp}01", u["tag"], "blocked outlet; runaway; fire", dP, u.get("relief_dest", "flare header"), "not sized: needs runaway/fire load")
-    PL(s, [(cx + 30, top - 56), (cx + 30, 110), (900, 110)], 1.6, INK, "6 3"); lab(s, 700, 106, "PSV to flare header (A)", 8.5, 400, "start", GREY)
+    PL(s, [(cx + 30, top - 56), (cx + 30, 110), (900, 110)], 1.6, INK, "6 3"); lab(s, 700, 106, f"PSV to {u.get('relief_dest', 'flare header')} (A)", 8.5, 400, "start", GREY)
     # emergency depressurisation
     blockv(s, pkg, sh, cx + 100, 150, 0, f"XV-{lp}60", "-", 2, "ball", "emergency depressurisation", "FO", act=True)
     PL(s, [(cx + 40, top - 4), (cx + 40, 150), (cx + 80, 150)], 2.0); PL(s, [(cx + 120, 150), (900, 150)], 2.0); lab(s, 905, 154, "EDV to flare (A)", 8.5, 400, "start", GREY)
@@ -222,7 +222,7 @@ def sheet_column(pkg, area, no, title, u):
     bub(s, pkg, sh, cx + 150, top + 205, "TI", f"{lp}14", u["tag"], "profile temperatures", f"0-{round_up(T*1.3,50):g} C", "-")
     ctrlvalve(s, cx + 40, 125); pkg.valves.append([f"PV-{lp}11", "control", "top pressure", tp.name, tp.nps(), "FO", sh.no])
     psv_at(s, pkg, sh, cx - 30, top - 36, f"PSV-{lp}01", u["tag"], "blocked outlet; fire; reboiler/utility failure", dP, u.get("relief_dest", "flare header"), "not sized: needs relief load")
-    PL(s, [(cx - 30, top - 58), (cx - 30, 108), (60, 108)], 1.6, INK, "6 3"); lab(s, 64, 103, "PSV to flare header (A)", 8.5, 400, "start", GREY)
+    PL(s, [(cx - 30, top - 58), (cx - 30, 108), (60, 108)], 1.6, INK, "6 3"); lab(s, 64, 103, f"PSV to {u.get('relief_dest', 'flare header')} (A)", 8.5, 400, "start", GREY)
     eq(pkg, sh, u["tag"], u["name"], "packed column" if u.get("packing") else "trayed column", f"{P:g} bar, {fd.T:g}->{bt.T:g} C", f"{dP:g} bar g / {dT:g} C (D)", f"{D:.1f} m ID x {Ht:.0f} m (D,A)", u.get("mat", "A: to be set by licensor"))
     rows = [("Operating", f"{P:g} bar / {fd.T:g}->{bt.T:g} C", "HMB"), ("Design", f"{dP:g} bar g / {dT:g} C", "D"), ("Diameter", f"{D:.1f} m", "D (vapour / liquid load, A)"), ("Height", f"{Ht:.0f} m", "A"),
             ("Internals", "packing" if u.get("packing") else f"{u.get('stages',20)} trays (A)", "A"), ("Relief", f"PSV-{lp}01", "A"), ("Hazard", u.get("hazard", "see HAZOP"), "-")]
