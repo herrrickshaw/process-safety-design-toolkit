@@ -428,7 +428,7 @@ def sheet_r101(pkg, ST, N):
     psv_at(sh, pkg, sh, px, top - 2, "PSV-30101", "R-101 shell", "blocked outlet; E-101 tube rupture into gas; fire", design_conditions(P4, T_MIX)[0], "flare header via KO-101", "not sized: needs tube-rupture and blocked-in load")
     PL(sh, [(px, top - 34), (px, 100)], 1.6, INK, "6 3")
     lab(sh, px - 14, top + 12, "= PSV-101 (Rev B)", 8.5, 400, "end", GREY)
-    blockv(sh, pkg, sh, cx + 30, 130, 90, "XV-30160", "-", 4, "ball", "emergency depressurisation (BDV-101 Rev B)", "FO", act=True)
+    blockv(sh, pkg, sh, cx + 30, 130, 90, "XV-30160", "-", 4, "ball", "emergency depressurisation (BDV-101 Rev B)", "FO (ESD)", act=True)
     PL(sh, [(cx + 30, v["top"][1] + 6), (cx + 30, 100)], 2.0); lab(sh, cx + 64, 124, "XV-30160 EDV (Rev B BDV-101) FO", 8.5, 700, "start", RED)
     # instruments
     bub(sh, pkg, sh, 760, top + 215, "PIC", f"{lp}11", "R-101", "gasifier pressure (cascade to area 40 let-down)", "0-60 bar", "H 47 / L 42 bar")
@@ -648,8 +648,8 @@ def build(pkg):
                "Relief schedule for area 30 (devices): PSV-30101 (R-101), PSV-30501 (V-102), PSV-30901 (D-133, atmosphere), PSV-31301..31501 (flash drums), PSV-32001 (C-146): see RELIEF_SCHEDULE.csv.",
                "Mass closure: 398 + 399 = 397. KO-101 and FL-101 are Rev B items (area 90). Flare-header temperature high (TAH, H 250 C A) is a further alarm not drawn."]))
     valve(sh, 300, 280, 0, "ball", act=True, color=RED); lab(sh, 300, 252, "XV-30160 (BDV-101) FO", 8.5, 700, "middle", RED)
-    pkg.valves.append(["XV-30160 (BDV-101, symbol on sheet 301)", "ball", "emergency depressurisation", "R-101 train", 4, "FO (ESD)", 321])
-    pkg.relief.append(["XV-30160 (BDV-101)", "R-101, E-101, E-132, F-135, VS-136, C-137 gas train", "ESD-1 emergency depressurisation", "n/a (opens on trip)", "A", "KO-101 / FL-101 (area 90)", "not sized: flow by inventory / time (D)", 321])
+    # XV-30160 is registered once, on sheet 301 where it is drawn; sheet 321 repeats the symbol only (a second register row duplicated the tag and carried free text in the tag field)
+    pkg.relief.append(["XV-30160", "R-101 (BDV-101 Rev B),  E-101, E-132, F-135, VS-136, C-137 gas train", "ESD-1 emergency depressurisation", "n/a (opens on trip)", "A", "KO-101 / FL-101 (area 90)", "not sized: flow by inventory / time (D)", 321])
     # ---- 322 nitrogen
     sh = sheet_package(pkg, A, 322, "Area 30  Utilities  -  nitrogen purge and inerting header", dict(
         tag="N2-150", name="Nitrogen purge and inerting header", spec="N2",

@@ -170,7 +170,7 @@ HV-30109,gate,isolation,"8""-BF-3009-CR",8,-,301
 HV-30110,gate,isolation,"12""-GW-3010-A1",12,-,301
 HV-30111,gate,isolation,"12""-GW-3011-A1",12,-,301
 HV-30112,gate,isolation,"6""-SL-3012-A1",6,-,301
-XV-30160,ball,emergency depressurisation (BDV-101 Rev B),-,4,FO,301
+XV-30160,ball,emergency depressurisation (BDV-101 Rev B),-,4,FO (ESD),301
 HV-30201,gate,isolation,"0.5""-PL-3013-CR",0.5,-,302
 XV-30251,ball,ESD isolation,"0.5""-PL-3013-CR",0.5,FC (ESD),302
 HV-30202,gate,isolation,"1.5""-OX-3014-CR",1.5,-,302
@@ -314,7 +314,6 @@ PV-32011,control,top pressure,"stripper overhead gas (NH3, H2S, CO2, steam)",8,F
 HV-32101,gate,isolation,"18""-FL-3081-FL",18,-,321
 HV-32102,gate,isolation,"6""-FL-3082-FL",6,-,321
 HV-32110,gate,isolation,"30""-FL-3083-FL",30,-,321
-"XV-30160 (BDV-101, symbol on sheet 301)",ball,emergency depressurisation,R-101 train,4,FO (ESD),321
 HV-32201,gate,isolation,"1.5""-N2-3084-N2",1.5,-,322
 HV-32210,gate,isolation,"1""-N2-3085-N2",1,-,322
 HV-32211,gate,isolation,"0.75""-N2-3086-N2",0.75,-,322

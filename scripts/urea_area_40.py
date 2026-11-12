@@ -299,7 +299,7 @@ def build(pkg):
                        type="instrumented functions (cause and effect, A)", op="45 bar", design="A", size="-", mat="-", basis="A",
                        desc=["1oo2 / 2oo3 voting by licensor SIL study", "trips close XV on gas and steam inlets", "depressure to flare on HH"],
                        interlocks=[("TAHH", "R-201 bed exit temperature (3 points)", "0-600 C", f"HH {TMAX_BED_HT:.0f} C trip + depress (A)"), ("TAHH", "R-202 bed exit temperature (3 points)", "0-400 C", "HH 320 C trip (A)"),
-                                   ("PAHH", "shift pressure high-high", "0-60 bar", "HH 50 bar trip (A)"), ("AAHH", "H2S / CO detectors at R-201/R-202 platform", "0-100 ppm H2S", "H 10 / HH 15 ppm: ESD (A)"),
+                                   ("PAHH", "shift pressure high-high", "0-60 bar", "HH 47 bar trip (A, below the 49.5 bar g design)"), ("AAHH", "H2S / CO detectors at R-201/R-202 platform", "0-100 ppm H2S", "H 10 / HH 15 ppm: ESD (A)"),
                                    ("AAL", "H2S in gas low (sulphiding)", "0-1 mol %", "L 0.1 mol % alarm (A, range 0.05-0.3)"), ("LAHH", "V-203 level HH", "0-100 %", "HH 90 %: close XV-401 (A)")],
                        rows=[("H2S in raw gas", f"{S4['H2S']/sum(S4.values())*100:.2f} mol %", "D, Rev B"), ("CO in raw gas", f"{S4['CO']/sum(S4.values())*100:.0f} mol %", "D, Rev B")],
                        hazard="H2S/CO toxic, H2 flammable, 45 bar",

@@ -155,7 +155,7 @@ V-605,Vacuum separator (melt),vertical vessel,"0.3 bar, 128 C (S/A per HMB)",3.5
 VAC-601,Vacuum condenser + steam ejectors,vacuum condenser + ejectors,0.3 bar abs,full vacuum / 3 bar g (A),gap (vendor),A: vendor,A,717
 G-601,Fluid-bed granulator (urea melt spray),fluid-bed granulator,"melt 168 t/h, air 134 t/h",vendor,gap (vendor),A: vendor,A,718
 C-605,Dust scrubber,packed column,"1 bar, 90->45 C",3 bar g / 115 C (D),"5.2 m ID x 8 m (D,A)",A: stainless steel / FRP,D,719
-R-602,Urea hydrolyser (steam heated),hydrolyser (vessel / reactor),190 C / 20 bar (A),22 bar g / 215 C (D),gap,A: vendor,A,720
+R-602,Urea hydrolyser (steam heated),hydrolyser (vessel / reactor),190 C / 20 bar (A),"27.5 bar g / 250 C (D, 25 bar sat. steam side)",gap,A: vendor,A,720
 C-606,Process condensate desorber,trayed column,"4 bar, 150->145 C",6 bar g / 175 C (D),"1.4 m ID x 11 m (D,A)",A: stainless steel,D,721
 CV-601,Urea conveying system,solids conveying,160.4 t/h granules,vendor,belt width gap,A: vendor,A,722
 SH-801,HP / MP / LP steam headers,steam header system,HP 50 / MP 25 / LP 4.5 bar,per header PSV set,A,A: CS / Cr-Mo for HP,D,801

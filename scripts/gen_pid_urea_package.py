@@ -77,12 +77,9 @@ def overlaps(sh, min_area=6.0):
     return bad, out
 
 
-def main():
-    argv = sys.argv[1:]
-    if "--labels" in argv:      # record every drawn symbol with its bounding box (detector training data); must be installed before the area modules draw
-        import pid_rec; pid_rec.install()
-    out = argv[0] if argv and not argv[0].startswith("--") else "urea_package.html"
-    areas = argv[argv.index("--areas") + 1].split(",") if "--areas" in argv else AREAS
+def build_package(areas=None, safety=True, psfs=True):
+    """run the area builders, the safety overlay and the PSFS sheets; returns (pkg, built, safety stats, psfs stats)"""
+    areas = areas or AREAS
     pkg = Pkg("VS-CU", "Coal-to-urea complex, 3,850 t/d urea (Talcher-class): unit-by-unit conceptual P&IDs",
               f"Rev C rebased balance x{K:.4f}; capacity ICRA Feb 2025 / PIB 2026; areas 10-90", rev="C2")
     built = []
@@ -90,10 +87,20 @@ def main():
         try: m = importlib.import_module(f"urea_area_{a}")
         except ModuleNotFoundError: print(f"area {a}: module not present, skipped"); continue
         n0 = len(pkg.sheets); m.build(pkg); built.append((a, len(pkg.sheets) - n0))
-    safety = urea_safety.apply(pkg) if "--no-safety" not in argv else {}
-    psfs = urea_psfs.apply(pkg) if "--no-psfs" not in argv else {}
+    st = urea_safety.apply(pkg) if safety else {}
+    pf = urea_psfs.apply(pkg) if psfs else {}
     pkg.sheets.sort(key=lambda sh: sh.no); pkg.total = len(pkg.sheets)
     nos = [sh.no for sh in pkg.sheets]; assert len(nos) == len(set(nos)), "duplicate sheet numbers"
+    return pkg, built, st, pf
+
+
+def main():
+    argv = sys.argv[1:]
+    if "--labels" in argv:      # record every drawn symbol with its bounding box (detector training data); must be installed before the area modules draw
+        import pid_rec; pid_rec.install()
+    out = argv[0] if argv and not argv[0].startswith("--") else "urea_package.html"
+    areas = argv[argv.index("--areas") + 1].split(",") if "--areas" in argv else AREAS
+    pkg, built, safety, psfs = build_package(areas, safety="--no-safety" not in argv, psfs="--no-psfs" not in argv)
     problems, adv = lint(pkg)
     write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C2)", previews="--previews" in argv)
     if "--labels" in argv:

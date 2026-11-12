@@ -59,7 +59,7 @@ AAH-20161,hydrocarbon in intake air (cold-box safety),FA-2001,AAH,0-100 % LEL,al
 TI-20162,intake air temperature,FA-2001,TI,-10 to 60 C,-,A,201
 LAHH-20222,KO drum level high-high (compressor trip),K-2001-KO,LAHH,0-100 %,HH 90 % (A),A,202
 FIC-20251,anti-surge (flow vs surge line),K-2001,FIC,per vendor,surge margin per vendor (gap),A,202
-PAHH-20242,discharge pressure high-high (trip),K-2001,PAHH,0-10 bar,HH 7 bar (A),A,202
+PAHH-20242,discharge pressure high-high (trip),K-2001,PAHH,0-10 bar,"HH 6.3 bar (A, below design)",A,202
 VAHH-20243,vibration high-high (trip),K-2001,VAHH,per vendor,per vendor (gap),A,202
 TAH-20244,discharge temperature high,K-2001,TAH,0-100 C,H 60 C (A),A,202
 PIC-20311,column top pressure,C-2001,PIC,0-10 bar,H 6 / L 5 bar,A,203
@@ -101,17 +101,17 @@ TI-21112,hot outlet temperature indication,E-2006,TI,0-100 C,-,A,211
 PDI-21113,tube-side differential pressure (fouling),E-2006,PDI,0-2 bar,H 1.0 bar,A,211
 LAHH-21222,KO drum level high-high (compressor trip),K-2002-KO,LAHH,0-100 %,HH 90 % (A),A,212
 FIC-21251,anti-surge (flow vs surge line),K-2002,FIC,per vendor,surge margin per vendor (gap),A,212
-PAHH-21242,discharge pressure high-high (trip),K-2002,PAHH,0-60 bar,HH 55 bar (A),A,212
+PAHH-21242,discharge pressure high-high (trip),K-2002,PAHH,0-60 bar,"HH 52.2 bar (A, below design)",A,212
 VAHH-21243,vibration high-high (trip),K-2002,VAHH,per vendor,per vendor (gap),A,212
 TAH-21244,discharge temperature high,K-2002,TAH,0-100 C,H 60 C (A),A,212
 LAHH-21322,KO drum level high-high (compressor trip),K-2003-KO,LAHH,0-100 %,HH 90 % (A),A,213
 FIC-21351,anti-surge (flow vs surge line),K-2003,FIC,per vendor,surge margin per vendor (gap),A,213
-PAHH-21342,discharge pressure high-high (trip),K-2003,PAHH,0-50 bar,HH 44 bar (A),A,213
+PAHH-21342,discharge pressure high-high (trip),K-2003,PAHH,0-50 bar,"HH 41.8 bar (A, below design)",A,213
 VAHH-21343,vibration high-high (trip),K-2003,VAHH,per vendor,per vendor (gap),A,213
 TAH-21344,discharge temperature high,K-2003,TAH,0-100 C,H 60 C (A),A,213
 LAHH-21422,KO drum level high-high (compressor trip),K-2004-KO,LAHH,0-100 %,HH 90 % (A),A,214
 FIC-21451,anti-surge (flow vs surge line),K-2004,FIC,per vendor,surge margin per vendor (gap),A,214
-PAHH-21442,discharge pressure high-high (trip),K-2004,PAHH,0-70 bar,HH 64 bar (A),A,214
+PAHH-21442,discharge pressure high-high (trip),K-2004,PAHH,0-70 bar,"HH 60.8 bar (A, below design)",A,214
 VAHH-21443,vibration high-high (trip),K-2004,VAHH,per vendor,per vendor (gap),A,214
 TAH-21444,discharge temperature high,K-2004,TAH,0-100 C,H 60 C (A),A,214
 PAL-21560,"O2 header pressure low (alarm, standby start)",HD-2001,PAL,0-70 bar,L 45 bar (A),A,215
@@ -141,7 +141,7 @@ TAHH-30263,burner nozzle cooling water T high,BR-131,TAHH,0-150 C,HH 90 C (A),A,
 AAHH-30264,"CO / H2 detector, burner deck, 2oo3",BR-131,AAHH,0-100 % LEL,HH 20 % LEL (A),A,302
 LAHH-30322,KO drum level high-high (compressor trip),K-132-KO,LAHH,0-100 %,HH 90 % (A),A,303
 FIC-30351,anti-surge (flow vs surge line),K-132,FIC,per vendor,surge margin per vendor (gap),A,303
-PAHH-30342,discharge pressure high-high (trip),K-132,PAHH,0-50 bar,HH 49 bar (A),A,303
+PAHH-30342,discharge pressure high-high (trip),K-132,PAHH,0-50 bar,"HH 46.5 bar (A, below design)",A,303
 VAHH-30343,vibration high-high (trip),K-132,VAHH,per vendor,per vendor (gap),A,303
 TAH-30344,discharge temperature high,K-132,TAH,0-250 C,H 198 C (A),A,303
 TIC-30411,hot outlet temperature,E-131,TIC,0-150 C,H 95 / L 55 C,A,304
@@ -228,7 +228,7 @@ XSC-32263,user DBB valves proved closed,N2-150,XSC,limit,before process start (A
 FI-32264,N2 flow to each user,N2-150,FI,per user,-,A,322
 TI-40131,bed 1 outlet temperature (3 points),G-201,TI,0-300 C,-,A,401
 TAHH-40141,bed temperature high-high (trip),G-201,TAHH,0-300 C,HH 274 C (A),A,401
-PAHH-40142,pressure high-high (trip),G-201,PAHH,0-50 bar,HH 50 bar (A),A,401
+PAHH-40142,pressure high-high (trip),G-201,PAHH,0-50 bar,"HH 47.0 bar (A, below design)",A,401
 PDI-40143,bed differential pressure,G-201,PDI,0-5 bar,H 3 bar,A,401
 FFIC-40260,steam / raw-gas ratio control,X-201,FFIC,ratio 0-1 mol/mol,L 0.63 / LL 0.47 trip (A),A,402
 TAL-40261,mixed-gas temperature low (dew-point margin),X-201,TAL,0-400 C,"L 245 C, LL 235 C trip (A)",A,402
@@ -242,7 +242,7 @@ PDI-40413,tube-side differential pressure (fouling),H-201,PDI,0-2 bar,H 1.0 bar,
 TI-40531,bed 1 outlet temperature (3 points),R-201,TI,0-500 C,-,A,405
 TI-40532,bed 2 outlet temperature (3 points),R-201,TI,0-500 C,-,A,405
 TAHH-40541,bed temperature high-high (trip),R-201,TAHH,0-500 C,HH 410 C (A),A,405
-PAHH-40542,pressure high-high (trip),R-201,PAHH,0-50 bar,HH 50 bar (A),A,405
+PAHH-40542,pressure high-high (trip),R-201,PAHH,0-50 bar,"HH 47.0 bar (A, below design)",A,405
 PDI-40543,bed differential pressure,R-201,PDI,0-5 bar,H 3 bar,A,405
 TIC-40611,hot outlet temperature,E-202,TIC,0-650 C,H 315 / L 275 C,A,406
 TI-40612,hot outlet temperature indication,E-202,TI,0-650 C,-,A,406
@@ -256,7 +256,7 @@ AAHH-40862,"H2S / CO gas detection, trip to ESD",X-202,AAHH,0-100 ppm H2S,"L 5 p
 TI-40931,bed 1 outlet temperature (3 points),R-202,TI,0-300 C,-,A,409
 TI-40932,bed 2 outlet temperature (3 points),R-202,TI,0-300 C,-,A,409
 TAHH-40941,bed temperature high-high (trip),R-202,TAHH,0-300 C,HH 280 C (A),A,409
-PAHH-40942,pressure high-high (trip),R-202,PAHH,0-50 bar,HH 50 bar (A),A,409
+PAHH-40942,pressure high-high (trip),R-202,PAHH,0-50 bar,"HH 47.0 bar (A, below design)",A,409
 PDI-40943,bed differential pressure,R-202,PDI,0-5 bar,H 3 bar,A,409
 TIC-41011,hot outlet temperature,E-204,TIC,0-300 C,H 220 / L 180 C,A,410
 TI-41012,hot outlet temperature indication,E-204,TI,0-300 C,-,A,410
@@ -277,7 +277,7 @@ LIC-41421,level control,V-203,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,414
 LALL-41423,level low-low (pump trip),V-203,LALL,0-100 %,LL 10 %,A,414
 TAHH-41560,R-201 bed exit temperature (3 points),CP-201,TAHH,0-600 C,HH 520 C trip + depress (A),A,415
 TAHH-41561,R-202 bed exit temperature (3 points),CP-201,TAHH,0-400 C,HH 320 C trip (A),A,415
-PAHH-41562,shift pressure high-high,CP-201,PAHH,0-60 bar,HH 50 bar trip (A),A,415
+PAHH-41562,shift pressure high-high,CP-201,PAHH,0-60 bar,"HH 47 bar trip (A, below the 49.5 bar g design)",A,415
 AAHH-41563,H2S / CO detectors at R-201/R-202 platform,CP-201,AAHH,0-100 ppm H2S,"L 5 ppm (EH40 8-h WEL, D) / H 10 ppm (15-min STEL, D) / HH 15 ppm ESD (A)",D (EH40/2005 T1) + A,415
 AAL-41564,H2S in gas low (sulphiding),CP-201,AAL,0-1 mol %,"L 0.1 mol % alarm (A, range 0.05-0.3)",A,415
 LAHH-41565,V-203 level HH,CP-201,LAHH,0-100 %,HH 90 %: close XV-401 (A),A,415
@@ -293,7 +293,7 @@ LIC-50221,level control,V-303,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,502
 LALL-50223,level low-low (pump trip),V-303,LALL,0-100 %,LL 10 %,A,502
 LAHH-50322,KO drum level high-high (compressor trip),K-301-KO,LAHH,0-100 %,HH 90 % (A),A,503
 FIC-50351,anti-surge (flow vs surge line),K-301,FIC,per vendor,surge margin per vendor (gap),A,503
-PAHH-50342,discharge pressure high-high (trip),K-301,PAHH,0-50 bar,HH 48 bar (A),A,503
+PAHH-50342,discharge pressure high-high (trip),K-301,PAHH,0-50 bar,"HH 46.1 bar (A, below design)",A,503
 VAHH-50343,vibration high-high (trip),K-301,VAHH,per vendor,per vendor (gap),A,503
 TAH-50344,discharge temperature high,K-301,TAH,0-150 C,H 110 C (A),A,503
 PIC-50411,operating pressure,V-304,PIC,0-10 bar,H 6/ L 5 bar,A,504
@@ -324,7 +324,7 @@ PDAH-51061,bed differential pressure high,D-301,PDAH,0-1 bar,H 0.5 bar (A),A,510
 AAHH-51062,"CO2 asphyxiant gas detector, ESD",D-301,AAHH,0-5 vol %,H 0.5 / HH 1.5 vol % (A),A,510
 TI-51131,bed 1 outlet temperature (3 points),G-301,TI,0-50 C,-,A,511
 TAHH-51141,bed temperature high-high (trip),G-301,TAHH,0-50 C,HH 70 C (A),A,511
-PAHH-51142,pressure high-high (trip),G-301,PAHH,0-50 bar,HH 44 bar (A),A,511
+PAHH-51142,pressure high-high (trip),G-301,PAHH,0-50 bar,"HH 41.8 bar (A, below design)",A,511
 PDI-51143,bed differential pressure,G-301,PDI,0-5 bar,H 3 bar,A,511
 TIC-51211,hot outlet temperature,E-304,TIC,0-400 C,H 80 / L 40 C,A,512
 TI-51212,hot outlet temperature indication,E-304,TI,0-400 C,-,A,512
@@ -332,7 +332,7 @@ PDI-51213,tube-side differential pressure (fouling),E-304,PDI,0-2 bar,H 1.0 bar,
 TI-51331,bed 1 outlet temperature (3 points),R-301,TI,0-400 C,-,A,513
 TI-51332,bed 2 outlet temperature (3 points),R-301,TI,0-400 C,-,A,513
 TAHH-51341,bed temperature high-high (trip),R-301,TAHH,0-400 C,HH 367 C (A),A,513
-PAHH-51342,pressure high-high (trip),R-301,PAHH,0-50 bar,HH 44 bar (A),A,513
+PAHH-51342,pressure high-high (trip),R-301,PAHH,0-50 bar,"HH 41.8 bar (A, below design)",A,513
 PDI-51343,bed differential pressure,R-301,PDI,0-5 bar,H 3 bar,A,513
 TIC-51411,hot outlet temperature,E-305,TIC,0-400 C,H 295 / L 255 C,A,514
 TI-51412,hot outlet temperature indication,E-305,TI,0-400 C,-,A,514
@@ -358,14 +358,14 @@ TI-51912,hot outlet temperature indication,E-352,TI,0-400 C,-,A,519
 PDI-51913,tube-side differential pressure (fouling),E-352,PDI,0-2 bar,H 1.0 bar,A,519
 TI-52031,bed 1 outlet temperature (3 points),R-351,TI,0-400 C,-,A,520
 TAHH-52041,bed temperature high-high (trip),R-351,TAHH,0-400 C,HH 336 C (A),A,520
-PAHH-52042,pressure high-high (trip),R-351,PAHH,0-10 bar,HH 1 bar (A),A,520
+PAHH-52042,pressure high-high (trip),R-351,PAHH,0-10 bar,"HH 1.3 bar (A, below design)",A,520
 PDI-52043,bed differential pressure,R-351,PDI,0-5 bar,H 3 bar,A,520
 TIC-52111,hot outlet temperature,E-353,TIC,0-350 C,H 185 / L 145 C,A,521
 TI-52112,hot outlet temperature indication,E-353,TI,0-350 C,-,A,521
 PDI-52113,tube-side differential pressure (fouling),E-353,PDI,0-2 bar,H 1.0 bar,A,521
 TI-52231,bed 1 outlet temperature (3 points),R-352,TI,0-300 C,-,A,522
 TAHH-52241,bed temperature high-high (trip),R-352,TAHH,0-300 C,HH 282 C (A),A,522
-PAHH-52242,pressure high-high (trip),R-352,PAHH,0-10 bar,HH 1 bar (A),A,522
+PAHH-52242,pressure high-high (trip),R-352,PAHH,0-10 bar,"HH 1.2 bar (A, below design)",A,522
 PDI-52243,bed differential pressure,R-352,PDI,0-5 bar,H 3 bar,A,522
 TIC-52311,hot outlet temperature,E-354,TIC,0-300 C,H 145 / L 105 C,A,523
 TI-52312,hot outlet temperature indication,E-354,TI,0-300 C,-,A,523
@@ -376,7 +376,7 @@ LALL-52423,level low-low (stops pumps),T-351,LALL,0-100 %,LL 5 % (A),A,524
 TI-52414,bulk temperature,T-351,TI,100 to 180 C,-,A,524
 TI-52531,bed 1 outlet temperature (3 points),R-353,TI,0-400 C,-,A,525
 TAHH-52541,bed temperature high-high (trip),R-353,TAHH,0-400 C,HH 356 C (A),A,525
-PAHH-52542,pressure high-high (trip),R-353,PAHH,0-10 bar,HH 1 bar (A),A,525
+PAHH-52542,pressure high-high (trip),R-353,PAHH,0-10 bar,"HH 1.2 bar (A, below design)",A,525
 PDI-52543,bed differential pressure,R-353,PDI,0-5 bar,H 3 bar,A,525
 AAH-52660,stack SO2 analyser high,TGT-351,AAH,0-500 ppm,"limit per consent (A, not sourced)",A,526
 TAL-52661,incinerator temperature low (unburnt H2S),TGT-351,TAL,0-900 C,L 600 C alarm (A),A,526
@@ -384,14 +384,14 @@ AAHH-52662,"H2S detectors at absorber, ESD",TGT-351,AAHH,0-100 ppm,"L 5 ppm (EH4
 BSL-52663,incinerator flame low: trip,TGT-351,BSL,flame,A,A,526
 LAHH-60122,KO drum level high-high (compressor trip),K-401A-KO,LAHH,0-100 %,HH 90 % (A),A,601
 FIC-60151,anti-surge (flow vs surge line),K-401A,FIC,per vendor,surge margin per vendor (gap),A,601
-PAHH-60142,discharge pressure high-high (trip),K-401A,PAHH,0-100 bar,HH 98 bar (A),A,601
+PAHH-60142,discharge pressure high-high (trip),K-401A,PAHH,0-100 bar,"HH 93.6 bar (A, below design)",A,601
 VAHH-60143,vibration high-high (trip),K-401A,VAHH,per vendor,per vendor (gap),A,601
 TAH-60144,discharge temperature high,K-401A,TAH,0-100 C,H 60 C (A),A,601
 AT-60171,H2/NH3 gas detector,area,AT,0-300 ppm,"L 25 ppm (EH40 8-h WEL, D) / H 35 ppm (15-min STEL, D) / HH 150 ppm ESD (A; IDLH not read)",D (EH40/2005 T1) + A,601
 AAHH-60172,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,601
 LAHH-60222,KO drum level high-high (compressor trip),K-401B-KO,LAHH,0-100 %,HH 90 % (A),A,602
 FIC-60251,anti-surge (flow vs surge line),K-401B,FIC,per vendor,surge margin per vendor (gap),A,602
-PAHH-60242,discharge pressure high-high (trip),K-401B,PAHH,0-220 bar,HH 220 bar (A),A,602
+PAHH-60242,discharge pressure high-high (trip),K-401B,PAHH,0-220 bar,"HH 209.0 bar (A, below design)",A,602
 VAHH-60243,vibration high-high (trip),K-401B,VAHH,per vendor,per vendor (gap),A,602
 TAH-60244,discharge temperature high,K-401B,TAH,0-100 C,H 60 C (A),A,602
 AT-60271,H2/NH3 gas detector,area,AT,0-300 ppm,"L 25 ppm (EH40 8-h WEL, D) / H 35 ppm (15-min STEL, D) / HH 150 ppm ESD (A; IDLH not read)",D (EH40/2005 T1) + A,602
@@ -411,7 +411,7 @@ TI-60531,bed 1 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
 TI-60532,bed 2 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
 TI-60533,bed 3 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
 TAHH-60541,bed temperature high-high (trip),R-401,TAHH,0-600 C,HH 510 C (A),A,605
-PAHH-60542,pressure high-high (trip),R-401,PAHH,0-220 bar,HH 220 bar (A),A,605
+PAHH-60542,pressure high-high (trip),R-401,PAHH,0-220 bar,"HH 209.0 bar (A, below design)",A,605
 PDI-60543,bed differential pressure,R-401,PDI,0-5 bar,H 3 bar,A,605
 AT-60571,NH3/H2 gas detector,area,AT,0-300 ppm,"L 25 ppm (EH40 8-h WEL, D) / H 35 ppm (15-min STEL, D) / HH 150 ppm ESD (A; IDLH not read)",D (EH40/2005 T1) + A,605
 AAHH-60572,NH3/H2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,605
@@ -501,14 +501,14 @@ AT-61971,NH3 gas detector,area,AT,0-300 ppm,"L 25 ppm (EH40 8-h WEL, D) / H 35 p
 AAHH-61972,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,619
 LAHH-70122,KO drum level high-high (compressor trip),K-601A-KO,LAHH,0-100 %,HH 90 % (A),A,701
 FIC-70151,anti-surge (flow vs surge line),K-601A,FIC,per vendor,surge margin per vendor (gap),A,701
-PAHH-70142,discharge pressure high-high (trip),K-601A,PAHH,0-20 bar,HH 16 bar (A),A,701
+PAHH-70142,discharge pressure high-high (trip),K-601A,PAHH,0-20 bar,"HH 15.8 bar (A, below design)",A,701
 VAHH-70143,vibration high-high (trip),K-601A,VAHH,per vendor,per vendor (gap),A,701
 TAH-70144,discharge temperature high,K-601A,TAH,0-100 C,H 60 C (A),A,701
 AT-70171,CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,701
 AAHH-70172,CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,701
 LAHH-70222,KO drum level high-high (compressor trip),K-601B-KO,LAHH,0-100 %,HH 90 % (A),A,702
 FIC-70251,anti-surge (flow vs surge line),K-601B,FIC,per vendor,surge margin per vendor (gap),A,702
-PAHH-70242,discharge pressure high-high (trip),K-601B,PAHH,0-170 bar,HH 165 bar (A),A,702
+PAHH-70242,discharge pressure high-high (trip),K-601B,PAHH,0-170 bar,"HH 156.8 bar (A, below design)",A,702
 VAHH-70243,vibration high-high (trip),K-601B,VAHH,per vendor,per vendor (gap),A,702
 TAH-70244,discharge temperature high,K-601B,TAH,0-100 C,H 60 C (A),A,702
 AT-70271,CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,702

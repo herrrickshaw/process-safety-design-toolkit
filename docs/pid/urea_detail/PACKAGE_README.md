@@ -16,12 +16,12 @@ Status: CONCEPTUAL, SCREENING BASIS, NOT FOR CONSTRUCTION. Every number is tagge
 | 70 Urea | 701-722 | CO2 compressor, reactor, stripper, carbamate condenser, decomposers, evaporation, granulation, condensate treatment |
 | 80 Utilities | 801-820 | steam, BFW, DM, cooling water, air, nitrogen, ETP/ZLD, power block |
 | 95 Safety basis (Rev C1) | 951-959 | relief design-basis register (4 sheets), toxic-gas detector alarm basis, dust and inerting basis, oxygen-service velocity check, incident lessons mapped to sheets, open-gap register |
-| 97 PSFS views | 971-982 | Process Safeguarding Flow Scheme (conceptual view): one box per unit with its relief devices and destinations, ESD valves, trips and detectors, 12 pages across the nine areas |
+| 97 PSFS views | 971-991 | Process Safeguarding Flow Scheme (conceptual view): one box per unit in four sections (A final safeguards with set, capacity and destination; B control valves with fail action; C ESD valves; D discharge interfaces), every safeguard listed, 21 pages across the nine areas; blank template 970 in `PSFS_TEMPLATE.html` |
 | 90 Offsites and safety | 901-916 | flare, drains, urea store and bagging, fire protection concept, ESD hierarchy |
-Total 190 sheets (169 unit sheets + 9 safety-basis sheets + 12 PSFS sheets), 550 lines, 750 instruments, 204 equipment items, 138 relief devices, 1,058 valves, 462 streams. Registers: `registers/*.csv`, generated from the same data as the drawings.
+Total 199 sheets (169 unit sheets + 9 safety-basis sheets + 21 PSFS sheets), 550 lines, 750 instruments, 204 equipment items, 138 relief devices, 1,057 valves, 462 streams. Registers: `registers/*.csv`, generated from the same data as the drawings.
 
 Rebuild: `python3 scripts/gen_pid_urea_package.py docs/pid/UREA_UnitPID_RevC0.html --registers docs/pid/urea_detail/registers` (then print to PDF with headless Chrome).
-Lint (0 errors, 63 advisories): no duplicate equipment, instrument, valve or line tags; every relief device has a destination; every stream number used is registered. Advisories: sheets without an ESD valve (mostly utilities and solids; area notes say where) and gas lines above 60 m/s (large air/N2 and urea off-gas lines are ducts: the pipe table stops at 48 in).
+Lint (0 errors, 53 advisories): no duplicate equipment, instrument, valve or line tags; every relief device has a destination; every stream number used is registered. Advisories: sheets without an ESD valve (mostly utilities and solids; area notes say where) and gas lines above 60 m/s (large air/N2 and urea off-gas lines are ducts: the pipe table stops at 48 in).
 
 ## Rev B conflicts to resolve (found by the area builders)
 1. Area 30: after the wet scrub the syngas is 181.5 C and 41 bar, but Rev B sends it to R-201 at 350 C and 45 bar. Area 40 must reheat it; the Rev B stream table needs updating.
@@ -56,3 +56,6 @@ Not closed (standard not obtained or blocked): fire relief for hydrocarbon, syng
 
 ## What a licensor-grade 200-300 sheet package adds
 Vendor and licensor data (internals, catalyst volumes, nozzle schedules, equipment data sheets), P&IDs per pump/exchanger train with spares and tie-ins, instrument loop diagrams, cause-and-effect and SIL verification, relief and flare network sizing, plot plan and area classification. None of these can be generated from public data.
+
+## PSFS linter, template and the mistakes it found (Rev C2, second pass)
+`scripts/psfs_lint.py` checks the drawn PSFS sheets against the registers and the registers against each other (rules P01-P30, header of the script); `--fix` redraws the PSFS sheets from the registers. `scripts/psfs_template.py` draws the blank template (`PSFS_TEMPLATE.html/.pdf`), `scripts/psfs_variants.py` builds 10 layout variants, lints and scores each (`PSFS_VARIANTS.md`), `tests/test_psfs.py` seeds each mistake and checks that the linter finds it. How to edit a PSFS: `PSFS_EDITING_GUIDE.md`. Mistakes found in the earlier package and fixed at source: `PSFS_LINT_FINDINGS.md`.

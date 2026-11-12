@@ -132,7 +132,7 @@ def sheet_reactor(pkg, area, no, title, u):
         ctrlvalve(s, 240, top + 190); pkg.valves.append([f"TV-{lp}11", "control", "interbed quench", "quench", 4, "FC", sh.no])
     # high-temperature trip and pressure
     bub(s, pkg, sh, cx - 120, 130, "TAHH", f"{lp}41", u["tag"], "bed temperature high-high (trip)", f"0-{round_up(T*1.3,50):g} C", f"HH {u.get('tahh', ef.T + 60):.0f} C (A)", panel=True)
-    bub(s, pkg, sh, cx - 60, 130, "PAHH", f"{lp}42", u["tag"], "pressure high-high (trip)", f"0-{round_up(dP,10):g} bar", f"HH {P*1.1:.0f} bar (A)", panel=True)
+    bub(s, pkg, sh, cx - 60, 130, "PAHH", f"{lp}42", u["tag"], "pressure high-high (trip)", f"0-{round_up(dP,10):g} bar", f"HH {min(P*1.05, 0.95*dP):.1f} bar (A, below design)", panel=True)
     bub(s, pkg, sh, cx + 140, 150, "PDI", f"{lp}43", u["tag"], "bed differential pressure", "0-5 bar", "H 3 bar")
     psv_at(s, pkg, sh, cx + 30, top - 34, f"PSV-{lp}01", u["tag"], "blocked outlet; runaway; fire", dP, u.get("relief_dest", "flare header"), "not sized: needs runaway/fire load")
     PL(s, [(cx + 30, top - 56), (cx + 30, 110), (900, 110)], 1.6, INK, "6 3"); lab(s, 700, 106, f"PSV to {u.get('relief_dest', 'flare header')} (A)", 8.5, 400, "start", GREY)
@@ -177,7 +177,7 @@ def sheet_compressor(pkg, area, no, title, u):
     PL(s, [(700, 240), (700, 150), (440, 150), (440, y)], 1.8, INK, "6 3")
     ctrlvalve(s, 560, 150); pkg.valves.append([f"FV-{lp}51", "control", "anti-surge recycle", "recycle", si.nps(), "FO", sh.no])
     bub(s, pkg, sh, 560, 112, "FIC", f"{lp}51", u["tag"], "anti-surge (flow vs surge line)", "per vendor", "surge margin per vendor (gap)", panel=True)
-    bub(s, pkg, sh, 480, 420, "PAHH", f"{lp}42", u["tag"], "discharge pressure high-high (trip)", f"0-{round_up(dP,10):g} bar", f"HH {di.P*1.1:.0f} bar (A)", panel=True)
+    bub(s, pkg, sh, 480, 420, "PAHH", f"{lp}42", u["tag"], "discharge pressure high-high (trip)", f"0-{round_up(dP,10):g} bar", f"HH {min(di.P*1.05, 0.95*dP):.1f} bar (A, below design)", panel=True)
     bub(s, pkg, sh, 580, 420, "VAHH", f"{lp}43", u["tag"], "vibration high-high (trip)", "per vendor", "per vendor (gap)", panel=True)
     bub(s, pkg, sh, 680, 420, "TAH", f"{lp}44", u["tag"], "discharge temperature high", f"0-{round_up(di.T*1.3,50):g} C", f"H {di.T+20:.0f} C (A)")
     psv_at(s, pkg, sh, 700, 200, f"PSV-{lp}01", u["tag"] + " discharge", "blocked discharge", dP, u.get("relief_dest", "flare header"), "not sized: needs relief load")
@@ -279,7 +279,7 @@ def sheet_package(pkg, area, no, title, u):
     for i, il in enumerate(u.get("interlocks", [])):
         bub(s, pkg, sh, 150 + i * 60, 600, il[0], f"{lp}{60+i}", u["tag"], il[1], il[2], il[3], panel=True)
     if u.get("relief"):
-        psv_at(s, pkg, sh, bx + bw - 40, by - 20, f"PSV-{lp}01", u["tag"], u["relief"], max(design_conditions(x[0].P, x[0].T)[0] for x in list(ins) + list(outs)), u.get("relief_dest", "flare / safe location (A)"), "not sized: needs relief load")
+        psv_at(s, pkg, sh, bx + bw - 40, by - 20, f"PSV-{lp}01", u["tag"], u["relief"], u.get("relief_set", max(design_conditions(x[0].P, x[0].T)[0] for x in list(ins) + list(outs))), u.get("relief_dest", "flare / safe location (A)"), "not sized: needs relief load")
     eq(pkg, sh, u["tag"], u["name"], u.get("type", "packaged unit"), u.get("op", "see HMB"), u.get("design", "A"), u.get("size", "A"), u.get("mat", "A: vendor"), u.get("basis", "A"))
     rows = [("Type", u.get("type", "packaged unit"), "A")] + [(a, b, c) for a, b, c in u.get("rows", [])] + [("Hazard", u.get("hazard", "see HAZOP"), "-")]
     return finish(pkg, sh, area, u["tag"], u["name"], rows, u.get("notes", []))

@@ -40,7 +40,7 @@ PSV-31501,V-141,vacuum breaker failure; blocked vapour outlet,3.5,A,flare header
 PSV-31601,E-142 shell,tube rupture; blocked-in thermal expansion,7.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),316
 PVRV-31901,T-144,inbreathing/outbreathing; fire,0.0,A,sour-vent header to flare (A),not sized: needs pump-in/out rates and fire case; gap: standard not obtained (API 520/521),319
 PSV-32001,C-146,blocked outlet; fire; reboiler/utility failure,5.0,A,flare header,not sized: needs relief load; gap: standard not obtained (API 520/521),320
-XV-30160 (BDV-101),"R-101, E-101, E-132, F-135, VS-136, C-137 gas train",ESD-1 emergency depressurisation,n/a (opens on trip),A,KO-101 / FL-101 (area 90),not sized: flow by inventory / time (D),321
+XV-30160,"R-101 (BDV-101 Rev B),  E-101, E-132, F-135, VS-136, C-137 gas train",ESD-1 emergency depressurisation,n/a (opens on trip),A,KO-101 / FL-101 (area 90),not sized: flow by inventory / time (D),321
 PSV-40101,G-201,blocked outlet; runaway; fire,49.5,A,flare header,not sized: needs runaway/fire load; gap: standard not obtained (API 520/521),401
 PSV-40201,X-201,blocked outlet,55.0,A,flare / safe location (A),not sized: needs relief load,402
 PSV-40301,E-201 shell,tube rupture; blocked-in thermal expansion,49.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),403
@@ -116,7 +116,7 @@ PSV-71301,E-604 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / s
 PSV-71401,V-604,blocked outlet; fire,6.0,A,LP absorber / flare,"not sized: needs relief load (fire wetted area, vapour generation); gap: standard not obtained (API 520/521)",714
 PSV-71501,E-602 shell,tube rupture; blocked-in thermal expansion,6.0,A,atmosphere (vacuum breaker) / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),715
 PSV-71601,V-605,vacuum breaker; blocked vapour line,3.5,A,atmosphere (via safe location),"not sized: needs relief load (fire wetted area, vapour generation)",716
-PSV-71701,VAC-601,vacuum breaker,6.5,A,flare / safe location (A),not sized: needs relief load,717
+PSV-71701,VAC-601,vacuum breaker,3.0,A,flare / safe location (A),not sized: needs relief load,717
 PSV-71801,G-601,explosion vent panels (dust),8.0,A,flare / safe location (A),not sized: needs relief load,718
 PSV-71901,C-605,blocked outlet; fire; reboiler/utility failure,3.0,A,flare header,not sized: needs relief load; gap: standard not obtained (API 520/521),719
 PSV-72001,R-602,blocked outlet,27.5,A,flare / safe location (A),not sized: needs relief load,720
