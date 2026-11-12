@@ -11,7 +11,7 @@ import sys, os, importlib, collections, re, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from urea_basis import *
 from pid_unit import *
-import urea_safety
+import urea_safety, urea_psfs
 
 AREAS = ["10", "20", "30", "40", "50", "60", "70", "80", "90"]
 AREA_NAMES = {"10": "Coal and petcoke handling", "20": "Air separation", "30": "Gasification and water systems", "40": "Shift and heat recovery",
@@ -79,6 +79,8 @@ def overlaps(sh, min_area=6.0):
 
 def main():
     argv = sys.argv[1:]
+    if "--labels" in argv:      # record every drawn symbol with its bounding box (detector training data); must be installed before the area modules draw
+        import pid_rec; pid_rec.install()
     out = argv[0] if argv and not argv[0].startswith("--") else "urea_package.html"
     areas = argv[argv.index("--areas") + 1].split(",") if "--areas" in argv else AREAS
     pkg = Pkg("VS-CU", "Coal-to-urea complex, 3,850 t/d urea (Talcher-class): unit-by-unit conceptual P&IDs",
@@ -89,10 +91,17 @@ def main():
         except ModuleNotFoundError: print(f"area {a}: module not present, skipped"); continue
         n0 = len(pkg.sheets); m.build(pkg); built.append((a, len(pkg.sheets) - n0))
     safety = urea_safety.apply(pkg) if "--no-safety" not in argv else {}
+    psfs = urea_psfs.apply(pkg) if "--no-psfs" not in argv else {}
     pkg.sheets.sort(key=lambda sh: sh.no); pkg.total = len(pkg.sheets)
     nos = [sh.no for sh in pkg.sheets]; assert len(nos) == len(set(nos)), "duplicate sheet numbers"
     problems, adv = lint(pkg)
     write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C2)", previews="--previews" in argv)
+    if "--labels" in argv:
+        import json, pid_rec
+        os.makedirs(argv[argv.index("--labels") + 1], exist_ok=True)
+        lab = {str(sh.no): pid_rec.BOXES.get(id(sh), []) for sh in pkg.sheets}
+        json.dump(lab, open(os.path.join(argv[argv.index("--labels") + 1], "labels.json"), "w"))
+        print("symbol labels:", sum(len(v) for v in lab.values()), "on", sum(1 for v in lab.values() if v), "sheets")
     if "--registers" in argv: pkg.write_registers(argv[argv.index("--registers") + 1])
     print("areas:", ", ".join(f"{a}={n}" for a, n in built))
     print(f"{len(pkg.sheets)} sheets, {len(pkg.lines)} lines, {len(pkg.inst)} instruments, {len(pkg.equip)} equipment, {len(pkg.relief)} relief, {len(pkg.valves)} valves, {len(STREAMS)} streams")
@@ -101,7 +110,7 @@ def main():
     print(f"text overlaps: {tot} pairs on {sum(1 for v in ov.values() if v[0])} sheets; frame overruns: {sum(len(v[1]) for v in ov.values())}")
     for no, (a, b) in worst:
         if a or b: print(f"  sheet {no}: {len(a)} overlaps, {len(b)} overruns; e.g. {a[0] if a else b[0]}")
-    print("safety overlay:", safety)
+    print("safety overlay:", safety); print("PSFS:", {k: v for k, v in psfs.items() if k != "areas"}, "units/PSV/ESD/trips by area:", psfs.get("areas"))
     print(f"lint: {len(problems)} error(s), {len(adv)} advisory(ies)")
     for p in problems[:60]: print("  ERROR -", p)
     for p in adv[:80]: print("  advisory -", p)

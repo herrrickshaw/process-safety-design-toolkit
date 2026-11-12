@@ -1,5 +1,10 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-12: PSFS sheets and detector training data from the urea package (`scripts/urea_psfs.py`, `scripts/pid_rec.py`, `tools/detector/synth_pid_sheets.py`)
+* Twelve Process Safeguarding Flow Scheme sheets (971-982) derived from the package registers (relief devices with destinations, ESD valves, trips, detectors, per unit). No public labelled PSFS dataset exists (only a few unannotated figures) and the standard that defines the format is proprietary, so no PSFS corpus was collected and symbols and layout are this package's own.
+* `pid_rec.py` records every drawn symbol's bounding box (off by default); `gen_pid_urea_package.py --labels <dir>` writes them, giving 2,651 exactly labelled symbols on 175 sheets. `synth_pid_sheets.py` adds randomised sheets rich in pumps and tanks (the classes the detector misses). Both feed the detector retraining, which lives with the detector results, not here.
+* Rejected: using the proprietary PSFS standard or paid sample drawings; labelling scraped figures by hand; training on OPEN100 (it stays the held-out test).
+
 ## Unreleased - 2026-11-12: Rev C2, the urea balance rebased on sourced values (`scripts/gen_pid_urea.py` block "Rev C rebase", `docs/pid/urea_detail/REBASE_REVC.md`)
 * Replaced assumed inputs with values from documents read: gasifier feed 75 % coal + 25 % petcoke (Talcher EIA/PFR), carbon conversion 99.5 % (NETL Ex. 3-74, Eurlings GTC99), shift steam at H2O:CO 1.8 (NETL Case 6), acid gas 34 mol % H2S (NETL Case 6), converter exit 16.9 mol % NH3 (Talcher PFR), CO2 removal 99.95 %, ASU 461.5 kWh/t O2. At 3,850 t/d the feed is 148.8 t/h against 149.5 t/h in the Talcher EIA (Rev B was 243.1, +63 %). `UREA_REVC=0` reproduces Rev B; the Rev A repo reproduction asserts are untouched.
 * Consequences handled: relief k and Z frozen from Rev B kept (molar mass live; PSV-303 now H2-rich, A); area 40 bed inlets moved; area 50 Claus train carries the co-stripped CO2 as an inert; the stale numbers in AREA_*_NOTES.md are flagged, not rewritten.
