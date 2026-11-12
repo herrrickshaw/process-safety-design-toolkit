@@ -102,7 +102,7 @@ HV-20852,gate,P-2001B discharge isolation,"6""-PL-2026-A1",6,-,208
 HV-20901,gate,isolation,"12""-PG-2027-A1",12,-,209
 HV-20902,gate,isolation,"12""-PG-2028-A1",12,-,209
 HV-20903,gate,isolation,"6""-PL-2029-A1",6,-,209
-HV-20904,gate,isolation,"8""-PL-2030-A1",8,-,209
+HV-20904,gate,isolation,"12""-PL-2030-A1",12,-,209
 TV-20911,control,outlet temperature,cold feed,6,FO,209
 HV-20920,gate,drain,-,0.75,-,209
 HV-20921,gate,vent,-,0.75,-,209
@@ -125,9 +125,9 @@ HV-21121,gate,vent,-,0.75,-,211
 HV-21201,gate,isolation,"48""-PG-2038-O2",48,-,212
 XV-21251,ball,ESD isolation,"48""-PG-2038-O2",48,FC (ESD),212
 HV-21205,gate,KO drain,-,1,-,212
-NRV-21241,check,discharge check,-,8,-,212
-HV-21202,gate,isolation,"8""-PG-2039-O2",8,-,212
-XV-21252,ball,ESD isolation,"8""-PG-2039-O2",8,FC (ESD),212
+NRV-21241,check,discharge check,-,12,-,212
+HV-21202,gate,isolation,"12""-PG-2039-O2",12,-,212
+XV-21252,ball,ESD isolation,"12""-PG-2039-O2",12,FC (ESD),212
 FV-21251,control,anti-surge recycle,recycle,48,FO,212
 HV-21301,gate,isolation,"20""-PG-2040-A1",20,-,213
 XV-21351,ball,ESD isolation,"20""-PG-2040-A1",20,FC (ESD),213
@@ -143,10 +143,10 @@ NRV-21441,check,discharge check,-,4,-,214
 HV-21402,gate,isolation,"4""-PG-2043-A1",4,-,214
 XV-21452,ball,ESD isolation,"4""-PG-2043-A1",4,FC (ESD),214
 FV-21451,control,anti-surge recycle,recycle,16,FO,214
-HV-21501,gate,isolation,"8""-PG-2044-O2",8,-,215
-XV-21551,ball,ESD isolation,"8""-PG-2044-O2",8,FC (ESD),215
-HV-21502,gate,isolation,"8""-PG-2045-O2",8,-,215
-HV-21510,gate,isolation,"8""-PG-2046-O2",8,-,215
+HV-21501,gate,isolation,"12""-PG-2044-O2",12,-,215
+XV-21551,ball,ESD isolation,"12""-PG-2044-O2",12,FC (ESD),215
+HV-21502,gate,isolation,"12""-PG-2045-O2",12,-,215
+HV-21510,gate,isolation,"12""-PG-2046-O2",12,-,215
 HV-21601,gate,isolation,"8""-PG-2047-A1",8,-,216
 XV-21651,ball,ESD isolation,"8""-PG-2047-A1",8,FC (ESD),216
 HV-21602,gate,isolation,"4""-PG-2048-A1",4,-,216
@@ -157,8 +157,8 @@ HV-21612,gate,isolation,"96""-PG-2052-A1",96,-,216
 HV-30101,gate,isolation,"12""-BF-3001-CR",12,-,301
 HV-30102,gate,isolation,"16""-CL-3002-CR",16,-,301
 XV-30152,ball,ESD isolation,"16""-CL-3002-CR",16,FC (ESD),301
-HV-30103,gate,isolation,"8""-OX-3003-CR",8,-,301
-XV-30153,ball,ESD isolation,"8""-OX-3003-CR",8,FC (ESD),301
+HV-30103,gate,isolation,"12""-OX-3003-CR",12,-,301
+XV-30153,ball,ESD isolation,"12""-OX-3003-CR",12,FC (ESD),301
 HV-30104,gate,isolation,"6""-ST-3004-CR",6,-,301
 XV-30154,ball,ESD isolation,"6""-ST-3004-CR",6,FC (ESD),301
 HV-30105,gate,isolation,"1""-N2-3005-A1",1,-,301
@@ -173,7 +173,7 @@ HV-30112,gate,isolation,"8""-SL-3012-A1",8,-,301
 XV-30160,ball,emergency depressurisation (BDV-101 Rev B),-,4,FO,301
 HV-30201,gate,isolation,"0.5""-PL-3013-CR",0.5,-,302
 XV-30251,ball,ESD isolation,"0.5""-PL-3013-CR",0.5,FC (ESD),302
-HV-30202,gate,isolation,"1""-OX-3014-CR",1,-,302
+HV-30202,gate,isolation,"1.5""-OX-3014-CR",1.5,-,302
 HV-30203,gate,isolation,"1""-N2-3015-CR",1,-,302
 HV-30210,gate,isolation,"3""-SG-3016-CR",3,-,302
 HV-30301,gate,isolation,"16""-PG-3017-SG",16,-,303

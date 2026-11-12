@@ -11,6 +11,7 @@ import sys, os, importlib, collections, re, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from urea_basis import *
 from pid_unit import *
+import urea_safety
 
 AREAS = ["10", "20", "30", "40", "50", "60", "70", "80", "90"]
 AREA_NAMES = {"10": "Coal and petcoke handling", "20": "Air separation", "30": "Gasification and water systems", "40": "Shift and heat recovery",
@@ -40,6 +41,7 @@ def lint(pkg):
     for t, n in lines.items():
         if n > 1: out.append(f"duplicate line number {t} x{n}")
     for sh in pkg.sheets:
+        if getattr(sh, "docs", False): continue
         if not any(r[6] == sh.no and "ESD" in str(r[5]) for r in pkg.valves): adv.append(f"sheet {sh.no} has no ESD valve")
     for r in pkg.lines:
         try:
@@ -86,6 +88,7 @@ def main():
         try: m = importlib.import_module(f"urea_area_{a}")
         except ModuleNotFoundError: print(f"area {a}: module not present, skipped"); continue
         n0 = len(pkg.sheets); m.build(pkg); built.append((a, len(pkg.sheets) - n0))
+    safety = urea_safety.apply(pkg) if "--no-safety" not in argv else {}
     pkg.sheets.sort(key=lambda sh: sh.no); pkg.total = len(pkg.sheets)
     nos = [sh.no for sh in pkg.sheets]; assert len(nos) == len(set(nos)), "duplicate sheet numbers"
     problems, adv = lint(pkg)
@@ -98,6 +101,7 @@ def main():
     print(f"text overlaps: {tot} pairs on {sum(1 for v in ov.values() if v[0])} sheets; frame overruns: {sum(len(v[1]) for v in ov.values())}")
     for no, (a, b) in worst:
         if a or b: print(f"  sheet {no}: {len(a)} overlaps, {len(b)} overruns; e.g. {a[0] if a else b[0]}")
+    print("safety overlay:", safety)
     print(f"lint: {len(problems)} error(s), {len(adv)} advisory(ies)")
     for p in problems[:60]: print("  ERROR -", p)
     for p in adv[:80]: print("  advisory -", p)

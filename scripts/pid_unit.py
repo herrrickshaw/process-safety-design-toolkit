@@ -9,7 +9,7 @@ Number discipline (same as the rest of the toolkit): every value carries a tag.
 No licensed-standard text and no vendor data are used. Velocity limits, residence times, design margins and the
 ISA-5.1 tag letters are screening conventions, listed in RULES below so they are reviewed in one place.
 """
-import math, csv, os, textwrap
+import math, csv, os, textwrap, re
 from pidlib import *
 
 # ---- screening rules (all tag A) -------------------------------------------------------------------------
@@ -22,6 +22,19 @@ RULES = dict(
 NPS = [0.5, 0.75, 1, 1.5, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 30, 36, 42, 48,
        54, 60, 72, 84, 96, 120]   # nominal pipe sizes, inches (public series to 48 in); above 48 in the entries are fabricated ducts, nominal bore (A)
 R_GAS = 8.314462618   # J/mol/K (CODATA)
+
+
+O2_YES = re.compile(r"\boxygen\b|\bO2\b", re.I)
+O2_NO = re.compile(r"crude|LOX|liquid|CO2|N2|air|enrich", re.I)
+
+
+def eiga_limit(P_bar, impingement=True):
+    """EIGA Doc 13/20 oxygen-pipeline velocity limit, m/s (document read, grade A): impingement V = 30 for 0.3-1.5 MPa abs, P x V = 45 MPa m/s for 1.5-10 MPa,
+    4.5 for 10-20 MPa; non-impingement 60, P x V = 80, 8. Below 0.3 MPa abs the curve does not start: the 30 m/s value is used (A)."""
+    P = P_bar / 10.0
+    if P <= 1.5: return 30.0 if impingement else 60.0
+    if P <= 10.0: return (45.0 if impingement else 80.0) / P
+    return 4.5 if impingement else 8.0
 
 
 def nps_for(q_m3_s, v):
@@ -103,8 +116,10 @@ class St:
     def q(self): return self.flow * 1000 / 3600 / self.rho     # m3/s
 
     def vel_rule(self):
-        return {"gas": RULES["v_gas_hp"] if self.P > 30 else RULES["v_gas"], "liq": RULES["v_liq"], "slurry": RULES["v_slurry"],
-                "twophase": RULES["v_twophase"], "steam": RULES["v_steam"]}[self.phase]
+        v = {"gas": RULES["v_gas_hp"] if self.P > 30 else RULES["v_gas"], "liq": RULES["v_liq"], "slurry": RULES["v_slurry"],
+             "twophase": RULES["v_twophase"], "steam": RULES["v_steam"]}[self.phase]
+        if self.phase == "gas" and O2_YES.search(self.name) and not O2_NO.search(self.name): v = min(v, eiga_limit(self.P))   # oxygen service: EIGA impingement curve
+        return v
 
     def nps(self): return nps_for(self.q, self.vel_rule())
 
