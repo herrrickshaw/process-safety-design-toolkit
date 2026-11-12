@@ -158,6 +158,18 @@ class PsfsLint(unittest.TestCase):
         assert M.first_number("HH 47 bar") == 47.0 and M.design_bar_g(dict(design="27.5 bar g / 250 C (D)")) == 27.5
 
 
+    def test_no_text_overlaps_or_frame_overruns(self):
+        pkg = fresh(); bad = [(sh.no, G.overlaps(sh)) for sh in pkg.sheets if any(G.overlaps(sh))]
+        self.assertEqual(bad, [])
+
+    def test_title_block_rows_fit(self):
+        pkg = fresh(); self.assertLessEqual(len(pkg.project), 58); self.assertLessEqual(len(pkg.basis), 58)
+        self.assertTrue(all(len(s.sub) <= 58 for s in pkg.sheets), [s.sub for s in pkg.sheets if len(s.sub) > 58][:3])
+
+    def test_esd_exemptions_have_reasons_and_real_sheets(self):
+        pkg = fresh(); nos = {sh.no for sh in pkg.sheets}
+        self.assertTrue(set(G.ESD_EXEMPT) <= nos and all(len(r) > 20 for r in G.ESD_EXEMPT.values()))
+
     def test_readme_numbers_match_the_build(self):
         pkg = fresh()
         with open(os.path.join(os.path.dirname(__file__), "..", "docs", "pid", "urea_detail", "PACKAGE_README.md")) as f: txt = f.read()

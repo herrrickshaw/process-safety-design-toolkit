@@ -19,6 +19,18 @@ AREA_NAMES = {"10": "Coal and petcoke handling", "20": "Air separation", "30": "
               "80": "Utilities", "90": "Offsites and safety systems"}
 
 
+# Sheets that legitimately carry no ESD valve, with the reason (Rev C3). Only categories with no toxic / flammable / oxygen-rich fluid inventory to isolate are listed;
+# the cryogenic columns, vaporisers, flare system, EDV sheet, heaters, boiler and N2 / air packages stay advisories because whether they need one is a design decision.
+_SOL = "solids handling: no fluid inventory to isolate (dust explosion protection is by venting, RELIEF_SCHEDULE EV rows)"
+_UTL = "water / steam / air utility: non-toxic, non-flammable inventory"
+_LOG = "documentation or logic sheet: no process inventory"
+ESD_EXEMPT = {**{n: _SOL for n in (101, 102, 104, 306, 318, 722, 908, 909, 910, 911)},
+              **{n: _UTL for n in (201, 304, 317, 703, 715, 717, 719, 801, 802, 803, 806, 810, 812, 813, 814, 912)},
+              **{n: _LOG for n in (818, 819, 820, 907, 913, 914, 915, 916)},
+              321: "EDV sheet: the emergency depressurisation valve XV-30160 is registered once, on sheet 301 where it is drawn; the symbol is repeated here",
+              906: "open drain / oil separator: atmospheric, no pressurised inventory"}
+
+
 def lint(pkg):
     """returns (errors, advisories). Errors: duplicate tags/numbers, missing relief destination, unregistered stream. Advisories: sheet without ESD valve
     (many utility/solids sheets legitimately have none, the area notes say where), gas velocity above 60 m/s (large air/N2 lines are ducts, pipe table stops at 48 in)"""
@@ -42,6 +54,7 @@ def lint(pkg):
         if n > 1: out.append(f"duplicate line number {t} x{n}")
     for sh in pkg.sheets:
         if getattr(sh, "docs", False): continue
+        if sh.no in ESD_EXEMPT: continue
         if not any(r[6] == sh.no and "ESD" in str(r[5]) for r in pkg.valves): adv.append(f"sheet {sh.no} has no ESD valve")
     for r in pkg.lines:
         try:
@@ -80,8 +93,8 @@ def overlaps(sh, min_area=6.0):
 def build_package(areas=None, safety=True, psfs=True):
     """run the area builders, the safety overlay and the PSFS sheets; returns (pkg, built, safety stats, psfs stats)"""
     areas = areas or AREAS
-    pkg = Pkg("VS-CU", "Coal-to-urea complex, 3,850 t/d urea (Talcher-class): unit-by-unit conceptual P&IDs",
-              f"Rev C rebased balance x{K:.4f}; capacity ICRA Feb 2025 / PIB 2026; areas 10-90", rev="C2")
+    pkg = Pkg("VS-CU", "Coal-to-urea complex, 3,850 t/d urea (Talcher-class)",
+              f"Rev C balance x{K:.4f}; ICRA Feb 2025 / PIB 2026", rev="C3")   # title-block rows hold one line of 58 characters
     built = []
     for a in areas:
         try: m = importlib.import_module(f"urea_area_{a}")
@@ -102,7 +115,7 @@ def main():
     areas = argv[argv.index("--areas") + 1].split(",") if "--areas" in argv else AREAS
     pkg, built, safety, psfs = build_package(areas, safety="--no-safety" not in argv, psfs="--no-psfs" not in argv)
     problems, adv = lint(pkg)
-    write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C2)", previews="--previews" in argv)
+    write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C3)", previews="--previews" in argv)
     if "--labels" in argv:
         import json, pid_rec
         os.makedirs(argv[argv.index("--labels") + 1], exist_ok=True)

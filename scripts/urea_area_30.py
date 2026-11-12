@@ -444,8 +444,8 @@ def sheet_r101(pkg, ST, N):
     bub(sh, pkg, sh, 860, top + 325, "TI", f"{lp}33", "R-101 bath", "bath temperature", "0-150 C", "-")
     bub(sh, pkg, sh, 910, top + 325, "PDAH", f"{lp}34", "R-101 slag tap", "slag-tap differential pressure (plugging)", "0-5 bar", "H 3 bar (A)", panel=True)
     PL(sh, [(x1, top + 215), (745, top + 215)], 1.0, BLUE, "4 3"); PL(sh, [(x1, top + 270), (745, top + 270)], 1.0, BLUE, "4 3"); PL(sh, [(x1, top + 325), (745, top + 325)], 1.0, BLUE, "4 3")
-    lab(sh, 700, yb + 88, "ESD-1 (Rev B): PSHH-101 / AT-102 / BE-101 close XV-30151..53 (coal, O2, steam) and open XV-30160", 8.5, 700, "start", RED)
-    lab(sh, 700, yb + 100, "Licensor-owned: burners, wall circuit, slag tap, quench geometry, ash chemistry, light-up and trip sequences", 8.5, 400, "start", GREY)
+    lab(sh, 700, yb + 88, "ESD-1 (Rev B): PSHH-101 / AT-102 / BE-101 close XV-30151..53 and open XV-30160", 8.5, 700, "start", RED)
+    lab(sh, 700, yb + 100, "Licensor-owned: burners, wall circuit, slag tap, quench, ash chemistry, trip sequences", 8.5, 400, "start", GREY)
     t_res = 3.0; vol = ST[4].q * t_res; D = (4 * vol / (math.pi * 3.0)) ** (1 / 3); Ht = D * 3.0
     Pd, Td = design_conditions(P4, T_MIX)
     eq(pkg, sh, "R-101", "Entrained-flow slagging gasifier, membrane wall", "pressure vessel", f"{P4:g} bar, 1400 C gas (S Rev B)", f"{Pd:g} bar g / shell T by licensor", f"{vol:.0f} m3 reaction vol., ~{D:.1f} m x {Ht:.0f} m (D,A)", "A: licensor", "D")
@@ -647,7 +647,7 @@ def build(pkg):
         notes=[f"Inventory {EDV_VOL_M3:g} m3 (A 250-600) of gas at 45 bar, 300 C mean; average flow = inventory x (1 - 1/45) / {EDV_MIN:g} min; peak assumed 2 x average (A). The real peak is a flare-load case by the licensor.",
                "Relief schedule for area 30 (devices): PSV-30101 (R-101), PSV-30501 (V-102), PSV-30901 (D-133, atmosphere), PSV-31301..31501 (flash drums), PSV-32001 (C-146): see RELIEF_SCHEDULE.csv.",
                "Mass closure: 398 + 399 = 397. KO-101 and FL-101 are Rev B items (area 90). Flare-header temperature high (TAH, H 250 C A) is a further alarm not drawn."]))
-    valve(sh, 300, 280, 0, "ball", act=True, color=RED); lab(sh, 300, 252, "XV-30160 (BDV-101) FO", 8.5, 700, "middle", RED)
+    valve(sh, 300, 280, 0, "ball", act=True, color=RED); lab(sh, 300, 238, "XV-30160 (BDV-101) FO", 8.5, 700, "middle", RED)
     # XV-30160 is registered once, on sheet 301 where it is drawn; sheet 321 repeats the symbol only (a second register row duplicated the tag and carried free text in the tag field)
     pkg.relief.append(["XV-30160", "R-101 (BDV-101 Rev B),  E-101, E-132, F-135, VS-136, C-137 gas train", "ESD-1 emergency depressurisation", "n/a (opens on trip)", "A", "KO-101 / FL-101 (area 90)", "not sized: flow by inventory / time (D)", 321])
     # ---- 322 nitrogen

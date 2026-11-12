@@ -41,7 +41,7 @@ stream,name,phase,flow_t_h,T_C,P_bar,mw_or_rho
 17,liquid NH3 to T-501 (incl. boil-off return),liq,91.2,-33.3,1.1,17.03
 18,NH3 to V-601 (preheated),liq,91.0,40.0,25.0,17.03
 18,NH3 to E-601 (P-601 out),liq,91.0,40.0,150.0,17.03
-19,CO2 to stripper C-601 (K-601B out),liq,117.9,40.0,150.0,44.01
+19,CO2 to C-601 (K-601B out),liq,117.9,40.0,150.0,44.01
 2,oxygen ASU-101 to R-101,gas,100.6,40.0,50.0,32.00
 2,oxygen to R-101,gas,100.6,40.0,50.0,32.00
 2,oxygen to R-101 (standby path),gas,100.6,40.0,50.0,32.00

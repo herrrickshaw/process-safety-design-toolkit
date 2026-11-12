@@ -14,3 +14,15 @@ Each was found by `scripts/psfs_lint.py` on the package as committed in 18a7de8,
 Layout sweep (`PSFS_VARIANTS.md`): boxes 300 and 340 px wide were rejected by the linter (169 and 338 text-overflow errors); 380 px with tallest-first packing won (21 sheets, 0 errors, 0 overlaps).
 
 Open (advisories, not drawing mistakes): 133 relief capacities not sized, 9 set pressures by vendor, the >25 % capacity-determining screen not performed on 134 units.
+
+## Rev C3 (third pass): drawing errors
+| Where | Mistake | Fix |
+|---|---|---|
+| `pid_unit.py` vessel template, 16 sheets | ESD valve tag drawn above the inlet line on top of the stream label | tag below the line |
+| `pid_unit.py` data panel | item names longer than 21 characters ran into the value column (3 sheets) | item names wrap |
+| `urea_area_20.py` `fix_label` | the wrong template text was painted over, not removed, so it stayed in the drawing (3 sheets) | text removed |
+| `urea_area_30.py`, `urea_area_70.py` | five labels ran into the data panel or a neighbour (sheets 301, 321, 702) | shortened / moved |
+| every sheet, title block | project, basis and sheet subtitle wrapped onto two lines in a one-line row | at most 58 characters |
+| `gen_pid_urea_package.py` lint | 53 "no ESD valve" advisories mixed utilities with real questions | 36 exempt with a reason, 17 remain |
+
+Result: 0 lint errors, 0 text overlaps (was 30 pairs on 27 sheets), 17 advisories (was 53).

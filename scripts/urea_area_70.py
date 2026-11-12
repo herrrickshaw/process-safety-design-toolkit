@@ -122,7 +122,7 @@ def build(pkg):
     # ================= streams =================
     co2_in = simple("700", "CO2 + passivation air to K-601A", "gas", R["s19a"], 40.0, 1.5, mw=44.01); co2_in.rho_in = 2.6
     k_mid = simple("702", "K-601A discharge, cooled", "gas", R["s19a"], 40.0, 15.0, mw=44.01); k_mid.rho_in = 27.1
-    s19 = stream(19, "CO2 to stripper C-601 (K-601B out)", "liq", flow=R["s19a"], rho=780.2)
+    s19 = stream(19, "CO2 to C-601 (K-601B out)", "liq", flow=R["s19a"], rho=780.2)
     ds_i = lambda T, P, mw: None
     nh3_pre = stream(18, "NH3 to V-601 (preheated)", "liq", T=40.0, P=25.0, rho=580.7)
     s18 = stream(18, "NH3 to E-601 (P-601 out)", "liq", rho=594.0)

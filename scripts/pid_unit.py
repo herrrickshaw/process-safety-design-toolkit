@@ -85,7 +85,7 @@ class Pkg:
 class USheet(Sheet):
     """Sheet that prints the package revision instead of the library default"""
     def __init__(self, pkg, no, title, sub, total_ref):
-        super().__init__(no, title, sub, code=pkg.code, project=pkg.project, basis=pkg.basis)
+        super().__init__(no, title, textwrap.shorten(str(sub), 58, placeholder="..."), code=pkg.code, project=pkg.project, basis=pkg.basis)   # title-block row holds 58 characters
         self.pkg, self.total_ref = pkg, total_ref
 
     def svg(self):
@@ -171,9 +171,9 @@ def data_panel(s, pkg, sh, tag, name, rows, notes):
     y = section(s, 1135, 84, 445, f"{tag}  {name}")
     wrapped = [("Item", "Value", "Basis")]
     for a, b, c in rows:       # values longer than the column are wrapped onto continuation rows instead of overflowing the panel
-        parts = textwrap.wrap(str(b), 34) or [""]; cparts = textwrap.wrap(str(c), 15) or [""]
-        for k in range(max(len(parts), len(cparts))):
-            wrapped.append((a if k == 0 else "", parts[k] if k < len(parts) else "", cparts[k] if k < len(cparts) else ""))
+        parts = textwrap.wrap(str(b), 34) or [""]; cparts = textwrap.wrap(str(c), 15) or [""]; aparts = textwrap.wrap(str(a), 21) or [""]   # item names wrap too (120 px column)
+        for k in range(max(len(parts), len(cparts), len(aparts))):
+            wrapped.append((aparts[k] if k < len(aparts) else "", parts[k] if k < len(parts) else "", cparts[k] if k < len(cparts) else ""))
     y = table(s, 1135, y + 2, [120, 220, 105], wrapped, rh=18, size=10)
     y = section(s, 1135, y + 10, 445, "Notes")
     for n in notes: y = WRAP(s, 1143, y + 16, n, 72, 10, 12.5, bullet=True) - 2
@@ -217,8 +217,8 @@ def sheet_vessel(pkg, area, no, title, u):
     if u.get("esd", True):
         blockv(s, pkg, sh, 230, yin, 0, f"XV-{lp}02", n_in, nps_in, "ball", "ESD inlet isolation", "FC", act=True)
         pkg.valves[-1][5] = "FC (ESD)"
-        s.add(f'<line x1="230" y1="{yin-9}" x2="230" y2="{yin-28}" stroke="{RED}" stroke-width="1.4" stroke-dasharray="4 3"/>')
-        lab(s, 236, yin - 24, f"XV-{lp}02", 9, 700, "start", RED)
+        s.add(f'<line x1="230" y1="{yin+9}" x2="230" y2="{yin+24}" stroke="{RED}" stroke-width="1.4" stroke-dasharray="4 3"/>')   # tag below the line: above it collided with the stream label
+        lab(s, 236, yin + 30, f"XV-{lp}02", 9, 700, "start", RED)
     strm(s, 80, yin, inl.n); line_label(s, 52, yin - 26, n_in, inl)
     lab(s, 38, yin + 22, "from upstream unit (see key sheet)", 8.5, 400, "start", GREY)
     # gas outlet N2 top

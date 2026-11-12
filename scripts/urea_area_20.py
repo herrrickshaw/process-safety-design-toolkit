@@ -128,7 +128,8 @@ def fix_tank(sh, tag, name, vol, hours, impound):
 
 def fix_label(sh, x, y, w, text):
     """overpaint a template label that is wrong for non-flammable service and write the right one"""
-    R(sh, x, y - 10, w, 14, "#fff", "none", 0); lab(sh, x + 4, y, text, 8.5, 400, "start", GREY)
+    sh.p[:] = [e for e in sh.p if "PSV to flare header (A)" not in e]      # remove the template text (overpainting left it in the drawing and the text-overlap check)
+    lab(sh, x + 4, y, text, 8.5, 400, "start", GREY)
 
 
 def build(pkg):
