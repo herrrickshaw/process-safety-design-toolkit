@@ -1,0 +1,551 @@
+line_no,service,from,to,stream,phase,T_C,P_bar,flow_t_h,NPS_in,velocity_m_s,spec,tag_size,sheet
+"10""-SO-1001-A1",coal from wagons (as received),upstream,TP-1001,101,slurry,25.0,1.0,182.4,10,1.2,A1,A,101
+"10""-SO-1002-A1",coal on receiving belt,TP-1001,downstream,102,slurry,25.0,1.0,182.4,10,1.2,A1,A,101
+"10""-SO-1003-A1",coal on receiving belt,upstream,BC-1001,102,slurry,25.0,1.0,182.4,10,1.2,A1,A,102
+"10""-SO-1004-A1",coal at crusher house,BC-1001,downstream,103,slurry,25.0,1.0,182.4,10,1.2,A1,A,102
+"10""-SO-1005-A1",coal at crusher house,upstream,CR-1001,103,slurry,25.0,1.0,182.4,10,1.2,A1,A,103
+"10""-SO-1006-A1",crushed coal to stacker,CR-1001,downstream,104,slurry,25.0,1.0,182.4,10,1.2,A1,A,103
+"10""-SO-1007-A1",crushed coal to stacker,upstream,SY-1001,104,slurry,25.0,1.0,182.4,10,1.2,A1,A,104
+"10""-SO-1008-A1",coal reclaimed to blending,SY-1001,downstream,105,slurry,25.0,1.0,182.4,10,1.2,A1,A,104
+"6""-SO-1009-A1",petcoke from trucks / wagons,upstream,PS-1001,106,slurry,25.0,1.0,60.8,6,1.2,A1,A,105
+"6""-SO-1010-A1",petcoke reclaimed to blending,PS-1001,downstream,107,slurry,25.0,1.0,60.8,6,1.2,A1,A,105
+"10""-SO-1011-A1",coal reclaimed to blending,upstream,BN-1001,105,slurry,25.0,1.0,182.4,10,1.2,A1,A,106
+"6""-SO-1012-A1",petcoke reclaimed to blending,upstream,BN-1001,107,slurry,25.0,1.0,60.8,6,1.2,A1,A,106
+"12""-SO-1013-A1",coal-petcoke blend to F-101,BN-1001,downstream,1,slurry,25.0,1.0,243.1,12,1.2,A1,A,106
+"12""-SO-1014-A1",coal-petcoke blend to F-101,upstream,F-101,1,slurry,25.0,1.0,243.1,12,1.2,A1,A,107
+DUCT-GS-1015-A1,hot inert gas to F-101,upstream,F-101,110,gas,250.0,1.1,476.4,9.3 m2,20.0,A1,A,107
+DUCT-SO-1016-A1,mill discharge: PC in gas,F-101,downstream,108,twophase,80.0,1.05,719.6,17.3 m2,12.0,A1,A,107
+DUCT-SO-1017-A1,mill discharge: PC in gas,upstream,BF-101,108,twophase,80.0,1.05,719.6,17.3 m2,12.0,A1,A,108
+"14""-SO-1018-A1",pulverised coal to PC bin,BF-101,downstream,109,slurry,80.0,1.0,216.3,14,1.2,A1,A,108
+"120""-GS-1019-A1",clean mill gas to stack,BF-101,downstream,111,gas,70.0,1.0,503.2,120,21.0,A1,A,108
+"14""-SO-1020-A1",pulverised coal to PC bin,upstream,V-1001,109,slurry,80.0,1.0,216.3,14,1.2,A1,A,109
+"2""-GS-1021-A1",inerting N2 to PC bin,upstream,V-1001,113,gas,40.0,1.1,0.1,2,17.3,A1,A,109
+"14""-SO-1022-A1",PC to lock hoppers,V-1001,downstream,112,slurry,80.0,1.0,216.3,14,1.2,A1,A,109
+"2""-GS-1023-A1",bin vent gas to BF-101,V-1001,downstream,114,gas,40.0,1.1,0.1,2,17.3,A1,A,109
+"14""-SO-1024-A1",PC to lock hoppers,upstream,LH-1001,112,slurry,80.0,1.0,216.3,14,1.2,A1,A,110
+"3""-GS-1025-A1",HP N2 for lock hopper pressurisation (net),upstream,LH-1001,116,gas,60.0,58.0,12.0,3,12.5,A1,A,110
+"14""-SO-1026-A1",PC to pressurised feed vessel,LH-1001,downstream,115,slurry,60.0,55.0,216.3,14,1.2,A1,A,110
+"18""-GS-1027-A1",lock hopper vent gas to BF-101,LH-1001,downstream,117,gas,60.0,1.1,12.0,18,18.3,A1,A,110
+"14""-SO-1028-A1",PC to pressurised feed vessel,upstream,FV-1001,115,slurry,60.0,55.0,216.3,14,1.2,A1,A,111
+"4""-GS-1029-A1",HP N2 conveying and aeration gas,upstream,FV-1001,118,gas,60.0,58.0,31.3,4,18.3,A1,A,111
+"6""-SO-1030-A1",dense-phase PC + N2 to burner B1,FV-1001,downstream,119,twophase,60.0,52.0,61.9,6,2.7,A1,A,111
+"6""-SO-1031-A1",dense-phase PC + N2 to burner B2,FV-1001,downstream,120,twophase,60.0,52.0,61.9,6,2.7,A1,A,111
+"6""-SO-1032-A1",dense-phase PC + N2 to burner B3,FV-1001,downstream,121,twophase,60.0,52.0,61.9,6,2.7,A1,A,111
+"6""-SO-1033-A1",dense-phase PC + N2 to burner B4,FV-1001,downstream,122,twophase,60.0,52.0,61.9,6,2.7,A1,A,111
+"6""-SO-1034-A1",dense-phase PC + N2 to burner B1,upstream,BL-1001,119,twophase,60.0,52.0,61.9,6,2.7,A1,A,112
+"0.5""-GS-1035-A1",N2 purge to burner line B1,upstream,BL-1001,124,gas,40.0,58.0,0.1,0.5,1.8,A1,A,112
+"6""-SO-1036-A1",PC + N2 to burner B1 (gasifier R-101),BL-1001,downstream,123,twophase,60.0,49.0,61.9,6,2.7,A1,A,112
+"0.5""-GS-1037-A1",purge gas into burner (during trip),BL-1001,downstream,125,gas,40.0,49.0,0.1,0.5,2.1,A1,A,112
+"3""-GS-1038-A1",LP N2 inerting header from area 20,upstream,IN-1001,126,gas,40.0,1.1,0.2,3,10.2,A1,A,113
+"2""-GS-1039-A1",inerting N2 to PC bin,IN-1001,downstream,113,gas,40.0,1.1,0.1,2,17.3,A1,A,113
+"1.5""-GS-1040-A1",instrument and seal purge N2,IN-1001,downstream,127,gas,40.0,1.1,0.1,1.5,10.3,A1,A,113
+"120""-PG-2001-A1",air to ASU-101,upstream,FA-2001,25,gas,25.0,1.0,574.2,120,18.8,A1,A,201
+"120""-PG-2002-A1",filtered air to MAC,FA-2001,downstream,201,gas,25.0,0.98,574.2,120,19.2,A1,A,201
+"120""-PG-2003-A1",filtered air to MAC,upstream,K-2001-KO,201,gas,25.0,0.98,574.2,120,19.2,A1,A,202
+"54""-PG-2004-A1",compressed air to DCC,K-2001-AC,downstream,202,gas,40.0,6.0,574.2,54,16.2,A1,A,202
+"54""-PG-2005-A1",compressed air to DCC,upstream,C-2001,202,gas,40.0,6.0,574.2,54,16.2,A1,A,203
+"8""-PL-2006-A1",chilled water to DCC,upstream,C-2001 top feed,204,liq,8.0,4.0,203.0,8,1.7,A1,A,203
+"48""-PG-2007-A1",cooled air to adsorbers,C-2001,downstream,203,gas,15.0,5.7,574.2,48,19.9,A1,A,203
+"8""-PL-2008-A1",water from DCC,C-2001,downstream,205,liq,25.0,1.5,203.0,8,1.7,A1,A,203
+"48""-PG-2009-A1",cooled air to adsorbers,upstream,AD-2001,203,gas,15.0,5.7,574.2,48,19.9,A1,A,204
+"42""-PG-2010-A1",hot regeneration N2,upstream,AD-2001,207,gas,180.0,1.2000000000000002,57.4,42,20.0,A1,A,204
+"54""-PG-2011-A1",purified air to cold box,AD-2001,downstream,206,gas,18.0,5.5,574.2,54,16.5,A1,A,204
+"42""-PG-2012-A1",regeneration waste N2,AD-2001,downstream,208,gas,60.0,1.1,57.4,42,16.0,A1,A,204
+"54""-PG-2013-A1",purified air to cold box,upstream,CB-2001,206,gas,18.0,5.5,574.2,54,16.5,A1,A,205
+"48""-PG-2014-A1",oxygen gas from cold box,CB-2001,downstream,209,gas,20.0,1.3,133.7,48,18.6,A1,A,205
+"24""-PG-2015-A1",HP N2 product from cold box,CB-2001,downstream,210,gas,20.0,5.2,118.8,24,18.9,A1,A,205
+"84""-PG-2016-A1",waste N2 from cold box,CB-2001,downstream,213,gas,20.0,1.1,321.6,84,19.8,A1,A,205
+"42""-PG-2017-A1",air feed to HP column (part liquid),upstream,C-2002,219,twophase,-176.0,5.5,574.2,42,9.1,A1,A,206
+"20""-PG-2018-A1",HP column top N2,C-2002,downstream,220,gas,-178.0,5.4,232.3,20,16.6,A1,A,206
+"12""-PL-2019-A1",crude oxygen liquid (HP sump),C-2002,downstream,221,liq,-175.0,5.5,341.9,12,1.4,A1,A,206
+"12""-PG-2020-A1",crude oxygen after expansion,upstream,C-2003,222,liq,-190.0,1.5,341.9,12,1.4,A1,A,207
+"8""-PL-2021-A1",LIN reflux from HP top,upstream,C-2003 top feed,223,liq,-194.0,1.5,113.5,8,1.2,A1,A,207
+"42""-PG-2022-A1",LP column top waste N2,C-2003,downstream,224,gas,-193.0,1.2999999999999998,321.6,42,18.3,A1,A,207
+"6""-PL-2023-A1",liquid oxygen (LP sump),C-2003,downstream,225,liq,-181.0,1.4,133.7,6,1.8,A1,A,207
+"2""-PL-2024-A1",LOX fill (intermittent),upstream,T-2001,226,liq,-181.0,1.5,11.1,2,1.3,A1,A,208
+"6""-PL-2025-A1",LOX to pumps / vaporiser,T-2001,downstream,227,liq,-183.0,1.2,133.7,6,1.8,A1,A,208
+"6""-PL-2026-A1",LOX to pumps / vaporiser,T-2001,downstream,227,liq,-183.0,1.2,133.7,6,1.8,A1,A,208
+"12""-PG-2027-A1",hot water to LOX vaporiser,upstream,E-2005 tube,230,liq,80.0,4.0,424.3,12,1.7,A1,A,209
+"12""-PG-2028-A1",hot water return,E-2005 tube,downstream,231,liq,50.0,3.0,424.3,12,1.6,A1,A,209
+"6""-PL-2029-A1",LOX pumped to vaporiser,supply,E-2005 shell,228,liq,-178.0,50.0,133.7,6,1.8,A1,A,209
+"8""-PL-2030-A1",O2 gas to header (standby),E-2005 shell,return,229,gas,20.0,49.0,133.7,8,17.8,A1,A,209
+"1.5""-PL-2031-A1",LIN fill (intermittent),upstream,T-2002,239,liq,-194.0,1.5,6.3,1.5,1.9,A1,A,210
+"6""-PL-2032-A1",LIN to pumps / vaporiser,T-2002,downstream,234,liq,-194.0,1.2,75.5,6,1.4,A1,A,210
+"6""-PL-2033-A1",LIN to pumps / vaporiser,T-2002,downstream,234,liq,-194.0,1.2,75.5,6,1.4,A1,A,210
+"10""-PG-2034-A1",hot water to LIN vaporiser,upstream,E-2006 tube,237,liq,80.0,4.0,251.2,10,1.4,A1,A,211
+"10""-PG-2035-A1",hot water return,E-2006 tube,downstream,238,liq,50.0,3.0,251.2,10,1.4,A1,A,211
+"6""-PL-2036-A1",LIN pumped to vaporiser,supply,E-2006 shell,235,liq,-190.0,40.0,75.5,6,1.4,A1,A,211
+"8""-PL-2037-A1",N2 gas to header (standby),E-2006 shell,return,236,gas,20.0,39.0,75.5,8,14.4,A1,A,211
+"48""-PG-2038-O2",oxygen gas from cold box,upstream,K-2002-KO,209,gas,20.0,1.3,133.7,48,18.6,O2,A,212
+"8""-PG-2039-O2",oxygen ASU-101 to R-101,K-2002-AC,downstream,2,gas,40.0,50.0,133.7,8,18.6,O2,A,212
+"20""-PG-2040-A1",N2 to K-2003 suction,upstream,K-2003-KO,232,gas,20.0,5.2,75.5,20,17.3,A1,A,213
+"8""-PG-2041-A1",N2 from ASU to K-401,K-2003-AC,downstream,14,gas,40.0,40.0,75.5,8,15.0,A1,A,213
+"16""-PG-2042-A1",HP N2 to K-2004 suction,upstream,K-2004-KO,233,gas,20.0,5.2,43.4,16,15.5,A1,A,214
+"4""-PG-2043-A1",HP N2 to area 10 users,K-2004-AC,downstream,215,gas,40.0,58.0,43.4,4,23.8,A1,A,214
+"8""-PG-2044-O2",oxygen ASU-101 to R-101,upstream,HD-2001,2,gas,40.0,50.0,133.7,8,18.6,O2,A,215
+"8""-PG-2045-O2",O2 gas to header (standby),upstream,HD-2001,229,gas,20.0,49.0,133.7,8,17.8,O2,A,215
+"8""-PG-2046-O2",oxygen to R-101,HD-2001,downstream,2,gas,40.0,50.0,133.7,8,18.6,O2,A,215
+"8""-PG-2047-A1",N2 from ASU to K-401,upstream,HD-2002,14,gas,40.0,40.0,75.5,8,15.0,A1,A,216
+"4""-PG-2048-A1",HP N2 to area 10 users,upstream,HD-2002,215,gas,40.0,58.0,43.4,4,23.8,A1,A,216
+"84""-PG-2049-A1",waste N2 from cold box,upstream,HD-2002,213,gas,20.0,1.1,321.6,84,19.8,A1,A,216
+"8""-PG-2050-A1",N2 to K-401 (loop),HD-2002,downstream,14,gas,40.0,40.0,75.5,8,15.0,A1,A,216
+"4""-PG-2051-A1",HP N2 to area 10 users,HD-2002,downstream,215,gas,40.0,58.0,43.4,4,23.8,A1,A,216
+"96""-PG-2052-A1","surplus N2 to vent, after area 10 import",HD-2002,downstream,26,gas,25.0,1.1,321.6,96,15.4,A1,A,216
+"12""-BF-3001-CR",wall circulation water,D-133 / P-134,R-101 wall,367,liq,311.0,100.0,311.9,12,1.7,CR,A,301
+"16""-CL-3002-CR","coal, dense-phase",F-101,R-101 burners,1,slurry,25.0,50.0,243.1,16,1.3,CR,A,301
+"8""-OX-3003-CR",oxygen,ASU-101,R-101 burners,2,gas,40.0,50.0,133.7,8,18.6,CR,A,301
+"6""-ST-3004-CR",HP steam to burners,steam header,R-101 burners,3,steam,400.0,50.0,24.3,6,23.0,CR,A,301
+"1""-N2-3005-A1",N2 to burners and R-101 purge,N2 header,R-101 purge,381,gas,25.0,56.0,2.0,1,17.3,A1,A,301
+"6""-GW-3006-A1",bath make-up water,T-144 pumps,bath,328,liq,70.0,50.0,100.1,6,1.6,A1,A,301
+"36""-SG-3007-CR",mixed gas to E-101,R-101,E-101,302,gas,900.0,44.5,556.4,36,24.4,CR,A,301
+"16""-SG-3008-CR",quench recycle gas,K-132,R-101 quench,301,gas,189.5,44.5,250.3,16,22.0,CR,A,301
+"8""-BF-3009-CR","wall return, two-phase",R-101 wall,D-133,368,twophase,311.0,98.0,311.9,8,9.4,CR,A,301
+"18""-GW-3010-A1","bath water, hot",bath,E-131,321,liq,105.0,45.0,965.3,18,1.7,A1,A,301
+"18""-GW-3011-A1","bath water, cooled",E-131,bath,322,liq,80.0,45.0,965.3,18,1.7,A1,A,301
+"8""-SL-3012-A1",slag slurry to V-102,R-101 bath,V-102,323,slurry,80.0,45.0,166.8,8,1.1,A1,A,301
+"0.5""-PL-3013-CR",start-up liquid fuel,upstream,BR-131,385,liq,40.0,56.0,0.5,0.5,1.3,CR,A,302
+"1""-OX-3014-CR",start-up oxygen (branch of 2),upstream,BR-131,387,gas,40.0,50.0,1.8,1,15.8,CR,A,302
+"1""-N2-3015-CR",N2 to burners and R-101 purge,upstream,BR-131,381,gas,25.0,56.0,2.0,1,17.3,CR,A,302
+"3""-SG-3016-CR",burner hot gas into R-101,BR-131,downstream,388,gas,1400.0,45.0,2.3,3,15.3,CR,A,302
+"16""-PG-3017-SG",recycle gas to K-132,upstream,K-132-KO,307,gas,181.5,41.0,250.3,16,23.4,SG,A,303
+"16""-PG-3018-SG",quench recycle gas,K-132-AC,downstream,301,gas,189.5,44.5,250.3,16,22.0,SG,A,303
+"18""-PG-3019-A1","bath water, hot",upstream,E-131 tube,321,liq,105.0,45.0,965.3,18,1.7,A1,A,304
+"18""-PG-3020-A1","bath water, cooled",E-131 tube,downstream,322,liq,80.0,45.0,965.3,18,1.7,A1,A,304
+"24""-CW-3021-A1",cooling water supply,supply,E-131 shell,371,liq,30.0,5.0,"2,014.9",24,1.9,A1,A,304
+"24""-CW-3022-A1",cooling water return,E-131 shell,return,372,liq,42.0,4.5,"2,014.9",24,1.9,A1,A,304
+"8""-SL-3023-A1",slag slurry to V-102,upstream,V-102,323,slurry,80.0,45.0,166.8,8,1.1,A1,A,305
+"12""-SG-3024-A1",lock-hopper vent gas,V-102,downstream,324,gas,80.0,1.5,4.3,12,14.5,A1,A,305
+"8""-SL-3025-A1",slag slurry to dewatering,V-102,downstream,325,slurry,80.0,1.5,162.5,8,1.1,A1,A,305
+"8""-SL-3026-A1",slag slurry to dewatering,upstream,DW-147,325,slurry,80.0,1.5,162.5,8,1.1,A1,A,306
+"6""-SL-3027-A1",slag cake,DW-147,downstream,326,slurry,80.0,1.0,88.1,6,0.9,A1,A,306
+"6""-GW-3028-A1",dewatering overflow,DW-147,downstream,327,liq,80.0,1.0,74.4,6,1.2,A1,A,306
+"36""-PG-3029-CR",mixed gas to E-101,upstream,E-101 tube,302,gas,900.0,44.5,556.4,36,24.4,CR,A,307
+"30""-PG-3030-CR",gas from E-101,E-101 tube,downstream,303,gas,341.0,43.0,556.4,30,19.0,CR,A,307
+"36""-BF-3031-CR",E-101 circulation water,supply,E-101 shell,369,liq,311.0,100.0,"2,638.0",36,1.6,CR,A,307
+"24""-BF-3032-CR","E-101 return, two-phase",E-101 shell,return,364,twophase,311.0,98.0,"2,638.0",24,8.8,CR,A,307
+"30""-PG-3033-CR",gas from E-101,upstream,E-132 tube,303,gas,341.0,43.0,556.4,30,19.0,CR,A,308
+"30""-PG-3034-CR",gas from E-132,E-132 tube,downstream,304,gas,243.4,42.5,556.4,30,16.2,CR,A,308
+"12""-BF-3035-CR",boiler feed water,supply,E-132 shell,361,liq,200.0,110.0,376.3,12,1.6,CR,A,308
+"12""-BF-3036-CR",BFW from economiser,E-132 shell,return,360,liq,250.0,108.0,376.3,12,1.7,CR,A,308
+"24""-BF-3037-CR",riser return to drum,upstream,D-133,365,twophase,311.0,98.0,"2,949.9",24,9.9,CR,A,309
+"12""-ST-3038-CR","HP steam, saturated",D-133,downstream,362,steam,311.0,100.0,368.7,12,25.3,CR,A,309
+"36""-BF-3039-CR",downcomer water to P-134,D-133,P-134,366,liq,311.0,100.0,"2,949.9",36,1.8,CR,A,309
+"12""-BF-3040-CR",BFW from economiser,E-132,D-133,360,liq,250.0,108.0,376.3,12,1.7,CR,A,309
+"2""-BF-3041-CR",boiler blowdown,D-133,blowdown flash (area 70),363,liq,311.0,100.0,7.5,2,1.5,CR,A,309
+"30""-SG-3042-CR",gas from E-132,upstream,F-135,304,gas,243.4,42.5,556.4,30,16.2,CR,A,310
+"0.75""-N2-3043-CR",N2 back-pulse to F-135,upstream,F-135,382,gas,25.0,56.0,1.2,0.75,18.5,CR,A,310
+"30""-SG-3044-CR",gas + fines from F-135,F-135,downstream,309,gas,243.4,42.0,557.2,30,16.4,CR,A,310
+"6""-SL-3045-CR",dry fly ash,F-135,downstream,313,slurry,243.4,42.5,27.7,6,0.8,CR,A,310
+"30""-SG-3046-CR",gas + fines from F-135,upstream,VS-136,309,gas,243.4,42.0,557.2,30,16.4,CR,A,311
+"3""-GW-3047-CR",wash water to venturi,upstream,VS-136,331,liq,70.0,46.0,30.2,3,1.9,CR,A,311
+"36""-SG-3048-CR","venturi outlet, gas + water",VS-136,downstream,308,twophase,181.5,41.5,587.4,36,10.5,CR,A,311
+"36""-PG-3049-SG","venturi outlet, gas + water",upstream,C-137,308,twophase,181.5,41.5,587.4,36,10.5,SG,A,312
+"2""-PL-3050-SG",stripped water to column top,upstream,C-137 top feed,330,liq,70.0,46.0,13.0,2,1.8,SG,A,312
+"24""-PG-3051-SG","scrubbed syngas, total",C-137,downstream,305,gas,181.5,41.0,571.8,24,23.8,SG,A,312
+"3""-PL-3052-SG",black water bleed,C-137,downstream,332,liq,181.5,41.0,28.6,3,1.9,SG,A,312
+"6""-BW-3053-SS","black water after let-down, HP",upstream,V-139,334,twophase,158.83,6.0,28.6,6,7.2,SS,A,313
+"4""-SG-3054-SS",HP flash steam,V-139,downstream,341,gas,158.83,6.0,1.3,4,15.1,SS,A,313
+"3""-BW-3055-SS","black water, HP flashed",V-139,downstream,344,liq,158.8,6.0,27.3,3,1.8,SS,A,313
+"12""-BW-3056-SS","black water after let-down, LP",upstream,V-140,335,twophase,111.35,1.5,27.3,12,11.0,SS,A,314
+"10""-SG-3057-SS",LP flash steam,V-140,downstream,342,gas,111.35,1.5,2.4,10,15.6,SS,A,314
+"3""-BW-3058-SS","black water, LP flashed",V-140,downstream,345,liq,111.3,1.5,24.9,3,1.6,SS,A,314
+"24""-BW-3059-SS","black water after let-down, vacuum",upstream,V-141,336,twophase,69.1,0.3,24.9,24,9.2,SS,A,315
+"18""-SG-3060-SS",vacuum flash vapour,V-141,downstream,343,gas,69.1,0.3,1.8,18,16.3,SS,A,315
+"3""-BW-3061-SS","black water, vacuum flashed",V-141,P-141,346,liq,69.1,0.3,23.0,3,1.4,SS,A,315
+"14""-PG-3062-SS",flash vapour to E-142,upstream,E-142 tube,354,gas,115.0,1.4,5.6,14,19.9,SS,A,316
+"1.5""-PG-3063-SS",flash condensate,E-142 tube,downstream,353,liq,60.0,1.3,5.6,1.5,1.4,SS,A,316
+"10""-CW-3064-A1",cooling water supply,supply,E-142 shell,373,liq,30.0,5.0,269.9,10,1.5,A1,A,316
+"10""-CW-3065-A1",cooling water return,E-142 shell,return,374,liq,42.0,4.5,269.9,10,1.5,A1,A,316
+"3""-BW-3066-A1","black water, vacuum flashed",upstream,CL-143,346,liq,69.1,0.3,23.0,3,1.4,A1,A,317
+"6""-GW-3067-A1",dewatering overflow,upstream,CL-143,327,liq,80.0,1.0,74.4,6,1.2,A1,A,317
+"2""-GW-3068-A1",press filtrate,upstream,CL-143,350,liq,65.0,2.0,12.5,2,1.7,A1,A,317
+"6""-GW-3069-A1",clarified grey water,CL-143,downstream,347,liq,70.0,1.5,94.7,6,1.5,A1,A,317
+"3""-SL-3070-A1",clarifier underflow sludge,CL-143,downstream,348,slurry,65.0,2.0,15.2,3,0.9,A1,A,317
+"3""-SL-3071-A1",clarifier underflow sludge,upstream,FP-145,348,slurry,65.0,2.0,15.2,3,0.9,A1,A,318
+"1""-SL-3072-A1",filter cake,FP-145,downstream,349,slurry,65.0,1.0,2.8,1,1.1,A1,A,318
+"2""-GW-3073-A1",press filtrate,FP-145,downstream,350,liq,65.0,2.0,12.5,2,1.7,A1,A,318
+"6""-GW-3074-A1",clarified grey water,upstream,T-144,347,liq,70.0,1.5,94.7,6,1.5,A1,A,319
+"8""-GW-3075-A1","grey water, HP discharge",T-144,downstream,329,liq,70.0,50.0,130.3,8,1.1,A1,A,319
+"8""-PL-3076-A1","grey water, HP discharge",T-144,downstream,329,liq,70.0,50.0,130.3,8,1.1,A1,A,319
+"6""-PG-3077-SS",sour water to stripper,upstream,C-146,391,liq,41.7,3.0,64.1,6,1.0,SS,A,320
+"6""-PG-3078-SS","stripper overhead gas (NH3, H2S, CO2, steam)",C-146,downstream,392,gas,90.0,2.5,1.9,6,17.7,SS,A,320
+"6""-PL-3079-SS",stripped water,C-146,downstream,393,liq,140.0,3.5,62.2,6,1.0,SS,A,320
+"10""-ST-3080-A1",LP steam to reboiler,supply,C-146-RB,394,steam,144.0,4.0,9.6,10,25.4,A1,A,320
+"18""-FL-3081-FL","EDV blowdown, gas train",upstream,EDV-149,398,gas,300.0,6.0,31.3,18,19.9,FL,A,321
+"10""-FL-3082-FL",lock-hopper vent gas to flare,upstream,EDV-149,399,gas,80.0,2.0,4.3,10,15.6,FL,A,321
+"30""-FL-3083-FL",to KO-101 / FL-101 (area 90),EDV-149,downstream,397,gas,250.0,3.0,35.6,30,14.8,FL,A,321
+"2""-N2-3084-N2",N2 header from ASU-101,upstream,N2-150,380,gas,25.0,56.0,9.4,2,20.4,N2,A,322
+"1""-N2-3085-N2",N2 to burners and R-101 purge,N2-150,downstream,381,gas,25.0,56.0,2.0,1,17.3,N2,A,322
+"0.75""-N2-3086-N2",N2 back-pulse to F-135,N2-150,downstream,382,gas,25.0,56.0,1.2,0.75,18.5,N2,A,322
+"1.5""-N2-3087-N2",N2 to V-102 re-pressurisation,N2-150,downstream,383,gas,25.0,56.0,5.4,1.5,21.0,N2,A,322
+"18""-PG-4001-A1","raw syngas after E-101 (stream 4, cooled)",upstream,G-201,4C,gas,215.0,45.0,306.1,18,22.0,A1,A,401
+"18""-PG-4002-A1",raw syngas after guard bed G-201,G-201,downstream,4G,gas,214.0,45.0,306.1,18,21.9,A1,A,401
+"18""-PG-4003-A1",raw syngas after guard bed G-201,upstream,X-201,4G,gas,214.0,45.0,306.1,18,21.9,A1,A,402
+"10""-ST-4004-A1",HP steam to R-201 (stream 6),upstream,X-201,6,steam,400.0,50.0,77.8,10,26.5,A1,A,402
+"24""-PG-4005-A1",HT shift mixed feed (4 + 6),X-201,downstream,4M,gas,260.0,45.0,383.9,24,17.5,A1,A,402
+"24""-PG-4006-A1",HT shift effluent (stream 7),upstream,E-201 tube,7,gas,350.0,45.0,383.9,24,20.5,A1,A,403
+"24""-PG-4007-A1",HT effluent after E-201,E-201 tube,downstream,7C,gas,331.0,45.0,383.9,24,19.9,A1,A,403
+"24""-PG-4008-A1",HT shift mixed feed (4 + 6),supply,E-201 shell,4M,gas,260.0,45.0,383.9,24,17.5,A1,A,403
+"24""-PG-4009-A1",HT shift bed-1 feed,E-201 shell,return,4F,gas,280.0,45.0,383.9,24,18.2,A1,A,403
+"0.5""-PG-4010-A1",HP steam for start-up heater,upstream,H-201 tube,4H1,steam,400.0,50.0,0.0,0.5,3.8,A1,A,404
+"0.5""-PG-4011-A1",steam leaving H-201,H-201 tube,downstream,4H2,steam,270.0,49.0,0.0,0.5,3.1,A1,A,404
+"6""-N2-4012-A1",start-up nitrogen (stream 14 source),supply,H-201 shell,4H3,gas,40.0,40.0,38.4,6,13.6,A1,A,404
+"6""-N2-4013-A1",hot start-up nitrogen to R-201,H-201 shell,return,4H4,gas,300.0,40.0,38.4,6,24.9,A1,A,404
+"24""-PG-4014-A1",HT shift bed-1 feed,upstream,R-201,4F,gas,280.0,45.0,383.9,24,18.2,A1,A,405
+"24""-PG-4015-A1",HT shift effluent (stream 7),R-201,downstream,7,gas,350.0,45.0,383.9,24,20.5,A1,A,405
+"30""-PG-4016-A1",HT bed-1 effluent,upstream,E-202 tube,7B,gas,505.0,45.0,383.9,30,16.4,A1,A,406
+"24""-PG-4017-A1",HT bed-1 effluent after interbed cooler,E-202 tube,downstream,7I,gas,300.0,45.0,383.9,24,18.9,A1,A,406
+"6""-BW-4018-A1",HP boiler feedwater to E-202,supply,E-202 shell,4B1,liq,105.0,55.0,57.8,6,0.9,A1,A,406
+"8""-BW-4019-A1",HP saturated steam from E-202,E-202 shell,return,4B2,steam,264.0,50.0,57.8,8,24.5,A1,A,406
+"24""-PG-4020-A1",HT effluent after E-201,upstream,E-102 tube,7C,gas,331.0,45.0,383.9,24,19.9,A1,A,407
+"20""-PG-4021-A1",HT effluent after E-102,E-102 tube,downstream,7E,gas,185.0,45.0,383.9,20,21.7,A1,A,407
+"4""-BW-4022-A1",BFW to E-102,supply,E-102 shell,4B3,liq,105.0,10.0,41.5,4,1.5,A1,A,407
+"16""-BW-4023-A1",LP saturated steam from E-102,E-102 shell,return,4B4,steam,159.0,6.0,41.5,16,29.5,A1,A,407
+"20""-PG-4024-A1",HT effluent after E-102,upstream,X-202,7E,gas,185.0,45.0,383.9,20,21.7,A1,A,408
+"6""-ST-4025-A1",steam to R-202 (stream 8),upstream,X-202,8,steam,400.0,50.0,33.7,6,31.9,A1,A,408
+"20""-PG-4026-A1",LT shift feed (7 + 8),X-202,downstream,8M,gas,205.0,45.0,417.6,20,24.9,A1,A,408
+"20""-PG-4027-A1",LT shift feed (7 + 8),upstream,R-202,8M,gas,205.0,45.0,417.6,20,24.9,A1,A,409
+"24""-PG-4028-A1",LT shift effluent (stream 9),R-202,downstream,9,gas,220.0,45.0,417.6,24,17.9,A1,A,409
+"24""-PG-4029-A1",LT bed-1 effluent,upstream,E-204 tube,8B,gas,258.0,45.0,417.6,24,19.2,A1,A,410
+"20""-PG-4030-A1",LT bed-1 effluent after interbed cooler,E-204 tube,downstream,8I,gas,195.0,45.0,417.6,20,24.4,A1,A,410
+"8""-BW-4031-A1",BFW to E-204,supply,E-204 shell,4B5,liq,105.0,55.0,146.8,8,1.3,A1,A,410
+"8""-BW-4032-A1",warm BFW from E-204,E-204 shell,return,4B6,liq,180.0,54.0,146.8,8,1.4,A1,A,410
+"24""-PG-4033-A1",LT shift effluent (stream 9),upstream,E-205 tube,9,gas,220.0,45.0,417.6,24,17.9,A1,A,411
+"30""-PG-4034-A1",shift gas after E-205,E-205 tube,downstream,9A,twophase,150.0,45.0,417.6,30,9.8,A1,A,411
+"10""-BW-4035-A1",BFW to E-205,supply,E-205 shell,4B7,liq,105.0,55.0,324.4,10,1.9,A1,A,411
+"10""-BW-4036-A1",BFW from E-205,E-205 shell,return,4B8,liq,180.0,54.0,324.4,10,2.0,A1,A,411
+"30""-PG-4037-A1",shift gas after E-205,upstream,E-203 tube,9A,twophase,150.0,45.0,417.6,30,9.8,A1,A,412
+"30""-PG-4038-A1",shift gas after E-203,E-203 tube,downstream,9B,twophase,100.0,45.0,417.6,30,8.6,A1,A,412
+"10""-BW-4039-A1",DM water to E-203,supply,E-203 shell,4D1,liq,30.0,6.0,326.5,10,1.8,A1,A,412
+"10""-BW-4040-A1",warm DM water from E-203,E-203 shell,return,4D2,liq,105.0,5.5,326.5,10,1.9,A1,A,412
+"30""-PG-4041-A1",shift gas after E-203,upstream,E-103 tube,9B,twophase,100.0,45.0,417.6,30,8.6,A1,A,413
+"24""-PG-4042-A1",shift gas after E-103,E-103 tube,downstream,9C,twophase,40.0,45.0,417.6,24,11.3,A1,A,413
+"20""-CW-4043-A1",cooling water to E-103,supply,E-103 shell,4W1,liq,33.0,5.0,"1,411.4",20,1.9,A1,A,413
+"20""-CW-4044-A1",cooling water return from E-103,E-103 shell,return,4W2,liq,43.0,4.5,"1,411.4",20,2.0,A1,A,413
+"24""-SG-4045-A1","shift gas, cooled",upstream,V-203,9,twophase,40.0,45.0,417.6,24,11.4,A1,A,414
+"16""-SG-4046-A1",shift gas to AGR,V-203,downstream,9V,gas,40.0,44.0,359.0,16,22.0,A1,A,414
+"6""-PC-4047-A1",process condensate,V-203,P-203,28,liq,40.0,45.0,58.6,6,0.9,A1,A,414
+"18""-PG-4048-A1","raw syngas after E-101 (stream 4, cooled)",upstream,CP-201,4C,gas,215.0,45.0,306.1,18,22.0,A1,A,415
+"24""-PG-4049-A1",LT shift effluent (stream 9),CP-201,downstream,9,gas,220.0,45.0,417.6,24,17.9,A1,A,415
+"8""-PG-5001-A1",shift gas to AGR (1 of 6),upstream,C-301,9V,gas,40.0,44.0,59.8,8,14.6,A1,A,501
+"24""-PL-5002-A1",lean solvent (1 of 6),upstream,C-301 top feed,501,liq,5.0,48.0,"1,656.5",24,1.6,A1,A,501
+"6""-PG-5003-A1",treated gas (stream 12) (1 of 6),C-301,downstream,12,gas,10.0,40.0,6.0,6,14.9,A1,A,501
+"24""-PL-5004-A1",rich solvent (1 of 6),C-301,downstream,502,liq,10.8,44.0,"1,713.7",24,1.6,A1,A,501
+"54""-SL-5005-A1",rich solvent (all 6 trains),upstream,V-303,502,liq,10.8,20.0,"10,282.0",54,1.9,A1,A,502
+"6""-SG-5006-A1",HP flash gas (CO2 recycle),V-303,downstream,503,gas,9.8,18.0,20.4,6,9.2,A1,A,502
+"54""-SL-5007-A1",rich solvent after HP flash,V-303,downstream,504,liq,9.8,18.0,"10,261.6",54,1.9,A1,A,502
+"6""-PG-5008-A1",HP flash gas (CO2 recycle),upstream,K-301-KO,503,gas,9.8,18.0,20.4,6,9.2,A1,A,503
+"3""-PG-5009-A1",recycle gas to C-301 feed,K-301-AC,downstream,563,gas,90.0,44.0,20.4,3,19.4,A1,A,503
+"54""-SL-5010-A1",rich solvent to LP flash,upstream,V-304,504,liq,9.8,6.0,"10,261.6",54,1.9,A1,A,504
+"48""-SG-5011-A1",CO2 product (stream 10),V-304,downstream,10,gas,5.0,2.0,319.5,48,20.0,A1,A,504
+"54""-SL-5012-A1",flashed solvent (H2S retained),V-304,P-302,505,liq,5.0,2.0,"9,942.2",54,1.9,A1,A,504
+"18""-PG-5013-A1",hot regenerated slip,upstream,E-301 tube,508,liq,120.0,2.5,990.9,18,1.7,A1,A,505
+"18""-PG-5014-A1",regenerated slip after E-301,E-301 tube,downstream,509,liq,21.7,2.0,990.9,18,1.7,A1,A,505
+"18""-SL-5015-A1",slip to H2S stripper,supply,E-301 shell,506,liq,5.0,3.0,994.2,18,1.7,A1,A,505
+"18""-SL-5016-A1",slip after E-301,E-301 shell,return,507,liq,109.1,2.5,994.2,18,1.7,A1,A,505
+"18""-PG-5017-A1",slip after E-301,upstream,C-302,507,liq,109.1,2.5,994.2,18,1.7,A1,A,506
+"6""-PG-5018-A1",H2S acid gas (stream 11),C-302,downstream,11,gas,40.0,2.0,3.4,6,19.5,A1,A,506
+"18""-PL-5019-A1",hot regenerated slip,C-302,downstream,508,liq,120.0,2.5,990.9,18,1.7,A1,A,506
+"16""-ST-5020-A1",LP steam to C-302 reboiler,supply,C-302-RB,514,steam,159.0,6.0,46.3,16,33.0,A1,A,506
+"54""-SL-5021-A1","lean solvent, merged",upstream,V-305,511,liq,6.7,2.0,"9,938.8",54,1.9,A1,A,507
+"54""-SL-5022-A1",lean solvent from P-301,V-305,P-301,512,liq,8.0,49.0,"9,938.8",54,1.9,A1,A,507
+"54""-PG-5023-A1",lean solvent from P-301,upstream,E-302 tube,512,liq,8.0,49.0,"9,938.8",54,1.9,A1,A,508
+"54""-PG-5024-A1",lean solvent to chiller outlet,E-302 tube,downstream,513,liq,5.0,48.0,"9,938.8",54,1.9,A1,A,508
+"6""-NH3-5025-A1",NH3 refrigerant liquid to E-302,supply,E-302 shell,516,liq,-5.0,3.5,68.7,6,1.5,A1,A,508
+"30""-NH3-5026-A1",NH3 refrigerant vapour from E-302,E-302 shell,return,515,gas,-5.0,3.0,68.7,30,18.3,A1,A,508
+"30""-PG-5027-A1",NH3 refrigerant vapour from E-302,upstream,RP-301,515,gas,-5.0,3.0,68.7,30,18.3,A1,A,509
+"6""-PL-5028-A1",NH3 refrigerant liquid to E-302,RP-301,downstream,516,liq,-5.0,3.5,68.7,6,1.5,A1,A,509
+"54""-PG-5029-A1",wet CO2 to dryer,upstream,D-301,517,gas,5.0,2.0,320.0,54,15.8,A1,A,510
+"54""-PG-5030-A1",dry CO2 to K-601,D-301,downstream,518,gas,20.0,1.8,319.5,54,18.5,A1,A,510
+"0.5""-PL-5031-A1",water from dryer,D-301,downstream,519,liq,20.0,1.8,0.6,0.5,1.2,A1,A,510
+"12""-PG-5032-A1",treated gas (stream 12),upstream,G-301,12,gas,10.0,40.0,36.2,12,22.4,A1,A,511
+"12""-PG-5033-A1",treated gas after G-301 (stream 12),G-301,downstream,520,gas,10.0,40.0,36.2,12,22.4,A1,A,511
+"18""-PG-5034-A1",methanator effluent (bed 2),upstream,E-304 tube,525,gas,400.0,40.0,36.2,18,21.8,A1,A,512
+"14""-PG-5035-A1",methanator effluent after E-304,E-304 tube,downstream,526,gas,148.0,40.0,36.2,14,22.5,A1,A,512
+"12""-PG-5036-A1",treated gas after G-301 (stream 12),supply,E-304 shell,520,gas,10.0,40.0,36.2,12,22.4,A1,A,512
+"16""-PG-5037-A1",treated gas heated to E-304 outlet,E-304 shell,return,521,gas,250.0,40.0,36.2,16,23.2,A1,A,512
+"16""-PG-5038-A1",methanator bed-1 feed,upstream,R-301,522,gas,280.0,40.0,36.2,16,24.6,A1,A,513
+"18""-PG-5039-A1",methanator effluent (bed 2),R-301,downstream,525,gas,400.0,40.0,36.2,18,21.8,A1,A,513
+"18""-PG-5040-A1",methanator bed-1 effluent,upstream,E-305 tube,523,gas,400.0,40.0,36.2,18,21.8,A1,A,514
+"16""-PG-5041-A1",methanator bed-1 effluent after E-305,E-305 tube,downstream,524,gas,280.0,40.0,36.2,16,22.6,A1,A,514
+"3""-BW-5042-A1",BFW to E-305,supply,E-305 shell,527,liq,105.0,10.0,14.6,3,0.9,A1,A,514
+"10""-BW-5043-A1",LP steam from E-305,E-305 shell,return,528,steam,159.0,6.0,14.6,10,26.7,A1,A,514
+"20""-PG-5044-A1",methanator effluent cooled,upstream,V-302,529,twophase,40.0,40.0,36.2,20,11.3,A1,A,515
+"12""-PG-5045-A1",gas to PU-301,V-302,downstream,530,gas,40.0,39.5,24.8,12,21.5,A1,A,515
+"2""-PC-5046-A1",condensate (stream 29),V-302,P-304,29,liq,40.0,40.0,11.3,2,1.6,A1,A,515
+"12""-PG-5047-A1",gas to PU-301,upstream,PU-301,530,gas,40.0,39.5,24.8,12,21.5,A1,A,516
+"12""-PG-5048-A1",purified H2 to K-401,PU-301,downstream,531,gas,40.0,38.0,16.3,12,21.1,A1,A,516
+"10""-PG-5049-A1",purification residual (stream 13),PU-301,downstream,13,gas,40.0,5.0,8.5,10,13.7,A1,A,516
+"6""-PG-5050-A1",H2S acid gas (stream 11),upstream,F-351,11,gas,40.0,2.0,3.4,6,19.5,A1,A,517
+"12""-PG-5051-A1",combustion air (blower),upstream,F-351,532,gas,40.0,1.7,7.1,12,14.3,A1,A,517
+"1.5""-PG-5052-A1",recycle H2S from TGT absorber,upstream,F-351,533,gas,40.0,1.8,0.1,1.5,15.1,A1,A,517
+"30""-PG-5053-A1",furnace gas,F-351,downstream,534,gas,1150.0,1.5,10.6,30,18.0,A1,A,517
+"30""-PG-5054-A1",furnace gas,upstream,E-351 tube,534,gas,1150.0,1.5,10.6,30,18.0,A1,A,518
+"20""-PG-5055-A1",furnace gas after WHB,E-351 tube,downstream,535,gas,300.0,1.4,10.6,20,17.5,A1,A,518
+"1.5""-BW-5056-A1",BFW to E-351,supply,E-351 shell,536,liq,105.0,12.0,4.4,1.5,1.1,A1,A,518
+"4""-BW-5057-A1",MP steam from E-351,E-351 shell,return,537,steam,188.0,12.0,4.4,4,26.6,A1,A,518
+"20""-PG-5058-A1",furnace gas after WHB,upstream,E-352 tube,535,gas,300.0,1.4,10.6,20,17.5,A1,A,519
+"16""-PG-5059-A1",gas after sulphur condenser 1,E-352 tube,downstream,538,gas,170.0,1.3,8.4,16,18.7,A1,A,519
+"0.5""-BW-5060-A1",BFW to E-352,supply,E-352 shell,540,liq,105.0,5.0,0.8,0.5,1.9,A1,A,519
+"3""-BW-5061-A1",LP steam from E-352,E-352 shell,return,541,steam,144.0,4.0,0.8,3,24.6,A1,A,519
+"18""-PG-5062-A1",converter 1 feed (reheated),upstream,R-351,542,gas,230.0,1.3,8.4,18,16.8,A1,A,520
+"20""-PG-5063-A1",converter 1 effluent,R-351,downstream,543,gas,314.0,1.2,8.4,20,18.1,A1,A,520
+"20""-PG-5064-A1",converter 1 effluent,upstream,E-353 tube,543,gas,314.0,1.2,8.4,20,18.1,A1,A,521
+"16""-PG-5065-A1",gas after sulphur condenser 2,E-353 tube,downstream,544,gas,170.0,1.2,7.6,16,19.7,A1,A,521
+"0.5""-BW-5066-A1",BFW to E-353,supply,E-353 shell,546,liq,105.0,5.0,0.8,0.5,1.7,A1,A,521
+"3""-BW-5067-A1",LP steam from E-353,E-353 shell,return,547,steam,144.0,4.0,0.8,3,22.2,A1,A,521
+"18""-PG-5068-A1",converter 2 feed (reheated),upstream,R-352,548,gas,210.0,1.2,7.6,18,17.0,A1,A,522
+"18""-PG-5069-A1",converter 2 effluent,R-352,downstream,549,gas,232.0,1.1,7.6,18,19.6,A1,A,522
+"18""-PG-5070-A1",converter 2 effluent,upstream,E-354 tube,549,gas,232.0,1.1,7.6,18,19.6,A1,A,523
+"16""-PG-5071-A1",Claus tail gas,E-354 tube,downstream,550,gas,130.0,1.1,7.4,16,19.4,A1,A,523
+"1.5""-BW-5072-A1",hot-water loop to E-354,supply,E-354 shell,552,liq,60.0,4.0,6.3,1.5,1.6,A1,A,523
+"1.5""-BW-5073-A1",hot-water loop from E-354,E-354 shell,return,553,liq,100.0,3.5,6.3,1.5,1.6,A1,A,523
+"0.75""-PL-5074-A1",liquid sulphur to pit,upstream,T-351,554,liq,140.0,1.2,3.2,0.75,1.7,A1,A,524
+"0.75""-PL-5075-A1",liquid sulphur to loading,T-351,downstream,555,liq,140.0,3.0,3.2,0.75,1.7,A1,A,524
+"0.75""-PL-5076-A1",liquid sulphur to loading,T-351,downstream,555,liq,140.0,3.0,3.2,0.75,1.7,A1,A,524
+"18""-PG-5077-A1","hydrogenation feed (reheated, with H2)",upstream,R-353,557,gas,280.0,1.2,7.4,18,19.6,A1,A,525
+"20""-PG-5078-A1",hydrogenation effluent,R-353,downstream,558,gas,311.0,1.1,7.4,20,18.2,A1,A,525
+"20""-PG-5079-A1",hydrogenation effluent,upstream,TGT-351,558,gas,311.0,1.1,7.4,20,18.2,A1,A,526
+"1.5""-PG-5080-A1",incinerator air,upstream,TGT-351,561,gas,40.0,1.1,0.1,1.5,13.1,A1,A,526
+"20""-PG-5081-A1",stack gas,TGT-351,downstream,562,gas,450.0,1.05,5.7,20,16.5,A1,A,526
+"1.5""-PG-5082-A1",recycle H2S to F-351 (stream 533),TGT-351,downstream,560,gas,40.0,1.8,0.1,1.5,15.1,A1,A,526
+"0.75""-PL-5083-A1",quench sour water,TGT-351,downstream,559,liq,40.0,1.1,1.6,0.75,1.6,A1,A,526
+"14""-PG-6001-A1",make-up gas to K-401A,upstream,K-401A-KO,15,gas,40.0,40.0,98.7,14,21.6,A1,A,601
+"10""-PG-6002-A1","K-401A discharge, cooled",K-401A-AC,downstream,611,gas,40.0,89.4,98.7,10,19.5,A1,A,601
+"10""-PG-6003-A1","K-401A discharge, cooled",upstream,K-401B-KO,611,gas,40.0,89.4,98.7,10,19.5,A1,A,602
+"8""-PG-6004-A1",make-up gas to loop (K-401B out),K-401B-AC,downstream,612,gas,40.0,200.0,98.7,8,14.5,A1,A,602
+"12""-PG-6005-A1",loop gas to K-402,upstream,K-402,613,gas,30.0,192.0,380.1,12,24.9,A1,A,603
+"12""-PG-6006-A1",recycle gas from K-402,K-402,downstream,27,gas,34.7,200.0,380.1,12,24.3,A1,A,603
+"18""-PG-6007-A1",effluent after WHB,upstream,E-403 tube,618,gas,330.0,200.0,478.8,18,23.2,A1,A,604
+"14""-PG-6008-A1",effluent after E-403,E-403 tube,downstream,619,gas,80.3,200.0,478.8,14,23.2,A1,A,604
+"14""-PG-6009-A1",main feed to E-403 cold side,supply,E-403 shell,616,gas,35.8,200.0,452.6,14,21.4,A1,A,604
+"18""-PG-6010-A1","converter feed (main), E-403 out",E-403 shell,return,614,gas,300.0,200.0,452.6,18,23.1,A1,A,604
+"18""-PG-6011-A1","converter feed (main), E-403 out",upstream,R-401,614,gas,300.0,200.0,452.6,18,23.1,A1,A,605
+"20""-PG-6012-A1",converter effluent,R-401,downstream,617,gas,450.0,200.0,478.8,20,22.3,A1,A,605
+"4""-PG-6013-A1",converter cold quench,supply,R-401 interbed,615,gas,35.8,200.0,26.2,4,15.2,A1,A,605
+"20""-PG-6014-A1",converter effluent,upstream,E-404 tube,617,gas,450.0,200.0,478.8,20,22.3,A1,A,606
+"18""-PG-6015-A1",effluent after WHB,E-404 tube,downstream,618,gas,330.0,200.0,478.8,18,23.2,A1,A,606
+"6""-BFW-6016-A1",BFW to E-404,supply,E-404 shell,644,liq,105.0,55.0,86.8,6,1.4,A1,A,606
+"10""-BFW-6017-A1",HP steam from E-404 (sat.),E-404 shell,return,645,steam,263.9,50.0,86.8,10,23.6,A1,A,606
+"14""-PG-6018-A1",effluent after E-403,upstream,E-405 tube,619,gas,80.3,200.0,478.8,14,23.2,A1,A,607
+"20""-PG-6019-A1",effluent after E-405 (28 % NH3 condensed),E-405 tube,downstream,620,twophase,40.0,200.0,478.8,20,9.9,A1,A,607
+"24""-CW-6020-A1",cooling water to E-405,supply,E-405 shell,640,liq,30.0,4.5,"1,927.3",24,1.8,A1,A,607
+"24""-CW-6021-A1",cooling water return E-405,E-405 shell,return,641,liq,42.0,4.5,"1,927.3",24,1.9,A1,A,607
+"20""-PG-6022-A1",effluent after E-405 (28 % NH3 condensed),upstream,E-406 tube,620,twophase,40.0,200.0,478.8,20,9.9,A1,A,608
+"18""-PG-6023-A1",effluent after E-406,E-406 tube,downstream,621,twophase,27.4,200.0,478.8,18,11.5,A1,A,608
+"12""-PG-6024-A1",separator gas to E-406,supply,E-406 shell,623,gas,0.0,198.0,387.6,12,22.3,A1,A,608
+"12""-PG-6025-A1",loop gas to K-402,E-406 shell,return,613,gas,30.0,192.0,380.1,12,24.9,A1,A,608
+"18""-PG-6026-A1",effluent after E-406,upstream,E-401 tube,621,twophase,27.4,200.0,478.8,18,11.5,A1,A,609
+"18""-PG-6027-A1",chilled effluent to V-401,E-401 tube,downstream,622,twophase,0.0,200.0,478.8,18,10.1,A1,A,609
+"6""-NH3-6028-LT",refrigerant liquid to E-401,supply,E-401 shell,637,liq,-10.0,2.9,70.1,6,1.6,LT,A,609
+"30""-NH3-6029-LT",level-2 vapour from E-401,E-401 shell,return,633,gas,-10.0,2.9,70.1,30,17.9,LT,A,609
+"18""-PG-6030-A1",chilled effluent to V-401,upstream,V-401,622,twophase,0.0,200.0,478.8,18,10.1,A1,A,610
+"12""-PG-6031-A1",separator gas to E-406,V-401,downstream,623,gas,0.0,198.0,387.6,12,22.3,A1,A,610
+"8""-NH3-6032-A1",liquid NH3 to V-402,V-401,downstream,624,liq,0.0,200.0,91.3,8,1.2,A1,A,610
+"3""-NH3-6033-LT",V-401 liquid after LV (flashing),upstream,V-402,646,twophase,0.0,25.0,91.3,3,10.5,LT,A,611
+"1""-PG-6034-LT",letdown flash gas to PGR-401,V-402,downstream,626,gas,0.0,25.0,0.3,1,16.2,LT,A,611
+"8""-NH3-6035-LT",NH3 to V-403 (25 bar),V-402,downstream,627,liq,0.0,25.0,91.0,8,1.2,LT,A,611
+"2""-PG-6036-A1",loop purge to PGR-401,upstream,PGR-401,625,gas,0.0,198.0,7.5,2,15.5,A1,A,612
+"1""-PG-6037-A1",letdown flash gas to PGR-401,upstream,PGR-401,626,gas,0.0,25.0,0.3,1,16.2,A1,A,612
+"4""-PG-6038-A1",recovered H2/N2 to K-401A,PGR-401,downstream,30,gas,40.0,40.0,7.0,4,18.7,A1,A,612
+"4""-PG-6039-A1",net purge / tail gas to fuel,PGR-401,downstream,16,gas,40.0,5.0,0.8,4,16.3,A1,A,612
+"30""-NH3-6040-LT",V-403 feed (flashing),upstream,V-403,629,twophase,-33.3,1.1,104.6,30,9.3,LT,A,613
+"24""-NH3-6041-LT",level-1 refrigerant vapour,V-403,downstream,630,gas,-33.3,1.05,13.5,24,14.4,LT,A,613
+"8""-NH3-6042-LT",liquid NH3 to T-501 (incl. boil-off return),V-403,downstream,17,liq,-33.3,1.1,91.2,8,1.1,LT,A,613
+"24""-NH3-6043-LT",level-1 vapour to K-501,upstream,K-501,632,gas,-33.3,1.05,13.7,24,14.6,LT,A,614
+"30""-NH3-6044-LT",level-2 vapour from E-401,upstream,K-501,633,gas,-10.0,2.9,70.1,30,17.9,LT,A,614
+"14""-NH3-6045-LT",flash vapour from V-404,upstream,K-501,634,gas,-10.0,2.9,15.6,14,18.3,LT,A,614
+"20""-NH3-6046-LT",K-501 discharge,K-501,downstream,635,gas,144.6,15.5,99.5,20,17.9,LT,A,614
+"20""-PG-6047-LT",K-501 discharge vapour,upstream,E-503 tube,647,gas,144.6,15.5,99.5,20,17.9,LT,A,615
+"8""-PG-6048-LT",refrigerant condensate,E-503 tube,downstream,636,liq,40.0,15.5,99.5,8,1.5,LT,A,615
+"30""-CW-6049-A1",cooling water to E-503,supply,E-503 shell,642,liq,30.0,4.5,"2,755.7",30,1.7,A1,A,615
+"30""-CW-6050-A1",cooling water return E-503,E-503 shell,return,643,liq,42.0,4.5,"2,755.7",30,1.7,A1,A,615
+"18""-NH3-6051-LT",V-404 feed (flashing),upstream,V-404,639,twophase,-10.0,2.9,85.8,18,11.3,LT,A,616
+"14""-NH3-6052-LT",flash vapour from V-404,V-404,downstream,634,gas,-10.0,2.9,15.6,14,18.3,LT,A,616
+"6""-NH3-6053-LT",refrigerant liquid to E-401,V-404,downstream,637,liq,-10.0,2.9,70.1,6,1.6,LT,A,616
+"8""-NH3-6054-LT",liquid NH3 to T-501 (incl. boil-off return),upstream,T-501,17,liq,-33.3,1.1,91.2,8,1.1,LT,A,617
+"8""-NH3-6055-LT",NH3 to P-501 (to urea),T-501,downstream,648,liq,-33.3,1.1,91.0,8,1.1,LT,A,617
+"8""-PL-6056-LT",NH3 to P-501 (to urea),T-501,downstream,648,liq,-33.3,1.1,91.0,8,1.1,LT,A,617
+"24""-NH3-6057-LT",BOG / flash vapour to K-502,upstream,K-502,649,gas,-33.3,1.05,13.7,24,14.6,LT,A,618
+"16""-NH3-6058-LT",K-502 discharge to E-503 / flare,K-502,downstream,650,gas,53.4,2.9,13.7,16,16.1,LT,A,618
+"24""-PG-6059-A1",NH3 vent / relief vapour,upstream,C-501,651,gas,-33.3,1.1,13.7,24,14.6,A1,A,619
+"10""-PL-6060-A1",wash water to C-501,upstream,C-501 top feed,652,liq,25.0,3.0,273.2,10,1.5,A1,A,619
+"2""-PG-6061-A1",scrubbed vent to flare / stack,C-501,downstream,653,gas,20.0,1.05,0.1,2,13.4,A1,A,619
+"10""-PL-6062-A1",aqueous NH3 to treatment,C-501,downstream,654,liq,40.0,2.0,286.8,10,1.7,A1,A,619
+"36""-PG-7001-SS",CO2 + passivation air to K-601A,upstream,K-601A-KO,700,gas,40.0,1.5,117.9,36,19.2,SS,A,701
+"12""-PG-7002-SS","K-601A discharge, cooled",K-601A-AC,downstream,702,gas,40.0,15.0,117.9,12,16.6,SS,A,701
+"12""-PG-7003-SS","K-601A discharge, cooled",upstream,K-601B-KO,702,gas,40.0,15.0,117.9,12,16.6,SS,A,702
+"8""-PG-7004-SS",CO2 to stripper C-601 (K-601B out),K-601B-AC,downstream,19,liq,40.0,150.0,117.9,8,1.3,SS,A,702
+"8""-ST-7005-A1",HP steam to K-601 turbine,upstream,TG-601,751T,steam,400.0,50.0,65.1,8,34.7,A1,A,703
+"30""-CW-7006-A1",cooling water to turbine condenser,upstream,TG-601,753T,liq,30.0,4.5,"2,839.2",30,1.7,A1,A,703
+"6""-PL-7007-A1",turbine condensate,TG-601,downstream,752T,liq,45.8,0.1,65.1,6,1.0,A1,A,703
+"30""-CW-7008-A1",cooling water return,TG-601,downstream,754T,liq,42.0,4.5,"2,839.2",30,1.7,A1,A,703
+"8""-NH3-7009-LT",NH3 to V-601 (preheated),upstream,V-601,18,liq,40.0,25.0,91.0,8,1.3,LT,A,704
+"8""-NH3-7010-LT",NH3 to E-601 (P-601 out),V-601,P-601,18,liq,40.0,150.0,91.0,8,1.3,LT,A,704
+"12""-UR-7011-SS",R-601 feed (mixed),upstream,R-601,705,liq,165.0,150.0,473.9,12,1.7,SS,A,705
+"12""-UR-7012-SS",urea reactor effluent,R-601,downstream,21,liq,180.0,150.0,473.9,12,1.7,SS,A,705
+"8""-PG-7013-SS",CO2 to stripper C-601 (K-601B out),upstream,C-601,19,liq,40.0,150.0,117.9,8,1.3,SS,A,706
+"12""-PL-7014-SS",urea reactor effluent,upstream,C-601 top feed,21,liq,180.0,150.0,473.9,12,1.7,SS,A,706
+"6""-PG-7015-SS",stripper overhead gas,C-601,downstream,706,gas,170.0,150.0,330.2,6,16.8,SS,A,706
+"8""-PL-7016-SS",stripped urea solution,C-601,downstream,707,liq,185.0,150.0,261.6,8,1.9,SS,A,706
+"10""-ST-7017-A1",steam to C-601 (25 bar sat.),supply,C-601-RB,708,steam,224.0,25.0,57.7,10,29.0,A1,A,706
+"10""-PG-7018-SS",E-601 inlet (overhead + NH3),upstream,E-601 tube,710,twophase,170.0,150.0,421.2,10,7.7,SS,A,707
+"12""-PG-7019-SS",E-601 outlet to R-601,E-601 tube,downstream,711,liq,170.0,150.0,419.6,12,1.6,SS,A,707
+"8""-BFW-7020-A1",BFW to E-601,supply,E-601 shell,712,liq,105.0,6.0,176.9,8,1.6,A1,A,707
+"42""-BFW-7021-A1",LP steam from E-601 (4 bar),E-601 shell,return,713,steam,143.6,4.0,176.9,42,26.4,A1,A,707
+"0.5""-PG-7022-SS",E-601 vent to HP scrubber,upstream,C-603,714,gas,170.0,150.0,1.7,0.5,24.1,SS,A,708
+"4""-PL-7023-SS",HP carbamate from P-602,upstream,C-603 top feed,716,liq,100.0,152.0,53.1,4,1.8,SS,A,708
+"1""-PG-7024-SS","scrubbed vent (air, inerts)",C-603,downstream,715,gas,60.0,18.0,0.4,1,11.3,SS,A,708
+"4""-PL-7025-SS",HP scrubber bottoms,C-603,downstream,704,liq,150.0,150.0,54.3,4,1.9,SS,A,708
+"12""-PG-7026-SS",urea solution to C-602 (after LV),upstream,C-602,717,twophase,170.0,18.0,261.6,12,10.8,SS,A,709
+"10""-PG-7027-SS","MP gas (NH3, CO2)",C-602,downstream,718,gas,160.0,18.0,39.8,10,16.8,SS,A,709
+"8""-PL-7028-SS",MP bottoms to C-604,C-602,downstream,719,liq,160.0,18.0,221.8,8,1.7,SS,A,709
+"8""-ST-7029-A1",steam to C-602 (12 bar sat.),supply,C-602-RB,720,steam,188.0,12.0,17.3,8,26.3,A1,A,709
+"14""-PG-7030-SS",E-603 inlet (MP gas + LP carbamate),upstream,E-603 tube,721,twophase,150.0,18.0,53.1,14,9.3,SS,A,710
+"4""-PG-7031-SS",MP carbamate solution,E-603 tube,downstream,722,liq,100.0,18.0,53.1,4,1.8,SS,A,710
+"12""-CW-7032-A1",cooling water to E-603,supply,E-603 shell,723,liq,30.0,4.5,512.1,12,2.0,A1,A,710
+"12""-CW-7033-A1",cooling water return E-603,E-603 shell,return,724,liq,42.0,4.5,512.1,12,2.0,A1,A,710
+"4""-UR-7034-SS",carbamate to V-603 / P-602 suction,upstream,V-603,733,liq,100.0,18.0,53.1,4,1.8,SS,A,711
+"4""-UR-7035-SS",HP carbamate from P-602,V-603,P-602,716,liq,100.0,152.0,53.1,4,1.8,SS,A,711
+"14""-PG-7036-SS",solution to C-604 (after LV),upstream,C-604,727,twophase,150.0,4.0,221.8,14,11.1,SS,A,712
+"12""-PG-7037-SS","LP gas (NH3, CO2, water vapour)",C-604,downstream,728,gas,130.0,4.0,13.3,12,16.3,SS,A,712
+"8""-PL-7038-SS",LP bottoms: urea solution,C-604,downstream,729,liq,130.0,4.0,208.5,8,1.6,SS,A,712
+"10""-ST-7039-A1",LP steam to C-604,supply,C-604-RB,730,steam,143.6,4.0,11.5,10,30.4,A1,A,712
+"12""-PG-7040-SS","LP gas (NH3, CO2, water vapour)",upstream,E-604 tube,728,gas,130.0,4.0,13.3,12,16.3,SS,A,713
+"2""-PG-7041-SS",LP carbamate solution,E-604 tube,downstream,731,liq,60.0,4.0,13.3,2,1.8,SS,A,713
+"8""-CW-7042-A1",cooling water to E-604,supply,E-604 shell,725,liq,30.0,4.5,170.7,8,1.5,A1,A,713
+"8""-CW-7043-A1",cooling water return E-604,E-604 shell,return,726,liq,42.0,4.5,170.7,8,1.5,A1,A,713
+"2""-UR-7044-SS",LP carbamate solution,upstream,V-604,731,liq,60.0,4.0,13.3,2,1.8,SS,A,714
+"2""-UR-7045-SS",LP carbamate after P-603,V-604,P-603,732,liq,60.0,20.0,13.3,2,1.8,SS,A,714
+"20""-PG-7046-SS",LP steam to E-602,upstream,E-602 tube,736,steam,143.6,4.0,51.4,20,33.9,SS,A,715
+"4""-PG-7047-SS",steam condensate from E-602,E-602 tube,downstream,737,liq,143.6,4.0,51.4,4,1.9,SS,A,715
+"8""-UR-7048-SS",solution to E-602,supply,E-602 shell,734,liq,130.0,4.0,216.6,8,1.6,SS,A,715
+"120""-UR-7049-SS",E-602 outlet (melt + vapour),E-602 shell,return,735,twophase,128.0,0.3,216.6,120,11.4,SS,A,715
+"120""-UR-7050-SS",E-602 outlet (melt + vapour),upstream,V-605,735,twophase,128.0,0.3,216.6,120,11.4,SS,A,716
+"84""-PG-7051-SS",evaporator vapour to vacuum system,V-605,downstream,738,gas,70.0,0.3,48.6,84,19.9,SS,A,716
+"8""-UR-7052-SS",melt from V-605,V-605,P-604,739,liq,138.0,0.3,167.9,8,1.2,SS,A,716
+"84""-PG-7053-SS",evaporator vapour to vacuum system,upstream,VAC-601,738,gas,70.0,0.3,48.6,84,19.9,SS,A,717
+"4""-ST-7054-SS",ejector motive steam,upstream,VAC-601,742,steam,143.6,4.0,1.5,4,24.7,SS,A,717
+"24""-CW-7055-SS",cooling water to VAC-601,upstream,VAC-601,744,liq,30.0,4.5,"1,500.0",24,1.4,SS,A,717
+"4""-PL-7056-SS",process condensate,VAC-601,downstream,741,liq,50.0,1.5,49.8,4,1.7,SS,A,717
+"3""-PG-7057-SS",vacuum non-condensables to scrubber,VAC-601,downstream,743,gas,40.0,1.05,0.3,3,16.2,SS,A,717
+"24""-CW-7058-SS",cooling water return VAC-601,VAC-601,downstream,745,liq,42.0,4.5,"1,500.0",24,1.4,SS,A,717
+"8""-UR-7059-SS",melt to G-601 (P-604 out),upstream,G-601,740,liq,138.0,6.0,167.9,8,1.2,SS,A,718
+"60""-PG-7060-SS",fluidising air to G-601,upstream,G-601,746,gas,40.0,1.1,134.3,60,16.7,SS,A,718
+"10""-SO-7061-SS",urea granules to conveying,G-601,downstream,22,slurry,60.0,1.0,160.4,10,1.2,SS,A,718
+"72""-PG-7062-SS","G-601 off-gas (air, water, dust)",G-601,downstream,747,gas,90.0,1.0,141.9,72,15.6,SS,A,718
+"72""-PG-7063-SS","G-601 off-gas (air, water, dust)",upstream,C-605,747,gas,90.0,1.0,141.9,72,15.6,SS,A,719
+"1.5""-PL-7064-SS",wash water to C-605,upstream,C-605 top feed,748,liq,40.0,3.0,7.2,1.5,1.8,SS,A,719
+"60""-PG-7065-SS",scrubbed air to stack,C-605,downstream,749,gas,45.0,1.0,141.1,60,19.7,SS,A,719
+"1.5""-PL-7066-SS",dust-scrubber liquor to E-602 feed,C-605,downstream,750,liq,45.0,2.0,8.0,1.5,1.9,SS,A,719
+"4""-PL-7067-SS",process condensate to R-602,upstream,R-602,751,liq,60.0,20.0,49.8,4,1.7,SS,A,720
+"3""-ST-7068-SS",steam to R-602 / E-607,upstream,R-602,753,steam,224.0,25.0,5.8,3,32.3,SS,A,720
+"4""-PL-7069-SS",hydrolysed condensate to C-606,R-602,downstream,752,liq,190.0,20.0,49.8,4,1.9,SS,A,720
+"4""-PG-7070-SS",condensate to C-606 (after E-607),upstream,C-606,754,liq,150.0,4.0,49.8,4,1.9,SS,A,721
+"8""-PG-7071-SS","C-606 overhead (NH3, CO2, steam) to E-604",C-606,downstream,756,gas,140.0,3.5,4.1,8,17.2,SS,A,721
+"4""-PL-7072-SS",clean process condensate,C-606,downstream,757,liq,145.0,4.0,49.6,4,1.8,SS,A,721
+"6""-ST-7073-A1",stripping steam to C-606,supply,C-606-RB,755,steam,143.6,4.0,3.8,6,28.2,A1,A,721
+"10""-SO-7074-A1",granules from G-601 cooler / screens,upstream,CV-601,758,slurry,60.0,1.0,160.4,10,1.2,A1,A,722
+"10""-SO-7075-A1",granules to urea store,CV-601,downstream,759,slurry,50.0,1.0,160.4,10,1.2,A1,A,722
+"24""-PG-7076-A1",dust extraction air to C-605,CV-601,downstream,760,gas,40.0,1.0,20.0,24,17.1,A1,A,722
+"18""-ST-8001-A1","HP steam supply (E-101,B-801)","E-101, B-801",HP header,801,steam,400.0,50.0,312.9,18,32.9,A1,A,801
+"12""-ST-8002-A1",HP steam to R-101/201/202,HP header,R-101/201/202,802,steam,400.0,50.0,135.8,12,32.1,A1,A,801
+"14""-ST-8003-A1",HP steam to PRDS-801,HP header,PRDS-801,803,steam,400.0,50.0,177.1,14,30.8,A1,A,801
+"18""-ST-8004-A1",MP steam from PRDS-801,PRDS-801,MP header,805,steam,300.0,25.0,194.0,18,34.7,A1,A,801
+"3""-PL-8005-A1",spray BFW to PRDS-801,BFW header,PRDS-801,804,liq,105.0,65.0,16.9,3,1.1,A1,A,801
+"16""-ST-8006-A1",MP steam to C-601 stripper,MP header,C-601,806,steam,300.0,25.0,147.6,16,33.4,A1,A,801
+"10""-ST-8007-A1",MP steam to PRDS-802,MP header,PRDS-802,807,steam,300.0,25.0,46.5,10,27.0,A1,A,801
+"20""-ST-8008-A1",LP steam from PRDS-802,PRDS-802,LP header,809,steam,160.0,4.5,52.7,20,32.1,A1,A,801
+"1.5""-PL-8009-A1",spray BFW to PRDS-802,BFW header,PRDS-802,808,liq,105.0,65.0,6.2,1.5,1.6,A1,A,801
+"16""-ST-8010-A1",LP steam to users (C-302 etc),LP header,LP users,810,steam,160.0,4.5,29.5,16,28.1,A1,A,801
+"14""-ST-8011-A1",LP steam to D-801,LP header,D-801,811,steam,160.0,4.5,23.2,14,28.8,A1,A,801
+"14""-PG-8012-A1",HP steam to PRDS-801,upstream,PRDS-801,803,steam,400.0,50.0,177.1,14,30.8,A1,A,802
+"3""-PL-8013-A1",spray BFW to PRDS-801,upstream,PRDS-801,804,liq,105.0,65.0,16.9,3,1.1,A1,A,802
+"18""-PG-8014-A1",MP steam from PRDS-801,PRDS-801,downstream,805,steam,300.0,25.0,194.0,18,34.7,A1,A,802
+"10""-PG-8015-A1",MP steam to PRDS-802,upstream,PRDS-802,807,steam,300.0,25.0,46.5,10,27.0,A1,A,803
+"1.5""-PL-8016-A1",spray BFW to PRDS-802,upstream,PRDS-802,808,liq,105.0,65.0,6.2,1.5,1.6,A1,A,803
+"20""-PG-8017-A1",LP steam from PRDS-802,PRDS-802,downstream,809,steam,160.0,4.5,52.7,20,32.1,A1,A,803
+"8""-PL-8018-A1",Condensate returns (MP/LP),upstream,V-801,812,liq,90.0,3.0,156.4,8,1.4,A1,A,804
+"10""-ST-8019-A1",Flash steam to LP header,V-801,downstream,813,steam,105.0,1.2,3.1,10,24.9,A1,A,804
+"8""-PL-8020-A1",Condensate to D-801,V-801,P-801,814,liq,90.0,1.2,153.3,8,1.4,A1,A,804
+"10""-PL-8021-A1",DM + condensate feed,upstream,D-801,815,liq,70.0,2.0,319.9,10,1.8,A1,A,805
+"4""-ST-8022-A1",Deaerator vent,D-801,downstream,816,steam,105.0,1.2,0.7,4,34.1,A1,A,805
+"10""-BFW-8023-A1",BFW to HP boilers,D-801,P-802,817,liq,105.0,1.2,342.3,10,2.0,A1,A,805
+"14""-ST-8024-A1",LP steam to D-801,LP header,D-801 sparger,811,steam,160.0,4.5,23.2,14,28.8,A1,A,805
+"10""-PL-8025-A1",BFW from P-802A/B,upstream,BFW-801,822,liq,105.0,70.0,342.3,10,2.0,A1,A,806
+"10""-PL-8026-A1",BFW to E-101/102/103 drums,BFW-801,downstream,820,liq,105.0,70.0,319.2,10,1.8,A1,A,806
+"3""-PL-8027-A1",BFW spray water (PRDS),BFW-801,downstream,821,liq,105.0,70.0,23.2,3,1.5,A1,A,806
+"0.5""-PL-8028-A1",BFW to B-801 (standby),BFW-801,downstream,823,liq,105.0,70.0,0.0,0.5,0.0,A1,A,806
+"12""-PL-8029-A1",Boiler blowdown,upstream,V-803,824,twophase,148.0,4.5,6.3,12,10.3,A1,A,807
+"4""-ST-8030-A1",Flash steam to LP header,V-803,downstream,825,steam,148.0,4.5,1.6,4,23.2,A1,A,807
+"1.5""-PL-8031-A1",Blowdown liquid to cooler/ETP,V-803,downstream,826,liq,148.0,4.5,4.7,1.5,1.2,A1,A,807
+"3""-PS-8032-A1",Coal to B-801,upstream,B-801,827,slurry,25.0,1.0,18.3,3,1.4,A1,A,808
+"54""-PG-8033-A1",Combustion air,upstream,B-801,828,gas,25.0,1.1,124.6,54,18.2,A1,A,808
+"6""-PL-8034-A1",BFW to B-801,upstream,B-801,829,liq,105.0,70.0,99.2,6,1.6,A1,A,808
+"10""-ST-8035-A1",HP steam from B-801,B-801,downstream,830,steam,400.0,50.0,99.2,10,33.8,A1,A,808
+"72""-PG-8036-A1",Flue gas to stack,B-801,downstream,831,gas,140.0,1.0,136.5,72,17.1,A1,A,808
+"2""-PS-8037-A1",Ash to silo,B-801,downstream,832,slurry,120.0,1.0,6.4,2,1.3,A1,A,808
+"12""-PL-8038-A1",Raw water from intake (gap),upstream,T-801,833,liq,30.0,3.0,409.3,12,1.6,A1,A,809
+"12""-PL-8039-A1",Raw water to DM / CT,T-801,downstream,834,liq,30.0,4.0,409.3,12,1.6,A1,A,809
+"12""-PL-8040-A1",Raw water to DM / CT,T-801,downstream,834,liq,30.0,4.0,409.3,12,1.6,A1,A,809
+"6""-PL-8041-A1",Raw water to DM,upstream,DM-801,835,liq,30.0,4.0,129.7,6,2.0,A1,A,810
+"6""-PL-8042-A1",DM water to T-802,DM-801,downstream,836,liq,30.0,3.0,123.2,6,1.9,A1,A,810
+"1.5""-PL-8043-A1",Regeneration effluent,DM-801,downstream,837,liq,30.0,1.0,6.5,1.5,1.6,A1,A,810
+"6""-PL-8044-A1",DM water to T-802,upstream,T-802,836,liq,30.0,3.0,123.2,6,1.9,A1,A,811
+"6""-PL-8045-A1",DM water to deaerator,T-802,downstream,838,liq,30.0,3.0,123.2,6,1.9,A1,A,811
+"6""-PL-8046-A1",DM water to deaerator,T-802,downstream,838,liq,30.0,3.0,123.2,6,1.9,A1,A,811
+"54""-CW-8047-A1",CW return header A,upstream,CT-801,839,liq,42.0,2.0,"8,381.8",54,1.6,A1,A,812
+"54""-CW-8048-A1",CW return header B,upstream,CT-801,840,liq,42.0,2.0,"8,381.8",54,1.6,A1,A,812
+"12""-PL-8049-A1",CT makeup water,upstream,CT-801,841,liq,30.0,3.0,365.0,12,1.4,A1,A,812
+"72""-CW-8050-A1",Cold water to basin pumps,CT-801,downstream,842,liq,32.0,1.2,"16,763.5",72,1.8,A1,A,812
+"6""-CW-8051-A1",CT blowdown to ETP,CT-801,downstream,843,liq,32.0,2.0,69.6,6,1.1,A1,A,812
+"120""-PG-8052-A1",Evaporation + drift (vapour),CT-801,downstream,844,gas,38.0,1.0,295.3,120,16.1,A1,A,812
+"54""-CW-8053-A1",Basin outlet A,upstream,P-803,845,liq,32.0,1.2,"8,381.8",54,1.6,A1,A,813
+"54""-CW-8054-A1",Basin outlet B,upstream,P-803,846,liq,32.0,1.2,"8,381.8",54,1.6,A1,A,813
+"54""-CW-8055-A1",CW supply header A,P-803,downstream,847,liq,32.0,4.7,"8,381.8",54,1.6,A1,A,813
+"54""-CW-8056-A1",CW supply header B,P-803,downstream,848,liq,32.0,4.7,"8,381.8",54,1.6,A1,A,813
+"0.5""-PL-8057-A1",Scale/corrosion inhibitor,upstream,DOS-801,849,liq,30.0,5.0,0.0,0.5,0.0,A1,A,814
+"0.5""-PL-8058-A1",Biocide,upstream,DOS-801,850,liq,30.0,5.0,0.0,0.5,0.0,A1,A,814
+"0.5""-PL-8059-A1",Dispersant,upstream,DOS-801,851,liq,30.0,5.0,0.0,0.5,0.0,A1,A,814
+"0.5""-PL-8060-A1",Chemicals to CT basin,DOS-801,downstream,852,liq,30.0,4.0,0.0,0.5,0.0,A1,A,814
+"18""-PG-8061-A1",Ambient air,upstream,K-801,853,gas,35.0,1.013,11.6,18,17.2,A1,A,815
+"6""-PG-8062-A1",Instrument air (dry),K-801,downstream,854,gas,40.0,9.0,7.8,6,11.8,A1,A,815
+"4""-PG-8063-A1",Plant air,K-801,downstream,855,gas,40.0,9.0,3.9,4,13.3,A1,A,815
+"0.5""-PL-8064-A1",Compressor condensate,K-801,downstream,856,liq,40.0,1.0,0.0,0.5,0.0,A1,A,815
+"6""-IA-8065-A1",Dried air from dryers,K-801 dryers,V-804,857,gas,40.0,9.0,11.6,6,17.7,A1,A,816
+"6""-IA-8066-A1",Air to headers,V-804,IA / PA headers,858,gas,40.0,8.7,11.6,6,18.3,A1,A,816
+"0.5""-PL-8067-A1",Receiver drain,V-804,drain trap to ETP,859,liq,40.0,1.0,0.0,0.5,0.0,A1,A,816
+"8""-PG-8068-A1",N2 slip from ASU-101 (S26),upstream,N2-801,860,gas,25.0,1.2,2.5,8,15.8,A1,A,817
+"3""-PG-8069-A1",Plant N2 header,N2-801,downstream,861,gas,40.0,11.0,2.5,3,12.9,A1,A,817
+"6""-PL-8070-A1",CT blowdown,upstream,ETP-801,862,liq,32.0,2.0,69.6,6,1.1,A1,A,819
+"1.5""-PL-8071-A1",DM regeneration effluent,upstream,ETP-801,863,liq,30.0,1.0,6.5,1.5,1.6,A1,A,819
+"2""-PL-8072-A1",Boiler blowdown + S23 reject,upstream,ETP-801,864,liq,50.0,1.0,9.5,2,1.3,A1,A,819
+"6""-PL-8073-A1",Recovered water to CT makeup,ETP-801,downstream,866,liq,35.0,3.0,85.4,6,1.3,A1,A,819
+"0.5""-PS-8074-A1",Salt cake to secure landfill,ETP-801,downstream,867,slurry,40.0,1.0,0.2,0.5,0.4,A1,A,819
+"30""-PG-9001-A1",Flare header gas to KO-101,upstream,KO-101,903,gas,60.0,2.0,43.3,30,18.0,A1,A,902
+"30""-PG-9002-A1",KO-101 gas to seal drum,KO-101,downstream,904,gas,60.0,1.95,42.0,30,17.9,A1,A,902
+"0.75""-PL-9003-A1",KO-101 liquid (slop),KO-101,P-901,905,liq,60.0,2.0,1.3,0.75,1.6,A1,A,902
+"0.75""-PL-9004-A1",KO-101 liquid (slop),KO-101,downstream,905,liq,60.0,2.0,1.3,0.75,1.6,A1,A,902
+"30""-PG-9005-A1",KO-101 gas to V-901,upstream,V-901,906,gas,60.0,1.95,42.0,30,17.9,A1,A,903
+"30""-PG-9006-A1",Flare gas to FL-101 tip,V-901,downstream,907,gas,60.0,1.8,41.8,30,19.3,A1,A,903
+"0.5""-PL-9007-A1",Seal drum overflow,V-901,closed-drain system,908,liq,60.0,1.5,0.2,0.5,0.5,A1,A,903
+"30""-PG-9008-A1",Flare gas to FL-101 tip,upstream,FL-101,907,gas,60.0,1.8,41.8,30,19.3,A1,A,904
+"1""-PG-9009-A1",Pilot fuel gas (S16 type),upstream,FL-101,909,gas,40.0,3.0,0.0,1,16.8,A1,A,904
+"1""-PG-9010-A1",Purge N2 (ASU S26 type),upstream,FL-101,910,gas,40.0,2.0,0.1,1,12.7,A1,A,904
+"2""-PL-9011-A1",Closed-drain header liquid,upstream,V-902,913,liq,40.0,1.5,10.0,2,1.5,A1,A,905
+"2""-PG-9012-A1",Drain drum vent to LP flare,V-902,downstream,914,gas,40.0,1.3,0.1,2,15.4,A1,A,905
+"2""-PL-9013-A1",Drain drum liquid to pumps,V-902,P-902,915,liq,40.0,1.5,9.9,2,1.5,A1,A,905
+"6""-PL-9014-A1",Contaminated runoff + oily drains,upstream,OWS-901,916,liq,30.0,1.2,100.0,6,1.5,A1,A,906
+"6""-PL-9015-A1",Treated water to ETP-801,OWS-901,downstream,918,liq,30.0,1.5,99.0,6,1.5,A1,A,906
+"0.75""-PL-9016-A1",Recovered oil to slop,OWS-901,downstream,917,liq,30.0,1.5,1.0,0.75,1.1,A1,A,906
+"10""-PS-9017-A1",Urea granules from G-601 (S22),upstream,CV-901,920,slurry,60.0,1.0,160.4,10,1.2,A1,A,909
+"10""-PS-9018-A1",Urea to bulk store,CV-901,downstream,921,slurry,60.0,1.0,160.4,10,1.2,A1,A,909
+"10""-PS-9019-A1",Urea to bulk store,upstream,T-902,921,slurry,60.0,1.0,160.4,10,1.2,A1,A,908
+"10""-PS-9020-A1",Urea reclaimed to bagging,T-902,downstream,922,slurry,45.0,1.0,144.4,10,1.1,A1,A,908
+"3""-PS-9021-A1",Urea reclaimed to bulk loading,T-902,downstream,923,slurry,45.0,1.0,16.0,3,1.3,A1,A,908
+"10""-PS-9022-A1",Urea reclaimed to bagging,upstream,BAG-901,922,slurry,45.0,1.0,144.4,10,1.1,A1,A,910
+"10""-PS-9023-A1",Bagged urea (50 kg bags),BAG-901,downstream,924,slurry,45.0,1.0,144.4,10,1.1,A1,A,910
+"10""-PS-9024-A1",Bagged urea (50 kg bags),upstream,LD-901,924,slurry,45.0,1.0,144.4,10,1.1,A1,A,911
+"3""-PS-9025-A1",Urea reclaimed to bulk loading,upstream,LD-901,923,slurry,45.0,1.0,16.0,3,1.3,A1,A,911
+"8""-PS-9026-A1",Dispatch by road,LD-901,downstream,925,slurry,40.0,1.0,80.2,8,0.9,A1,A,911
+"8""-PS-9027-A1",Dispatch by rail,LD-901,downstream,926,slurry,40.0,1.0,80.2,8,0.9,A1,A,911

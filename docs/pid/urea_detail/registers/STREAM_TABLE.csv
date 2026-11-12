@@ -1,0 +1,463 @@
+stream,name,phase,flow_t_h,T_C,P_bar,mw_or_rho
+1,coal-petcoke blend to F-101,slurry,243.1,25.0,1.0,13.26
+1,"coal, dense-phase",slurry,243.1,25.0,50.0,13.26
+10,CO2 product (stream 10),gas,319.5,5.0,2.0,44.01
+101,coal from wagons (as received),slurry,182.4,25.0,1.0,800.0
+102,coal on receiving belt,slurry,182.4,25.0,1.0,800.0
+103,coal at crusher house,slurry,182.4,25.0,1.0,800.0
+104,crushed coal to stacker,slurry,182.4,25.0,1.0,800.0
+105,coal reclaimed to blending,slurry,182.4,25.0,1.0,800.0
+106,petcoke from trucks / wagons,slurry,60.8,25.0,1.0,750.0
+107,petcoke reclaimed to blending,slurry,60.8,25.0,1.0,750.0
+108,mill discharge: PC in gas,twophase,719.6,80.0,1.05,0.9655164280119287
+109,pulverised coal to PC bin,slurry,216.3,80.0,1.0,500.0
+11,H2S acid gas (stream 11),gas,3.4,40.0,2.0,34.08
+110,hot inert gas to F-101,gas,476.4,250.0,1.1,28.00
+111,clean mill gas to stack,gas,503.2,70.0,1.0,26.00
+112,PC to lock hoppers,slurry,216.3,80.0,1.0,500.0
+113,inerting N2 to PC bin,gas,0.1,40.0,1.1,28.01
+114,bin vent gas to BF-101,gas,0.1,40.0,1.1,28.01
+115,PC to pressurised feed vessel,slurry,216.3,60.0,55.0,500.0
+116,HP N2 for lock hopper pressurisation (net),gas,12.0,60.0,58.0,28.01
+117,lock hopper vent gas to BF-101,gas,12.0,60.0,1.1,28.01
+118,HP N2 conveying and aeration gas,gas,31.3,60.0,58.0,28.01
+119,dense-phase PC + N2 to burner B1,twophase,61.9,60.0,52.0,350.0
+12,treated gas (stream 12),gas,36.2,10.0,40.0,3.63
+12,treated gas (stream 12) (1 of 6),gas,6.0,10.0,40.0,3.63
+120,dense-phase PC + N2 to burner B2,twophase,61.9,60.0,52.0,350.0
+121,dense-phase PC + N2 to burner B3,twophase,61.9,60.0,52.0,350.0
+122,dense-phase PC + N2 to burner B4,twophase,61.9,60.0,52.0,350.0
+123,PC + N2 to burner B1 (gasifier R-101),twophase,61.9,60.0,49.0,350.0
+124,N2 purge to burner line B1,gas,0.1,40.0,58.0,28.01
+125,purge gas into burner (during trip),gas,0.1,40.0,49.0,28.01
+126,LP N2 inerting header from area 20,gas,0.2,40.0,1.1,28.01
+127,instrument and seal purge N2,gas,0.1,40.0,1.1,28.01
+13,purification residual (stream 13),gas,8.5,40.0,5.0,17.85
+14,N2 from ASU to K-401,gas,75.5,40.0,40.0,28.01
+14,N2 to K-401 (loop),gas,75.5,40.0,40.0,28.01
+15,x,gas,98.7,40.0,40.0,8.52
+15,make-up gas to K-401A,gas,98.7,40.0,40.0,8.52
+16,net purge / tail gas to fuel,gas,0.8,40.0,5.0,8.52
+17,liquid NH3 to T-501 (incl. boil-off return),liq,91.2,-33.3,1.1,17.03
+18,NH3 to V-601 (preheated),liq,91.0,40.0,25.0,17.03
+18,NH3 to E-601 (P-601 out),liq,91.0,40.0,150.0,17.03
+19,CO2 to stripper C-601 (K-601B out),liq,117.9,40.0,150.0,44.01
+2,oxygen ASU-101 to R-101,gas,133.7,40.0,50.0,32.00
+2,oxygen to R-101,gas,133.7,40.0,50.0,32.00
+2,oxygen to R-101 (standby path),gas,133.7,40.0,50.0,32.00
+2,oxygen,gas,133.7,40.0,50.0,32.00
+201,filtered air to MAC,gas,574.2,25.0,0.98,28.85
+202,compressed air to DCC,gas,574.2,40.0,6.0,28.85
+203,cooled air to adsorbers,gas,574.2,15.0,5.7,28.85
+204,chilled water to DCC,liq,203.0,8.0,4.0,999.0
+205,water from DCC,liq,203.0,25.0,1.5,997.0
+206,purified air to cold box,gas,574.2,18.0,5.5,28.85
+207,hot regeneration N2,gas,57.4,180.0,1.2000000000000002,28.01
+208,regeneration waste N2,gas,57.4,60.0,1.1,28.01
+209,oxygen gas from cold box,gas,133.7,20.0,1.3,32.00
+21,urea reactor effluent,liq,473.9,180.0,150.0,26.46
+210,HP N2 product from cold box,gas,118.8,20.0,5.2,28.01
+213,waste N2 from cold box,gas,321.6,20.0,1.1,28.01
+215,HP N2 to area 10 users,gas,43.4,40.0,58.0,28.01
+219,air feed to HP column (part liquid),twophase,574.2,-176.0,5.5,28.85
+22,urea granules to conveying,slurry,160.4,60.0,1.0,60.06
+220,HP column top N2,gas,232.3,-178.0,5.4,28.01
+221,crude oxygen liquid (HP sump),liq,341.9,-175.0,5.5,900.0
+222,crude oxygen after expansion,liq,341.9,-190.0,1.5,900.0
+223,LIN reflux from HP top,liq,113.5,-194.0,1.5,807.0
+224,LP column top waste N2,gas,321.6,-193.0,1.2999999999999998,28.01
+225,liquid oxygen (LP sump),liq,133.7,-181.0,1.4,1140.0
+226,LOX fill (intermittent),liq,11.1,-181.0,1.5,1140.0
+227,LOX to pumps / vaporiser,liq,133.7,-183.0,1.2,1140.0
+228,LOX pumped to vaporiser,liq,133.7,-178.0,50.0,1140.0
+229,O2 gas to header (standby),gas,133.7,20.0,49.0,32.00
+230,hot water to LOX vaporiser,liq,424.3,80.0,4.0,972.0
+231,hot water return,liq,424.3,50.0,3.0,988.0
+232,N2 to K-2003 suction,gas,75.5,20.0,5.2,28.01
+233,HP N2 to K-2004 suction,gas,43.4,20.0,5.2,28.01
+234,LIN to pumps / vaporiser,liq,75.5,-194.0,1.2,807.0
+235,LIN pumped to vaporiser,liq,75.5,-190.0,40.0,807.0
+236,N2 gas to header (standby),gas,75.5,20.0,39.0,28.01
+237,hot water to LIN vaporiser,liq,251.2,80.0,4.0,972.0
+238,hot water return,liq,251.2,50.0,3.0,988.0
+239,LIN fill (intermittent),liq,6.3,-194.0,1.5,807.0
+25,air to ASU-101,gas,574.2,25.0,1.0,28.85
+26,"surplus N2 to vent, after area 10 import",gas,321.6,25.0,1.1,28.01
+27,recycle gas from K-402,gas,380.1,34.7,200.0,8.52
+28,process condensate,liq,58.6,40.0,45.0,992.0
+29,condensate (stream 29),liq,11.3,40.0,40.0,992.0
+3,HP steam to burners,steam,24.3,400.0,50.0,18.02
+30,recovered H2/N2 to K-401A,gas,7.0,40.0,40.0,8.52
+301,quench recycle gas,gas,250.3,189.5,44.5,21.08
+302,mixed gas to E-101,gas,556.4,900.0,44.5,21.18
+303,gas from E-101,gas,556.4,341.0,43.0,21.18
+304,gas from E-132,gas,556.4,243.4,42.5,21.18
+305,"scrubbed syngas, total",gas,571.8,181.5,41.0,21.08
+306,net syngas to shift (area 40),gas,321.5,181.5,41.0,21.08
+307,recycle gas to K-132,gas,250.3,181.5,41.0,21.08
+308,"venturi outlet, gas + water",twophase,587.4,181.5,41.5,23.756241284097786
+309,gas + fines from F-135,gas,557.2,243.4,42.0,21.18
+311,coarse slag to bath,slurry,66.7,1400.0,45.0,2500.0
+312,fly slag in raw gas,slurry,28.6,1400.0,45.0,2500.0
+313,dry fly ash,slurry,27.7,243.4,42.5,500.0
+321,"bath water, hot",liq,965.3,105.0,45.0,947.5799999999999
+322,"bath water, cooled",liq,965.3,80.0,45.0,967.48
+323,slag slurry to V-102,slurry,166.8,80.0,45.0,1281.775439429526
+324,lock-hopper vent gas,gas,4.3,80.0,1.5,22.12
+325,slag slurry to dewatering,slurry,162.5,80.0,1.5,1281.775439429526
+326,slag cake,slurry,88.1,80.0,1.0,1500.0
+327,dewatering overflow,liq,74.4,80.0,1.0,977.1548
+328,bath make-up water,liq,100.1,70.0,50.0,975.4399999999999
+329,"grey water, HP discharge",liq,130.3,70.0,50.0,975.4399999999999
+330,stripped water to column top,liq,13.0,70.0,46.0,975.4399999999999
+331,wash water to venturi,liq,30.2,70.0,46.0,975.4399999999999
+332,black water bleed,liq,28.6,181.5,41.0,904.3808345118671
+334,"black water after let-down, HP",twophase,28.6,158.83,6.0,60.82954493412097
+335,"black water after let-down, LP",twophase,27.3,111.35,1.5,9.468223158766188
+336,"black water after let-down, vacuum",twophase,24.9,69.1,0.3,2.577260685047297
+341,HP flash steam,gas,1.3,158.83,6.0,18.02
+342,LP flash steam,gas,2.4,111.35,1.5,18.02
+343,vacuum flash vapour,gas,1.8,69.1,0.3,18.02
+344,"black water, HP flashed",liq,27.3,158.8,6.0,904.73132
+345,"black water, LP flashed",liq,24.9,111.3,1.5,942.5254
+346,"black water, vacuum flashed",liq,23.0,69.1,0.3,976.1564
+347,clarified grey water,liq,94.7,70.0,1.5,975.4399999999999
+348,clarifier underflow sludge,slurry,15.2,65.0,2.0,1050.0
+349,filter cake,slurry,2.8,65.0,1.0,1400.0
+350,press filtrate,liq,12.5,65.0,2.0,979.42
+351,process water make-up,liq,0.0,30.0,1.5,1007.28
+353,flash condensate,liq,5.6,60.0,1.3,983.0
+354,flash vapour to E-142,gas,5.6,115.0,1.4,18.02
+360,BFW from economiser,liq,376.3,250.0,108.0,832.16
+361,boiler feed water,liq,376.3,200.0,110.0,871.9599999999999
+362,"HP steam, saturated",steam,368.7,311.0,100.0,18.02
+363,boiler blowdown,liq,7.5,311.0,100.0,688.4
+364,"E-101 return, two-phase",twophase,"2,638.0",311.0,98.0,283.8235676478782
+365,riser return to drum,twophase,"2,949.9",311.0,98.0,283.8235676478782
+366,downcomer water to P-134,liq,"2,949.9",311.0,100.0,688.4
+367,wall circulation water,liq,311.9,311.0,100.0,688.4
+368,"wall return, two-phase",twophase,311.9,311.0,98.0,283.8235676478782
+369,E-101 circulation water,liq,"2,638.0",311.0,100.0,688.4
+371,cooling water supply,liq,"2,014.9",30.0,5.0,995.0
+372,cooling water return,liq,"2,014.9",42.0,4.5,991.0
+373,cooling water supply,liq,269.9,30.0,5.0,995.0
+374,cooling water return,liq,269.9,42.0,4.5,991.0
+380,N2 header from ASU-101,gas,9.4,25.0,56.0,28.01
+381,N2 to burners and R-101 purge,gas,2.0,25.0,56.0,28.01
+382,N2 back-pulse to F-135,gas,1.2,25.0,56.0,28.01
+383,N2 to V-102 re-pressurisation,gas,5.4,25.0,56.0,28.01
+384,"N2 inerting, other users",gas,0.8,25.0,56.0,28.01
+385,start-up liquid fuel,liq,0.5,40.0,56.0,850.0
+387,start-up oxygen (branch of 2),gas,1.8,40.0,50.0,32.00
+388,burner hot gas into R-101,gas,2.3,1400.0,45.0,28.00
+391,sour water to stripper,liq,64.1,41.7,3.0,990.0
+392,"stripper overhead gas (NH3, H2S, CO2, steam)",gas,1.9,90.0,2.5,20.00
+393,stripped water,liq,62.2,140.0,3.5,930.0
+394,LP steam to reboiler,steam,9.6,144.0,4.0,18.02
+395,stripped water to grey-water tank,liq,35.6,60.0,1.5,983.4
+396,stripped water export,liq,13.7,60.0,3.0,983.4
+397,to KO-101 / FL-101 (area 90),gas,35.6,250.0,3.0,21.18
+398,"EDV blowdown, gas train",gas,31.3,300.0,6.0,21.18
+399,lock-hopper vent gas to flare,gas,4.3,80.0,2.0,22.12
+4,raw syngas,gas,306.1,1400.0,45.0,21.26
+4B1,HP boiler feedwater to E-202,liq,57.8,105.0,55.0,955.0
+4B2,HP saturated steam from E-202,steam,57.8,264.0,50.0,18.02
+4B3,BFW to E-102,liq,41.5,105.0,10.0,955.0
+4B4,LP saturated steam from E-102,steam,41.5,159.0,6.0,18.02
+4B5,BFW to E-204,liq,146.8,105.0,55.0,955.0
+4B6,warm BFW from E-204,liq,146.8,180.0,54.0,900.0
+4B7,BFW to E-205,liq,324.4,105.0,55.0,955.0
+4B8,BFW from E-205,liq,324.4,180.0,54.0,900.0
+4C,"raw syngas after E-101 (stream 4, cooled)",gas,306.1,215.0,45.0,21.26
+4D1,DM water to E-203,liq,326.5,30.0,6.0,996.0
+4D2,warm DM water from E-203,liq,326.5,105.0,5.5,955.0
+4F,HT shift bed-1 feed,gas,383.9,280.0,45.0,20.51
+4G,raw syngas after guard bed G-201,gas,306.1,214.0,45.0,21.26
+4H1,HP steam for start-up heater,steam,0.0,400.0,50.0,18.02
+4H2,steam leaving H-201,steam,0.0,270.0,49.0,18.02
+4H3,start-up nitrogen (stream 14 source),gas,38.4,40.0,40.0,28.01
+4H4,hot start-up nitrogen to R-201,gas,38.4,300.0,40.0,28.01
+4M,HT shift mixed feed (4 + 6),gas,383.9,260.0,45.0,20.51
+4W1,cooling water to E-103,liq,"1,411.4",33.0,5.0,995.0
+4W2,cooling water return from E-103,liq,"1,411.4",43.0,4.5,990.0
+501,lean solvent,liq,"9,938.8",5.0,48.0,1000.0
+501,lean solvent (1 of 6),liq,"1,656.5",5.0,48.0,1000.0
+502,rich solvent,liq,"10,282.0",10.8,44.0,1000.0
+502,rich solvent (1 of 6),liq,"1,713.7",10.8,44.0,1000.0
+502,rich solvent (all 6 trains),liq,"10,282.0",10.8,20.0,1000.0
+503,HP flash gas (CO2 recycle),gas,20.4,9.8,18.0,44.01
+504,rich solvent after HP flash,liq,"10,261.6",9.8,18.0,1000.0
+504,rich solvent to LP flash,liq,"10,261.6",9.8,6.0,1000.0
+505,flashed solvent (H2S retained),liq,"9,942.2",5.0,2.0,1000.0
+506,slip to H2S stripper,liq,994.2,5.0,3.0,1000.0
+507,slip after E-301,liq,994.2,109.1,2.5,1000.0
+508,hot regenerated slip,liq,990.9,120.0,2.5,1000.0
+509,regenerated slip after E-301,liq,990.9,21.7,2.0,1000.0
+510,bulk flashed solvent,liq,"8,947.9",5.0,2.0,1000.0
+511,"lean solvent, merged",liq,"9,938.8",6.7,2.0,1000.0
+512,lean solvent from P-301,liq,"9,938.8",8.0,49.0,1000.0
+513,lean solvent to chiller outlet,liq,"9,938.8",5.0,48.0,1000.0
+514,LP steam to C-302 reboiler,steam,46.3,159.0,6.0,18.02
+515,NH3 refrigerant vapour from E-302,gas,68.7,-5.0,3.0,17.03
+516,NH3 refrigerant liquid to E-302,liq,68.7,-5.0,3.5,681.2
+517,wet CO2 to dryer,gas,320.0,5.0,2.0,43.90
+518,dry CO2 to K-601,gas,319.5,20.0,1.8,44.01
+519,water from dryer,liq,0.6,20.0,1.8,998.0
+520,treated gas after G-301 (stream 12),gas,36.2,10.0,40.0,3.63
+521,treated gas heated to E-304 outlet,gas,36.2,250.0,40.0,3.63
+522,methanator bed-1 feed,gas,36.2,280.0,40.0,3.63
+523,methanator bed-1 effluent,gas,36.2,400.0,40.0,3.94
+524,methanator bed-1 effluent after E-305,gas,36.2,280.0,40.0,3.94
+525,methanator effluent (bed 2),gas,36.2,400.0,40.0,3.94
+526,methanator effluent after E-304,gas,36.2,148.0,40.0,3.94
+527,BFW to E-305,liq,14.6,105.0,10.0,955.0
+528,LP steam from E-305,steam,14.6,159.0,6.0,18.02
+529,methanator effluent cooled,twophase,36.2,40.0,40.0,2.90
+530,gas to PU-301,gas,24.8,40.0,39.5,2.90
+531,purified H2 to K-401,gas,16.3,40.0,38.0,2.02
+532,combustion air (blower),gas,7.1,40.0,1.7,28.85
+533,recycle H2S from TGT absorber,gas,0.1,40.0,1.8,34.08
+534,furnace gas,gas,10.6,1150.0,1.5,28.17
+535,furnace gas after WHB,gas,10.6,300.0,1.4,28.17
+536,BFW to E-351,liq,4.4,105.0,12.0,955.0
+537,MP steam from E-351,steam,4.4,188.0,12.0,18.02
+538,gas after sulphur condenser 1,gas,8.4,170.0,1.3,27.33
+539,liquid sulphur from E-352,liq,2.1,150.0,1.3,1800.0
+540,BFW to E-352,liq,0.8,105.0,5.0,955.0
+541,LP steam from E-352,steam,0.8,144.0,4.0,18.02
+542,converter 1 feed (reheated),gas,8.4,230.0,1.3,27.33
+543,converter 1 effluent,gas,8.4,314.0,1.2,25.92
+544,gas after sulphur condenser 2,gas,7.6,170.0,1.2,25.40
+545,liquid sulphur from E-353,liq,0.8,150.0,1.2,1800.0
+546,BFW to E-353,liq,0.8,105.0,5.0,955.0
+547,LP steam from E-353,steam,0.8,144.0,4.0,18.02
+548,converter 2 feed (reheated),gas,7.6,210.0,1.2,25.40
+549,converter 2 effluent,gas,7.6,232.0,1.1,25.04
+550,Claus tail gas,gas,7.4,130.0,1.1,24.89
+551,liquid sulphur from E-354,liq,0.2,130.0,1.1,1800.0
+552,hot-water loop to E-354,liq,6.3,60.0,4.0,985.0
+553,hot-water loop from E-354,liq,6.3,100.0,3.5,960.0
+554,liquid sulphur to pit,liq,3.2,140.0,1.2,1800.0
+555,liquid sulphur to loading,liq,3.2,140.0,3.0,1800.0
+556,hydrogen for TGT hydrogenation,gas,0.0,40.0,1.5,2.02
+557,"hydrogenation feed (reheated, with H2)",gas,7.4,280.0,1.2,24.50
+558,hydrogenation effluent,gas,7.4,311.0,1.1,24.62
+559,quench sour water,liq,1.6,40.0,1.1,995.0
+560,recycle H2S to F-351 (stream 533),gas,0.1,40.0,1.8,34.08
+561,incinerator air,gas,0.1,40.0,1.1,28.85
+562,stack gas,gas,5.7,450.0,1.05,27.31
+563,recycle gas to C-301 feed,gas,20.4,90.0,44.0,44.01
+6,HP steam to R-201 (stream 6),steam,77.8,400.0,50.0,18.02
+611,"K-401A discharge, cooled",gas,98.7,40.0,89.4,8.52
+612,make-up gas to loop (K-401B out),gas,98.7,40.0,200.0,8.52
+613,loop gas to K-402,gas,380.1,30.0,192.0,8.52
+614,"converter feed (main), E-403 out",gas,452.6,300.0,200.0,8.52
+615,converter cold quench,gas,26.2,35.8,200.0,8.52
+616,main feed to E-403 cold side,gas,452.6,35.8,200.0,8.52
+617,converter effluent,gas,478.8,450.0,200.0,9.41
+618,effluent after WHB,gas,478.8,330.0,200.0,9.41
+619,effluent after E-403,gas,478.8,80.3,200.0,9.41
+620,effluent after E-405 (28 % NH3 condensed),twophase,478.8,40.0,200.0,66.21038323048184
+621,effluent after E-406,twophase,478.8,27.4,200.0,70.21542829871325
+622,chilled effluent to V-401,twophase,478.8,0.0,200.0,80.30700530943405
+623,separator gas to E-406,gas,387.6,0.0,198.0,8.52
+624,liquid NH3 to V-402,liq,91.3,0.0,200.0,638.6
+625,loop purge to PGR-401,gas,7.5,0.0,198.0,8.52
+626,letdown flash gas to PGR-401,gas,0.3,0.0,25.0,8.52
+627,NH3 to V-403 (25 bar),liq,91.0,0.0,25.0,638.6
+628,recondensed NH3 to V-403,liq,13.7,40.0,15.5,579.6
+629,V-403 feed (flashing),twophase,104.6,-33.3,1.1,6.867562406378764
+630,level-1 refrigerant vapour,gas,13.5,-33.3,1.05,17.03
+631,boil-off gas from T-501,gas,0.2,-33.3,1.05,17.03
+632,level-1 vapour to K-501,gas,13.7,-33.3,1.05,17.03
+633,level-2 vapour from E-401,gas,70.1,-10.0,2.9,17.03
+634,flash vapour from V-404,gas,15.6,-10.0,2.9,17.03
+635,K-501 discharge,gas,99.5,144.6,15.5,17.03
+636,refrigerant condensate,liq,99.5,40.0,15.5,579.6
+637,refrigerant liquid to E-401,liq,70.1,-10.0,2.9,652.0
+638,refrigerant liquid to V-404,liq,85.8,40.0,15.5,579.6
+639,V-404 feed (flashing),twophase,85.8,-10.0,2.9,12.89268967209049
+640,cooling water to E-405,liq,"1,927.3",30.0,4.5,995.0
+641,cooling water return E-405,liq,"1,927.3",42.0,4.5,990.0
+642,cooling water to E-503,liq,"2,755.7",30.0,4.5,995.0
+643,cooling water return E-503,liq,"2,755.7",42.0,4.5,990.0
+644,BFW to E-404,liq,86.8,105.0,55.0,955.0
+645,HP steam from E-404 (sat.),steam,86.8,263.9,50.0,18.02
+646,V-401 liquid after LV (flashing),twophase,91.3,0.0,25.0,530.4162381604232
+647,K-501 discharge vapour,gas,99.5,144.6,15.5,17.03
+648,NH3 to P-501 (to urea),liq,91.0,-33.3,1.1,681.6
+649,BOG / flash vapour to K-502,gas,13.7,-33.3,1.05,17.03
+650,K-502 discharge to E-503 / flare,gas,13.7,53.4,2.9,17.03
+651,NH3 vent / relief vapour,gas,13.7,-33.3,1.1,17.03
+652,wash water to C-501,liq,273.2,25.0,3.0,997.0
+653,scrubbed vent to flare / stack,gas,0.1,20.0,1.05,17.03
+654,aqueous NH3 to treatment,liq,286.8,40.0,2.0,950.0
+7,HT shift effluent (stream 7),gas,383.9,350.0,45.0,20.51
+700,CO2 + passivation air to K-601A,gas,117.9,40.0,1.5,44.01
+702,"K-601A discharge, cooled",gas,117.9,40.0,15.0,44.01
+703,carbamate from E-601,liq,419.6,170.0,150.0,1000.0
+704,HP scrubber bottoms,liq,54.3,150.0,150.0,1000.0
+705,R-601 feed (mixed),liq,473.9,165.0,150.0,1050.0
+706,stripper overhead gas,gas,330.2,170.0,150.0,30.00
+707,stripped urea solution,liq,261.6,185.0,150.0,1150.0
+708,steam to C-601 (25 bar sat.),steam,57.7,224.0,25.0,18.02
+709,steam condensate from C-601,liq,57.7,224.0,25.0,840.0
+710,E-601 inlet (overhead + NH3),twophase,421.2,170.0,150.0,300.0
+711,E-601 outlet to R-601,liq,419.6,170.0,150.0,1000.0
+712,BFW to E-601,liq,176.9,105.0,6.0,955.0
+713,LP steam from E-601 (4 bar),steam,176.9,143.6,4.0,18.02
+714,E-601 vent to HP scrubber,gas,1.7,170.0,150.0,28.00
+715,"scrubbed vent (air, inerts)",gas,0.4,60.0,18.0,28.96
+716,HP carbamate from P-602,liq,53.1,100.0,152.0,1000.0
+717,urea solution to C-602 (after LV),twophase,261.6,170.0,18.0,91.90108341779302
+718,"MP gas (NH3, CO2)",gas,39.8,160.0,18.0,26.00
+719,MP bottoms to C-604,liq,221.8,160.0,18.0,1150.0
+720,steam to C-602 (12 bar sat.),steam,17.3,188.0,12.0,18.02
+721,E-603 inlet (MP gas + LP carbamate),twophase,53.1,150.0,18.0,15.936254980079681
+722,MP carbamate solution,liq,53.1,100.0,18.0,1000.0
+723,cooling water to E-603,liq,512.1,30.0,4.5,995.0
+724,cooling water return E-603,liq,512.1,42.0,4.5,990.0
+725,cooling water to E-604,liq,170.7,30.0,4.5,995.0
+726,cooling water return E-604,liq,170.7,42.0,4.5,990.0
+727,solution to C-604 (after LV),twophase,221.8,150.0,4.0,55.835526971521745
+728,"LP gas (NH3, CO2, water vapour)",gas,13.3,130.0,4.0,26.00
+729,LP bottoms: urea solution,liq,208.5,130.0,4.0,1150.0
+730,LP steam to C-604,steam,11.5,143.6,4.0,18.02
+731,LP carbamate solution,liq,13.3,60.0,4.0,1000.0
+732,LP carbamate after P-603,liq,13.3,60.0,20.0,1000.0
+733,carbamate to V-603 / P-602 suction,liq,53.1,100.0,18.0,1000.0
+734,solution to E-602,liq,216.6,130.0,4.0,1150.0
+735,E-602 outlet (melt + vapour),twophase,216.6,128.0,0.3,0.7208134439717303
+736,LP steam to E-602,steam,51.4,143.6,4.0,18.02
+737,steam condensate from E-602,liq,51.4,143.6,4.0,920.0
+738,evaporator vapour to vacuum system,gas,48.6,70.0,0.3,18.02
+739,melt from V-605,liq,167.9,138.0,0.3,1230.0
+740,melt to G-601 (P-604 out),liq,167.9,138.0,6.0,1230.0
+741,process condensate,liq,49.8,50.0,1.5,988.0
+742,ejector motive steam,steam,1.5,143.6,4.0,18.02
+743,vacuum non-condensables to scrubber,gas,0.3,40.0,1.05,28.00
+744,cooling water to VAC-601,liq,"1,500.0",30.0,4.5,995.0
+745,cooling water return VAC-601,liq,"1,500.0",42.0,4.5,990.0
+746,fluidising air to G-601,gas,134.3,40.0,1.1,28.96
+747,"G-601 off-gas (air, water, dust)",gas,141.9,90.0,1.0,28.96
+748,wash water to C-605,liq,7.2,40.0,3.0,992.0
+749,scrubbed air to stack,gas,141.1,45.0,1.0,28.90
+750,dust-scrubber liquor to E-602 feed,liq,8.0,45.0,2.0,1030.0
+751,process condensate to R-602,liq,49.8,60.0,20.0,988.0
+751T,HP steam to K-601 turbine,steam,65.1,400.0,50.0,18.02
+752,hydrolysed condensate to C-606,liq,49.8,190.0,20.0,880.0
+752T,turbine condensate,liq,65.1,45.8,0.1,990.0
+753,steam to R-602 / E-607,steam,5.8,224.0,25.0,18.02
+753T,cooling water to turbine condenser,liq,"2,839.2",30.0,4.5,995.0
+754,condensate to C-606 (after E-607),liq,49.8,150.0,4.0,920.0
+754T,cooling water return,liq,"2,839.2",42.0,4.5,990.0
+755,stripping steam to C-606,steam,3.8,143.6,4.0,18.02
+756,"C-606 overhead (NH3, CO2, steam) to E-604",gas,4.1,140.0,3.5,20.00
+757,clean process condensate,liq,49.6,145.0,4.0,920.0
+758,granules from G-601 cooler / screens,slurry,160.4,60.0,1.0,750.0
+759,granules to urea store,slurry,160.4,50.0,1.0,750.0
+760,dust extraction air to C-605,gas,20.0,40.0,1.0,28.96
+7B,HT bed-1 effluent,gas,383.9,505.0,45.0,20.51
+7C,HT effluent after E-201,gas,383.9,331.0,45.0,20.51
+7E,HT effluent after E-102,gas,383.9,185.0,45.0,20.51
+7I,HT bed-1 effluent after interbed cooler,gas,383.9,300.0,45.0,20.51
+8,steam to R-202 (stream 8),steam,33.7,400.0,50.0,18.02
+801,"HP steam supply (E-101,B-801)",steam,312.9,400.0,50.0,18.02
+802,HP steam to R-101/201/202,steam,135.8,400.0,50.0,18.02
+803,HP steam to PRDS-801,steam,177.1,400.0,50.0,18.02
+804,spray BFW to PRDS-801,liq,16.9,105.0,65.0,955.0
+805,MP steam from PRDS-801,steam,194.0,300.0,25.0,18.02
+806,MP steam to C-601 stripper,steam,147.6,300.0,25.0,18.02
+807,MP steam to PRDS-802,steam,46.5,300.0,25.0,18.02
+808,spray BFW to PRDS-802,liq,6.2,105.0,65.0,955.0
+809,LP steam from PRDS-802,steam,52.7,160.0,4.5,18.02
+810,LP steam to users (C-302 etc),steam,29.5,160.0,4.5,18.02
+811,LP steam to D-801,steam,23.2,160.0,4.5,18.02
+812,Condensate returns (MP/LP),liq,156.4,90.0,3.0,965.0
+813,Flash steam to LP header,steam,3.1,105.0,1.2,18.02
+814,Condensate to D-801,liq,153.3,90.0,1.2,965.0
+815,DM + condensate feed,liq,319.9,70.0,2.0,975.0
+816,Deaerator vent,steam,0.7,105.0,1.2,18.02
+817,BFW to HP boilers,liq,342.3,105.0,1.2,955.0
+818,DM water makeup,liq,123.2,30.0,4.0,995.0
+819,Treated process condensate,liq,43.3,90.0,3.0,965.0
+820,BFW to E-101/102/103 drums,liq,319.2,105.0,70.0,955.0
+821,BFW spray water (PRDS),liq,23.2,105.0,70.0,955.0
+822,BFW from P-802A/B,liq,342.3,105.0,70.0,955.0
+823,BFW to B-801 (standby),liq,0.0,105.0,70.0,955.0
+824,Boiler blowdown,twophase,6.3,148.0,4.5,18.02
+825,Flash steam to LP header,steam,1.6,148.0,4.5,18.02
+826,Blowdown liquid to cooler/ETP,liq,4.7,148.0,4.5,920.0
+827,Coal to B-801,slurry,18.3,25.0,1.0,800.0
+828,Combustion air,gas,124.6,25.0,1.1,28.96
+829,BFW to B-801,liq,99.2,105.0,70.0,955.0
+830,HP steam from B-801,steam,99.2,400.0,50.0,18.02
+831,Flue gas to stack,gas,136.5,140.0,1.0,29.00
+832,Ash to silo,slurry,6.4,120.0,1.0,700.0
+833,Raw water from intake (gap),liq,409.3,30.0,3.0,990.0
+834,Raw water to DM / CT,liq,409.3,30.0,4.0,990.0
+835,Raw water to DM,liq,129.7,30.0,4.0,990.0
+836,DM water to T-802,liq,123.2,30.0,3.0,995.0
+837,Regeneration effluent,liq,6.5,30.0,1.0,990.0
+838,DM water to deaerator,liq,123.2,30.0,3.0,995.0
+839,CW return header A,liq,"8,381.8",42.0,2.0,995.0
+840,CW return header B,liq,"8,381.8",42.0,2.0,995.0
+841,CT makeup water,liq,365.0,30.0,3.0,990.0
+842,Cold water to basin pumps,liq,"16,763.5",32.0,1.2,995.0
+843,CT blowdown to ETP,liq,69.6,32.0,2.0,990.0
+844,Evaporation + drift (vapour),gas,295.3,38.0,1.0,18.02
+845,Basin outlet A,liq,"8,381.8",32.0,1.2,995.0
+846,Basin outlet B,liq,"8,381.8",32.0,1.2,995.0
+847,CW supply header A,liq,"8,381.8",32.0,4.7,995.0
+848,CW supply header B,liq,"8,381.8",32.0,4.7,995.0
+849,Scale/corrosion inhibitor,liq,0.0,30.0,5.0,1100.0
+850,Biocide,liq,0.0,30.0,5.0,1100.0
+851,Dispersant,liq,0.0,30.0,5.0,1050.0
+852,Chemicals to CT basin,liq,0.0,30.0,4.0,1080.0
+853,Ambient air,gas,11.6,35.0,1.013,28.96
+854,Instrument air (dry),gas,7.8,40.0,9.0,28.96
+855,Plant air,gas,3.9,40.0,9.0,28.96
+856,Compressor condensate,liq,0.0,40.0,1.0,1000.0
+857,Dried air from dryers,gas,11.6,40.0,9.0,28.96
+858,Air to headers,gas,11.6,40.0,8.7,28.96
+859,Receiver drain,liq,0.0,40.0,1.0,1000.0
+860,N2 slip from ASU-101 (S26),gas,2.5,25.0,1.2,28.01
+861,Plant N2 header,gas,2.5,40.0,11.0,28.01
+862,CT blowdown,liq,69.6,32.0,2.0,990.0
+863,DM regeneration effluent,liq,6.5,30.0,1.0,990.0
+864,Boiler blowdown + S23 reject,liq,9.5,50.0,1.0,990.0
+866,Recovered water to CT makeup,liq,85.4,35.0,3.0,990.0
+867,Salt cake to secure landfill,slurry,0.2,40.0,1.0,1300.0
+8B,LT bed-1 effluent,gas,417.6,258.0,45.0,20.29
+8I,LT bed-1 effluent after interbed cooler,gas,417.6,195.0,45.0,20.29
+8M,LT shift feed (7 + 8),gas,417.6,205.0,45.0,20.29
+9,LT shift effluent (stream 9),gas,417.6,220.0,45.0,20.29
+9,"shift gas, cooled",twophase,417.6,40.0,45.0,20.72
+901,HP header gas (reference),gas,30.6,60.0,2.0,21.26
+902,LP header gas (S11+S13+S16),gas,12.7,60.0,2.0,17.85
+903,Flare header gas to KO-101,gas,43.3,60.0,2.0,20.26
+904,KO-101 gas to seal drum,gas,42.0,60.0,1.95,20.26
+905,KO-101 liquid (slop),liq,1.3,60.0,2.0,800.0
+906,KO-101 gas to V-901,gas,42.0,60.0,1.95,20.26
+907,Flare gas to FL-101 tip,gas,41.8,60.0,1.8,20.26
+908,Seal drum overflow,liq,0.2,60.0,1.5,990.0
+909,Pilot fuel gas (S16 type),gas,0.0,40.0,3.0,8.52
+910,Purge N2 (ASU S26 type),gas,0.1,40.0,2.0,28.01
+913,Closed-drain header liquid,liq,10.0,40.0,1.5,900.0
+914,Drain drum vent to LP flare,gas,0.1,40.0,1.3,17.85
+915,Drain drum liquid to pumps,liq,9.9,40.0,1.5,900.0
+916,Contaminated runoff + oily drains,liq,100.0,30.0,1.2,1000.0
+917,Recovered oil to slop,liq,1.0,30.0,1.5,850.0
+918,Treated water to ETP-801,liq,99.0,30.0,1.5,1000.0
+920,Urea granules from G-601 (S22),slurry,160.4,60.0,1.0,60.06
+921,Urea to bulk store,slurry,160.4,60.0,1.0,750.0
+922,Urea reclaimed to bagging,slurry,144.4,45.0,1.0,750.0
+923,Urea reclaimed to bulk loading,slurry,16.0,45.0,1.0,750.0
+924,Bagged urea (50 kg bags),slurry,144.4,45.0,1.0,750.0
+925,Dispatch by road,slurry,80.2,40.0,1.0,750.0
+926,Dispatch by rail,slurry,80.2,40.0,1.0,750.0
+9A,shift gas after E-205,twophase,417.6,150.0,45.0,20.29
+9B,shift gas after E-203,twophase,417.6,100.0,45.0,20.29
+9C,shift gas after E-103,twophase,417.6,40.0,45.0,20.29
+9V,shift gas to AGR,gas,359.0,40.0,44.0,20.71
+9V,shift gas to AGR (1 of 6),gas,59.8,40.0,44.0,20.71

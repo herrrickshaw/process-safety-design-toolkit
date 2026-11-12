@@ -1,0 +1,139 @@
+tag,protects,case,set_bar_g,set_tag,destination,sizing_status,sheet
+EV-10301,dust collector at crusher house,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",103
+EV-10501,petcoke hopper dust collector,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",105
+EV-10601,bunker top,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",106
+EV-10701,mill body,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",107
+EV-10801,filter housing,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct or flameless device (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",108
+EV-10802,hopper,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",108
+EV-10901,bin roof,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",109
+EV-10902,bin roof,dust explosion (HSG103 para 60-63),per vendor,A,to safe place in open air via duct (A),"not sized: needs volume, Kst/Pmax from 20-L test, vessel strength, opening pressure",109
+PSV-11001,LH-1001,blocked outlet; gas supply failure,60.5,A,vent via BF-101 inlet (A),not sized: needs relief load (gas supply capacity),110
+PSV-11101,FV-1001,blocked outlet; gas supply failure,60.5,A,vent via BF-101 inlet (A),not sized: needs relief load (gas supply capacity),111
+PSV-20201,K-2001 discharge,blocked discharge,8.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,202
+PSV-20301,C-2001,blocked outlet; fire; reboiler/utility failure,8.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,203
+PSV-20401,AD-2001,blocked outlet / fire (adsorber),8.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,204
+PSV-20501,CB-2001,cold-box casing overpressure (leak of cryogenic liquid),7.5,A,"safe location, atmosphere (casing rupture disc, A)",not sized: needs relief load,205
+PSV-20601,C-2002,blocked outlet; fire; reboiler/utility failure,7.5,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,206
+PSV-20701,C-2003,blocked outlet; fire; reboiler/utility failure,3.5,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,207
+PVRV-20801,T-2001,inbreathing/outbreathing; fire,0.1,A,"safe location, atmosphere via vent stack, no flame arrestor on O2 (A)",not sized: needs pump-in/out rates and fire case,208
+PSV-20901,E-2005 shell,tube rupture; blocked-in thermal expansion,55.0,A,"safe location, atmosphere via silencer (A)",not sized: needs tube-rupture flow and fluid properties,209
+PVRV-21001,T-2002,inbreathing/outbreathing; fire,0.1,A,"safe location, atmosphere via vent stack (asphyxiant: not near occupied areas) (A)",not sized: needs pump-in/out rates and fire case,210
+PSV-21101,E-2006 shell,tube rupture; blocked-in thermal expansion,44.0,A,"safe location, atmosphere via silencer (A)",not sized: needs tube-rupture flow and fluid properties,211
+PSV-21201,K-2002 discharge,blocked discharge,55.0,A,"safe location, atmosphere via silencer; never to flare (O2)",not sized: needs relief load,212
+PSV-21301,K-2003 discharge,blocked discharge,44.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,213
+PSV-21401,K-2004 discharge,blocked discharge,64.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,214
+PSV-21501,HD-2001,blocked outlet (header),55.0,A,"safe location, atmosphere via silencer; never to flare (O2)",not sized: needs relief load,215
+PSV-21601,HD-2002,blocked outlet (N2 header),64.0,A,"safe location, atmosphere via silencer (A)",not sized: needs relief load,216
+PSV-30101,R-101 shell,blocked outlet; E-101 tube rupture into gas; fire,49.5,A,flare header via KO-101,not sized: needs tube-rupture and blocked-in load,301
+PSV-30201,BR-131,fuel line thermal expansion; blocked-in,62.0,A,flare / safe location (A),not sized: needs relief load,302
+PSV-30301,K-132 discharge,blocked discharge,49.0,A,flare header,not sized: needs relief load,303
+PSV-30401,E-131 shell,tube rupture; blocked-in thermal expansion,7.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,304
+PSV-30501,V-102,gas blow-through from R-101 bath; blocked vent,49.5,A,flare header via KO-101,"not sized: needs relief load (fire wetted area, vapour generation)",305
+PSV-30701,E-101 shell,tube rupture; blocked-in thermal expansion,110.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,307
+PSV-30801,E-132 shell,tube rupture; blocked-in thermal expansion,121.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,308
+PSV-30901,D-133,blocked steam outlet; loss of BFW; fire,108.0,A,"atmosphere via silencer (steam), safe location (A)","not sized: needs relief load (fire wetted area, vapour generation)",309
+PSV-31001,F-135,blocked outlet; scrubber overpressure,62.0,A,flare / safe location (A),not sized: needs relief load,310
+PSV-31201,C-137,blocked outlet; fire; reboiler/utility failure,46.0,A,flare header,not sized: needs relief load,312
+PSV-31301,V-139,blocked vapour outlet; letdown valve failure open,8.0,A,flare header via KO-101,"not sized: needs relief load (fire wetted area, vapour generation)",313
+PSV-31401,V-140,blocked vapour outlet,3.5,A,flare header via KO-101,"not sized: needs relief load (fire wetted area, vapour generation)",314
+PSV-31501,V-141,vacuum breaker failure; blocked vapour outlet,3.5,A,flare header via KO-101 (A),"not sized: needs relief load (fire wetted area, vapour generation)",315
+PSV-31601,E-142 shell,tube rupture; blocked-in thermal expansion,7.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,316
+PVRV-31901,T-144,inbreathing/outbreathing; fire,0.0,A,sour-vent header to flare (A),not sized: needs pump-in/out rates and fire case,319
+PSV-32001,C-146,blocked outlet; fire; reboiler/utility failure,5.0,A,flare header,not sized: needs relief load,320
+XV-30160 (BDV-101),"R-101, E-101, E-132, F-135, VS-136, C-137 gas train",ESD-1 emergency depressurisation,n/a (opens on trip),A,KO-101 / FL-101 (area 90),not sized: flow by inventory / time (D),321
+PSV-40101,G-201,blocked outlet; runaway; fire,49.5,A,flare header,not sized: needs runaway/fire load,401
+PSV-40201,X-201,blocked outlet,55.0,A,flare / safe location (A),not sized: needs relief load,402
+PSV-40301,E-201 shell,tube rupture; blocked-in thermal expansion,49.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,403
+PSV-40401,H-201 shell,tube rupture; blocked-in thermal expansion,44.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,404
+PSV-40501,R-201,blocked outlet; runaway; fire,49.5,A,flare header,not sized: needs runaway/fire load,405
+PSV-40601,E-202 shell,tube rupture; blocked-in thermal expansion,60.5,A,flare header / steam vent (A),not sized: needs tube-rupture flow and fluid properties,406
+PSV-40701,E-102 shell,tube rupture; blocked-in thermal expansion,12.0,A,steam vent (A),not sized: needs tube-rupture flow and fluid properties,407
+PSV-40801,X-202,blocked outlet,55.0,A,flare / safe location (A),not sized: needs relief load,408
+PSV-40901,R-202,blocked outlet; runaway; fire,49.5,A,flare header,not sized: needs runaway/fire load,409
+PSV-41001,E-204 shell,tube rupture; blocked-in thermal expansion,60.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,410
+PSV-41101,E-205 shell,tube rupture; blocked-in thermal expansion,60.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,411
+PSV-41201,E-203 shell,tube rupture; blocked-in thermal expansion,8.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,412
+PSV-41301,E-103 shell,tube rupture; blocked-in thermal expansion,7.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,413
+PSV-41401,V-203,blocked outlet; fire,49.5,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation)",414
+PSV-50101,C-301,blocked outlet; fire; reboiler/utility failure,48.5,A,flare header,not sized: needs relief load,501
+PSV-50201,V-303,blocked outlet; fire,22.0,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation)",502
+PSV-50301,K-301 discharge,blocked discharge,48.5,A,flare header,not sized: needs relief load,503
+PSV-50401,V-304,blocked outlet; fire,8.0,A,atmosphere via vent stack (A) / flare,"not sized: needs relief load (fire wetted area, vapour generation)",504
+PSV-50501,E-301 shell,tube rupture; blocked-in thermal expansion,5.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,505
+PSV-50601,C-302,blocked outlet; fire; reboiler/utility failure,4.5,A,flare header,not sized: needs relief load,506
+PSV-50701,V-305,blocked outlet; fire,4.0,A,closed drain / flare (A),"not sized: needs relief load (fire wetted area, vapour generation)",507
+PSV-50801,E-302 shell,tube rupture; blocked-in thermal expansion,5.5,A,NH3 relief header / flare (A),not sized: needs tube-rupture flow and fluid properties,508
+PSV-50901,RP-301,blocked discharge; fire,5.5,A,flare / safe location (A),not sized: needs relief load,509
+PSV-51001,D-301,blocked outlet,4.0,A,flare / safe location (A),not sized: needs relief load,510
+PSV-51101,G-301,blocked outlet; runaway; fire,44.0,A,flare header,not sized: needs runaway/fire load,511
+PSV-51201,E-304 shell,tube rupture; blocked-in thermal expansion,44.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,512
+PSV-51301,R-301,blocked outlet; runaway; fire,44.0,A,flare header,not sized: needs runaway/fire load,513
+PSV-51401,E-305 shell,tube rupture; blocked-in thermal expansion,12.0,A,steam vent (A),not sized: needs tube-rupture flow and fluid properties,514
+PSV-51501,V-302,blocked outlet; fire,44.0,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation)",515
+PSV-51601,PU-301,blocked outlet,43.5,A,flare / safe location (A),not sized: needs relief load,516
+PSV-51701,F-351,explosion relief / PSV to safe location,4.0,A,flare / safe location (A),not sized: needs relief load,517
+PSV-51801,E-351 shell,tube rupture; blocked-in thermal expansion,14.0,A,steam vent (A),not sized: needs tube-rupture flow and fluid properties,518
+PSV-51901,E-352 shell,tube rupture; blocked-in thermal expansion,7.0,A,steam vent (A),not sized: needs tube-rupture flow and fluid properties,519
+PSV-52001,R-351,blocked outlet; runaway; fire,3.5,A,flare header,not sized: needs runaway/fire load,520
+PSV-52101,E-353 shell,tube rupture; blocked-in thermal expansion,7.0,A,steam vent (A),not sized: needs tube-rupture flow and fluid properties,521
+PSV-52201,R-352,blocked outlet; runaway; fire,3.5,A,flare header,not sized: needs runaway/fire load,522
+PSV-52301,E-354 shell,tube rupture; blocked-in thermal expansion,6.0,A,atmosphere via safe vent (A),not sized: needs tube-rupture flow and fluid properties,523
+PVRV-52401,T-351,inbreathing/outbreathing; fire,0.0,A,atmosphere via flame arrestor (A),not sized: needs pump-in/out rates and fire case,524
+PSV-52501,R-353,blocked outlet; runaway; fire,3.5,A,flare header,not sized: needs runaway/fire load,525
+PSV-52601,TGT-351,blocked outlet,4.0,A,flare / safe location (A),not sized: needs relief load,526
+PSV-60101,K-401A discharge,blocked discharge,98.5,A,flare header,not sized: needs relief load,601
+PSV-60201,K-401B discharge,blocked discharge,220.0,A,flare header,not sized: needs relief load,602
+PSV-60301,K-402,blocked discharge,220.0,A,flare / safe location (A),not sized: needs relief load,603
+PSV-60401,E-403 shell,tube rupture; blocked-in thermal expansion,220.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,604
+PSV-60501,R-401,blocked outlet; runaway; fire,220.0,A,flare header,not sized: needs runaway/fire load,605
+PSV-60601,E-404 shell,tube rupture; blocked-in thermal expansion,60.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,606
+PSV-60701,E-405 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,607
+PSV-60801,E-406 shell,tube rupture; blocked-in thermal expansion,218.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,608
+PSV-60901,E-401 shell,tube rupture; blocked-in thermal expansion,5.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,609
+PSV-61001,V-401,blocked gas outlet; fire; LV stuck open,220.0,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation)",610
+PSV-61101,V-402,blocked gas outlet; fire,27.5,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation)",611
+PSV-61201,PGR-401,blocked outlet,218.0,A,flare / safe location (A),not sized: needs relief load,612
+PSV-61301,V-403,blocked vapour outlet; fire,3.5,A,NH3 vent absorber C-501 / flare,"not sized: needs relief load (fire wetted area, vapour generation)",613
+PSV-61401,K-501,blocked discharge,17.5,A,flare / safe location (A),not sized: needs relief load,614
+PSV-61501,E-503 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,615
+PSV-61601,V-404,blocked vapour outlet; fire; chiller tube rupture,5.0,A,NH3 vent absorber C-501 / flare,"not sized: needs relief load (fire wetted area, vapour generation)",616
+PVRV-61701,T-501,inbreathing/outbreathing; fire,0.1,A,BOG header to K-501 / K-502; relief to C-501 (A),not sized: needs pump-in/out rates and fire case,617
+PSV-61801,K-502,blocked discharge,5.0,A,flare / safe location (A),not sized: needs relief load,618
+PSV-61901,C-501,blocked outlet; fire; reboiler/utility failure,3.5,A,flare header,not sized: needs relief load,619
+PSV-70101,K-601A discharge,blocked discharge,17.0,A,flare header,not sized: needs relief load,701
+PSV-70201,K-601B discharge,blocked discharge,165.0,A,flare header,not sized: needs relief load,702
+PSV-70301,TG-601,turbine casing / exhaust (rupture disc),55.0,A,flare / safe location (A),not sized: needs relief load,703
+PSV-70401,V-601,blocked outlet; fire; thermal expansion,27.5,A,NH3 vent absorber C-501 (area 60),"not sized: needs relief load (fire wetted area, vapour generation)",704
+PSV-70501,R-601,blocked outlet; thermal expansion; fire,165.0,A,HP scrubber C-603 / flare,"not sized: needs relief load (fire wetted area, vapour generation)",705
+PSV-70601,C-601,blocked outlet; fire; reboiler/utility failure,165.0,A,flare header,not sized: needs relief load,706
+PSV-70701,E-601 shell,tube rupture; blocked-in thermal expansion,8.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,707
+PSV-70801,C-603,blocked outlet; fire; reboiler/utility failure,165.0,A,flare header,not sized: needs relief load,708
+PSV-70901,C-602,blocked outlet; fire; reboiler/utility failure,20.0,A,flare header,not sized: needs relief load,709
+PSV-71001,E-603 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,710
+PSV-71101,V-603,blocked outlet; fire,20.0,A,MP absorber / flare,"not sized: needs relief load (fire wetted area, vapour generation)",711
+PSV-71201,C-604,blocked outlet; fire; reboiler/utility failure,6.0,A,flare header,not sized: needs relief load,712
+PSV-71301,E-604 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties,713
+PSV-71401,V-604,blocked outlet; fire,6.0,A,LP absorber / flare,"not sized: needs relief load (fire wetted area, vapour generation)",714
+PSV-71501,E-602 shell,tube rupture; blocked-in thermal expansion,6.0,A,atmosphere (vacuum breaker) / safe location (A),not sized: needs tube-rupture flow and fluid properties,715
+PSV-71601,V-605,vacuum breaker; blocked vapour line,3.5,A,atmosphere (via safe location),"not sized: needs relief load (fire wetted area, vapour generation)",716
+PSV-71701,VAC-601,vacuum breaker,6.5,A,flare / safe location (A),not sized: needs relief load,717
+PSV-71801,G-601,explosion vent panels (dust),8.0,A,flare / safe location (A),not sized: needs relief load,718
+PSV-71901,C-605,blocked outlet; fire; reboiler/utility failure,3.0,A,flare header,not sized: needs relief load,719
+PSV-72001,R-602,blocked outlet,27.5,A,flare / safe location (A),not sized: needs relief load,720
+PSV-72101,C-606,blocked outlet; fire; reboiler/utility failure,6.0,A,flare header,not sized: needs relief load,721
+PSV-72201,CV-601,explosion venting on elevator / filter,3.0,A,flare / safe location (A),not sized: needs relief load,722
+PSV-80101,SH-801 HP header,blocked in; PRV failed open,55.0,A,"atmosphere via silencer, safe location (A)",not sized: needs PRV failed-open flow,801
+PSV-80102,SH-801 MP header,blocked in; PRV failed open,27.5,A,"atmosphere via silencer, safe location (A)",not sized: needs PRV failed-open flow,801
+PSV-80103,SH-801 LP header,blocked in; PRV failed open,6.5,A,"atmosphere via silencer, safe location (A)",not sized: needs PRV failed-open flow,801
+PSV-80201,PRDS-801,downstream MP header overpressure on PRV failure open,27.5,A,"atmosphere via silencer, safe location (A)",not sized: needs relief load,802
+PSV-80301,PRDS-802,downstream LP header overpressure on PRV failure open,6.5,A,"atmosphere via silencer, safe location (A)",not sized: needs relief load,803
+PSV-80401,V-801,blocked outlet; steam breakthrough,5.0,A,"atmosphere via silencer, safe location (A)","not sized: needs relief load (fire wetted area, vapour generation)",804
+PSV-80501,D-801,LP steam PRV failure; blocked vent,4.0,A,"atmosphere via silencer, safe location (A)","not sized: needs relief load (fire wetted area, vapour generation)",805
+PSV-80701,V-803,blocked outlet; blowdown valve stuck open,6.5,A,"atmosphere via silencer, safe location (A)","not sized: needs relief load (fire wetted area, vapour generation)",807
+PSV-80801,B-801,"drum / superheater overpressure (steam, to atmosphere)",55.0,A,"atmosphere via silencer, safe location (A)",not sized: needs relief load,808
+PVRV-80901,T-801,inbreathing/outbreathing; fire,0.0,A,atmosphere via flame arrestor (A),not sized: needs pump-in/out rates and fire case,809
+PVRV-81101,T-802,inbreathing/outbreathing; fire,0.0,A,atmosphere via flame arrestor (A),not sized: needs pump-in/out rates and fire case,811
+PSV-81501,K-801,receiver / header overpressure,11.0,A,"atmosphere, safe location (A)",not sized: needs relief load,815
+PSV-81601,V-804,blocked outlet; compressor control failure,10.0,A,"atmosphere, safe location (A)",not sized: needs compressor flow,816
+PSV-81701,N2-801,"header overpressure (asphyxiant gas, vent to safe location)",13.0,A,atmosphere via safe location (A),not sized: needs relief load,817
+PSV-90501,V-902,blocked outlet; flashing drain,3.5,A,LP flare header (A),"not sized: needs relief load (fire wetted area, vapour generation)",905

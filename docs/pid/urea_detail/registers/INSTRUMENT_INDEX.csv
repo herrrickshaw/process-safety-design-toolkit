@@ -1,0 +1,751 @@
+tag,service,equipment,function,range,alarm_trip,set_tag,sheet
+LAH-10160,hopper level high (stops tippler),TP-1001,LAH,0-100 %,H 80 % (A),A,101
+SAL-10161,apron feeder zero-speed,TP-1001,SAL,0-100 %,alarm; stops tippler (A),A,101
+ZAH-10162,tippler end of travel,TP-1001,ZAH,-,interlock (A),A,101
+SSH-10260,belt over-speed / slip,BC-1001,SSH,0-100 %,alarm and stop (A),A,102
+WAH-10261,belt weigher high load,BC-1001,WAH,0-150 %,H 110 % (A),A,102
+TAH-10262,idler bearing / belt-rub temperature,BC-1001,TAH,0-150 C,alarm (A),A,102
+ZAH-10263,belt-sway / pull-cord,BC-1001,ZAH,-,trip (A),A,102
+JAH-10360,crusher motor current high (jam),CR-1001,JAH,0-150 %,"H 110 %, trip 130 % (A)",A,103
+VAH-10361,crusher vibration,CR-1001,VAH,per vendor,per vendor (gap),A,103
+TAH-10362,crusher bearing temperature,CR-1001,TAH,0-150 C,H 90 C (A),A,103
+LAH-10363,outlet chute blocked,CR-1001,LAH,-,trip feeder (A),A,103
+TAH-10460,stockpile core temperature,SY-1001,TAH,0-150 C,alarm (A),A,104
+SAL-10461,reclaimer drive trip,SY-1001,SAL,-,trip (A),A,104
+AAH-10462,CO in stacker/reclaimer cabin,SY-1001,AAH,0-100 ppm,A,A,104
+LAH-10560,reclaim hopper level high,PS-1001,LAH,0-100 %,H 80 % (A),A,105
+WIC-10561,weigh feeder ratio to coal,PS-1001,WIC,0-100 %,ratio PET : COAL 25 : 75 (A),A,105
+AAH-10562,CO in store,PS-1001,AAH,0-100 ppm,A,A,105
+LAHH-10660,bunker level high-high (stops belts),BN-1001,LAHH,0-100 %,HH 95 % (A),A,106
+LALL-10661,bunker level low-low (mill trip),BN-1001,LALL,0-100 %,LL 10 % (A),A,106
+TAH-10662,bunker wall temperature (hot spot),BN-1001,TAH,0-150 C,alarm (A),A,106
+AAH-10663,CO in bunker,BN-1001,AAH,0-100 ppm,alarm (A),A,106
+WIC-10664,blend ratio,BN-1001,WIC,0-100 %,A,A,106
+TAHH-10760,mill outlet temperature high-high (trip),F-101,TAHH,0-150 C,H 90 / HH 100 C (A),A,107
+AAHH-10761,"O2 in mill gas high-high (trip, N2 snuff)",F-101,AAHH,0-21 vol %,H 8 % placeholder (A),A,107
+AAH-10762,CO in mill outlet gas,F-101,AAH,0-1000 ppm,alarm (A),A,107
+PDAH-10763,mill dP high,F-101,PDAH,per vendor,per vendor (gap),A,107
+JAH-10764,mill motor current,F-101,JAH,0-150 %,H 110 % (A),A,107
+PDAH-10860,filter dP high (blinding),BF-101,PDAH,0-30 mbar,H 15 mbar (A),A,108
+TAHH-10861,filter inlet temperature,BF-101,TAHH,0-150 C,HH 100 C (A),A,108
+AAH-10862,CO in clean gas (smouldering),BF-101,AAH,0-1000 ppm,alarm (A),A,108
+AAHH-10863,O2 in filter inlet gas,BF-101,AAHH,0-21 vol %,H 8 % placeholder (A),A,108
+LAH-10864,hopper level high,BF-101,LAH,-,H (A),A,108
+LAHH-10960,bin level high-high (stops mill),V-1001,LAHH,0-100 %,HH 95 % (A),A,109
+LALL-10961,bin level low-low (alarm),V-1001,LALL,0-100 %,LL 15 % (A),A,109
+TAH-10962,bin wall / PC temperature,V-1001,TAH,0-150 C,H 100 C (A),A,109
+AAH-10963,CO in bin head space,V-1001,AAH,0-1000 ppm,alarm; N2 flood (A),A,109
+AAHH-10964,O2 in bin head space,V-1001,AAHH,0-21 vol %,H 8 % placeholder (A),A,109
+PAHH-11060,lock hopper pressure high-high,LH-1001,PAHH,0-70 bar,HH 61 bar (A),A,110
+PDAL-11061,differential to feed vessel (permissive to open),LH-1001,PDAL,0-5 bar,permissive (A),A,110
+LAHH-11062,hopper level high-high,LH-1001,LAHH,0-100 %,HH 95 % (A),A,110
+ZSC-11063,double-gate closed proof,LH-1001,ZSC,-,interlock (A),A,110
+AAH-11064,O2 after purge,LH-1001,AAH,0-21 vol %,H 8 % placeholder (A),A,110
+LAL-11160,feed vessel level low (burner trip),FV-1001,LAL,0-100 %,"L 20 %, LL 10 % trip (A)",A,111
+PAHH-11161,feed vessel pressure high-high,FV-1001,PAHH,0-70 bar,HH 61 bar (A),A,111
+PDAL-11162,feed vessel to gasifier dP low (flow-back),FV-1001,PDAL,0-10 bar,"L 2 bar, trip (A)",A,111
+WIC-11163,PC mass flow to burners,FV-1001,WIC,0-100 %,per burner (A),A,111
+FIC-11260,PC flow to burner (loop with ratio to O2),BL-1001,FIC,0-100 %,H 110 / L 90 % (A),A,112
+PDAL-11261,line dP low (blockage / flow-back),BL-1001,PDAL,0-10 bar,"L (A), trip",A,112
+BAL-11262,flame scanner (burner trip from R-101),BL-1001,BAL,-,from R-101 BE-101,A,112
+ZSC-11263,isolation valve closed proof,BL-1001,ZSC,-,interlock (A),A,112
+AAHH-11360,O2 high-high on mill gas (2oo3),IN-1001,AAHH,0-21 vol %,H 8 % placeholder; trip mill (A),A,113
+AAH-11361,CO high on bin / filter / bunker,IN-1001,AAH,0-1000 ppm,alarm; N2 flood (A),A,113
+PAL-11362,N2 header pressure low,IN-1001,PAL,0-10 bar,L 3 bar (A),A,113
+XS-11363,vent-panel burst switch trips conveyors,IN-1001,XS,-,trip chain (A),A,113
+FAL-11364,inerting flow low,IN-1001,FAL,per vendor,L (A),A,113
+PDAH-20160,filter dP high,FA-2001,PDAH,0-20 mbar,H 10 mbar (A),A,201
+AAH-20161,hydrocarbon in intake air (cold-box safety),FA-2001,AAH,0-100 % LEL,alarm; trip ASU on high (A),A,201
+TI-20162,intake air temperature,FA-2001,TI,-10 to 60 C,-,A,201
+LAHH-20222,KO drum level high-high (compressor trip),K-2001-KO,LAHH,0-100 %,HH 90 % (A),A,202
+FIC-20251,anti-surge (flow vs surge line),K-2001,FIC,per vendor,surge margin per vendor (gap),A,202
+PAHH-20242,discharge pressure high-high (trip),K-2001,PAHH,0-10 bar,HH 7 bar (A),A,202
+VAHH-20243,vibration high-high (trip),K-2001,VAHH,per vendor,per vendor (gap),A,202
+TAH-20244,discharge temperature high,K-2001,TAH,0-100 C,H 60 C (A),A,202
+PIC-20311,column top pressure,C-2001,PIC,0-10 bar,H 6 / L 5 bar,A,203
+LIC-20321,sump level,C-2001,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,203
+LAHH-20322,sump level high-high (flooding),C-2001,LAHH,0-100 %,HH 90 % (A),A,203
+PDI-20313,column differential pressure (flooding),C-2001,PDI,0-1 bar,H 0.7 bar (A),A,203
+TI-20314,profile temperatures,C-2001,TI,0-100 C,-,A,203
+AAHH-20460,CO2 / moisture breakthrough in purified air (trip),AD-2001,AAHH,0-10 ppm,per vendor (gap),A,204
+TAH-20461,regeneration gas temperature high,AD-2001,TAH,0-300 C,H 200 C (A),A,204
+PDAH-20462,bed dP high,AD-2001,PDAH,0-0.5 bar,H 0.3 bar (A),A,204
+ZAH-20463,switching valve position,AD-2001,ZAH,-,interlock (A),A,204
+AAH-20560,O2 purity (product),CB-2001,AAH,0-100 vol %,per user spec (gap),A,205
+AAH-20561,hydrocarbon in main-condenser liquid O2,CB-2001,AAH,0-100 ppm,alarm; drain (A),A,205
+PAHH-20562,cold box casing pressure high,CB-2001,PAHH,0-0.1 bar,relief: rupture disc (A),A,205
+TAL-20563,warm-end product temperature low,CB-2001,TAL,-20 to 40 C,L 5 C (A),A,205
+PIC-20611,column top pressure,C-2002,PIC,0-10 bar,H 6 / L 5 bar,A,206
+LIC-20621,sump level,C-2002,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,206
+LAHH-20622,sump level high-high (flooding),C-2002,LAHH,0-100 %,HH 90 % (A),A,206
+PDI-20613,column differential pressure (flooding),C-2002,PDI,0-1 bar,H 0.7 bar (A),A,206
+TI-20614,profile temperatures,C-2002,TI,0--200 C,-,A,206
+PIC-20711,column top pressure,C-2003,PIC,0-5 bar,H 2 / L 1 bar,A,207
+LIC-20721,sump level,C-2003,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,207
+LAHH-20722,sump level high-high (flooding),C-2003,LAHH,0-100 %,HH 90 % (A),A,207
+PDI-20713,column differential pressure (flooding),C-2003,PDI,0-1 bar,H 0.7 bar (A),A,207
+TI-20714,profile temperatures,C-2003,TI,0--200 C,-,A,207
+LT-20821,level (radar),T-2001,LT,0-100 %,-,A,208
+LAHH-20822,level high-high (stops inflow),T-2001,LAHH,0-100 %,HH 95 % (A),A,208
+LALL-20823,level low-low (stops pumps),T-2001,LALL,0-100 %,LL 5 % (A),A,208
+TI-20814,bulk temperature,T-2001,TI,-223 to -143 C,-,A,208
+TIC-20911,hot outlet temperature,E-2005,TIC,0-100 C,H 65 / L 25 C,A,209
+TI-20912,hot outlet temperature indication,E-2005,TI,0-100 C,-,A,209
+PDI-20913,tube-side differential pressure (fouling),E-2005,PDI,0-2 bar,H 1.0 bar,A,209
+LT-21021,level (radar),T-2002,LT,0-100 %,-,A,210
+LAHH-21022,level high-high (stops inflow),T-2002,LAHH,0-100 %,HH 95 % (A),A,210
+LALL-21023,level low-low (stops pumps),T-2002,LALL,0-100 %,LL 5 % (A),A,210
+TI-21014,bulk temperature,T-2002,TI,-234 to -154 C,-,A,210
+TIC-21111,hot outlet temperature,E-2006,TIC,0-100 C,H 65 / L 25 C,A,211
+TI-21112,hot outlet temperature indication,E-2006,TI,0-100 C,-,A,211
+PDI-21113,tube-side differential pressure (fouling),E-2006,PDI,0-2 bar,H 1.0 bar,A,211
+LAHH-21222,KO drum level high-high (compressor trip),K-2002-KO,LAHH,0-100 %,HH 90 % (A),A,212
+FIC-21251,anti-surge (flow vs surge line),K-2002,FIC,per vendor,surge margin per vendor (gap),A,212
+PAHH-21242,discharge pressure high-high (trip),K-2002,PAHH,0-60 bar,HH 55 bar (A),A,212
+VAHH-21243,vibration high-high (trip),K-2002,VAHH,per vendor,per vendor (gap),A,212
+TAH-21244,discharge temperature high,K-2002,TAH,0-100 C,H 60 C (A),A,212
+LAHH-21322,KO drum level high-high (compressor trip),K-2003-KO,LAHH,0-100 %,HH 90 % (A),A,213
+FIC-21351,anti-surge (flow vs surge line),K-2003,FIC,per vendor,surge margin per vendor (gap),A,213
+PAHH-21342,discharge pressure high-high (trip),K-2003,PAHH,0-50 bar,HH 44 bar (A),A,213
+VAHH-21343,vibration high-high (trip),K-2003,VAHH,per vendor,per vendor (gap),A,213
+TAH-21344,discharge temperature high,K-2003,TAH,0-100 C,H 60 C (A),A,213
+LAHH-21422,KO drum level high-high (compressor trip),K-2004-KO,LAHH,0-100 %,HH 90 % (A),A,214
+FIC-21451,anti-surge (flow vs surge line),K-2004,FIC,per vendor,surge margin per vendor (gap),A,214
+PAHH-21442,discharge pressure high-high (trip),K-2004,PAHH,0-70 bar,HH 64 bar (A),A,214
+VAHH-21443,vibration high-high (trip),K-2004,VAHH,per vendor,per vendor (gap),A,214
+TAH-21444,discharge temperature high,K-2004,TAH,0-100 C,H 60 C (A),A,214
+PAL-21560,"O2 header pressure low (alarm, standby start)",HD-2001,PAL,0-70 bar,L 45 bar (A),A,215
+PAHH-21561,O2 header pressure high-high,HD-2001,PAHH,0-70 bar,HH 55 bar (A),A,215
+AAL-21562,O2 purity low (to R-101 trip),HD-2001,AAL,0-100 vol %,per licensor (gap),A,215
+TAHH-21563,O2 temperature high,HD-2001,TAHH,0-100 C,HH 60 C (A),A,215
+PAL-21660,N2 header 40 bar pressure low (start LIN backup),HD-2002,PAL,0-60 bar,L 36 bar (A),A,216
+PAL-21661,N2 header 58 bar pressure low (area 10 alarm),HD-2002,PAL,0-80 bar,L 53 bar (A),A,216
+AAL-21662,O2 deficiency at vent stack area,HD-2002,AAL,0-21 vol %,alarm (A),A,216
+FI-21663,vent flow,HD-2002,FI,0-400 t/h,-,A,216
+PIC-30111,gasifier pressure (cascade to area 40 let-down),R-101,PIC,0-60 bar,H 47 / L 42 bar,A,301
+PAHH-30112,pressure high-high (ESD-1),R-101,PAHH,0-60 bar,HH 49 bar (A),A,301
+TAHH-30113,membrane-wall / shell skin temperature high-high,R-101,TAHH,0-600 C,HH per licensor (A),A,301
+FAL-30114,wall circulation flow low (trip),R-101,FAL,0-400 t/h,LL 50 % (A),A,301
+FFIC-30121,O2 / coal ratio control,R-101,FFIC,0-1 kg/kg,L 0.45 / H 0.65 (A),A,301
+BSLL-30122,burner flame loss (trip),R-101,BSLL,on/off,flame fail (A); sheet 302,A,301
+AAHH-30123,"CO / H2 gas detectors, hall (2oo3)",R-101,AAHH,0-100 % LEL,HH 20 % LEL (A),A,301
+AAHH-30124,"CO toxic detector, hall",R-101,AAHH,0-500 ppm,H 30 / HH 100 ppm (A),A,301
+LIC-30131,slag bath level,R-101 bath,LIC,0-100 %,H 80 / L 20 % (A),A,301
+LALL-30132,bath level low-low (hot slag / gas blow-by to V-102),R-101 bath,LALL,0-100 %,LL 10 % (A),A,301
+TI-30133,bath temperature,R-101 bath,TI,0-150 C,-,A,301
+PDAH-30134,slag-tap differential pressure (plugging),R-101 slag tap,PDAH,0-5 bar,H 3 bar (A),A,301
+BSLL-30260,burner flame loss (trip fuel and O2),BR-131,BSLL,on/off,flame fail 3 s (A),A,302
+PALL-30261,N2 purge pressure low (no light-up),BR-131,PALL,0-80 bar,LL 40 bar (A),A,302
+XSC-30262,double-block-and-bleed valves proved closed,BR-131,XSC,limit,before purge (A),A,302
+TAHH-30263,burner nozzle cooling water T high,BR-131,TAHH,0-150 C,HH 90 C (A),A,302
+AAHH-30264,"CO / H2 detector, burner deck, 2oo3",BR-131,AAHH,0-100 % LEL,HH 20 % LEL (A),A,302
+LAHH-30322,KO drum level high-high (compressor trip),K-132-KO,LAHH,0-100 %,HH 90 % (A),A,303
+FIC-30351,anti-surge (flow vs surge line),K-132,FIC,per vendor,surge margin per vendor (gap),A,303
+PAHH-30342,discharge pressure high-high (trip),K-132,PAHH,0-50 bar,HH 49 bar (A),A,303
+VAHH-30343,vibration high-high (trip),K-132,VAHH,per vendor,per vendor (gap),A,303
+TAH-30344,discharge temperature high,K-132,TAH,0-250 C,H 210 C (A),A,303
+TIC-30411,hot outlet temperature,E-131,TIC,0-150 C,H 95 / L 55 C,A,304
+TI-30412,hot outlet temperature indication,E-131,TI,0-150 C,-,A,304
+PDI-30413,tube-side differential pressure (fouling),E-131,PDI,0-2 bar,H 1.0 bar,A,304
+PIC-30511,operating pressure,V-102,PIC,0-50 bar,H 47/ L 40 bar,A,305
+LT-30521,liquid level,V-102,LT,0-100 %,-,A,305
+LAHH-30522,level high-high (trip),V-102,LAHH,0-100 %,HH 90 %,A,305
+LIC-30521,level control,V-102,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,305
+LALL-30523,level low-low (pump trip),V-102,LALL,0-100 %,LL 10 %,A,305
+LAHH-30660,bin level high-high (stop slurry dump),DW-147,LAHH,0-100 %,HH 90 % (A),A,306
+JAH-30661,conveyor motor overload,DW-147,JAH,0-200 %,H 110 % (A),A,306
+ZSH-30662,bin outlet gate position,DW-147,ZSH,open/closed,not closed (A),A,306
+AAH-30663,"CO detector, dewatering hall (residual gas)",DW-147,AAH,0-500 ppm,H 30 ppm (A),A,306
+TIC-30711,hot outlet temperature,E-101,TIC,0-1100 C,H 356 / L 316 C,A,307
+TI-30712,hot outlet temperature indication,E-101,TI,0-1100 C,-,A,307
+PDI-30713,tube-side differential pressure (fouling),E-101,PDI,0-2 bar,H 1.0 bar,A,307
+TIC-30811,hot outlet temperature,E-132,TIC,0-450 C,H 258 / L 218 C,A,308
+TI-30812,hot outlet temperature indication,E-132,TI,0-450 C,-,A,308
+PDI-30813,tube-side differential pressure (fouling),E-132,PDI,0-2 bar,H 1.0 bar,A,308
+PIC-30911,operating pressure,D-133,PIC,0-110 bar,H 103/ L 88 bar,A,309
+LT-30921,liquid level,D-133,LT,0-100 %,-,A,309
+LAHH-30922,level high-high (trip),D-133,LAHH,0-100 %,HH 90 %,A,309
+LIC-30921,level control,D-133,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,309
+LALL-30923,level low-low (pump trip),D-133,LALL,0-100 %,LL 10 %,A,309
+FFIC-30941,three-element level control (cascade LIC-30921 / FT steam / FT BFW),D-133,FFIC,0-100 %,-,A,309
+PDAH-31060,filter differential pressure high (fouling / broken candle),F-135,PDAH,0-1 bar,H 0.7 bar (A),A,310
+TAL-31061,filter temperature low (dew-point margin),F-135,TAL,0-400 C,L 203 C (A),A,310
+AAH-31062,dust at outlet (broken candle),F-135,AAH,0-50 mg/m3,H 10 mg/m3 (A),A,310
+LAHH-31063,fly-ash hopper level high-high,F-135,LAHH,0-100 %,HH 90 % (A),A,310
+AAHH-31064,"CO / H2 detector at filter deck, 2oo3",F-135,AAHH,0-100 % LEL,HH 20 % LEL (A),A,310
+FAL-31160,wash water flow low (trip: gas to flare),VS-136,FAL,0-60 t/h,L 60 % (A),A,311
+PDAH-31161,venturi differential pressure,VS-136,PDAH,0-2 bar,H 1.0 bar (A),A,311
+TAHH-31162,outlet temperature high-high (water loss),VS-136,TAHH,0-300 C,HH 222 C (A),A,311
+AAHH-31163,CO / H2 detector at scrubber deck,VS-136,AAHH,0-100 % LEL,HH 20 % LEL (A),A,311
+PIC-31211,column top pressure,C-137,PIC,0-50 bar,H 44 / L 37 bar,A,312
+LIC-31221,sump level,C-137,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,312
+LAHH-31222,sump level high-high (flooding),C-137,LAHH,0-100 %,HH 90 % (A),A,312
+PDI-31213,column differential pressure (flooding),C-137,PDI,0-1 bar,H 0.7 bar (A),A,312
+TI-31214,profile temperatures,C-137,TI,0-250 C,-,A,312
+PIC-31311,operating pressure,V-139,PIC,0-10 bar,H 6/ L 5 bar,A,313
+LT-31321,liquid level,V-139,LT,0-100 %,-,A,313
+LAHH-31322,level high-high (trip),V-139,LAHH,0-100 %,HH 90 %,A,313
+LIC-31321,level control,V-139,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,313
+LALL-31323,level low-low (pump trip),V-139,LALL,0-100 %,LL 10 %,A,313
+PIC-31411,operating pressure,V-140,PIC,0-5 bar,H 2/ L 1 bar,A,314
+LT-31421,liquid level,V-140,LT,0-100 %,-,A,314
+LAHH-31422,level high-high (trip),V-140,LAHH,0-100 %,HH 90 %,A,314
+LIC-31421,level control,V-140,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,314
+LALL-31423,level low-low (pump trip),V-140,LALL,0-100 %,LL 10 %,A,314
+PIC-31511,operating pressure,V-141,PIC,0-5 bar,H 0/ L 0 bar,A,315
+LT-31521,liquid level,V-141,LT,0-100 %,-,A,315
+LAHH-31522,level high-high (trip),V-141,LAHH,0-100 %,HH 90 %,A,315
+LIC-31521,level control,V-141,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,315
+LALL-31523,level low-low (pump trip),V-141,LALL,0-100 %,LL 10 %,A,315
+TIC-31611,hot outlet temperature,E-142,TIC,0-150 C,H 75 / L 35 C,A,316
+TI-31612,hot outlet temperature indication,E-142,TI,0-150 C,-,A,316
+PDI-31613,tube-side differential pressure (fouling),E-142,PDI,0-2 bar,H 1.0 bar,A,316
+JAHH-31760,"rake torque high-high (raise rake, stop)",CL-143,JAHH,0-100 %,HH 90 % (A),A,317
+LAH-31761,sludge blanket high,CL-143,LAH,0-100 %,H 70 % (A),A,317
+AAH-31762,H2S detector at clarifier cover,CL-143,AAH,0-100 ppm,H 10 ppm (A),A,317
+AAH-31763,overflow turbidity high,CL-143,AAH,0-100 NTU,H 50 NTU (A),A,317
+PAH-31860,press feed pressure high,FP-145,PAH,0-15 bar,H 12 bar (A),A,318
+ZAL-31861,plate closure not proved,FP-145,ZAL,open/closed,not closed (A),A,318
+AAH-31862,H2S detector at press,FP-145,AAH,0-100 ppm,H 10 ppm (A),A,318
+LT-31921,level (radar),T-144,LT,0-100 %,-,A,319
+LAHH-31922,level high-high (stops inflow),T-144,LAHH,0-100 %,HH 95 % (A),A,319
+LALL-31923,level low-low (stops pumps),T-144,LALL,0-100 %,LL 5 % (A),A,319
+TI-31914,bulk temperature,T-144,TI,30 to 110 C,-,A,319
+PIC-32011,column top pressure,C-146,PIC,0-5 bar,H 3 / L 3 bar,A,320
+LIC-32021,sump level,C-146,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,320
+LAHH-32022,sump level high-high (flooding),C-146,LAHH,0-100 %,HH 90 % (A),A,320
+PDI-32013,column differential pressure (flooding),C-146,PDI,0-1 bar,H 0.7 bar (A),A,320
+TI-32014,profile temperatures,C-146,TI,0-200 C,-,A,320
+PSHH-32160,gasifier pressure high-high (ESD-1),EDV-149,PSHH,0-60 bar,HH 49 bar (A),A,321
+XSO-32161,EDV open position,EDV-149,XSO,open/closed,alarm on open (A),A,321
+AAHH-32162,CO / H2 detector 2oo3 (ESD-1 vote),EDV-149,AAHH,0-100 % LEL,HH 20 % LEL (A),A,321
+BSLL-32163,flame loss BE-101 (ESD-1 vote),EDV-149,BSLL,on/off,flame fail (A),A,321
+HS-32164,manual ESD push-button HS-001,EDV-149,HS,on/off,trip,A,321
+PALL-32260,N2 header pressure low-low (inhibit start; trip purge-dependent),N2-150,PALL,0-80 bar,LL 45 bar (A),A,322
+PAL-32261,N2 header pressure low,N2-150,PAL,0-80 bar,L 50 bar (A),A,322
+AAL-32262,"O2 deficiency, N2 header area",N2-150,AAL,0-25 %,L 19.5 % (A),A,322
+XSC-32263,user DBB valves proved closed,N2-150,XSC,limit,before process start (A),A,322
+FI-32264,N2 flow to each user,N2-150,FI,per user,-,A,322
+TI-40131,bed 1 outlet temperature (3 points),G-201,TI,0-300 C,-,A,401
+TAHH-40141,bed temperature high-high (trip),G-201,TAHH,0-300 C,HH 274 C (A),A,401
+PAHH-40142,pressure high-high (trip),G-201,PAHH,0-50 bar,HH 50 bar (A),A,401
+PDI-40143,bed differential pressure,G-201,PDI,0-5 bar,H 3 bar,A,401
+FFIC-40260,steam / raw-gas ratio control,X-201,FFIC,ratio 0-1 mol/mol,L 0.24 / LL 0.18 trip (A),A,402
+TAL-40261,mixed-gas temperature low (dew-point margin),X-201,TAL,0-400 C,"L 231 C, LL 221 C trip (A)",A,402
+AAHH-40262,"H2S / CO gas detection at mixer, trip to ESD",X-201,AAHH,0-100 ppm H2S,H 10 / HH 15 ppm H2S (A),A,402
+TIC-40311,hot outlet temperature,E-201,TIC,0-450 C,H 346 / L 306 C,A,403
+TI-40312,hot outlet temperature indication,E-201,TI,0-450 C,-,A,403
+PDI-40313,tube-side differential pressure (fouling),E-201,PDI,0-2 bar,H 1.0 bar,A,403
+TIC-40411,hot outlet temperature,H-201,TIC,0-500 C,H 285 / L 245 C,A,404
+TI-40412,hot outlet temperature indication,H-201,TI,0-500 C,-,A,404
+PDI-40413,tube-side differential pressure (fouling),H-201,PDI,0-2 bar,H 1.0 bar,A,404
+TI-40531,bed 1 outlet temperature (3 points),R-201,TI,0-500 C,-,A,405
+TI-40532,bed 2 outlet temperature (3 points),R-201,TI,0-500 C,-,A,405
+TAHH-40541,bed temperature high-high (trip),R-201,TAHH,0-500 C,HH 410 C (A),A,405
+PAHH-40542,pressure high-high (trip),R-201,PAHH,0-50 bar,HH 50 bar (A),A,405
+PDI-40543,bed differential pressure,R-201,PDI,0-5 bar,H 3 bar,A,405
+TIC-40611,hot outlet temperature,E-202,TIC,0-650 C,H 315 / L 275 C,A,406
+TI-40612,hot outlet temperature indication,E-202,TI,0-650 C,-,A,406
+PDI-40613,tube-side differential pressure (fouling),E-202,PDI,0-2 bar,H 1.0 bar,A,406
+TIC-40711,hot outlet temperature,E-102,TIC,0-400 C,H 200 / L 160 C,A,407
+TI-40712,hot outlet temperature indication,E-102,TI,0-400 C,-,A,407
+PDI-40713,tube-side differential pressure (fouling),E-102,PDI,0-2 bar,H 1.0 bar,A,407
+FFIC-40860,LT steam ratio control,X-202,FFIC,0-0.5 mol/mol,L 0.08 / LL 0.06 trip (A),A,408
+TAL-40861,LT inlet temperature low (dew point),X-202,TAL,0-300 C,L 203 / LL 193 C trip (A),A,408
+AAHH-40862,"H2S / CO gas detection, trip to ESD",X-202,AAHH,0-100 ppm H2S,H 10 / HH 15 ppm (A),A,408
+TI-40931,bed 1 outlet temperature (3 points),R-202,TI,0-300 C,-,A,409
+TI-40932,bed 2 outlet temperature (3 points),R-202,TI,0-300 C,-,A,409
+TAHH-40941,bed temperature high-high (trip),R-202,TAHH,0-300 C,HH 280 C (A),A,409
+PAHH-40942,pressure high-high (trip),R-202,PAHH,0-50 bar,HH 50 bar (A),A,409
+PDI-40943,bed differential pressure,R-202,PDI,0-5 bar,H 3 bar,A,409
+TIC-41011,hot outlet temperature,E-204,TIC,0-350 C,H 210 / L 170 C,A,410
+TI-41012,hot outlet temperature indication,E-204,TI,0-350 C,-,A,410
+PDI-41013,tube-side differential pressure (fouling),E-204,PDI,0-2 bar,H 1.0 bar,A,410
+TIC-41111,hot outlet temperature,E-205,TIC,0-300 C,H 165 / L 125 C,A,411
+TI-41112,hot outlet temperature indication,E-205,TI,0-300 C,-,A,411
+PDI-41113,tube-side differential pressure (fouling),E-205,PDI,0-2 bar,H 1.0 bar,A,411
+TIC-41211,hot outlet temperature,E-203,TIC,0-200 C,H 115 / L 75 C,A,412
+TI-41212,hot outlet temperature indication,E-203,TI,0-200 C,-,A,412
+PDI-41213,tube-side differential pressure (fouling),E-203,PDI,0-2 bar,H 1.0 bar,A,412
+TIC-41311,hot outlet temperature,E-103,TIC,0-150 C,H 55 / L 15 C,A,413
+TI-41312,hot outlet temperature indication,E-103,TI,0-150 C,-,A,413
+PDI-41313,tube-side differential pressure (fouling),E-103,PDI,0-2 bar,H 1.0 bar,A,413
+PIC-41411,operating pressure,V-203,PIC,0-50 bar,H 47/ L 40 bar,A,414
+LT-41421,liquid level,V-203,LT,0-100 %,-,A,414
+LAHH-41422,level high-high (trip),V-203,LAHH,0-100 %,HH 90 %,A,414
+LIC-41421,level control,V-203,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,414
+LALL-41423,level low-low (pump trip),V-203,LALL,0-100 %,LL 10 %,A,414
+TAHH-41560,R-201 bed exit temperature (3 points),CP-201,TAHH,0-600 C,HH 520 C trip + depress (A),A,415
+TAHH-41561,R-202 bed exit temperature (3 points),CP-201,TAHH,0-400 C,HH 320 C trip (A),A,415
+PAHH-41562,shift pressure high-high,CP-201,PAHH,0-60 bar,HH 50 bar trip (A),A,415
+AAHH-41563,H2S / CO detectors at R-201/R-202 platform,CP-201,AAHH,0-100 ppm H2S,H 10 / HH 15 ppm: ESD (A),A,415
+AAL-41564,H2S in gas low (sulphiding),CP-201,AAL,0-1 mol %,"L 0.1 mol % alarm (A, range 0.05-0.3)",A,415
+LAHH-41565,V-203 level HH,CP-201,LAHH,0-100 %,HH 90 %: close XV-401 (A),A,415
+PIC-50111,column top pressure,C-301,PIC,0-50 bar,H 46 / L 40 bar,A,501
+LIC-50121,sump level,C-301,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,501
+LAHH-50122,sump level high-high (flooding),C-301,LAHH,0-100 %,HH 90 % (A),A,501
+PDI-50113,column differential pressure (flooding),C-301,PDI,0-1 bar,H 0.7 bar (A),A,501
+TI-50114,profile temperatures,C-301,TI,0-100 C,-,A,501
+PIC-50211,operating pressure,V-303,PIC,0-25 bar,H 21/ L 18 bar,A,502
+LT-50221,liquid level,V-303,LT,0-100 %,-,A,502
+LAHH-50222,level high-high (trip),V-303,LAHH,0-100 %,HH 90 %,A,502
+LIC-50221,level control,V-303,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,502
+LALL-50223,level low-low (pump trip),V-303,LALL,0-100 %,LL 10 %,A,502
+LAHH-50322,KO drum level high-high (compressor trip),K-301-KO,LAHH,0-100 %,HH 90 % (A),A,503
+FIC-50351,anti-surge (flow vs surge line),K-301,FIC,per vendor,surge margin per vendor (gap),A,503
+PAHH-50342,discharge pressure high-high (trip),K-301,PAHH,0-50 bar,HH 48 bar (A),A,503
+VAHH-50343,vibration high-high (trip),K-301,VAHH,per vendor,per vendor (gap),A,503
+TAH-50344,discharge temperature high,K-301,TAH,0-150 C,H 110 C (A),A,503
+PIC-50411,operating pressure,V-304,PIC,0-10 bar,H 6/ L 5 bar,A,504
+LT-50421,liquid level,V-304,LT,0-100 %,-,A,504
+LAHH-50422,level high-high (trip),V-304,LAHH,0-100 %,HH 90 %,A,504
+LIC-50421,level control,V-304,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,504
+LALL-50423,level low-low (pump trip),V-304,LALL,0-100 %,LL 10 %,A,504
+TIC-50511,hot outlet temperature,E-301,TIC,0-150 C,H 37 / L 0 C,A,505
+TI-50512,hot outlet temperature indication,E-301,TI,0-150 C,-,A,505
+PDI-50513,tube-side differential pressure (fouling),E-301,PDI,0-2 bar,H 1.0 bar,A,505
+PIC-50611,column top pressure,C-302,PIC,0-5 bar,H 3 / L 2 bar,A,506
+LIC-50621,sump level,C-302,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,506
+LAHH-50622,sump level high-high (flooding),C-302,LAHH,0-100 %,HH 90 % (A),A,506
+PDI-50613,column differential pressure (flooding),C-302,PDI,0-1 bar,H 0.7 bar (A),A,506
+TI-50614,profile temperatures,C-302,TI,0-200 C,-,A,506
+LT-50721,liquid level,V-305,LT,0-100 %,-,A,507
+LAHH-50722,level high-high (trip),V-305,LAHH,0-100 %,HH 90 %,A,507
+LIC-50721,level control,V-305,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,507
+LALL-50723,level low-low (pump trip),V-305,LALL,0-100 %,LL 10 %,A,507
+TIC-50811,hot outlet temperature,E-302,TIC,0-50 C,H 20 / L 0 C,A,508
+TI-50812,hot outlet temperature indication,E-302,TI,0-50 C,-,A,508
+PDI-50813,tube-side differential pressure (fouling),E-302,PDI,0-2 bar,H 1.0 bar,A,508
+PAHH-50960,suction pressure high-high (compressor trip),RP-301,PAHH,0-10 bar,HH 6 bar (A),A,509
+LAHH-50961,receiver level high-high,RP-301,LAHH,0-100 %,HH 90 % (A),A,509
+AAHH-50962,"NH3 gas detector, trip to ESD",RP-301,AAHH,0-300 ppm,H 25 / HH 50 ppm NH3 (A),A,509
+AAH-51060,dryer outlet moisture high (dew point),D-301,AAH,-80 to 0 C,H -40 C dew point (A),A,510
+PDAH-51061,bed differential pressure high,D-301,PDAH,0-1 bar,H 0.5 bar (A),A,510
+AAHH-51062,"CO2 asphyxiant gas detector, ESD",D-301,AAHH,0-5 vol %,H 0.5 / HH 1.5 vol % (A),A,510
+TI-51131,bed 1 outlet temperature (3 points),G-301,TI,0-50 C,-,A,511
+TAHH-51141,bed temperature high-high (trip),G-301,TAHH,0-50 C,HH 70 C (A),A,511
+PAHH-51142,pressure high-high (trip),G-301,PAHH,0-50 bar,HH 44 bar (A),A,511
+PDI-51143,bed differential pressure,G-301,PDI,0-5 bar,H 3 bar,A,511
+TIC-51211,hot outlet temperature,E-304,TIC,0-500 C,H 163 / L 123 C,A,512
+TI-51212,hot outlet temperature indication,E-304,TI,0-500 C,-,A,512
+PDI-51213,tube-side differential pressure (fouling),E-304,PDI,0-2 bar,H 1.0 bar,A,512
+TI-51331,bed 1 outlet temperature (3 points),R-301,TI,0-550 C,-,A,513
+TI-51332,bed 2 outlet temperature (3 points),R-301,TI,0-550 C,-,A,513
+TAHH-51341,bed temperature high-high (trip),R-301,TAHH,0-550 C,HH 460 C (A),A,513
+PAHH-51342,pressure high-high (trip),R-301,PAHH,0-50 bar,HH 44 bar (A),A,513
+PDI-51343,bed differential pressure,R-301,PDI,0-5 bar,H 3 bar,A,513
+TIC-51411,hot outlet temperature,E-305,TIC,0-500 C,H 295 / L 255 C,A,514
+TI-51412,hot outlet temperature indication,E-305,TI,0-500 C,-,A,514
+PDI-51413,tube-side differential pressure (fouling),E-305,PDI,0-2 bar,H 1.0 bar,A,514
+PIC-51511,operating pressure,V-302,PIC,0-45 bar,H 42/ L 36 bar,A,515
+LT-51521,liquid level,V-302,LT,0-100 %,-,A,515
+LAHH-51522,level high-high (trip),V-302,LAHH,0-100 %,HH 90 %,A,515
+LIC-51521,level control,V-302,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,515
+LALL-51523,level low-low (pump trip),V-302,LALL,0-100 %,LL 10 %,A,515
+AAH-51660,CO + CO2 in purified H2 (ammonia catalyst poison),PU-301,AAH,0-20 ppm,H 5 ppm / HH 10 ppm trip (A),A,516
+PAHH-51661,feed pressure high-high,PU-301,PAHH,0-50 bar,HH 46 bar (A),A,516
+AAHH-51662,"H2 / H2S detector at unit, ESD",PU-301,AAHH,0-100 %LEL,H 20 / HH 40 %LEL (A),A,516
+BSL-51760,burner flame scanner (2oo3) low: trip,F-351,BSL,flame,no flame: close acid gas + air (A),A,517
+FFIC-51761,air / acid-gas ratio control (trim by tail-gas H2S:SO2 analyser),F-351,FFIC,ratio,stoich 0.5 mol O2 per mol H2S (D),A,517
+AAHH-51762,H2S gas detectors at burner platform: ESD,F-351,AAHH,0-100 ppm,H 10 / HH 15 ppm (A),A,517
+TAHH-51763,furnace temperature high-high (refractory),F-351,TAHH,0-1500 C,HH 1300 C (A),A,517
+AIT-51764,tail-gas H2S:SO2 ratio analyser,F-351,AIT,0-10,ratio set 2.0 (D),A,517
+TIC-51811,hot outlet temperature,E-351,TIC,0-1400 C,H 315 / L 275 C,A,518
+TI-51812,hot outlet temperature indication,E-351,TI,0-1400 C,-,A,518
+PDI-51813,tube-side differential pressure (fouling),E-351,PDI,0-2 bar,H 1.0 bar,A,518
+TIC-51911,hot outlet temperature,E-352,TIC,0-400 C,H 185 / L 145 C,A,519
+TI-51912,hot outlet temperature indication,E-352,TI,0-400 C,-,A,519
+PDI-51913,tube-side differential pressure (fouling),E-352,PDI,0-2 bar,H 1.0 bar,A,519
+TI-52031,bed 1 outlet temperature (3 points),R-351,TI,0-450 C,-,A,520
+TAHH-52041,bed temperature high-high (trip),R-351,TAHH,0-450 C,HH 374 C (A),A,520
+PAHH-52042,pressure high-high (trip),R-351,PAHH,0-10 bar,HH 1 bar (A),A,520
+PDI-52043,bed differential pressure,R-351,PDI,0-5 bar,H 3 bar,A,520
+TIC-52111,hot outlet temperature,E-353,TIC,0-400 C,H 185 / L 145 C,A,521
+TI-52112,hot outlet temperature indication,E-353,TI,0-400 C,-,A,521
+PDI-52113,tube-side differential pressure (fouling),E-353,PDI,0-2 bar,H 1.0 bar,A,521
+TI-52231,bed 1 outlet temperature (3 points),R-352,TI,0-350 C,-,A,522
+TAHH-52241,bed temperature high-high (trip),R-352,TAHH,0-350 C,HH 292 C (A),A,522
+PAHH-52242,pressure high-high (trip),R-352,PAHH,0-10 bar,HH 1 bar (A),A,522
+PDI-52243,bed differential pressure,R-352,PDI,0-5 bar,H 3 bar,A,522
+TIC-52311,hot outlet temperature,E-354,TIC,0-300 C,H 145 / L 105 C,A,523
+TI-52312,hot outlet temperature indication,E-354,TI,0-300 C,-,A,523
+PDI-52313,tube-side differential pressure (fouling),E-354,PDI,0-2 bar,H 1.0 bar,A,523
+LT-52421,level (radar),T-351,LT,0-100 %,-,A,524
+LAHH-52422,level high-high (stops inflow),T-351,LAHH,0-100 %,HH 95 % (A),A,524
+LALL-52423,level low-low (stops pumps),T-351,LALL,0-100 %,LL 5 % (A),A,524
+TI-52414,bulk temperature,T-351,TI,100 to 180 C,-,A,524
+TI-52531,bed 1 outlet temperature (3 points),R-353,TI,0-450 C,-,A,525
+TAHH-52541,bed temperature high-high (trip),R-353,TAHH,0-450 C,HH 371 C (A),A,525
+PAHH-52542,pressure high-high (trip),R-353,PAHH,0-10 bar,HH 1 bar (A),A,525
+PDI-52543,bed differential pressure,R-353,PDI,0-5 bar,H 3 bar,A,525
+AAH-52660,stack SO2 analyser high,TGT-351,AAH,0-500 ppm,"limit per consent (A, not sourced)",A,526
+TAL-52661,incinerator temperature low (unburnt H2S),TGT-351,TAL,0-900 C,L 600 C alarm (A),A,526
+AAHH-52662,"H2S detectors at absorber, ESD",TGT-351,AAHH,0-100 ppm,H 10 / HH 15 ppm (A),A,526
+BSL-52663,incinerator flame low: trip,TGT-351,BSL,flame,A,A,526
+LAHH-60122,KO drum level high-high (compressor trip),K-401A-KO,LAHH,0-100 %,HH 90 % (A),A,601
+FIC-60151,anti-surge (flow vs surge line),K-401A,FIC,per vendor,surge margin per vendor (gap),A,601
+PAHH-60142,discharge pressure high-high (trip),K-401A,PAHH,0-100 bar,HH 98 bar (A),A,601
+VAHH-60143,vibration high-high (trip),K-401A,VAHH,per vendor,per vendor (gap),A,601
+TAH-60144,discharge temperature high,K-401A,TAH,0-100 C,H 60 C (A),A,601
+AT-60171,H2/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,601
+AAHH-60172,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,601
+LAHH-60222,KO drum level high-high (compressor trip),K-401B-KO,LAHH,0-100 %,HH 90 % (A),A,602
+FIC-60251,anti-surge (flow vs surge line),K-401B,FIC,per vendor,surge margin per vendor (gap),A,602
+PAHH-60242,discharge pressure high-high (trip),K-401B,PAHH,0-220 bar,HH 220 bar (A),A,602
+VAHH-60243,vibration high-high (trip),K-401B,VAHH,per vendor,per vendor (gap),A,602
+TAH-60244,discharge temperature high,K-401B,TAH,0-100 C,H 60 C (A),A,602
+AT-60271,H2/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,602
+AAHH-60272,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,602
+PDAL-60360,loop dP low,K-402,PDAL,0-20 bar,L 4 bar (A),A,603
+VAHH-60361,vibration HH trip,K-402,VAHH,per vendor,gap,A,603
+TAH-60362,bearing temperature,K-402,TAH,0-150 C,H 90 C (A),A,603
+FAL-60363,circulating flow low,K-402,FAL,per vendor,gap,A,603
+AT-60371,H2/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,603
+AAHH-60372,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,603
+TIC-60411,hot outlet temperature,E-403,TIC,0-400 C,H 95 / L 55 C,A,604
+TI-60412,hot outlet temperature indication,E-403,TI,0-400 C,-,A,604
+PDI-60413,tube-side differential pressure (fouling),E-403,PDI,0-2 bar,H 1.0 bar,A,604
+AT-60471,H2/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,604
+AAHH-60472,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,604
+TI-60531,bed 1 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
+TI-60532,bed 2 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
+TI-60533,bed 3 outlet temperature (3 points),R-401,TI,0-600 C,-,A,605
+TAHH-60541,bed temperature high-high (trip),R-401,TAHH,0-600 C,HH 510 C (A),A,605
+PAHH-60542,pressure high-high (trip),R-401,PAHH,0-220 bar,HH 220 bar (A),A,605
+PDI-60543,bed differential pressure,R-401,PDI,0-5 bar,H 3 bar,A,605
+AT-60571,NH3/H2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,605
+AAHH-60572,NH3/H2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,605
+TIC-60611,hot outlet temperature,E-404,TIC,0-550 C,H 345 / L 305 C,A,606
+TI-60612,hot outlet temperature indication,E-404,TI,0-550 C,-,A,606
+PDI-60613,tube-side differential pressure (fouling),E-404,PDI,0-2 bar,H 1.0 bar,A,606
+AT-60671,NH3/H2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,606
+AAHH-60672,NH3/H2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,606
+TIC-60711,hot outlet temperature,E-405,TIC,0-100 C,H 55 / L 15 C,A,607
+TI-60712,hot outlet temperature indication,E-405,TI,0-100 C,-,A,607
+PDI-60713,tube-side differential pressure (fouling),E-405,PDI,0-2 bar,H 1.0 bar,A,607
+AT-60771,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,607
+AAHH-60772,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,607
+TIC-60811,hot outlet temperature,E-406,TIC,0-50 C,H 42 / L 2 C,A,608
+TI-60812,hot outlet temperature indication,E-406,TI,0-50 C,-,A,608
+PDI-60813,tube-side differential pressure (fouling),E-406,PDI,0-2 bar,H 1.0 bar,A,608
+AT-60871,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,608
+AAHH-60872,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,608
+TIC-60911,hot outlet temperature,E-401,TIC,0-50 C,H 15 / L 0 C,A,609
+TI-60912,hot outlet temperature indication,E-401,TI,0-50 C,-,A,609
+PDI-60913,tube-side differential pressure (fouling),E-401,PDI,0-2 bar,H 1.0 bar,A,609
+AT-60971,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,609
+AAHH-60972,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,609
+PIC-61011,operating pressure,V-401,PIC,0-220 bar,H 210/ L 180 bar,A,610
+LT-61021,liquid level,V-401,LT,0-100 %,-,A,610
+LAHH-61022,level high-high (trip),V-401,LAHH,0-100 %,HH 90 %,A,610
+LIC-61021,level control,V-401,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,610
+LALL-61023,level low-low (pump trip),V-401,LALL,0-100 %,LL 10 %,A,610
+AT-61071,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,610
+AAHH-61072,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,610
+PIC-61111,operating pressure,V-402,PIC,0-30 bar,H 26/ L 22 bar,A,611
+LT-61121,liquid level,V-402,LT,0-100 %,-,A,611
+LAHH-61122,level high-high (trip),V-402,LAHH,0-100 %,HH 90 %,A,611
+LIC-61121,level control,V-402,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,611
+LALL-61123,level low-low (pump trip),V-402,LALL,0-100 %,LL 10 %,A,611
+AT-61171,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,611
+AAHH-61172,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,611
+PAHH-61260,inlet pressure HH,PGR-401,PAHH,0-250 bar,HH 215 bar (A),A,612
+AAH-61261,NH3 in recovered gas,PGR-401,AAH,0-200 ppm,H 20 ppm (A),A,612
+TAL-61262,feed temperature low,PGR-401,TAL,-20 to 60 C,L -10 C (A),A,612
+AT-61271,H2/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,612
+AAHH-61272,H2/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,612
+PIC-61311,operating pressure,V-403,PIC,0-5 bar,H 1/ L 1 bar,A,613
+LT-61321,liquid level,V-403,LT,0-100 %,-,A,613
+LAHH-61322,level high-high (trip),V-403,LAHH,0-100 %,HH 90 %,A,613
+LIC-61321,level control,V-403,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,613
+LALL-61323,level low-low (pump trip),V-403,LALL,0-100 %,LL 10 %,A,613
+AT-61371,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,613
+AAHH-61372,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,613
+LAHH-61460,suction KO level HH,K-501,LAHH,0-100 %,HH 90 % (A),A,614
+PAL-61461,suction pressure low,K-501,PAL,0-5 bar,L 0.7 bar (A),A,614
+PAHH-61462,discharge pressure HH,K-501,PAHH,0-25 bar,HH 19 bar (A),A,614
+VAHH-61463,vibration HH,K-501,VAHH,per vendor,gap,A,614
+TAH-61464,discharge T high,K-501,TAH,0-200 C,H 160 C (A),A,614
+AT-61471,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,614
+AAHH-61472,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,614
+TIC-61511,hot outlet temperature,E-503,TIC,0-200 C,H 55 / L 15 C,A,615
+TI-61512,hot outlet temperature indication,E-503,TI,0-200 C,-,A,615
+PDI-61513,tube-side differential pressure (fouling),E-503,PDI,0-2 bar,H 1.0 bar,A,615
+AT-61571,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,615
+AAHH-61572,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,615
+PIC-61611,operating pressure,V-404,PIC,0-5 bar,H 3/ L 3 bar,A,616
+LT-61621,liquid level,V-404,LT,0-100 %,-,A,616
+LAHH-61622,level high-high (trip),V-404,LAHH,0-100 %,HH 90 %,A,616
+LIC-61621,level control,V-404,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,616
+LALL-61623,level low-low (pump trip),V-404,LALL,0-100 %,LL 10 %,A,616
+AT-61671,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,616
+AAHH-61672,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,616
+LT-61721,level (radar),T-501,LT,0-100 %,-,A,617
+LAHH-61722,level high-high (stops inflow),T-501,LAHH,0-100 %,HH 95 % (A),A,617
+LALL-61723,level low-low (stops pumps),T-501,LALL,0-100 %,LL 5 % (A),A,617
+TI-61714,bulk temperature,T-501,TI,-73 to 7 C,-,A,617
+AT-61771,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,617
+AAHH-61772,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,617
+PAL-61860,suction pressure low,K-502,PAL,0-3 bar,L 0.7 bar (A),A,618
+PAHH-61861,discharge pressure HH,K-502,PAHH,0-8 bar,HH 5 bar (A),A,618
+LAHH-61862,KO level HH,K-502,LAHH,0-100 %,HH 90 % (A),A,618
+AAH-61863,NH3 in compressor house,K-502,AAH,0-300 ppm,H 25 ppm (A),A,618
+AT-61871,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,618
+AAHH-61872,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,618
+PIC-61911,column top pressure,C-501,PIC,0-5 bar,H 1 / L 1 bar,A,619
+LIC-61921,sump level,C-501,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,619
+LAHH-61922,sump level high-high (flooding),C-501,LAHH,0-100 %,HH 90 % (A),A,619
+PDI-61913,column differential pressure (flooding),C-501,PDI,0-1 bar,H 0.7 bar (A),A,619
+TI-61914,profile temperatures,C-501,TI,0-100 C,-,A,619
+AT-61971,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,619
+AAHH-61972,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,619
+LAHH-70122,KO drum level high-high (compressor trip),K-601A-KO,LAHH,0-100 %,HH 90 % (A),A,701
+FIC-70151,anti-surge (flow vs surge line),K-601A,FIC,per vendor,surge margin per vendor (gap),A,701
+PAHH-70142,discharge pressure high-high (trip),K-601A,PAHH,0-20 bar,HH 16 bar (A),A,701
+VAHH-70143,vibration high-high (trip),K-601A,VAHH,per vendor,per vendor (gap),A,701
+TAH-70144,discharge temperature high,K-601A,TAH,0-100 C,H 60 C (A),A,701
+AT-70171,CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,701
+AAHH-70172,CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,701
+LAHH-70222,KO drum level high-high (compressor trip),K-601B-KO,LAHH,0-100 %,HH 90 % (A),A,702
+FIC-70251,anti-surge (flow vs surge line),K-601B,FIC,per vendor,surge margin per vendor (gap),A,702
+PAHH-70242,discharge pressure high-high (trip),K-601B,PAHH,0-170 bar,HH 165 bar (A),A,702
+VAHH-70243,vibration high-high (trip),K-601B,VAHH,per vendor,per vendor (gap),A,702
+TAH-70244,discharge temperature high,K-601B,TAH,0-100 C,H 60 C (A),A,702
+AT-70271,CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,702
+AAHH-70272,CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,702
+SAHH-70360,overspeed trip,TG-601,SAHH,per vendor,gap,A,703
+PAL-70361,condenser vacuum low,TG-601,PAL,0-1 bar,L 0.15 bar abs (A),A,703
+TAHH-70362,exhaust temperature HH,TG-601,TAHH,0-150 C,HH 90 C (A),A,703
+VAHH-70363,vibration HH,TG-601,VAHH,per vendor,gap,A,703
+LAHH-70364,hotwell level HH,TG-601,LAHH,0-100 %,HH 90 % (A),A,703
+LT-70421,liquid level,V-601,LT,0-100 %,-,A,704
+LAHH-70422,level high-high (trip),V-601,LAHH,0-100 %,HH 90 %,A,704
+LIC-70421,level control,V-601,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,704
+LALL-70423,level low-low (pump trip),V-601,LALL,0-100 %,LL 10 %,A,704
+AT-70471,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,704
+AAHH-70472,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,704
+LT-70521,liquid level,R-601,LT,0-100 %,-,A,705
+LAHH-70522,level high-high (trip),R-601,LAHH,0-100 %,HH 90 %,A,705
+LIC-70521,level control,R-601,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,705
+LALL-70523,level low-low (pump trip),R-601,LALL,0-100 %,LL 10 %,A,705
+AT-70571,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,705
+AAHH-70572,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,705
+PIC-70611,column top pressure,C-601,PIC,0-165 bar,H 158 / L 135 bar,A,706
+LIC-70621,sump level,C-601,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,706
+LAHH-70622,sump level high-high (flooding),C-601,LAHH,0-100 %,HH 90 % (A),A,706
+PDI-70613,column differential pressure (flooding),C-601,PDI,0-1 bar,H 0.7 bar (A),A,706
+TI-70614,profile temperatures,C-601,TI,0-250 C,-,A,706
+AT-70671,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,706
+AAHH-70672,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,706
+TIC-70711,hot outlet temperature,E-601,TIC,0-250 C,H 185 / L 145 C,A,707
+TI-70712,hot outlet temperature indication,E-601,TI,0-250 C,-,A,707
+PDI-70713,tube-side differential pressure (fouling),E-601,PDI,0-2 bar,H 1.0 bar,A,707
+AT-70771,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,707
+AAHH-70772,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,707
+PIC-70811,column top pressure,C-603,PIC,0-165 bar,H 158 / L 135 bar,A,708
+LIC-70821,sump level,C-603,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,708
+LAHH-70822,sump level high-high (flooding),C-603,LAHH,0-100 %,HH 90 % (A),A,708
+PDI-70813,column differential pressure (flooding),C-603,PDI,0-1 bar,H 0.7 bar (A),A,708
+TI-70814,profile temperatures,C-603,TI,0-250 C,-,A,708
+AT-70871,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,708
+AAHH-70872,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,708
+PIC-70911,column top pressure,C-602,PIC,0-20 bar,H 19 / L 16 bar,A,709
+LIC-70921,sump level,C-602,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,709
+LAHH-70922,sump level high-high (flooding),C-602,LAHH,0-100 %,HH 90 % (A),A,709
+PDI-70913,column differential pressure (flooding),C-602,PDI,0-1 bar,H 0.7 bar (A),A,709
+TI-70914,profile temperatures,C-602,TI,0-250 C,-,A,709
+AT-70971,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,709
+AAHH-70972,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,709
+TIC-71011,hot outlet temperature,E-603,TIC,0-200 C,H 115 / L 75 C,A,710
+TI-71012,hot outlet temperature indication,E-603,TI,0-200 C,-,A,710
+PDI-71013,tube-side differential pressure (fouling),E-603,PDI,0-2 bar,H 1.0 bar,A,710
+AT-71071,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,710
+AAHH-71072,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,710
+LT-71121,liquid level,V-603,LT,0-100 %,-,A,711
+LAHH-71122,level high-high (trip),V-603,LAHH,0-100 %,HH 90 %,A,711
+LIC-71121,level control,V-603,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,711
+LALL-71123,level low-low (pump trip),V-603,LALL,0-100 %,LL 10 %,A,711
+AT-71171,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,711
+AAHH-71172,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,711
+PIC-71211,column top pressure,C-604,PIC,0-10 bar,H 4 / L 4 bar,A,712
+LIC-71221,sump level,C-604,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,712
+LAHH-71222,sump level high-high (flooding),C-604,LAHH,0-100 %,HH 90 % (A),A,712
+PDI-71213,column differential pressure (flooding),C-604,PDI,0-1 bar,H 0.7 bar (A),A,712
+TI-71214,profile temperatures,C-604,TI,0-200 C,-,A,712
+AT-71271,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,712
+AAHH-71272,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,712
+TIC-71311,hot outlet temperature,E-604,TIC,0-200 C,H 75 / L 35 C,A,713
+TI-71312,hot outlet temperature indication,E-604,TI,0-200 C,-,A,713
+PDI-71313,tube-side differential pressure (fouling),E-604,PDI,0-2 bar,H 1.0 bar,A,713
+AT-71371,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,713
+AAHH-71372,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,713
+LT-71421,liquid level,V-604,LT,0-100 %,-,A,714
+LAHH-71422,level high-high (trip),V-604,LAHH,0-100 %,HH 90 %,A,714
+LIC-71421,level control,V-604,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,714
+LALL-71423,level low-low (pump trip),V-604,LALL,0-100 %,LL 10 %,A,714
+AT-71471,NH3/CO2 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,714
+AAHH-71472,NH3/CO2 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,714
+TIC-71511,hot outlet temperature,E-602,TIC,0-200 C,H 159 / L 119 C,A,715
+TI-71512,hot outlet temperature indication,E-602,TI,0-200 C,-,A,715
+PDI-71513,tube-side differential pressure (fouling),E-602,PDI,0-2 bar,H 1.0 bar,A,715
+AT-71571,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,715
+AAHH-71572,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,715
+PIC-71611,operating pressure,V-605,PIC,0-5 bar,H 0/ L 0 bar,A,716
+LT-71621,liquid level,V-605,LT,0-100 %,-,A,716
+LAHH-71622,level high-high (trip),V-605,LAHH,0-100 %,HH 90 %,A,716
+LIC-71621,level control,V-605,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,716
+LALL-71623,level low-low (pump trip),V-605,LALL,0-100 %,LL 10 %,A,716
+AT-71671,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,716
+AAHH-71672,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,716
+PAH-71760,vacuum lost (pressure high),VAC-601,PAH,0-1 bar,H 0.45 bar (A),A,717
+LAHH-71761,hotwell level HH,VAC-601,LAHH,0-100 %,HH 90 % (A),A,717
+AAH-71762,NH3 in vent,VAC-601,AAH,0-200 ppm,H 25 ppm (A),A,717
+AT-71771,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,717
+AAHH-71772,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,717
+TAHH-71860,bed temperature HH,G-601,TAHH,0-200 C,HH 150 C (A),A,718
+PDAL-71861,bed dP low (defluidised),G-601,PDAL,0-100 mbar,L (vendor),A,718
+AAH-71862,off-gas NH3,G-601,AAH,0-200 ppm,H 25 ppm (A),A,718
+TAH-71863,off-gas T high (fire),G-601,TAH,0-200 C,H 110 C (A),A,718
+SAL-71864,air fan trip,G-601,SAL,-,trips melt feed (A),A,718
+AT-71871,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,718
+AAHH-71872,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,718
+PIC-71911,column top pressure,C-605,PIC,0-5 bar,H 1 / L 1 bar,A,719
+LIC-71921,sump level,C-605,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,719
+LAHH-71922,sump level high-high (flooding),C-605,LAHH,0-100 %,HH 90 % (A),A,719
+PDI-71913,column differential pressure (flooding),C-605,PDI,0-1 bar,H 0.7 bar (A),A,719
+TI-71914,profile temperatures,C-605,TI,0-150 C,-,A,719
+AT-71971,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,719
+AAHH-71972,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,719
+PAHH-72060,pressure HH,R-602,PAHH,0-30 bar,HH 25 bar (A),A,720
+TAHH-72061,temperature HH,R-602,TAHH,0-250 C,HH 215 C (A),A,720
+LAHH-72062,level HH,R-602,LAHH,0-100 %,HH 90 % (A),A,720
+AT-72071,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,720
+AAHH-72072,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,720
+PIC-72111,column top pressure,C-606,PIC,0-10 bar,H 4 / L 4 bar,A,721
+LIC-72121,sump level,C-606,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,721
+LAHH-72122,sump level high-high (flooding),C-606,LAHH,0-100 %,HH 90 % (A),A,721
+PDI-72113,column differential pressure (flooding),C-606,PDI,0-1 bar,H 0.7 bar (A),A,721
+TI-72114,profile temperatures,C-606,TI,0-200 C,-,A,721
+AT-72171,NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,721
+AAHH-72172,NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,721
+SAHH-72260,belt misalignment / slip,CV-601,SAHH,-,trip drive (A),A,722
+TAH-72261,bearing / belt hot spot,CV-601,TAH,0-150 C,H 80 C (A),A,722
+PDAH-72262,dust filter dP high,CV-601,PDAH,0-30 mbar,H (vendor),A,722
+SAL-72263,conveyor stopped,CV-601,SAL,-,stops upstream feed (A),A,722
+AT-72271,dust/NH3 gas detector,area,AT,0-300 ppm,H 25 ppm / HH 150 ppm (A),A,722
+AAHH-72272,dust/NH3 detector HH -> ESD (2oo2),area,AAHH,0-300 ppm,HH 150 ppm (A),A,722
+PAHH-80160,HP header pressure high-high,SH-801,PAHH,0-80 bar,HH 55 bar (A),A,801
+PALL-80161,HP header pressure low-low (gasifier steam loss),SH-801,PALL,0-80 bar,LL 40 bar (A),A,801
+PAHH-80162,MP header pressure high-high,SH-801,PAHH,0-40 bar,HH 28 bar (A),A,801
+PALL-80163,LP header pressure low-low,SH-801,PALL,0-10 bar,LL 2.7 bar (A),A,801
+TAH-80170,HP header temperature high,SH-801,TAH,0-600 C,H 430 C (A),A,801
+TAHH-80260,MP outlet temperature high-high (closes letdown),PRDS-801,TAHH,0-450 C,HH 360 C (A),A,802
+TALL-80261,MP outlet temperature low (spray valve stuck open),PRDS-801,TALL,0-450 C,L 260 C (A),A,802
+PAHH-80262,MP header pressure high-high,PRDS-801,PAHH,0-40 bar,HH 28 bar (A),A,802
+TAHH-80360,LP outlet temperature high-high,PRDS-802,TAHH,0-300 C,HH 200 C (A),A,803
+PAHH-80361,LP header pressure high-high,PRDS-802,PAHH,0-10 bar,HH 5.4 bar (A),A,803
+PALL-80362,LP header pressure low-low,PRDS-802,PALL,0-10 bar,LL 2.7 bar (A),A,803
+PIC-80411,operating pressure,V-801,PIC,0-5 bar,H 3/ L 3 bar,A,804
+LT-80421,liquid level,V-801,LT,0-100 %,-,A,804
+LAHH-80422,level high-high (trip),V-801,LAHH,0-100 %,HH 90 %,A,804
+LIC-80421,level control,V-801,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,804
+LALL-80423,level low-low (pump trip),V-801,LALL,0-100 %,LL 10 %,A,804
+PIC-80511,operating pressure,D-801,PIC,0-5 bar,H 2/ L 2 bar,A,805
+LT-80521,liquid level,D-801,LT,0-100 %,-,A,805
+LAHH-80522,level high-high (trip),D-801,LAHH,0-100 %,HH 90 %,A,805
+LIC-80521,level control,D-801,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,805
+LALL-80523,level low-low (pump trip),D-801,LALL,0-100 %,LL 10 %,A,805
+PALL-80660,BFW header pressure low-low (standby pump start),BFW-801,PALL,0-100 bar,LL 60 bar (A),A,806
+FAL-80661,BFW flow low to drums,BFW-801,FAL,0-500 t/h,L 70 % of design (A),A,806
+TAH-80662,BFW temperature high,BFW-801,TAH,0-150 C,H 115 C (A),A,806
+PIC-80711,operating pressure,V-803,PIC,0-10 bar,H 5/ L 4 bar,A,807
+LT-80721,liquid level,V-803,LT,0-100 %,-,A,807
+LAHH-80722,level high-high (trip),V-803,LAHH,0-100 %,HH 90 %,A,807
+LIC-80721,level control,V-803,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,807
+LALL-80723,level low-low (pump trip),V-803,LALL,0-100 %,LL 10 %,A,807
+LAHH-80860,drum level high-high (MFT),B-801,LAHH,0-100 %,HH 90 % (A),A,808
+LALL-80861,drum level low-low (MFT),B-801,LALL,0-100 %,LL 10 % (A),A,808
+PAHH-80862,drum / steam pressure high-high (MFT),B-801,PAHH,0-80 bar,HH 55 bar (A),A,808
+XA-80863,furnace flame / bed temperature loss (MFT),B-801,XA,0-1000 C,per vendor (gap),A,808
+LT-80921,level (radar),T-801,LT,0-100 %,-,A,809
+LAHH-80922,level high-high (stops inflow),T-801,LAHH,0-100 %,HH 95 % (A),A,809
+LALL-80923,level low-low (stops pumps),T-801,LALL,0-100 %,LL 5 % (A),A,809
+TI-80914,bulk temperature,T-801,TI,-10 to 70 C,-,A,809
+QAH-81060,DM water conductivity high (divert to waste),DM-801,QAH,0-50 uS/cm,H per BFW spec (gap),A,810
+QAH-81061,silica breakthrough high,DM-801,QAH,0-100 ppb,H per BFW spec (gap),A,810
+LAL-81062,regenerant tank level low,DM-801,LAL,0-100 %,L 20 % (A),A,810
+LT-81121,level (radar),T-802,LT,0-100 %,-,A,811
+LAHH-81122,level high-high (stops inflow),T-802,LAHH,0-100 %,HH 95 % (A),A,811
+LALL-81123,level low-low (stops pumps),T-802,LALL,0-100 %,LL 5 % (A),A,811
+TI-81114,bulk temperature,T-802,TI,-10 to 70 C,-,A,811
+LAL-81260,basin level low (makeup valve),CT-801,LAL,0-100 %,L 30 % (A),A,812
+VAHH-81261,fan vibration high-high (trip),CT-801,VAHH,per vendor,per vendor (gap),A,812
+TAH-81262,cold water temperature high,CT-801,TAH,0-60 C,H 36 C (A),A,812
+PALL-81360,CW supply header pressure low-low (standby start),P-803,PALL,0-10 bar,LL 3 bar (A),A,813
+PAL-81361,CW supply pressure low,P-803,PAL,0-10 bar,L 3.5 bar (A),A,813
+TAH-81362,CW return temperature high,P-803,TAH,0-60 C,H 46 C (A),A,813
+LAL-81460,chemical day-tank level low,DOS-801,LAL,0-100 %,L 20 % (A),A,814
+QAH-81461,CW conductivity high (blowdown valve open),DOS-801,QAH,0-5000 uS/cm,per cycles of concentration (A),A,814
+AAH-81462,free halogen / biocide residual,DOS-801,AAH,per site,per site standard (gap),A,814
+PALL-81560,instrument air header low-low (plant trip alarm),K-801,PALL,0-12 bar,LL 5 bar abs (A),A,815
+PAL-81561,instrument air header low (start standby),K-801,PAL,0-12 bar,L 6 bar abs (A),A,815
+TAH-81562,compressor discharge temperature high,K-801,TAH,0-200 C,H 120 C (A),A,815
+MAH-81563,instrument air dew point high,K-801,MAH,-80 to 0 C,H -30 C (A),A,815
+PT-81611,receiver pressure,V-804,PT,0-10 bar,-,A,816
+PAL-81612,receiver pressure low (start standby),V-804,PAL,0-10 bar,L 6.5 bar abs (A),A,816
+PALL-81613,receiver pressure low-low (plant alarm),V-804,PALL,0-10 bar,LL 5 bar abs (A),A,816
+LAH-81621,drain pot level high,V-804,LAH,0-100 %,H 80 % (A),A,816
+PALL-81760,N2 header pressure low-low (inert users),N2-801,PALL,0-15 bar,LL 8 bar (A),A,817
+AAL-81761,O2 in N2 header high,N2-801,AAL,0-5 %,H 0.5 % (A),A,817
+PAHH-81762,N2 header pressure high-high,N2-801,PAHH,0-15 bar,HH 13 bar (A),A,817
+QAH-81960,pH out of range at neutralisation (stop discharge),ETP-801,QAH,0-14 pH,H/L per site (gap),A,819
+LAHH-81961,equalisation tank level high-high,ETP-801,LAHH,0-100 %,HH 90 % (A),A,819
+QAH-81962,NH3-N in recovered water high (divert),ETP-801,QAH,per site,per site standard (gap),A,819
+PT-90111,flare header pressure at KO-101,FLR-901,PT,0-6 bar,-,A,901
+PAH-90112,flare header pressure high,FLR-901,PAH,0-6 bar,H 3.0 bar abs (A),A,901
+XA-90113,pilot flame-out (all pilots),FLR-901,XA,per vendor,per vendor (gap),A,901
+LAHH-90114,KO-101 level high-high,FLR-901,LAHH,0-100 %,HH 90 % (A),A,901
+LT-90221,liquid level,KO-101,LT,0-100 %,-,A,902
+LIC-90221,level control,KO-101,LIC,0-100 %,H 80 / L 20 %,A,902
+LAHH-90222,"level high-high (alarm; operator action, relief path stays open)",KO-101,LAHH,0-100 %,HH 90 % (A),A,902
+LALL-90223,level low-low (stops pumps / seal loss alarm),KO-101,LALL,0-100 %,LL 10 % (A),A,902
+PT-90211,header pressure (back-pressure to relief devices),KO-101,PT,0-5 bar,H per header basis (gap),A,902
+LT-90321,liquid level,V-901,LT,0-100 %,-,A,903
+LIC-90321,level control,V-901,LIC,0-100 %,H 80 / L 20 %,A,903
+LAHH-90322,"level high-high (alarm; operator action, relief path stays open)",V-901,LAHH,0-100 %,HH 90 % (A),A,903
+LALL-90323,level low-low (stops pumps / seal loss alarm),V-901,LALL,0-100 %,LL 10 % (A),A,903
+PT-90311,header pressure (back-pressure to relief devices),V-901,PT,0-5 bar,H per header basis (gap),A,903
+XA-90460,pilot flame out (thermocouple or flame scanner),FL-101,XA,per vendor,per vendor (gap),A,904
+PAH-90461,"flare header pressure high (alarm, relief path open)",FL-101,PAH,0-10 bar,H 3.0 bar abs (A),A,904
+FAH-90462,flare gas flow high (metering),FL-101,FAH,per vendor,per vendor (gap),A,904
+AAH-90463,O2 in flare header high (air ingress),FL-101,AAH,0-25 %,H per header basis (gap),A,904
+PIC-90511,operating pressure,V-902,PIC,0-5 bar,H 2/ L 1 bar,A,905
+LT-90521,liquid level,V-902,LT,0-100 %,-,A,905
+LAHH-90522,level high-high (trip),V-902,LAHH,0-100 %,HH 90 %,A,905
+LIC-90521,level control,V-902,LIC,0-100 %,H 80 / L 20 % ; LL 10 % trip,A,905
+LALL-90523,level low-low (pump trip),V-902,LALL,0-100 %,LL 10 %,A,905
+LAH-90660,separator oil layer high,OWS-901,LAH,0-100 %,H 70 % (A),A,906
+LAHH-90661,sump level high-high (pump start / alarm),OWS-901,LAHH,0-100 %,HH 90 % (A),A,906
+AAH-90662,hydrocarbon in water to ETP,OWS-901,AAH,per site,per site standard (gap),A,906
+SAL-90960,belt zero-speed / slip,CV-901,SAL,0-100 %,L per vendor (gap),A,909
+XA-90961,belt misalignment / pull-cord (stops that belt only),CV-901,XA,per vendor,per vendor (gap),A,909
+TAH-90962,bearing temperature high,CV-901,TAH,0-120 C,H 90 C (A),A,909
+AAH-90963,dust concentration high in enclosure,CV-901,AAH,per site,per site (gap),A,909
+LAHH-90860,pile height / level high-high (stops feed),T-902,LAHH,0-100 %,HH 95 % (A),A,908
+TAH-90861,"pile temperature high (caking, self-heating check)",T-902,TAH,0-100 C,H 70 C (A),A,908
+MAH-90862,store humidity high,T-902,MAH,0-100 %,H per vendor (gap),A,908
+AAH-90863,dust concentration high,T-902,AAH,per site,per site (gap),A,908
+WAL-91060,check-weigher reject (underweight),BAG-901,WAL,0-60 kg,per vendor (gap),A,910
+LAHH-91061,hopper level high-high (stops feed),BAG-901,LAHH,0-100 %,HH 90 % (A),A,910
+AAH-91062,dust concentration high at filling,BAG-901,AAH,per site,per site (gap),A,910
+WAH-91160,weighbridge overload,LD-901,WAH,0-60 t,H per vehicle rating (gap),A,911
+LAHH-91161,bulk loading hopper high-high (stops feed),LD-901,LAHH,0-100 %,HH 90 % (A),A,911
+AAH-91162,dust concentration high at loading,LD-901,AAH,per site,per site (gap),A,911
+PALL-91261,ring-main pressure low-low (start next pump),FW-901,PALL,0-15 bar,per fire-water design (gap),A,912
+PAL-91262,ring-main pressure low (start duty pump),FW-901,PAL,0-15 bar,per fire-water design (gap),A,912
+LAL-91263,fire-water tank level low (refill / alarm),FW-901,LAL,0-100 %,L 70 % (A),A,912
+LALL-91264,fire-water tank level low-low (pump protection),FW-901,LALL,0-100 %,LL 20 % (A),A,912
+HS-91501,manual ESD-0 push-button (control room and field),ESD-901,HS,-,trip,A,915
+PAHH-91502,R-101 pressure high-high (ESD-1),ESD-901,PAHH,per Rev B,HH 1.1 x P (A),A,915
+AAHH-91503,CO/H2 gas high-high 2oo3 (ESD-1),ESD-901,AAHH,per site,per site (gap),A,915
+PALL-91504,HP steam header low-low (ESD-3),ESD-901,PALL,0-80 bar,LL 40 bar (A),A,915

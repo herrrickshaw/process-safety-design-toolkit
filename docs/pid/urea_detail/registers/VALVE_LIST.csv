@@ -1,0 +1,1059 @@
+tag,type,service,line_no,size_in,fail_position,sheet
+TS-10101,tippler chute gate,solids isolation / feeding,"10""-SO-1001-A1",10,-,101
+AF-10102,apron feeder,solids isolation / feeding,"10""-SO-1002-A1",10,-,101
+CH-10201,chute,solids isolation / feeding,"10""-SO-1003-A1",10,-,102
+CH-10202,chute,solids isolation / feeding,"10""-SO-1004-A1",10,-,102
+CH-10301,chute,solids isolation / feeding,"10""-SO-1005-A1",10,-,103
+CH-10302,chute,solids isolation / feeding,"10""-SO-1006-A1",10,-,103
+CH-10401,chute,solids isolation / feeding,"10""-SO-1007-A1",10,-,104
+CH-10402,chute,solids isolation / feeding,"10""-SO-1008-A1",10,-,104
+TS-10501,unloading hopper gate,solids isolation / feeding,"6""-SO-1009-A1",6,-,105
+WF-10502,weigh feeder,solids isolation / feeding,"6""-SO-1010-A1",6,-,105
+WF-10601,weigh feeder (coal),solids isolation / feeding,"10""-SO-1011-A1",10,-,106
+WF-10602,weigh feeder (petcoke),solids isolation / feeding,"6""-SO-1012-A1",6,-,106
+WF-10603,gravimetric feeder to mill,solids isolation / feeding,"12""-SO-1013-A1",12,-,106
+XV-10653,ball,ESD isolation,"12""-SO-1013-A1",12,FC (ESD),106
+RV-10701,rotary feeder / airlock,solids isolation / feeding,"12""-SO-1014-A1",12,-,107
+XV-10751,ball,ESD isolation,"12""-SO-1014-A1",12,FC (ESD),107
+DM-10702,damper,solids isolation / feeding,DUCT-GS-1015-A1,120,-,107
+DM-10703,damper,solids isolation / feeding,DUCT-SO-1016-A1,120,-,107
+XV-10753,ball,ESD isolation,DUCT-SO-1016-A1,120,FC (ESD),107
+DM-10801,inlet damper,solids isolation / feeding,DUCT-SO-1017-A1,120,-,108
+XV-10851,ball,ESD isolation,DUCT-SO-1017-A1,120,FC (ESD),108
+RV-10802,rotary valve,solids isolation / feeding,"14""-SO-1018-A1",14,-,108
+XV-10852,ball,ESD isolation,"14""-SO-1018-A1",14,FC (ESD),108
+FN-10803,ID fan,solids isolation / feeding,"120""-GS-1019-A1",120,-,108
+RV-10901,rotary valve,solids isolation / feeding,"14""-SO-1020-A1",14,-,109
+XV-10951,ball,ESD isolation,"14""-SO-1020-A1",14,FC (ESD),109
+XN-10902,N2 block valve,solids isolation / feeding,"2""-GS-1021-A1",2,-,109
+SG-10903,slide gate (fluidised outlet),solids isolation / feeding,"14""-SO-1022-A1",14,-,109
+XV-10953,ball,ESD isolation,"14""-SO-1022-A1",14,FC (ESD),109
+XN-10904,vent valve,solids isolation / feeding,"2""-GS-1023-A1",2,-,109
+SG-11001,inlet slide gate (double),solids isolation / feeding,"14""-SO-1024-A1",14,-,110
+XV-11051,ball,ESD isolation,"14""-SO-1024-A1",14,FC (ESD),110
+XN-11002,N2 pressurisation valve,solids isolation / feeding,"3""-GS-1025-A1",3,-,110
+XV-11052,ball,ESD isolation,"3""-GS-1025-A1",3,FC (ESD),110
+BV-11003,discharge ball/isolation valve,solids isolation / feeding,"14""-SO-1026-A1",14,-,110
+XV-11053,ball,ESD isolation,"14""-SO-1026-A1",14,FC (ESD),110
+XN-11004,depressurisation valve,solids isolation / feeding,"18""-GS-1027-A1",18,-,110
+BV-11101,inlet isolation valve,solids isolation / feeding,"14""-SO-1028-A1",14,-,111
+XV-11151,ball,ESD isolation,"14""-SO-1028-A1",14,FC (ESD),111
+XN-11102,N2 supply valve,solids isolation / feeding,"4""-GS-1029-A1",4,-,111
+XV-11152,ball,ESD isolation,"4""-GS-1029-A1",4,FC (ESD),111
+XN-11103,burner isolation (fast),solids isolation / feeding,"6""-SO-1030-A1",6,-,111
+XV-11153,ball,ESD isolation,"6""-SO-1030-A1",6,FC (ESD),111
+XN-11104,burner isolation (fast),solids isolation / feeding,"6""-SO-1031-A1",6,-,111
+XV-11154,ball,ESD isolation,"6""-SO-1031-A1",6,FC (ESD),111
+XN-11105,burner isolation (fast),solids isolation / feeding,"6""-SO-1032-A1",6,-,111
+XV-11155,ball,ESD isolation,"6""-SO-1032-A1",6,FC (ESD),111
+XN-11106,burner isolation (fast),solids isolation / feeding,"6""-SO-1033-A1",6,-,111
+XV-11156,ball,ESD isolation,"6""-SO-1033-A1",6,FC (ESD),111
+XN-11201,isolation (fast),solids isolation / feeding,"6""-SO-1034-A1",6,-,112
+XV-11251,ball,ESD isolation,"6""-SO-1034-A1",6,FC (ESD),112
+XN-11202,N2 purge valve,solids isolation / feeding,"0.5""-GS-1035-A1",0.5,-,112
+NR-11203,non-return / flow-back valve,solids isolation / feeding,"6""-SO-1036-A1",6,-,112
+XV-11253,ball,ESD isolation,"6""-SO-1036-A1",6,FC (ESD),112
+XN-11204,burner purge,solids isolation / feeding,"0.5""-GS-1037-A1",0.5,-,112
+XN-11301,header ESD valve,solids isolation / feeding,"3""-GS-1038-A1",3,-,113
+XV-11351,ball,ESD isolation,"3""-GS-1038-A1",3,FC (ESD),113
+XN-11302,bin inerting valve,solids isolation / feeding,"2""-GS-1039-A1",2,-,113
+XN-11303,purge manifold,solids isolation / feeding,"1.5""-GS-1040-A1",1.5,-,113
+HV-20101,gate,isolation,"120""-PG-2001-A1",120,-,201
+HV-20110,gate,isolation,"120""-PG-2002-A1",120,-,201
+HV-20201,gate,isolation,"120""-PG-2003-A1",120,-,202
+XV-20251,ball,ESD isolation,"120""-PG-2003-A1",120,FC (ESD),202
+HV-20205,gate,KO drain,-,1,-,202
+NRV-20241,check,discharge check,-,54,-,202
+HV-20202,gate,isolation,"54""-PG-2004-A1",54,-,202
+XV-20252,ball,ESD isolation,"54""-PG-2004-A1",54,FC (ESD),202
+FV-20251,control,anti-surge recycle,recycle,120,FO,202
+HV-20301,gate,isolation,"54""-PG-2005-A1",54,-,203
+HV-20303,gate,isolation,"8""-PL-2006-A1",8,-,203
+HV-20302,gate,isolation,"48""-PG-2007-A1",48,-,203
+HV-20304,gate,isolation,"8""-PL-2008-A1",8,-,203
+PV-20311,control,top pressure,cooled air to adsorbers,48,FO,203
+HV-20401,gate,isolation,"48""-PG-2009-A1",48,-,204
+HV-20402,gate,isolation,"42""-PG-2010-A1",42,-,204
+HV-20410,gate,isolation,"54""-PG-2011-A1",54,-,204
+HV-20411,gate,isolation,"42""-PG-2012-A1",42,-,204
+HV-20501,gate,isolation,"54""-PG-2013-A1",54,-,205
+XV-20551,ball,ESD isolation,"54""-PG-2013-A1",54,FC (ESD),205
+HV-20510,gate,isolation,"48""-PG-2014-A1",48,-,205
+HV-20511,gate,isolation,"24""-PG-2015-A1",24,-,205
+HV-20512,gate,isolation,"84""-PG-2016-A1",84,-,205
+HV-20601,gate,isolation,"42""-PG-2017-A1",42,-,206
+HV-20602,gate,isolation,"20""-PG-2018-A1",20,-,206
+HV-20604,gate,isolation,"12""-PL-2019-A1",12,-,206
+PV-20611,control,top pressure,HP column top N2,20,FO,206
+HV-20701,gate,isolation,"12""-PG-2020-A1",12,-,207
+HV-20703,gate,isolation,"8""-PL-2021-A1",8,-,207
+HV-20702,gate,isolation,"42""-PG-2022-A1",42,-,207
+HV-20704,gate,isolation,"6""-PL-2023-A1",6,-,207
+PV-20711,control,top pressure,LP column top waste N2,42,FO,207
+HV-20801,gate,isolation,"2""-PL-2024-A1",2,-,208
+XV-20851,ball,ESD isolation,"2""-PL-2024-A1",2,FC (ESD),208
+HV-20802,gate,isolation,"6""-PL-2025-A1",6,-,208
+HV-20840,gate,P-2001A suction,"6""-PL-2026-A1",6,-,208
+NRV-20841,check,P-2001A discharge check,"6""-PL-2026-A1",6,-,208
+HV-20842,gate,P-2001A discharge isolation,"6""-PL-2026-A1",6,-,208
+HV-20850,gate,P-2001B suction,"6""-PL-2026-A1",6,-,208
+NRV-20851,check,P-2001B discharge check,"6""-PL-2026-A1",6,-,208
+HV-20852,gate,P-2001B discharge isolation,"6""-PL-2026-A1",6,-,208
+HV-20901,gate,isolation,"12""-PG-2027-A1",12,-,209
+HV-20902,gate,isolation,"12""-PG-2028-A1",12,-,209
+HV-20903,gate,isolation,"6""-PL-2029-A1",6,-,209
+HV-20904,gate,isolation,"8""-PL-2030-A1",8,-,209
+TV-20911,control,outlet temperature,cold feed,6,FO,209
+HV-20920,gate,drain,-,0.75,-,209
+HV-20921,gate,vent,-,0.75,-,209
+HV-21001,gate,isolation,"1.5""-PL-2031-A1",1.5,-,210
+XV-21051,ball,ESD isolation,"1.5""-PL-2031-A1",1.5,FC (ESD),210
+HV-21002,gate,isolation,"6""-PL-2032-A1",6,-,210
+HV-21040,gate,P-2002A suction,"6""-PL-2033-A1",6,-,210
+NRV-21041,check,P-2002A discharge check,"6""-PL-2033-A1",6,-,210
+HV-21042,gate,P-2002A discharge isolation,"6""-PL-2033-A1",6,-,210
+HV-21050,gate,P-2002B suction,"6""-PL-2033-A1",6,-,210
+NRV-21051,check,P-2002B discharge check,"6""-PL-2033-A1",6,-,210
+HV-21052,gate,P-2002B discharge isolation,"6""-PL-2033-A1",6,-,210
+HV-21101,gate,isolation,"10""-PG-2034-A1",10,-,211
+HV-21102,gate,isolation,"10""-PG-2035-A1",10,-,211
+HV-21103,gate,isolation,"6""-PL-2036-A1",6,-,211
+HV-21104,gate,isolation,"8""-PL-2037-A1",8,-,211
+TV-21111,control,outlet temperature,cold feed,6,FO,211
+HV-21120,gate,drain,-,0.75,-,211
+HV-21121,gate,vent,-,0.75,-,211
+HV-21201,gate,isolation,"48""-PG-2038-O2",48,-,212
+XV-21251,ball,ESD isolation,"48""-PG-2038-O2",48,FC (ESD),212
+HV-21205,gate,KO drain,-,1,-,212
+NRV-21241,check,discharge check,-,8,-,212
+HV-21202,gate,isolation,"8""-PG-2039-O2",8,-,212
+XV-21252,ball,ESD isolation,"8""-PG-2039-O2",8,FC (ESD),212
+FV-21251,control,anti-surge recycle,recycle,48,FO,212
+HV-21301,gate,isolation,"20""-PG-2040-A1",20,-,213
+XV-21351,ball,ESD isolation,"20""-PG-2040-A1",20,FC (ESD),213
+HV-21305,gate,KO drain,-,1,-,213
+NRV-21341,check,discharge check,-,8,-,213
+HV-21302,gate,isolation,"8""-PG-2041-A1",8,-,213
+XV-21352,ball,ESD isolation,"8""-PG-2041-A1",8,FC (ESD),213
+FV-21351,control,anti-surge recycle,recycle,20,FO,213
+HV-21401,gate,isolation,"16""-PG-2042-A1",16,-,214
+XV-21451,ball,ESD isolation,"16""-PG-2042-A1",16,FC (ESD),214
+HV-21405,gate,KO drain,-,1,-,214
+NRV-21441,check,discharge check,-,4,-,214
+HV-21402,gate,isolation,"4""-PG-2043-A1",4,-,214
+XV-21452,ball,ESD isolation,"4""-PG-2043-A1",4,FC (ESD),214
+FV-21451,control,anti-surge recycle,recycle,16,FO,214
+HV-21501,gate,isolation,"8""-PG-2044-O2",8,-,215
+XV-21551,ball,ESD isolation,"8""-PG-2044-O2",8,FC (ESD),215
+HV-21502,gate,isolation,"8""-PG-2045-O2",8,-,215
+HV-21510,gate,isolation,"8""-PG-2046-O2",8,-,215
+HV-21601,gate,isolation,"8""-PG-2047-A1",8,-,216
+XV-21651,ball,ESD isolation,"8""-PG-2047-A1",8,FC (ESD),216
+HV-21602,gate,isolation,"4""-PG-2048-A1",4,-,216
+HV-21603,gate,isolation,"84""-PG-2049-A1",84,-,216
+HV-21610,gate,isolation,"8""-PG-2050-A1",8,-,216
+HV-21611,gate,isolation,"4""-PG-2051-A1",4,-,216
+HV-21612,gate,isolation,"96""-PG-2052-A1",96,-,216
+HV-30101,gate,isolation,"12""-BF-3001-CR",12,-,301
+HV-30102,gate,isolation,"16""-CL-3002-CR",16,-,301
+XV-30152,ball,ESD isolation,"16""-CL-3002-CR",16,FC (ESD),301
+HV-30103,gate,isolation,"8""-OX-3003-CR",8,-,301
+XV-30153,ball,ESD isolation,"8""-OX-3003-CR",8,FC (ESD),301
+HV-30104,gate,isolation,"6""-ST-3004-CR",6,-,301
+XV-30154,ball,ESD isolation,"6""-ST-3004-CR",6,FC (ESD),301
+HV-30105,gate,isolation,"1""-N2-3005-A1",1,-,301
+HV-30106,gate,isolation,"6""-GW-3006-A1",6,-,301
+HV-30107,gate,isolation,"36""-SG-3007-CR",36,-,301
+XV-30157,ball,ESD isolation,"36""-SG-3007-CR",36,FC (ESD),301
+HV-30108,gate,isolation,"16""-SG-3008-CR",16,-,301
+HV-30109,gate,isolation,"8""-BF-3009-CR",8,-,301
+HV-30110,gate,isolation,"18""-GW-3010-A1",18,-,301
+HV-30111,gate,isolation,"18""-GW-3011-A1",18,-,301
+HV-30112,gate,isolation,"8""-SL-3012-A1",8,-,301
+XV-30160,ball,emergency depressurisation (BDV-101 Rev B),-,4,FO,301
+HV-30201,gate,isolation,"0.5""-PL-3013-CR",0.5,-,302
+XV-30251,ball,ESD isolation,"0.5""-PL-3013-CR",0.5,FC (ESD),302
+HV-30202,gate,isolation,"1""-OX-3014-CR",1,-,302
+HV-30203,gate,isolation,"1""-N2-3015-CR",1,-,302
+HV-30210,gate,isolation,"3""-SG-3016-CR",3,-,302
+HV-30301,gate,isolation,"16""-PG-3017-SG",16,-,303
+XV-30351,ball,ESD isolation,"16""-PG-3017-SG",16,FC (ESD),303
+HV-30305,gate,KO drain,-,1,-,303
+NRV-30341,check,discharge check,-,16,-,303
+HV-30302,gate,isolation,"16""-PG-3018-SG",16,-,303
+XV-30352,ball,ESD isolation,"16""-PG-3018-SG",16,FC (ESD),303
+FV-30351,control,anti-surge recycle,recycle,16,FO,303
+HV-30401,gate,isolation,"18""-PG-3019-A1",18,-,304
+HV-30402,gate,isolation,"18""-PG-3020-A1",18,-,304
+HV-30403,gate,isolation,"24""-CW-3021-A1",24,-,304
+HV-30404,gate,isolation,"24""-CW-3022-A1",24,-,304
+TV-30411,control,outlet temperature,cold feed,24,FO,304
+HV-30420,gate,drain,-,0.75,-,304
+HV-30421,gate,vent,-,0.75,-,304
+HV-30501,gate,inlet isolation,"8""-SL-3023-A1",8,-,305
+XV-30502,ball,ESD inlet isolation,"8""-SL-3023-A1",8,FC (ESD),305
+HV-30503,gate,gas outlet isolation,"12""-SG-3024-A1",12,-,305
+PV-30511,control,pressure control,"12""-SG-3024-A1",12,FO,305
+HV-30505,gate,liquid outlet isolation,"8""-SL-3025-A1",8,-,305
+HV-30508,gate,drain 1 (double block),-,1.5,-,305
+HV-30509,gate,drain 2,-,1.5,-,305
+HV-30510,gate,vent,-,0.75,-,305
+HV-30601,gate,isolation,"8""-SL-3026-A1",8,-,306
+HV-30610,gate,isolation,"6""-SL-3027-A1",6,-,306
+HV-30611,gate,isolation,"6""-GW-3028-A1",6,-,306
+HV-30701,gate,isolation,"36""-PG-3029-CR",36,-,307
+XV-30751,ball,ESD isolation,"36""-PG-3029-CR",36,FC (ESD),307
+HV-30702,gate,isolation,"30""-PG-3030-CR",30,-,307
+HV-30703,gate,isolation,"36""-BF-3031-CR",36,-,307
+HV-30704,gate,isolation,"24""-BF-3032-CR",24,-,307
+TV-30711,control,outlet temperature,cold feed,36,FO,307
+HV-30720,gate,drain,-,0.75,-,307
+HV-30721,gate,vent,-,0.75,-,307
+HV-30801,gate,isolation,"30""-PG-3033-CR",30,-,308
+XV-30851,ball,ESD isolation,"30""-PG-3033-CR",30,FC (ESD),308
+HV-30802,gate,isolation,"30""-PG-3034-CR",30,-,308
+HV-30803,gate,isolation,"12""-BF-3035-CR",12,-,308
+HV-30804,gate,isolation,"12""-BF-3036-CR",12,-,308
+TV-30811,control,outlet temperature,cold feed,12,FO,308
+HV-30820,gate,drain,-,0.75,-,308
+HV-30821,gate,vent,-,0.75,-,308
+HV-30901,gate,inlet isolation,"24""-BF-3037-CR",24,-,309
+XV-30902,ball,ESD inlet isolation,"24""-BF-3037-CR",24,FC (ESD),309
+HV-30903,gate,gas outlet isolation,"12""-ST-3038-CR",12,-,309
+PV-30911,control,pressure control,"12""-ST-3038-CR",12,FO,309
+HV-30905,gate,liquid outlet isolation,"36""-BF-3039-CR",36,-,309
+HV-30930,gate,P-134A suction,"36""-BF-3039-CR",36,-,309
+NRV-30940,check,P-134A discharge check,"36""-BF-3039-CR",36,-,309
+HV-30950,gate,P-134A discharge isolation,"36""-BF-3039-CR",36,-,309
+HV-30931,gate,P-134B suction,"36""-BF-3039-CR",36,-,309
+NRV-30941,check,P-134B discharge check,"36""-BF-3039-CR",36,-,309
+HV-30951,gate,P-134B discharge isolation,"36""-BF-3039-CR",36,-,309
+LV-30921,control,level control,"36""-BF-3039-CR",36,FC,309
+HV-30908,gate,drain 1 (double block),-,1.5,-,309
+HV-30909,gate,drain 2,-,1.5,-,309
+HV-30910,gate,vent,-,0.75,-,309
+HV-30971,gate,isolation,"12""-BF-3040-CR",12,-,309
+HV-30972,gate,isolation,"2""-BF-3041-CR",2,-,309
+HV-31001,gate,isolation,"30""-SG-3042-CR",30,-,310
+XV-31051,ball,ESD isolation,"30""-SG-3042-CR",30,FC (ESD),310
+HV-31002,gate,isolation,"0.75""-N2-3043-CR",0.75,-,310
+HV-31010,gate,isolation,"30""-SG-3044-CR",30,-,310
+HV-31011,gate,isolation,"6""-SL-3045-CR",6,-,310
+HV-31101,gate,isolation,"30""-SG-3046-CR",30,-,311
+XV-31151,ball,ESD isolation,"30""-SG-3046-CR",30,FC (ESD),311
+HV-31102,gate,isolation,"3""-GW-3047-CR",3,-,311
+HV-31110,gate,isolation,"36""-SG-3048-CR",36,-,311
+HV-31201,gate,isolation,"36""-PG-3049-SG",36,-,312
+XV-31251,ball,ESD isolation,"36""-PG-3049-SG",36,FC (ESD),312
+HV-31203,gate,isolation,"2""-PL-3050-SG",2,-,312
+HV-31202,gate,isolation,"24""-PG-3051-SG",24,-,312
+HV-31204,gate,isolation,"3""-PL-3052-SG",3,-,312
+PV-31211,control,top pressure,"scrubbed syngas, total",24,FO,312
+HV-31301,gate,inlet isolation,"6""-BW-3053-SS",6,-,313
+XV-31302,ball,ESD inlet isolation,"6""-BW-3053-SS",6,FC (ESD),313
+HV-31303,gate,gas outlet isolation,"4""-SG-3054-SS",4,-,313
+PV-31311,control,pressure control,"4""-SG-3054-SS",4,FO,313
+HV-31305,gate,liquid outlet isolation,"3""-BW-3055-SS",3,-,313
+HV-31308,gate,drain 1 (double block),-,1.5,-,313
+HV-31309,gate,drain 2,-,1.5,-,313
+HV-31310,gate,vent,-,0.75,-,313
+HV-31401,gate,inlet isolation,"12""-BW-3056-SS",12,-,314
+XV-31402,ball,ESD inlet isolation,"12""-BW-3056-SS",12,FC (ESD),314
+HV-31403,gate,gas outlet isolation,"10""-SG-3057-SS",10,-,314
+PV-31411,control,pressure control,"10""-SG-3057-SS",10,FO,314
+HV-31405,gate,liquid outlet isolation,"3""-BW-3058-SS",3,-,314
+HV-31408,gate,drain 1 (double block),-,1.5,-,314
+HV-31409,gate,drain 2,-,1.5,-,314
+HV-31410,gate,vent,-,0.75,-,314
+HV-31501,gate,inlet isolation,"24""-BW-3059-SS",24,-,315
+XV-31502,ball,ESD inlet isolation,"24""-BW-3059-SS",24,FC (ESD),315
+HV-31503,gate,gas outlet isolation,"18""-SG-3060-SS",18,-,315
+PV-31511,control,pressure control,"18""-SG-3060-SS",18,FO,315
+HV-31505,gate,liquid outlet isolation,"3""-BW-3061-SS",3,-,315
+HV-31530,gate,P-141A suction,"3""-BW-3061-SS",3,-,315
+NRV-31540,check,P-141A discharge check,"3""-BW-3061-SS",3,-,315
+HV-31550,gate,P-141A discharge isolation,"3""-BW-3061-SS",3,-,315
+HV-31531,gate,P-141B suction,"3""-BW-3061-SS",3,-,315
+NRV-31541,check,P-141B discharge check,"3""-BW-3061-SS",3,-,315
+HV-31551,gate,P-141B discharge isolation,"3""-BW-3061-SS",3,-,315
+LV-31521,control,level control,"3""-BW-3061-SS",3,FC,315
+HV-31508,gate,drain 1 (double block),-,1.5,-,315
+HV-31509,gate,drain 2,-,1.5,-,315
+HV-31510,gate,vent,-,0.75,-,315
+HV-31601,gate,isolation,"14""-PG-3062-SS",14,-,316
+XV-31651,ball,ESD isolation,"14""-PG-3062-SS",14,FC (ESD),316
+HV-31602,gate,isolation,"1.5""-PG-3063-SS",1.5,-,316
+HV-31603,gate,isolation,"10""-CW-3064-A1",10,-,316
+HV-31604,gate,isolation,"10""-CW-3065-A1",10,-,316
+TV-31611,control,outlet temperature,cold feed,10,FO,316
+HV-31620,gate,drain,-,0.75,-,316
+HV-31621,gate,vent,-,0.75,-,316
+HV-31701,gate,isolation,"3""-BW-3066-A1",3,-,317
+HV-31702,gate,isolation,"6""-GW-3067-A1",6,-,317
+HV-31703,gate,isolation,"2""-GW-3068-A1",2,-,317
+HV-31710,gate,isolation,"6""-GW-3069-A1",6,-,317
+HV-31711,gate,isolation,"3""-SL-3070-A1",3,-,317
+HV-31801,gate,isolation,"3""-SL-3071-A1",3,-,318
+HV-31810,gate,isolation,"1""-SL-3072-A1",1,-,318
+HV-31811,gate,isolation,"2""-GW-3073-A1",2,-,318
+HV-31901,gate,isolation,"6""-GW-3074-A1",6,-,319
+XV-31951,ball,ESD isolation,"6""-GW-3074-A1",6,FC (ESD),319
+HV-31902,gate,isolation,"8""-GW-3075-A1",8,-,319
+HV-31940,gate,P-144A suction,"8""-PL-3076-A1",8,-,319
+NRV-31941,check,P-144A discharge check,"8""-PL-3076-A1",8,-,319
+HV-31942,gate,P-144A discharge isolation,"8""-PL-3076-A1",8,-,319
+HV-31950,gate,P-144B suction,"8""-PL-3076-A1",8,-,319
+NRV-31951,check,P-144B discharge check,"8""-PL-3076-A1",8,-,319
+HV-31952,gate,P-144B discharge isolation,"8""-PL-3076-A1",8,-,319
+HV-32001,gate,isolation,"6""-PG-3077-SS",6,-,320
+XV-32051,ball,ESD isolation,"6""-PG-3077-SS",6,FC (ESD),320
+HV-32002,gate,isolation,"6""-PG-3078-SS",6,-,320
+HV-32004,gate,isolation,"6""-PL-3079-SS",6,-,320
+HV-32005,gate,isolation,"10""-ST-3080-A1",10,-,320
+PV-32011,control,top pressure,"stripper overhead gas (NH3, H2S, CO2, steam)",6,FO,320
+HV-32101,gate,isolation,"18""-FL-3081-FL",18,-,321
+HV-32102,gate,isolation,"10""-FL-3082-FL",10,-,321
+HV-32110,gate,isolation,"30""-FL-3083-FL",30,-,321
+"XV-30160 (BDV-101, symbol on sheet 301)",ball,emergency depressurisation,R-101 train,4,FO (ESD),321
+HV-32201,gate,isolation,"2""-N2-3084-N2",2,-,322
+HV-32210,gate,isolation,"1""-N2-3085-N2",1,-,322
+HV-32211,gate,isolation,"0.75""-N2-3086-N2",0.75,-,322
+HV-32212,gate,isolation,"1.5""-N2-3087-N2",1.5,-,322
+XV-32250,ball,N2 header isolation on ESD,"2""-N2-3084-N2",4,FC (ESD),322
+HV-40101,gate,isolation,"18""-PG-4001-A1",18,-,401
+XV-40151,ball,ESD isolation,"18""-PG-4001-A1",18,FC (ESD),401
+HV-40102,gate,isolation,"18""-PG-4002-A1",18,-,401
+XV-40160,ball,emergency depressurisation,-,2,FO,401
+HV-40201,gate,isolation,"18""-PG-4003-A1",18,-,402
+XV-40251,ball,ESD isolation,"18""-PG-4003-A1",18,FC (ESD),402
+HV-40202,gate,isolation,"10""-ST-4004-A1",10,-,402
+HV-40210,gate,isolation,"24""-PG-4005-A1",24,-,402
+HV-40301,gate,isolation,"24""-PG-4006-A1",24,-,403
+XV-40351,ball,ESD isolation,"24""-PG-4006-A1",24,FC (ESD),403
+HV-40302,gate,isolation,"24""-PG-4007-A1",24,-,403
+HV-40303,gate,isolation,"24""-PG-4008-A1",24,-,403
+HV-40304,gate,isolation,"24""-PG-4009-A1",24,-,403
+TV-40311,control,outlet temperature,cold feed,24,FO,403
+HV-40320,gate,drain,-,0.75,-,403
+HV-40321,gate,vent,-,0.75,-,403
+HV-40401,gate,isolation,"0.5""-PG-4010-A1",0.5,-,404
+HV-40402,gate,isolation,"0.5""-PG-4011-A1",0.5,-,404
+HV-40403,gate,isolation,"6""-N2-4012-A1",6,-,404
+HV-40404,gate,isolation,"6""-N2-4013-A1",6,-,404
+TV-40411,control,outlet temperature,cold feed,6,FO,404
+HV-40420,gate,drain,-,0.75,-,404
+HV-40421,gate,vent,-,0.75,-,404
+HV-40501,gate,isolation,"24""-PG-4014-A1",24,-,405
+XV-40551,ball,ESD isolation,"24""-PG-4014-A1",24,FC (ESD),405
+HV-40502,gate,isolation,"24""-PG-4015-A1",24,-,405
+XV-40560,ball,emergency depressurisation,-,2,FO,405
+HV-40601,gate,isolation,"30""-PG-4016-A1",30,-,406
+XV-40651,ball,ESD isolation,"30""-PG-4016-A1",30,FC (ESD),406
+HV-40602,gate,isolation,"24""-PG-4017-A1",24,-,406
+HV-40603,gate,isolation,"6""-BW-4018-A1",6,-,406
+HV-40604,gate,isolation,"8""-BW-4019-A1",8,-,406
+TV-40611,control,outlet temperature,cold feed,6,FO,406
+HV-40620,gate,drain,-,0.75,-,406
+HV-40621,gate,vent,-,0.75,-,406
+HV-40701,gate,isolation,"24""-PG-4020-A1",24,-,407
+XV-40751,ball,ESD isolation,"24""-PG-4020-A1",24,FC (ESD),407
+HV-40702,gate,isolation,"20""-PG-4021-A1",20,-,407
+HV-40703,gate,isolation,"4""-BW-4022-A1",4,-,407
+HV-40704,gate,isolation,"16""-BW-4023-A1",16,-,407
+TV-40711,control,outlet temperature,cold feed,4,FO,407
+HV-40720,gate,drain,-,0.75,-,407
+HV-40721,gate,vent,-,0.75,-,407
+HV-40801,gate,isolation,"20""-PG-4024-A1",20,-,408
+XV-40851,ball,ESD isolation,"20""-PG-4024-A1",20,FC (ESD),408
+HV-40802,gate,isolation,"6""-ST-4025-A1",6,-,408
+HV-40810,gate,isolation,"20""-PG-4026-A1",20,-,408
+HV-40901,gate,isolation,"20""-PG-4027-A1",20,-,409
+XV-40951,ball,ESD isolation,"20""-PG-4027-A1",20,FC (ESD),409
+HV-40902,gate,isolation,"24""-PG-4028-A1",24,-,409
+XV-40960,ball,emergency depressurisation,-,2,FO,409
+HV-41001,gate,isolation,"24""-PG-4029-A1",24,-,410
+XV-41051,ball,ESD isolation,"24""-PG-4029-A1",24,FC (ESD),410
+HV-41002,gate,isolation,"20""-PG-4030-A1",20,-,410
+HV-41003,gate,isolation,"8""-BW-4031-A1",8,-,410
+HV-41004,gate,isolation,"8""-BW-4032-A1",8,-,410
+TV-41011,control,outlet temperature,cold feed,8,FO,410
+HV-41020,gate,drain,-,0.75,-,410
+HV-41021,gate,vent,-,0.75,-,410
+HV-41101,gate,isolation,"24""-PG-4033-A1",24,-,411
+XV-41151,ball,ESD isolation,"24""-PG-4033-A1",24,FC (ESD),411
+HV-41102,gate,isolation,"30""-PG-4034-A1",30,-,411
+HV-41103,gate,isolation,"10""-BW-4035-A1",10,-,411
+HV-41104,gate,isolation,"10""-BW-4036-A1",10,-,411
+TV-41111,control,outlet temperature,cold feed,10,FO,411
+HV-41120,gate,drain,-,0.75,-,411
+HV-41121,gate,vent,-,0.75,-,411
+HV-41201,gate,isolation,"30""-PG-4037-A1",30,-,412
+XV-41251,ball,ESD isolation,"30""-PG-4037-A1",30,FC (ESD),412
+HV-41202,gate,isolation,"30""-PG-4038-A1",30,-,412
+HV-41203,gate,isolation,"10""-BW-4039-A1",10,-,412
+HV-41204,gate,isolation,"10""-BW-4040-A1",10,-,412
+TV-41211,control,outlet temperature,cold feed,10,FO,412
+HV-41220,gate,drain,-,0.75,-,412
+HV-41221,gate,vent,-,0.75,-,412
+HV-41301,gate,isolation,"30""-PG-4041-A1",30,-,413
+XV-41351,ball,ESD isolation,"30""-PG-4041-A1",30,FC (ESD),413
+HV-41302,gate,isolation,"24""-PG-4042-A1",24,-,413
+HV-41303,gate,isolation,"20""-CW-4043-A1",20,-,413
+HV-41304,gate,isolation,"20""-CW-4044-A1",20,-,413
+TV-41311,control,outlet temperature,cold feed,20,FO,413
+HV-41320,gate,drain,-,0.75,-,413
+HV-41321,gate,vent,-,0.75,-,413
+HV-41401,gate,inlet isolation,"24""-SG-4045-A1",24,-,414
+XV-41402,ball,ESD inlet isolation,"24""-SG-4045-A1",24,FC (ESD),414
+HV-41403,gate,gas outlet isolation,"16""-SG-4046-A1",16,-,414
+PV-41411,control,pressure control,"16""-SG-4046-A1",16,FO,414
+HV-41405,gate,liquid outlet isolation,"6""-PC-4047-A1",6,-,414
+HV-41430,gate,P-203A suction,"6""-PC-4047-A1",6,-,414
+NRV-41440,check,P-203A discharge check,"6""-PC-4047-A1",6,-,414
+HV-41450,gate,P-203A discharge isolation,"6""-PC-4047-A1",6,-,414
+HV-41431,gate,P-203B suction,"6""-PC-4047-A1",6,-,414
+NRV-41441,check,P-203B discharge check,"6""-PC-4047-A1",6,-,414
+HV-41451,gate,P-203B discharge isolation,"6""-PC-4047-A1",6,-,414
+LV-41421,control,level control,"6""-PC-4047-A1",6,FC,414
+HV-41408,gate,drain 1 (double block),-,1.5,-,414
+HV-41409,gate,drain 2,-,1.5,-,414
+HV-41410,gate,vent,-,0.75,-,414
+HV-41501,gate,isolation,"18""-PG-4048-A1",18,-,415
+XV-41551,ball,ESD isolation,"18""-PG-4048-A1",18,FC (ESD),415
+HV-41510,gate,isolation,"24""-PG-4049-A1",24,-,415
+HV-50101,gate,isolation,"8""-PG-5001-A1",8,-,501
+XV-50151,ball,ESD isolation,"8""-PG-5001-A1",8,FC (ESD),501
+HV-50103,gate,isolation,"24""-PL-5002-A1",24,-,501
+HV-50102,gate,isolation,"6""-PG-5003-A1",6,-,501
+HV-50104,gate,isolation,"24""-PL-5004-A1",24,-,501
+PV-50111,control,top pressure,treated gas (stream 12) (1 of 6),6,FO,501
+HV-50201,gate,inlet isolation,"54""-SL-5005-A1",54,-,502
+XV-50202,ball,ESD inlet isolation,"54""-SL-5005-A1",54,FC (ESD),502
+HV-50203,gate,gas outlet isolation,"6""-SG-5006-A1",6,-,502
+PV-50211,control,pressure control,"6""-SG-5006-A1",6,FO,502
+HV-50205,gate,liquid outlet isolation,"54""-SL-5007-A1",54,-,502
+HV-50208,gate,drain 1 (double block),-,1.5,-,502
+HV-50209,gate,drain 2,-,1.5,-,502
+HV-50210,gate,vent,-,0.75,-,502
+HV-50301,gate,isolation,"6""-PG-5008-A1",6,-,503
+XV-50351,ball,ESD isolation,"6""-PG-5008-A1",6,FC (ESD),503
+HV-50305,gate,KO drain,-,1,-,503
+NRV-50341,check,discharge check,-,3,-,503
+HV-50302,gate,isolation,"3""-PG-5009-A1",3,-,503
+XV-50352,ball,ESD isolation,"3""-PG-5009-A1",3,FC (ESD),503
+FV-50351,control,anti-surge recycle,recycle,6,FO,503
+HV-50401,gate,inlet isolation,"54""-SL-5010-A1",54,-,504
+XV-50402,ball,ESD inlet isolation,"54""-SL-5010-A1",54,FC (ESD),504
+HV-50403,gate,gas outlet isolation,"48""-SG-5011-A1",48,-,504
+PV-50411,control,pressure control,"48""-SG-5011-A1",48,FO,504
+HV-50405,gate,liquid outlet isolation,"54""-SL-5012-A1",54,-,504
+HV-50430,gate,P-302A suction,"54""-SL-5012-A1",54,-,504
+NRV-50440,check,P-302A discharge check,"54""-SL-5012-A1",54,-,504
+HV-50450,gate,P-302A discharge isolation,"54""-SL-5012-A1",54,-,504
+HV-50431,gate,P-302B suction,"54""-SL-5012-A1",54,-,504
+NRV-50441,check,P-302B discharge check,"54""-SL-5012-A1",54,-,504
+HV-50451,gate,P-302B discharge isolation,"54""-SL-5012-A1",54,-,504
+LV-50421,control,level control,"54""-SL-5012-A1",54,FC,504
+HV-50408,gate,drain 1 (double block),-,1.5,-,504
+HV-50409,gate,drain 2,-,1.5,-,504
+HV-50410,gate,vent,-,0.75,-,504
+HV-50501,gate,isolation,"18""-PG-5013-A1",18,-,505
+XV-50551,ball,ESD isolation,"18""-PG-5013-A1",18,FC (ESD),505
+HV-50502,gate,isolation,"18""-PG-5014-A1",18,-,505
+HV-50503,gate,isolation,"18""-SL-5015-A1",18,-,505
+HV-50504,gate,isolation,"18""-SL-5016-A1",18,-,505
+TV-50511,control,outlet temperature,cold feed,18,FO,505
+HV-50520,gate,drain,-,0.75,-,505
+HV-50521,gate,vent,-,0.75,-,505
+HV-50601,gate,isolation,"18""-PG-5017-A1",18,-,506
+XV-50651,ball,ESD isolation,"18""-PG-5017-A1",18,FC (ESD),506
+HV-50602,gate,isolation,"6""-PG-5018-A1",6,-,506
+HV-50604,gate,isolation,"18""-PL-5019-A1",18,-,506
+HV-50605,gate,isolation,"16""-ST-5020-A1",16,-,506
+PV-50611,control,top pressure,H2S acid gas (stream 11),6,FO,506
+HV-50701,gate,inlet isolation,"54""-SL-5021-A1",54,-,507
+XV-50702,ball,ESD inlet isolation,"54""-SL-5021-A1",54,FC (ESD),507
+HV-50705,gate,liquid outlet isolation,"54""-SL-5022-A1",54,-,507
+HV-50730,gate,P-301A suction,"54""-SL-5022-A1",54,-,507
+NRV-50740,check,P-301A discharge check,"54""-SL-5022-A1",54,-,507
+HV-50750,gate,P-301A discharge isolation,"54""-SL-5022-A1",54,-,507
+HV-50731,gate,P-301B suction,"54""-SL-5022-A1",54,-,507
+NRV-50741,check,P-301B discharge check,"54""-SL-5022-A1",54,-,507
+HV-50751,gate,P-301B discharge isolation,"54""-SL-5022-A1",54,-,507
+LV-50721,control,level control,"54""-SL-5022-A1",54,FC,507
+HV-50708,gate,drain 1 (double block),-,1.5,-,507
+HV-50709,gate,drain 2,-,1.5,-,507
+HV-50710,gate,vent,-,0.75,-,507
+HV-50801,gate,isolation,"54""-PG-5023-A1",54,-,508
+XV-50851,ball,ESD isolation,"54""-PG-5023-A1",54,FC (ESD),508
+HV-50802,gate,isolation,"54""-PG-5024-A1",54,-,508
+HV-50803,gate,isolation,"6""-NH3-5025-A1",6,-,508
+HV-50804,gate,isolation,"30""-NH3-5026-A1",30,-,508
+TV-50811,control,outlet temperature,cold feed,6,FC,508
+HV-50820,gate,drain,-,0.75,-,508
+HV-50821,gate,vent,-,0.75,-,508
+HV-50901,gate,isolation,"30""-PG-5027-A1",30,-,509
+XV-50951,ball,ESD isolation,"30""-PG-5027-A1",30,FC (ESD),509
+HV-50910,gate,isolation,"6""-PL-5028-A1",6,-,509
+HV-51001,gate,isolation,"54""-PG-5029-A1",54,-,510
+XV-51051,ball,ESD isolation,"54""-PG-5029-A1",54,FC (ESD),510
+HV-51010,gate,isolation,"54""-PG-5030-A1",54,-,510
+HV-51011,gate,isolation,"0.5""-PL-5031-A1",0.5,-,510
+HV-51101,gate,isolation,"12""-PG-5032-A1",12,-,511
+XV-51151,ball,ESD isolation,"12""-PG-5032-A1",12,FC (ESD),511
+HV-51102,gate,isolation,"12""-PG-5033-A1",12,-,511
+XV-51160,ball,emergency depressurisation,-,2,FO,511
+HV-51201,gate,isolation,"18""-PG-5034-A1",18,-,512
+XV-51251,ball,ESD isolation,"18""-PG-5034-A1",18,FC (ESD),512
+HV-51202,gate,isolation,"14""-PG-5035-A1",14,-,512
+HV-51203,gate,isolation,"12""-PG-5036-A1",12,-,512
+HV-51204,gate,isolation,"16""-PG-5037-A1",16,-,512
+TV-51211,control,outlet temperature,cold feed,12,FO,512
+HV-51220,gate,drain,-,0.75,-,512
+HV-51221,gate,vent,-,0.75,-,512
+HV-51301,gate,isolation,"16""-PG-5038-A1",16,-,513
+XV-51351,ball,ESD isolation,"16""-PG-5038-A1",16,FC (ESD),513
+HV-51302,gate,isolation,"18""-PG-5039-A1",18,-,513
+XV-51360,ball,emergency depressurisation,-,2,FO,513
+HV-51401,gate,isolation,"18""-PG-5040-A1",18,-,514
+XV-51451,ball,ESD isolation,"18""-PG-5040-A1",18,FC (ESD),514
+HV-51402,gate,isolation,"16""-PG-5041-A1",16,-,514
+HV-51403,gate,isolation,"3""-BW-5042-A1",3,-,514
+HV-51404,gate,isolation,"10""-BW-5043-A1",10,-,514
+TV-51411,control,outlet temperature,cold feed,3,FO,514
+HV-51420,gate,drain,-,0.75,-,514
+HV-51421,gate,vent,-,0.75,-,514
+HV-51501,gate,inlet isolation,"20""-PG-5044-A1",20,-,515
+XV-51502,ball,ESD inlet isolation,"20""-PG-5044-A1",20,FC (ESD),515
+HV-51503,gate,gas outlet isolation,"12""-PG-5045-A1",12,-,515
+PV-51511,control,pressure control,"12""-PG-5045-A1",12,FO,515
+HV-51505,gate,liquid outlet isolation,"2""-PC-5046-A1",2,-,515
+HV-51530,gate,P-304A suction,"2""-PC-5046-A1",2,-,515
+NRV-51540,check,P-304A discharge check,"2""-PC-5046-A1",2,-,515
+HV-51550,gate,P-304A discharge isolation,"2""-PC-5046-A1",2,-,515
+HV-51531,gate,P-304B suction,"2""-PC-5046-A1",2,-,515
+NRV-51541,check,P-304B discharge check,"2""-PC-5046-A1",2,-,515
+HV-51551,gate,P-304B discharge isolation,"2""-PC-5046-A1",2,-,515
+LV-51521,control,level control,"2""-PC-5046-A1",2,FC,515
+HV-51508,gate,drain 1 (double block),-,1.5,-,515
+HV-51509,gate,drain 2,-,1.5,-,515
+HV-51510,gate,vent,-,0.75,-,515
+HV-51601,gate,isolation,"12""-PG-5047-A1",12,-,516
+XV-51651,ball,ESD isolation,"12""-PG-5047-A1",12,FC (ESD),516
+HV-51610,gate,isolation,"12""-PG-5048-A1",12,-,516
+HV-51611,gate,isolation,"10""-PG-5049-A1",10,-,516
+HV-51701,gate,isolation,"6""-PG-5050-A1",6,-,517
+XV-51751,ball,ESD isolation,"6""-PG-5050-A1",6,FC (ESD),517
+HV-51702,gate,isolation,"12""-PG-5051-A1",12,-,517
+HV-51703,gate,isolation,"1.5""-PG-5052-A1",1.5,-,517
+HV-51710,gate,isolation,"30""-PG-5053-A1",30,-,517
+HV-51801,gate,isolation,"30""-PG-5054-A1",30,-,518
+XV-51851,ball,ESD isolation,"30""-PG-5054-A1",30,FC (ESD),518
+HV-51802,gate,isolation,"20""-PG-5055-A1",20,-,518
+HV-51803,gate,isolation,"1.5""-BW-5056-A1",1.5,-,518
+HV-51804,gate,isolation,"4""-BW-5057-A1",4,-,518
+TV-51811,control,outlet temperature,cold feed,1.5,FO,518
+HV-51820,gate,drain,-,0.75,-,518
+HV-51821,gate,vent,-,0.75,-,518
+HV-51901,gate,isolation,"20""-PG-5058-A1",20,-,519
+XV-51951,ball,ESD isolation,"20""-PG-5058-A1",20,FC (ESD),519
+HV-51902,gate,isolation,"16""-PG-5059-A1",16,-,519
+HV-51903,gate,isolation,"0.5""-BW-5060-A1",0.5,-,519
+HV-51904,gate,isolation,"3""-BW-5061-A1",3,-,519
+TV-51911,control,outlet temperature,cold feed,0.5,FO,519
+HV-51920,gate,drain,-,0.75,-,519
+HV-51921,gate,vent,-,0.75,-,519
+HV-52001,gate,isolation,"18""-PG-5062-A1",18,-,520
+XV-52051,ball,ESD isolation,"18""-PG-5062-A1",18,FC (ESD),520
+HV-52002,gate,isolation,"20""-PG-5063-A1",20,-,520
+XV-52060,ball,emergency depressurisation,-,2,FO,520
+HV-52101,gate,isolation,"20""-PG-5064-A1",20,-,521
+XV-52151,ball,ESD isolation,"20""-PG-5064-A1",20,FC (ESD),521
+HV-52102,gate,isolation,"16""-PG-5065-A1",16,-,521
+HV-52103,gate,isolation,"0.5""-BW-5066-A1",0.5,-,521
+HV-52104,gate,isolation,"3""-BW-5067-A1",3,-,521
+TV-52111,control,outlet temperature,cold feed,0.5,FO,521
+HV-52120,gate,drain,-,0.75,-,521
+HV-52121,gate,vent,-,0.75,-,521
+HV-52201,gate,isolation,"18""-PG-5068-A1",18,-,522
+XV-52251,ball,ESD isolation,"18""-PG-5068-A1",18,FC (ESD),522
+HV-52202,gate,isolation,"18""-PG-5069-A1",18,-,522
+XV-52260,ball,emergency depressurisation,-,2,FO,522
+HV-52301,gate,isolation,"18""-PG-5070-A1",18,-,523
+XV-52351,ball,ESD isolation,"18""-PG-5070-A1",18,FC (ESD),523
+HV-52302,gate,isolation,"16""-PG-5071-A1",16,-,523
+HV-52303,gate,isolation,"1.5""-BW-5072-A1",1.5,-,523
+HV-52304,gate,isolation,"1.5""-BW-5073-A1",1.5,-,523
+TV-52311,control,outlet temperature,cold feed,1.5,FO,523
+HV-52320,gate,drain,-,0.75,-,523
+HV-52321,gate,vent,-,0.75,-,523
+HV-52401,gate,isolation,"0.75""-PL-5074-A1",0.75,-,524
+XV-52451,ball,ESD isolation,"0.75""-PL-5074-A1",0.75,FC (ESD),524
+HV-52402,gate,isolation,"0.75""-PL-5075-A1",0.75,-,524
+HV-52440,gate,P-351A suction,"0.75""-PL-5076-A1",0.75,-,524
+NRV-52441,check,P-351A discharge check,"0.75""-PL-5076-A1",0.75,-,524
+HV-52442,gate,P-351A discharge isolation,"0.75""-PL-5076-A1",0.75,-,524
+HV-52450,gate,P-351B suction,"0.75""-PL-5076-A1",0.75,-,524
+NRV-52451,check,P-351B discharge check,"0.75""-PL-5076-A1",0.75,-,524
+HV-52452,gate,P-351B discharge isolation,"0.75""-PL-5076-A1",0.75,-,524
+HV-52501,gate,isolation,"18""-PG-5077-A1",18,-,525
+XV-52551,ball,ESD isolation,"18""-PG-5077-A1",18,FC (ESD),525
+HV-52502,gate,isolation,"20""-PG-5078-A1",20,-,525
+XV-52560,ball,emergency depressurisation,-,2,FO,525
+HV-52601,gate,isolation,"20""-PG-5079-A1",20,-,526
+XV-52651,ball,ESD isolation,"20""-PG-5079-A1",20,FC (ESD),526
+HV-52602,gate,isolation,"1.5""-PG-5080-A1",1.5,-,526
+HV-52610,gate,isolation,"20""-PG-5081-A1",20,-,526
+HV-52611,gate,isolation,"1.5""-PG-5082-A1",1.5,-,526
+HV-52612,gate,isolation,"0.75""-PL-5083-A1",0.75,-,526
+HV-60101,gate,isolation,"14""-PG-6001-A1",14,-,601
+XV-60151,ball,ESD isolation,"14""-PG-6001-A1",14,FC (ESD),601
+HV-60105,gate,KO drain,-,1,-,601
+NRV-60141,check,discharge check,-,10,-,601
+HV-60102,gate,isolation,"10""-PG-6002-A1",10,-,601
+XV-60152,ball,ESD isolation,"10""-PG-6002-A1",10,FC (ESD),601
+FV-60151,control,anti-surge recycle,recycle,14,FO,601
+HV-60201,gate,isolation,"10""-PG-6003-A1",10,-,602
+XV-60251,ball,ESD isolation,"10""-PG-6003-A1",10,FC (ESD),602
+HV-60205,gate,KO drain,-,1,-,602
+NRV-60241,check,discharge check,-,8,-,602
+HV-60202,gate,isolation,"8""-PG-6004-A1",8,-,602
+XV-60252,ball,ESD isolation,"8""-PG-6004-A1",8,FC (ESD),602
+FV-60251,control,anti-surge recycle,recycle,10,FO,602
+HV-60301,gate,isolation,"12""-PG-6005-A1",12,-,603
+XV-60351,ball,ESD isolation,"12""-PG-6005-A1",12,FC (ESD),603
+HV-60310,gate,isolation,"12""-PG-6006-A1",12,-,603
+HV-60401,gate,isolation,"18""-PG-6007-A1",18,-,604
+XV-60451,ball,ESD isolation,"18""-PG-6007-A1",18,FC (ESD),604
+HV-60402,gate,isolation,"14""-PG-6008-A1",14,-,604
+HV-60403,gate,isolation,"14""-PG-6009-A1",14,-,604
+HV-60404,gate,isolation,"18""-PG-6010-A1",18,-,604
+TV-60411,control,outlet temperature,cold feed,14,FO,604
+HV-60420,gate,drain,-,0.75,-,604
+HV-60421,gate,vent,-,0.75,-,604
+HV-60501,gate,isolation,"18""-PG-6011-A1",18,-,605
+XV-60551,ball,ESD isolation,"18""-PG-6011-A1",18,FC (ESD),605
+HV-60502,gate,isolation,"20""-PG-6012-A1",20,-,605
+HV-60503,gate,isolation,"4""-PG-6013-A1",4,-,605
+TV-60511,control,interbed quench,quench,4,FC,605
+XV-60560,ball,emergency depressurisation,-,2,FO,605
+HV-60601,gate,isolation,"20""-PG-6014-A1",20,-,606
+XV-60651,ball,ESD isolation,"20""-PG-6014-A1",20,FC (ESD),606
+HV-60602,gate,isolation,"18""-PG-6015-A1",18,-,606
+HV-60603,gate,isolation,"6""-BFW-6016-A1",6,-,606
+HV-60604,gate,isolation,"10""-BFW-6017-A1",10,-,606
+TV-60611,control,outlet temperature,cold feed,6,FO,606
+HV-60620,gate,drain,-,0.75,-,606
+HV-60621,gate,vent,-,0.75,-,606
+HV-60701,gate,isolation,"14""-PG-6018-A1",14,-,607
+XV-60751,ball,ESD isolation,"14""-PG-6018-A1",14,FC (ESD),607
+HV-60702,gate,isolation,"20""-PG-6019-A1",20,-,607
+HV-60703,gate,isolation,"24""-CW-6020-A1",24,-,607
+HV-60704,gate,isolation,"24""-CW-6021-A1",24,-,607
+TV-60711,control,outlet temperature,cold feed,24,FO,607
+HV-60720,gate,drain,-,0.75,-,607
+HV-60721,gate,vent,-,0.75,-,607
+HV-60801,gate,isolation,"20""-PG-6022-A1",20,-,608
+XV-60851,ball,ESD isolation,"20""-PG-6022-A1",20,FC (ESD),608
+HV-60802,gate,isolation,"18""-PG-6023-A1",18,-,608
+HV-60803,gate,isolation,"12""-PG-6024-A1",12,-,608
+HV-60804,gate,isolation,"12""-PG-6025-A1",12,-,608
+TV-60811,control,outlet temperature,cold feed,12,FO,608
+HV-60820,gate,drain,-,0.75,-,608
+HV-60821,gate,vent,-,0.75,-,608
+HV-60901,gate,isolation,"18""-PG-6026-A1",18,-,609
+XV-60951,ball,ESD isolation,"18""-PG-6026-A1",18,FC (ESD),609
+HV-60902,gate,isolation,"18""-PG-6027-A1",18,-,609
+HV-60903,gate,isolation,"6""-NH3-6028-LT",6,-,609
+HV-60904,gate,isolation,"30""-NH3-6029-LT",30,-,609
+TV-60911,control,outlet temperature,cold feed,6,FC,609
+HV-60920,gate,drain,-,0.75,-,609
+HV-60921,gate,vent,-,0.75,-,609
+HV-61001,gate,inlet isolation,"18""-PG-6030-A1",18,-,610
+XV-61002,ball,ESD inlet isolation,"18""-PG-6030-A1",18,FC (ESD),610
+HV-61003,gate,gas outlet isolation,"12""-PG-6031-A1",12,-,610
+PV-61011,control,pressure control,"12""-PG-6031-A1",12,FO,610
+HV-61005,gate,liquid outlet isolation,"8""-NH3-6032-A1",8,-,610
+HV-61008,gate,drain 1 (double block),-,1.5,-,610
+HV-61009,gate,drain 2,-,1.5,-,610
+HV-61010,gate,vent,-,0.75,-,610
+LV-61021,control,level control,624,6,FC,610
+HV-61101,gate,inlet isolation,"3""-NH3-6033-LT",3,-,611
+XV-61102,ball,ESD inlet isolation,"3""-NH3-6033-LT",3,FC (ESD),611
+HV-61103,gate,gas outlet isolation,"1""-PG-6034-LT",1,-,611
+PV-61111,control,pressure control,"1""-PG-6034-LT",1,FO,611
+HV-61105,gate,liquid outlet isolation,"8""-NH3-6035-LT",8,-,611
+HV-61108,gate,drain 1 (double block),-,1.5,-,611
+HV-61109,gate,drain 2,-,1.5,-,611
+HV-61110,gate,vent,-,0.75,-,611
+LV-61121,control,level control,627,6,FC,611
+HV-61201,gate,isolation,"2""-PG-6036-A1",2,-,612
+XV-61251,ball,ESD isolation,"2""-PG-6036-A1",2,FC (ESD),612
+HV-61202,gate,isolation,"1""-PG-6037-A1",1,-,612
+HV-61210,gate,isolation,"4""-PG-6038-A1",4,-,612
+HV-61211,gate,isolation,"4""-PG-6039-A1",4,-,612
+HV-61301,gate,inlet isolation,"30""-NH3-6040-LT",30,-,613
+XV-61302,ball,ESD inlet isolation,"30""-NH3-6040-LT",30,FC (ESD),613
+HV-61303,gate,gas outlet isolation,"24""-NH3-6041-LT",24,-,613
+PV-61311,control,pressure control,"24""-NH3-6041-LT",24,FO,613
+HV-61305,gate,liquid outlet isolation,"8""-NH3-6042-LT",8,-,613
+HV-61308,gate,drain 1 (double block),-,1.5,-,613
+HV-61309,gate,drain 2,-,1.5,-,613
+HV-61310,gate,vent,-,0.75,-,613
+LV-61321,control,level control,17,6,FC,613
+HV-61401,gate,isolation,"24""-NH3-6043-LT",24,-,614
+XV-61451,ball,ESD isolation,"24""-NH3-6043-LT",24,FC (ESD),614
+HV-61402,gate,isolation,"30""-NH3-6044-LT",30,-,614
+HV-61403,gate,isolation,"14""-NH3-6045-LT",14,-,614
+HV-61410,gate,isolation,"20""-NH3-6046-LT",20,-,614
+HV-61501,gate,isolation,"20""-PG-6047-LT",20,-,615
+XV-61551,ball,ESD isolation,"20""-PG-6047-LT",20,FC (ESD),615
+HV-61502,gate,isolation,"8""-PG-6048-LT",8,-,615
+HV-61503,gate,isolation,"30""-CW-6049-A1",30,-,615
+HV-61504,gate,isolation,"30""-CW-6050-A1",30,-,615
+TV-61511,control,outlet temperature,cold feed,30,FO,615
+HV-61520,gate,drain,-,0.75,-,615
+HV-61521,gate,vent,-,0.75,-,615
+HV-61601,gate,inlet isolation,"18""-NH3-6051-LT",18,-,616
+XV-61602,ball,ESD inlet isolation,"18""-NH3-6051-LT",18,FC (ESD),616
+HV-61603,gate,gas outlet isolation,"14""-NH3-6052-LT",14,-,616
+PV-61611,control,pressure control,"14""-NH3-6052-LT",14,FO,616
+HV-61605,gate,liquid outlet isolation,"6""-NH3-6053-LT",6,-,616
+HV-61608,gate,drain 1 (double block),-,1.5,-,616
+HV-61609,gate,drain 2,-,1.5,-,616
+HV-61610,gate,vent,-,0.75,-,616
+LV-61621,control,level control,637,6,FC,616
+HV-61701,gate,isolation,"8""-NH3-6054-LT",8,-,617
+XV-61751,ball,ESD isolation,"8""-NH3-6054-LT",8,FC (ESD),617
+HV-61702,gate,isolation,"8""-NH3-6055-LT",8,-,617
+HV-61740,gate,P-501A suction,"8""-PL-6056-LT",8,-,617
+NRV-61741,check,P-501A discharge check,"8""-PL-6056-LT",8,-,617
+HV-61742,gate,P-501A discharge isolation,"8""-PL-6056-LT",8,-,617
+HV-61750,gate,P-501B suction,"8""-PL-6056-LT",8,-,617
+NRV-61751,check,P-501B discharge check,"8""-PL-6056-LT",8,-,617
+HV-61752,gate,P-501B discharge isolation,"8""-PL-6056-LT",8,-,617
+HV-61801,gate,isolation,"24""-NH3-6057-LT",24,-,618
+XV-61851,ball,ESD isolation,"24""-NH3-6057-LT",24,FC (ESD),618
+HV-61810,gate,isolation,"16""-NH3-6058-LT",16,-,618
+HV-61901,gate,isolation,"24""-PG-6059-A1",24,-,619
+XV-61951,ball,ESD isolation,"24""-PG-6059-A1",24,FC (ESD),619
+HV-61903,gate,isolation,"10""-PL-6060-A1",10,-,619
+HV-61902,gate,isolation,"2""-PG-6061-A1",2,-,619
+HV-61904,gate,isolation,"10""-PL-6062-A1",10,-,619
+PV-61911,control,top pressure,scrubbed vent to flare / stack,2,FO,619
+HV-70101,gate,isolation,"36""-PG-7001-SS",36,-,701
+XV-70151,ball,ESD isolation,"36""-PG-7001-SS",36,FC (ESD),701
+HV-70105,gate,KO drain,-,1,-,701
+NRV-70141,check,discharge check,-,12,-,701
+HV-70102,gate,isolation,"12""-PG-7002-SS",12,-,701
+XV-70152,ball,ESD isolation,"12""-PG-7002-SS",12,FC (ESD),701
+FV-70151,control,anti-surge recycle,recycle,36,FO,701
+HV-70201,gate,isolation,"12""-PG-7003-SS",12,-,702
+XV-70251,ball,ESD isolation,"12""-PG-7003-SS",12,FC (ESD),702
+HV-70205,gate,KO drain,-,1,-,702
+NRV-70241,check,discharge check,-,8,-,702
+HV-70202,gate,isolation,"8""-PG-7004-SS",8,-,702
+XV-70252,ball,ESD isolation,"8""-PG-7004-SS",8,FC (ESD),702
+FV-70251,control,anti-surge recycle,recycle,12,FO,702
+HV-70301,gate,isolation,"8""-ST-7005-A1",8,-,703
+HV-70302,gate,isolation,"30""-CW-7006-A1",30,-,703
+HV-70310,gate,isolation,"6""-PL-7007-A1",6,-,703
+HV-70311,gate,isolation,"30""-CW-7008-A1",30,-,703
+HV-70401,gate,inlet isolation,"8""-NH3-7009-LT",8,-,704
+XV-70402,ball,ESD inlet isolation,"8""-NH3-7009-LT",8,FC (ESD),704
+HV-70405,gate,liquid outlet isolation,"8""-NH3-7010-LT",8,-,704
+HV-70430,gate,P-601A suction,"8""-NH3-7010-LT",8,-,704
+NRV-70440,check,P-601A discharge check,"8""-NH3-7010-LT",8,-,704
+HV-70450,gate,P-601A discharge isolation,"8""-NH3-7010-LT",8,-,704
+HV-70431,gate,P-601B suction,"8""-NH3-7010-LT",8,-,704
+NRV-70441,check,P-601B discharge check,"8""-NH3-7010-LT",8,-,704
+HV-70451,gate,P-601B discharge isolation,"8""-NH3-7010-LT",8,-,704
+LV-70421,control,level control,"8""-NH3-7010-LT",8,FC,704
+HV-70408,gate,drain 1 (double block),-,1.5,-,704
+HV-70409,gate,drain 2,-,1.5,-,704
+HV-70410,gate,vent,-,0.75,-,704
+HV-70501,gate,inlet isolation,"12""-UR-7011-SS",12,-,705
+XV-70502,ball,ESD inlet isolation,"12""-UR-7011-SS",12,FC (ESD),705
+HV-70505,gate,liquid outlet isolation,"12""-UR-7012-SS",12,-,705
+HV-70508,gate,drain 1 (double block),-,1.5,-,705
+HV-70509,gate,drain 2,-,1.5,-,705
+HV-70510,gate,vent,-,0.75,-,705
+HV-70601,gate,isolation,"8""-PG-7013-SS",8,-,706
+XV-70651,ball,ESD isolation,"8""-PG-7013-SS",8,FC (ESD),706
+HV-70603,gate,isolation,"12""-PL-7014-SS",12,-,706
+HV-70602,gate,isolation,"6""-PG-7015-SS",6,-,706
+HV-70604,gate,isolation,"8""-PL-7016-SS",8,-,706
+HV-70605,gate,isolation,"10""-ST-7017-A1",10,-,706
+PV-70611,control,top pressure,stripper overhead gas,6,FO,706
+HV-70701,gate,isolation,"10""-PG-7018-SS",10,-,707
+XV-70751,ball,ESD isolation,"10""-PG-7018-SS",10,FC (ESD),707
+HV-70702,gate,isolation,"12""-PG-7019-SS",12,-,707
+HV-70703,gate,isolation,"8""-BFW-7020-A1",8,-,707
+HV-70704,gate,isolation,"42""-BFW-7021-A1",42,-,707
+TV-70711,control,outlet temperature,cold feed,8,FO,707
+HV-70720,gate,drain,-,0.75,-,707
+HV-70721,gate,vent,-,0.75,-,707
+HV-70801,gate,isolation,"0.5""-PG-7022-SS",0.5,-,708
+XV-70851,ball,ESD isolation,"0.5""-PG-7022-SS",0.5,FC (ESD),708
+HV-70803,gate,isolation,"4""-PL-7023-SS",4,-,708
+HV-70802,gate,isolation,"1""-PG-7024-SS",1,-,708
+HV-70804,gate,isolation,"4""-PL-7025-SS",4,-,708
+PV-70811,control,top pressure,"scrubbed vent (air, inerts)",1,FO,708
+HV-70901,gate,isolation,"12""-PG-7026-SS",12,-,709
+XV-70951,ball,ESD isolation,"12""-PG-7026-SS",12,FC (ESD),709
+HV-70902,gate,isolation,"10""-PG-7027-SS",10,-,709
+HV-70904,gate,isolation,"8""-PL-7028-SS",8,-,709
+HV-70905,gate,isolation,"8""-ST-7029-A1",8,-,709
+PV-70911,control,top pressure,"MP gas (NH3, CO2)",10,FO,709
+HV-71001,gate,isolation,"14""-PG-7030-SS",14,-,710
+XV-71051,ball,ESD isolation,"14""-PG-7030-SS",14,FC (ESD),710
+HV-71002,gate,isolation,"4""-PG-7031-SS",4,-,710
+HV-71003,gate,isolation,"12""-CW-7032-A1",12,-,710
+HV-71004,gate,isolation,"12""-CW-7033-A1",12,-,710
+TV-71011,control,outlet temperature,cold feed,12,FO,710
+HV-71020,gate,drain,-,0.75,-,710
+HV-71021,gate,vent,-,0.75,-,710
+HV-71101,gate,inlet isolation,"4""-UR-7034-SS",4,-,711
+XV-71102,ball,ESD inlet isolation,"4""-UR-7034-SS",4,FC (ESD),711
+HV-71105,gate,liquid outlet isolation,"4""-UR-7035-SS",4,-,711
+HV-71130,gate,P-602A suction,"4""-UR-7035-SS",4,-,711
+NRV-71140,check,P-602A discharge check,"4""-UR-7035-SS",4,-,711
+HV-71150,gate,P-602A discharge isolation,"4""-UR-7035-SS",4,-,711
+HV-71131,gate,P-602B suction,"4""-UR-7035-SS",4,-,711
+NRV-71141,check,P-602B discharge check,"4""-UR-7035-SS",4,-,711
+HV-71151,gate,P-602B discharge isolation,"4""-UR-7035-SS",4,-,711
+LV-71121,control,level control,"4""-UR-7035-SS",4,FC,711
+HV-71108,gate,drain 1 (double block),-,1.5,-,711
+HV-71109,gate,drain 2,-,1.5,-,711
+HV-71110,gate,vent,-,0.75,-,711
+HV-71201,gate,isolation,"14""-PG-7036-SS",14,-,712
+XV-71251,ball,ESD isolation,"14""-PG-7036-SS",14,FC (ESD),712
+HV-71202,gate,isolation,"12""-PG-7037-SS",12,-,712
+HV-71204,gate,isolation,"8""-PL-7038-SS",8,-,712
+HV-71205,gate,isolation,"10""-ST-7039-A1",10,-,712
+PV-71211,control,top pressure,"LP gas (NH3, CO2, water vapour)",12,FO,712
+HV-71301,gate,isolation,"12""-PG-7040-SS",12,-,713
+XV-71351,ball,ESD isolation,"12""-PG-7040-SS",12,FC (ESD),713
+HV-71302,gate,isolation,"2""-PG-7041-SS",2,-,713
+HV-71303,gate,isolation,"8""-CW-7042-A1",8,-,713
+HV-71304,gate,isolation,"8""-CW-7043-A1",8,-,713
+TV-71311,control,outlet temperature,cold feed,8,FO,713
+HV-71320,gate,drain,-,0.75,-,713
+HV-71321,gate,vent,-,0.75,-,713
+HV-71401,gate,inlet isolation,"2""-UR-7044-SS",2,-,714
+XV-71402,ball,ESD inlet isolation,"2""-UR-7044-SS",2,FC (ESD),714
+HV-71405,gate,liquid outlet isolation,"2""-UR-7045-SS",2,-,714
+HV-71430,gate,P-603A suction,"2""-UR-7045-SS",2,-,714
+NRV-71440,check,P-603A discharge check,"2""-UR-7045-SS",2,-,714
+HV-71450,gate,P-603A discharge isolation,"2""-UR-7045-SS",2,-,714
+HV-71431,gate,P-603B suction,"2""-UR-7045-SS",2,-,714
+NRV-71441,check,P-603B discharge check,"2""-UR-7045-SS",2,-,714
+HV-71451,gate,P-603B discharge isolation,"2""-UR-7045-SS",2,-,714
+LV-71421,control,level control,"2""-UR-7045-SS",2,FC,714
+HV-71408,gate,drain 1 (double block),-,1.5,-,714
+HV-71409,gate,drain 2,-,1.5,-,714
+HV-71410,gate,vent,-,0.75,-,714
+HV-71501,gate,isolation,"20""-PG-7046-SS",20,-,715
+HV-71502,gate,isolation,"4""-PG-7047-SS",4,-,715
+HV-71503,gate,isolation,"8""-UR-7048-SS",8,-,715
+HV-71504,gate,isolation,"120""-UR-7049-SS",120,-,715
+TV-71511,control,outlet temperature,cold feed,8,FC,715
+HV-71520,gate,drain,-,0.75,-,715
+HV-71521,gate,vent,-,0.75,-,715
+HV-71601,gate,inlet isolation,"120""-UR-7050-SS",120,-,716
+XV-71602,ball,ESD inlet isolation,"120""-UR-7050-SS",120,FC (ESD),716
+HV-71603,gate,gas outlet isolation,"84""-PG-7051-SS",84,-,716
+PV-71611,control,pressure control,"84""-PG-7051-SS",84,FO,716
+HV-71605,gate,liquid outlet isolation,"8""-UR-7052-SS",8,-,716
+HV-71630,gate,P-604A suction,"8""-UR-7052-SS",8,-,716
+NRV-71640,check,P-604A discharge check,"8""-UR-7052-SS",8,-,716
+HV-71650,gate,P-604A discharge isolation,"8""-UR-7052-SS",8,-,716
+HV-71631,gate,P-604B suction,"8""-UR-7052-SS",8,-,716
+NRV-71641,check,P-604B discharge check,"8""-UR-7052-SS",8,-,716
+HV-71651,gate,P-604B discharge isolation,"8""-UR-7052-SS",8,-,716
+LV-71621,control,level control,"8""-UR-7052-SS",8,FC,716
+HV-71608,gate,drain 1 (double block),-,1.5,-,716
+HV-71609,gate,drain 2,-,1.5,-,716
+HV-71610,gate,vent,-,0.75,-,716
+HV-71701,gate,isolation,"84""-PG-7053-SS",84,-,717
+HV-71702,gate,isolation,"4""-ST-7054-SS",4,-,717
+HV-71703,gate,isolation,"24""-CW-7055-SS",24,-,717
+HV-71710,gate,isolation,"4""-PL-7056-SS",4,-,717
+HV-71711,gate,isolation,"3""-PG-7057-SS",3,-,717
+HV-71712,gate,isolation,"24""-CW-7058-SS",24,-,717
+HV-71801,gate,isolation,"8""-UR-7059-SS",8,-,718
+XV-71851,ball,ESD isolation,"8""-UR-7059-SS",8,FC (ESD),718
+HV-71802,gate,isolation,"60""-PG-7060-SS",60,-,718
+HV-71810,gate,isolation,"10""-SO-7061-SS",10,-,718
+HV-71811,gate,isolation,"72""-PG-7062-SS",72,-,718
+HV-71901,gate,isolation,"72""-PG-7063-SS",72,-,719
+HV-71903,gate,isolation,"1.5""-PL-7064-SS",1.5,-,719
+HV-71902,gate,isolation,"60""-PG-7065-SS",60,-,719
+HV-71904,gate,isolation,"1.5""-PL-7066-SS",1.5,-,719
+PV-71911,control,top pressure,scrubbed air to stack,60,FO,719
+HV-72001,gate,isolation,"4""-PL-7067-SS",4,-,720
+XV-72051,ball,ESD isolation,"4""-PL-7067-SS",4,FC (ESD),720
+HV-72002,gate,isolation,"3""-ST-7068-SS",3,-,720
+HV-72010,gate,isolation,"4""-PL-7069-SS",4,-,720
+HV-72101,gate,isolation,"4""-PG-7070-SS",4,-,721
+XV-72151,ball,ESD isolation,"4""-PG-7070-SS",4,FC (ESD),721
+HV-72102,gate,isolation,"8""-PG-7071-SS",8,-,721
+HV-72104,gate,isolation,"4""-PL-7072-SS",4,-,721
+HV-72105,gate,isolation,"6""-ST-7073-A1",6,-,721
+PV-72111,control,top pressure,"C-606 overhead (NH3, CO2, steam) to E-604",8,FO,721
+HV-72201,gate,isolation,"10""-SO-7074-A1",10,-,722
+HV-72210,gate,isolation,"10""-SO-7075-A1",10,-,722
+HV-72211,gate,isolation,"24""-PG-7076-A1",24,-,722
+HV-80201,gate,isolation,"14""-PG-8012-A1",14,-,802
+HV-80202,gate,isolation,"3""-PL-8013-A1",3,-,802
+HV-80210,gate,isolation,"18""-PG-8014-A1",18,-,802
+HV-80301,gate,isolation,"10""-PG-8015-A1",10,-,803
+HV-80302,gate,isolation,"1.5""-PL-8016-A1",1.5,-,803
+HV-80310,gate,isolation,"20""-PG-8017-A1",20,-,803
+HV-80401,gate,inlet isolation,"8""-PL-8018-A1",8,-,804
+XV-80402,ball,ESD inlet isolation,"8""-PL-8018-A1",8,FC (ESD),804
+HV-80403,gate,gas outlet isolation,"10""-ST-8019-A1",10,-,804
+PV-80411,control,pressure control,"10""-ST-8019-A1",10,FO,804
+HV-80405,gate,liquid outlet isolation,"8""-PL-8020-A1",8,-,804
+HV-80430,gate,P-801A suction,"8""-PL-8020-A1",8,-,804
+NRV-80440,check,P-801A discharge check,"8""-PL-8020-A1",8,-,804
+HV-80450,gate,P-801A discharge isolation,"8""-PL-8020-A1",8,-,804
+HV-80431,gate,P-801B suction,"8""-PL-8020-A1",8,-,804
+NRV-80441,check,P-801B discharge check,"8""-PL-8020-A1",8,-,804
+HV-80451,gate,P-801B discharge isolation,"8""-PL-8020-A1",8,-,804
+LV-80421,control,level control,"8""-PL-8020-A1",8,FC,804
+HV-80408,gate,drain 1 (double block),-,1.5,-,804
+HV-80409,gate,drain 2,-,1.5,-,804
+HV-80410,gate,vent,-,0.75,-,804
+HV-80501,gate,inlet isolation,"10""-PL-8021-A1",10,-,805
+XV-80502,ball,ESD inlet isolation,"10""-PL-8021-A1",10,FC (ESD),805
+HV-80503,gate,gas outlet isolation,"4""-ST-8022-A1",4,-,805
+PV-80511,control,pressure control,"4""-ST-8022-A1",4,FO,805
+HV-80505,gate,liquid outlet isolation,"10""-BFW-8023-A1",10,-,805
+HV-80530,gate,P-802A suction,"10""-BFW-8023-A1",10,-,805
+NRV-80540,check,P-802A discharge check,"10""-BFW-8023-A1",10,-,805
+HV-80550,gate,P-802A discharge isolation,"10""-BFW-8023-A1",10,-,805
+HV-80531,gate,P-802B suction,"10""-BFW-8023-A1",10,-,805
+NRV-80541,check,P-802B discharge check,"10""-BFW-8023-A1",10,-,805
+HV-80551,gate,P-802B discharge isolation,"10""-BFW-8023-A1",10,-,805
+LV-80521,control,level control,"10""-BFW-8023-A1",10,FC,805
+HV-80508,gate,drain 1 (double block),-,1.5,-,805
+HV-80509,gate,drain 2,-,1.5,-,805
+HV-80510,gate,vent,-,0.75,-,805
+HV-80570,gate,isolation,"14""-ST-8024-A1",14,-,805
+HV-80601,gate,isolation,"10""-PL-8025-A1",10,-,806
+HV-80610,gate,isolation,"10""-PL-8026-A1",10,-,806
+HV-80611,gate,isolation,"3""-PL-8027-A1",3,-,806
+HV-80612,gate,isolation,"0.5""-PL-8028-A1",0.5,-,806
+HV-80701,gate,inlet isolation,"12""-PL-8029-A1",12,-,807
+XV-80702,ball,ESD inlet isolation,"12""-PL-8029-A1",12,FC (ESD),807
+HV-80703,gate,gas outlet isolation,"4""-ST-8030-A1",4,-,807
+PV-80711,control,pressure control,"4""-ST-8030-A1",4,FO,807
+HV-80705,gate,liquid outlet isolation,"1.5""-PL-8031-A1",1.5,-,807
+HV-80708,gate,drain 1 (double block),-,1.5,-,807
+HV-80709,gate,drain 2,-,1.5,-,807
+HV-80710,gate,vent,-,0.75,-,807
+HV-80801,gate,isolation,"3""-PS-8032-A1",3,-,808
+HV-80802,gate,isolation,"54""-PG-8033-A1",54,-,808
+HV-80803,gate,isolation,"6""-PL-8034-A1",6,-,808
+HV-80810,gate,isolation,"10""-ST-8035-A1",10,-,808
+HV-80811,gate,isolation,"72""-PG-8036-A1",72,-,808
+HV-80812,gate,isolation,"2""-PS-8037-A1",2,-,808
+HV-80901,gate,isolation,"12""-PL-8038-A1",12,-,809
+XV-80951,ball,ESD isolation,"12""-PL-8038-A1",12,FC (ESD),809
+HV-80902,gate,isolation,"12""-PL-8039-A1",12,-,809
+HV-80940,gate,P-805A suction,"12""-PL-8040-A1",12,-,809
+NRV-80941,check,P-805A discharge check,"12""-PL-8040-A1",12,-,809
+HV-80942,gate,P-805A discharge isolation,"12""-PL-8040-A1",12,-,809
+HV-80950,gate,P-805B suction,"12""-PL-8040-A1",12,-,809
+NRV-80951,check,P-805B discharge check,"12""-PL-8040-A1",12,-,809
+HV-80952,gate,P-805B discharge isolation,"12""-PL-8040-A1",12,-,809
+HV-81001,gate,isolation,"6""-PL-8041-A1",6,-,810
+HV-81010,gate,isolation,"6""-PL-8042-A1",6,-,810
+HV-81011,gate,isolation,"1.5""-PL-8043-A1",1.5,-,810
+HV-81101,gate,isolation,"6""-PL-8044-A1",6,-,811
+XV-81151,ball,ESD isolation,"6""-PL-8044-A1",6,FC (ESD),811
+HV-81102,gate,isolation,"6""-PL-8045-A1",6,-,811
+HV-81140,gate,P-806A suction,"6""-PL-8046-A1",6,-,811
+NRV-81141,check,P-806A discharge check,"6""-PL-8046-A1",6,-,811
+HV-81142,gate,P-806A discharge isolation,"6""-PL-8046-A1",6,-,811
+HV-81150,gate,P-806B suction,"6""-PL-8046-A1",6,-,811
+NRV-81151,check,P-806B discharge check,"6""-PL-8046-A1",6,-,811
+HV-81152,gate,P-806B discharge isolation,"6""-PL-8046-A1",6,-,811
+HV-81201,gate,isolation,"54""-CW-8047-A1",54,-,812
+HV-81202,gate,isolation,"54""-CW-8048-A1",54,-,812
+HV-81203,gate,isolation,"12""-PL-8049-A1",12,-,812
+HV-81210,gate,isolation,"72""-CW-8050-A1",72,-,812
+HV-81211,gate,isolation,"6""-CW-8051-A1",6,-,812
+HV-81212,gate,isolation,"120""-PG-8052-A1",120,-,812
+HV-81301,gate,isolation,"54""-CW-8053-A1",54,-,813
+HV-81302,gate,isolation,"54""-CW-8054-A1",54,-,813
+HV-81310,gate,isolation,"54""-CW-8055-A1",54,-,813
+HV-81311,gate,isolation,"54""-CW-8056-A1",54,-,813
+HV-81401,gate,isolation,"0.5""-PL-8057-A1",0.5,-,814
+HV-81402,gate,isolation,"0.5""-PL-8058-A1",0.5,-,814
+HV-81403,gate,isolation,"0.5""-PL-8059-A1",0.5,-,814
+HV-81410,gate,isolation,"0.5""-PL-8060-A1",0.5,-,814
+HV-81501,gate,isolation,"18""-PG-8061-A1",18,-,815
+HV-81510,gate,isolation,"6""-PG-8062-A1",6,-,815
+HV-81511,gate,isolation,"4""-PG-8063-A1",4,-,815
+HV-81512,gate,isolation,"0.5""-PL-8064-A1",0.5,-,815
+HV-81601,gate,isolation,"6""-IA-8065-A1",6,-,816
+HV-81602,gate,isolation,"6""-IA-8066-A1",6,-,816
+HV-81603,gate,isolation,"0.5""-PL-8067-A1",0.5,-,816
+HV-81608,gate,drain block,-,1,-,816
+HV-81701,gate,isolation,"8""-PG-8068-A1",8,-,817
+HV-81710,gate,isolation,"3""-PG-8069-A1",3,-,817
+HV-81901,gate,isolation,"6""-PL-8070-A1",6,-,819
+HV-81902,gate,isolation,"1.5""-PL-8071-A1",1.5,-,819
+HV-81903,gate,isolation,"2""-PL-8072-A1",2,-,819
+HV-81910,gate,isolation,"6""-PL-8073-A1",6,-,819
+HV-81911,gate,isolation,"0.5""-PS-8074-A1",0.5,-,819
+LO-90201,gate,"relief path block, car-sealed open (never closed in service)","30""-PG-9001-A1",30,LO,902
+LO-90202,gate,"relief path block, car-sealed open (never closed in service)","30""-PG-9002-A1",30,LO,902
+HV-90203,gate,isolation,"0.75""-PL-9003-A1",0.75,-,902
+HV-90240,gate,P-901A suction,"0.75""-PL-9004-A1",0.75,-,902
+NRV-90241,check,P-901A discharge check,"0.75""-PL-9004-A1",0.75,-,902
+HV-90242,gate,P-901A discharge isolation,"0.75""-PL-9004-A1",0.75,-,902
+HV-90250,gate,P-901B suction,"0.75""-PL-9004-A1",0.75,-,902
+NRV-90251,check,P-901B discharge check,"0.75""-PL-9004-A1",0.75,-,902
+HV-90252,gate,P-901B discharge isolation,"0.75""-PL-9004-A1",0.75,-,902
+HV-90208,gate,drain 1 (double block),-,1.5,-,902
+HV-90209,gate,drain 2,-,1.5,-,902
+LO-90301,gate,"relief path block, car-sealed open (never closed in service)","30""-PG-9005-A1",30,LO,903
+LO-90302,gate,"relief path block, car-sealed open (never closed in service)","30""-PG-9006-A1",30,LO,903
+HV-90303,gate,isolation,"0.5""-PL-9007-A1",0.5,-,903
+HV-90308,gate,drain 1 (double block),-,1.5,-,903
+HV-90309,gate,drain 2,-,1.5,-,903
+HV-90401,gate,"relief path block, car-sealed open (never closed in service)","30""-PG-9008-A1",30,LO,904
+HV-90402,gate,isolation,"1""-PG-9009-A1",1,-,904
+HV-90403,gate,isolation,"1""-PG-9010-A1",1,-,904
+HV-90501,gate,inlet isolation,"2""-PL-9011-A1",2,-,905
+XV-90502,ball,ESD inlet isolation,"2""-PL-9011-A1",2,FC (ESD),905
+HV-90503,gate,gas outlet isolation,"2""-PG-9012-A1",2,-,905
+PV-90511,control,pressure control,"2""-PG-9012-A1",2,FO,905
+HV-90505,gate,liquid outlet isolation,"2""-PL-9013-A1",2,-,905
+HV-90530,gate,P-902A suction,"2""-PL-9013-A1",2,-,905
+NRV-90540,check,P-902A discharge check,"2""-PL-9013-A1",2,-,905
+HV-90550,gate,P-902A discharge isolation,"2""-PL-9013-A1",2,-,905
+HV-90531,gate,P-902B suction,"2""-PL-9013-A1",2,-,905
+NRV-90541,check,P-902B discharge check,"2""-PL-9013-A1",2,-,905
+HV-90551,gate,P-902B discharge isolation,"2""-PL-9013-A1",2,-,905
+LV-90521,control,level control,"2""-PL-9013-A1",2,FC,905
+HV-90508,gate,drain 1 (double block),-,1.5,-,905
+HV-90509,gate,drain 2,-,1.5,-,905
+HV-90510,gate,vent,-,0.75,-,905
+HV-90601,gate,isolation,"6""-PL-9014-A1",6,-,906
+HV-90610,gate,isolation,"6""-PL-9015-A1",6,-,906
+HV-90611,gate,isolation,"0.75""-PL-9016-A1",0.75,-,906
+HV-90901,gate,isolation,"10""-PS-9017-A1",10,-,909
+HV-90910,gate,isolation,"10""-PS-9018-A1",10,-,909
+HV-90801,gate,isolation,"10""-PS-9019-A1",10,-,908
+HV-90810,gate,isolation,"10""-PS-9020-A1",10,-,908
+HV-90811,gate,isolation,"3""-PS-9021-A1",3,-,908
+HV-91001,gate,isolation,"10""-PS-9022-A1",10,-,910
+HV-91010,gate,isolation,"10""-PS-9023-A1",10,-,910
+HV-91101,gate,isolation,"10""-PS-9024-A1",10,-,911
+HV-91102,gate,isolation,"3""-PS-9025-A1",3,-,911
+HV-91110,gate,isolation,"8""-PS-9026-A1",8,-,911
+HV-91111,gate,isolation,"8""-PS-9027-A1",8,-,911
