@@ -104,7 +104,7 @@ class PsfsLint(unittest.TestCase):
 
     def test_P11_unit_without_box(self):
         pkg = fresh()
-        sh = next(s for s in pkg.sheets if getattr(s, "psfs", False)); n = sh.psfs_boxes[0]["sheet"]
+        sh = next(s for s in pkg.sheets if getattr(s, "psfs", False))
         sh.psfs_boxes[:] = sh.psfs_boxes[1:]
         self.assertIn("P11", codes(L.lint(pkg))); self.assertEqual(codes(L.fix(pkg)), set())
 
