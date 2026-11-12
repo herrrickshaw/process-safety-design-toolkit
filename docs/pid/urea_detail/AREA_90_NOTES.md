@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 90 Offsites and safety systems: unit notes (coal-to-urea, 3,850 t/d urea, Talcher-class)
 
 Generated with `scripts/urea_area_90.py` (16 sheets, numbers 901-916). Basis: Rev B balance x K = 1.2784 (D); urea 160.4 t/h. No document was fetched for this area: fire-water, foam/deluge, detector thresholds, relief-sizing and storage-code content is a GAP and no value from memory is typed. Laboratory and utility buildings are out of scope.

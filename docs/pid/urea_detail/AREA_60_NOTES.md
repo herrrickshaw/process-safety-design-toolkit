@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 60 - ammonia synthesis loop, refrigeration, storage (sheets 601-619)
 
 Built by `scripts/urea_area_60.py` (`build(pkg)`; run the file to render `/tmp/area60.html` and the lint). Basis: Rev B balance x K = 1.2784 (3,850 t/d urea).

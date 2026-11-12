@@ -149,7 +149,7 @@ def build(pkg):
     sheet_compressor(pkg, AREA, 202, "Area 20  Air separation  -  K-2001 main air compressor train",
         dict(tag="K-2001", name="Main air compressor", suction=s201, discharge=s202, power_MW=P_MAC_W, driver="motor", spec="A1", basis="D",
              notes=[f"D: power = N k/(k-1) m Rs T1 (r_s^((k-1)/k) - 1)/eta with N = {N_MAC} stages (max ratio {P_['r_stage_max']} A), k = 1.4 (ideal diatomic), eta {P_['eta_air']} (A 0.75-0.85), ideal intercooling to 25 C: {P_MAC_W:.1f} MW.",
-                    f"Bottom-up train power: MAC {P_MAC_W:.1f} + O2 {P_O2_W:.1f} + loop N2 {P_N2L_W:.1f} + gasifier N2 {P_N2G_W:.1f} = {P_SUM:.1f} MW = {P_SUM*1000/O2:.0f} kWh/t O2, against Rev B ASU-101 {ASU_REVB_MW:.1f} MW (275 kWh/t O2, TDA range 250-300, single source). The Rev B figure appears to exclude O2 compression to 50 bar and N2 compression (or to rest on a different configuration); needs reconciling in Rev C.",
+                    f"Bottom-up train power: MAC {P_MAC_W:.1f} + O2 {P_O2_W:.1f} + loop N2 {P_N2L_W:.1f} + gasifier N2 {P_N2G_W:.1f} = {P_SUM:.1f} MW = {P_SUM*1000/O2:.0f} kWh/t O2, against the balance ASU-101 {ASU_REVB_MW:.1f} MW (Rev C adopts 461.5 kWh/t O2 from this bottom-up figure; NETL MAC+O2 456 kWh/t, whole train 680; Rev B had 275, TDA single source). The Rev B figure appears to exclude O2 compression to 50 bar and N2 compression (or to rest on a different configuration); needs reconciling in Rev C.",
                     "Air is compressed to 6 bar abs (A 5-8); discharge T on the template is the aftercooled 40 C. Interstage coolers, condensate drains and inlet guide vanes are vendor items; one aftercooler is drawn."],
              hazard="hot air; surge", mat="A: CS"))
     duct_fix(pkg, pkg.sheets[-1])

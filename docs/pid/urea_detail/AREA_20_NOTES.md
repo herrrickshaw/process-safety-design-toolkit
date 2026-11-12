@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 20 notes: air separation (sheets 201-216)
 
 Generated with `scripts/urea_area_20.py`. Basis: Rev B streams 25 (air 574.2 t/h), 2 (O2 133.7), 14 (N2 to loop 75.5), 26 (surplus N2 365.0), scaled by K = 1.2784. Rev B closure 25 = 2 + 14 + 26 (O2 and N2 only) is asserted.

@@ -82,7 +82,7 @@ def main():
     out = argv[0] if argv and not argv[0].startswith("--") else "urea_package.html"
     areas = argv[argv.index("--areas") + 1].split(",") if "--areas" in argv else AREAS
     pkg = Pkg("VS-CU", "Coal-to-urea complex, 3,850 t/d urea (Talcher-class): unit-by-unit conceptual P&IDs",
-              f"Rev B balance x{K:.4f}; capacity ICRA Feb 2025 / PIB 2026; areas 10-90", rev="C0")
+              f"Rev C rebased balance x{K:.4f}; capacity ICRA Feb 2025 / PIB 2026; areas 10-90", rev="C2")
     built = []
     for a in areas:
         try: m = importlib.import_module(f"urea_area_{a}")
@@ -92,7 +92,7 @@ def main():
     pkg.sheets.sort(key=lambda sh: sh.no); pkg.total = len(pkg.sheets)
     nos = [sh.no for sh in pkg.sheets]; assert len(nos) == len(set(nos)), "duplicate sheet numbers"
     problems, adv = lint(pkg)
-    write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C0)", previews="--previews" in argv)
+    write_html(pkg.sheets, out, "Coal-to-urea unit-by-unit P&IDs (Rev C2)", previews="--previews" in argv)
     if "--registers" in argv: pkg.write_registers(argv[argv.index("--registers") + 1])
     print("areas:", ", ".join(f"{a}={n}" for a, n in built))
     print(f"{len(pkg.sheets)} sheets, {len(pkg.lines)} lines, {len(pkg.inst)} instruments, {len(pkg.equip)} equipment, {len(pkg.relief)} relief, {len(pkg.valves)} valves, {len(STREAMS)} streams")

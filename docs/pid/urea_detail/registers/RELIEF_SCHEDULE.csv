@@ -85,12 +85,12 @@ PSV-60101,K-401A discharge,blocked discharge,98.5,A,flare header,not sized: need
 PSV-60201,K-401B discharge,blocked discharge,220.0,A,flare header,not sized: needs relief load,602
 PSV-60301,K-402,blocked discharge,220.0,A,flare / safe location (A),not sized: needs relief load,603
 PSV-60401,E-403 shell,tube rupture; blocked-in thermal expansion,220.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),604
-PSV-60501,R-401,blocked outlet; runaway; fire,220.0,A,flare header,"area 1,326 sq ft is below 2,500: Table H-36 values not extracted (gap); formula valid only above 2,500 sq ft",605
+PSV-60501,R-401,blocked outlet; runaway; fire,220.0,A,flare header,"area 1,019 sq ft is below 2,500: Table H-36 values not extracted (gap); formula valid only above 2,500 sq ft",605
 PSV-60601,E-404 shell,tube rupture; blocked-in thermal expansion,60.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),606
 PSV-60701,E-405 shell,tube rupture; blocked-in thermal expansion,6.5,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),607
 PSV-60801,E-406 shell,tube rupture; blocked-in thermal expansion,218.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),608
 PSV-60901,E-401 shell,tube rupture; blocked-in thermal expansion,5.0,A,flare / safe location (A),not sized: needs tube-rupture flow and fluid properties; gap: standard not obtained (API 520/521),609
-PSV-61001,V-401,blocked gas outlet; fire; LV stuck open,220.0,A,flare header,"area 557 sq ft is below 2,500: Table H-36 values not extracted (gap); formula valid only above 2,500 sq ft",610
+PSV-61001,V-401,blocked gas outlet; fire; LV stuck open,220.0,A,flare header,"area 450 sq ft is below 2,500: Table H-36 values not extracted (gap); formula valid only above 2,500 sq ft",610
 PSV-61101,V-402,blocked gas outlet; fire,27.5,A,flare header,"not sized: needs relief load (fire wetted area, vapour generation); gap: standard not obtained (API 520/521)",611
 PSV-61201,PGR-401,blocked outlet,218.0,A,flare / safe location (A),not sized: needs relief load,612
 PSV-61301,V-403,blocked vapour outlet; fire,3.5,A,NH3 vent absorber C-501 / flare,"not sized: needs relief load (fire wetted area, vapour generation); gap: standard not obtained (API 520/521)",613

@@ -1,131 +1,131 @@
 tag,name,type,operating,design,size,material,basis_tag,sheet
-TP-1001,"Wagon tippler, receiving hopper and apron feeder",rotary wagon tippler + hopper + feeder,182.4 t/h average coal; wagon sets: not sized,A: vendor,vendor,A: vendor,A,101
-BC-1001,Receiving belt conveyor,belt conveyor (enclosed),182.4 t/h average,A: vendor,"rated 274 t/h (D: 1.5 x average, A)",A: vendor,A,102
-CR-1001,Coal screen and crusher,screen + roll/hammer crusher,182.4 t/h,A: vendor,vendor; top size set by mill feed spec (gap),A: vendor,A,103
-SY-1001,"Coal stockyard, stacker and reclaimer",open stockyard + stacker/reclaimer,182.4 t/h in = 182.4 t/h out (steady state),A: vendor,65.6 kt live (D),A: vendor,A,104
-PS-1001,Petcoke covered store and reclaim feeder,covered store + hopper + weigh feeder,60.8 t/h average,A: vendor,14.6 kt (D),A: vendor,A,105
-BN-1001,Mill feed bunker with weigh feeders,bunker (silo) + weigh feeders,243.1 t/h blend = Rev B stream 1,A: vendor,182 m3 (D),A: vendor,A,106
-F-101,Coal mill (drying and grinding),"roller (or ball) mill with classifier, inert drying gas",243.1 t/h in; 216.3 t/h PC out,A: vendor,vendor,A: vendor,A,107
-BF-101,PC bag filter with rotary valves and ID fan,"pulse-jet bag filter (inert, pressure-shock resistant)",720 t/h in,A: vendor,vendor,A: vendor,A,108
-V-1001,Pulverised coal storage bin (inerted),inerted silo with fluidised cone,216.3 t/h through,A: vendor,382 m3 (D),A: vendor,A,109
-LH-1001,PC lock hoppers A-D (pressurisation),"pressure vessels (4 off, staggered)",216.3 t/h PC; N2 12.0 t/h net,A: vendor,4 x 68 m3 (D),A: vendor,A,110
-FV-1001,Pressurised feed vessel with fluidising cone,pressure vessel + dense-phase transport,216.3 t/h PC + 31.3 t/h N2,A: vendor,vendor; volume from storage buffer (gap),A: vendor,A,111
-BL-1001,"Burner feed line (typical, x4)","dense-phase transport line, erosion resistant",61.9 t/h mixture,A: vendor,NPS 6 in (D: 6 m/s A),A: vendor,A,112
-IN-1001,N2 inerting header and O2/CO analysers,inert-gas distribution + analysers,0.20 t/h N2 (D),A: vendor,buffer receiver: gap,A: vendor,A,113
-FA-2001,Air intake filter house with silencer,self-cleaning pulse filter house,"574 t/h air, 25 C",A,vendor,A: vendor,A,201
-K-2001,Main air compressor,centrifugal compressor,0.98 -> 6 bar,8 bar g / 65 C (D),35.4 MW shaft (D),A: CS,D,202
+TP-1001,"Wagon tippler, receiving hopper and apron feeder",rotary wagon tippler + hopper + feeder,111.6 t/h average coal; wagon sets: not sized,A: vendor,vendor,A: vendor,A,101
+BC-1001,Receiving belt conveyor,belt conveyor (enclosed),111.6 t/h average,A: vendor,"rated 167 t/h (D: 1.5 x average, A)",A: vendor,A,102
+CR-1001,Coal screen and crusher,screen + roll/hammer crusher,111.6 t/h,A: vendor,vendor; top size set by mill feed spec (gap),A: vendor,A,103
+SY-1001,"Coal stockyard, stacker and reclaimer",open stockyard + stacker/reclaimer,111.6 t/h in = 111.6 t/h out (steady state),A: vendor,40.2 kt live (D),A: vendor,A,104
+PS-1001,Petcoke covered store and reclaim feeder,covered store + hopper + weigh feeder,37.2 t/h average,A: vendor,8.9 kt (D),A: vendor,A,105
+BN-1001,Mill feed bunker with weigh feeders,bunker (silo) + weigh feeders,148.8 t/h blend = Rev B stream 1,A: vendor,111 m3 (D),A: vendor,A,106
+F-101,Coal mill (drying and grinding),"roller (or ball) mill with classifier, inert drying gas",148.8 t/h in; 134.2 t/h PC out,A: vendor,vendor,A: vendor,A,107
+BF-101,PC bag filter with rotary valves and ID fan,"pulse-jet bag filter (inert, pressure-shock resistant)",414 t/h in,A: vendor,vendor,A: vendor,A,108
+V-1001,Pulverised coal storage bin (inerted),inerted silo with fluidised cone,134.2 t/h through,A: vendor,237 m3 (D),A: vendor,A,109
+LH-1001,PC lock hoppers A-D (pressurisation),"pressure vessels (4 off, staggered)",134.2 t/h PC; N2 7.5 t/h net,A: vendor,4 x 42 m3 (D),A: vendor,A,110
+FV-1001,Pressurised feed vessel with fluidising cone,pressure vessel + dense-phase transport,134.2 t/h PC + 19.4 t/h N2,A: vendor,vendor; volume from storage buffer (gap),A: vendor,A,111
+BL-1001,"Burner feed line (typical, x4)","dense-phase transport line, erosion resistant",38.4 t/h mixture,A: vendor,NPS 4 in (D: 6 m/s A),A: vendor,A,112
+IN-1001,N2 inerting header and O2/CO analysers,inert-gas distribution + analysers,0.14 t/h N2 (D),A: vendor,buffer receiver: gap,A: vendor,A,113
+FA-2001,Air intake filter house with silencer,self-cleaning pulse filter house,"432 t/h air, 25 C",A,vendor,A: vendor,A,201
+K-2001,Main air compressor,centrifugal compressor,0.98 -> 6 bar,8 bar g / 65 C (D),26.7 MW shaft (D),A: CS,D,202
 K-2001-KO,suction KO drum,vertical vessel,0.98 bar,3.5 bar g (D),A,A,D,202
-C-2001,Direct-contact air cooler,packed column,"6 bar, 40->25 C",8 bar g / 65 C (D),"4.0 m ID x 10 m (D,A)",A: to be set by licensor,D,203
-AD-2001,Molecular-sieve adsorbers A/B,2 x 100 % switching adsorbers (packaged),574 t/h air; 57.4 t/h regen N2,A,vendor (bed volume from cycle time: gap),A: vendor,A,204
-CB-2001,Cold box with main heat exchanger,"cold box (packaged, vendor)",574 t/h air in,A,vendor,A: Al / SS (vendor),A,205
-C-2002,HP column (in cold box),trayed column,"5.5 bar, -176->-175 C",7.5 bar g / -150 C (D),"3.7 m ID x 30 m (D,A)",A: to be set by licensor,D,206
-C-2003,LP column (in cold box),packed column,"1.5 bar, -190->-181 C",3.5 bar g / -155 C (D),"3.7 m ID x 30 m (D,A)",A: to be set by licensor,D,207
-P-2001A/B,LOX to pumps / vaporiser pump (duty/spare),centrifugal,"133.7 t/h, dP 48.5 bar (A)",-,225.8 kW shaft (D),A,A,208
-T-2001,LOX storage tank (vacuum-insulated),storage tank (refrigerated),"-183 C, near-atmospheric",A,516 m3 (D),"A: SS inner, CS outer",D,208
-E-2005,LOX vaporiser,shell-and-tube exchanger,hot 80->50 C @ 4 bar; cold -178->20 C,55 bar g / 105 C (D),979 m2 (D),"A: SS (O2 service, cleaned)",D,209
-P-2002A/B,LIN to pumps / vaporiser pump (duty/spare),centrifugal,"75.5 t/h, dP 38.5 bar (A)",-,142.9 kW shaft (D),A,A,210
-T-2002,LIN storage tank (vacuum-insulated),storage tank (refrigerated),"-194 C, near-atmospheric",A,206 m3 (D),"A: SS inner, CS outer",D,210
-E-2006,LIN vaporiser,shell-and-tube exchanger,hot 80->50 C @ 4 bar; cold -190->20 C,44 bar g / 105 C (D),562 m2 (D),A: SS,D,211
-K-2002,Oxygen compressor,centrifugal compressor,1.3 -> 50 bar,55 bar g / 65 C (D),16.5 MW shaft (D),"A: O2-cleaned, burn-resistant where required (EIGA 13/20 4.4)",D,212
+C-2001,Direct-contact air cooler,packed column,"6 bar, 40->25 C",8 bar g / 65 C (D),"3.4 m ID x 10 m (D,A)",A: to be set by licensor,D,203
+AD-2001,Molecular-sieve adsorbers A/B,2 x 100 % switching adsorbers (packaged),432 t/h air; 43.2 t/h regen N2,A,vendor (bed volume from cycle time: gap),A: vendor,A,204
+CB-2001,Cold box with main heat exchanger,"cold box (packaged, vendor)",432 t/h air in,A,vendor,A: Al / SS (vendor),A,205
+C-2002,HP column (in cold box),trayed column,"5.5 bar, -176->-175 C",7.5 bar g / -150 C (D),"3.2 m ID x 30 m (D,A)",A: to be set by licensor,D,206
+C-2003,LP column (in cold box),packed column,"1.5 bar, -190->-181 C",3.5 bar g / -155 C (D),"3.2 m ID x 30 m (D,A)",A: to be set by licensor,D,207
+P-2001A/B,LOX to pumps / vaporiser pump (duty/spare),centrifugal,"100.6 t/h, dP 48.5 bar (A)",-,169.9 kW shaft (D),A,A,208
+T-2001,LOX storage tank (vacuum-insulated),storage tank (refrigerated),"-183 C, near-atmospheric",A,388 m3 (D),"A: SS inner, CS outer",D,208
+E-2005,LOX vaporiser,shell-and-tube exchanger,hot 80->50 C @ 4 bar; cold -178->20 C,55 bar g / 105 C (D),736 m2 (D),"A: SS (O2 service, cleaned)",D,209
+P-2002A/B,LIN to pumps / vaporiser pump (duty/spare),centrifugal,"75.2 t/h, dP 38.5 bar (A)",-,142.3 kW shaft (D),A,A,210
+T-2002,LIN storage tank (vacuum-insulated),storage tank (refrigerated),"-194 C, near-atmospheric",A,205 m3 (D),"A: SS inner, CS outer",D,210
+E-2006,LIN vaporiser,shell-and-tube exchanger,hot 80->50 C @ 4 bar; cold -190->20 C,44 bar g / 105 C (D),560 m2 (D),A: SS,D,211
+K-2002,Oxygen compressor,centrifugal compressor,1.3 -> 50 bar,55 bar g / 65 C (D),12.4 MW shaft (D),"A: O2-cleaned, burn-resistant where required (EIGA 13/20 4.4)",D,212
 K-2002-KO,suction KO drum,vertical vessel,1.3 bar,3.5 bar g (D),A,A,D,212
-K-2003,Nitrogen compressor (loop N2),centrifugal compressor,5.2 -> 40 bar,44 bar g / 65 C (D),5.8 MW shaft (D),A: CS,D,213
+K-2003,Nitrogen compressor (loop N2),centrifugal compressor,5.2 -> 40 bar,44 bar g / 65 C (D),5.7 MW shaft (D),A: CS,D,213
 K-2003-KO,suction KO drum,vertical vessel,5.2 bar,7.5 bar g (D),A,A,D,213
-K-2004,Nitrogen compressor (coal feeding N2),centrifugal compressor,5.2 -> 58 bar,64 bar g / 65 C (D),4.0 MW shaft (D),A: CS,D,214
+K-2004,Nitrogen compressor (coal feeding N2),centrifugal compressor,5.2 -> 58 bar,64 bar g / 65 C (D),2.5 MW shaft (D),A: CS,D,214
 K-2004-KO,suction KO drum,vertical vessel,5.2 bar,7.5 bar g (D),A,A,D,214
-HD-2001,"O2 header with filter, vent and ESD",oxygen header and battery-limit valves,133.7 t/h O2 at 50 bar,A,vendor / O2 line spec,A: vendor,A,215
-HD-2002,N2 headers to users and waste-N2 vent stack,"N2 headers, battery-limit valves and vent stack",75 + 43 t/h to users; 322 t/h vent,A,vendor,A: vendor,A,216
-R-101,"Entrained-flow slagging gasifier, membrane wall",pressure vessel,"45 bar, 1400 C gas (S Rev B)",49.5 bar g / shell T by licensor,"37 m3 reaction vol., ~2.5 m x 8 m (D,A)",A: licensor,D,301
+HD-2001,"O2 header with filter, vent and ESD",oxygen header and battery-limit valves,100.6 t/h O2 at 50 bar,A,vendor / O2 line spec,A: vendor,A,215
+HD-2002,N2 headers to users and waste-N2 vent stack,"N2 headers, battery-limit valves and vent stack",75 + 27 t/h to users; 229 t/h vent,A,vendor,A: vendor,A,216
+R-101,"Entrained-flow slagging gasifier, membrane wall",pressure vessel,"45 bar, 1400 C gas (S Rev B)",49.5 bar g / shell T by licensor,"28 m3 reaction vol., ~2.3 m x 7 m (D,A)",A: licensor,D,301
 V-131,Slag quench bath (lower section of R-101),bath,"45 bar, 80 C",49.5 bar g,licensor,A: licensor,A,301
-BR-131,Burner management and start-up fuel skid,burner skid,"498 kg/h fuel, 5.9 MW thermal (D,A)",A,A,A: vendor,A,302
-K-132,Quench-gas recycle compressor,centrifugal compressor,41 -> 44.5 bar,49 bar g / 215 C (D),1.4 MW shaft (D),"A: CS/low-alloy, sour",D,303
+BR-131,Burner management and start-up fuel skid,burner skid,"429 kg/h fuel, 5.1 MW thermal (D,A)",A,A,A: vendor,A,302
+K-132,Quench-gas recycle compressor,centrifugal compressor,41 -> 44.5 bar,49 bar g / 205 C (D),1.0 MW shaft (D),"A: CS/low-alloy, sour",D,303
 K-132-KO,suction KO drum,vertical vessel,41 bar,45.5 bar g (D),A,A,D,303
-E-131,Slag-bath water cooler,shell-and-tube exchanger,hot 105->80 C @ 45 bar; cold 30->42 C,49.5 bar g / 130 C (D),998 m2 (D),"A: duplex, hard-faced",D,304
-V-102,Slag lock hopper,vertical vessel,"45 bar, 80 C (S/A per HMB)",49.5 bar g / 105 C (D),3.8 m ID x 11.4 m T/T (D),"A: CS, abrasion lining",D,305
+E-131,Slag-bath water cooler,shell-and-tube exchanger,hot 105->80 C @ 45 bar; cold 30->42 C,49.5 bar g / 130 C (D),415 m2 (D),"A: duplex, hard-faced",D,304
+V-102,Slag lock hopper,vertical vessel,"45 bar, 80 C (S/A per HMB)",49.5 bar g / 105 C (D),2.9 m ID x 8.7 m T/T (D),"A: CS, abrasion lining",D,305
 DW-147,Slag dewatering bin and drag conveyor,dewatering bin + drag conveyor,"80 C, 1 bar",A,A,A: vendor,A,306
-E-101,Syngas cooler (evaporator),shell-and-tube exchanger,hot 900->341 C @ 44.5 bar; cold 311->311 C,110 bar g / 925 C (D),"1,339 m2 (D)",A: alloy by licensor,D,307
-E-132,Syngas economiser,shell-and-tube exchanger,hot 341->243.4 C @ 43 bar; cold 200->250 C,121 bar g / 370 C (D),"3,163 m2 (D)",A: CS/low-alloy,D,308
-P-134A/B,HP steam drum pump (duty/spare),centrifugal,"2,949.9 t/h, dP 6 bar (A)",-,"1,020.3 kW shaft (D: Q dP / eff 0.70 A)",A,A,309
-D-133,HP steam drum,vertical vessel,"98 bar, 311 C (S/A per HMB)",108 bar g / 340 C (D),3.2 m ID x 9.7 m T/T (D),"A: low-alloy, to licensor/boiler code",D,309
-F-135,Hot-gas fine-ash candle filter,candle filter,"243 C, 42.5 bar",A,A,A: vendor,A,310
-VS-136,Venturi scrubber,venturi,"243 -> 181.5 C, 42 bar",A,A,A: vendor,A,311
-C-137,Syngas scrubber column,trayed column,"41.5 bar, 181.5->181.5 C",46 bar g / 210 C (D),"2.2 m ID x 11 m (D,A)","A: CS, SS trays, sour",D,312
-V-139,HP black-water flash drum,vertical vessel,"6 bar, 158.83 C (S/A per HMB)",8 bar g / 185 C (D),1.3 m ID x 3.9 m T/T (D),A: duplex or CS + SS lining,D,313
-V-140,LP black-water flash drum,vertical vessel,"1.5 bar, 111.35 C (S/A per HMB)",3.5 bar g / 140 C (D),1.5 m ID x 4.5 m T/T (D),A: duplex or CS + SS lining,D,314
-P-141A/B,Vacuum black-water flash drum pump (duty/spare),centrifugal,"23.0 t/h, dP 3 bar (A)",-,2.8 kW shaft (D: Q dP / eff 0.70 A),A,A,315
-V-141,Vacuum black-water flash drum,vertical vessel,"0.3 bar, 69.1 C (S/A per HMB)",3.5 bar g / 95 C (D),2.7 m ID x 8.2 m T/T (D),A: duplex or CS + SS lining,D,315
-E-142,Flash-steam condenser,shell-and-tube exchanger,hot 115->60 C @ 1.4 bar; cold 30->42 C,7 bar g / 140 C (D),97 m2 (D),A: SS or titanium tubes,D,316
+E-101,Syngas cooler (evaporator),shell-and-tube exchanger,hot 900->341 C @ 44.5 bar; cold 311->311 C,110 bar g / 925 C (D),935 m2 (D),A: alloy by licensor,D,307
+E-132,Syngas economiser,shell-and-tube exchanger,hot 341->241.4 C @ 43 bar; cold 200->250 C,121 bar g / 370 C (D),"2,312 m2 (D)",A: CS/low-alloy,D,308
+P-134A/B,HP steam drum pump (duty/spare),centrifugal,"2,111.8 t/h, dP 6 bar (A)",-,730.4 kW shaft (D: Q dP / eff 0.70 A),A,A,309
+D-133,HP steam drum,vertical vessel,"98 bar, 311 C (S/A per HMB)",108 bar g / 340 C (D),2.8 m ID x 8.4 m T/T (D),"A: low-alloy, to licensor/boiler code",D,309
+F-135,Hot-gas fine-ash candle filter,candle filter,"241 C, 42.5 bar",A,A,A: vendor,A,310
+VS-136,Venturi scrubber,venturi,"241 -> 170.3 C, 42 bar",A,A,A: vendor,A,311
+C-137,Syngas scrubber column,trayed column,"41.5 bar, 170.3->170.3 C",46 bar g / 200 C (D),"1.8 m ID x 11 m (D,A)","A: CS, SS trays, sour",D,312
+V-139,HP black-water flash drum,vertical vessel,"6 bar, 158.83 C (S/A per HMB)",8 bar g / 185 C (D),1.0 m ID x 3.0 m T/T (D),A: duplex or CS + SS lining,D,313
+V-140,LP black-water flash drum,vertical vessel,"1.5 bar, 111.35 C (S/A per HMB)",3.5 bar g / 140 C (D),1.0 m ID x 3.0 m T/T (D),A: duplex or CS + SS lining,D,314
+P-141A/B,Vacuum black-water flash drum pump (duty/spare),centrifugal,"9.8 t/h, dP 3 bar (A)",-,1.2 kW shaft (D: Q dP / eff 0.70 A),A,A,315
+V-141,Vacuum black-water flash drum,vertical vessel,"0.3 bar, 69.1 C (S/A per HMB)",3.5 bar g / 95 C (D),1.8 m ID x 5.4 m T/T (D),A: duplex or CS + SS lining,D,315
+E-142,Flash-steam condenser,shell-and-tube exchanger,hot 115->60 C @ 1.4 bar; cold 30->42 C,7 bar g / 140 C (D),36 m2 (D),A: SS or titanium tubes,D,316
 CL-143,Grey-water clarifier,clarifier,"65-70 C, atmospheric",A,A,A: vendor,A,317
 FP-145,Sludge filter press,filter press,65 C,A,A,A: vendor,A,318
-P-144A/B,"grey water, HP discharge pump (duty/spare)",centrifugal,"130.3 t/h, dP 49 bar (A)",-,259.7 kW shaft (D),A,A,319
-T-144,Grey-water tank,storage tank,"70 C, near-atmospheric",A,353 m3 (D),A,D,319
-C-146,Sour-water stripper,trayed column,"3 bar, 41.7->140 C",5 bar g / 165 C (D),"1.6 m ID x 15 m (D,A)","A: CS, SS internals",D,320
+P-144A/B,"grey water, HP discharge pump (duty/spare)",centrifugal,"60.2 t/h, dP 49 bar (A)",-,120.1 kW shaft (D),A,A,319
+T-144,Grey-water tank,storage tank,"70 C, near-atmospheric",A,163 m3 (D),A,D,319
+C-146,Sour-water stripper,trayed column,"3 bar, 40.4->140 C",5 bar g / 165 C (D),"2.1 m ID x 15 m (D,A)","A: CS, SS internals",D,320
 EDV-149,Gasifier emergency depressurisation and flare tie-in,blowdown tie-in,"6 bar, 300 C",A,A,A: vendor,A,321
 N2-150,Nitrogen purge and inerting header,header and distribution,"25 C, 56 bar",A,A,A: vendor,A,322
-G-201,Raw-gas guard bed (chloride / particulate),fixed-bed reactor,215->214 C @ 45 bar,49.5 bar g / 240 C (D),3.2 m ID x 11.7 m; 72 m3 cat. (D),"A: CS, sour service, licensor",D,401
-X-201,HP steam injection and static mixer,in-line static mixer with steam injection (A),"260 C, 45 bar",A,A,A: vendor,A,402
-E-201,HT shift feed / effluent exchanger,shell-and-tube exchanger,hot 350->331 C @ 45 bar; cold 260->280 C,49.5 bar g / 375 C (D),807 m2 (D),"A: CS/low-alloy, sour, licensor",D,403
+G-201,Raw-gas guard bed (chloride / particulate),fixed-bed reactor,215->214 C @ 45 bar,49.5 bar g / 240 C (D),2.9 m ID x 10.7 m; 54 m3 cat. (D),"A: CS, sour service, licensor",D,401
+X-201,HP steam injection and static mixer,in-line static mixer with steam injection (A),"301 C, 45 bar",A,A,A: vendor,A,402
+E-201,HT shift feed / effluent exchanger,shell-and-tube exchanger,hot 350->375 C @ 45 bar; cold 301->275 C,49.5 bar g / 375 C (D),"-1,061 m2 (D)","A: CS/low-alloy, sour, licensor",D,403
 H-201,Shift start-up heater (steam / nitrogen),shell-and-tube exchanger,hot 400->270 C @ 50 bar; cold 40->300 C,55 bar g / 425 C (D),0 m2 (D),A: low-alloy,D,404
-R-201,HT sour shift reactor,fixed-bed reactor,280->350 C @ 45 bar,49.5 bar g / 375 C (D),4.1 m ID x 14.3 m; 159 m3 cat. (D),"A: low-alloy, sour, licensor",D,405
-E-202,HT shift interbed steam generator,shell-and-tube exchanger,hot 505->300 C @ 45 bar; cold 105->264 C,60.5 bar g / 530 C (D),285 m2 (D),"A: low-alloy, licensor",D,406
-E-102,Shift interstage cooler,shell-and-tube exchanger,hot 331->185 C @ 45 bar; cold 105->159 C,49.5 bar g / 360 C (D),372 m2 (D),"A: CS, sour service",D,407
-X-202,LT shift steam injection and static mixer,in-line static mixer with steam injection (A),"205 C, 45 bar",A,A,A: vendor,A,408
-R-202,LT sour shift reactor,fixed-bed reactor,205->220 C @ 45 bar,49.5 bar g / 245 C (D),4.1 m ID x 14.3 m; 152 m3 cat. (D),"A: CS / low-alloy, sour service, licensor",D,409
-E-204,LT shift interbed cooler,shell-and-tube exchanger,hot 258->195 C @ 45 bar; cold 105->180 C,60.5 bar g / 285 C (D),"1,276 m2 (D)","A: CS, sour service",D,410
-E-205,Shift effluent BFW heater,shell-and-tube exchanger,hot 220->150 C @ 45 bar; cold 105->180 C,60.5 bar g / 245 C (D),"5,573 m2 (D)","A: CS + allowance, CRA when wet",D,411
-E-203,Shift gas DM-water heater,shell-and-tube exchanger,hot 150->100 C @ 45 bar; cold 30->105 C,49.5 bar g / 175 C (D),631 m2 (D),"A: CRA or clad in condensing zone, licensor",D,412
-E-103,Shift gas cooler,shell-and-tube exchanger,hot 100->40 C @ 45 bar; cold 33->43 C,49.5 bar g / 125 C (D),863 m2 (D),A: CS with CRA tubes in condensing zone,D,413
-P-203A/B,Shift condensate KO drum pump (duty/spare),centrifugal,"58.6 t/h, dP 8 bar (A)",-,18.7 kW shaft (D: Q dP / eff 0.70 A),A,A,414
-V-203,Shift condensate KO drum,vertical vessel,"45 bar, 40 C (S/A per HMB)",49.5 bar g / 65 C (D),2.7 m ID x 8.2 m T/T (D),"A: CS, sour service, licensor",D,414
+R-201,HT sour shift reactor,fixed-bed reactor,275->350 C @ 45 bar,49.5 bar g / 375 C (D),4.2 m ID x 14.6 m; 162 m3 cat. (D),"A: low-alloy, sour, licensor",D,405
+E-202,HT shift interbed steam generator,shell-and-tube exchanger,hot 516->300 C @ 45 bar; cold 105->264 C,60.5 bar g / 545 C (D),305 m2 (D),"A: low-alloy, licensor",D,406
+E-102,Shift interstage cooler,shell-and-tube exchanger,hot 375->202 C @ 45 bar; cold 105->159 C,49.5 bar g / 400 C (D),368 m2 (D),"A: CS, sour service",D,407
+X-202,LT shift steam injection and static mixer,in-line static mixer with steam injection (A),"220 C, 45 bar",A,A,A: vendor,A,408
+R-202,LT sour shift reactor,fixed-bed reactor,220->220 C @ 45 bar,49.5 bar g / 245 C (D),4.1 m ID x 14.3 m; 161 m3 cat. (D),"A: CS / low-alloy, sour service, licensor",D,409
+E-204,LT shift interbed cooler,shell-and-tube exchanger,hot 244->205 C @ 45 bar; cold 105->180 C,60.5 bar g / 270 C (D),841 m2 (D),"A: CS, sour service",D,410
+E-205,Shift effluent BFW heater,shell-and-tube exchanger,hot 220->150 C @ 45 bar; cold 105->180 C,60.5 bar g / 245 C (D),"13,190 m2 (D)","A: CS + allowance, CRA when wet",D,411
+E-203,Shift gas DM-water heater,shell-and-tube exchanger,hot 150->100 C @ 45 bar; cold 30->105 C,49.5 bar g / 175 C (D),578 m2 (D),"A: CRA or clad in condensing zone, licensor",D,412
+E-103,Shift gas cooler,shell-and-tube exchanger,hot 100->40 C @ 45 bar; cold 33->43 C,49.5 bar g / 125 C (D),848 m2 (D),A: CS with CRA tubes in condensing zone,D,413
+P-203A/B,Shift condensate KO drum pump (duty/spare),centrifugal,"114.8 t/h, dP 8 bar (A)",-,36.7 kW shaft (D: Q dP / eff 0.70 A),A,A,414
+V-203,Shift condensate KO drum,vertical vessel,"45 bar, 40 C (S/A per HMB)",49.5 bar g / 65 C (D),2.5 m ID x 7.5 m T/T (D),"A: CS, sour service, licensor",D,414
 CP-201,Shift area SIS and catalyst-protection loops,"instrumented functions (cause and effect, A)",45 bar,A,-,-,A,415
-C-301,"Acid-gas absorber, 1 of 6 trains",packed column,"44 bar, 40->10.8 C",48.5 bar g / 65 C (D),"4.6 m ID x 14 m (D,A)","A: CS, sour service, low temp, licensor",D,501
-V-303,HP flash drum,vertical vessel,"20 bar, 10.8 C (S/A per HMB)",22 bar g / 40 C (D),7.6 m ID x 22.8 m T/T (D),"A: CS, sour, low temp, licensor",D,502
-K-301,Flash-gas recycle compressor,centrifugal compressor,18 -> 44 bar,48.5 bar g / 115 C (D),0.5 MW shaft (D),A,D,503
+C-301,"Acid-gas absorber, 1 of 5 trains",packed column,"44 bar, 40->10.7 C",48.5 bar g / 65 C (D),"4.7 m ID x 14 m (D,A)","A: CS, sour service, low temp, licensor",D,501
+V-303,HP flash drum,vertical vessel,"20 bar, 10.7 C (S/A per HMB)",22 bar g / 40 C (D),7.2 m ID x 21.6 m T/T (D),"A: CS, sour, low temp, licensor",D,502
+K-301,Flash-gas recycle compressor,centrifugal compressor,18 -> 44 bar,48.5 bar g / 115 C (D),0.4 MW shaft (D),A,D,503
 K-301-KO,suction KO drum,vertical vessel,18 bar,20 bar g (D),A,A,D,503
-P-302A/B,LP flash drum (CO2 release) pump (duty/spare),centrifugal,"9,942.2 t/h, dP 3 bar (A)",-,"1,183.6 kW shaft (D: Q dP / eff 0.70 A)",A,A,504
-V-304,LP flash drum (CO2 release),vertical vessel,"6 bar, 9.8 C (S/A per HMB)",8 bar g / 35 C (D),8.9 m ID x 26.7 m T/T (D),"A: CS, low temp (to -30 C, A)",D,504
-E-301,Rich / lean solvent exchanger,shell-and-tube exchanger,hot 120->21.7 C @ 2.5 bar; cold 5->109.1 C,5 bar g / 145 C (D),"7,985 m2 (D)","A: CS / 316 clad, licensor",D,505
-C-302,H2S stripper / solvent regenerator,packed column,"2.5 bar, 109.1->120 C",4.5 bar g / 145 C (D),"3.6 m ID x 12 m (D,A)","A: 316 clad CS, sour, licensor",D,506
-P-301A/B,Lean solvent surge drum pump (duty/spare),centrifugal,"9,938.8 t/h, dP 50 bar (A)",-,"19,719.8 kW shaft (D: Q dP / eff 0.70 A)",A,A,507
-V-305,Lean solvent surge drum,vertical vessel,"2 bar, 6.7 C (S/A per HMB)",4 bar g / 35 C (D),8.9 m ID x 26.7 m T/T (D),"A: CS, low temp",D,507
-E-302,Lean solvent chiller,shell-and-tube exchanger,hot 8->5 C @ 49 bar; cold -5->-5 C,54 bar g / 35 C (D),"1,524 m2 (D)","A: CS low temp, licensor",D,508
-RP-301,"NH3 refrigeration compressor, condenser and receiver",NH3 refrigeration package (A),"evap -5 C, cond 40 C",A,8.0 MW shaft (D),A: vendor,A,509
+P-302A/B,LP flash drum (CO2 release) pump (duty/spare),centrifugal,"8,466.5 t/h, dP 3 bar (A)",-,"1,007.9 kW shaft (D: Q dP / eff 0.70 A)",A,A,504
+V-304,LP flash drum (CO2 release),vertical vessel,"6 bar, 9.7 C (S/A per HMB)",8 bar g / 35 C (D),8.5 m ID x 25.5 m T/T (D),"A: CS, low temp (to -30 C, A)",D,504
+E-301,Rich / lean solvent exchanger,shell-and-tube exchanger,hot 120->21.7 C @ 2.5 bar; cold 5->109.1 C,5 bar g / 145 C (D),"6,805 m2 (D)","A: CS / 316 clad, licensor",D,505
+C-302,H2S stripper / solvent regenerator,packed column,"2.5 bar, 109.1->120 C",4.5 bar g / 145 C (D),"3.3 m ID x 12 m (D,A)","A: 316 clad CS, sour, licensor",D,506
+P-301A/B,Lean solvent surge drum pump (duty/spare),centrifugal,"8,453.5 t/h, dP 50 bar (A)",-,"16,772.8 kW shaft (D: Q dP / eff 0.70 A)",A,A,507
+V-305,Lean solvent surge drum,vertical vessel,"2 bar, 6.6 C (S/A per HMB)",4 bar g / 35 C (D),8.5 m ID x 25.5 m T/T (D),"A: CS, low temp",D,507
+E-302,Lean solvent chiller,shell-and-tube exchanger,hot 8->5 C @ 49 bar; cold -5->-5 C,54 bar g / 35 C (D),"1,297 m2 (D)","A: CS low temp, licensor",D,508
+RP-301,"NH3 refrigeration compressor, condenser and receiver",NH3 refrigeration package (A),"evap -5 C, cond 40 C",A,6.8 MW shaft (D),A: vendor,A,509
 D-301,"CO2 dryer, twin-bed temperature-swing",twin-bed TSA dryer (A),"5 C -> 20 C, 2 bar",A,A,A: vendor,A,510
-G-301,"Sulphur guard bed (ZnO-type, A)",fixed-bed reactor,10->10 C @ 40 bar,44 bar g / 35 C (D),2.5 m ID x 9.5 m; 33 m3 cat. (D),"A: CS, licensor",D,511
-E-304,Methanator feed / effluent exchanger,shell-and-tube exchanger,hot 400->148 C @ 40 bar; cold 10->250 C,44 bar g / 425 C (D),"2,300 m2 (D)","A: low-alloy, hot H2 service, licensor",D,512
-R-301,Methanation reactor,fixed-bed reactor,280->400 C @ 40 bar,44 bar g / 425 C (D),3.3 m ID x 11.9 m; 80 m3 cat. (D),"A: low-alloy / Cr-Mo, hot H2, licensor",D,513
-E-305,Methanator interbed cooler (LP steam),shell-and-tube exchanger,hot 400->280 C @ 40 bar; cold 105->159 C,44 bar g / 425 C (D),76 m2 (D),"A: low-alloy, hot H2",D,514
-P-304A/B,Methanator effluent KO drum pump (duty/spare),centrifugal,"11.3 t/h, dP 6 bar (A)",-,2.7 kW shaft (D: Q dP / eff 0.70 A),A,A,515
+G-301,"Sulphur guard bed (ZnO-type, A)",fixed-bed reactor,10->10 C @ 40 bar,44 bar g / 35 C (D),2.3 m ID x 8.9 m; 27 m3 cat. (D),"A: CS, licensor",D,511
+E-304,Methanator feed / effluent exchanger,shell-and-tube exchanger,hot 307->65 C @ 40 bar; cold 10->250 C,44 bar g / 335 C (D),"4,921 m2 (D)","A: low-alloy, hot H2 service, licensor",D,512
+R-301,Methanation reactor,fixed-bed reactor,280->307 C @ 40 bar,44 bar g / 335 C (D),3.1 m ID x 11.3 m; 67 m3 cat. (D),"A: low-alloy / Cr-Mo, hot H2, licensor",D,513
+E-305,Methanator interbed cooler (LP steam),shell-and-tube exchanger,hot 307->280 C @ 40 bar; cold 105->159 C,44 bar g / 335 C (D),19 m2 (D),"A: low-alloy, hot H2",D,514
+P-304A/B,Methanator effluent KO drum pump (duty/spare),centrifugal,"1.4 t/h, dP 6 bar (A)",-,0.3 kW shaft (D: Q dP / eff 0.70 A),A,A,515
 V-302,Methanator effluent KO drum,vertical vessel,"40 bar, 40 C (S/A per HMB)",44 bar g / 65 C (D),2.0 m ID x 6.0 m T/T (D),"A: CS, hot H2 below 200 C",D,515
 PU-301,Final hydrogen purification,PSA or N2-wash concept (A),"40 bar, 40 C",A,A,A: vendor,A,516
 F-351,Claus reaction furnace and burner,refractory furnace + BMS (A),"1150 C, 1.5 bar (A)",A,A,A: vendor,A,517
-E-351,Claus waste-heat boiler,shell-and-tube exchanger,hot 1150->300 C @ 1.5 bar; cold 105->188 C,14 bar g / 1175 C (D),10 m2 (D),"A: CS / refractory-lined tube sheet, licensor",D,518
-E-352,Sulphur condenser 1,shell-and-tube exchanger,hot 300->170 C @ 1.4 bar; cold 105->144 C,7 bar g / 325 C (D),6 m2 (D),"A: CS, steam traced / jacketed",D,519
-R-351,Claus catalytic converter 1,fixed-bed reactor,230->314 C @ 1.2 bar,3.5 bar g / 340 C (D),1.7 m ID x 7.1 m; 11 m3 cat. (D),"A: CS, refractory, licensor",D,520
-E-353,Sulphur condenser 2,shell-and-tube exchanger,hot 314->170 C @ 1.2 bar; cold 105->144 C,7 bar g / 340 C (D),6 m2 (D),"A: CS, steam traced",D,521
-R-352,Claus catalytic converter 2,fixed-bed reactor,210->232 C @ 1.1 bar,3.5 bar g / 260 C (D),1.7 m ID x 7.1 m; 11 m3 cat. (D),"A: CS, refractory, licensor",D,522
-E-354,Sulphur condenser 3 (final),shell-and-tube exchanger,hot 232->130 C @ 1.1 bar; cold 60->100 C,6 bar g / 260 C (D),4 m2 (D),"A: CS, steam traced",D,523
-P-351A/B,liquid sulphur to loading pump (duty/spare),centrifugal,"3.2 t/h, dP 3 bar (A)",-,0.2 kW shaft (D),A,A,524
-T-351,Liquid sulphur pit,storage tank,"140 C, near-atmospheric",A,93 m3 (D),A,D,524
-R-353,"Tail-gas hydrogenation reactor (Co-Mo, A)",fixed-bed reactor,280->311 C @ 1.1 bar,3.5 bar g / 340 C (D),1.8 m ID x 7.4 m; 13 m3 cat. (D),"A: CS / 304H, licensor",D,525
+E-351,Claus waste-heat boiler,shell-and-tube exchanger,hot 1150->300 C @ 1.5 bar; cold 105->188 C,14 bar g / 1175 C (D),18 m2 (D),"A: CS / refractory-lined tube sheet, licensor",D,518
+E-352,Sulphur condenser 1,shell-and-tube exchanger,hot 300->170 C @ 1.4 bar; cold 105->144 C,7 bar g / 325 C (D),11 m2 (D),"A: CS, steam traced / jacketed",D,519
+R-351,Claus catalytic converter 1,fixed-bed reactor,230->276 C @ 1.2 bar,3.5 bar g / 305 C (D),2.1 m ID x 8.3 m; 20 m3 cat. (D),"A: CS, refractory, licensor",D,520
+E-353,Sulphur condenser 2,shell-and-tube exchanger,hot 276->170 C @ 1.2 bar; cold 105->144 C,7 bar g / 305 C (D),9 m2 (D),"A: CS, steam traced",D,521
+R-352,Claus catalytic converter 2,fixed-bed reactor,210->222 C @ 1.1 bar,3.5 bar g / 250 C (D),2.1 m ID x 8.3 m; 20 m3 cat. (D),"A: CS, refractory, licensor",D,522
+E-354,Sulphur condenser 3 (final),shell-and-tube exchanger,hot 222->130 C @ 1.1 bar; cold 60->100 C,6 bar g / 250 C (D),7 m2 (D),"A: CS, steam traced",D,523
+P-351A/B,liquid sulphur to loading pump (duty/spare),centrifugal,"3.5 t/h, dP 3 bar (A)",-,0.2 kW shaft (D),A,A,524
+T-351,Liquid sulphur pit,storage tank,"140 C, near-atmospheric",A,102 m3 (D),A,D,524
+R-353,"Tail-gas hydrogenation reactor (Co-Mo, A)",fixed-bed reactor,280->296 C @ 1.1 bar,3.5 bar g / 325 C (D),2.2 m ID x 8.7 m; 23 m3 cat. (D),"A: CS / 304H, licensor",D,525
 TGT-351,"Tail-gas quench, H2S absorber and incinerator",quench + amine absorber + incinerator (A),"40 C quench, 450 C stack",A,A,A: vendor,A,526
-K-401A,"Make-up gas compressor, LP casing",centrifugal compressor,40 -> 89.4 bar,"98.5 bar g / 175 C (D, hot discharge)",12.0 MW shaft (D),A,D,601
+K-401A,"Make-up gas compressor, LP casing",centrifugal compressor,40 -> 89.4 bar,"98.5 bar g / 175 C (D, hot discharge)",11.6 MW shaft (D),A,D,601
 K-401A-KO,suction KO drum,vertical vessel,40 bar,44 bar g (D),A,A,D,601
-K-401B,"Make-up gas compressor, HP casing",centrifugal compressor,89.4 -> 200 bar,"220 bar g / 175 C (D, hot discharge)",12.0 MW shaft (D),A,D,602
+K-401B,"Make-up gas compressor, HP casing",centrifugal compressor,89.4 -> 200 bar,"220 bar g / 175 C (D, hot discharge)",11.6 MW shaft (D),A,D,602
 K-401B-KO,suction KO drum,vertical vessel,89.4 bar,98.5 bar g (D),A,A,D,602
-K-402,"Loop circulator (single casing, motor)",centrifugal circulator,"380 t/h, 192->200 bar",220 bar g / 85 C (D),1.94 MW (D),A: vendor,D,603
-E-403,Feed / effluent exchanger,shell-and-tube exchanger,hot 330->80.3 C @ 200 bar; cold 35.8->300 C,220 bar g / 355 C (D),"10,687 m2 (D)","A: Cr-Mo steel, nitriding/H2 service (to be set by licensor)",D,604
-R-401,Ammonia converter,fixed-bed reactor,300->450 C @ 200 bar,220 bar g / 475 C (D),3.0 m ID x 11.0 m; 63 m3 cat. (D),A: Cr-Mo shell with internal liner / cartridge (to be set by licensor),D,605
-E-404,Converter waste-heat boiler,shell-and-tube exchanger,hot 450->330 C @ 200 bar; cold 105->263.9 C,220 bar g / 475 C (D),461 m2 (D),"A: Cr-Mo tube side, CS shell",D,606
-E-405,Loop water cooler,shell-and-tube exchanger,hot 80.3->40 C @ 200 bar; cold 30->42 C,220 bar g / 110 C (D),"2,832 m2 (D)",A: CS (tube side NH3 gas); cooling-water side per site,D,607
-E-406,Cold interchanger,shell-and-tube exchanger,hot 40->27.4 C @ 200 bar; cold 0->30 C,220 bar g / 65 C (D),"2,214 m2 (D)",A: LT carbon steel (cold end below 0 C),D,608
-E-401,Loop chiller (NH3 refrigerant),shell-and-tube exchanger,hot 27.4->0 C @ 200 bar; cold -10->-10 C,220 bar g / 55 C (D),811 m2 (D),A: LT carbon steel / killed steel (to -30 C or lower),D,609
-V-401,Ammonia separator,vertical vessel,"200 bar, 0 C (S/A per HMB)",220 bar g / 25 C (D),2.1 m ID x 6.4 m T/T (D),"A: LT carbon steel / low-alloy, 200 bar",D,610
+K-402,"Loop circulator (single casing, motor)",centrifugal circulator,"219 t/h, 192->200 bar",220 bar g / 85 C (D),1.12 MW (D),A: vendor,D,603
+E-403,Feed / effluent exchanger,shell-and-tube exchanger,hot 330->166.6 C @ 200 bar; cold 36.3->300 C,220 bar g / 355 C (D),"2,474 m2 (D)","A: Cr-Mo steel, nitriding/H2 service (to be set by licensor)",D,604
+R-401,Ammonia converter,fixed-bed reactor,300->450 C @ 200 bar,220 bar g / 475 C (D),2.6 m ID x 9.8 m; 41 m3 cat. (D),A: Cr-Mo shell with internal liner / cartridge (to be set by licensor),D,605
+E-404,Converter waste-heat boiler,shell-and-tube exchanger,hot 450->330 C @ 200 bar; cold 105->263.9 C,220 bar g / 475 C (D),303 m2 (D),"A: Cr-Mo tube side, CS shell",D,606
+E-405,Loop water cooler,shell-and-tube exchanger,hot 166.6->40 C @ 200 bar; cold 30->42 C,220 bar g / 195 C (D),"2,718 m2 (D)",A: CS (tube side NH3 gas); cooling-water side per site,D,607
+E-406,Cold interchanger,shell-and-tube exchanger,hot 40->27.4 C @ 200 bar; cold 0->30 C,220 bar g / 65 C (D),"1,276 m2 (D)",A: LT carbon steel (cold end below 0 C),D,608
+E-401,Loop chiller (NH3 refrigerant),shell-and-tube exchanger,hot 27.4->0 C @ 200 bar; cold -10->-10 C,220 bar g / 55 C (D),468 m2 (D),A: LT carbon steel / killed steel (to -30 C or lower),D,609
+V-401,Ammonia separator,vertical vessel,"200 bar, 0 C (S/A per HMB)",220 bar g / 25 C (D),1.9 m ID x 5.7 m T/T (D),"A: LT carbon steel / low-alloy, 200 bar",D,610
 V-402,Letdown drum,vertical vessel,"25 bar, 0 C (S/A per HMB)",27.5 bar g / 25 C (D),1.9 m ID x 5.7 m T/T (D),A: LT carbon steel,D,611
 PGR-401,Purge-gas recovery unit (technology open),purge-gas recovery package,"198 / 25 bar in, 40 bar recovered gas out",218 bar g (D),gap (vendor),A: vendor,A,612
 V-403,Auto-refrigeration flash drum,vertical vessel,"1.1 bar, -33.3 C (S/A per HMB)",3.5 bar g / -5 C (D),3.3 m ID x 9.9 m T/T (D),"A: LT carbon steel (impact-tested), -40 C minimum design (A)",D,613
-K-501,NH3 refrigeration compressor (LP + HP stage),NH3 refrigeration compressor,"1.0 -> 15.5 bar, 99 t/h",23 bar g / 175 C (A),9.8 MW (D),A: vendor,D,614
-E-503,Refrigerant condenser (CW),shell-and-tube exchanger,hot 144.6->40 C @ 15.5 bar; cold 30->42 C,17.5 bar g / 170 C (D),"1,207 m2 (D)",A: carbon steel (no copper alloys in NH3 service),D,615
-V-404,Refrigerant flash drum (-10 C),vertical vessel,"2.9 bar, -10 C (S/A per HMB)",5 bar g / 15 C (D),2.2 m ID x 6.6 m T/T (D),A: LT carbon steel,D,616
+K-501,NH3 refrigeration compressor (LP + HP stage),NH3 refrigeration compressor,"1.0 -> 15.5 bar, 63 t/h",23 bar g / 175 C (A),6.5 MW (D),A: vendor,D,614
+E-503,Refrigerant condenser (CW),shell-and-tube exchanger,hot 144.6->40 C @ 15.5 bar; cold 30->42 C,17.5 bar g / 170 C (D),766 m2 (D),A: carbon steel (no copper alloys in NH3 service),D,615
+V-404,Refrigerant flash drum (-10 C),vertical vessel,"2.9 bar, -10 C (S/A per HMB)",5 bar g / 15 C (D),1.7 m ID x 5.1 m T/T (D),A: LT carbon steel,D,616
 P-501A/B,NH3 to P-501 (to urea) pump (duty/spare),centrifugal,"91.0 t/h, dP 25 bar (A)",-,132.4 kW shaft (D),A,A,617
 T-501,Refrigerated NH3 tank (-33 C),storage tank (refrigerated),"-33.3 C, near-atmospheric",A,"35,344 m3 (D)","A: 9 % Ni or killed LT carbon steel, double-wall concept (to be set by designer)",D,617
 K-502,"Standby BOG compressor (screw, motor)",screw compressor package,"13.7 t/h, 1.0 -> 2.9 bar",8 bar g / 100 C (A),0.69 MW (D),A: vendor,D,618
@@ -163,30 +163,30 @@ PRDS-801,HP to MP letdown + desuperheater,PRV + desuperheater,50 -> 25 bar,A,A,A
 PRDS-802,MP to LP letdown + desuperheater,PRV + desuperheater,25 -> 4.5 bar,A,A,A: vendor,D,803
 P-801A/B,Condensate collection tank pump (duty/spare),centrifugal,"153.3 t/h, dP 4 bar (A)",-,25.2 kW shaft (D: Q dP / eff 0.70 A),A,A,804
 V-801,Condensate collection tank,vertical vessel,"3 bar, 90 C (S/A per HMB)",5 bar g / 115 C (D),2.9 m ID x 8.7 m T/T (D),A: CS,D,804
-P-802A/B,Deaerator + BFW storage pump (duty/spare),centrifugal,"342.3 t/h, dP 65 bar (A)",-,924.6 kW shaft (D: Q dP / eff 0.70 A),A,A,805
-D-801,Deaerator + BFW storage,vertical vessel,"2 bar, 70 C (S/A per HMB)",4 bar g / 95 C (D),4.3 m ID x 12.9 m T/T (D),A: CS,D,805
+P-802A/B,Deaerator + BFW storage pump (duty/spare),centrifugal,"424.5 t/h, dP 65 bar (A)",-,"1,146.5 kW shaft (D: Q dP / eff 0.70 A)",A,A,805
+D-801,Deaerator + BFW storage,vertical vessel,"2 bar, 70 C (S/A per HMB)",4 bar g / 95 C (D),4.6 m ID x 13.8 m T/T (D),A: CS,D,805
 BFW-801,BFW header and distribution,piping header and valve manifold,105 C / 70 bar,A,A,A: vendor,D,806
-V-803,HP blowdown flash drum,vertical vessel,"4.5 bar, 148 C (S/A per HMB)",6.5 bar g / 175 C (D),0.9 m ID x 2.7 m T/T (D),A: CS,D,807
-B-801,"Auxiliary boiler (coal, A)",coal-fired auxiliary boiler,99 t/h steam 50 bar / 400 C,A,A,A: vendor,A,808
-P-805A/B,Raw water to DM / CT pump (duty/spare),centrifugal,"409.3 t/h, dP 4 bar (A)",-,65.6 kW shaft (D),A,A,809
-T-801,Raw water storage,storage tank,"30 C, near-atmospheric",A,"5,457 m3 (D)",A: CS / RCC,D,809
+V-803,HP blowdown flash drum,vertical vessel,"4.5 bar, 148 C (S/A per HMB)",6.5 bar g / 175 C (D),1.0 m ID x 3.0 m T/T (D),A: CS,D,807
+B-801,"Auxiliary boiler (coal, A)",coal-fired auxiliary boiler,124 t/h steam 50 bar / 400 C,A,A,A: vendor,A,808
+P-805A/B,Raw water to DM / CT pump (duty/spare),centrifugal,"491.6 t/h, dP 4 bar (A)",-,78.8 kW shaft (D),A,A,809
+T-801,Raw water storage,storage tank,"30 C, near-atmospheric",A,"6,555 m3 (D)",A: CS / RCC,D,809
 DM-801,DM plant (packaged),packaged DM plant,"ambient, 4 bar",A,A,A: vendor,A,810
-P-806A/B,DM water to deaerator pump (duty/spare),centrifugal,"123.2 t/h, dP 4 bar (A)",-,19.7 kW shaft (D),A,A,811
-T-802,DM water storage,storage tank,"30 C, near-atmospheric",A,"1,635 m3 (D)",A: lined CS / SS,D,811
-CT-801,Cooling tower,induced-draft cooling tower,"16,764 t/h 42->32 C",A,A,A: vendor,D,812
-P-803,CW circulating pumps A-D,vertical wet-pit pumps,"16,764 t/h",A,A,A: vendor,D,813
+P-806A/B,DM water to deaerator pump (duty/spare),centrifugal,"195.3 t/h, dP 4 bar (A)",-,31.2 kW shaft (D),A,A,811
+T-802,DM water storage,storage tank,"30 C, near-atmospheric",A,"2,591 m3 (D)",A: lined CS / SS,D,811
+CT-801,Cooling tower,induced-draft cooling tower,"17,412 t/h 42->32 C",A,A,A: vendor,D,812
+P-803,CW circulating pumps A-D,vertical wet-pit pumps,"17,412 t/h",A,A,A: vendor,D,813
 DOS-801,CW chemical dosing skid,chemical dosing skid,ambient,A,A,A: vendor,A,814
 K-801,Instrument + plant air package,packaged air compressors and dryers,9 bar abs,A,A,A: vendor,D,815
 V-804,Instrument and plant air receiver,vertical vessel,"9 bar abs, 40 C",10 bar g / 65 C (D),101 m3 (3.6 x 10.8 m) (D),A: CS,D,816
 N2-801,Plant nitrogen distribution,nitrogen distribution,11 bar abs,A,A,A: vendor,D,817
-SLD-801,Power distribution (block),electrical single line (block),identified 91 MW,A,-,A: electrical design,D,818
+SLD-801,Power distribution (block),electrical single line (block),identified 100 MW,A,-,A: electrical design,D,818
 ETP-801,ETP + ZLD (packaged concept),effluent treatment and ZLD package,ambient,A,A,A: vendor,A,819
 UB-801,Utility balance,table,per t urea and total,-,-,-,D,820
-FLR-901,Flare system topology,block diagram,43.3 t/h reference,A,-,-,A,901
-P-901A/B,KO-101 liquid (slop) pump (duty/spare),centrifugal,"1.3 t/h, dP 4 bar (A)",-,0.3 kW shaft (D),A,A,902
-KO-101,Flare knock-out drum,vertical vessel,"2 bar abs, 60 C",4 bar g / 85 C (D),2.2 m ID x 7.0 m (D),A: CS,D,902
-V-901,Flare seal drum,vertical vessel,"1.95 bar abs, 60 C",4 bar g / 85 C (D),1.5 m ID x 6.5 m (D),A: CS,D,903
-FL-101,Elevated flare (A: stack + tip),elevated flare,"41.8 t/h reference, 1.8 bar abs",A,A,A: vendor,A,904
+FLR-901,Flare system topology,block diagram,39.1 t/h reference,A,-,-,A,901
+P-901A/B,KO-101 liquid (slop) pump (duty/spare),centrifugal,"1.2 t/h, dP 4 bar (A)",-,0.2 kW shaft (D),A,A,902
+KO-101,Flare knock-out drum,vertical vessel,"2 bar abs, 60 C",4 bar g / 85 C (D),2.0 m ID x 6.0 m (D),A: CS,D,902
+V-901,Flare seal drum,vertical vessel,"1.95 bar abs, 60 C",4 bar g / 85 C (D),1.4 m ID x 6.0 m (D),A: CS,D,903
+FL-101,Elevated flare (A: stack + tip),elevated flare,"37.7 t/h reference, 1.8 bar abs",A,A,A: vendor,A,904
 P-902A/B,Closed-drain drum pump (duty/spare),centrifugal,"9.9 t/h, dP 4 bar (A)",-,1.7 kW shaft (D: Q dP / eff 0.70 A),A,A,905
 V-902,Closed-drain drum,vertical vessel,"1.5 bar, 40 C (S/A per HMB)",3.5 bar g / 65 C (D),1.5 m ID x 4.5 m T/T (D),A: CS (licensor to set),D,905
 OWS-901,Open drain + oil separator,open-drain sewer + oil separator,atmospheric,A,A,A: vendor,A,906

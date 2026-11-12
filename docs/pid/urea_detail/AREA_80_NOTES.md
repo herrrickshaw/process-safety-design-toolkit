@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 80 Utilities: unit notes (coal-to-urea, 3,850 t/d urea, Talcher-class)
 
 Generated with `scripts/urea_area_80.py` (20 sheets, numbers 801-820). Basis: Rev B balance x K = 1.2784 (D); urea 160.4 t/h. Tags: S sourced, D derived, A assumed (range given).

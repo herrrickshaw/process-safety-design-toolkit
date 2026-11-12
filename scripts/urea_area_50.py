@@ -132,6 +132,7 @@ ETA_F, ETA_1, ETA_2 = 0.65, 0.70, 0.60     # thermal-stage extent of reaction an
 ETA_ABS = 0.995                            # tail-gas amine absorber H2S capture, A (0.99-0.999)
 X_CLAUS = 1 - (1 - ETA_F) * (1 - ETA_1) * (1 - ETA_2)
 F11 = S11["H2S"]                                                                        # mol/s H2S (Rev B scale)
+C_AG = S11.get("CO2", 0.0)                                                               # Rev C: CO2 co-stripped with the H2S (NETL Case 6 acid gas 34 mol % H2S); inert through the Claus train and tail-gas unit (A: no COS or CO formation, no CO2 capture in the TGT absorber)
 F_TOT = F11 / (1 - ETA_ABS * (1 - X_CLAUS))                                            # D: with tail-gas H2S recycle to the furnace
 R_H2S = F_TOT - F11                                                                    # recycled H2S, mol/s
 O2_F = 0.5 * F_TOT                                                                      # O2 for 1/3 of the H2S to SO2 (D: H2S + 1.5 O2 -> SO2 + H2O)
@@ -141,7 +142,7 @@ EV = [ETA_F * E_MAX]; rem = E_MAX - EV[0]
 EV.append(ETA_1 * rem); rem -= EV[1]; EV.append(ETA_2 * rem); rem -= EV[2]
 S_REC = 3 * sum(EV)                                                                    # mol S atoms to liquid
 assert abs(S_REC / F_TOT - X_CLAUS) < 1e-9
-GAS_F = {"H2S": F_TOT * 2 / 3 - 2 * EV[0], "SO2": F_TOT / 3 - EV[0], "S": 3 * EV[0], "H2O": F_TOT / 3 + 2 * EV[0], "N2": AIR["N2"]}
+GAS_F = {"H2S": F_TOT * 2 / 3 - 2 * EV[0], "SO2": F_TOT / 3 - EV[0], "S": 3 * EV[0], "H2O": F_TOT / 3 + 2 * EV[0], "N2": AIR["N2"], "CO2": C_AG}
 G_C1 = {k: v for k, v in GAS_F.items() if k != "S"}                                      # after sulphur condenser 1
 G_R1 = dict(G_C1); G_R1["H2S"] -= 2 * EV[1]; G_R1["SO2"] -= EV[1]; G_R1["S"] = 3 * EV[1]; G_R1["H2O"] += 2 * EV[1]
 G_C2 = {k: v for k, v in G_R1.items() if k != "S"}
@@ -149,21 +150,21 @@ G_R2 = dict(G_C2); G_R2["H2S"] -= 2 * EV[2]; G_R2["SO2"] -= EV[2]; G_R2["S"] = 3
 G_C3 = {k: v for k, v in G_R2.items() if k != "S"}                                       # claus tail gas
 TG_S = G_C3["H2S"] + G_C3["SO2"]
 H2_HYD = 3 * G_C3["SO2"] * 1.2                                                          # mol/s H2, stoich x 1.2 excess (A 1.1-1.5)
-G_HYD = {"H2S": G_C3["H2S"] + G_C3["SO2"], "H2O": G_C3["H2O"] + 2 * G_C3["SO2"], "N2": G_C3["N2"], "H2": H2_HYD - 3 * G_C3["SO2"]}
+G_HYD = {"H2S": G_C3["H2S"] + G_C3["SO2"], "H2O": G_C3["H2O"] + 2 * G_C3["SO2"], "N2": G_C3["N2"], "H2": H2_HYD - 3 * G_C3["SO2"], "CO2": G_C3.get("CO2", 0.0)}
 close(mass50(G_C3) + mass50({"H2": H2_HYD}), mass50(G_HYD), 3e-4, "R-353 closure")
 H2S_SLIP = (1 - ETA_ABS) * G_HYD["H2S"]
-W_Q = G_HYD["H2O"] - G_HYD["N2"] * 0 - (G_HYD["N2"] + G_HYD["H2"]) * psat_bar(40.0) / (1.1 - psat_bar(40.0))     # mol/s condensed in the quench (D, saturated at 40 C, 1.1 bar)
+W_Q = G_HYD["H2O"] - G_HYD["N2"] * 0 - (G_HYD["N2"] + G_HYD["H2"] + G_HYD["CO2"]) * psat_bar(40.0) / (1.1 - psat_bar(40.0))     # mol/s condensed in the quench (D, saturated at 40 C, 1.1 bar)
 W_Q = max(W_Q, 0.0)
-TAIL_ABS = {"N2": G_HYD["N2"], "H2": G_HYD["H2"], "H2O": G_HYD["H2O"] - W_Q, "H2S": G_HYD["H2S"]}
+TAIL_ABS = {"N2": G_HYD["N2"], "CO2": G_HYD["CO2"], "H2": G_HYD["H2"], "H2O": G_HYD["H2O"] - W_Q, "H2S": G_HYD["H2S"]}
 R_SP = {"H2S": R_H2S}
 close(R_H2S, ETA_ABS * G_HYD["H2S"], 1e-9, "recycled H2S")
 O2_INC = 1.5 * H2S_SLIP + 0.5 * G_HYD["H2"] + 0.03 * (1.5 * H2S_SLIP + 0.5 * G_HYD["H2"])   # O2 incl 3 % excess (A 2-5 %), D
 AIR_INC = {"O2": O2_INC, "N2": O2_INC * 0.79 / 0.21}
-STACK = {"N2": G_HYD["N2"] + AIR_INC["N2"], "H2O": G_HYD["H2O"] - W_Q + G_HYD["H2"] + H2S_SLIP, "SO2": H2S_SLIP, "O2": O2_INC - 1.5 * H2S_SLIP - 0.5 * G_HYD["H2"]}
+STACK = {"N2": G_HYD["N2"] + AIR_INC["N2"], "CO2": G_HYD["CO2"], "H2O": G_HYD["H2O"] - W_Q + G_HYD["H2"] + H2S_SLIP, "SO2": H2S_SLIP, "O2": O2_INC - 1.5 * H2S_SLIP - 0.5 * G_HYD["H2"]}
 # element balances over the whole SRU + TGT (mass and S closure, asserted)
 SIN = F11; SOUT = S_REC + STACK["SO2"]
 close(SIN, SOUT, 1e-9, "sulphur atom balance (H2S in = liquid S + SO2 to stack)")
-M_IN = mass50({"H2S": F11}) + mass50(AIR) + mass50({"H2": H2_HYD}) + mass50(AIR_INC)
+M_IN = mass50({"H2S": F11, "CO2": C_AG}) + mass50(AIR) + mass50({"H2": H2_HYD}) + mass50(AIR_INC)
 M_OUT = mass50({"S": S_REC}) + mass50({"H2O": W_Q}) + mass50(STACK)
 close(M_IN, M_OUT, 3e-4, "SRU + TGT overall mass closure")
 RECOVERY = 1 - H2S_SLIP / F11
@@ -245,7 +246,7 @@ def build(pkg):
               notes=[f"Strips the slip ({M_Q:,.0f} t/h) to give stream 11 (Rev B H2S, {M11:.2f} t/h) overhead and regenerated slip ({M_Z:,.0f} t/h) at {T_REG:.0f} C (A).",
                      f"Reboiler {Q_REB:.1f} MW = residual sensible {Q_SENS_REG:.1f} + stripping vapour {Q_STRIP:.1f} (strip ratio {STRIP:.0f} kg/kg H2S, A 5-20 x {LAT_W:.0f} kJ/kg A); LP steam 6 bar.",
                      f"Bulk lean solvent keeps {H2S_LEAN_PPM:,.0f} ppm (mass) of H2S because only {F_SLIP*100:.0f} % is regenerated (D): this limits H2S removal and may not reach the Rev B 99.9 %; a deeper strip (higher slip share) is the lever. Needs equilibrium data (gap).",
-                     "Rev B stream 11 is pure H2S: a real acid gas carries co-stripped CO2 (typically 20-50 % H2S, A) and needs an enrichment stage; the sulphur unit below is sized on pure H2S and is a lower bound on gas volume.",
+                     "Rev C: stream 11 is the acid gas with 34 mol % H2S and the balance taken as co-stripped CO2 (NETL Case 6 p.266, balance A); the CO2 passes through the Claus train as an inert (no COS or CO formation, A) so the sulphur unit sees about three times the gas volume of pure H2S. No enrichment stage is drawn (gap).",
                      "Overhead condenser, reflux drum and sour-water return are not in the column template and are not drawn (listed gap)."])
     sh = sheet_column(pkg, area, 506, "Area 500  AGR  -  C-302 H2S stripper / solvent regenerator with reboiler", c2)
     n2, d2 = liq_D(M_Q * 1000 / RHO_SOLV)
@@ -342,12 +343,12 @@ def build(pkg):
     sheet_package(pkg, area, 517, "Area 500  Sulphur recovery  -  F-351 Claus reaction furnace (thermal stage)",
                   dict(tag="F-351", name="Claus reaction furnace and burner", inlets=[(s11b, "stream 11 acid gas (ESD)"), (air, "combustion air from blower"), (rec, "TGT recycle H2S")], outlets=[(furn, "furnace gas to E-351 WHB")], spec="A1", esd=True,
                        type="refractory furnace + BMS (A)", op=f"{T_F:.0f} C, 1.5 bar (A)", design="A", size="A", relief="explosion relief / PSV to safe location",
-                       desc=[f"air {AIR['O2']*K:.0f} O2 + {AIR['N2']*K:.0f} N2 mol/s (1/3 H2S to SO2)", f"thermal extent {ETA_F:.2f} of Claus equilibrium max (A 0.55-0.70)", "pure H2S feed: flame-T limit, split flow (A, gap)"],
+                       desc=[f"air {AIR['O2']*K:.0f} O2 + {AIR['N2']*K:.0f} N2 mol/s (1/3 H2S to SO2)", f"thermal extent {ETA_F:.2f} of Claus equilibrium max (A 0.55-0.70)", "acid gas 34 mol % H2S + CO2 (Rev C): flame-T limit, split flow (A, gap)"],
                        interlocks=[("BSL", "burner flame scanner (2oo3) low: trip", "flame", "no flame: close acid gas + air (A)"), ("FFIC", "air / acid-gas ratio control (trim by tail-gas H2S:SO2 analyser)", "ratio", "stoich 0.5 mol O2 per mol H2S (D)"), ("AAHH", "H2S gas detectors at burner platform: ESD", "0-100 ppm", "H 10 / HH 15 ppm (A)"),
                                    ("TAHH", "furnace temperature high-high (refractory)", "0-1500 C", "HH 1300 C (A)"), ("AIT", "tail-gas H2S:SO2 ratio analyser", "0-10", "ratio set 2.0 (D)")],
                        rows=[("H2S fed", f"{F_TOT*K:.1f} mol/s (incl. recycle {R_H2S*K:.1f})", "D"), ("Air", f"{air.flow:.1f} t/h", "D"), ("Sulphur recovery overall", f"{RECOVERY*100:.2f} %", "D (A: eta)")],
                        hazard="H2S/SO2 toxic, hot furnace",
-                       notes=["Stoichiometry: H2S + 1.5 O2 -> SO2 + H2O for one third of the H2S; 2 H2S + SO2 -> 3 S + 2 H2O in the furnace and converters (D; thermodynamic equilibrium is not computed, extents are A).", "FINDING: Rev B stream 11 is pure H2S; a Claus furnace on pure H2S runs very hot with air, so a real design (split-flow, oxygen moderation or a lower-H2S acid gas) is licensor work (gap). Furnace T 1,150 C is A.", f"Mass closure 11 + air + recycle = furnace gas asserted in code; sulphur atoms: {F11*K:.1f} mol/s in = {S_REC*K:.1f} liquid + {STACK['SO2']*K:.2f} to stack (asserted)."]))
+                       notes=["Stoichiometry: H2S + 1.5 O2 -> SO2 + H2O for one third of the H2S; 2 H2S + SO2 -> 3 S + 2 H2O in the furnace and converters (D; thermodynamic equilibrium is not computed, extents are A).", "Rev C: the acid gas is 34 mol % H2S with CO2 inert, which moderates the flame; the flame temperature with the CO2 diluent is not recomputed and the split-flow or oxygen-enrichment choice is licensor work (gap). Furnace T 1,150 C is A.", f"Mass closure 11 + air + recycle = furnace gas asserted in code; sulphur atoms: {F11*K:.1f} mol/s in = {S_REC*K:.1f} liquid + {STACK['SO2']*K:.2f} to stack (asserted)."]))
     whb_o = mk("535", "furnace gas after WHB", "gas", GAS_F, T_WHB, 1.4)
     bfw6 = simple("536", "BFW to E-351", "liq", 0.0, 105.0, 12.0, rho=955.0); st6 = simple("537", "MP steam from E-351", "steam", 0.0, 188.0, 12.0, mw=18.015)
     q351 = sum(GAS_F.values()) * K * cpm50(GAS_F) * (T_F - T_WHB) / 1e6

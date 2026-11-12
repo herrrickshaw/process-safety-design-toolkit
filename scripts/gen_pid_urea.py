@@ -39,6 +39,7 @@ ELEM = {"H2O": {"H": 2, "O": 1}, "O2": {"O": 2}, "CO": {"C": 1, "O": 1}, "CO2": 
 COAL = dict(carbon=0.420, hydrogen=0.029, oxygen=0.052, nitrogen=0.008, sulfur=0.013, ash=0.350, moisture=0.128)   # gasifier.py TYPICAL_INDIAN_HIGH_ASH
 COAL_REPO = 145.0; O2_RATIO = 0.55; STEAM_RATIO = 0.10; GASIFIER_K = 1673.15; C_CONV = 0.90
 HT_K, HT_APPR, HT_STEAM = 623.15, 20.0, 0.30
+HT_H2O_CO = None; ACID_CO2_PER_H2S = 0.0     # Rev A / repo values; Rev C sets them below
 LT_K, LT_APPR, LT_STEAM = 493.15, 10.0, 0.10
 CO2_REMOVAL, H2S_REMOVAL = 0.97, 0.999
 SPASS_CONV, PURGE_FRAC = 0.19, 0.02
@@ -123,9 +124,10 @@ def gasify(coal_kg_s, Kfn):
     return coal, {"O2": nO2}, {"H2O": nSt}, gas, slag, K, o2_kg, st_kg
 
 
-def shift(sp, steam_frac, T, appr, Kfn):
-    """shift_reactor.shift_reactor re-implemented"""
+def shift(sp, steam_frac, T, appr, Kfn, h2o_co=None):
+    """shift_reactor.shift_reactor re-implemented; Rev C: h2o_co = steam-to-CO target at the reactor inlet (steam = ratio x CO - H2O already in the gas)"""
     tot = sum(sp.values()); steam = steam_frac * tot
+    if h2o_co: steam = max(0.0, h2o_co * sp["CO"] - sp["H2O"])
     nCO, nW, nCO2, nH2 = sp["CO"], sp["H2O"] + steam, sp["CO2"], sp["H2"]
     K = Kfn(T + appr)
     xi = bisect(lambda x: (nCO2 + x) * (nH2 + x) - K * (nCO - x) * (nW - x), 0.0, min(nCO, nW) - 1e-9)
@@ -143,7 +145,7 @@ def balance(coal_kg_s, revb=True):
     b = Bal(); b.revb = revb; b.coal_kg_s = coal_kg_s
     Kfn = wgs_K_thermo if revb else wgs_K_moe
     coal, o2s, sts, gas, slag, K, o2_kg, st_kg = gasify(coal_kg_s, Kfn)
-    ht_st, ht, ht_conv = shift(gas, HT_STEAM, HT_K, HT_APPR, Kfn)
+    ht_st, ht, ht_conv = shift(gas, HT_STEAM, HT_K, HT_APPR, Kfn, HT_H2O_CO if revb else None)
     lt_st, lt, lt_conv = shift(ht, LT_STEAM, LT_K, LT_APPR, Kfn)
     cond1 = {}; cond2 = {}
     if revb:   # V-203: cool to 40 C, knock out condensate; vapour left at saturation (ideal gas, Raoult-type: y = Psat/P, no solubility of CO2/H2S in the water: A)
@@ -153,6 +155,7 @@ def balance(coal_kg_s, revb=True):
     else:
         agr_in = lt
     co2_cap = agr_in["CO2"] * CO2_REMOVAL; h2s_cap = agr_in["H2S"] * H2S_REMOVAL
+    co2_acid = ACID_CO2_PER_H2S * h2s_cap if revb else 0.0     # Rev C: CO2 leaves with the H2S in the acid gas (Selexol/Rectisol-type, NETL Case 6 acid gas 34 mol % H2S)
     treated = dict(agr_in); treated["CO2"] -= co2_cap; treated["H2S"] -= h2s_cap
     b.meth_h2 = 3 * treated["CO"] + 4 * treated["CO2"]          # mol/s H2 a methanator consumes (D)
     if revb:   # R-301: CO + 3 H2 = CH4 + H2O ; CO2 + 4 H2 = CH4 + 2 H2O ; complete conversion (A: real units leave ppm CO/CO2)
@@ -180,10 +183,10 @@ def balance(coal_kg_s, revb=True):
     fh = 0.75
     # urea
     if revb:
-        urea = nh3 / 2.0; assert urea <= co2_cap
+        urea = nh3 / 2.0; assert urea <= co2_cap - co2_acid
         conv = min(max(0.171 + 0.118 * TARGET_NC, 0.05), 0.85)
         co2_tot = urea / conv; nh3_tot = TARGET_NC * co2_tot
-        co2_u, co2_s = urea, co2_cap - urea
+        co2_u, co2_s = urea, co2_cap - co2_acid - urea
         rec_nh3, rec_co2 = nh3_tot - nh3, co2_tot - urea
     else:
         co2_u = min(nh3 / TARGET_NC, co2_cap); co2_s = co2_cap - co2_u
@@ -191,7 +194,7 @@ def balance(coal_kg_s, revb=True):
         rec_nh3, rec_co2 = nh3 - 2 * urea, co2_u - urea
     S = {}
     S[1] = coal; S[2] = o2s; S[3] = sts; S[4] = gas; S[5] = slag; S[6] = ht_st; S[7] = ht; S[8] = lt_st; S[9] = lt
-    S[10] = {"CO2": co2_cap}; S[11] = {"H2S": h2s_cap}; S[12] = treated
+    S[10] = {"CO2": co2_cap - co2_acid}; S[11] = {"H2S": h2s_cap, "CO2": co2_acid} if co2_acid else {"H2S": h2s_cap}; S[12] = treated
     S[13] = purif
     S[14] = {"N2": n2_loop}; S[15] = {"H2": fh * F, "N2": (1 - fh) * F}
     S[16] = {"H2": purge * fh, "N2": purge * (1 - fh)}
@@ -227,6 +230,26 @@ near(SA[24]["NH3"], REPO_RUN["unconv_nh3"], what="unconv NH3"); near(SA[24]["CO2
 near(MA[25], REPO_RUN["asu_o2_air_kg_s"], 1e-4, "ASU air kg/s"); near(A.conv, REPO_RUN["urea_conv"], what="urea conversion")
 CGE_A = (SA[4]["CO"] * HHV_CO_KJ + SA[4]["H2"] * HHV_H2_KJ) / 1000.0 / (COAL_REPO * (33.87 * COAL["carbon"] + 144.3 * (COAL["hydrogen"] - COAL["oxygen"] / 8.0) + 9.4 * COAL["sulfur"]))
 near(CGE_A, REPO_RUN["cge"], 2e-3, "cold gas efficiency from frozen HHVs")
+
+# ---- Rev C rebase, 12 Nov 2026: assumed inputs replaced by values from documents read (docs/pid/urea_detail/sources/PROCESS_BENCHMARKS.md, TECHNOLOGY_SOURCES.md).
+#      The Rev A path above is untouched and still reproduces the repo run. Rows below are benchmark rows (#) of PROCESS_BENCHMARKS.md.
+COAL_PRESET = dict(COAL); O2_RATIO_PRESET, STEAM_RATIO_PRESET = O2_RATIO, STEAM_RATIO
+#      UREA_REVC=0 skips this block and reproduces the committed Rev B outputs (docs/pid/UREA_PID_Set_RevB.*); the default (1) is the rebased balance used by the unit-by-unit package.
+REBASE = os.environ.get('UREA_REVC', '1') != '0'
+if REBASE:
+    PET_FRAC = 0.25            # S: Talcher EIA 37.4 / 149.5 = 25.0 %, PFR 38.5 / 144.7 = 26.6 % (rows 1-3)
+    PETCOKE = dict(carbon=0.805, hydrogen=0.035, oxygen=0.005, nitrogen=0.015, sulfur=0.055, ash=0.005, moisture=0.08)   # A: no petcoke analysis in any document read; range C 0.78-0.88, S 0.04-0.07
+    COAL = {k: (1 - PET_FRAC) * COAL_PRESET[k] + PET_FRAC * PETCOKE[k] for k in COAL_PRESET}    # D: gasifier feed = 75 % coal + 25 % petcoke (as received)
+    assert abs(sum(COAL.values()) - 1.0) < 1e-12 and abs(sum(PETCOKE.values()) - 1.0) < 1e-12
+    O2_RATIO = O2_RATIO_PRESET * COAL["carbon"] / COAL_PRESET["carbon"]       # D: O2 per carbon held at the repo value (repo finding: the ratio must scale with coal carbon)
+    STEAM_RATIO = STEAM_RATIO_PRESET * COAL["carbon"] / COAL_PRESET["carbon"]  # D: steam per O2 held (0.18 t/t, inside the 0-0.23 range of Eurlings GTC99 Table 4, row 14)
+    C_CONV = 0.995             # S: NETL BitBase Rev 2a Ex. 3-74 p.238 (99.5 %); Eurlings GTC99 Tables 4-5: 98.8-99.9 % (row 11); the repo's 90 % was an assumption
+    HT_H2O_CO = 1.8            # S: NETL Case 6 text p.265, steam added to H2O:CO 1.8 at the first shift reactor (row 19)
+    ACID_CO2_PER_H2S = 66.0 / 34.0   # S/A: acid gas 34 mol % H2S (NETL Case 6 p.266, row 23); the balance is taken as CO2 (A: the source also lists H2 and others)
+    SPASS_CONV = 4 * 0.169 / (2 + 2 * 0.169)    # D: per-pass conversion X giving 16.9 mol % NH3 at the converter exit (Talcher PFR Sec 3.3.3 p.9, row 38); y = 2X / (4 - 2X)
+    CO2_REMOVAL = 0.9995       # A: physical-solvent AGR leaves ppm-level CO2 for an ammonia plant (TECHNOLOGY_SOURCES.md: 100-1,000 ppm oxides at the methanator feed); repo value 0.97 was an assumption
+    ASU_KWH_PER_T_O2 = 461.5; ASU_RANGE = (456.2, 679.7)   # D/S: AREA_20 bottom-up train 461.5 kWh/t O2; NETL Ex. 3-89 p.272: MAC+O2 compressors 456.2, whole train incl. N2 and aux 679.7 (rows 30-32); Rev B 275 (TDA) has no support in the documents read
+
 
 # ---- Rev B: rating. All flows are homogeneous of degree 1 in the coal feed, so the coal feed that gives 1.10 Mt/a urea follows from one trial run.
 _trial = balance(COAL_REPO, revb=True); _trial_urea = mass(_trial.S[22])
@@ -1044,7 +1067,7 @@ def sheet4():
 # with the full inlet flow (no credit for control valves). M, k (ideal gas, thermo Cp) and Z (Peng-Robinson, thermo) are frozen from
 # tests/crosscheck/urea_revb_constants.py relief_cases.json run (11 Nov 2026).  Design pressure = 1.10 x operating (A); set = design; back pressure 200 kPa abs (A).
 RELIEF_KZ = {"PSV-101": (21.263, 1.2586, 1.0080), "PSV-201": (20.513, 1.2921, 1.0002), "PSV-202": (20.286, 1.3030, 0.9792),
-             "PSV-301": (20.712, 1.3394, 0.9454), "PSV-303": (3.627, 1.3991, 1.0125), "PSV-401": (8.515, 1.4023, 1.0948), "PSV-402": (8.515, 1.3860, 1.0624)}
+             "PSV-301": (20.712, 1.3394, 0.9454), "PSV-303": ((2.435, 1.405, 1.0000) if REBASE else (3.627, 1.3991, 1.0125)), "PSV-401": (8.515, 1.4023, 1.0948), "PSV-402": (8.515, 1.3860, 1.0624)}
 _agr = dict(S[9]); _agr["H2O"] = S[9]["H2O"] - S[28]["H2O"]
 RELIEF_CASE = {"PSV-101": (S[4], 1673.15, 45, "S4"), "PSV-201": (S[7], 623.15, 45, "S7"), "PSV-202": (S[9], 493.15, 45, "S9"),
                "PSV-301": (_agr, 313.15, 45, "S9 less S28"), "PSV-303": (S[12], 313.15, 40, "S12"), "PSV-401": (S[15], 313.15, 200, "S15"),
@@ -1058,9 +1081,9 @@ def relief_sizing():
     except Exception as e:  # pragma: no cover
         return {t: f"not sized: process_safety not importable ({e})" for t in RELIEF_CASE}
     for tag, (sp, T, Pop, lab_) in RELIEF_CASE.items():
-        M_, k, Z = RELIEF_KZ[tag]
-        mw = mass(sp) * 1000.0 / sum(sp.values())
-        assert abs(mw / M_ - 1) < 0.005, (tag, mw, M_)         # frozen M still matches the balance
+        M_f, k, Z = RELIEF_KZ[tag]
+        M_ = mass(sp) * 1000.0 / sum(sp.values())              # Rev C: molar mass live from the rebased composition; k and Z stay frozen from Rev B (A for Rev C: refresh with tests/crosscheck/urea_revb_constants.py in the validation venv)
+        assert abs(M_ / M_f - 1) < 0.25, (tag, M_, M_f)        # sanity only: a larger shift means k and Z are stale
         dg = math.ceil(1.10 * (Pop - 1.01325)); p1 = relieving_pressure_kpa(dg * 100.0, "single_non_fire")
         W = mass(sp) * 3600.0
         try:

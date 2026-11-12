@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 50: acid gas removal, CO2 to K-601, sulphur recovery, methanation
 
 Generator: `scripts/urea_area_50.py` (`build(pkg)`, depends on `urea_area_40.py` for the Antoine water vapour pressure). 26 sheets, numbers 501-526, area digit 5.

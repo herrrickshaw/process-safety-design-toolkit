@@ -1,3 +1,5 @@
+> **Rev C2 note:** the balance was rebased on sourced values after this file was written (see REBASE_REVC.md). Flow and duty numbers quoted below are from the earlier Rev B balance and are superseded by the registers and the sheets; assumptions and open items still apply.
+
 # Area 30 notes: gasification, slag, syngas cooling, scrubbing, black/grey/sour water, relief, N2
 
 Generator: `scripts/urea_area_30.py` (`build(pkg)`; `python3 scripts/urea_area_30.py [--registers DIR]` writes `/tmp/area30.html` and per-sheet previews and runs the lint). Standard library only. Basis: Rev B balance scaled K = 1.2784 to 3,850 t/d urea (see `urea_basis.py`). Screening aid, not certified design.

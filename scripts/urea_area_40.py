@@ -22,8 +22,8 @@ CP_WL = 4.2          # kJ/kg/K liquid water, A
 HFG_50BAR = 1650.0   # kJ/kg latent heat of steam at 50 bar, A, +-5 %
 HFG_6BAR = 2100.0    # kJ/kg latent heat of steam at 6 bar, A, +-5 %
 T_4C = 215.0         # gas leaving E-101 syngas cooler / quench, A (range 200-240; dew point of the mixed feed is ~206 C, checked below)
-T_B1, T_B2 = 280.0, 300.0     # HT bed inlet temperatures, A (range 270-310), sets the bed exit temperature
-T_L1, T_L2 = 205.0, 195.0     # LT bed inlet temperatures, A (range 195-215), >= dew point + margin on bed 1
+T_B1, T_B2 = 275.0, 300.0     # HT bed inlet temperatures, A (range 270-310), sets the bed exit temperature; Rev C: bed 1 lowered 280 -> 275 C so the exit stays under the 520 C screening limit at H2O:CO 1.8
+T_L1, T_L2 = 220.0, 205.0     # LT bed inlet temperatures, A (range 195-225), >= dew point + margin on bed 1; Rev C: raised from 205/195 because the 1.8 H2O:CO gas has a 197 C dew point
 TMAX_BED_HT = 520.0  # screening limit on a sour-shift bed exit temperature, A (range 480-540); licensor sets the real limit
 RES_GUARD_S, RES_SHIFT_S = 20.0, 30.0   # catalyst-volume rule: gas residence time at bed conditions, s, A (guard 10-40, shift 20-60)
 ANTOINE_HI = (8.14019, 1810.94, 244.485)   # log10 P[mmHg] = A - B/(C+T[C]), 99-374 C, A (cross-checked below)

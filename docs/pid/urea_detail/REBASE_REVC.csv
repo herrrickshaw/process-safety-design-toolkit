@@ -1,0 +1,20 @@
+Metric,Unit,Rev B,Rev C,Source value,Rev B vs source,Rev C vs source,Source,Benchmark row
+Coal + petcoke feed to gasification,t/h,243.1,148.8,149.5,+62.6 %,-0.5 %,Talcher EIA 112.1 coal + 37.4 petcoke (S5 p.II); PFR 144.7 (S6 Table 3.2),"1, 2"
+Gasifier carbon conversion,%,90.00,99.50,99.50,-9.5 %,+0.0 %,NETL Ex. 3-74 p.238; Eurlings GTC99 Tables 4-5 98.8-99.9,11
+H2O:CO at the first shift reactor,mol/mol,1.20,1.80,1.80,-33.1 %,-0.0 %,NETL Case 6 text p.265,19
+Overall CO conversion through shift,%,97.23,98.85,97.80,-0.6 %,+1.1 %,NETL Case 6 text p.265,20
+Cold gas efficiency (HHV),%,64.08,74.22,,,,"sources give 75-83 % on an LHV basis (Eurlings Tables 4-5): different basis, not compared",15
+H2S in the acid gas to Claus,mol %,100.0,34.00,34.00,+194.1 %,+0.0 %,NETL Case 6 p.266 (Selexol); Case 5 Sulfinol 39 %,23
+NH3 at the converter exit,mol %,10.50,16.90,16.90,-37.9 %,+0.0 %,Talcher PFR Sec 3.3.3 p.9,38
+ASU power,MW,36.77,46.43,,,,"461.5 kWh/t O2 adopted (NETL MAC+O2 456.2, whole train 679.7 kWh/t, Ex. 3-89 p.272)",30-32
+O2 per t moisture-ash-free feed,t/t,1.05,1.09,,,,0.92-1.06 t/t (Eurlings Tables 4-5); blend carbon scaling keeps O2/C,12
+CO + CO2 in the treated gas (methanator feed),mol %,3.94,0.79,0.10,+3838.5 %,+690.9 %,"TECHNOLOGY_SOURCES: 100-1,000 ppm typical; CO left by the shift is not removable by the AGR (N2 wash not drawn)",55
+Raw syngas,t/h,306.1,228.3,,,,,
+Oxygen to the gasifier,t/h,133.7,100.6,,,,,
+Steam to the first shift reactor,t/h,77.80,153.2,,,,,
+Acid gas to sulphur recovery,t/h,3.36,13.02,,,,,
+CO2 to the urea plant (stream 10),t/h,319.5,267.9,,,,,
+Surplus CO2 vent (stream 20),t/h,201.9,150.3,,,,,
+Ammonia make-up gas (stream 15),t/h,98.73,95.45,,,,,
+Loop recycle gas (stream 27),t/h,380.1,219.2,,,,,
+Air to the ASU,t/h,574.2,432.0,,,,,

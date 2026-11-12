@@ -1,7 +1,7 @@
-# Coal-to-urea unit-by-unit P&ID package, Rev C1 (pilot of the 200-300 sheet format)
+# Coal-to-urea unit-by-unit P&ID package, Rev C2 (pilot of the 200-300 sheet format)
 
 Basis: Talcher-class nameplate, 3,850 t/d urea and 2,200 t/d NH3 (1.27 Mt/yr at 330 d). Sources: ICRA, Feb 2025 (as quoted in the coal-to-urea-design-opensource repo, docs/VALIDATION.md; grade secondary) and PIB releases of 13 Mar 2026 and 24 Jul 2026 (12.7 LMTPA; excerpt grade C). See `docs/pid/analogues/` for the full capacity shortlist.
-Balance: the Rev B balance (`scripts/gen_pid_urea.py`) scaled by K = 3850 / 3011.6 = 1.2784 (linear in coal feed), then split into unit-level streams by each area file. Every unit asserts mass closure in code.
+Balance: the Rev C rebased balance (`scripts/gen_pid_urea.py`, default; `UREA_REVC=0` gives Rev B) scaled by K = 3850 / 3011.6 = 1.2784 (linear in coal feed), then split into unit-level streams by each area file. Every unit asserts mass closure in code.
 Status: CONCEPTUAL, SCREENING BASIS, NOT FOR CONSTRUCTION. Every number is tagged S (sourced), D (derived) or A (assumed screening rule or range); no licensor or vendor data is used; relief loads are not sized.
 
 ## Contents
@@ -32,6 +32,11 @@ Lint (0 errors, 63 advisories): no duplicate equipment, instrument, valve or lin
 7. Area 60: stream 27 temperature changed to 34.7 C.
 8. Area 80: steam is sized on demand only, Rev B has no steam generation balance; cooling water 16,764 t/h central (range 11,229 to 21,793).
 9. Area 90: flare loads are a screening placeholder (10 % of raw syngas), not relief loads.
+
+## Rev C2 rebase: what the sources changed (REBASE_REVC.md has the full before/after table)
+The balance was rebased on values read in PROCESS_BENCHMARKS.md and TECHNOLOGY_SOURCES.md: gasifier feed 75 % coal + 25 % petcoke, carbon conversion 99.5 %, shift steam at H2O:CO 1.8, acid gas 34 mol % H2S with co-stripped CO2, converter per-pass conversion for 16.9 mol % NH3 at the exit, CO2 removal 99.95 %, ASU 461.5 kWh/t O2. Result at 3,850 t/d: coal + petcoke feed 243.1 -> 148.8 t/h (Talcher EIA 149.5, -0.5 %), oxygen 133.7 -> 100.6 t/h, raw syngas 306 -> 228 t/h, shift steam 77.8 -> 153.2 t/h, acid gas 3.4 -> 13.0 t/h, loop recycle 380 -> 219 t/h, ASU power 36.8 -> 46.4 MW. Area 40 bed inlets moved (HT bed 1 275 C, LT 220/205 C) to keep bed 1 under 520 C and the LT inlet above the 197 C dew point.
+Status of the earlier conflicts: 1 (wet-scrub gas 181.5 C against 350 C into R-201): sources support neither 350 C; the package reheats to the 275 C bed inlet; 2 (steam stream 306 against 4): resolved by the H2O:CO 1.8 basis; 3 (ASU power): resolved, 461.5 kWh/t; 5 (single shift bed): two beds kept, bed 1 exit under 520 C; 6 (acid gas): resolved, 34 mol % H2S; 4 (2 % mill moisture), 7 (stream 27 temperature) and 9 (flare placeholder): unchanged; 8 (steam on demand only): unchanged and now also in the flowsheet list below.
+New or still open after the rebase: (a) the Talcher gasifier is a water quench with coal-fired boilers, the package keeps a steam-raising syngas cooler; (b) Talcher uses an N2 wash, the package keeps a methanator on a feed with 0.79 mol % oxides (mostly CO left by the shift, source typical 100-1,000 ppm); (c) the Talcher PFR assumes NH3-stripping urea conditions (N/C 3.5, 150 bar), the sheets say CO2 stripping; (d) petcoke composition is assumed; (e) O2 per tonne of ash-free feed is 1.09 against 0.92-1.06 in the sources; (f) relief k and Z values for the rebased gases are frozen or assumed (the validation venv is gone).
 
 ## Not sized or not sourced (open)
 Relief loads (all PSVs), dust-explosion vent areas, limiting oxygen and CO alarm levels, fire water, foam/deluge and detector thresholds (no standard fetched), ammonia vent scrubbing and bund volume rules, raw water analysis and resin data, power route, cold-box refrigeration, carbamate heat (100 kJ/mol, assumed), black-water dissolved gases, venturi/filter/clarifier/press sizing.
