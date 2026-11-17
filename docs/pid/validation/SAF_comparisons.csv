@@ -1,0 +1,31 @@
+check,metric,ours,ours_unit,ref,ref_unit,source,grade,deviation_pct,verdict
+1,Mean fatty chain / TG molar mass (A composition),290.64,g/mol per chain (D),290.63,g/mol,"chemicals 1.5.2 MW of 4 triglyceride CAS, weighted",tool,0.0,agrees
+1,Stage-1 H2 consumption,123.45,kg/h (D),123.45,kg/h,"own stoichiometry from chemicals MW: 4.77 mol H2 per chain, 0.03309 kg/kg UCO",tool,0.0,agrees
+1,Propane release,188.7,kg/h (D),188.7,kg/h,chemicals MW propane/3 per chain,tool,0.0,agrees
+1,Reaction water,409.34,kg/h (D),409.35,kg/h,own stoichiometry 1.77 mol H2O per chain,tool,0.0,agrees
+1,CO2 + CO from decarboxylation / decarbonylation,70.37,kg/h (D),70.37,kg/h,own stoichiometry,tool,0.0,agrees
+1,Hydrotreated paraffin yield,3186.1,kg/h (D),3186.1,kg/h,n-alkane MW from chemicals (C15-C18),tool,0.0,agrees
+1,Stage-1 heat of reaction,312.3,kW (D from A: DT_R1=45 K),1059,"kW (1,059 to 1,151)",Hf gas phase 25 C from chemicals Hfg: TG database estimate -1.11 MJ/kg; TG via fatty acid + glycerol - 3 H2O + 3x esterification (ethyl acetate) -1.02 MJ/kg,tool,-70.5,disagrees
+1,Adiabatic rise with no diluent (sheet 4 runaway),112.5,K (D),316,K (316 to 344),"Q 1.02-1.11 MJ/kg TG / cp 3.23 kJ/kg/K (CoolProp n-dodecane, 250-340 C, 50 bar)",tool,-64.4,disagrees
+1,Adiabatic rise with quench lost (sheet 4),64.3,K (D),144,K (144 to 156),"same Q, 1.75 kg liquid + 0.099 kg H2 per kg feed",tool,-55.4,disagrees
+1,Liquid hydrocarbon cp in R-201 duties,2.3,kJ/kg/K (A),3.23,kJ/kg/K,"CoolProp n-dodecane liquid, mean 250-340 C, 50 bar",tool,-28.8,disagrees
+1,E-202 effluent cooler duty,667.4,kW (D),665.0,kW,"CoolProp: H2O 340 C -> liquid 50 C at p_w 7.05 bar (dew 165 C), H2/CO/CO2/C3 sensible",tool,0.4,agrees
+1,"K-201 shaft work (47 to 53 bar, eta 0.75)",25.5,kW (D),26.2,kW,"CoolProp real-gas H2 isentropic, 422 kg/h; discharge 65.2 C vs 65.3 C",tool,-2.7,agrees
+1,C-401 draw temperatures at 1.5 bar,210,C SAF draw (A),212.5,C,CoolProp/thermo bubble n-undecane 212.5/211.8 C; n-heptane dew 112.4 C (ours 120); n-hexadecane bubble 303 C (ours 320),tool,-1.2,agrees
+1,E-401 condenser duty,4.7,kW (D),4.8,kW,"CoolProp n-heptane hvap 306.5 kJ/kg at 1.5 bar, 2 x 28.1 kg/h",tool,-1.9,agrees
+1,E-403 column feed heater duty,419.6,kW (D),696.0,kW,thermo PR flash: feed at 250 C / 1.5 bar is 100 % vapour; CoolProp liquid 45 C -> vapour 250 C incl. latent heat (SAF 214 kW),tool,-39.7,disagrees
+1,V-201 hot separator split (HT paraffin to vapour),0.0,% of paraffin (A: sharp split),26.6,% of paraffin,"thermo PR EOS flash at 340 C, 49.5 bar, kij=0 (screening; water and H2 solubility unreliable)",tool,,disagrees
+2,"Total H2 consumption, all stages",3.77,wt% of clean UCO (D),1.5-3.8 (Ecofining); 3.2 (Neste); 2.5 (Topsoe),wt% of lipid,"CBSCI, HEFA Production and Feedstock Selection (2019), Table 2 (from Kalnes 2008, Egeberg 2010, Neste 2012), https://cbsci.ca/wp-content/uploads/CBSCI-HEFA-Production-and-Freedstock-Selection-single-page.pdf",A,17.9,explained (inside range; 35 % linoleic UCO is an A)
+2,H2 per tonne of SAF-lean fuel,46.4,kg H2/t SAF (D),55-60,kg H2/t fuel,"Oxford Institute for Energy Studies ET-51 (Dec 2025), Table 5, https://www.oxfordenergy.org/wpcms/wp-content/uploads/2025/12/ET-51-Drop-In-Decarbonization.pdf",A,-15.6,"explained (our stage 2 uses 0.46 wt% H2: ideal scission only, no purge or dissolved loss)"
+2,Propane yield,5.06,wt% of clean UCO (D),"5 (Ecofining, Neste); 5.2 (Topsoe)",wt% of lipid,"CBSCI 2019, Table 2",A,1.1,agrees
+2,Hydrotreated n-paraffin (diesel-range) yield,85.4,wt% of clean UCO (D),75-85 (Ecofining); 82.6 (Neste),wt% of lipid,"CBSCI 2019, Table 2; same range restated in PNNL-38096 (Nov 2025) p.7-8 citing Rispoli 2015",A,3.4,agrees
+2,CO + CO2 (other gases),1.89,wt% of clean UCO (D),"1.8 (Hydroflex, pilot)",wt% of lipid,"CBSCI 2019, Table 2",A,4.8,agrees
+2,Total liquid fuel (SAF+RD+naphtha) per tonne oil,84.2,% of clean UCO (D),83.3 (1.2 t oil per t fuel),% of oil,OIES ET-51 section 3.2.1,A,1.1,agrees
+2,SAF share of liquid product,96.4,"% of liquids (S: 24,000 of 24,891+)",60-70 (max-jet hydrocracking); 62 (jatropha),% of liquid product,"Tao et al., Biotechnol Biofuels 10:261 (2017), text with Table 3/Fig 5, https://pmc.ncbi.nlm.nih.gov/articles/PMC5679388/",A,37.7,"unexplained (cause: template S SAF 24,000 t/yr, A: N_SAF, CG_OF_SAF)"
+2,SAF per tonne UCO,0.8,t SAF/t raw UCO (S/D),0.45-0.58 (derived: liquids 0.75-0.83 x jet share 0.60-0.70),t/t,"derived from CBSCI 2019 (8 wt% hydrocracking loss), OIES ET-51 (0.833 liquids), Tao 2017 (60-70 % jet)",A,37.9,unexplained
+2,Naphtha share of liquid product (max-jet slate),0.89,% of liquids (D),32 (jatropha case),% of product,"Tao et al. 2017, text under Fig 5; Table 3 gives gasoline 93.7 vs jet 194.7 gal/dry t for yellow grease",A,-97.2,"unexplained for a SAF-max slate (our 0.9 % matches only diesel-mode, <1-7 % in CBSCI)"
+2,Yield loss caused by hydrocracking to jet,1.4,% of HT paraffin (A: CG_OF_SAF 2 %),about 8,wt% (Pearlson 2011 as quoted),"CBSCI 2019, section 2.2.1 (reads: reduction estimated at 8 wt%)",A,-82.5,"unexplained (A: CG_OF_SAF = 2 % of SAF mass, N_SAF = 11)"
+2,"SAF yield, palm oil mass balance",0.8,t SAF/t UCO (S/D),0.44,t/t,"MDPI Sustainability 17(4):1584 (2025), search excerpt only (page not fetchable)",C,81.8,unexplained
+2,"Jet share of organic liquid, UCO HEFA-SPK",96.4,% of liquids (D),59.9,% of liquids,"Biomass and Bioenergy / Elsevier S0961953424001223 (2024), search excerpt only: naphtha 25.8, jet 59.9, diesel 14.2",C,61.0,unexplained
+2,"H2 consumption, UCO green diesel (Aspen)",3.31,wt% stage 1 (D),2.9,wt% (29 kg/t feed),"Energy Conversion and Management, S0196890425009847 (2025), search excerpt only",C,14.1,explained (more unsaturated A composition; diesel-only study)
+2,"Propane yield, UCO green diesel (Aspen)",5.06,wt% (D),5.4,wt%,"same, search excerpt only",C,-6.3,agrees

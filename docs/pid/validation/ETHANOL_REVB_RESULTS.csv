@@ -1,0 +1,24 @@
+metric,Rev A,Rev B,reference,dev_before_pct,dev_after_pct,status
+grain kg/L (IGL),2.4814,2.4014,2.465 kg/L India Glycols PFR,+0.7,-2.6,"agrees; moves from +0.7 to -2.6 %, inside 10 %; Y is A with range 0.88-0.95"
+grain kg/L (PR),2.4814,2.4014,2.5526 kg/L Pernod Ricard EIA,-2.8,-5.9,"slightly worse (-2.8 to -5.9 %), still inside 10 %; Indian refs favour Y 0.88-0.91, BioSTEAM/ANL favour 0.92-0.93"
+"ethanol L per t grain (ANL, denatured)",402.99,416.42,418.76 L/t ANL 2007,-3.8,-0.6,closed: -3.8 to -0.6 %
+DDGS t/KL at 10 % (VV),0.9068,0.8224,0.6087 Veer Vallabh EIA,+49.0,+35.1,"reduced, not closed: floor 0.69 t/KL with all non-starch solids in DDGS (D); open item"
+DDGS t/KL at 10 % (PR),0.9068,0.8224,0.7 Pernod Ricard EIA,+29.5,+17.5,"reduced, not closed"
+DDGS t/KL at 10 % (ANL),0.9068,0.8224,0.786 ANL 5.9 dry lb/gal,+15.4,+4.6,reduced to within 10 %: closed against ANL
+DDGS dry kg/L (ANL),0.81612,0.74016,0.707 kg dry/L ANL,+15.4,+4.7,reduced; inside ANL range 0.56-0.97
+CO2 t/KL (VV),0.75165,0.75165,0.7633 Veer Vallabh,-1.5,-1.5,unchanged: CO2 follows ethanol only (GAP_CLOSURE_BIO predicted a rise; the model shows none)
+CO2 t/KL (PR),0.75165,0.75165,0.74 Pernod Ricard,+1.6,+1.6,"unchanged, agrees"
+LP steam kg/L (IGL),6.3279,6.2805,6.6 India Glycols,-4.1,-4.8,"agrees; R 3.5 adds, Y 0.93 subtracts"
+LP steam kg/L (PR),6.3279,6.2805,5.04 Pernod Ricard (scope unclear),+25.6,+24.6,unchanged: no heat integration or scope data; benchmark box added
+boiler capacity kg/L (VV),6.3279,6.2805,5.2174 VV capacity incl. power,+21.3,+20.4,unchanged: reference is installed capacity
+thermal MJ/L (ANL fuel),13.289,13.189,7.6891 MJ fuel/L ANL,+72.8,+71.5,"unchanged in kind: steam vs fuel, US plants sell DDGS wet; BioSTEAM 8.78 MJ/L shown"
+slurry water L/L (IGL),5.79,5.6033,6.485 India Glycols,-10.7,-13.6,"worse, now outside 10 %: A9 slurry 30 % vs about 27.5 % implied by IGL; grain drop lowers water; A9 left unchanged (no source)"
+grain t/yr (template),81888,79246,"86,800 t/yr template",-5.7,-8.7,template is the high figure; references support 81-84 kt/yr; Rev B is below that band at Y 0.93 (Y 0.90 gives 81.9)
+DDGS t/yr (template),29924,27139,"26,000 t/yr template",+15.1,+4.4,"reduced, not closed"
+E-102 beer column reboiler kW,3514,3498,"3,453 kW CoolProp",,,"recomputed duty; R 3.5 raises condenser and reboiler (design decision, not a mismatch)"
+E-103 rectifier condenser kW,-3119,-3675,"3,162 kW CoolProp (RR 3 basis)",,,"recomputed duty; R 3.5 raises condenser and reboiler (design decision, not a mismatch)"
+E-106 rectifier reboiler kW,1076,1632,"1,119 kW (RR 3 basis)",,,"recomputed duty; R 3.5 raises condenser and reboiler (design decision, not a mismatch)"
+rectifier R/Rmin,1.11,1.29,Rmin 2.71 NRTL,,,closed: 1.11 -> 1.29; 39 ideal stages (was 66)
+S9 dew T C,95,95,92.0 NRTL,+3.3,+3.3,"unchanged: 3 K superheat is A, explained"
+EV-101 duty kW,3388,3351,fixed in Rev A (lam_st),,,closed in Rev A; economy range 2.5-3.0 shown
+lint: devices named but absent from sheet 1 (8),8,0,validation lint,,,"closed: XV-201, XV-301A/B, XV-501, GD-201, TAHH-501, LAHH-401 drawn; T-101 and MS-101A/B have devices"

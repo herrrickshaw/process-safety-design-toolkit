@@ -1,0 +1,26 @@
+check,metric,ours,ours_unit,ref,ref_unit,source,grade,deviation_pct,verdict
+1,molar masses CH4/C2H6/C3H8/N2/CO2,16.043/30.070/44.097/28.014/44.009,g/mol,16.0428/30.069/44.0956/28.0135/44.0098,g/mol,CoolProp 8.0 molemass,A,<0.003,agrees
+1,CO2 removed at T-301 (2 mol% of gas to T-301),10989,kg/h,10990,kg/h,CoolProp MW + own mole balance,A,0.01,agrees
+1,water removed (700 ppm wt),160,kg/h,159.7,kg/h,own recompute,A,0.2,agrees
+1,K-201 propane precool loop (12168 kW at Te 230.15 K / Tc 313.15 K / eta 0.75),9330 kW; 55.88 kg/s; COP 1.304,kW,9330.3 kW; 55.88 kg/s; 1.304,kW,CoolProp Propane h/s (same method as repo; not method-independent),A,0.00,agrees
+1,K-202 PMR propane loop (38246 kW at 233.15 K),27390 kW; 172.8 kg/s,kW,27389.5 kW; 172.80 kg/s,kW,CoolProp Propane,A,0.00,agrees
+1,K-202 suction volume vs frame range 55000-110000 m3/h,not stated on drawing,m3/h,236297,m3/h,CoolProp Propane rho at 233.15 K sat vapour; range from repo S,A,n/a (2.1x above range),unexplained (needs >=3 casings or lower flow)
+1,K-301 LRC loop (N2 .05 CH4 .30 C2H6 .35 C3H8 .30; 173.15 K dew to 236.15 K bubble),27219 kW; 37.61 kg/s,kW,27218.5 kW; 37.61 kg/s; Pe 0.0909 bar; Pc 53.56 bar; PR 589,kW,CoolProp HEOS mixture,A,0.00,agrees arithmetic; unexplained physically (PR 589; suction 0.09 bar vacuum ~7e5 m3/h hand calc)
+1,K-301 same MR in 3 stages with intercooling,27219 kW,kW,27280 kW,kW,CoolProp HEOS,A,0.2,staging does not change power; suction pressure is the defect
+1,end flash 4.5->1.1 bar from 113.15 K: T and vapour mass fraction,108.43 K; 4.63 %,K,108.431 K; 4.20 mol% = 4.63 mass%,K,CoolProp HEOS PH flash,A,0.0,agrees
+1,TK-501 BOG = Q/(hV(y)-hL(x)) with Q 133.73 kW,0.3862,kg/s,0.3862 (latent 346.3 kJ/kg),kg/s,CoolProp HEOS,A,0.0,agrees
+1,TK-501 BOG with bulk-liquid latent heat (648.2 kJ/kg),0.3862,kg/s,0.2063,kg/s,CoolProp HEOS,A,87,explained (N2-rich fresh-LNG BOG; upper bound)
+1,LNG density at 1.1 bar bubble,475.18,kg/m3,475.18,kg/m3,CoolProp HEOS,A,0.0,agrees
+1,K-401 flash gas compressor 2.934 kg/s 1.1->5 bar,322.6,kW,230.0 isentropic (306.7 at eta 0.75),kW,CoolProp HEOS,A,5.2 vs eta 0.75,agrees (<10 %)
+1,NG cooling duty 233.15 K to 173.15 K at 50 bar (LRC zone),11027,kW,25915,kW,CoolProp HEOS PT enthalpy x 63.376 kg/s,A,-57.4,unexplained (constant cp 2.9 misses condensation)
+1,NG cooling duty 173.15 K to 114.15 K at 50 bar (subcooling zone),10844,kW,12165,kW,CoolProp HEOS,A,-10.9,explained (cp averaging)
+1,minimum liquefaction work 298.15 K 50 bar gas to sat liquid 1.1 bar,297.2 actual (excl. subcool loop),kWh/t,129.1 ideal,kWh/t,CoolProp HEOS exergy,A,n/a (second-law efficiency 43 %),plausible
+1,V-102 receiver 47.3 m3 vs combined propane flow 228.7 kg/s,96.8 s residence,s,300 s (needs ~210 m3 at 70 % fill),s,CoolProp Propane rho 467.5 kg/m3 at 313.15 K,A,-68,unexplained (sized on K-201 flow only)
+1,fuel header energy vs driver fuel for 64.26 MW shaft at 33 % GT efficiency,81.0 MW LHV,MW,194.7 MW,MW,flash gas MW 20.54 LHV 24.4 MJ/kg (own calc); 33 % assumed,A,-58,explained (draw states fuel demand not computed)
+2,specific refrigeration power incl. K-401 excl. subcooling loop,297.2,kWh/t,275-375,kWh/t,Air Products LNG pages (search result; PDF URL returned 404 on fetch),C,within range,agrees
+2,specific power if subcooling loop run at the LRC-loop COP 0.405 (10844/0.405 = 26.8 MW),421,kWh/t,275-375,kWh/t,as above; own arithmetic,C,+12 above upper bound,explained (omitted loop)
+2,specific power vs C3MR 1054 kJ/kg (293 kWh/t),297.2,kWh/t,293,kWh/t,Scribd copy of a paper table (attribution unclear),C,1.4,agrees
+2,flash gas + BOG to fuel as share of sweet gas (all-electric drive),5.2,% of dry sweet gas,1.8 (0.08 of 4.48 mtpa becomes fuel/unaccounted),% of production,FERC FEIS Freeport LNG Liquefaction (EIS-0487) 2014 sec 1.x p. near line 1399 of text; energy.gov PDF,A,+190,explained (3 mol% N2 feed gives 37.6 mol% N2 flash gas; different basis)
+2,compression arrangement,single-stage LRC machine PR 589; propane in two single-stage circuits,-,multi-stage MR and multi-stage propane compressors,-,FERC FEIS Freeport (sec 2.1 plant description),A,n/a,unexplained (ours not buildable)
+2,compressor drivers,not stated; fuel demand not computed,-,electric motor drivers on propane and MR compressors,-,FERC FEIS Freeport,A,n/a,explained (drivers an open item)
+2,tank boil-off rate,0.122,%/day,no reference found,-,-,-,n/a,no reference found
