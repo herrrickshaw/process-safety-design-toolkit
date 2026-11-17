@@ -28,6 +28,10 @@
         "workflow",
         "plant",
         "pha",
+        "wbs",
+        "schedule",
+        "tenders",
+        "portfolio",
         "example"
       ]
     },

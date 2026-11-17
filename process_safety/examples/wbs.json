@@ -1,0 +1,136 @@
+{
+ "_note": "Illustrative placeholder inputs, not data: every duration, effort, cost, value, probability, weight and date below is an example to be replaced.",
+ "start": "2026-11-16",
+ "status_date": "2026-11-20",
+ "capacity_days_per_week": {
+  "lead": 5,
+  "analyst": 5
+ },
+ "calendar": {
+  "workdays": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "holidays": [
+   "2026-11-26"
+  ]
+ },
+ "wbs": [
+  {
+   "code": "1",
+   "name": "Mobilisation"
+  },
+  {
+   "code": "1.1",
+   "name": "Kick-off and scope confirmation",
+   "duration_days": 1,
+   "effort_days": 2,
+   "cost": 1000,
+   "owner": "lead",
+   "percent_complete": 100
+  },
+  {
+   "code": "1.2",
+   "name": "Collect design basis",
+   "duration_days": 3,
+   "effort_days": 3,
+   "cost": 1500,
+   "owner": "analyst",
+   "percent_complete": 100
+  },
+  {
+   "code": "2",
+   "name": "Preparation"
+  },
+  {
+   "code": "2.1",
+   "name": "Node selection and design intents",
+   "duration_days": 2,
+   "effort_days": 3,
+   "cost": 1800,
+   "owner": "lead",
+   "predecessors": [
+    "1.1",
+    "1.2"
+   ],
+   "percent_complete": 50
+  },
+  {
+   "code": "2.2",
+   "name": "Issue pre-reads",
+   "duration_days": 1,
+   "effort_days": 1,
+   "cost": 500,
+   "owner": "analyst",
+   "predecessors": [
+    "2.1"
+   ]
+  },
+  {
+   "code": "3",
+   "name": "Workshop"
+  },
+  {
+   "code": "3.1",
+   "name": "Review Node 1 Feed",
+   "duration_days": 2,
+   "effort_days": 10,
+   "cost": 6000,
+   "owner": "lead",
+   "predecessors": [
+    "2.2"
+   ]
+  },
+  {
+   "code": "3.2",
+   "name": "Review Node 2 Reactor",
+   "duration_days": 3,
+   "effort_days": 15,
+   "cost": 9000,
+   "owner": "lead",
+   "predecessors": [
+    "3.1"
+   ]
+  },
+  {
+   "code": "4",
+   "name": "Reporting"
+  },
+  {
+   "code": "4.1",
+   "name": "Draft report",
+   "duration_days": 5,
+   "effort_days": 6,
+   "cost": 3600,
+   "owner": "analyst",
+   "predecessors": [
+    "3.2"
+   ]
+  },
+  {
+   "code": "4.2",
+   "name": "Client review",
+   "duration_days": 5,
+   "effort_days": 0,
+   "cost": 0,
+   "predecessors": [
+    "4.1"
+   ]
+  },
+  {
+   "code": "4.3",
+   "name": "Issue final report",
+   "duration_days": 2,
+   "effort_days": 2,
+   "cost": 1200,
+   "owner": "lead",
+   "predecessors": [
+    "4.2"
+   ]
+  }
+ ],
+ "_template_note": "Instead of a wbs list, give {\"template\": {\"kind\": \"hazop\", \"nodes\": [\"Node 1\", \"Node 2\"]}}: the structure is generated with no numbers and the tool says which work packages still need a duration."
+}
