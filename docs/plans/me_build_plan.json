@@ -1,0 +1,248 @@
+{
+ "_note": "Planning assumptions, not data: every duration is an estimate by the author of this plan and must be replaced by the build team's own. Gated items start only when their input documents are in hand; 2027-01-04 is a placeholder, not a forecast.",
+ "start": "2026-11-16",
+ "calendar": {
+  "workdays": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "holidays": []
+ },
+ "capacity_days_per_week": {
+  "dev": 5,
+  "analyst": 5
+ },
+ "activities": [
+  {
+   "id": "S1",
+   "name": "Spec: project register and study-trigger rules",
+   "duration_days": 3,
+   "owner": "analyst",
+   "effort_days": 3
+  },
+  {
+   "id": "S2",
+   "name": "Read lifecycle rules and operator sources for triggers",
+   "duration_days": 4,
+   "owner": "analyst",
+   "effort_days": 4,
+   "predecessors": [
+    "S1"
+   ]
+  },
+  {
+   "id": "A1",
+   "name": "project_register module and tests",
+   "duration_days": 4,
+   "owner": "dev",
+   "effort_days": 4,
+   "predecessors": [
+    "S1"
+   ]
+  },
+  {
+   "id": "A2",
+   "name": "study_trigger rules and tests",
+   "duration_days": 4,
+   "owner": "dev",
+   "effort_days": 4,
+   "predecessors": [
+    "A1",
+    "S2"
+   ]
+  },
+  {
+   "id": "A3",
+   "name": "Study-demand roll-up and capacity link",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "A2"
+   ]
+  },
+  {
+   "id": "A4",
+   "name": "Tool wiring, examples, scenarios",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "A3"
+   ]
+  },
+  {
+   "id": "A5",
+   "name": "Docs, changelog, gates",
+   "duration_days": 2,
+   "owner": "dev",
+   "effort_days": 2,
+   "predecessors": [
+    "A4"
+   ]
+  },
+  {
+   "id": "R1",
+   "name": "Domain review of register data and rules",
+   "duration_days": 2,
+   "owner": "analyst",
+   "effort_days": 2,
+   "predecessors": [
+    "A3"
+   ]
+  },
+  {
+   "id": "MS0",
+   "name": "Milestone: register and triggers ready",
+   "duration_days": 0,
+   "predecessors": [
+    "A5",
+    "R1"
+   ]
+  },
+  {
+   "id": "B1",
+   "name": "Gulf bid mechanics: fields and checks (M1)",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "MS0"
+   ]
+  },
+  {
+   "id": "B2",
+   "name": "Eligibility checker (M2)",
+   "duration_days": 4,
+   "owner": "dev",
+   "effort_days": 4,
+   "predecessors": [
+    "B1"
+   ]
+  },
+  {
+   "id": "B3",
+   "name": "Bid compliance matrix (M5)",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "B2"
+   ]
+  },
+  {
+   "id": "B4",
+   "name": "Wiring, scenarios, docs for bid tools",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "B3"
+   ]
+  },
+  {
+   "id": "MS1",
+   "name": "Milestone: bid tools ready",
+   "duration_days": 0,
+   "predecessors": [
+    "B4"
+   ]
+  },
+  {
+   "id": "C1",
+   "name": "WBS templates by study type (M3)",
+   "duration_days": 3,
+   "owner": "dev",
+   "effort_days": 3,
+   "predecessors": [
+    "MS1"
+   ]
+  },
+  {
+   "id": "C2",
+   "name": "P&ID register to HAZOP nodes to WBS (M4)",
+   "duration_days": 5,
+   "owner": "dev",
+   "effort_days": 5,
+   "predecessors": [
+    "C1"
+   ]
+  },
+  {
+   "id": "C3",
+   "name": "Gates, changelog, release",
+   "duration_days": 2,
+   "owner": "dev",
+   "effort_days": 2,
+   "predecessors": [
+    "C2"
+   ]
+  },
+  {
+   "id": "MS2",
+   "name": "Milestone: build-now scope complete",
+   "duration_days": 0,
+   "predecessors": [
+    "C3"
+   ]
+  },
+  {
+   "id": "G0",
+   "name": "Gate: standards and criteria documents in hand",
+   "duration_days": 0,
+   "start_no_earlier": "2027-01-04"
+  },
+  {
+   "id": "G1",
+   "name": "Gulf QRA criteria set and contour-confinement check",
+   "duration_days": 6,
+   "owner": "dev",
+   "effort_days": 6,
+   "predecessors": [
+    "G0",
+    "MS2"
+   ]
+  },
+  {
+   "id": "G2",
+   "name": "PSV staggered set-point review",
+   "duration_days": 5,
+   "owner": "dev",
+   "effort_days": 5,
+   "predecessors": [
+    "G1"
+   ]
+  },
+  {
+   "id": "G3",
+   "name": "Risk-based inspection screening",
+   "duration_days": 6,
+   "owner": "dev",
+   "effort_days": 6,
+   "predecessors": [
+    "G2"
+   ]
+  },
+  {
+   "id": "G4",
+   "name": "Pipeline QRA screening for long gas lines",
+   "duration_days": 8,
+   "owner": "dev",
+   "effort_days": 8,
+   "predecessors": [
+    "G3"
+   ]
+  },
+  {
+   "id": "MS3",
+   "name": "Milestone: gated scope complete",
+   "duration_days": 0,
+   "predecessors": [
+    "G4"
+   ]
+  }
+ ]
+}

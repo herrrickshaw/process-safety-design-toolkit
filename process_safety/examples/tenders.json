@@ -1,0 +1,127 @@
+{
+ "_note": "Illustrative placeholder inputs, not data: every duration, effort, cost, value, probability, weight and date below is an example to be replaced.",
+ "today": "2026-11-09",
+ "horizon_days": 45,
+ "stage_probability": {
+  "identified": 0.1,
+  "qualifying": 0.2,
+  "bid": 0.4,
+  "submitted": 0.5
+ },
+ "bid": {
+  "weights": {
+   "fit": 3,
+   "margin": 2,
+   "capacity": 2,
+   "relationship": 1
+  },
+  "scale_max": 5,
+  "bid_threshold": 0.7,
+  "review_threshold": 0.5
+ },
+ "tenders": [
+  {
+   "id": "T-001",
+   "client": "Client A",
+   "title": "HAZOP of LPG terminal expansion",
+   "service": "HAZOP",
+   "stage": "bid",
+   "value": 800000,
+   "published": "2026-10-20",
+   "clarification_deadline": "2026-11-12",
+   "submission_deadline": "2026-11-20",
+   "award_expected": "2026-12-20",
+   "start_expected": "2027-01-11",
+   "scores": {
+    "fit": 5,
+    "margin": 3,
+    "capacity": 3,
+    "relationship": 4
+   },
+   "source": "example list"
+  },
+  {
+   "id": "T-002",
+   "client": "Client B",
+   "title": "QRA for tank farm",
+   "service": "QRA",
+   "stage": "submitted",
+   "value": 1500000,
+   "submission_deadline": "2026-10-28",
+   "award_expected": "2026-11-05"
+  },
+  {
+   "id": "T-003",
+   "client": "Client C",
+   "title": "PHA revalidation, unit 4",
+   "service": "HAZOP",
+   "stage": "won",
+   "value": 600000,
+   "start_expected": "2026-11-23"
+  },
+  {
+   "id": "T-004",
+   "client": "Client D",
+   "title": "SIL verification",
+   "service": "SIL",
+   "stage": "lost",
+   "value": 400000
+  },
+  {
+   "id": "T-005",
+   "client": "Client E",
+   "title": "Process safety audit",
+   "service": "Audit",
+   "stage": "identified",
+   "value": 300000,
+   "submission_deadline": "2026-11-02",
+   "scores": {
+    "fit": 2,
+    "margin": 2,
+    "capacity": 1,
+    "relationship": 1
+   }
+  }
+ ],
+ "intake": {
+  "rules": {
+   "services": {
+    "HAZOP": [
+     "hazop",
+     "hazard and operability"
+    ],
+    "QRA": [
+     "quantitative risk assessment",
+     "qra"
+    ],
+    "SIL": [
+     "sil verification",
+     "lopa"
+    ]
+   },
+   "include": [
+    "process safety"
+   ],
+   "exclude": [
+    "catering"
+   ]
+  },
+  "items": [
+   {
+    "title": "Invitation to tender: HAZOP and LOPA for gas plant",
+    "text": "",
+    "source": "pasted list"
+   },
+   {
+    "title": "Catering services for refinery",
+    "text": "",
+    "source": "pasted list"
+   },
+   {
+    "title": "Road resurfacing",
+    "text": "",
+    "source": "pasted list"
+   }
+  ]
+ }
+}
