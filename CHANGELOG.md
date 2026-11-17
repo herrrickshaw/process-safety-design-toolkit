@@ -1,5 +1,17 @@
 # Changelog (decisions, including rejected alternatives)
 
+## 0.9.0 - 2026-11-05: iFluids service map and data-centre helpers
+* New: `datacentre` (PUE, cooling-water balance, evaporative water, UPS battery and diesel sizing, N/N+1/2N availability, generic HAZID
+  prompts), CLI `datacentre`, docs/DATACENTRE.md, docs/IFLUIDS_SERVICES.md (brochure services mapped to modules, with gaps), eight new
+  entries in the coverage map (three implemented, five marked not implemented). 7 new tests.
+* Built from the iFluids Engineering brochure service list, because data centres reuse the same disciplines: hydraulics, power
+  system studies, fire and risk. No iFluids data-centre project is claimed.
+* Rejected: Uptime tier availability percentages, ASHRAE envelopes and NFPA 2001/75 design values as defaults (documents not read;
+  remembered numbers could be wrong). Diesel specific fuel consumption has no default, since it is vendor data. A common-cause factor was
+  left out rather than invented, so availability is optimistic and says so.
+* Checked: the evaporative water formula reproduces a hand calculation (1.46 L evaporated, 2.19 L at 3 cycles); cooling-water flow
+  satisfies the energy balance in both directions.
+
 ## 0.8.0 - 2026-11-05: consultancy study tools (bow-tie, OBRA, emergency zones, SIL lifecycle, F&G, PHA, thermal/ATEX, RAM)
 * New: `bowtie`, `qra.buildings`, `qra.emergency`, `sil_lifecycle`, `fg_mapping`, `pha`, `thermal_runaway`, `atex`, `ram`, `tools` runner,
   CLI `tool` and `qra buildings|emergency`; worked examples in `process_safety/examples/`; docs/STUDIES.md. 166 tests (24 new).

@@ -1,4 +1,4 @@
-"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|rmp-check|rmp-worst|lng|lpg|h2o2|arc-flash|idmt|noise|safeguard|earthing|flare|lopa|pfd|fireball|qra|coverage> ..."""
+"""CLI: python -m process_safety <relief-gas|relief-steam|relief-liquid|relief-fire|tank-normal|tank-fire|vapour-fire|plume|blowdown|hazop-csv|pool-fire|depressure|steel-fire|psm-check|psm-due|seveso|pipeline|rmp-check|rmp-worst|lng|lpg|h2o2|arc-flash|idmt|noise|safeguard|earthing|datacentre|flare|lopa|pfd|fireball|qra|coverage> ..."""
 from __future__ import annotations
 
 import argparse
@@ -8,7 +8,7 @@ import sys
 
 import datetime as _dt
 
-from . import depressuring, dispersion, electrical, fireball, flare, hazop, lng, lpg, mah, mechanical_safety, noise, pipeline, plant_units, pool_fire, props, psm, relief, release, rmp, sil, standards, structural_fire, tank_venting, vapour_fire
+from . import datacentre, depressuring, dispersion, electrical, fireball, flare, hazop, lng, lpg, mah, mechanical_safety, noise, pipeline, plant_units, pool_fire, props, psm, relief, release, rmp, sil, standards, structural_fire, tank_venting, vapour_fire
 
 
 def _out(obj):
@@ -162,6 +162,12 @@ def main(argv=None):
     er = s.add_parser("earthing", help="IEEE 80 tolerable touch and step voltages (50 and 70 kg)")
     er.add_argument("--rho-s", type=float, required=True, help="surface layer resistivity ohm-m"); er.add_argument("--t", type=float, required=True, help="fault duration s")
     er.add_argument("--rho", type=float, help="underlying soil resistivity (with --hs for the Cs derating)"); er.add_argument("--hs", type=float, help="surface layer thickness m")
+
+    dcp = s.add_parser("datacentre", help="data-centre screening: PUE, cooling-water flow, UPS battery energy, diesel storage (supply only the inputs you have)")
+    dcp.add_argument("--it-kw", type=float, required=True); dcp.add_argument("--facility-kw", type=float); dcp.add_argument("--delta-t", type=float, help="cooling water dT, K")
+    dcp.add_argument("--heat-kw", type=float, help="heat to remove (default: IT load)"); dcp.add_argument("--autonomy-min", type=float)
+    dcp.add_argument("--battery-eff", type=float, default=0.95); dcp.add_argument("--battery-dod", type=float, default=0.8)
+    dcp.add_argument("--gen-hours", type=float); dcp.add_argument("--gen-load-kw", type=float); dcp.add_argument("--sfc", type=float, help="specific fuel consumption, g/kWh (vendor data)")
 
     fl = s.add_parser("flare", help="API 521 point-source radiation")
     fl.add_argument("--mass", type=float, required=True, help="kg/s")
@@ -346,6 +352,10 @@ def main(argv=None):
         _out({**b, "distance_to_kW_m2": {str(k): fireball.distance_to_flux_m(b, k) for k in (37.5, 12.5, 4.0)}})
     elif a.cmd == "qra":
         return _qra(a)
+    elif a.cmd == "datacentre":
+        if a.gen_hours is not None and not a.sfc:
+            p.error("--gen-hours needs --sfc (vendor data, no default)")
+        _out(datacentre.summary(a.it_kw, a.facility_kw, a.delta_t, a.heat_kw, a.autonomy_min, a.battery_eff, a.battery_dod, a.gen_load_kw, a.gen_hours, a.sfc))
     elif a.cmd == "tool":
         return _tool(a)
     elif a.cmd == "coverage":

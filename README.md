@@ -65,6 +65,7 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `thermal_runaway` | TMRad, TD24, Stoessel criticality class, Semenov critical ambient | Stoessel (TUV SUD lecture examples reproduced) | zero-order kinetics |
 | `atex` | KSt class, zone by grade, EPL / ATEX category, FIBC screening, EPD register | KSt classes (read) | no zone extent, no vent sizing |
 | `ram` | Monte Carlo RAM with k-of-n stages, analytic check, criticality, sample-first run planning | binomial availability identity | unlimited crews |
+| `datacentre` | PUE, cooling-water flow, evaporative water per kWh, UPS battery energy, diesel storage, N+1/2N availability, generic data-centre HAZID prompts | energy balance and first principles | no tier/ASHRAE/NFPA values coded; see `docs/DATACENTRE.md` |
 | `standards` | Topic coverage map + OISD list (105 standards, titles/editions from oisd.gov.in, 2026-09-21) | OISD | list verified, contents not read |
 
 ## Industries
@@ -88,6 +89,7 @@ python3 -m process_safety psm-due --pha 2021-03-15 --audit 2023-06-01 --today 20
 python3 -m process_safety seveso Chlorine:H=6 "Hydrogen sulphide:H=3"
 python3 -m process_safety pipeline --smys 448 --wall 12.7 --od 610 --buildings 25
 python3 -m process_safety rmp-check chlorine --kg 1200
+python3 -m process_safety datacentre --it-kw 10000 --facility-kw 13000 --delta-t 8 --autonomy-min 10 --gen-hours 48 --sfc 210
 python3 -m process_safety rmp-worst propane --kg 20000 --hc 46.3
 python3 -m process_safety lng --tanks 160000 --heat-kw 100 --regas-kg-s 100
 python3 -m process_safety lpg propane --fill-C 15 --max-C 50
@@ -119,6 +121,8 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 
 ## Docs
 * `docs/STUDIES.md`: bow-tie, occupied buildings, emergency zones/MCLS, SIL lifecycle, F&G mapping, PHA management, thermal runaway/ATEX, RAM.
+* `docs/IFLUIDS_SERVICES.md`: the iFluids Engineering brochure service list mapped to modules, with what is not covered.
+* `docs/DATACENTRE.md`: data-centre helpers, inputs, and what is deliberately not coded.
 * `docs/QRA.md`: the QRA workflow, study file format, models and their limits, worked example results.
 * `docs/RELATED_PROJECTS.md`: other open-source process-safety and engineering projects found on GitHub, with licences and how each relates to this toolkit.
 * `docs/ELECTRICAL_MECHANICAL.md`: electrical and mechanical safety scope, which formulas were read versus corroborated, and the limits.
