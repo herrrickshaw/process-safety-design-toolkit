@@ -61,6 +61,7 @@ class Seveso:
 
 @command("pipeline", "49 CFR 192 design pressure and potential impact radius (natural gas)")
 class Pipeline:
+    units = {"joint": "-"}
     ranges = {"smys": "smys_MPa", "wall": "wall_mm", "od": "diameter_mm", "temp": "temperature_C"}
 
     @staticmethod

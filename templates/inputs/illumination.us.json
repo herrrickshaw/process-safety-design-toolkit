@@ -1,0 +1,81 @@
+{
+  "command": "illumination",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "area": null,
+    "flux": null,
+    "uf": null,
+    "mf": null,
+    "target": null,
+    "count": null
+  },
+  "_guide": {
+    "area": {
+      "flag": "--area",
+      "required": true,
+      "type": "float",
+      "unit": "ft2",
+      "help": "floor area, m2",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.076391,
+        "soft_max": 1076391.041671
+      }
+    },
+    "flux": {
+      "flag": "--flux",
+      "required": true,
+      "type": "float",
+      "unit": "lm",
+      "help": "lumens per luminaire (datasheet)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200000
+      }
+    },
+    "uf": {
+      "flag": "--uf",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "utilisation factor from the photometric table",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "mf": {
+      "flag": "--mf",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "maintenance factor",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "target": {
+      "flag": "--target",
+      "required": false,
+      "type": "float",
+      "unit": "fc",
+      "help": "target illuminance, lux: give the luminaires needed",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.092903,
+        "soft_max": 464.5152
+      }
+    },
+    "count": {
+      "flag": "--count",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": "existing luminaire count: give the lux achieved"
+    }
+  }
+}

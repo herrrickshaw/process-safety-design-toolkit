@@ -1,0 +1,42 @@
+{
+  "command": "rmp-check",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "substance": null,
+    "kg": null,
+    "weight_fraction": 1.0
+  },
+  "_guide": {
+    "substance": {
+      "flag": "(positional)",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "kg": {
+      "flag": "--kg",
+      "required": true,
+      "type": "float",
+      "unit": "kg",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 10000000000
+      }
+    },
+    "weight_fraction": {
+      "flag": "--weight-fraction",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    }
+  }
+}

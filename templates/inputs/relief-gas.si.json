@@ -1,0 +1,136 @@
+{
+  "command": "relief-gas",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "W": null,
+    "T": null,
+    "set_g": null,
+    "back_g": 0.0,
+    "case": "single_non_fire",
+    "M": null,
+    "k": null,
+    "Z": 1.0,
+    "Kb": 1.0,
+    "Kc": 1.0
+  },
+  "_guide": {
+    "W": {
+      "flag": "--W",
+      "required": true,
+      "type": "float",
+      "unit": "kg/h",
+      "help": "required relieving rate kg/h",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 5000000
+      }
+    },
+    "T": {
+      "flag": "--T",
+      "required": true,
+      "type": "float",
+      "unit": "K",
+      "help": "relieving temperature K",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 50,
+        "soft_max": 3000
+      }
+    },
+    "set_g": {
+      "flag": "--set-g",
+      "required": true,
+      "type": "float",
+      "unit": "kPag",
+      "help": "set pressure kPag",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 7,
+        "soft_max": 40000
+      }
+    },
+    "back_g": {
+      "flag": "--back-g",
+      "required": false,
+      "type": "float",
+      "unit": "kPag",
+      "help": "total back pressure kPag",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 5000
+      }
+    },
+    "case": {
+      "flag": "--case",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "single_non_fire",
+        "multiple_non_fire",
+        "fire"
+      ]
+    },
+    "M": {
+      "flag": "--M",
+      "required": true,
+      "type": "float",
+      "unit": "kg/kmol",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2,
+        "soft_max": 500
+      }
+    },
+    "k": {
+      "flag": "--k",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "Cp/Cv",
+      "range": {
+        "hard_min": 1.0,
+        "soft_max": 1.67
+      }
+    },
+    "Z": {
+      "flag": "--Z",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.2,
+        "soft_max": 1.5
+      }
+    },
+    "Kb": {
+      "flag": "--Kb",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    },
+    "Kc": {
+      "flag": "--Kc",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "0.9 if rupture disk upstream",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    }
+  }
+}

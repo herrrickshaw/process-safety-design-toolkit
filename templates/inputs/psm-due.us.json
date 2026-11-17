@@ -1,0 +1,49 @@
+{
+  "command": "psm-due",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "pha": null,
+    "procedures": null,
+    "training": null,
+    "audit": null,
+    "today": null
+  },
+  "_guide": {
+    "pha": {
+      "flag": "--pha",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "last done YYYY-MM-DD"
+    },
+    "procedures": {
+      "flag": "--procedures",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "last done YYYY-MM-DD"
+    },
+    "training": {
+      "flag": "--training",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "last done YYYY-MM-DD"
+    },
+    "audit": {
+      "flag": "--audit",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "last done YYYY-MM-DD"
+    },
+    "today": {
+      "flag": "--today",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    }
+  }
+}

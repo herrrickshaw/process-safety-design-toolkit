@@ -21,6 +21,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Unit tests (stdlib only, includes CLI golden outputs and generated-docs sync)
         run: python -m unittest discover tests -v
+      - name: Scenario suite (SI and US runs, oracles, metamorphic checks)
+        run: python scripts/run_scenarios.py --check
+      - name: Generated input templates in sync
+        run: python scripts/gen_input_templates.py
       - name: Smoke test the installed entry point
         run: |
           pip install .
@@ -46,10 +50,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install fluids thermo CoolProp scipy
+      - run: pip install fluids thermo CoolProp scipy openpytea
       - run: python tests/crosscheck/validate.py --json crosscheck-results.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: crosscheck-results
           path: crosscheck-results.json
+
+  octave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GNU Octave
+        run: sudo apt-get update && sudo apt-get install -y octave
+      - name: MATLAB/Octave tools, identity tests
+        run: octave-cli --eval "addpath('matlab'); ps_run_tests"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Octave versus Python models
+        run: python -m unittest tests.test_matlab -v

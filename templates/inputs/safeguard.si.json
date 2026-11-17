@@ -1,0 +1,34 @@
+{
+  "command": "safeguard",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "stop_s": null,
+    "d_mm": null
+  },
+  "_guide": {
+    "stop_s": {
+      "flag": "--stop-s",
+      "required": true,
+      "type": "float",
+      "unit": "s",
+      "help": "total stopping time incl. response, s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "d_mm": {
+      "flag": "--d-mm",
+      "required": true,
+      "type": "float",
+      "unit": "mm",
+      "help": "detection capability mm",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 6,
+        "soft_max": 3000
+      }
+    }
+  }
+}

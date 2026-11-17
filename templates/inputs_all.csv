@@ -1,0 +1,261 @@
+command,parameter,flag,required,type,default,unit_si,unit_us,hard_min_si,hard_max_si,soft_min_si,soft_max_si,hard_min_us,hard_max_us,soft_min_us,soft_max_us,choices,help
+arc-flash,kv,--kv,yes,float,,kV,kV,0.0,,0.1,800,0.0,,0.1,800,,
+arc-flash,ka,--ka,yes,float,,kA,kA,0.0,,0.5,106,0.0,,0.5,106,,
+arc-flash,t,--t,yes,float,,s,s,0.0,,,86400,0.0,,,86400,,
+arc-flash,dist_mm,--dist-mm,yes,float,,mm,in,0.0,,6,3000,0.0,,0.23622,118.110236,,
+arc-flash,phases,--phases,,int,3,,,,,,,,,,,,
+arc-flash,enclosed,--enclosed,,flag,,,,,,,,,,,,,
+idmt,i,--i,yes,float,,A,A,0.0,,,200000,0.0,,,200000,,fault current A
+idmt,pickup,--pickup,yes,float,,A,A,0.0,,,200000,0.0,,,200000,,
+idmt,tms,--tms,yes,float,,-,-,0.0,,0.025,1.5,0.0,,0.025,1.5,,
+idmt,curve,--curve,,str,standard_inverse,,,,,,,,,,,standard_inverse very_inverse extremely_inverse long_time_inverse,
+noise,items,(positional),yes,str list,,,,,,,,,,,,,
+safeguard,stop_s,--stop-s,yes,float,,s,s,0.0,,,86400,0.0,,,86400,,"total stopping time incl. response, s"
+safeguard,d_mm,--d-mm,yes,float,,mm,in,0.0,,6,3000,0.0,,0.23622,118.110236,,detection capability mm
+earthing,rho_s,--rho-s,yes,float,,ohm m,ohm m,0.0,,1,10000,0.0,,1,10000,,surface layer resistivity ohm-m
+earthing,t,--t,yes,float,,s,s,0.0,,,86400,0.0,,,86400,,fault duration s
+earthing,rho,--rho,,float,,ohm m,ohm m,0.0,,1,10000,0.0,,1,10000,,underlying soil resistivity (with --hs for the Cs derating)
+earthing,hs,--hs,,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,surface layer thickness m
+datacentre,it_kw,--it-kw,yes,float,,kW,kW,0.0,,,10000000,0.0,,,10000000,,
+datacentre,facility_kw,--facility-kw,,float,,kW,kW,0.0,,,10000000,0.0,,,10000000,,
+datacentre,delta_t,--delta-t,,float,,dK,dF,0.0,,1,50,0.0,,1.8,90.0,,"cooling water dT, K"
+datacentre,heat_kw,--heat-kw,,float,,kW,kW,0.0,,,10000000,0.0,,,10000000,,heat to remove (default: IT load)
+datacentre,autonomy_min,--autonomy-min,,float,,min,min,,,,,,,,,,
+datacentre,battery_eff,--battery-eff,,float,0.95,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+datacentre,battery_dod,--battery-dod,,float,0.8,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+datacentre,gen_hours,--gen-hours,,float,,h,h,,,,,,,,,,
+datacentre,gen_load_kw,--gen-load-kw,,float,,kW,kW,0.0,,,10000000,0.0,,,10000000,,
+datacentre,sfc,--sfc,,float,,g/kWh,g/kWh,0.0,,150,350,0.0,,150,350,,"specific fuel consumption, g/kWh (vendor data)"
+egress,distance,--distance,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,"travel distance to a place of safety, m"
+egress,speed,--speed,yes,float,,m/s,ft/s,0.0,,,3.0,0.0,,,9.84252,,"walking speed, m/s (from the study basis, no default)"
+egress,people,--people,yes,int,,,,,,,,,,,,,
+egress,width,--width,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,"effective width of the narrowest exit, m"
+egress,specific_flow,--specific-flow,yes,float,,persons/m/s,persons/m/s,0.0,,,3.0,0.0,,,3.0,,persons per metre of width per second (no default)
+egress,detect_s,--detect-s,yes,float,,s,s,0.0,,,86400,0.0,,,86400,,"time to detect and raise the alarm, s"
+egress,premove_s,--premove-s,yes,float,,s,s,0.0,,,86400,0.0,,,86400,,"recognition and response time before moving, s"
+egress,aset_s,--aset-s,,float,,s,s,0.0,,,86400,0.0,,,86400,,"available safe egress time from the fire or toxic study, s (adds the margin)"
+illumination,area,--area,yes,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,"floor area, m2"
+illumination,flux,--flux,yes,float,,lm,lm,0.0,,,200000,0.0,,,200000,,lumens per luminaire (datasheet)
+illumination,uf,--uf,yes,float,,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,utilisation factor from the photometric table
+illumination,mf,--mf,yes,float,,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,maintenance factor
+illumination,target,--target,,float,,lux,fc,0.0,,1,5000,0.0,,0.092903,464.5152,,"target illuminance, lux: give the luminaires needed"
+illumination,count,--count,,int,,,,,,,,,,,,,existing luminaire count: give the lux achieved
+vapour-fire,volume,--volume,yes,float,,m3,ft3,0.0,,0.001,500000,0.0,,0.035315,17657333.360744,,
+vapour-fire,area,--area,yes,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,
+vapour-fire,D,--D,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,
+vapour-fire,wall_mm,--wall-mm,yes,float,,mm,in,0.0,,1,100,0.0,,0.03937,3.937008,,
+vapour-fire,M,--M,yes,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,
+vapour-fire,k,--k,yes,float,,-,-,1.0,,,1.67,1.0,,,1.67,,
+vapour-fire,p0_g,--p0-g,yes,float,,kPag,psig,,,,,,,,,,
+vapour-fire,q,--q,,float,100.0,kW/m2,Btu/h/ft2,0.0,,10,400,0.0,,3169.983306,126799.332251,,"absorbed flux kW/m2 (pool ~100, jet ~250: verify)"
+vapour-fire,psv_area,--psv-area,,float,0.0,mm2,in2,0.0,,,1000000,0.0,,,1550.0031,,mm2
+vapour-fire,psv_set_g,--psv-set-g,,float,,kPag,psig,0.0,,7,40000,0.0,,1.015264,5801.509509,,
+vapour-fire,bdv_area,--bdv-area,,float,0.0,mm2,in2,0.0,,,1000000,0.0,,,1550.0031,,mm2
+vapour-fire,bdv_open_s,--bdv-open-s,,float,900.0,s,s,0.0,,,86400,0.0,,,86400,,
+vapour-fire,strength,--strength,,float,260.0,MPa,ksi,,,,,,,,,,MPa (min yield; conservative)
+vapour-fire,h_in,--h-in,,float,20.0,W/m2K,Btu/h/ft2/degF,,,,,,,,,,
+vapour-fire,t_end,--t-end,,float,3600.0,s,s,0.0,,,86400,0.0,,,86400,,
+plume,Q,--Q,yes,float,,g/s,lb/h,0.0,,,10000000,0.0,,,79366414.386556,,release g/s
+plume,u,--u,,float,3.0,m/s,ft/s,0.0,,0.5,25,0.0,,1.64042,82.020997,,
+plume,H,--H,,float,0.0,m,ft,0.0,,,200,0.0,,,656.167979,,effective release height m
+plume,stability,--stability,,str,D,,,,,,,,,,,,
+plume,threshold_ppm,--threshold-ppm,,float,,ppm,ppm,0.0,,0.01,1000000,0.0,,0.01,1000000,,
+plume,M,--M,,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,molar mass for ppm conversion
+pool-fire,area,--area,yes,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,
+pool-fire,hc,--hc,yes,float,,kJ/kg,Btu/lb,0.0,,1000,150000,0.0,,429.922614,64488.392089,,
+pool-fire,hv,--hv,yes,float,,kJ/kg,Btu/lb,0.0,,50,2500,0.0,,21.496131,1074.806535,,
+pool-fire,cp,--cp,yes,float,,kJ/kg/K,Btu/lb/degF,0.0,,0.5,10,0.0,,0.119423,2.388459,,
+pool-fire,tb,--tb,yes,float,,K,degF,0.0,,50,3000,-459.67,,-369.67,4940.33,,
+pool-fire,fraction,--fraction,,float,0.25,-,-,0.0,1.0,,,0.0,1.0,,,,
+steel-fire,am_v,--am-v,yes,float,,1/m,1/ft,0.0,,10,500,0.0,,3.048,152.4,,section factor Am/V 1/m
+steel-fire,crit,--crit,,float,550.0,degC,degF,-273.15,,-200,800,-459.67,,-328.0,1472.0,,
+steel-fire,minutes,--minutes,,float,120.0,min,min,0.0,,,1440,0.0,,,1440,,
+steel-fire,iso,--iso,,flag,,,,,,,,,,,,,use ISO 834 instead of the hydrocarbon curve
+fireball,mass,--mass,yes,float,,kg,lb,0.0,,,10000000000,0.0,,,22046226218.48776,,kg
+fireball,hc,--hc,yes,float,,MJ/kg,Btu/lb,0.0,,1,150,0.0,,429.922614,64488.392089,,MJ/kg
+fireball,fraction,--fraction,,float,0.3,-,-,0.0,1.0,,,0.0,1.0,,,,
+flame-flux,width,--width,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,flame face width m
+flame-flux,height,--height,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,flame face height m
+flame-flux,distance,--distance,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,"target to flame plane, m"
+flame-flux,offset,--offset,,float,0.0,m,ft,,,,,,,,,,"lateral offset of the flame centre from the target, m"
+flame-flux,base,--base,,float,0.0,m,ft,0.0,,,200,0.0,,,656.167979,,"flame base height above the target, m"
+flame-flux,sep,--sep,yes,float,,kW/m2,Btu/h/ft2,0.0,,20,400,0.0,,6339.966613,126799.332251,,surface emissive power kW/m2 (e.g. from pool-fire)
+flame-flux,tau,--tau,,float,1.0,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+flame-flux,n,--n,,int,200,,,,,,,,,,,,integration cells per side
+psm-check,chemical,--chemical,,str,,,,,,,,,,,,,name or CAS
+psm-check,kg,--kg,yes,float,,kg,lb,0.0,,,10000000000,0.0,,,22046226218.48776,,
+psm-check,flammable,--flammable,,flag,,,,,,,,,,,,,
+psm-check,workplace_fuel,--workplace-fuel,,flag,,,,,,,,,,,,,
+psm-check,atmospheric_below_bp,--atmospheric-below-bp,,flag,,,,,,,,,,,,,
+psm-due,pha,--pha,,str,,,,,,,,,,,,,last done YYYY-MM-DD
+psm-due,procedures,--procedures,,str,,,,,,,,,,,,,last done YYYY-MM-DD
+psm-due,training,--training,,str,,,,,,,,,,,,,last done YYYY-MM-DD
+psm-due,audit,--audit,,str,,,,,,,,,,,,,last done YYYY-MM-DD
+psm-due,today,--today,,str,,,,,,,,,,,,,
+seveso,items,(positional),yes,str list,,,,,,,,,,,,,
+pipeline,smys,--smys,yes,float,,MPa,ksi,0.0,,100,900,0.0,,14.503774,130.533964,,MPa
+pipeline,wall,--wall,yes,float,,mm,in,0.0,,1,100,0.0,,0.03937,3.937008,,mm
+pipeline,od,--od,yes,float,,mm,in,0.0,,10,2000,0.0,,0.393701,78.740157,,mm
+pipeline,class_location,--class-location,,int,1,,,,,,,,,,,,
+pipeline,joint,--joint,,float,1.0,-,-,,,,,,,,,,
+pipeline,temp,--temp,,float,20.0,degC,degF,-273.15,,-200,800,-459.67,,-328.0,1472.0,,
+pipeline,buildings,--buildings,,int,0,,,,,,,,,,,,
+rmp-check,substance,(positional),yes,str,,,,,,,,,,,,,
+rmp-check,kg,--kg,yes,float,,kg,lb,0.0,,,10000000000,0.0,,,22046226218.48776,,
+rmp-check,weight_fraction,--weight-fraction,,float,1.0,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+rmp-worst,substance,(positional),yes,str,,,,,,,,,,,,,
+rmp-worst,kg,--kg,yes,float,,kg,lb,0.0,,,10000000000,0.0,,,22046226218.48776,,
+rmp-worst,hc,--hc,,float,,MJ/kg,Btu/lb,0.0,,1,150,0.0,,429.922614,64488.392089,,heat of combustion MJ/kg (flammables)
+lng,tanks,--tanks,yes,float list,,m3,ft3,0.0,,0.001,500000,0.0,,0.035315,17657333.360744,,tank capacities m3
+lng,surge,--surge,,flag,,,,,,,,,,,,,
+lng,heat_kw,--heat-kw,,float,,kW,kW,0.0,,,10000000,0.0,,,10000000,,heat ingress kW (boil-off)
+lng,regas_kg_s,--regas-kg-s,,float,,kg/s,lb/s,0.0,,,10000,0.0,,,22046.226218,,
+lng,sw_dT,--sw-dT,,float,5.0,dK,dF,0.0,,1,50,0.0,,1.8,90.0,,
+lpg,component,(positional),yes,str,,,,,,,,,,,,,
+lpg,fill_C,--fill-C,,float,15.0,degC,degF,-273.15,,-200,800,-459.67,,-328.0,1472.0,,
+lpg,max_C,--max-C,,float,50.0,degC,degF,-273.15,,-200,800,-459.67,,-328.0,1472.0,,
+h2o2,kg_h,--kg-h,yes,float,,kg/h,lb/h,0.0,,,5000000,0.0,,,11023113.109244,,"pure H2O2 decomposing, kg/h"
+relief-gas,W,--W,yes,float,,kg/h,lb/h,0.0,,,5000000,0.0,,,11023113.109244,,required relieving rate kg/h
+relief-gas,T,--T,yes,float,,K,degF,0.0,,50,3000,-459.67,,-369.67,4940.33,,relieving temperature K
+relief-gas,set_g,--set-g,yes,float,,kPag,psig,0.0,,7,40000,0.0,,1.015264,5801.509509,,set pressure kPag
+relief-gas,back_g,--back-g,,float,0.0,kPag,psig,0.0,,,5000,0.0,,,725.188689,,total back pressure kPag
+relief-gas,case,--case,,str,single_non_fire,,,,,,,,,,,single_non_fire multiple_non_fire fire,
+relief-gas,M,--M,yes,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,
+relief-gas,k,--k,yes,float,,-,-,1.0,,,1.67,1.0,,,1.67,,Cp/Cv
+relief-gas,Z,--Z,,float,1.0,-,-,0.0,,0.2,1.5,0.0,,0.2,1.5,,
+relief-gas,Kb,--Kb,,float,1.0,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+relief-gas,Kc,--Kc,,float,1.0,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,0.9 if rupture disk upstream
+relief-steam,W,--W,yes,float,,kg/h,lb/h,0.0,,,5000000,0.0,,,11023113.109244,,
+relief-steam,set_g,--set-g,yes,float,,kPag,psig,0.0,,7,40000,0.0,,1.015264,5801.509509,,
+relief-steam,case,--case,,str,single_non_fire,,,,,,,,,,,single_non_fire multiple_non_fire fire,
+relief-steam,Ksh,--Ksh,,float,1.0,-,-,0.0,,,,0.0,,,,,
+relief-liquid,Q,--Q,yes,float,,m3/h,gpm,0.0,,,100000,0.0,,,440286.75393,,m3/h
+relief-liquid,rho,--rho,yes,float,,kg/m3,lb/ft3,0.0,,0.05,2500,0.0,,0.003121,156.069901,,
+relief-liquid,set_g,--set-g,yes,float,,kPag,psig,0.0,,7,40000,0.0,,1.015264,5801.509509,,
+relief-liquid,back_g,--back-g,,float,0.0,kPag,psig,0.0,,,5000,0.0,,,725.188689,,
+relief-liquid,mu,--mu,,float,1.0,cP,cP,0.0,,0.005,10000,0.0,,0.005,10000,,cP
+relief-fire,wetted_area,--wetted-area,,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,m2 (else give vessel geometry)
+relief-fire,D,--D,,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,
+relief-fire,L,--L,,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,
+relief-fire,level,--level,,float,,m,ft,0.0,,,200,0.0,,,656.167979,,
+relief-fire,orientation,--orientation,,str,horizontal,,,,,,,,,,,horizontal vertical,
+relief-fire,elevation,--elevation,,float,0.0,m,ft,0.0,,,200,0.0,,,656.167979,,
+relief-fire,latent,--latent,yes,float,,kJ/kg,Btu/lb,0.0,,50,2500,0.0,,21.496131,1074.806535,,latent heat kJ/kg at relieving conditions
+relief-fire,F,--F,,float,1.0,-,-,0.0,1.0,0.03,,0.0,1.0,0.03,,,
+relief-fire,no_drainage,--no-drainage,,flag,,,,,,,,,,,,,
+tank-normal,volume,--volume,yes,float,,m3,ft3,0.0,,0.001,500000,0.0,,0.035315,17657333.360744,,tank capacity m3
+tank-normal,fill,--fill,,float,0.0,m3/h,gpm,0.0,,,100000,0.0,,,440286.75393,,max filling rate m3/h
+tank-normal,empty,--empty,,float,0.0,m3/h,gpm,0.0,,,100000,0.0,,,440286.75393,,max emptying rate m3/h
+tank-normal,volatile,--volatile,,flag,,,,,,,,,,,,,flash point < 37.8 C or boiling point < 148.9 C
+tank-fire,shape,--shape,,str,,,,,,,,,,,,sphere horizontal vertical,
+tank-fire,D,--D,,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,
+tank-fire,L,--L,,float,0.0,m,ft,0.0,,,200,0.0,,,656.167979,,
+tank-fire,elevation,--elevation,,float,0.0,m,ft,0.0,,,200,0.0,,,656.167979,,
+tank-fire,wetted_area,--wetted-area,,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,
+tank-fire,F,--F,,str,1.0,,,,,,,,,,,,"number or one of: bare, insulated_22.7, insulated_11.4, insulated_5.7, insulated_3.8, insulated_2.8, insulated_2.3, insulated_1.9, water_spray, depressuring, underground, earth_covered_above_grade, impoundment_away_from_tank"
+tank-fire,design_barg,--design-barg,,float,0.07,barg,psig,0.0,,,1.034,0.0,,,14.996902,,
+tank-fire,normal_capacity,--normal-capacity,,float,0.0,m3/h,gpm,0.0,,,100000,0.0,,,440286.75393,,"outbreathing capacity of installed normal vents, Nm3/h"
+tank-fire,L_kj_kg,--L-kj-kg,,float,,kJ/kg,Btu/lb,0.0,,50,2500,0.0,,21.496131,1074.806535,,latent heat (default hexane basis)
+tank-fire,T,--T,,float,,K,degF,0.0,,50,3000,-459.67,,-369.67,4940.33,,relieving vapour temperature K
+tank-fire,M,--M,,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,vapour molecular weight
+blowdown,volume,--volume,yes,float,,m3,ft3,0.0,,0.001,500000,0.0,,0.035315,17657333.360744,,"vessel volume, m3"
+blowdown,p0,--p0,yes,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,"initial pressure, kPa abs"
+blowdown,T0,--T0,yes,float,,K,degF,0.0,,50,3000,-459.67,,-369.67,4940.33,,"initial temperature, K"
+blowdown,M,--M,yes,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,"molar mass, kg/kmol"
+blowdown,k,--k,yes,float,,-,-,1.0,,,1.67,1.0,,,1.67,,Cp/Cv
+blowdown,hole_d,--hole-d,yes,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,"hole diameter, m (not mm)"
+blowdown,t_end,--t-end,,float,600.0,s,s,0.0,,,86400,0.0,,,86400,,"end time, s"
+depressure,volume,--volume,yes,float,,m3,ft3,0.0,,0.001,500000,0.0,,0.035315,17657333.360744,,
+depressure,p0,--p0,yes,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,
+depressure,pt,--pt,yes,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,
+depressure,T0,--T0,yes,float,,K,degF,0.0,,50,3000,-459.67,,-369.67,4940.33,,
+depressure,M,--M,yes,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,
+depressure,k,--k,yes,float,,-,-,1.0,,,1.67,1.0,,,1.67,,
+depressure,area,--area,yes,float,,m2,ft2,0.0,,0.1,100000,0.0,,1.076391,1076391.041671,,
+flare,mass,--mass,yes,float,,kg/s,lb/s,0.0,,,10000,0.0,,,22046.226218,,kg/s
+flare,lhv,--lhv,yes,float,,MJ/kg,Btu/lb,0.0,,1,150,0.0,,429.922614,64488.392089,,MJ/kg
+flare,mw,--mw,yes,float,,kg/kmol,lb/lbmol,0.0,,2,500,0.0,,2.0,500.0,,
+flare,flame_length,--flame-length,,float,,m,ft,0.0,,,2000,0.0,,,6561.67979,,
+flare,tau,--tau,,float,1.0,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,
+twophase,P0,--P0,yes,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,"inlet (relieving) pressure, kPa absolute"
+twophase,fluid,--fluid,,str,,,,,,,,,,,,,saturated liquid from the bundled CoolProp table (python -m process_safety fluid-data lists them); sets rho0 and omega
+twophase,omega_basis,--omega-basis,,str,two_point,,,,,,,,,,,two_point saturated,which tabulated omega to use with --fluid
+twophase,rho0,--rho0,,float,,kg/m3,lb/ft3,0.0,,0.05,2500,0.0,,0.003121,156.069901,,inlet fluid density kg/m3 (or give --v0)
+twophase,omega,--omega,,float,,-,-,0.0,,0.1,500,0.0,,0.1,500,,"omega parameter, if known"
+twophase,v0,--v0,,float,,m3/kg,ft3/lb,,,,,,,,,,inlet specific volume m3/kg
+twophase,v9,--v9,,float,,m3/kg,ft3/lb,,,,,,,,,,"specific volume at 0.9*P0, m3/kg"
+twophase,back_p,--back-p,,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,back pressure kPa absolute (default: choked)
+twophase,W,--W,,float,,kg/s,lb/s,0.0,,,10000,0.0,,,22046.226218,,"required relief rate kg/s, to size the area"
+twophase,Kd,--Kd,,float,,-,-,0.0,1.0,0.5,,0.0,1.0,0.5,,,discharge coefficient for two-phase service (no default: use your valve data)
+fluid-data,fluid,(positional),,str,,,,,,,,,,,,,fluid name (omit to list)
+fluid-data,P,--P,,float,,kPa abs,psia,0.0,,1,100000,0.0,,0.145038,14503.773773,,pressure kPa absolute (omit for the constants only)
+lopa,ie,--ie,yes,float,,1/yr,1/yr,0.0,,0.0,100,0.0,,0.0,100,,initiating event freq /yr
+lopa,ipl,--ipl,,float list,,-,-,0.0,1.0,,,0.0,1.0,,,,PFD of each independent protection layer
+lopa,target,--target,yes,float,,1/yr,1/yr,0.0,,0.0,100,0.0,,0.0,100,,tolerable frequency /yr
+lopa,modifier,--modifier,,float,1.0,-,-,0.0,1.0,,,0.0,1.0,,,,
+pfd,arch,--arch,yes,str,,,,,,,,,,,,1oo1 1oo2 2oo2 2oo3,
+pfd,lambda_du,--lambda-du,yes,float,,1/h,1/h,0.0,,0.0,0.0001,0.0,,0.0,0.0001,,per hour
+pfd,ti_years,--ti-years,yes,float,,yr,yr,0.0,,0.01,20,0.0,,0.01,20,,
+pfd,beta,--beta,,float,0.0,-,-,0.0,1.0,,0.2,0.0,1.0,,0.2,,
+hazop-csv,node,--node,yes,str,,,,,,,,,,,,,
+hazop-csv,intent,--intent,,str,,,,,,,,,,,,,
+hazop-csv,params,--params,,str list,,,,,,,,,,,,,
+hazop-csv,out,--out,yes,str,,,,,,,,,,,,,
+qra,action,(positional),yes,str,,,,,,,,,,,,example validate run hazid buildings emergency,
+qra,study,(positional),,str,,,,,,,,,,,,,study JSON (see process_safety/qra/examples/lpg_terminal.json)
+qra,out,--out,,str,qra_out,,,,,,,,,,,,output folder (run/hazid) or file (example)
+qra,sample,--sample,,int,,,,,,,,,,,,,run only N LOC scenarios on a 2x coarser grid and project the full run time
+qra,grid_step,--grid-step,,float,,m,ft,,,,,,,,,,"override grid step, m"
+qra,no_mitigation,--no-mitigation,,flag,,,,,,,,,,,,,
+qra,no_xlsx,--no-xlsx,,flag,,,,,,,,,,,,,
+qra,quiet,--quiet,,flag,,,,,,,,,,,,,no progress bar
+tool,name,(positional),yes,str,,,,,,,,,,,,bowtie sif fg thermal atex ram shutdown recs lngcost workflow plant pha example,
+tool,input,(positional),,str,,,,,,,,,,,,,input JSON (tool example <name> copies a worked example)
+tool,out,--out,,str,tool_out,,,,,,,,,,,,
+tool,quiet,--quiet,,flag,,,,,,,,,,,,,
+template,name,(positional),,str,,,,,,,,,,,,,command name (omit with --all or --list)
+template,system,--system,,str,,,,,,,,,,,,si us,units written into the template (default: the global --units)
+template,format,--format,,str,json,,,,,,,,,,,json csv,
+template,all,--all,,flag,,,,,,,,,,,,,every command as one CSV table (SI and US columns)
+template,list,--list,,flag,,,,,,,,,,,,,list the command names that have templates
+run,file,(positional),yes,str,,,,,,,,,,,,,filled template JSON (or - for stdin)
+convert,value,(positional),,float,,-,-,,,,,,,,,,
+convert,src,(positional),,str,,,,,,,,,,,,,"unit of the value, e.g. psig, degF, ft, lb/h"
+convert,dst,(positional),,str,,,,,,,,,,,,,"unit to convert to, e.g. kPag, degC, m, kg/h"
+convert,across_atmosphere,--across-atmosphere,,flag,,,,,,,,,,,,,convert between a GAUGE and an ABSOLUTE pressure unit (adds or subtracts 101.325 kPa); refused without this flag
+convert,table,--table,,flag,,,,,,,,,,,,,"list every unit, its dimension and the factor to the SI base unit"
+glossary,term,(positional),,str,,,,,,,,,,,,,"text to search in term, expansion and definition"
+glossary,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole glossary as Markdown (docs/GLOSSARY.md)
+ranges,name,(positional),,str,,,,,,,,,,,,,"one quantity, e.g. temperature_K"
+ranges,markdown,--markdown,,flag,,,,,,,,,,,,,print the full table as Markdown (docs/RANGES.md)
+literature,text,(positional),,str,,,,,,,,,,,,,"text to search in title, publisher, note and topics"
+literature,topic,--topic,,str,,,,,,,,,,,,,
+literature,module,--module,,str,,,,,,,,,,,,,
+literature,region,--region,,str,,,,,,,,,,,,,"e.g. US, UK, EU, IN, SG, AU, ME, global"
+literature,kind,--kind,,str,,,,,,,,,,,,,"regulation, standard, guidance, investigation, database, association, journal, news, data-tool"
+literature,read_only,--read-only,,flag,,,,,,,,,,,,,only sources whose content was read for the toolkit
+literature,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole index as Markdown (docs/LITERATURE.md)
+incidents,text,(positional),,str,,,,,,,,,,,,,
+incidents,module,--module,,str,,,,,,,,,,,,,
+incidents,step,--step,,int,,,,,,,,,,,,,design review step 1-12 (docs/DESIGN_AWARENESS.md)
+incidents,sector,--sector,,str,,,,,,,,,,,,,
+incidents,year,--year,,int,,,,,,,,,,,,,
+incidents,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole register as Markdown (docs/INCIDENTS.md)
+catalog,text,(positional),,str list,,,,,,,,,,,,,recommendation text to classify (omit to list the catalogue)
+catalog,markdown,--markdown,,flag,,,,,,,,,,,,,
+requirements,files,(positional),yes,str list,,,,,,,,,,,,,.txt .md .docx (or .pdf if pdftotext is installed)
+requirements,out,--out,yes,str,,,,,,,,,,,,,CSV to write the statements to; must be outside version control or git-ignored
+requirements,register,--register,,str,,,,,,,,,,,,,PHA register CSV to compare requirement types against
+requirements,show,--show,,int,0,,,,,,,,,,,,print this many statements to the screen (default 0: counts only)
+requirements,allow_tracked,--allow-tracked,,flag,,,,,,,,,,,,,write even if the output path is inside a git repository and not ignored
+compliance,register,(positional),,str,,,,,,,,,,,,,"register JSON ({'as_of': date, 'clauses': [...]}); see process_safety/examples/compliance.json"
+compliance,matrix,--matrix,,flag,,,,,,,,,,,,,print the derogation approval matrix (TA1/TA2/TA3 by tier and consequence class) as Markdown
+compliance,as_of,--as-of,,str,,,,,,,,,,,,,"date for expiry checks, YYYY-MM-DD (default: the register's as_of, else today)"
+compliance,init,--init,,str,,,,,,,,,,,,,start a register (every clause open) from a CSV written by the requirements command
+compliance,out,--out,,str,,,,,,,,,,,,,with --init: register JSON to write; must be outside version control or git-ignored
+compliance,allow_tracked,--allow-tracked,,flag,,,,,,,,,,,,,write even if --out is inside a git repository and not ignored
+legal-clauses,text,(positional),,str,,,,,,,,,,,,,
+legal-clauses,region,--region,,str,,,,,,,,,,,,,"e.g. EU, US, UK"
+legal-clauses,topic,--topic,,str,,,,,,,,,,,,general-duty change notify exemption,
+legal-clauses,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole table as Markdown (docs/LEGAL_CLAUSES.md)
+insurance,input,(positional),yes,str,,,,,,,,,,,,,"JSON with programme, pricing, cases, scenarios (see process_safety/examples/insurance.json)"

@@ -95,6 +95,12 @@ RANGES: dict[str, Range] = dict([
     _r("length_m", "m", "length or diameter", **_POS, soft_max=2_000),
     _r("nonneg_length_m", "m", "length that may be zero (elevation, release height, liquid level)", **_NONNEG, soft_max=200),
     _r("area_m2", "m2", "area", **_POS, soft_min=0.1, soft_max=100_000),
+    _r("illuminance_lux", "lux", "target average maintained illuminance", **_POS, soft_min=1, soft_max=5_000,
+       note="target comes from the standard the site follows; emergency and hazardous-area tasks have their own"),
+    _r("luminous_flux_lm", "lm", "luminaire flux", **_POS, soft_max=200_000),
+    _r("walking_speed_m_s", "m/s", "occupant walking speed on the escape route", **_POS, soft_max=3.0,
+       note="depends on the occupants (mobility, stairs, smoke); take it from the study's basis"),
+    _r("specific_flow", "persons/m/s", "flow of people per metre of effective exit width", **_POS, soft_max=3.0),
     _r("area_mm2", "mm2", "orifice or vent area", **_NONNEG, soft_max=1_000_000),
     _r("volume_m3", "m3", "volume or capacity", **_POS, soft_min=0.001, soft_max=500_000),
     _r("flow_m3_h", "m3/h", "volumetric flow", **_NONNEG, soft_max=100_000),
@@ -132,7 +138,9 @@ RANGES: dict[str, Range] = dict([
     _r("diameter_mm", "mm", "pipe outside diameter", **_POS, soft_min=10, soft_max=2000),
     _r("heat_flux_kW_m2", "kW/m2", "absorbed heat flux", **_POS, soft_min=10, soft_max=400),
     _r("power_kW", "kW", "power", **_POS, soft_max=10_000_000),
-    _r("temperature_rise_K", "K", "temperature rise", **_POS, soft_min=1, soft_max=50),
+    _r("temperature_rise_K", "dK", "temperature rise (a difference, not a reading)", **_POS, soft_min=1, soft_max=50),
+    _r("omega_parameter", "-", "omega compressibility parameter of a two-phase / flashing fluid", **_POS, soft_min=0.1, soft_max=500),
+    _r("emissive_power_kW_m2", "kW/m2", "flame surface emissive power (SEP)", **_POS, soft_min=20, soft_max=400),
     _r("fuel_consumption_g_kWh", "g/kWh", "specific fuel consumption (vendor data)", **_POS, soft_min=150, soft_max=350),
 ])
 

@@ -143,6 +143,9 @@ Q,d,C=1000,100,120
 chk("fire_water.hazen_williams_bar_per_m",fire_water.hazen_williams_bar_per_m(Q,d,C),6.05e5*Q**1.85/(C**1.85*d**4.87),0.001,"NFPA 13: p=6.05*Q^1.85/(C^1.85 d^4.87)*1e5 (bar/m)","bar/m")
 # --- R. regulatory
 r=pipeline
+sys.path.insert(0, os.path.dirname(__file__))
+from extra import run_extra
+run_extra(chk)
 if "--json" in sys.argv:
     open(sys.argv[sys.argv.index("--json") + 1], "w").write(json.dumps(R, indent=1, default=str))
 bad=[x for x in R if x["ok"] is False]; unk=[x for x in R if x["ok"] is None]

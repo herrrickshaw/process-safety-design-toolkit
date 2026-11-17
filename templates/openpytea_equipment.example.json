@@ -1,0 +1,11 @@
+{
+ "_note": "ILLUSTRATIVE sizes. Replace with your own equipment list and your own uncertainty spread; costs come from OpenPyTEA's published correlations (python scripts/openpytea_bridge.py cost <this file>).",
+ "target_year": 2024,
+ "currency": "kUSD",
+ "currency_per_usd": 0.001,
+ "spread": {"min": 0.8, "max": 1.5},
+ "items": [
+  {"key": "eq_flare_ko_drum", "name": "Flare KO drum", "category": "Pressure vessels", "type": "Horizontal", "process_type": "Fluids", "size": 12.5, "size_unit": "m3", "material": "Carbon steel", "num_units": 1},
+  {"key": "eq_relief_pump", "name": "Fire-water pump", "category": "Pumps", "type": "Centrifugal", "process_type": "Fluids", "size": 150, "size_unit": "kW", "num_units": 2}
+ ]
+}

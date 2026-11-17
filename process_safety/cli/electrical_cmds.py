@@ -88,6 +88,7 @@ class Earthing:
 
 @command("datacentre", "data-centre screening: PUE, cooling-water flow, UPS battery energy, diesel storage (supply only the inputs you have)")
 class Datacentre:
+    units = {"autonomy_min": "min", "gen_hours": "h"}
     ranges = {"it_kw": "power_kW", "facility_kw": "power_kW", "delta_t": "temperature_rise_K", "heat_kw": "power_kW",
               "battery_eff": "coefficient_0_1", "battery_dod": "coefficient_0_1", "gen_load_kw": "power_kW", "sfc": "fuel_consumption_g_kWh"}
 

@@ -1,0 +1,72 @@
+{
+  "command": "relief-liquid",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "Q": null,
+    "rho": null,
+    "set_g": null,
+    "back_g": 0.0,
+    "mu": 1.0
+  },
+  "_guide": {
+    "Q": {
+      "flag": "--Q",
+      "required": true,
+      "type": "float",
+      "unit": "m3/h",
+      "help": "m3/h",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 100000
+      }
+    },
+    "rho": {
+      "flag": "--rho",
+      "required": true,
+      "type": "float",
+      "unit": "kg/m3",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.05,
+        "soft_max": 2500
+      }
+    },
+    "set_g": {
+      "flag": "--set-g",
+      "required": true,
+      "type": "float",
+      "unit": "kPag",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 7,
+        "soft_max": 40000
+      }
+    },
+    "back_g": {
+      "flag": "--back-g",
+      "required": false,
+      "type": "float",
+      "unit": "kPag",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 5000
+      }
+    },
+    "mu": {
+      "flag": "--mu",
+      "required": false,
+      "type": "float",
+      "unit": "cP",
+      "help": "cP",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.005,
+        "soft_max": 10000
+      }
+    }
+  }
+}
