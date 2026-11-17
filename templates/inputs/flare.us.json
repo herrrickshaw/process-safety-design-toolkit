@@ -1,0 +1,72 @@
+{
+  "command": "flare",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "mass": null,
+    "lhv": null,
+    "mw": null,
+    "flame_length": null,
+    "tau": 1.0
+  },
+  "_guide": {
+    "mass": {
+      "flag": "--mass",
+      "required": true,
+      "type": "float",
+      "unit": "lb/s",
+      "help": "kg/s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 22046.226218
+      }
+    },
+    "lhv": {
+      "flag": "--lhv",
+      "required": true,
+      "type": "float",
+      "unit": "Btu/lb",
+      "help": "MJ/kg",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 429.922614,
+        "soft_max": 64488.392089
+      }
+    },
+    "mw": {
+      "flag": "--mw",
+      "required": true,
+      "type": "float",
+      "unit": "lb/lbmol",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2.0,
+        "soft_max": 500.0
+      }
+    },
+    "flame_length": {
+      "flag": "--flame-length",
+      "required": false,
+      "type": "float",
+      "unit": "ft",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "tau": {
+      "flag": "--tau",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.5
+      }
+    }
+  }
+}

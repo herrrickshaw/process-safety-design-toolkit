@@ -1,0 +1,142 @@
+{
+  "command": "tank-fire",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "shape": null,
+    "D": null,
+    "L": 0.0,
+    "elevation": 0.0,
+    "wetted_area": null,
+    "F": "1.0",
+    "design_barg": 0.07,
+    "normal_capacity": 0.0,
+    "L_kj_kg": null,
+    "T": null,
+    "M": null
+  },
+  "_guide": {
+    "shape": {
+      "flag": "--shape",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "sphere",
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "D": {
+      "flag": "--D",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 2000
+      }
+    },
+    "L": {
+      "flag": "--L",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200
+      }
+    },
+    "elevation": {
+      "flag": "--elevation",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200
+      }
+    },
+    "wetted_area": {
+      "flag": "--wetted-area",
+      "required": false,
+      "type": "float",
+      "unit": "m2",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.1,
+        "soft_max": 100000
+      }
+    },
+    "F": {
+      "flag": "--F",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "number or one of: bare, insulated_22.7, insulated_11.4, insulated_5.7, insulated_3.8, insulated_2.8, insulated_2.3, insulated_1.9, water_spray, depressuring, underground, earth_covered_above_grade, impoundment_away_from_tank"
+    },
+    "design_barg": {
+      "flag": "--design-barg",
+      "required": false,
+      "type": "float",
+      "unit": "barg",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1.034
+      }
+    },
+    "normal_capacity": {
+      "flag": "--normal-capacity",
+      "required": false,
+      "type": "float",
+      "unit": "m3/h",
+      "help": "outbreathing capacity of installed normal vents, Nm3/h",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 100000
+      }
+    },
+    "L_kj_kg": {
+      "flag": "--L-kj-kg",
+      "required": false,
+      "type": "float",
+      "unit": "kJ/kg",
+      "help": "latent heat (default hexane basis)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 50,
+        "soft_max": 2500
+      }
+    },
+    "T": {
+      "flag": "--T",
+      "required": false,
+      "type": "float",
+      "unit": "K",
+      "help": "relieving vapour temperature K",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 50,
+        "soft_max": 3000
+      }
+    },
+    "M": {
+      "flag": "--M",
+      "required": false,
+      "type": "float",
+      "unit": "kg/kmol",
+      "help": "vapour molecular weight",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2,
+        "soft_max": 500
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "_note": "ILLUSTRATIVE layout and coverage targets - use your F&G philosophy and vendor detector data",
+  "zones": [
+    {
+      "name": "Bullet area",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          40,
+          0
+        ],
+        [
+          40,
+          25
+        ],
+        [
+          0,
+          25
+        ]
+      ],
+      "grade": "A",
+      "voting": "2ooN",
+      "target": 0.9,
+      "detector_kinds": [
+        "point_gas",
+        "open_path"
+      ]
+    },
+    {
+      "name": "Pump bay (fire)",
+      "polygon": [
+        [
+          45,
+          0
+        ],
+        [
+          70,
+          0
+        ],
+        [
+          70,
+          20
+        ],
+        [
+          45,
+          20
+        ]
+      ],
+      "grade": "B",
+      "voting": "1ooN",
+      "target": 0.8,
+      "detector_kinds": [
+        "flame"
+      ]
+    }
+  ],
+  "obstructions": [
+    [
+      [
+        15,
+        8
+      ],
+      [
+        25,
+        8
+      ],
+      [
+        25,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    [
+      [
+        55,
+        8
+      ],
+      [
+        58,
+        8
+      ],
+      [
+        58,
+        12
+      ],
+      [
+        55,
+        12
+      ]
+    ]
+  ],
+  "detectors": [
+    {
+      "kind": "point_gas",
+      "x": 5,
+      "y": 5,
+      "radius_m": 6
+    },
+    {
+      "kind": "point_gas",
+      "x": 35,
+      "y": 20,
+      "radius_m": 6
+    },
+    {
+      "kind": "open_path",
+      "a": [
+        0,
+        12
+      ],
+      "b": [
+        40,
+        12
+      ],
+      "width_m": 3
+    },
+    {
+      "kind": "flame",
+      "x": 45,
+      "y": 0,
+      "azimuth_deg": 45,
+      "fov_deg": 90,
+      "range_m": 25
+    }
+  ],
+  "optimise": {
+    "zone": "Bullet area",
+    "template": {
+      "kind": "point_gas",
+      "radius_m": 6
+    },
+    "max_add": 25,
+    "candidate_step_m": 5
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" font-family="sans-serif" font-size="12">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="60" y="18" font-weight="bold">Burn-down: remaining points after each 2-week sprint (73 points)</text>
+<line x1="60" y1="330.0" x2="650" y2="330.0" stroke="#dddddd"/><text x="52" y="334.0" text-anchor="end" fill="#555555">0</text>
+<line x1="60" y1="288.9" x2="650" y2="288.9" stroke="#dddddd"/><text x="52" y="292.9" text-anchor="end" fill="#555555">10</text>
+<line x1="60" y1="247.8" x2="650" y2="247.8" stroke="#dddddd"/><text x="52" y="251.8" text-anchor="end" fill="#555555">20</text>
+<line x1="60" y1="206.7" x2="650" y2="206.7" stroke="#dddddd"/><text x="52" y="210.7" text-anchor="end" fill="#555555">30</text>
+<line x1="60" y1="165.6" x2="650" y2="165.6" stroke="#dddddd"/><text x="52" y="169.6" text-anchor="end" fill="#555555">40</text>
+<line x1="60" y1="124.5" x2="650" y2="124.5" stroke="#dddddd"/><text x="52" y="128.5" text-anchor="end" fill="#555555">50</text>
+<line x1="60" y1="83.4" x2="650" y2="83.4" stroke="#dddddd"/><text x="52" y="87.4" text-anchor="end" fill="#555555">60</text>
+<line x1="60" y1="42.3" x2="650" y2="42.3" stroke="#dddddd"/><text x="52" y="46.3" text-anchor="end" fill="#555555">70</text>
+<text x="60.0" y="348" text-anchor="middle" fill="#555555">0</text>
+<text x="109.2" y="348" text-anchor="middle" fill="#555555">1</text>
+<text x="158.3" y="348" text-anchor="middle" fill="#555555">2</text>
+<text x="207.5" y="348" text-anchor="middle" fill="#555555">3</text>
+<text x="256.7" y="348" text-anchor="middle" fill="#555555">4</text>
+<text x="305.8" y="348" text-anchor="middle" fill="#555555">5</text>
+<text x="355.0" y="348" text-anchor="middle" fill="#555555">6</text>
+<text x="404.2" y="348" text-anchor="middle" fill="#555555">7</text>
+<text x="453.3" y="348" text-anchor="middle" fill="#555555">8</text>
+<text x="502.5" y="348" text-anchor="middle" fill="#555555">9</text>
+<text x="551.7" y="348" text-anchor="middle" fill="#555555">10</text>
+<text x="600.8" y="348" text-anchor="middle" fill="#555555">11</text>
+<text x="650.0" y="348" text-anchor="middle" fill="#555555">12</text>
+<text x="355" y="372" text-anchor="middle" fill="#555555">Sprint (0 = start, 16 Nov 2026)</text>
+<polyline points="60.0,30.0 109.2,67.0 158.3,94.1 207.5,127.0 256.7,150.0 305.8,173.8 355.0,198.5 404.2,221.5 453.3,244.5 502.5,269.2 551.7,292.2 600.8,316.8 650.0,330.0" fill="none" stroke="#b93a32" stroke-width="2.5"/>
+<line x1="660" y1="56" x2="684" y2="56" stroke="#b93a32" stroke-width="2.5"/><text x="690" y="60" fill="#333333">low, 60% focus</text><text x="690" y="76" fill="#777777" font-size="11">done 2027-04-26</text>
+<polyline points="60.0,30.0 109.2,78.5 158.3,117.1 207.5,148.4 256.7,180.4 305.8,211.6 355.0,240.4 404.2,271.6 453.3,300.4 502.5,330.0" fill="none" stroke="#e8710a" stroke-width="2.5"/>
+<line x1="660" y1="106" x2="684" y2="106" stroke="#e8710a" stroke-width="2.5"/><text x="690" y="110" fill="#333333">base, 80% focus</text><text x="690" y="126" fill="#777777" font-size="11">done 2027-03-18</text>
+<polyline points="60.0,30.0 109.2,87.5 158.3,136.8 207.5,177.9 256.7,219.0 305.8,260.1 355.0,301.2 404.2,330.0" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+<line x1="660" y1="156" x2="684" y2="156" stroke="#2e7d32" stroke-width="2.5"/><text x="690" y="160" fill="#333333">high, 100% focus</text><text x="690" y="176" fill="#777777" font-size="11">done 2027-02-16</text>
+</svg>

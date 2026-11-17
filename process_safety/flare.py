@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import math
 
-R = 8.314462618
+from .constants import R
 
 # kW/m2 -> exposure class (API 521 table, solar radiation excluded/included varies by edition - verify)
 ALLOWABLE_KW_M2 = {

@@ -1,0 +1,55 @@
+{
+  "_note": "ILLUSTRATIVE failure rates - use certified device data (exida/SERH) or site data",
+  "name": "SIF-101 HH level -> close inlet SDV",
+  "target_rrf": 150,
+  "demand": "low",
+  "proof_test_h": 8760,
+  "mttr_h": 8,
+  "subsystems": [
+    {
+      "name": "Level transmitters",
+      "arch": "1oo2",
+      "type": "B",
+      "route": "2H",
+      "lambda_du": 1e-07,
+      "lambda_dd": 5e-07,
+      "lambda_s": 3e-07,
+      "beta": 0.1
+    },
+    {
+      "name": "Safety PLC",
+      "arch": "1oo1",
+      "type": "B",
+      "lambda_du": 2e-09,
+      "lambda_dd": 1e-07,
+      "lambda_s": 1e-07
+    },
+    {
+      "name": "Inlet SDV + solenoid",
+      "arch": "1oo1",
+      "type": "A",
+      "route": "1H",
+      "lambda_du": 1.5e-06,
+      "lambda_dd": 0,
+      "lambda_s": 1e-06
+    }
+  ],
+  "risk_graph": {
+    "path": {
+      "C": 2,
+      "F": 1,
+      "P": 2,
+      "W": 2
+    },
+    "calibration": {
+      "_note": "ILLUSTRATIVE calibration - calibrate to your tolerable risk",
+      "C2-F1-P2-W2": "SIL 1",
+      "C2-F1-P1-W2": "a",
+      "C3-F1-P2-W2": "SIL 2"
+    }
+  },
+  "srs": {
+    "Safe state of the process": "Inlet SDV-101 closed, receipt pump tripped",
+    "Process safety time and required response time": "PST 10 min; SIF response < 30 s"
+  }
+}

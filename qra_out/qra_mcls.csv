@@ -1,0 +1,13 @@
+﻿metric,worst_case_m,worst_case_scenario,credible_m,credible_scenario
+d_37.5kW_m2,296.4,S1-V-101 bullet-rupture fireball all,58.3,S1-4in lines-rupture jet_fire+pool_fire all
+d_12.5kW_m2,551.3,S1-V-101 bullet-rupture fireball all,102.3,S1-4in lines-rupture jet_fire+pool_fire all
+d_4.0kW_m2,995.7,S1-V-101 bullet-rupture fireball all,179.3,S1-4in lines-rupture jet_fire+pool_fire all
+d_0.3bar,620.5,S1-4in lines-rupture vce+pool_fire F2,620.5,S1-4in lines-rupture vce+pool_fire F2
+d_0.1bar,786.0,S1-4in lines-rupture vce+pool_fire F2,786.0,S1-4in lines-rupture vce+pool_fire F2
+d_0.03bar,1338.2,S1-4in lines-rupture vce+pool_fire F2,1338.2,S1-4in lines-rupture vce+pool_fire F2
+d_LFL,995.7,S1-4in lines-rupture vce+pool_fire F2,995.7,S1-4in lines-rupture vce+pool_fire F2
+zone_A_m,995.7,S1-4in lines-rupture vce+pool_fire F2,995.7,S1-4in lines-rupture vce+pool_fire F2
+zone_B_m,1798.4,S3-12in header-D/3 toxic F2,1798.4,S3-12in header-D/3 toxic F2
+zone_C_m,1798.4,S3-12in header-D/3 toxic F2,1798.4,S3-12in header-D/3 toxic F2
+d_100ppm,858.9,S3-12in header-D/3 toxic F2,858.9,S3-12in header-D/3 toxic F2
+d_30ppm,1798.4,S3-12in header-D/3 toxic F2,1798.4,S3-12in header-D/3 toxic F2

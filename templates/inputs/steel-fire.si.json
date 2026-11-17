@@ -1,0 +1,55 @@
+{
+  "command": "steel-fire",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "am_v": null,
+    "crit": 550.0,
+    "minutes": 120.0,
+    "iso": null
+  },
+  "_guide": {
+    "am_v": {
+      "flag": "--am-v",
+      "required": true,
+      "type": "float",
+      "unit": "1/m",
+      "help": "section factor Am/V 1/m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 10,
+        "soft_max": 500
+      }
+    },
+    "crit": {
+      "flag": "--crit",
+      "required": false,
+      "type": "float",
+      "unit": "degC",
+      "help": "",
+      "range": {
+        "hard_min": -273.15,
+        "soft_min": -200,
+        "soft_max": 800
+      }
+    },
+    "minutes": {
+      "flag": "--minutes",
+      "required": false,
+      "type": "float",
+      "unit": "min",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1440
+      }
+    },
+    "iso": {
+      "flag": "--iso",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "use ISO 834 instead of the hydrocarbon curve"
+    }
+  }
+}

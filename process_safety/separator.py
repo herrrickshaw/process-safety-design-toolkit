@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import math
 
-G = 9.80665
+from .constants import G
 
 
 def souders_brown_velocity(rho_L: float, rho_G: float, K: float) -> float:

@@ -1,0 +1,81 @@
+{
+  "command": "qra",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "action": null,
+    "study": null,
+    "out": "qra_out",
+    "sample": null,
+    "grid_step": null,
+    "no_mitigation": null,
+    "no_xlsx": null,
+    "quiet": null
+  },
+  "_guide": {
+    "action": {
+      "flag": "(positional)",
+      "required": true,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "example",
+        "validate",
+        "run",
+        "hazid",
+        "buildings",
+        "emergency"
+      ]
+    },
+    "study": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "study JSON (see process_safety/qra/examples/lpg_terminal.json)"
+    },
+    "out": {
+      "flag": "--out",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "output folder (run/hazid) or file (example)"
+    },
+    "sample": {
+      "flag": "--sample",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": "run only N LOC scenarios on a 2x coarser grid and project the full run time"
+    },
+    "grid_step": {
+      "flag": "--grid-step",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "override grid step, m"
+    },
+    "no_mitigation": {
+      "flag": "--no-mitigation",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    },
+    "no_xlsx": {
+      "flag": "--no-xlsx",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    },
+    "quiet": {
+      "flag": "--quiet",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "no progress bar"
+    }
+  }
+}

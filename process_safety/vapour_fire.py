@@ -22,7 +22,6 @@ Use for screening and for comparing options, not as a rupture-time guarantee.
 """
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass, field
 
 from .relief import ATM, R, gas_mass_flux

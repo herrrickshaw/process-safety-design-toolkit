@@ -1,0 +1,33 @@
+{
+  "_note": "ILLUSTRATIVE calorimetry inputs - use DSC/ARC/RC1 data",
+  "cases": [
+    {
+      "name": "Nitration batch",
+      "T_process_C": 40,
+      "dT_ad_K": 60,
+      "accumulation": 0.7,
+      "MTT_C": 56,
+      "cp_J_kgK": 1800,
+      "q_ref_W_kg": 10,
+      "T_ref_C": 150,
+      "Ea_kJ_mol": 100,
+      "storage": {
+        "mass_kg": 1000,
+        "UA_W_K": 20,
+        "T_ambient_C": 35
+      }
+    },
+    {
+      "name": "EPSC example 2 (reported class 5)",
+      "T_process_C": 30,
+      "dT_ad_K": 170,
+      "accumulation": 1.0,
+      "MTT_C": 125,
+      "TD24_C": 90,
+      "cp_J_kgK": 2000,
+      "q_ref_W_kg": 1,
+      "T_ref_C": 90,
+      "Ea_kJ_mol": 100
+    }
+  ]
+}

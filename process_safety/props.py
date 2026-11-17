@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import math
 
-R = 8.314462618
+from .constants import R
 
 # Tc [K], Pc [bar], omega, M [kg/kmol], normal boiling point [K] (recalled standard values)
 COMPONENTS = {

@@ -1,0 +1,1899 @@
+{
+ "compiled": "2026-11-06",
+ "note": "read=text/page means that material was read for the toolkit; read=no means the URL was checked but the content was not read.",
+ "entries": [
+  {
+   "id": "osha-1910-119",
+   "title": "29 CFR 1910.119 Process safety management of highly hazardous chemicals",
+   "publisher": "OSHA (US)",
+   "kind": "regulation",
+   "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "psm",
+    "regulation"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "14 elements, Appendix A",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "osha-psm-home",
+   "title": "OSHA Process Safety Management topic page",
+   "publisher": "OSHA (US)",
+   "kind": "guidance",
+   "url": "https://www.osha.gov/process-safety-management",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "psm",
+    "regulation"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "enforcement directives and NEP are linked from here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "epa-rmp",
+   "title": "EPA Risk Management Program (40 CFR 68)",
+   "publisher": "EPA (US)",
+   "kind": "regulation",
+   "url": "https://www.epa.gov/rmp",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "rmp",
+    "regulation",
+    "consequence"
+   ],
+   "modules": [
+    "rmp"
+   ],
+   "note": "2026 revision proposal pending (see DESIGN_AWARENESS.md)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "phmsa-home",
+   "title": "PHMSA pipeline and LNG safety",
+   "publisher": "PHMSA (US)",
+   "kind": "regulation",
+   "url": "https://www.phmsa.dot.gov/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "pipeline",
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "pipeline",
+    "lng"
+   ],
+   "note": "49 CFR 192/193 read; Oct 2026 LNG NPRM proposed",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "natlaw-phmsa-lng",
+   "title": "PHMSA proposes comprehensive revisions to safety regulations for LNG facilities",
+   "publisher": "National Law Review / Van Ness Feldman",
+   "kind": "news",
+   "url": "https://natlawreview.com/article/phmsa-proposes-comprehensive-revisions-safety-regulations-lng-facilities",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "lng"
+   ],
+   "note": "law-firm summary of the 28 Oct 2026 NPRM",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "seveso-iii",
+   "title": "Directive 2012/18/EU (Seveso III)",
+   "publisher": "European Union",
+   "kind": "regulation",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012L0018",
+   "access": "free",
+   "read": "text",
+   "region": "EU",
+   "topics": [
+    "seveso",
+    "regulation"
+   ],
+   "modules": [
+    "mah"
+   ],
+   "note": "Annex I parsed into data/seveso_iii_annex_i.json",
+   "http_status": 202,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-comah",
+   "title": "COMAH Regulations 2015 guidance",
+   "publisher": "HSE (UK)",
+   "kind": "regulation",
+   "url": "https://www.hse.gov.uk/comah/comah15.htm",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "comah",
+    "regulation",
+    "safety-case"
+   ],
+   "modules": [
+    "mah",
+    "qra"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-comah-home",
+   "title": "HSE COMAH home (Buncefield, competent authority material)",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/comah/",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "comah",
+    "incident"
+   ],
+   "modules": [
+    "overfill"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-hsg254",
+   "title": "HSG254 Developing process safety indicators",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/hsg254.htm",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "indicators",
+    "management"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hse-risk",
+   "title": "HSE risk management pages (ALARP, tolerability)",
+   "publisher": "HSE (UK)",
+   "kind": "guidance",
+   "url": "https://www.hse.gov.uk/risk/",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "risk-criteria",
+    "alarp",
+    "qra"
+   ],
+   "modules": [
+    "qra"
+   ],
+   "note": "the R2P2 criteria used as QRA presets came from secondary sources; the old direct R2P2 URL returned 404 on 2026-11-06",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "mom-mhi",
+   "title": "Major Hazard Installations: safety case regime",
+   "publisher": "Ministry of Manpower (Singapore)",
+   "kind": "regulation",
+   "url": "https://www.mom.gov.sg/maintenance/workplace-safety-and-health/major-hazard-installations",
+   "access": "free",
+   "read": "page",
+   "region": "SG",
+   "topics": [
+    "safety-case",
+    "regulation",
+    "qra"
+   ],
+   "modules": [
+    "qra"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "safework-mhf",
+   "title": "Major hazard facilities",
+   "publisher": "Safe Work Australia",
+   "kind": "guidance",
+   "url": "https://safeworkaustralia.gov.au/safety-topic/industry-and-business/major-hazard-facilities",
+   "access": "free",
+   "read": "no",
+   "region": "AU",
+   "topics": [
+    "safety-case",
+    "regulation"
+   ],
+   "modules": [],
+   "note": "fetch timed out on 2026-11-06; verify access",
+   "http_status": 302,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "nopsema",
+   "title": "NOPSEMA offshore safety case regime",
+   "publisher": "NOPSEMA (Australia)",
+   "kind": "regulation",
+   "url": "https://www.nopsema.gov.au/",
+   "access": "free",
+   "read": "no",
+   "region": "AU",
+   "topics": [
+    "safety-case",
+    "offshore",
+    "regulation"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 0,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oisd-standards",
+   "title": "OISD standards list (105 standards)",
+   "publisher": "OISD (India)",
+   "kind": "standard",
+   "url": "https://www.oisd.gov.in/oisd-standards",
+   "access": "mixed",
+   "read": "page",
+   "region": "IN",
+   "topics": [
+    "india",
+    "standards",
+    "oil-gas"
+   ],
+   "modules": [
+    "standards"
+   ],
+   "note": "list and editions in data/oisd_standards.json; contents not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "peso",
+   "title": "Petroleum and Explosives Safety Organisation",
+   "publisher": "PESO (India)",
+   "kind": "regulation",
+   "url": "https://peso.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "explosives"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 0,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "pngrb",
+   "title": "Petroleum and Natural Gas Regulatory Board",
+   "publisher": "PNGRB (India)",
+   "kind": "regulation",
+   "url": "https://www.pngrb.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "gas"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "dgfasli",
+   "title": "Directorate General Factory Advice Service and Labour Institutes",
+   "publisher": "DGFASLI (India)",
+   "kind": "regulation",
+   "url": "https://dgfasli.gov.in/",
+   "access": "free",
+   "read": "no",
+   "region": "IN",
+   "topics": [
+    "india",
+    "regulation",
+    "factories"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ilo-c174",
+   "title": "ILO Convention 174, Prevention of Major Industrial Accidents",
+   "publisher": "ILO",
+   "kind": "regulation",
+   "url": "https://normlex.ilo.org/dyn/nrmlx_en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:C174",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "regulation",
+    "international"
+   ],
+   "modules": [],
+   "note": "ratification counts differ between sources; check NORMLEX",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oecd-chem-accidents",
+   "title": "OECD Guiding Principles for Chemical Accident Prevention, Preparedness and Response",
+   "publisher": "OECD",
+   "kind": "guidance",
+   "url": "https://www.oecd.org/en/topics/chemical-accidents.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "international",
+    "guidance",
+    "psm"
+   ],
+   "modules": [],
+   "note": "third edition supports the 2023 Council Recommendation",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "csb-investigations",
+   "title": "CSB investigations",
+   "publisher": "US Chemical Safety Board",
+   "kind": "investigation",
+   "url": "https://www.csb.gov/investigations/",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "incident",
+    "investigation"
+   ],
+   "modules": [
+    "psm",
+    "overfill",
+    "relief"
+   ],
+   "note": "CSB investigates and recommends; it does not regulate. 17 investigations read for docs/INCIDENTS.md",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "csb-recommendations",
+   "title": "CSB recommendations",
+   "publisher": "US Chemical Safety Board",
+   "kind": "investigation",
+   "url": "https://www.csb.gov/recommendations/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "incident",
+    "investigation"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "emars",
+   "title": "eMARS major accident reporting system",
+   "publisher": "EU Joint Research Centre",
+   "kind": "database",
+   "url": "https://emars.jrc.ec.europa.eu/",
+   "access": "free",
+   "read": "no",
+   "region": "EU",
+   "topics": [
+    "incident",
+    "database",
+    "seveso"
+   ],
+   "modules": [
+    "mah"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aria",
+   "title": "ARIA accident database (BARPI)",
+   "publisher": "French Ministry of Ecological Transition",
+   "kind": "database",
+   "url": "https://www.aria.developpement-durable.gouv.fr/",
+   "access": "free",
+   "read": "no",
+   "region": "FR",
+   "topics": [
+    "incident",
+    "database"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-bp-oregon",
+   "title": "Investigators find operating, training deficiencies contributed to fatal refinery explosion",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/investigators-find-operating-training-deficiencies-contributed-to-fatal-refinery-explosion",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "incident",
+    "overfill",
+    "relief",
+    "psm"
+   ],
+   "modules": [
+    "relief",
+    "overfill"
+   ],
+   "note": "BP Oregon, Ohio 2022; OSHA findings",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-adnoc-psm",
+   "title": "Approach aims to prevent process safety incidents (ADNOC PSM framework)",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/approach-aims-to-prevent-process-safety-incidents",
+   "access": "free",
+   "read": "page",
+   "region": "ME",
+   "topics": [
+    "psm",
+    "incident",
+    "company"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "15 elements; 50+ event review; SPE paper 210971",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jpt-energy-transition",
+   "title": "Are process safety standards and practices ready for the energy transition?",
+   "publisher": "Journal of Petroleum Technology (SPE)",
+   "kind": "news",
+   "url": "https://jpt.spe.org/are-process-safety-standards-and-practices-ready-for-the-energy-transition",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "psm",
+    "management-of-change",
+    "energy-transition"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "iqrm-qcra",
+   "title": "QCRA explained: quantitative cost risk analysis",
+   "publisher": "IQRM",
+   "kind": "guidance",
+   "url": "https://iqrm.net/blog/qcra-explained-quantitative-cost-risk-analysis-2026",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "monte-carlo",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "vendor blog; method background; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "soma-monte-carlo",
+   "title": "Monte Carlo is not magic",
+   "publisher": "SOMA Project Controls",
+   "kind": "guidance",
+   "url": "https://www.somaprojectcontrols.com/resources/guides/monte-carlo-is-not-magic/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "monte-carlo",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "consultancy guide; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "projectcontrolsonline",
+   "title": "Project Controls Online",
+   "publisher": "projectcontrolsonline.com",
+   "kind": "news",
+   "url": "https://projectcontrolsonline.com",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "schedule-risk",
+    "cost-risk",
+    "shutdown"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "project controls community site; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "orimiz-fel1",
+   "title": "Open FEL1 LNG Cost (ORIMIZ Consulting)",
+   "publisher": "ORIMIZ Consulting / S. Z. Haider",
+   "kind": "data-tool",
+   "url": "https://github.com/ORIMIZ-Consulting/open-fel1-lng-cost",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng",
+    "analog"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "MIT; README, factors and analog table read as text; code not run",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "orimiz-opci",
+   "title": "Open Plant Cost Index (OPCI)",
+   "publisher": "ORIMIZ Consulting",
+   "kind": "data-tool",
+   "url": "https://github.com/ORIMIZ-Consulting/open-plant-cost-index",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "escalation",
+    "location-factors"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "source of ORIMIZ escalation and location factors; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oies-ng137",
+   "title": "LNG Plant Cost Reduction 2014-18 (OIES NG137)",
+   "publisher": "Oxford Institute for Energy Studies",
+   "kind": "guidance",
+   "url": "https://www.oxfordenergy.org/wpcms/wp-content/uploads/2018/10/LNG-Plant-Cost-Reduction-2014%E2%80%9318-NG137.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "origin of most plant-only analog figures and factors; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "honeywell-unisim-r460",
+   "title": "UniSim Design R460 brochure (sizing, rating and costing; Cleopatra Enterprise integration)",
+   "publisher": "Honeywell",
+   "kind": "guidance",
+   "url": "https://process.honeywell.com/content/dam/process/en/documents/document-lists/hon-ia-hps-bro-unisim-design-r460-vcma.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [
+    "lng_cost",
+    "recommendation_cost"
+   ],
+   "note": "vendor brochure: states integration with Cost Engineering's Cleopatra Enterprise for costing; older release",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "honeywell-unisim-faq",
+   "title": "UniSim Design external FAQ",
+   "publisher": "Honeywell",
+   "kind": "guidance",
+   "url": "https://hcenews.honeywell.com/rs/093-RAU-212/images/UNISIM_External_FAQ.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [],
+   "note": "vendor FAQ: lists Cleopatra Plus for cost estimating and Capex optimisation use",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cleopatra-webinar",
+   "title": "Learn how to easily design and evaluate the cost of your projects (UniSim + Cleopatra)",
+   "publisher": "Cleopatra Enterprise / Honeywell",
+   "kind": "guidance",
+   "url": "https://cleopatraenterprise.com/webinar-learn-how-to-easily-design-and-evaluate-the-cost-of-your-projects",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "vendor"
+   ],
+   "modules": [],
+   "note": "webinar page; the data flow between simulator and costing software was not found",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "netl-qgess-cost",
+   "title": "QGESS: Cost estimation methodology for NETL assessments of power plant performance",
+   "publisher": "US DOE NETL",
+   "kind": "guidance",
+   "url": "https://netl.doe.gov/projects/files/QGESSCostEstMethodforNETLAssessmentsofPowerPlantPerformance_022621.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "cost-estimation",
+    "aace",
+    "methodology"
+   ],
+   "modules": [
+    "recommendation_cost",
+    "lng_cost"
+   ],
+   "note": "public worked methodology (bare erected cost to total overnight cost, AACE Class 4 target); power-plant context; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "netl-qgess-scaling",
+   "title": "QGESS: Capital cost scaling methodology, Revision 4",
+   "publisher": "US DOE NETL",
+   "kind": "guidance",
+   "url": "https://www.osti.gov/servlets/purl/1573493",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "cost-estimation",
+    "scaling",
+    "escalation"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "scaling of legacy estimates by size, date and location; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aace-18r97",
+   "title": "AACE RP 18R-97 Cost estimate classification system, process industries",
+   "publisher": "AACE International",
+   "kind": "standard",
+   "url": "https://library.aacei.org/pgd01/pgd01.shtml",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "aace",
+    "accuracy"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "copyrighted; class ranges used in docs/COST_ESTIMATION.md are those quoted in the ORIMIZ factor file and NETL, not read from AACE",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "biosteam-tea",
+   "title": "BioSTEAM techno-economic analysis tutorial",
+   "publisher": "BioSTEAM (Univ. of Illinois)",
+   "kind": "data-tool",
+   "url": "https://biosteam.readthedocs.io/en/latest/tutorial/Techno-economic_analysis.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "lang-factor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "open-source Python TEA: installed cost via Lang factor or bare-module factors, cash-flow analysis; licence not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "qsdsan-tea",
+   "title": "QSDsan techno-economic analysis tutorial",
+   "publisher": "QSDsan",
+   "kind": "data-tool",
+   "url": "https://qsdsan.readthedocs.io/en/latest/tutorials/7_TEA.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "cepci"
+   ],
+   "modules": [],
+   "note": "builds on BioSTEAM TEA; exposes a CEPCI input and Lang factor; licence not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ogj-lng-benchmark",
+   "title": "Benchmarking study compares LNG plant costs",
+   "publisher": "Oil & Gas Journal",
+   "kind": "news",
+   "url": "https://ogj.com/drilling-production/production-operations/article/17239949/benchmarking-study-compares-lng-plant-costs",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "lng",
+    "benchmark"
+   ],
+   "modules": [
+    "lng_cost"
+   ],
+   "note": "older trade article; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "dwsim",
+   "title": "DWSIM open-source chemical process simulator",
+   "publisher": "Daniel Wagner and contributors",
+   "kind": "data-tool",
+   "url": "https://dwsim.org",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "cape-open",
+    "lng"
+   ],
+   "modules": [
+    "fluiddata"
+   ],
+   "note": "GPL-3.0; GitHub repo DanWBR/dwsim shows archived (last push 2026-07-17): confirm where active development lives; do not copy GPL source into this MIT project",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "neqsim",
+   "title": "NeqSim thermodynamic and process simulation (Equinor)",
+   "publisher": "Equinor",
+   "kind": "data-tool",
+   "url": "https://github.com/equinor/neqsim",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "gas-processing",
+    "thermodynamics"
+   ],
+   "modules": [
+    "fluiddata",
+    "relief"
+   ],
+   "note": "Apache-2.0; Java library, active (push 2026-11-05); Python wrapper neqsim-python also Apache-2.0 (needs Java)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "neqsim-python",
+   "title": "neqsim-python",
+   "publisher": "Equinor",
+   "kind": "data-tool",
+   "url": "https://pypi.org/project/neqsim",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "thermodynamics",
+    "python"
+   ],
+   "modules": [
+    "fluiddata"
+   ],
+   "note": "pip package wrapping the Java library",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "idaes-costing",
+   "title": "IDAES process costing framework (SSLW correlations)",
+   "publisher": "IDAES / DOE",
+   "kind": "data-tool",
+   "url": "https://idaes-pse.readthedocs.io/en/main/reference_guides/core/costing/costing_framework.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "process-simulator",
+    "pyomo"
+   ],
+   "modules": [
+    "recommendation_cost",
+    "lng_cost"
+   ],
+   "note": "open-source equation-oriented flowsheets in Pyomo; costing blocks per unit, costs normalised to CE index 500; licence file is a custom text, read it before reuse",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "idaes-sslw",
+   "title": "IDAES process costing using SSLW correlations",
+   "publisher": "IDAES / DOE",
+   "kind": "data-tool",
+   "url": "https://idaes-pse.readthedocs.io/en/main/reference_guides/model_libraries/generic/costing/process_costing_sslw.html",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "base and purchase cost correlations from Seider et al., Product and Process Design Principles, 3rd ed.",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "hyddown",
+   "title": "HydDown blowdown and depressurisation of pure gases",
+   "publisher": "A. Rasmussen (andr1976)",
+   "kind": "data-tool",
+   "url": "https://github.com/andr1976/HydDown",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "depressuring",
+    "blowdown",
+    "relief"
+   ],
+   "modules": [
+    "depressuring",
+    "release"
+   ],
+   "note": "MIT; Python with CoolProp; pure gas phase only; candidate cross-check for depressuring.py",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "openpytea",
+   "title": "OpenPyTEA",
+   "publisher": "pbtamarona (TU Delft)",
+   "kind": "data-tool",
+   "url": "https://github.com/pbtamarona/OpenPyTEA",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "tea",
+    "uncertainty"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "MIT, v3.2.2 installed and run 2026-11-07 in a scratch venv; 421 published equipment-cost correlations (Turton, Seider, Towler & Sinnott, Perry) escalated with CEPCI; silently extrapolates outside a correlation range; bridged by scripts/openpytea_bridge.py",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cantera",
+   "title": "Cantera",
+   "publisher": "Cantera developers",
+   "kind": "data-tool",
+   "url": "https://github.com/Cantera/cantera",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "thermochemistry",
+    "kinetics"
+   ],
+   "modules": [
+    "reaction_hazard"
+   ],
+   "note": "BSD-style (Caltech) licence text; thermochemistry and kinetics library, not a flowsheet simulator",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "coco",
+   "title": "COCO simulator (CAPE-OPEN to CAPE-OPEN)",
+   "publisher": "AmsterCHEM",
+   "kind": "data-tool",
+   "url": "https://www.cocosimulator.org",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "simulation",
+    "process-simulator",
+    "cape-open"
+   ],
+   "modules": [],
+   "note": "free to use per its site; licence terms (closed or open source) not checked here",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "proteusxml",
+   "title": "ProteusXML schema (P&ID exchange format used by DEXPI), schema 4.2",
+   "publisher": "ProteusXML project",
+   "kind": "standard",
+   "url": "https://github.com/ProteusXML/proteusxml",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "pid",
+    "data-exchange",
+    "dexpi"
+   ],
+   "modules": [
+    "plant_model"
+   ],
+   "note": "XSD element and attribute names read for the parser; GitHub shows no licence for the repository; the toolkit does not copy the schema",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "pydexpi",
+   "title": "pyDEXPI (Python framework for P&IDs using the DEXPI model)",
+   "publisher": "Process Intelligence Research, RWTH Aachen",
+   "kind": "data-tool",
+   "url": "https://github.com/process-intelligence-research/pyDEXPI",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "pid",
+    "data-exchange",
+    "dexpi"
+   ],
+   "modules": [
+    "plant_model"
+   ],
+   "note": "AGPL-3.0: not used or copied; listed as an option for reading real DEXPI files as a separate program",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-hazop-recs-1",
+   "title": "IChemE Symposium Series paper on ranking HAZOP recommendations",
+   "publisher": "IChemE",
+   "kind": "guidance",
+   "url": "https://www.icheme.org/media/10174/xvi-paper-29.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "hazop",
+    "recommendations",
+    "prioritisation"
+   ],
+   "modules": [],
+   "note": "found via search; describes ranking by consequence, frequency and mitigation with benefit-cost; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-hazop-recs-2",
+   "title": "IChemE Symposium Series No. 156 paper on HAZOP recommendations",
+   "publisher": "IChemE",
+   "kind": "guidance",
+   "url": "https://www.icheme.org/media/9258/xxii-paper-42.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "hazop",
+    "recommendations"
+   ],
+   "modules": [],
+   "note": "found via search; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "petrosolutions-hazop-recs",
+   "title": "Effective HAZOP recommendations (practitioner guide)",
+   "publisher": "The Petro Solutions",
+   "kind": "news",
+   "url": "https://thepetrosolutions.com/effective-hazop-recommendations/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "hazop",
+    "recommendations"
+   ],
+   "modules": [],
+   "note": "practitioner article; its claim that over half of recommendations are operability issues is unsourced; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "doe-std-1189",
+   "title": "DOE-STD-1189-2016 Integration of Safety into the Design Process",
+   "publisher": "US Department of Energy",
+   "kind": "standard",
+   "url": "https://www.standards.doe.gov/standards-documents/1100/1189-astd-2016",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "design",
+    "safety-in-design",
+    "safety-design-strategy",
+    "shall-statements"
+   ],
+   "modules": [
+    "recommendation_catalog"
+   ],
+   "note": "public standard with requirements and guidance on integrating safety into project design (nuclear facilities, but the safety design strategy and staged design review are transferable); has a Safety Design Strategy section; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "iogp-jip33",
+   "title": "IOGP JIP33 specifications (S-series equipment and materials specifications)",
+   "publisher": "IOGP",
+   "kind": "standard",
+   "url": "https://www.iogp.org/bookstore/product-category/jip33/instruments/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "design",
+    "specifications",
+    "shall-statements",
+    "relief"
+   ],
+   "modules": [],
+   "note": "IOGP states the JIP33 specifications are free to use; equipment and materials specifications (for example S-730 flanged steel pressure relief valves, S-729 control valves), not safety-design strategy documents; not read",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "gao-cost-guide",
+   "title": "GAO Cost Estimating and Assessment Guide: Best Practices for Developing and Managing Program Costs (GAO-20-195G)",
+   "publisher": "US Government Accountability Office",
+   "kind": "guidance",
+   "url": "https://www.gao.gov/products/gao-20-195g",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "cost-estimation",
+    "methodology",
+    "schedule-risk",
+    "cost-risk"
+   ],
+   "modules": [
+    "shutdown_risk",
+    "recommendation_cost",
+    "lng_cost"
+   ],
+   "note": "public US government guide; 12-step estimating process built on accuracy, comprehensiveness, credibility and documentation; includes cost and schedule risk analysis chapters; gao.gov returns 403 to automated requests (open in a browser); step list confirmed from search summaries only; not read",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "pmi-pmbok",
+   "title": "PMBOK Guide (A Guide to the Project Management Body of Knowledge)",
+   "publisher": "Project Management Institute",
+   "kind": "standard",
+   "url": "https://www.pmi.org/standards/pmbok",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "project-management",
+    "cost-estimation",
+    "schedule-risk"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "commercial standard (PMI member/purchase access); pmi.org returns 403 to automated requests; not read",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "nomitech-costos",
+   "title": "CostOS cost estimating software (Nomitech)",
+   "publisher": "Nomitech Ltd.",
+   "kind": "data-tool",
+   "url": "https://www.nomitech.com",
+   "access": "paywalled",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "cost-estimation",
+    "commercial-tool"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "commercial estimating package; vendor site only; not evaluated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "oracle-primavera-cloud",
+   "title": "Primavera Cloud (project scheduling and controls)",
+   "publisher": "Oracle",
+   "kind": "data-tool",
+   "url": "https://www.oracle.com/construction-engineering/primavera-cloud/",
+   "access": "paywalled",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "scheduling",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "commercial scheduling package; a shutdown plan exported from a scheduling tool could be loaded into shutdown_risk as activities and predecessors (not built); not evaluated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "spe-focus-ps",
+   "title": "SPE In Focus: Process Safety",
+   "publisher": "Society of Petroleum Engineers",
+   "kind": "association",
+   "url": "https://www.spe.org/en/focus/process-safety/",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "psm",
+    "oil-gas"
+   ],
+   "modules": [],
+   "note": "index of articles, papers on OnePetro (many paywalled)",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "afpm-ps",
+   "title": "AFPM process safety",
+   "publisher": "American Fuel & Petrochemical Manufacturers",
+   "kind": "association",
+   "url": "https://www.afpm.org/issues/safety-health/process-safety",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "refining",
+    "rmp"
+   ],
+   "modules": [
+    "rmp"
+   ],
+   "note": "industry-association position",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ccps",
+   "title": "Center for Chemical Process Safety",
+   "publisher": "AIChE",
+   "kind": "association",
+   "url": "https://www.aiche.org/ccps",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "psm",
+    "guidelines",
+    "rbps"
+   ],
+   "modules": [
+    "psm",
+    "hazop",
+    "sil"
+   ],
+   "note": "books are paywalled",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ccps-beacon",
+   "title": "Process Safety Beacon",
+   "publisher": "CCPS",
+   "kind": "news",
+   "url": "https://ccps.aiche.org/process-safety-beacon",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "incident",
+    "awareness"
+   ],
+   "modules": [],
+   "note": "returned a bot check (HTTP 403) on 2026-11-06; not read, no bypass",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "tamu-mkopsc",
+   "title": "Mary Kay O'Connor Process Safety Center",
+   "publisher": "Texas A&M University",
+   "kind": "association",
+   "url": "https://psc.tamu.edu/",
+   "access": "free",
+   "read": "no",
+   "region": "US",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "icheme-safety",
+   "title": "IChemE Safety Centre",
+   "publisher": "IChemE",
+   "kind": "association",
+   "url": "https://www.icheme.org/knowledge/safety-centre/",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "incident",
+    "lessons"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "energy-inst",
+   "title": "Energy Institute technical publications",
+   "publisher": "Energy Institute",
+   "kind": "association",
+   "url": "https://www.energyinst.org/technical",
+   "access": "mixed",
+   "read": "no",
+   "region": "UK",
+   "topics": [
+    "guidelines",
+    "oil-gas",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "iogp-safety",
+   "title": "IOGP safety, including Life-Saving Rules and process safety reports",
+   "publisher": "IOGP",
+   "kind": "association",
+   "url": "https://www.iogp.org/safety/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "life-saving-rules",
+    "psm",
+    "oil-gas"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "sigma-hse-articles",
+   "title": "Sigma-HSE news and insights",
+   "publisher": "Sigma-HSE",
+   "kind": "news",
+   "url": "https://sigma-hse.com/news-insights/",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "psm",
+    "hazop",
+    "dust",
+    "atex",
+    "reaction-hazard"
+   ],
+   "modules": [
+    "atex",
+    "reaction_hazard"
+   ],
+   "note": "titles only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "sigma-early-design",
+   "title": "Why are early-stage design decisions critical for process safety?",
+   "publisher": "Sigma-HSE",
+   "kind": "news",
+   "url": "https://sigma-hse.com/news-insights/early-stage-design-decisions/",
+   "access": "free",
+   "read": "page",
+   "region": "UK",
+   "topics": [
+    "reaction-hazard",
+    "design",
+    "scale-up"
+   ],
+   "modules": [
+    "reaction_hazard",
+    "thermal_runaway"
+   ],
+   "note": "statistics quoted by the article, not checked",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psmnews",
+   "title": "PSM News (James Klein)",
+   "publisher": "Process Safety Priorities LLC",
+   "kind": "news",
+   "url": "https://psmnews.com/",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "blog"
+   ],
+   "modules": [],
+   "note": "single-author blog; low weight; nothing used",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "jlppi",
+   "title": "Journal of Loss Prevention in the Process Industries",
+   "publisher": "Elsevier",
+   "kind": "journal",
+   "url": "https://www.sciencedirect.com/journal/journal-of-loss-prevention-in-the-process-industries",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "consequence",
+    "qra"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psep",
+   "title": "Process Safety and Environmental Protection",
+   "publisher": "Elsevier / IChemE",
+   "kind": "journal",
+   "url": "https://www.sciencedirect.com/journal/process-safety-and-environmental-protection",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "psp",
+   "title": "Process Safety Progress",
+   "publisher": "AIChE / Wiley",
+   "kind": "journal",
+   "url": "https://aiche.onlinelibrary.wiley.com/journal/15475913",
+   "access": "paywalled",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "research",
+    "psm"
+   ],
+   "modules": [],
+   "note": "",
+   "http_status": 403,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "coolprop",
+   "title": "CoolProp",
+   "publisher": "CoolProp project",
+   "kind": "data-tool",
+   "url": "https://coolprop.org/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "properties",
+    "validation"
+   ],
+   "modules": [
+    "fluiddata",
+    "props"
+   ],
+   "note": "MIT; source of data/fluid_screening.json and test oracle",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "fluids",
+   "title": "fluids (ChEDL)",
+   "publisher": "Caleb Bell",
+   "kind": "data-tool",
+   "url": "https://fluids.readthedocs.io/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "validation",
+    "relief",
+    "hydraulics"
+   ],
+   "modules": [
+    "relief",
+    "hydraulics",
+    "separator"
+   ],
+   "note": "MIT; test oracle only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "thermo",
+   "title": "thermo (ChEDL)",
+   "publisher": "Caleb Bell",
+   "kind": "data-tool",
+   "url": "https://thermo.readthedocs.io/",
+   "access": "free",
+   "read": "text",
+   "region": "global",
+   "topics": [
+    "properties",
+    "validation"
+   ],
+   "modules": [
+    "props"
+   ],
+   "note": "MIT; test oracle only",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "bibmon",
+   "title": "BibMon (Petrobras)",
+   "publisher": "Petrobras",
+   "kind": "data-tool",
+   "url": "https://github.com/petrobras/BibMon",
+   "access": "free",
+   "read": "no",
+   "region": "BR",
+   "topics": [
+    "monitoring",
+    "fault-detection"
+   ],
+   "modules": [],
+   "note": "Apache-2.0; complementary, not integrated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "otsafe",
+   "title": "OTsafe",
+   "publisher": "p4lsec",
+   "kind": "data-tool",
+   "url": "https://github.com/p4lsec/otsafe",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "ot-security",
+    "safety-modelling"
+   ],
+   "modules": [],
+   "note": "Apache-2.0; complementary, not integrated",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "doe-hdbk-1101",
+   "title": "DOE-HDBK-1101-96 Process safety management for highly hazardous chemicals",
+   "publisher": "US DOE",
+   "kind": "guidance",
+   "url": "https://www.energy.gov/documents/doe-hdbk-1101-96",
+   "access": "free",
+   "read": "page",
+   "region": "US",
+   "topics": [
+    "psm",
+    "audit"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "aiga-99",
+   "title": "AIGA 99/20 Process safety management",
+   "publisher": "AIGA",
+   "kind": "guidance",
+   "url": "https://asiaiga.org/uploaded_docs/en_AIGA_99_20_Process_Safety_Mangement.pdf",
+   "access": "free",
+   "read": "page",
+   "region": "global",
+   "topics": [
+    "psm"
+   ],
+   "modules": [
+    "psm"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cfr-193",
+   "title": "49 CFR 193 LNG facilities: federal safety standards",
+   "publisher": "eCFR",
+   "kind": "regulation",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-D/part-193",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "lng",
+    "regulation"
+   ],
+   "modules": [
+    "lng"
+   ],
+   "note": "current text; NPRM would replace",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "cfr-192",
+   "title": "49 CFR 192 Transportation of natural and other gas by pipeline",
+   "publisher": "eCFR",
+   "kind": "regulation",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-D/part-192",
+   "access": "free",
+   "read": "text",
+   "region": "US",
+   "topics": [
+    "pipeline",
+    "regulation"
+   ],
+   "modules": [
+    "pipeline"
+   ],
+   "note": "",
+   "http_status": 200,
+   "checked": "2026-11-06"
+  },
+  {
+   "id": "ecoana",
+   "title": "ecoana: early-stage techno-economic tools",
+   "publisher": "PyPI",
+   "kind": "data-tool",
+   "url": "https://pypi.org/project/ecoana/",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost",
+    "tea"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "0.0.1 release; equipment cost models from Turton, Seider, Smith, Peters, Towler and Guthrie with a basis year (you apply the index); not run here",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "chemengdppy",
+   "title": "ChemEngDPpy: chemical plant design in Python",
+   "publisher": "GitHub (weepctxb)",
+   "kind": "data-tool",
+   "url": "https://github.com/weepctxb/ChemEngDPpy",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "equipment-cost"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "equipment sizing plus CAPEX/OPEX; CEPCI table covers only a few years in the snippets seen; not run here",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "flowcost-dwsim",
+   "title": "FlowCost (DWSIM-TEA-App): capital and operating cost from DWSIM exports",
+   "publisher": "FOSSEE / IIT Bombay fellowship report",
+   "kind": "data-tool",
+   "url": "https://static.fossee.in/fossee/reports-2026/Fellowship-2026/DWSIM/Divyansh%20Sharma.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "simulation",
+    "tea"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "open-source; parses DWSIM process data into capital (ISBL/OSBL, fixed capital, working capital) and operating-cost modules; version and validation not stated in the report; report body not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "cleopatra-vs-kbase",
+   "title": "Cleopatra Enterprise versus Kbase",
+   "publisher": "Cost Engineering Consultancy",
+   "kind": "guidance",
+   "url": "https://www.costengineering.eu/Downloads/articles/Cleopatra_Enterprise_versus_kbase.pdf",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "commercial-tool",
+    "vendor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "vendor-written comparison with Aspen Kbase; one-sided; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "aspen-capital-cost-estimator",
+   "title": "Aspen Capital Cost Estimator",
+   "publisher": "AspenTech",
+   "kind": "data-tool",
+   "url": "https://www.aspentech.com/en/products/pages/aspen-capital-cost-estimator",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-estimation",
+    "commercial-tool",
+    "vendor"
+   ],
+   "modules": [
+    "recommendation_cost"
+   ],
+   "note": "commercial; product page only; AACE Class IV to II estimates per the vendor; not evaluated",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "deltek-acumen-risk",
+   "title": "Acumen Risk",
+   "publisher": "Deltek",
+   "kind": "data-tool",
+   "url": "https://www.deltek.com/en/project-and-portfolio-management/acumen/risk-360",
+   "access": "mixed",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "monte-carlo",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "commercial; combined cost and schedule Monte Carlo reading Primavera P6, MS Project and Open Plan files; quote-based; vendor page only",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "safran-vs-opra",
+   "title": "Primavera Risk Analysis versus Safran Risk",
+   "publisher": "Proadvise",
+   "kind": "guidance",
+   "url": "https://www.proadvise.com/en/company/blog/78-general/744-safran-risk-opra-key-differences",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "consultant comparison of two commercial Monte Carlo schedule/cost risk tools; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "vose-risk-tools",
+   "title": "The top project risk analysis tools",
+   "publisher": "Vose Software",
+   "kind": "guidance",
+   "url": "https://www.vosesoftware.com/Project-Risk/Six-Best-Project-Risk-Analysis-Tools.php",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "vendor-authored list (Vose sells one of the tools); treat as marketing; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  },
+  {
+   "id": "projectdecisions-risk-software",
+   "title": "Overview of schedule and cost risk analysis software",
+   "publisher": "Project Decisions",
+   "kind": "guidance",
+   "url": "https://projectdecisions.org/?p=842",
+   "access": "free",
+   "read": "no",
+   "region": "global",
+   "topics": [
+    "cost-risk",
+    "schedule-risk",
+    "commercial-tool"
+   ],
+   "modules": [
+    "shutdown_risk"
+   ],
+   "note": "neutral-looking overview of tools; not read in full",
+   "http_status": 200,
+   "checked": "2026-11-07"
+  }
+ ]
+}
