@@ -1,0 +1,98 @@
+{
+  "today": "2026-11-05",
+  "nodes": {
+    "Node 1 Bullet receipt": "Receive propane from tanker into V-101",
+    "Node 2 Pump P-101": "Transfer propane to loading at 900 kPag",
+    "Node 4 Vapour return": "Return displaced vapour to tanker"
+  },
+  "previous_worksheet": [
+    {
+      "Node": "Node 1 Bullet receipt",
+      "Design intent": "Receive propane from tanker into V-101",
+      "Status": "closed"
+    },
+    {
+      "Node": "Node 2 Pump P-101",
+      "Design intent": "Transfer propane at 800 kPag",
+      "Status": "open"
+    },
+    {
+      "Node": "Node 3 Old drain",
+      "Design intent": "Drain water",
+      "Status": "closed"
+    }
+  ],
+  "last_pha": "2021-11-20",
+  "mocs_since": 12,
+  "incidents_since": 1,
+  "actions": [
+    {
+      "id": "H-01",
+      "study": "HAZOP 2021",
+      "node": "Node 1",
+      "risk": "high",
+      "owner": "Ops",
+      "due": "2026-06-30",
+      "status": "open"
+    },
+    {
+      "id": "H-02",
+      "study": "HAZOP 2021",
+      "node": "Node 2",
+      "risk": "medium",
+      "owner": "Maint",
+      "due": "2026-12-31",
+      "status": "open"
+    },
+    {
+      "id": "H-03",
+      "study": "HAZOP 2021",
+      "node": "Node 2",
+      "risk": "low",
+      "owner": "Ops",
+      "due": "2025-03-01",
+      "status": "closed",
+      "closed": "2025-02-20"
+    }
+  ],
+  "simops": {
+    "activities": [
+      "Tanker loading",
+      "Hot work",
+      "Crane lift",
+      "Pigging"
+    ],
+    "rules": {
+      "Tanker loading|Hot work": "X",
+      "Crane lift|Tanker loading": "C",
+      "Hot work|Pigging": "X",
+      "Crane lift|Hot work": "C"
+    },
+    "schedule": [
+      {
+        "activity": "Tanker loading",
+        "start": "2026-11-10T08:00",
+        "end": "2026-11-10T12:00",
+        "x": 120,
+        "y": 40,
+        "radius_m": 50
+      },
+      {
+        "activity": "Hot work",
+        "start": "2026-11-10T10:00",
+        "end": "2026-11-10T14:00",
+        "x": 140,
+        "y": 60,
+        "radius_m": 20
+      },
+      {
+        "activity": "Crane lift",
+        "start": "2026-11-10T13:00",
+        "end": "2026-11-10T15:00",
+        "x": 0,
+        "y": 0,
+        "radius_m": 30
+      }
+    ]
+  }
+}
