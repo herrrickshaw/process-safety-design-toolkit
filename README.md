@@ -65,6 +65,10 @@ python3 -m process_safety coverage      # topic -> standard -> code map, with wh
 | `qra.emergency` | MCLS consequence distances, emergency planning zones A/B/C, ERDMP-style Level 1/2/3 | MoEF EIA TGM damage criteria | zones as circles |
 | `sil_lifecycle` | SIL from RRF, IEC 61511 Table 6 HFT, Route 1H SFF, SIF verification, spurious trips, calibrated risk graph, SRS skeleton | IEC 61511-1:2016 COR1 Table 6 (read) | no SC / proof-test coverage |
 | `fg_mapping` | F&G geographic coverage (point, open path, flame with line of sight), voting coverage vs targets, greedy optimiser | ISA TR84.00.07 style | 2D geographic only |
+| `wbs` | Work breakdown structure: effort, cost and percent complete rolled up from leaves; HAZOP, QRA and PHA-revalidation templates (structure only, no numbers); schedule from the leaves | CPM definitions, no standard text | estimates are inputs |
+| `schedule` | Dated critical-path schedule on a working calendar (FS/SS/FF with lag, holidays, start-no-earlier, deadline slack), weekly load per owner against capacity, Gantt SVG; converts a `shutdown` model | CPM definitions | no resource levelling |
+| `tender_register` | Tender and upcoming-project register: deadlines, missed bids, awards to chase, upcoming starts, weighted pipeline, bid score, win rate, keyword triage of pasted items | none (all weights and probabilities are inputs) | no portal scraping; only as current as its last update |
+| `portfolio` | One status report: tenders, project schedules and earned value, capacity across projects, won-but-unplanned tenders, HAZOP action ageing and revalidation due (JSON, CSV, HTML) | PMBOK-style earned-value definitions | EAC assumes current cost performance continues |
 | `pha` | CHAZOP / What-if / SWIFT / PSSR worksheets, SIMOPS matrix and clash check, action tracker, revalidation, carry-forward | OSHA 1910.119(e)(6) cadence | checklists |
 | `thermal_runaway` | TMRad, TD24, Stoessel criticality class, Semenov critical ambient | Stoessel (TUV SUD lecture examples reproduced) | zero-order kinetics |
 | `atex` | KSt class, zone by grade, EPL / ATEX category, FIBC screening, EPD register | KSt classes (read) | no zone extent, no vent sizing |
@@ -181,8 +185,9 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `docs/DESIGN_AWARENESS.md`: process safety review steps, the design choices each drives, results from the use cases, and incident instances, with the toolkit command for each.
 * `docs/USE_CASES.md`: eight worked scenarios (refinery fire case, flashing LPG relief, terminal siting, LOPA to proof-test interval, regulatory screen, electrical, data centre, occupational) with the real commands and outputs; every command is run by the tests.
 * `docs/VALIDATION.md`: 186 cross-checks against fluids, thermo, CoolProp and closed-form literature formulas, with the differences to know about.
-* `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `CONTRIBUTING.md`: checks to run, releasing.
+* `docs/ARCHITECTURE.md`: module layout, SOLID mapping, the command registry, range policy. `docs/ARCHITECTURE_DDD.md`: proposed domain-driven layout and scaling options. `CONTRIBUTING.md`: checks to run, releasing.
 * `docs/RANGES.md`, `docs/GLOSSARY.md`: generated from `ranges.py` and `glossary.py`; a test keeps them in sync.
+* `docs/PROJECT_PIPELINE.md`: tender and upcoming-project monitoring, WBS, scheduling, planning and portfolio reporting around the HAZOP, PHA and shutdown tools: spec, inputs, refusals, identities and limits.
 * `docs/STUDIES.md`: bow-tie, occupied buildings, emergency zones/MCLS, SIL lifecycle, F&G mapping, PHA management, thermal runaway/ATEX, RAM.
 * `docs/IFLUIDS_SERVICES.md`: the iFluids Engineering brochure service list mapped to modules, with what is not covered.
 * `docs/DATACENTRE.md`: data-centre helpers, inputs, and what is deliberately not coded.

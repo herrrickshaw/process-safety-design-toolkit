@@ -38,6 +38,7 @@ TOPICS = {
     "MCLS, emergency planning zones, ERDMP": (["PNGRB ERDMP 2010", "MSIHC 1989", "MoEF EIA TGM"], "qra.emergency", "distances, zones A/B/C, Level 1/2/3 approximation"),
     "SIL verification / SRS / risk graph": (["IEC 61511-1:2016 Table 6", "IEC 61508-2 Route 1H"], "sil_lifecycle", "PFD + HFT/SFF; no SC or proof-test coverage"),
     "Fire & gas mapping": (["ISA TR84.00.07"], "fg_mapping", "2D geographic coverage + greedy optimiser"),
+    "Project planning: WBS, scheduling, tender register, portfolio reporting": (["CPM and earned-value definitions (no standard text used)"], "wbs, schedule, tender_register, portfolio", "implemented: FS/SS/FF links, working calendar, weekly load against capacity, earned value; no resource levelling; the register is hand or feed input, no portal scraping"),
     "CHAZOP / What-if / SWIFT / PSSR / SIMOPS / PHA revalidation": (["CCPS", "OSHA 1910.119(e)(6)"], "pha", "worksheets, action tracking, revalidation"),
     "Thermal runaway (TMRad, TD24, Stoessel class)": (["Stoessel"], "thermal_runaway", "zero-order screening"),
     "ATEX / EPD / dust class": (["ATEX 2014/34/EU", "IEC 60079-10-1/-10-2"], "atex", "classification only; no zone extent or vent sizing"),

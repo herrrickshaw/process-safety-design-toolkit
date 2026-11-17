@@ -12,6 +12,10 @@
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
     pha      action tracking, revalidation, carry-forward, SIMOPS, CHAZOP/What-if/SWIFT/PSSR worksheets   (pha.py)
+    wbs      work breakdown structure: roll-up of effort, cost, percent complete; HAZOP/QRA/PHA templates (structure only); schedule from the leaves  (wbs.py)
+    schedule dated critical-path schedule (working calendar, FS/SS/FF + lag), float, deadline slack, weekly load vs capacity, Gantt  (schedule.py)
+    tenders  tender and upcoming-project register: deadlines, missed bids, weighted pipeline, bid score, win rate, intake triage  (tender_register.py)
+    portfolio one status report: tenders, project schedules and earned value, capacity, HAZOP actions and revalidation  (portfolio.py)
 Every tool runs input checks first and writes a validation section to its summary.
 """
 from __future__ import annotations
@@ -21,7 +25,7 @@ import json
 import math
 import os
 
-from . import atex, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, ram, recommendation_cost, shutdown_risk, sil_lifecycle, thermal_runaway
+from . import atex, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, portfolio, ram, recommendation_cost, schedule, shutdown_risk, sil_lifecycle, tender_register, thermal_runaway, wbs
 
 
 def _dump(obj, path):
@@ -254,6 +258,102 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
                 files.append(f"{pre}_{kind}.csv")
         summ["files"] = sorted(set(files))
         summ["checks"] = ["PASS: action dates parsed" if "actions" in data else "INFO: no actions"]
+    elif name == "wbs":
+        if "wbs" not in data and "template" in data:
+            t = data["template"]
+            data = {**data, "wbs": wbs.template(t["kind"], t.get("nodes"))}
+        errs = wbs.check(data, require_estimates=False)
+        summ["checks"] = ["FAIL: " + e for e in errs] or ["PASS: inputs (codes, parents, links, acyclic)"]
+        if errs:
+            return summ
+        rows = wbs.roll_up(data)
+        pha.write_csv(rows, pre + "_rollup.csv")
+        pha.write_csv(wbs.dictionary_rows(data), pre + "_dictionary.csv")
+        files = [pre + "_rollup.csv", pre + "_dictionary.csv"]
+        leaves = [r for r in rows if r["leaf"]]
+        top = [r for r in rows if r["level"] == 1]
+        ok = abs(sum(r["effort_days"] for r in top) - sum(r["effort_days"] for r in leaves)) < 1e-9 and abs(sum(r["cost"] for r in top) - sum(r["cost"] for r in leaves)) < 1e-9
+        summ["checks"].append(("PASS" if ok else "FAIL") + ": top-level effort and cost equal the sum of the leaves")
+        missing = [r["code"] for r in leaves if r["duration_days"] is None]
+        summ.update(nodes=len(rows), work_packages=len(leaves), effort_days=sum(r["effort_days"] for r in leaves), cost=sum(r["cost"] for r in leaves),
+                    missing_duration=missing)
+        if missing:
+            summ["checks"].append("INFO: " + str(len(missing)) + " work packages have no duration yet; fill them in to schedule")
+        elif data.get("start"):
+            plan = schedule.plan(wbs.to_schedule(data, data["start"]))
+            pha.write_csv(plan["activities"], pre + "_schedule.csv")
+            schedule.gantt_svg(plan, pre + "_gantt.svg")
+            files += [pre + "_schedule.csv", pre + "_gantt.svg"]
+            summ["schedule"] = {k: plan[k] for k in ("start", "finish", "duration_days", "critical_path", "deadline", "overloads")}
+            summ["summary_dates"] = wbs.summary_dates(data, plan)
+        summ["files"] = files
+    elif name == "schedule":
+        errs = schedule.check(data)
+        summ["checks"] = ["FAIL: " + e for e in errs] or ["PASS: inputs (dates, calendar, links, acyclic network)"]
+        if errs:
+            return summ
+        plan = schedule.plan(data)
+        pha.write_csv(plan["activities"], pre + "_activities.csv")
+        pha.write_csv(plan["load"], pre + "_load.csv")
+        schedule.gantt_svg(plan, pre + "_gantt.svg")
+        acts = {a["id"]: a for a in data["activities"]}
+        plain = all(t == "FS" and lag == 0 for a in acts.values() for _, t, lag in schedule._links(a)) and not any(a.get("start_no_earlier") for a in acts.values())
+        if plain:
+            dur = {r["id"]: r["duration_days"] for r in plan["activities"]}
+            summ["checks"].append(("PASS" if abs(sum(dur[i] for i in plan["critical_path"]) - plan["duration_days"]) < 1e-9 else "FAIL")
+                                  + ": critical path durations sum to the project duration")
+        if not data.get("finish_by"):
+            summ["checks"].append(("PASS" if plan["float_min"] > -1e-9 else "FAIL") + ": no negative float without a deadline")
+        summ.update({k: plan[k] for k in ("start", "finish", "duration_days", "critical_path", "deadline", "overloads", "notes")})
+        summ["files"] = [pre + "_activities.csv", pre + "_load.csv", pre + "_gantt.svg"]
+    elif name == "tenders":
+        errs = tender_register.check(data)
+        summ["checks"] = ["FAIL: " + e for e in errs] or ["PASS: inputs (stages, dates in order, values, probabilities)"]
+        if errs:
+            return summ
+        today = dt.date.fromisoformat(data["today"]) if data.get("today") else dt.date.today()
+        horizon = data.get("horizon_days", 30)
+        ents = data.get("tenders", [])
+        dl = tender_register.deadlines(ents, today, horizon)
+        up = tender_register.upcoming_projects(ents, today, horizon, include_open=True)
+        pipe = tender_register.weighted_pipeline(ents, data.get("stage_probability", {}))
+        files = []
+        pha.write_csv([{"kind": k, **r} for k in ("upcoming", "missed", "chase") for r in dl[k]], pre + "_deadlines.csv")
+        pha.write_csv(up, pre + "_upcoming_projects.csv")
+        pha.write_csv([{"stage": s, **v} for s, v in pipe["by_stage"].items()], pre + "_pipeline.csv")
+        files += [pre + "_deadlines.csv", pre + "_upcoming_projects.csv", pre + "_pipeline.csv"]
+        if pipe["weighted_total"] is not None:
+            summ["checks"].append(("PASS" if abs(sum(s["weighted"] for s in pipe["by_stage"].values()) - pipe["weighted_total"]) < 1e-9 else "FAIL")
+                                  + ": stage values sum to the weighted pipeline")
+        else:
+            summ["checks"].append("INFO: weighted pipeline not computed (no probability for " + ", ".join(pipe["unweighted_entries"]) + ")")
+        summ.update(deadlines={k: len(v) for k, v in dl.items()}, upcoming_projects=len(up), pipeline={k: v for k, v in pipe.items() if k != "by_stage"},
+                    pipeline_by_stage=pipe["by_stage"], win_rate=tender_register.win_rate(ents))
+        if data.get("bid"):
+            bids = [{"id": e["id"], "title": e.get("title", ""), **tender_register.bid_score(e, data["bid"])} for e in ents if e["stage"] in tender_register.PRE_SUBMISSION]
+            pha.write_csv(bids, pre + "_bid_scores.csv")
+            files.append(pre + "_bid_scores.csv")
+            summ["bids"] = bids
+        if data.get("intake"):
+            cand = tender_register.triage(data["intake"]["items"], data["intake"]["rules"])
+            pha.write_csv([{k: (" ".join(v) if isinstance(v, list) else v) for k, v in c.items() if k != "suggested_entry"} for c in cand], pre + "_triage.csv")
+            files.append(pre + "_triage.csv")
+            summ["triage_candidates"] = len(cand)
+        summ["files"] = files
+    elif name == "portfolio":
+        rep = portfolio.run(data)
+        summ["checks"] = rep["checks"]
+        if any(c.startswith("FAIL") for c in rep["checks"]):
+            summ["headline"] = rep["headline"]
+            return summ
+        portfolio.write_html(rep, pre + "_report.html")
+        pha.write_csv([{"kind": k, **r} for k in ("upcoming", "missed", "chase") for r in rep["deadlines"][k]], pre + "_deadlines.csv")
+        pha.write_csv(rep["upcoming_projects"], pre + "_upcoming_projects.csv")
+        pha.write_csv([{k: (v if not isinstance(v, (dict, list)) else None) for k, v in p.items()} | (p["earned_value"] or {}) for p in rep["projects"]], pre + "_projects.csv")
+        pha.write_csv(rep["load"], pre + "_load.csv")
+        pha.write_csv(rep["needs_plan"], pre + "_needs_plan.csv")
+        summ.update(headline=rep["headline"], notes=rep["notes"], limits=rep["limits"], pha=rep["pha"])
+        summ["files"] = [pre + "_report.html", pre + "_deadlines.csv", pre + "_upcoming_projects.csv", pre + "_projects.csv", pre + "_load.csv", pre + "_needs_plan.csv"]
     else:
         raise ValueError(f"unknown tool {name!r}")
     _dump(summ, pre + "_summary.json")
