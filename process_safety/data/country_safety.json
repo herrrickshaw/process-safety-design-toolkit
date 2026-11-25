@@ -1,0 +1,7013 @@
+{
+ "compiled": "2026-11-25",
+ "note": "Compiled from web-search result listings (pages not read) and, for some standards bodies, one Wikipedia table. not-found does not mean no law exists; not-searched means nobody has looked.",
+ "audit": "On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched.",
+ "countries": {
+  "AFG": {
+   "standards_body": {
+    "status": "found",
+    "name": "Afghanistan Standard and Quality Authority (ASQA), formerly Afghanistan National Standards Authority (ANSA)",
+    "url": "https://committee.iso.org/member/513271.html",
+    "source": "secondary",
+    "note": "Rename (Nov 2025) as reported in search summary; current website not confirmed.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour Law (No. 35 of 2007)",
+    "url": "https://webarchive.archive.unhcr.org/20230528080315oe_/https://www.refworld.org/docid/5b0691664.html",
+    "source": "secondary",
+    "note": "OSH provisions and current force under present authorities not verified.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "Search showed an Afghan Building Code (2012) but did not show that it carries fire rules."
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Power Services Regulation Act (2016) surfaced, but electrical safety coverage not shown."
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Hydrocarbons Law (2017)",
+    "url": "https://momp.gov.af/sites/default/files/2020-06/2017%20Hydrocarbons%20Law%20vEnglish.pdf",
+    "source": "official",
+    "note": "Petroleum/gas sector law; safety content and current force not verified. No explosives law found.",
+    "check": "pdf"
+   }
+  },
+  "AGO": {
+   "standards_body": {
+    "status": "found",
+    "name": "Instituto Nacional das Infra-Estruturas da Qualidade (INIQ), via Decreto Presidencial n.º 95/21",
+    "url": "https://lex.ao/docs/presidente-da-republica/2021/decreto-presidencial-n-o-95-21-de-20-de-abril/",
+    "source": "secondary",
+    "note": "The 2021 merger abolished IANORQ and the accreditation institute IAAC. No INIQ website seen.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Decreto n.º 31/94, de 5 de Agosto (Segurança, Higiene e Saúde no Trabalho)",
+    "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=56323",
+    "source": "secondary",
+    "note": "1994 text. Link was described as a 1998 compilation that includes the decree; check the entry. Current status not confirmed.",
+    "check": "blocked"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "No separate search beyond one combined fire/pressure query."
+   },
+   "fire": {
+    "status": "found",
+    "name": "Decreto Presidencial n.º 195/11 - Regime Jurídico da Segurança Contra Incêndios em Edifícios",
+    "url": "https://lex.ao/docs/presidente-da-republica/2011/decreto-presidencial-n-o-195-11-de-08-de-julho/",
+    "source": "secondary",
+    "note": "Buildings only; amendments not checked.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Only supply and audit texts surfaced; no safety regulation confirmed."
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Decreto Presidencial n.º 176/15 (dangerous goods list for the Road Transport of Dangerous Goods Regulation, Decreto Presidencial n.º 195/12)",
+    "url": "https://lex.ao/docs/presidente-da-republica/2015/decreto-presidencial-n-o-176-15-de-21-de-setembro/",
+    "source": "secondary",
+    "note": "Link is the 2015 list decree, not the 2012 base regulation; road transport only.",
+    "check": "ok"
+   }
+  },
+  "ALB": {
+   "standards_body": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Law No. 10237 of 18.02.2010 On Safety and Health at Work (as amended)",
+    "url": "https://inspektoriatipunes.gov.al/wp-content/uploads/2025/05/ligj-2010-02-18-10237-perditesuar.pdf",
+    "source": "official",
+    "note": "",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Search showed only a planned draft law; no enacted text."
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Law No. 32/2016 on guaranteeing work safety of pressure equipment and installations",
+    "url": "https://kpmg.com/al/en/insights/2024/05/implementing-provisions-of-the-law-on-guaranteeing-the-safety-of.html",
+    "source": "secondary",
+    "note": "Page is about implementing provisions; result title truncated, confirm it matches this law.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Only an explanatory report for a draft law was seen."
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "AND": {
+   "standards_body": {
+    "status": "not-found",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Llei 34/2008, de la seguretat i la salut en el treball",
+    "url": "https://www.consellgeneral.ad/fitxers/documents/lleis-2008/llei-34-2008.pdf",
+    "source": "official",
+    "note": "",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Decret 183/2024 (fire safety, high-rise and public-assembly buildings)",
+    "url": "https://www.govern.ad/documents/d/guest/decret-183-2024-edificis-gran-alcaria-1",
+    "source": "official",
+    "note": "Procedure decree for high-rise and public-assembly buildings only; not a general fire law.",
+    "check": "pdf"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "A 1988 low-voltage regulation is mentioned, but no result URL could be reliably tied to its text."
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "ARE": {
+   "standards_body": {
+    "status": "found",
+    "name": "Ministry of Industry and Advanced Technology (MoIAT), national standardization body",
+    "url": "https://www.iso.org/member/1704.html",
+    "source": "official",
+    "note": "ISO member listing; ministry site is moiat.gov.ae.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Only emirate-level material surfaced."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "UAE Fire and Life Safety Code of Practice",
+    "url": "https://www.dm.gov.ae/wp-content/uploads/2022/05/DM-DCLD-RD-DP32-5119-Type-1-UAE-Fire-Code-R2.pdf",
+    "source": "official",
+    "note": "Civil Defence code; copy hosted by Dubai Municipality; current edition not confirmed.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Electricity safety rules appear to be emirate-level; no national code shown."
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Federal Decree-Law No. 17 of 2019 on weapons, ammunition, explosives, military materiel and hazardous substances",
+    "url": "https://elaws.moj.gov.ae/UAE-MOJ_LC-En/00_WEAPONS/UAE-LC-En_2019-08-29_00017_Markait.html",
+    "source": "official",
+    "note": "Licensing law. Petroleum products are under separate Federal Law No. 14 of 2017.",
+    "check": "error"
+   }
+  },
+  "ARG": {
+   "standards_body": {
+    "status": "found",
+    "name": "Instituto Argentino de Normalización y Certificación (IRAM)",
+    "url": "https://www.iso.org/member/1520.html",
+    "source": "secondary",
+    "note": "ISO member listing; private non-profit body.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Ley 19587 de Higiene y Seguridad en el Trabajo (1972)",
+    "url": "https://www.argentina.gob.ar/normativa/nacional/17612/texto",
+    "source": "official",
+    "note": "",
+    "check": "error"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Decreto 351/1979, reglamentación de la Ley 19587 (Higiene y Seguridad en el Trabajo)",
+    "url": "https://www.argentina.gob.ar/normativa/recurso/32030/texact/htm",
+    "source": "official",
+    "note": "Workplace regulation; a Mendoza government result cites it for boiler conditions. Provinces also regulate boilers and pressure vessels.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Decreto 351/1979, Anexo VII (Capítulo 18, protección contra incendios)",
+    "url": "https://www.argentina.gob.ar/normativa/recurso/32030/dto351-1979-anexo7/htm",
+    "source": "official",
+    "note": "Workplace fire protection only; no national building fire code found. Later amendments not checked.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Resolución SRT 900/2015, guía práctica (applies reglamentación AEA 90364)",
+    "url": "https://argentina.gob.ar/sites/default/files/res_srt_900_15-guia-practica_0.pdf",
+    "source": "official",
+    "note": "Link is the SRT practical guide, not the resolution text; workplace scope.",
+    "check": "robots"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Ley 13660, instalaciones para elaboración de combustibles (1949); regulated by Decreto 10877/1960",
+    "url": "https://www.argentina.gob.ar/normativa/nacional/ley-13660-45288/texto",
+    "source": "official",
+    "note": "Original text; old law, amendments not checked.",
+    "check": "error"
+   }
+  },
+  "ARM": {
+   "standards_body": {
+    "status": "found",
+    "name": "National Body for Standards and Metrology (ARMSTANDARD)",
+    "url": "https://www.armstandard.am/en/page/history",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour Code of the Republic of Armenia (2004), HO-124-N",
+    "url": "https://translation-centre.am/pdf/Trans_ru/HH_Codes/HO-124-N_09112004_25102023_en.pdf",
+    "source": "secondary",
+    "note": "Translation; OSH chapter reported revised in 2023.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "A law on state regulation of technical safety is referenced, but no search result linked its text."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Law of the Republic of Armenia No. ZR-176 'On Fire Safety' (2001)",
+    "url": "https://faolex.fao.org/docs/pdf/arm109280.pdf",
+    "source": "secondary",
+    "note": "Since amended (e.g. ZR-395); current status not confirmed.",
+    "check": "pdf"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "ATG": {
+   "standards_body": {
+    "status": "found",
+    "name": "Antigua and Barbuda Bureau of Standards",
+    "url": "https://www.iso.org/member/1543.html",
+    "source": "secondary",
+    "note": "Standards Act 2017.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Antigua and Barbuda Labour Code (Cap. 27), health, safety and welfare provisions",
+    "url": "https://leap.unep.org/en/countries/ag/national-legislation/antigua-and-barbuda-labour-code-act-chapter-27",
+    "source": "secondary",
+    "note": "A commercial guide also cites an Occupational Safety and Health Act 2013, not confirmed. Code since amended.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Searched only incidentally; nothing seen."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "An ILO-hosted Factories Act surfaced but its country was not confirmed."
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "No Fire Services Act text seen."
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "No electrical safety instrument seen."
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "A Petroleum Act is only mentioned in a third-party index; no usable link to the law."
+   }
+  },
+  "AUS": {
+   "standards_body": {
+    "status": "found",
+    "name": "Standards Australia",
+    "url": "https://www.standards.org.au/about/who-we-are",
+    "source": "official",
+    "note": "Non-government body recognised by the Commonwealth.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Model Work Health and Safety Act (Safe Work Australia)",
+    "url": "https://www.safeworkaustralia.gov.au/doc/model-work-health-and-safety-act",
+    "source": "official",
+    "note": "Model law with no legal effect by itself; enacted by jurisdictions, not uniformly (Victoria has its own OHS law).",
+    "check": "error"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Model WHS Regulations, Chapter 9: Major hazard facilities",
+    "url": "https://www.safeworkaustralia.gov.au/safety-topic/industry-and-business/major-hazard-facilities",
+    "source": "official",
+    "note": "Model law; effect depends on state/territory regulations.",
+    "check": "error"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Model Work Health and Safety Regulations (plant registration, incl. pressure equipment, Schedule 5)",
+    "url": "https://www.safeworkaustralia.gov.au/sites/default/files/2024-07/model-whs-regulations-1_july_2024.pdf",
+    "source": "official",
+    "note": "Model regulations; each jurisdiction adopts its own version.",
+    "check": "error"
+   },
+   "fire": {
+    "status": "found",
+    "name": "National Construction Code (fire safety provisions)",
+    "url": "https://ncc.abcb.gov.au/",
+    "source": "official",
+    "note": "Building code adopted by states and territories.",
+    "check": "robots"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "AS/NZS 3000:2018 Electrical Installations (Wiring Rules)",
+    "url": "https://standards.org.au/flagship-projects/wiring-rules",
+    "source": "official",
+    "note": "Standard; mandatory where state/territory law references it.",
+    "check": "ok"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Australian Code for the Transport of Dangerous Goods by Road and Rail (ADG Code)",
+    "url": "https://www.ntc.gov.au/codes-and-guidelines/australian-dangerous-goods-code",
+    "source": "official",
+    "note": "Land transport only; legal force through state/territory laws.",
+    "check": "error"
+   }
+  },
+  "AUT": {
+   "standards_body": {
+    "status": "found",
+    "name": "Austrian Standards International",
+    "url": "https://austrian-standards.at/en/about-us/about-austrian-standards/austrian-standards-international",
+    "source": "official",
+    "note": "",
+    "check": "robots"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "ArbeitnehmerInnenschutzgesetz (ASchG), BGBl. Nr. 450/1994",
+    "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008910&Artikel=&Paragraf=0&Anlage=&Uebergangsrecht=",
+    "source": "official",
+    "note": "",
+    "check": "error"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Gewerbeordnung 1994, section 8a (Seveso III amendment, BGBl. I Nr. 81/2015)",
+    "url": "https://www.bmwet.gv.at/Themen/Technik-und-Vermessung/Gewerbetechnik/SevesoIII-Richtlinie.html",
+    "source": "official",
+    "note": "Waste and mining establishments have separate rules; verify amendment number.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Druckgeraetegesetz (Pressure Equipment Act), BGBl. I Nr. 161/2015",
+    "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20009418",
+    "source": "official",
+    "note": "",
+    "check": "error"
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "No result; fire police law is believed to be provincial, not confirmed by search."
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Elektrotechnikgesetz 1992 (ETG 1992)",
+    "url": "https://www.ris.bka.gv.at/geltendeFassung.wxe?Abfrage=bundesnormen&gesetzesnummer=10012241",
+    "source": "official",
+    "note": "",
+    "check": "error"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Gefahrgutbefoerderungsgesetz (GGBG), BGBl. I Nr. 145/1998",
+    "url": "https://www.jusline.at/gesetz/ggbg",
+    "source": "secondary",
+    "note": "Dangerous goods transport.",
+    "check": "ok"
+   }
+  },
+  "AZE": {
+   "standards_body": {
+    "status": "found",
+    "name": "Azerbaijan Institute of Standardization (AZSTAND)",
+    "url": "https://azstand.gov.az/en/mission-and-vision",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour Code of the Republic of Azerbaijan (Law No. 618-IG, 1999)",
+    "url": "https://www.family.gov.az/store/media/NewFolder/Labor%20Code%20of%20the%20Republic%20of%20%20Azerbaijan.doc",
+    "source": "official",
+    "note": "Government-hosted copy; may not include later amendments.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Law of the Republic of Azerbaijan on Technical Safety (No. 733-IQ, 1999)",
+    "url": "https://fhn.gov.az/storage/pages/51541/1706114081.pdf",
+    "source": "official",
+    "note": "Azerbaijani text; covers potentially hazardous facilities.",
+    "check": "pdf"
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "Rules for safe operation of pressure vessels are mentioned, but no text or official link surfaced."
+   },
+   "fire": {
+    "status": "found",
+    "name": "Law of the Azerbaijan Republic on Fire Safety",
+    "url": "https://fhn.gov.az/storage/pages/51533/1706114081.",
+    "source": "official",
+    "note": "URL as returned by search (no file extension); verify.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Rules of technical operation of electrical and heating installations (Cabinet of Ministers Resolution No. 520, 2019)",
+    "url": "https://www.iea.org/policies/14575-cabinet-of-ministers-decision-on-approval-of-the-rules-of-technical-operation-of-electrical-and-heating-installations",
+    "source": "secondary",
+    "note": "",
+    "check": "blocked"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Law of the Republic of Azerbaijan on Gas Supply (No. 233-VIIQ, 2025)",
+    "url": "https://www.mondaq.com/international-trade-investment/1672696/overhaul-of-gas-supply-regulation",
+    "source": "secondary",
+    "note": "In force 1 Jan 2026 per search; replaces 1998 law; sector law including gas facilities.",
+    "check": "ok"
+   }
+  },
+  "BDI": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bureau Burundais de Normalisation et Contrôle de la Qualité (BBN)",
+    "url": "https://www.iso.org/member/1591.html",
+    "source": "secondary",
+    "note": "ISO member page; results also mention bbnburundi.org.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "Not specifically searched."
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Only electricity-sector organisation law surfaced."
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Older mining/petroleum code and depot texts mentioned, but none could be tied reliably to a link or confirmed in force."
+   }
+  },
+  "BEL": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bureau for Standardisation (NBN)",
+    "url": "https://www.nbn.be/en/normen-gebruiken/wetgeving-normen",
+    "source": "official",
+    "note": "",
+    "check": "robots"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Act of 4 August 1996 on well-being of workers in the performance of their work",
+    "url": "https://werk.belgie.be/en/act-4-august-1996-well-being-workers-performance-their-work",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Cooperation Agreement of 16 February 2016 on control of major-accident hazards involving dangerous substances",
+    "url": "https://emploi.belgique.be/fr/themes/bien-etre-au-travail/seveso-prevention-des-accidents-majeurs/explication-de-la",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Royal Decree of 11 July 2016 on placing pressure equipment on the market",
+    "url": "https://economie.fgov.be/en/themes/quality-and-safety/safety-products-and-services/specific-regulations/pressure-equipments/safety-pressure-equipment",
+    "source": "official",
+    "note": "Market-placement rules.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Royal Decree of 7 July 1994 on basic standards for fire and explosion prevention in buildings",
+    "url": "https://www.buildwise.be/media/czugwfqp/1994-07-07r_normes_de_base.pdf",
+    "source": "secondary",
+    "note": "Framework is the Law of 30 July 1979; check latest consolidation.",
+    "check": "pdf"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Royal Decree of 8 September 2019 (General Regulations on Electrical Installations, RGIE/AREI)",
+    "url": "https://www.wolterskluwer.com/fr-be/expert-insights/questions-and-anwsers-about-the-new-arei",
+    "source": "secondary",
+    "note": "Amended since adoption.",
+    "check": "blocked"
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Laws of 28 May 1956 (explosives) and 12 April 1965 (pipelines) were mentioned, but no result URL could be reliably tied to either."
+   }
+  },
+  "BEN": {
+   "standards_body": {
+    "status": "found",
+    "name": "Agence nationale de Normalisation, de Métrologie et du Contrôle Qualité (ANM), Décret n° 2017-031",
+    "url": "https://faolex.fao.org/en/documents/LEX-FAOC168829/decret-n-2017-031-du-23-janvier-2017-portant-creation-attrib-ben-2017",
+    "source": "secondary",
+    "note": "No agency website seen; later reorganisation not checked.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 98-004 du 27 janvier 1998 portant Code du travail",
+    "url": "https://travail.gouv.bj/download-data/docs/2112310618-935pdf.pdf/Loi%20no%2098-004%20du%2027%20janvier%201998",
+    "source": "official",
+    "note": "1998 text; later amendments not checked.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Decree 98-43 shown in results is Côte d'Ivoire's, not Benin's."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "Décret 2006-775 (safety in at-risk establishments) is cited by another decree but its text/link and fire scope were not seen."
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Décret n° 2007-548 - contrôle obligatoire périodique des installations électriques intérieures (IGH, ERP, unités industrielles)",
+    "url": "https://sgg.gouv.bj/doc/decret-2007-548/download",
+    "source": "official",
+    "note": "A later electricity code may affect it; not checked.",
+    "check": "pdf"
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "BFA": {
+   "standards_body": {
+    "status": "found",
+    "name": "Agence Burkinabè de Normalisation, de la Métrologie et de la Qualité (ABNORM)",
+    "url": "https://www.iso.org/member/269997.html",
+    "source": "secondary",
+    "note": "",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Décret n° 2006-347 portant classement des établissements dangereux, insalubres et incommodes",
+    "url": "https://leap.unep.org/en/countries/bf/national-legislation/decret-no-2006-347prespmmecvmcpeamatdmcemfb-portant-classement",
+    "source": "secondary",
+    "note": "Classified-establishments rule, not a dedicated major-accident law; current status not confirmed.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "Arrêté 2004-152 (approval for work on gas pressure appliances) was mentioned, but its link could not be identified with certainty. Worth following up."
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Only electricity-sector laws surfaced."
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "No link could be tied reliably to a petroleum/explosives safety text."
+   }
+  },
+  "BGD": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bangladesh Standards and Testing Institution (BSTI)",
+    "url": "https://bsti.gov.bd/",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Bangladesh Labour Act, 2006 (Act No. XLII of 2006)",
+    "url": "https://leap.unep.org/en/countries/bd/national-legislation/bangladesh-labour-act-2006-act-no-xlii-2006",
+    "source": "secondary",
+    "note": "Amended 2013 and 2018; check for later amendments.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "No dedicated major-accident law found; secondary commentary describes a fragmented framework."
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Boiler Act, 2022 (বয়লার আইন, ২০২২), Act No. 6 of 2022",
+    "url": "https://bdlaws.minlaw.gov.bd/act-1402.html",
+    "source": "official",
+    "note": "Repeals Boilers Act 1923. Covers boilers only.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Fire Prevention and Extinguishing Act, 2003",
+    "url": "https://www.thedailystar.net/law-our-rights/regulating-fire-incident-operation-1342198",
+    "source": "secondary",
+    "note": "English title varies between sources; check amendments.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Electricity Act, 2018 (বিদ্যুৎ আইন, ২০১৮)",
+    "url": "https://bdlaws.minlaw.gov.bd/act-1228.html",
+    "source": "official",
+    "note": "Detailed safety requirements sit in subordinate rules; safety provisions not read.",
+    "check": "error"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Petroleum Act, 2016 (পেট্রোলিয়াম আইন, ২০১৬)",
+    "url": "https://bdlaws.minlaw.gov.bd/act-1190.html",
+    "source": "official",
+    "note": "Explosives Act 1884 also referenced.",
+    "check": "error"
+   }
+  },
+  "BGR": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bulgarian Institute for Standardization (BDS)",
+    "url": "https://www.iso.org/member/1597.html",
+    "source": "secondary",
+    "note": "ISO member page.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Health and Safety at Work Act (1997, amended)",
+    "url": "https://www.mlsp.government.bg/uploads/37/politiki/trud/zakonodatelstvo/eng/health-and-safety-at-work-act.pdf",
+    "source": "official",
+    "note": "",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Regulation on Prevention of Major Accidents with Dangerous Substances (in force 2016, under the Environmental Protection Act)",
+    "url": "https://leap.unep.org/en/countries/bg/national-legislation/regulation-prevention-major-accidents-dangerous-substances-and",
+    "source": "secondary",
+    "note": "Amendments to the parent Act were being prepared.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Ordinance on essential requirements and conformity assessment of pressure equipment",
+    "url": "https://www.mi.government.bg/files/useruploads/files/thpp/naredba_2014l0068_ped_01032016.pdf",
+    "source": "official",
+    "note": "Market-placement rules; in-service supervision is separate.",
+    "check": "pdf"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Ordinance No. 8121z-647 of 1 October 2014 on fire safety rules for operation of sites",
+    "url": "https://www.mrrb.bg/static/media/ups/articles/attachments/%D0%9D%D0%90%D0%A0%D0%95%D0%94%D0%91%D0%90%20%E2%84%96%208121%D0%B7-647%20%D0%9E%D0%A2%201%20%D0%9E%D0%9A%D0%A2%D0%9E%D0%9C%D0%92%D0%A0%D0%98%202014%20%D0%93.%20%D0%97%D0%90%20%D0%9F%D0%A0%D0%90%D0%92%D0%98598a90cd810020d06a0c37056bb20a3f.pdf",
+    "source": "official",
+    "note": "Check current consolidation.",
+    "check": "error"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Ordinance on essential requirements and conformity assessment of explosives for civil uses",
+    "url": "https://www.damtn.government.bg/wp-content/uploads/2019/02/naredba_za_sysestvenite_iziskvaniq_i_ocenqvane_syotvetstvieto_na_vzrivnite_vesestva_za_grajdanski_celi_new.pdf",
+    "source": "official",
+    "note": "Narrow product rule, not the principal explosives law; identified from file name.",
+    "check": "pdf"
+   }
+  },
+  "BHR": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bahrain Standards and Metrology Directorate (BSMD), Ministry of Industry and Commerce",
+    "url": "https://trade.gov/country-commercial-guides/bahrain-standards-trade",
+    "source": "secondary",
+    "note": "ISO lists a differently named directorate (iso.org/member/1533); name may have changed.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour Law for the Private Sector, Law No. 36 of 2012",
+    "url": "https://lmra.gov.bh/en/page/show/199",
+    "source": "official",
+    "note": "Title XV covers OSH; amended since.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Legislative Decree No. 5 of 1990 regarding Civil Defence",
+    "url": "https://www.lloc.gov.bh/FullEn/L0590.docx",
+    "source": "official",
+    "note": "Civil defence law (amended 2014); detailed building fire rules are in ministerial edicts.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Regulations for Electrical Installations (Electricity and Water Authority)",
+    "url": "https://legacy.ewa.bh/en/Business/OtherServices/Documents/EDD%20Regulation%20for%20Electricty%20Installaltions%20_En.pdf",
+    "source": "official",
+    "note": "On legacy site; current edition not confirmed.",
+    "check": "pdf"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Decree-Law No. 16 of 1976 on explosives, arms and ammunition",
+    "url": "https://lloc.gov.bh/Legislation/HTM/L1676",
+    "source": "official",
+    "note": "Arabic; amended (1999, 2006); consolidated status not confirmed.",
+    "check": "ok"
+   }
+  },
+  "BHS": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bahamas Bureau of Standards and Quality (BBSQ)",
+    "url": "https://www.bahamas.gov.bs/wps/wcm/connect/mof_content/internet/all+contacts/agencies/government+corporations/bahamas+bureau+of+standards+and+quality+%28bbsq%29",
+    "source": "official",
+    "note": "Government directory page.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Health and Safety at Work Act, 2002 (Ch. 321C)",
+    "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=60975",
+    "source": "secondary",
+    "note": "Amended 2015 (No. 37 of 2015).",
+    "check": "blocked"
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "No Bahamian boiler or pressure vessel instrument seen."
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Electricity Act 2024 is a sector law; electrical safety coverage not confirmed (follow-up search blocked)."
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "BIH": {
+   "standards_body": {
+    "status": "found",
+    "name": "BASMP (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Law on Occupational Safety of the Federation of BiH (Sl. novine FBiH 79/20)",
+    "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2020/Zakon%20o%20zastiti%20na%20radu%20%20-%20bosanski%20jezik.pdf",
+    "source": "official",
+    "note": "Federation of BiH only; not the whole state.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Law on Fire Protection and Firefighting of the Federation of BiH (2009)",
+    "url": "https://cz.zdk.ba/propisi/propisi-federacije-bosne-i-hercegovine/send/15-propisi-federacije-bosne-i-hercegovine/96-zakon-o-zastiti-od-pozara-i-vatrogastvu-sluzbene-novine-fbih-br-65-09",
+    "source": "official",
+    "note": "FBiH only. Gazette number unclear (64/09 vs 65/09); amendments proposed up to 2025.",
+    "check": "pdf"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Only a 2016 draft on dangerous goods transport was seen."
+   }
+  },
+  "BLR": {
+   "standards_body": {
+    "status": "found",
+    "name": "BELST (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-found",
+    "note": "Not in search results."
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Law No. 354-Z of 5 January 2016 on Industrial Safety",
+    "url": "https://etalonline.by/document/?regnum=H11600354",
+    "source": "official",
+    "note": "General industrial safety law, not a Seveso equivalent; amended since.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Law No. 2403-XII (1993) on Fire Safety",
+    "url": "https://etalonline.by/document/?regnum=V19302403",
+    "source": "official",
+    "note": "Amended 2025 (No. 99-Z).",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "BLZ": {
+   "standards_body": {
+    "status": "found",
+    "name": "Belize Bureau of Standards",
+    "url": "https://bbs.gov.bz/?p=155",
+    "source": "official",
+    "note": "",
+    "check": "error"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Occupational Safety and Health Act, 2026",
+    "url": "https://www.pressoffice.gov.bz/?p=18457",
+    "source": "official",
+    "note": "Government press release, not the Act text. Commencement is phased by order; check whether the Labour Act/Factories Act provisions still apply.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "No instrument seen."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "Factories Act (Cap. 296) is reported repealed by the OSH Act 2026; boiler coverage of either not confirmed."
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Electricity Act (Cap. 221)",
+    "url": "https://www.puc.bz/wp-content/uploads/2022/01/Cap-221-Electricity-Act.pdf",
+    "source": "official",
+    "note": "Includes supply and safety regulations and electrical inspector. New 2026 regulations were consulted on.",
+    "check": "pdf"
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   }
+  },
+  "BOL": {
+   "standards_body": {
+    "status": "found",
+    "name": "Instituto Boliviano de Normalización y Calidad (IBNORCA)",
+    "url": "https://www.iso.org/member/1565.html",
+    "source": "secondary",
+    "note": "Private non-profit, recognised by DS 24498 (1997).",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Decreto Ley 16998, Ley General de Higiene, Seguridad Ocupacional y Bienestar (1979)",
+    "url": "https://www.lexivox.org/norms/BO-DL-16998.html",
+    "source": "secondary",
+    "note": "Old law; current status not checked.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "No major-accident instrument seen."
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Decreto Ley 16998 (1979), chapter on boilers and pressure vessels",
+    "url": "https://www.lexivox.org/norms/BO-DL-16998.html",
+    "source": "secondary",
+    "note": "Chapter within the general OSH law; current status not checked.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Ley N° 449, Ley de Bomberos (2013)",
+    "url": "https://www.lexivox.org/norms/BO-L-N449.html",
+    "source": "secondary",
+    "note": "Regulated by DS 2995 (2016).",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Norma Boliviana NB 777, low-voltage interior electrical installations (as cited in a CIEESC guide)",
+    "url": "https://www.cieesc.com/userfiles/file/GU%C3%8DA%20PR%C3%81CTICA%20PROY%20ELEC%202026%20V2.pdf",
+    "source": "secondary",
+    "note": "Link is an engineers' college guide; mandatory status not confirmed.",
+    "check": "pdf"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Reglamento para Actividades con Sustancias Peligrosas (DS 24176, 1995)",
+    "url": "https://www.lexivox.org/norms/BO-RE-DS24176E.html",
+    "source": "secondary",
+    "note": "Environmental regulation; hydrocarbons have separate decrees. Current status not checked.",
+    "check": "ok"
+   }
+  },
+  "BRA": {
+   "standards_body": {
+    "status": "found",
+    "name": "ABNT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "BRB": {
+   "standards_body": {
+    "status": "found",
+    "name": "BNSI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "BRN": {
+   "standards_body": {
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Workplace Safety and Health Order, 2009 (S 44/2009)",
+    "url": "https://lpr.adb.org/sites/default/files/resource/%5Bnid%5D/brunei-darussalam-workplace-safety-and-health-order-2009-english.pdf",
+    "source": "secondary",
+    "note": "Check amending orders.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Workplace Safety and Health (Facilities) (Control of Major Accident Hazards) Regulations, 2013",
+    "url": "https://aipalync.org/document/constitution-of-brunei-darussalam-workplace-safety-and-health-facilities-control-of-major-accident-hazards-regulations",
+    "source": "secondary",
+    "note": "Later amendments not checked.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Workplace Safety and Health (General Provisions) Regulations, 2014",
+    "url": "https://aipalync.org/document/view/1996",
+    "source": "secondary",
+    "note": "Contents list pressure vessel provisions; text not read. Link-to-title match comes from search summary; verify.",
+    "check": "pdf"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Fire Safety Order, 2016 (S 12)",
+    "url": "https://business.mofe.gov.bn/public-reminded-to-comply-with-fire-safety-order-2016/",
+    "source": "official",
+    "note": "Later amendments not checked.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Electricity Act, Chapter 223 (Revised Edition 2021)",
+    "url": "https://www.informea.org/en/content/legislation/electricity-act-chapter-223-revised-edition-2021",
+    "source": "secondary",
+    "note": "Cap. 71 is repealed (replaced by Electricity Order 2017). Safety content not read.",
+    "check": "ok"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Petroleum (Pipe-lines) Act, Chapter 45 (Revised Edition 1984)",
+    "url": "https://leap.unep.org/en/countries/bn/national-legislation/petroleum-pipe-lines-act-chap-45",
+    "source": "secondary",
+    "note": "Pipelines only; reportedly amended by Petroleum Authority Act (Cap. 231).",
+    "check": "ok"
+   }
+  },
+  "BTN": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bhutan Standards Bureau (BSB)",
+    "url": "https://www.iso.org/organization/374819.html",
+    "source": "secondary",
+    "note": "Search text gives www.bsb.gov.bt; organisational placement may have changed.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour and Employment Act of Bhutan 2007 (Chapter IX, OHS)",
+    "url": "https://lpr.adb.org/sites/default/files/resource/%5Bnid%5D/bhutan-labour-and-employement-act-2007-english.pdf",
+    "source": "secondary",
+    "note": "Check for amendment or replacement.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "found",
+    "name": "Building Code of Bhutan 2018 (fire egress requirements)",
+    "url": "https://bbs.bt/news/?p=206358",
+    "source": "secondary",
+    "note": "News report; no standalone fire safety act found.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Internal House Wiring Rules and Regulations 2025",
+    "url": "https://era.gov.bt/wp-content/uploads/2025/07/Internal-House-Wiring-Rules-and-Regulations-2025.pdf",
+    "source": "official",
+    "note": "Issued under Electricity Act of Bhutan 2001.",
+    "check": "pdf"
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "BWA": {
+   "standards_body": {
+    "status": "found",
+    "name": "Botswana Bureau of Standards (BOBS)",
+    "url": "https://trade.gov/country-commercial-guides/botswana-standards-trade",
+    "source": "secondary",
+    "note": "Results list www.bobstandards.bw as its website.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Factories Act, 1973 (Cap. 44:01)",
+    "url": "https://www.ilo.org/topics-and-sectors/labour-inspection/labour-inspection-profile-botswana",
+    "source": "secondary",
+    "note": "Old Act; replacement not checked. Citation came from the same search's ILO results; confirm this page states it.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "Factories Act covers certain plant and machinery, but boiler coverage not confirmed."
+   },
+   "fire": {
+    "status": "found",
+    "name": "Fire Service Act, No. 6 of 1994",
+    "url": "https://testelaws.botswanalaws.com/PDF/StatutesActpdf/1994Actpdf/FIRE%20SERVICE%20ACT,%206%20OF%201994.pdf",
+    "source": "secondary",
+    "note": "Private law site; a 1985 Fire Services Act also surfaced; current status not confirmed.",
+    "check": "error"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Electricity (Supply) Regulations, S.I. No. 52 of 1988",
+    "url": "https://e-laws.botswanalaws.com/PDF/StatutesActpdf/1988Subsidarypdf/ELECTRICITY%20%28SUPPLY%29%20REGULATIONS,%20S.%20I.%20NO.%2052%20OF%201988.pdf",
+    "source": "secondary",
+    "note": "Old; includes consumer-installation standards schedule; amendments not checked.",
+    "check": "error"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Explosives Act (Cap. 24:02)",
+    "url": "https://www.gov.bw/mining/application-license-sell-explosives",
+    "source": "official",
+    "note": "Government licensing page referring to the Act, not the Act text. Old Act; reform has been proposed.",
+    "check": "error"
+   }
+  },
+  "CAF": {
+   "standards_body": {
+    "status": "not-found",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 09.004 du 29 janvier 2009 portant Code du travail",
+    "url": "https://leap.unep.org/en/countries/cf/national-legislation/loi-ndeg09-004-du-29-janvier-2009-portant-code-du-travail-de-la",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Ordonnance 93.007 (petroleum code) surfaced but shows upstream/pipeline licensing, no safety content confirmed."
+   }
+  },
+  "CAN": {
+   "standards_body": {
+    "status": "found",
+    "name": "SCC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CHE": {
+   "standards_body": {
+    "status": "found",
+    "name": "SNV (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CHL": {
+   "standards_body": {
+    "status": "found",
+    "name": "INN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CHN": {
+   "standards_body": {
+    "status": "found",
+    "name": "Standardization Administration of China (SAC)",
+    "url": "https://www.sac.gov.cn/sacen/",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Work Safety Law of the People's Republic of China (amended 2021)",
+    "url": "https://www.gov.cn/xinwen/2021-06/11/content_5616916.htm",
+    "source": "official",
+    "note": "Link is the Chinese 2021 amending decision. Law on Prevention and Control of Occupational Diseases not searched successfully.",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Law of the PRC on the Safety of Hazardous Chemicals (adopted December 2025)",
+    "url": "https://www.ul.com/news/china-publishes-first-law-safety-hazardous-chemicals",
+    "source": "secondary",
+    "note": "Effective 1 May 2026. Major-hazard-source provisions confirmed only from draft-stage summaries.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Special Equipment Safety Law of the People's Republic of China (2013)",
+    "url": "https://www.gov.cn/zhengce/2013-06/30/content_2602288.htm",
+    "source": "official",
+    "note": "Covers boilers, pressure vessels and pressure pipelines; in force 1 Jan 2014.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Fire Protection Law of the People's Republic of China (amended 2021)",
+    "url": "https://www.lexiscn.com/law/law-english-1-4096923-T.html?eng=0",
+    "source": "secondary",
+    "note": "Unofficial translation.",
+    "check": "ok"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "GB 55024-2022 General code for building electricity and intelligence",
+    "url": "https://www.chinesestandard.net/PDF/English.amp.aspx/GB55024-2022",
+    "source": "secondary",
+    "note": "Commercial standards retailer listing; scope not verified.",
+    "check": "blocked"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Law of the PRC on the Safety of Hazardous Chemicals (adopted December 2025)",
+    "url": "https://govt.chinadaily.com.cn/s/202601/06/WS699e671c498e36855033ac41/china-adopts-hazardous-chemicals-safety-law.html",
+    "source": "secondary",
+    "note": "Effective 1 May 2026; replaces State Council Decree No. 591.",
+    "check": "ok"
+   }
+  },
+  "CIV": {
+   "standards_body": {
+    "status": "found",
+    "name": "CODINORM (Côte d'Ivoire Normalisation)",
+    "url": "https://trade.gov/country-commercial-guides/cote-divoire-standards-trade",
+    "source": "secondary",
+    "note": "Results list https://www.codinorm.ci/ as its website.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 2015-532 du 20 juillet 2015 portant Code du travail",
+    "url": "https://leap.unep.org/en/countries/ci/national-legislation/loi-no2015-532-du-20-juillet-2015-portant-code-du-travail",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Décret n° 98-43 du 28 janvier 1998 relatif aux installations classées pour la protection de l'environnement",
+    "url": "https://leap.unep.org/en/countries/ci/national-legislation/decret-ndeg-98-43-du-28-janvier-1998-relatif-aux-installations",
+    "source": "secondary",
+    "note": "Classified-installations regime; specific major-accident provisions not seen.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Electricity Code (Loi 2014-132) surfaced, but installation-safety provisions not confirmed."
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": ""
+   }
+  },
+  "CMR": {
+   "standards_body": {
+    "status": "found",
+    "name": "Agence des Normes et de la Qualité (ANOR)",
+    "url": "https://www.iso.org/member/1623.html",
+    "source": "secondary",
+    "note": "Created 2009; results report reorganisation by Decree 2019/143.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Loi n° 98/015 du 14 juillet 1998 relative aux établissements classés dangereux, insalubres ou incommodes",
+    "url": "https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg98015-du-14-juillet-1998-relatif-aux-etablissements",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Décret n° 99/822/PM - designation of inspectors of classified establishments and of gas and steam pressure equipment",
+    "url": "https://leap.unep.org/en/countries/cm/national-legislation/decret-no-99822pm-fixant-les-conditions-de-designation-des",
+    "source": "secondary",
+    "note": "Covers the appointment of inspectors only; not the main pressure-equipment rule.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "COD": {
+   "standards_body": {
+    "status": "found",
+    "name": "OCC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "COG": {
+   "standards_body": {
+    "status": "found",
+    "name": "ACONOQ (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "COL": {
+   "standards_body": {
+    "status": "found",
+    "name": "ICONTEC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "COM": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CPV": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CRI": {
+   "standards_body": {
+    "status": "found",
+    "name": "INTECO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CUB": {
+   "standards_body": {
+    "status": "found",
+    "name": "NC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "CYP": {
+   "standards_body": {
+    "status": "found",
+    "name": "Cyprus Organisation for Standardisation (CYS)",
+    "url": "https://www.cys.org.cy/en/?p=1300",
+    "source": "official",
+    "note": "",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Safety and Health at Work Law of 1996 (Law 89(I)/1996), as amended",
+    "url": "https://osha.europa.eu/en/oshwiki/osh-system-national-level-cyprus",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Search named the Control of Major-Accident Hazards Involving Dangerous Substances Regulations, R.A.A. 347/2015, but no link could be tied to that title."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "1947 steam boiler law found, current force unclear; current pressure equipment regulations not linked."
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "Only a countryside fire law and secondary accounts of a building fire code surfaced."
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Electricity Law and Regulations (as amended)",
+    "url": "https://www.businessincyprus.gov.cy/business-sectors/electrical-services-business/",
+    "source": "official",
+    "note": "Government portal on licensing under this law; not the legal text.",
+    "check": "ok"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Road Transport of Dangerous Goods Law, Law 29(I)/2004",
+    "url": "https://leap.unep.org/en/countries/cy/national-legislation/law-no-29-i-2004-road-transport-dangerous-good",
+    "source": "secondary",
+    "note": "Road transport only; amendment and implementation status to verify.",
+    "check": "ok"
+   }
+  },
+  "CZE": {
+   "standards_body": {
+    "status": "found",
+    "name": "ÚNMZ [cs] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DEU": {
+   "standards_body": {
+    "status": "found",
+    "name": "DIN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DJI": {
+   "standards_body": {
+    "status": "found",
+    "name": "ADN (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DMA": {
+   "standards_body": {
+    "status": "found",
+    "name": "DBOS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DNK": {
+   "standards_body": {
+    "status": "found",
+    "name": "DS [da] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DOM": {
+   "standards_body": {
+    "status": "found",
+    "name": "INDOCAL (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "DZA": {
+   "standards_body": {
+    "status": "found",
+    "name": "IANOR (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ECU": {
+   "standards_body": {
+    "status": "found",
+    "name": "INEN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "EGY": {
+   "standards_body": {
+    "status": "found",
+    "name": "EOS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ERI": {
+   "standards_body": {
+    "status": "found",
+    "name": "ESI (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ESP": {
+   "standards_body": {
+    "status": "found",
+    "name": "AENOR (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "EST": {
+   "standards_body": {
+    "status": "found",
+    "name": "EVS [et] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ETH": {
+   "standards_body": {
+    "status": "found",
+    "name": "IES (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "FIN": {
+   "standards_body": {
+    "status": "found",
+    "name": "SFS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "FJI": {
+   "standards_body": {
+    "status": "found",
+    "name": "FTSQCO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "FRA": {
+   "standards_body": {
+    "status": "found",
+    "name": "AFNOR (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "FSM": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GAB": {
+   "standards_body": {
+    "status": "found",
+    "name": "CNTT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GBR": {
+   "standards_body": {
+    "status": "found",
+    "name": "BSI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GEO": {
+   "standards_body": {
+    "status": "found",
+    "name": "GEOSTM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GHA": {
+   "standards_body": {
+    "status": "found",
+    "name": "GSB (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Labour Act, 2003 (Act 651), Part XV Occupational health, safety and environment",
+    "url": "https://www.gipc.gov.gh/wp-content/uploads/2023/05/LABOUR-ACT-2003-ACT-651.pdf",
+    "source": "official",
+    "note": "From a search result; page not opened.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Factories, Offices and Shops (Boilers and Pressure Vessels) Safety Regulations, 1970 (L.I. 663)",
+    "url": "https://brr.gov.gh/reg_details?id=NTY0",
+    "source": "official",
+    "note": "From a search result; page not opened.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Ghana National Fire Service Act, 1997 (Act 537)",
+    "url": "https://www.epa.gov.gh/ghanalex/acts/Acts/GHANA%20NATIONAL%20FIRE%20SERVICE%20ACT,1997.pdf",
+    "source": "official",
+    "note": "From a search result; page not opened.",
+    "check": "robots"
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GIN": {
+   "standards_body": {
+    "status": "found",
+    "name": "INNM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GMB": {
+   "standards_body": {
+    "status": "found",
+    "name": "TGSB (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GNB": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GNQ": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GRC": {
+   "standards_body": {
+    "status": "found",
+    "name": "ELOT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GRD": {
+   "standards_body": {
+    "status": "found",
+    "name": "GDBS (ISO subscriber member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GTM": {
+   "standards_body": {
+    "status": "found",
+    "name": "COGUANOR (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "GUY": {
+   "standards_body": {
+    "status": "found",
+    "name": "GNBS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "HND": {
+   "standards_body": {
+    "status": "found",
+    "name": "OHN (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "HRV": {
+   "standards_body": {
+    "status": "found",
+    "name": "HZN [hr] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "HTI": {
+   "standards_body": {
+    "status": "found",
+    "name": "BHN (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "HUN": {
+   "standards_body": {
+    "status": "found",
+    "name": "MSZT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "IDN": {
+   "standards_body": {
+    "status": "found",
+    "name": "BSN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Undang-Undang No. 1 Tahun 1970 tentang Keselamatan Kerja",
+    "url": "https://peraturan.bpk.go.id/Details/47614",
+    "source": "official",
+    "note": "Listed as in force.",
+    "check": "blocked"
+   },
+   "major_hazard": {
+    "status": "found",
+    "name": "Keputusan Menteri Tenaga Kerja No. KEP.187/MEN/1999 tentang Pengendalian Bahan Kimia Berbahaya di Tempat Kerja",
+    "url": "https://jdih.kemnaker.go.id/peraturan/detail/2608/keputusan-menteri-nomor-187-tahun-1999",
+    "source": "official",
+    "note": "Workplace chemical rule with threshold-based major hazard potential; not a standalone major-accident law.",
+    "check": "ok"
+   },
+   "pressure_equipment": {
+    "status": "found",
+    "name": "Peraturan Menteri Ketenagakerjaan No. 37 Tahun 2016 tentang K3 Bejana Tekanan dan Tangki Timbun",
+    "url": "https://jdih.kemnaker.go.id/peraturan/detail/1429/peraturan-menteri-ketenagakerjaan-nomor-37-tahun-2016",
+    "source": "official",
+    "note": "Pressure vessels and storage tanks; steam boiler rules not searched.",
+    "check": "ok"
+   },
+   "fire": {
+    "status": "found",
+    "name": "Peraturan Menteri PU No. 26/PRT/M/2008 (fire protection systems in buildings and surroundings)",
+    "url": "https://peraturan.bpk.go.id/Details/104475",
+    "source": "official",
+    "note": "Listed as in force.",
+    "check": "blocked"
+   },
+   "electrical": {
+    "status": "found",
+    "name": "Peraturan Menteri Ketenagakerjaan No. 12 Tahun 2015 tentang K3 Listrik di Tempat Kerja",
+    "url": "https://peraturan.bpk.go.id/Details/145984/permenaker-no-12-tahun-2015",
+    "source": "official",
+    "note": "Amended by Permenaker 33/2015; sources differ on whether partially revoked.",
+    "check": "blocked"
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Peraturan Menteri ESDM No. 32 Tahun 2021 (technical inspection and safety examination of oil and gas installations and equipment)",
+    "url": "https://peraturan.bpk.go.id/Details/215446/permen-esdm-no-32-tahun-2021",
+    "source": "official",
+    "note": "",
+    "check": "blocked"
+   }
+  },
+  "IND": {
+   "standards_body": {
+    "status": "found",
+    "name": "BIS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "IRL": {
+   "standards_body": {
+    "status": "found",
+    "name": "NSAI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "IRN": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISIRI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "IRQ": {
+   "standards_body": {
+    "status": "found",
+    "name": "COSQC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ISL": {
+   "standards_body": {
+    "status": "found",
+    "name": "IST (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ISR": {
+   "standards_body": {
+    "status": "found",
+    "name": "SII (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ITA": {
+   "standards_body": {
+    "status": "found",
+    "name": "UNI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "JAM": {
+   "standards_body": {
+    "status": "found",
+    "name": "JBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "JOR": {
+   "standards_body": {
+    "status": "found",
+    "name": "JISM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "JPN": {
+   "standards_body": {
+    "status": "found",
+    "name": "JISC (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KAZ": {
+   "standards_body": {
+    "status": "found",
+    "name": "KAZMEMST (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KEN": {
+   "standards_body": {
+    "status": "found",
+    "name": "KEBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KGZ": {
+   "standards_body": {
+    "status": "found",
+    "name": "KYRGYZST (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KHM": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISC (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KIR": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KNA": {
+   "standards_body": {
+    "status": "found",
+    "name": "SKNBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KOR": {
+   "standards_body": {
+    "status": "found",
+    "name": "KATS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "KWT": {
+   "standards_body": {
+    "status": "found",
+    "name": "KOWSMD (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LAO": {
+   "standards_body": {
+    "status": "found",
+    "name": "DOSM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LBN": {
+   "standards_body": {
+    "status": "found",
+    "name": "LIBNOR (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LBR": {
+   "standards_body": {
+    "status": "found",
+    "name": "LiSA (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LBY": {
+   "standards_body": {
+    "status": "found",
+    "name": "LNCSM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LCA": {
+   "standards_body": {
+    "status": "found",
+    "name": "SLBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LIE": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LKA": {
+   "standards_body": {
+    "status": "found",
+    "name": "SLSI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LSO": {
+   "standards_body": {
+    "status": "found",
+    "name": "LSQAS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LTU": {
+   "standards_body": {
+    "status": "found",
+    "name": "LSD (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LUX": {
+   "standards_body": {
+    "status": "found",
+    "name": "ILNAS [de; fr] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "LVA": {
+   "standards_body": {
+    "status": "found",
+    "name": "LVS [fr] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MAR": {
+   "standards_body": {
+    "status": "found",
+    "name": "Institut Marocain de Normalisation (IMANOR)",
+    "url": "https://www.mcinet.gov.ma/en/content/imanor",
+    "source": "official",
+    "note": "Ministry page about IMANOR.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 65-99 relative au Code du travail (BO n° 5210, 2004); Titre IV, hygiene et securite des salaries",
+    "url": "https://cnclt.justice.gov.ma/wp-content/uploads/2023/06/Maroc-Code-travail-1.pdf",
+    "source": "official",
+    "note": "Check for later amendments.",
+    "check": "error"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "A 2026 press item refers to a century-old classified-establishments law, but no official title was shown."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": "No pressure-equipment law title surfaced. Results show only inspection-body approval for steam/gas equipment and a 2024 gas-appliance market order."
+   },
+   "fire": {
+    "status": "found",
+    "name": "Décret n° 2-14-499 du 15 octobre 2014 approuvant le règlement général de construction fixant les règles de sécurité contre les risques d'incendie et de panique dans les constructions (BO n° 6306)",
+    "url": "https://archive.gazettes.africa/archive/ma/2014/ma-bulletin-officiel-dated-2014-11-06-no-6306.pdf",
+    "source": "secondary",
+    "note": "Gazette copy on a third-party archive. A later decree 2.22.867 on a general building code appeared; whether it affects this one is unverified.",
+    "check": "robots"
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Loi n° 30-05 relative au transport par route de marchandises dangereuses (2011)",
+    "url": "https://maroctl.com/routier/transport-de-marchandises/loi-n-30-05-transport-par-route-de-marchandises-dangereuses/",
+    "source": "secondary",
+    "note": "Road transport only; status of implementing decrees unverified.",
+    "check": "ok"
+   }
+  },
+  "MCO": {
+   "standards_body": {
+    "status": "found",
+    "name": "AMNOR (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MDA": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MDG": {
+   "standards_body": {
+    "status": "found",
+    "name": "Bureau des Normes de Madagascar (BNM)",
+    "url": "https://www.iso.org/member/1971.html",
+    "source": "secondary",
+    "note": "ISO member profile; lists bnm.mg as website.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 2024-014 portant Code du travail",
+    "url": "https://assemblee-nationale.mg/wp-content/uploads/2024/07/Loi-n%C2%B0-2024-014-Code-de-travail.doc.pdf",
+    "source": "official",
+    "note": "Loi 94-027 (hygiene, safety and work environment code) also exists; its status after the 2024 code is unverified.",
+    "check": "robots"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Downstream petroleum Loi 99-010 (amended 2004) surfaced without evidence of safety content; a new downstream law was reported in 2026."
+   }
+  },
+  "MDV": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MEX": {
+   "standards_body": {
+    "status": "found",
+    "name": "DGN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MHL": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MKD": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISRM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MLI": {
+   "standards_body": {
+    "status": "found",
+    "name": "Agence Malienne de Normalisation et de Promotion de la Qualité (AMANORM)",
+    "url": "https://www.iso.org/member/1915.html",
+    "source": "secondary",
+    "note": "ISO member page; own website not confirmed.",
+    "check": "blocked"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 92-020 du 23 septembre 1992 portant Code du travail",
+    "url": "https://leap.unep.org/en/countries/ml/national-legislation/loi-n-92-020-portant-code-du-travail-en-republique-du-mali",
+    "source": "secondary",
+    "note": "Amended since (2017, 2019, 2022 reported).",
+    "check": "ok"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": "Loi n° 08-033 of 11 August 2008 on classified installations is cited in results, but no URL could be reliably matched to its text."
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-found",
+    "note": "Only a narrow 2016 order on LPG filling centres was mentioned; no reliable title or URL."
+   }
+  },
+  "MLT": {
+   "standards_body": {
+    "status": "found",
+    "name": "MSA (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MMR": {
+   "standards_body": {
+    "status": "found",
+    "name": "MSTRD (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MNE": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISME (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MNG": {
+   "standards_body": {
+    "status": "found",
+    "name": "MASM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MOZ": {
+   "standards_body": {
+    "status": "found",
+    "name": "Instituto Nacional de Normalização e Qualidade (INNOQ)",
+    "url": "https://leap.unep.org/en/countries/mz/national-legislation/decree-no-742013-approving-statute-national-institute",
+    "source": "secondary",
+    "note": "Record of Decree 74/2013 approving the INNOQ statute; website reported as www.innoq.gov.mz.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Lei n.º 13/2023, de 25 de Agosto, Lei do Trabalho",
+    "url": "https://faolex.fao.org/docs/pdf/moz221728.pdf",
+    "source": "secondary",
+    "note": "Repeals Lei 23/2007. OSH chapter text not seen in results.",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "Only a 2021 gazette item on SENSAP fire-protection powers; no fire code found."
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Only mini-grid safety rules and the electricity sector law framework surfaced."
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Decreto n.º 50/2019, Regulamento de Transporte Rodoviário de Carga Perigosa",
+    "url": "https://archive.gazettes.africa/archive/mz/2019/mz-government-gazette-series-i-dated-2019-06-10-no-111.pdf",
+    "source": "secondary",
+    "note": "Gazette copy on third-party archive. Decree 40/2013 (explosives) and petroleum regulations also surfaced.",
+    "check": "robots"
+   }
+  },
+  "MRT": {
+   "standards_body": {
+    "status": "found",
+    "name": "ONANOR (national standards office, created 2023)",
+    "url": "https://www.ic.ptb.de/media/fileadmin/Publications/PTB_EVA_Report_2025_Mauritanie_95284_FR.pdf",
+    "source": "secondary",
+    "note": "PTB 2025 report; own website not found.",
+    "check": "pdf"
+   },
+   "osh_law": {
+    "status": "found",
+    "name": "Loi n° 2004-017 portant Code du travail (Titre V, hygiene et securite)",
+    "url": "https://finances.gov.mr/Recueil_des_textes_relatifs_a_la_mission_du_Ministere/TEXTES/EMPLOI/Loi%202004-017%20C%20Trav.pdf",
+    "source": "official",
+    "note": "Amended several times (2009, 2013, 2022).",
+    "check": "pdf"
+   },
+   "major_hazard": {
+    "status": "not-found",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-found",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-found",
+    "note": "Only a decree organising the civil-protection delegation."
+   },
+   "electrical": {
+    "status": "not-found",
+    "note": "Loi 2022-027 (Electricity Code) surfaced; not confirmed as an electrical safety regulation."
+   },
+   "hazardous_substances": {
+    "status": "found",
+    "name": "Décret n° 2012-169 du 10 juillet 2012 fixant les règles techniques et de sécurité applicables au remplissage de bouteilles de gaz butane et au transport en vrac",
+    "url": "https://leap.unep.org/en/countries/mr/national-legislation/decret-ndeg-2012-169-du-10-juillet-2012-fixant-les-regles",
+    "source": "secondary",
+    "note": "Butane/LPG only. Downstream hydrocarbons Ordonnance 2002-005 also exists.",
+    "check": "ok"
+   }
+  },
+  "MUS": {
+   "standards_body": {
+    "status": "found",
+    "name": "Mauritius Standards Bureau (MSB)",
+    "url": "https://msb.intnet.mu",
+    "source": "secondary",
+    "note": "Address as listed by a trade-facilitation database in search results; site not opened.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MWI": {
+   "standards_body": {
+    "status": "found",
+    "name": "MBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "MYS": {
+   "standards_body": {
+    "status": "found",
+    "name": "DSM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NAM": {
+   "standards_body": {
+    "status": "found",
+    "name": "NSIQO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NER": {
+   "standards_body": {
+    "status": "found",
+    "name": "DNQM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NGA": {
+   "standards_body": {
+    "status": "found",
+    "name": "SON (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NIC": {
+   "standards_body": {
+    "status": "found",
+    "name": "DTNM (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NLD": {
+   "standards_body": {
+    "status": "found",
+    "name": "NEN [nl] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NOR": {
+   "standards_body": {
+    "status": "found",
+    "name": "SN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NPL": {
+   "standards_body": {
+    "status": "found",
+    "name": "NBSM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NRU": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "NZL": {
+   "standards_body": {
+    "status": "found",
+    "name": "SNZ (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "OMN": {
+   "standards_body": {
+    "status": "found",
+    "name": "DGSM (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PAK": {
+   "standards_body": {
+    "status": "found",
+    "name": "PSQCA (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PAN": {
+   "standards_body": {
+    "status": "found",
+    "name": "COPANIT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PER": {
+   "standards_body": {
+    "status": "found",
+    "name": "INACAL (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PHL": {
+   "standards_body": {
+    "status": "found",
+    "name": "BPS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PLW": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PNG": {
+   "standards_body": {
+    "status": "found",
+    "name": "NISIT (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "POL": {
+   "standards_body": {
+    "status": "found",
+    "name": "PKN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PRK": {
+   "standards_body": {
+    "status": "found",
+    "name": "CSK (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PRT": {
+   "standards_body": {
+    "status": "found",
+    "name": "IPQ (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PRY": {
+   "standards_body": {
+    "status": "found",
+    "name": "INTN (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "PSE": {
+   "standards_body": {
+    "status": "found",
+    "name": "PSI (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "QAT": {
+   "standards_body": {
+    "status": "found",
+    "name": "QS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ROU": {
+   "standards_body": {
+    "status": "found",
+    "name": "ASRO [ro] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "RUS": {
+   "standards_body": {
+    "status": "found",
+    "name": "GOST R (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "RWA": {
+   "standards_body": {
+    "status": "found",
+    "name": "RBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SAU": {
+   "standards_body": {
+    "status": "found",
+    "name": "SASO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SDN": {
+   "standards_body": {
+    "status": "found",
+    "name": "SSMO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SEN": {
+   "standards_body": {
+    "status": "found",
+    "name": "ASN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SGP": {
+   "standards_body": {
+    "status": "found",
+    "name": "SPRING SG (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SLB": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SLE": {
+   "standards_body": {
+    "status": "found",
+    "name": "SLSB (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SLV": {
+   "standards_body": {
+    "status": "found",
+    "name": "CONACYT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SMR": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SOM": {
+   "standards_body": {
+    "status": "found",
+    "name": "SoBS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SRB": {
+   "standards_body": {
+    "status": "found",
+    "name": "ISS [sr] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SSD": {
+   "standards_body": {
+    "status": "found",
+    "name": "SSNBS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "STP": {
+   "standards_body": {
+    "status": "found",
+    "name": "SENAPIQ STP (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SUR": {
+   "standards_body": {
+    "status": "found",
+    "name": "SSB (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SVK": {
+   "standards_body": {
+    "status": "found",
+    "name": "UNMS SR [sk] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SVN": {
+   "standards_body": {
+    "status": "found",
+    "name": "SIST [sl] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SWE": {
+   "standards_body": {
+    "status": "found",
+    "name": "SIS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SWZ": {
+   "standards_body": {
+    "status": "found",
+    "name": "SWASA (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SYC": {
+   "standards_body": {
+    "status": "found",
+    "name": "SBS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "SYR": {
+   "standards_body": {
+    "status": "found",
+    "name": "SASMO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TCD": {
+   "standards_body": {
+    "status": "found",
+    "name": "ATNOR (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TGO": {
+   "standards_body": {
+    "status": "found",
+    "name": "ATN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "THA": {
+   "standards_body": {
+    "status": "found",
+    "name": "TISI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TJK": {
+   "standards_body": {
+    "status": "found",
+    "name": "TJKSTN (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TKM": {
+   "standards_body": {
+    "status": "found",
+    "name": "MSST (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TLS": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TON": {
+   "standards_body": {
+    "status": "found",
+    "name": "MCCTIL-TSCC (ISO subscriber member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TTO": {
+   "standards_body": {
+    "status": "found",
+    "name": "TTBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TUN": {
+   "standards_body": {
+    "status": "found",
+    "name": "INNORPI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TUR": {
+   "standards_body": {
+    "status": "found",
+    "name": "TSE (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TUV": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "TZA": {
+   "standards_body": {
+    "status": "found",
+    "name": "TBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "UGA": {
+   "standards_body": {
+    "status": "found",
+    "name": "UNBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "UKR": {
+   "standards_body": {
+    "status": "found",
+    "name": "SE UkrNDNC [uk] (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "URY": {
+   "standards_body": {
+    "status": "found",
+    "name": "UNIT (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "USA": {
+   "standards_body": {
+    "status": "found",
+    "name": "ANSI (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "UZB": {
+   "standards_body": {
+    "status": "found",
+    "name": "UZSTANDARD (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "VAT": {
+   "standards_body": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "VCT": {
+   "standards_body": {
+    "status": "found",
+    "name": "SVGBS (ISO subscriber member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "VEN": {
+   "standards_body": {
+    "status": "found",
+    "name": "SENCAMER (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "VNM": {
+   "standards_body": {
+    "status": "found",
+    "name": "TCVN (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "VUT": {
+   "standards_body": {
+    "status": "found",
+    "name": "VBS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "WSM": {
+   "standards_body": {
+    "status": "found",
+    "name": "MCIL-NSS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "YEM": {
+   "standards_body": {
+    "status": "found",
+    "name": "YSMO (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ZAF": {
+   "standards_body": {
+    "status": "found",
+    "name": "SABS (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ZMB": {
+   "standards_body": {
+    "status": "found",
+    "name": "ZABS (ISO correspondent member)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  },
+  "ZWE": {
+   "standards_body": {
+    "status": "found",
+    "name": "SAZ (ISO member body)",
+    "url": "https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization",
+    "source": "secondary",
+    "note": "Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site.",
+    "check": "ok"
+   },
+   "osh_law": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "major_hazard": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "pressure_equipment": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "fire": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "electrical": {
+    "status": "not-searched",
+    "note": ""
+   },
+   "hazardous_substances": {
+    "status": "not-searched",
+    "note": ""
+   }
+  }
+ }
+}

@@ -7,6 +7,11 @@ This toolkit ships screening calculators and small reference tables. It is not a
 
 ## Reference tables in process_safety/data/
 
+### un_states.json, country_safety.json
+- State list: https://www.un.org/en/about-us/member-states and https://unstats.un.org/unsd/methodology/m49/overview/ (fetched 2026-11-25).
+- Standards bodies not found by search: acronym and ISO status from https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization (read 2026-11-25, CC BY-SA; facts only).
+- Laws: web-search result listings gathered on 2026-11-25; pages not opened. Method: `scripts/build_country_safety.py`, `scripts/check_country_coverage.py`.
+
 ### standards_library.json, design_recommendations.json
 - Content: index of document designations, titles, publishers, links and link-check results; and a reading map by design activity. Facts only; no standard text is reproduced.
 - Sources: publisher, regulator and rights-holder pages. ASTM titles were read from store.astm.org pages on the `checked` date; titles marked `title_source: compiler` were typed and not compared with the publisher. ASTM and other designations and marks belong to their owners; their listing is not an endorsement.

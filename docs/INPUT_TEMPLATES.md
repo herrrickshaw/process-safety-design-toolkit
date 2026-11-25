@@ -580,6 +580,15 @@ search the standards and literature library (codes, ASTM specs, regulations, gui
 | `markdown` | `--markdown` |  |  |  |  |  |  | print the whole library as Markdown (docs/STANDARDS_LIBRARY.md) |
 | `map_markdown` | `--map-markdown` |  |  |  |  |  |  | print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md) |
 
+## `countries`
+
+safety regime for industrial assets by country (193 UN members and 2 observers): standards body and main laws
+
+| Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
+|---|---|---|---|---|---|---|---|---|
+| `country` | `(positional)` |  |  |  |  |  |  | country name or ISO code; omit for coverage counts |
+| `markdown` | `--markdown` |  |  |  |  |  |  | print the whole table as Markdown (docs/COUNTRY_SAFETY_COVERAGE.md) |
+
 ## `incidents`
 
 search the CSB-based incident register (maps incidents to toolkit modules and design review steps)
