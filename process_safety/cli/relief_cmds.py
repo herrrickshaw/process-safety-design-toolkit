@@ -123,6 +123,8 @@ class TankFire:
 
     @staticmethod
     def run(a, p):
+        if not a.wetted_area and (a.shape is None or a.D is None):
+            p.error("give --wetted-area, or --shape with --D (and --L for a horizontal or vertical tank)")
         A = a.wetted_area or tank_venting.wetted_area_m2(a.shape, a.D, a.L, a.elevation)
         F = tank_venting.F_FACTORS.get(a.F) if a.F in tank_venting.F_FACTORS else float(a.F)
         kw = {k: v for k, v in (("L_kJ_kg", a.L_kj_kg), ("T_K", a.T), ("M", a.M)) if v}
