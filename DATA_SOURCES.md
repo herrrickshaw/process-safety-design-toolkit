@@ -7,6 +7,12 @@ This toolkit ships screening calculators and small reference tables. It is not a
 
 ## Reference tables in process_safety/data/
 
+### standards_library.json, design_recommendations.json
+- Content: index of document designations, titles, publishers, links and link-check results; and a reading map by design activity. Facts only; no standard text is reproduced.
+- Sources: publisher, regulator and rights-holder pages. ASTM titles were read from store.astm.org pages on the `checked` date; titles marked `title_source: compiler` were typed and not compared with the publisher. ASTM and other designations and marks belong to their owners; their listing is not an endorsement.
+- Digital Refining article rows (`title_source: search-listing`) come from web-search results; the site's robots.txt disallows Claude agents, so its pages were not requested.
+- Method: `scripts/build_standards_library.py`, then `scripts/check_standards_library.py` (and `--pdf`).
+
 ### oisd_standards.json
 - Publisher: Oil Industry Safety Directorate (OISD), MoPNG. URL: https://www.oisd.gov.in/oisd-standards (fetched 2026-09-21, re-checked 2026-11-03; the URL redirected to a "resource not found" page on 2026-11-08 - recheck)
 - Content: 105 standard numbers, titles, editions (facts only; standard text is not reproduced).

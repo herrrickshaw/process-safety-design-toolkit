@@ -3993,6 +3993,30 @@
    }
   },
   {
+   "id": "REG-20",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Standards library reading map lookup",
+   "args": [
+    "library",
+    "--activity",
+    "relief-flare"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "API STD 521"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
    "id": "ELE-01",
    "topics": [
     "Arc flash (screening)"

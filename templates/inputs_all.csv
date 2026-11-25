@@ -235,6 +235,15 @@ literature,region,--region,,str,,,,,,,,,,,,,"e.g. US, UK, EU, IN, SG, AU, ME, gl
 literature,kind,--kind,,str,,,,,,,,,,,,,"regulation, standard, guidance, investigation, database, association, journal, news, data-tool"
 literature,read_only,--read-only,,flag,,,,,,,,,,,,,only sources whose content was read for the toolkit
 literature,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole index as Markdown (docs/LITERATURE.md)
+library,text,(positional),,str list,,,,,,,,,,,,,"words that must all appear in designation, title, body, topics or note"
+library,category,--category,,str,,,,,,,,,,,,,"e.g. relief-flare, astm-pipe-tube, explosion-dust (see docs/STANDARDS_LIBRARY.md)"
+library,body,--body,,str,,,,,,,,,,,,,"e.g. API, ASTM, NFPA, IEC, ISO, HSE"
+library,region,--region,,str,,,,,,,,,,,,,"e.g. US, UK, EU, IN, NO, global"
+library,kind,--kind,,str,,,,,,,,,,,,,"regulation, standard, guidance, book, database, data-tool, investigation, journal, association, course, access-route"
+library,access,--access,,str,,,,,,,,,,,,,"free, free-registration, mixed, paid"
+library,activity,--activity,,str,,,,,,,,,,,,,"show one row of the design reading map, e.g. relief-flare or low-temperature; 'list' shows the ids"
+library,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole library as Markdown (docs/STANDARDS_LIBRARY.md)
+library,map_markdown,--map-markdown,,flag,,,,,,,,,,,,,print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md)
 incidents,text,(positional),,str,,,,,,,,,,,,,
 incidents,module,--module,,str,,,,,,,,,,,,,
 incidents,step,--step,,int,,,,,,,,,,,,,design review step 1-12 (docs/DESIGN_AWARENESS.md)

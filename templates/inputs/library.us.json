@@ -1,0 +1,81 @@
+{
+  "command": "library",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "text": null,
+    "category": null,
+    "body": null,
+    "region": null,
+    "kind": null,
+    "access": null,
+    "activity": null,
+    "markdown": null,
+    "map_markdown": null
+  },
+  "_guide": {
+    "text": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str list",
+      "unit": null,
+      "help": "words that must all appear in designation, title, body, topics or note"
+    },
+    "category": {
+      "flag": "--category",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "e.g. relief-flare, astm-pipe-tube, explosion-dust (see docs/STANDARDS_LIBRARY.md)"
+    },
+    "body": {
+      "flag": "--body",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "e.g. API, ASTM, NFPA, IEC, ISO, HSE"
+    },
+    "region": {
+      "flag": "--region",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "e.g. US, UK, EU, IN, NO, global"
+    },
+    "kind": {
+      "flag": "--kind",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "regulation, standard, guidance, book, database, data-tool, investigation, journal, association, course, access-route"
+    },
+    "access": {
+      "flag": "--access",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "free, free-registration, mixed, paid"
+    },
+    "activity": {
+      "flag": "--activity",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "show one row of the design reading map, e.g. relief-flare or low-temperature; 'list' shows the ids"
+    },
+    "markdown": {
+      "flag": "--markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print the whole library as Markdown (docs/STANDARDS_LIBRARY.md)"
+    },
+    "map_markdown": {
+      "flag": "--map-markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md)"
+    }
+  }
+}
