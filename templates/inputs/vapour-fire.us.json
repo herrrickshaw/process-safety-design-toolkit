@@ -1,0 +1,183 @@
+{
+  "command": "vapour-fire",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "volume": null,
+    "area": null,
+    "D": null,
+    "wall_mm": null,
+    "M": null,
+    "k": null,
+    "p0_g": null,
+    "q": 31699.833062815,
+    "psv_area": 0.0,
+    "psv_set_g": null,
+    "bdv_area": 0.0,
+    "bdv_open_s": 900.0,
+    "strength": 37.70981181,
+    "h_in": 3.522203674,
+    "t_end": 3600.0
+  },
+  "_guide": {
+    "volume": {
+      "flag": "--volume",
+      "required": true,
+      "type": "float",
+      "unit": "ft3",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.035315,
+        "soft_max": 17657333.360744
+      }
+    },
+    "area": {
+      "flag": "--area",
+      "required": true,
+      "type": "float",
+      "unit": "ft2",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.076391,
+        "soft_max": 1076391.041671
+      }
+    },
+    "D": {
+      "flag": "--D",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "wall_mm": {
+      "flag": "--wall-mm",
+      "required": true,
+      "type": "float",
+      "unit": "in",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.03937,
+        "soft_max": 3.937008
+      }
+    },
+    "M": {
+      "flag": "--M",
+      "required": true,
+      "type": "float",
+      "unit": "lb/lbmol",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2.0,
+        "soft_max": 500.0
+      }
+    },
+    "k": {
+      "flag": "--k",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 1.0,
+        "soft_max": 1.67
+      }
+    },
+    "p0_g": {
+      "flag": "--p0-g",
+      "required": true,
+      "type": "float",
+      "unit": "psig",
+      "help": ""
+    },
+    "q": {
+      "flag": "--q",
+      "required": false,
+      "type": "float",
+      "unit": "Btu/h/ft2",
+      "help": "absorbed flux kW/m2 (pool ~100, jet ~250: verify)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 3169.983306,
+        "soft_max": 126799.332251
+      }
+    },
+    "psv_area": {
+      "flag": "--psv-area",
+      "required": false,
+      "type": "float",
+      "unit": "in2",
+      "help": "mm2",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1550.0031
+      }
+    },
+    "psv_set_g": {
+      "flag": "--psv-set-g",
+      "required": false,
+      "type": "float",
+      "unit": "psig",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1.015264,
+        "soft_max": 5801.509509
+      }
+    },
+    "bdv_area": {
+      "flag": "--bdv-area",
+      "required": false,
+      "type": "float",
+      "unit": "in2",
+      "help": "mm2",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1550.0031
+      }
+    },
+    "bdv_open_s": {
+      "flag": "--bdv-open-s",
+      "required": false,
+      "type": "float",
+      "unit": "s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "strength": {
+      "flag": "--strength",
+      "required": false,
+      "type": "float",
+      "unit": "ksi",
+      "help": "MPa (min yield; conservative)"
+    },
+    "h_in": {
+      "flag": "--h-in",
+      "required": false,
+      "type": "float",
+      "unit": "Btu/h/ft2/degF",
+      "help": ""
+    },
+    "t_end": {
+      "flag": "--t-end",
+      "required": false,
+      "type": "float",
+      "unit": "s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    }
+  }
+}

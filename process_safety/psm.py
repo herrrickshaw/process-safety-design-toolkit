@@ -12,7 +12,7 @@ Petroleum Rules 2002, Factories Act etc. (see docs/PSM_FRAMEWORKS.md). The cross
 from __future__ import annotations
 
 import json
-from datetime import date
+from datetime import date, datetime, timedelta
 from importlib import resources
 
 LB_PER_KG = 2.2046226218
@@ -126,7 +126,6 @@ def due_dates(last_done: dict[str, date], today: date | None = None, warn_days: 
 
 def incident_investigation_deadline(incident_time) -> "datetime":
     """Investigation must be initiated no later than 48 hours after the incident (datetime in, datetime out)."""
-    from datetime import timedelta
     return incident_time + timedelta(hours=48)
 
 

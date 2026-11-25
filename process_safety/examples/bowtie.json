@@ -1,0 +1,129 @@
+{
+  "_note": "ILLUSTRATIVE frequencies and PFDs (CCPS LOPA-style generic values) - replace with site data",
+  "top_event": "Loss of containment from LPG bullet",
+  "sce_raw_threshold": 10,
+  "threats": [
+    {
+      "name": "Overfill during receipt",
+      "frequency_per_yr": 0.1,
+      "barriers": [
+        {
+          "name": "High-level alarm + operator",
+          "pfd": 0.1,
+          "type": "procedural",
+          "owner": "Operations"
+        },
+        {
+          "name": "Independent HH level trip (SIF)",
+          "pfd": 0.01,
+          "type": "SIS",
+          "owner": "Instrumentation"
+        }
+      ]
+    },
+    {
+      "name": "External fire under bullet",
+      "frequency_per_yr": 0.001,
+      "barriers": [
+        {
+          "name": "Water deluge",
+          "pfd": 0.1,
+          "type": "active",
+          "escalation": [
+            {
+              "factor": "Fire-water pump out of service",
+              "p_present": 0.02,
+              "pfd_if_present": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Fireproofing of supports",
+          "pfd": 0.05,
+          "type": "passive"
+        }
+      ]
+    },
+    {
+      "name": "Corrosion of nozzle",
+      "frequency_per_yr": 0.0001,
+      "barriers": [
+        {
+          "name": "Risk-based inspection",
+          "pfd": 0.1,
+          "type": "procedural"
+        }
+      ]
+    },
+    {
+      "name": "Relief valve stuck open",
+      "fault_tree": {
+        "initiator_per_yr": 0.01,
+        "basic": {
+          "PSV seat damage": 0.05,
+          "No routine bench test": 0.1
+        },
+        "gates": {
+          "top": [
+            "AND",
+            [
+              "PSV seat damage",
+              "No routine bench test"
+            ]
+          ]
+        },
+        "top": "top"
+      },
+      "barriers": []
+    }
+  ],
+  "consequences": [
+    {
+      "name": "Jet fire",
+      "probability": 0.09,
+      "severity_weight": 10,
+      "barriers": [
+        {
+          "name": "Gas detection + ESD",
+          "pfd": 0.1,
+          "type": "SIS"
+        }
+      ]
+    },
+    {
+      "name": "VCE / flash fire",
+      "probability": 0.21,
+      "severity_weight": 30,
+      "barriers": [
+        {
+          "name": "Gas detection + ESD",
+          "pfd": 0.1,
+          "type": "SIS"
+        },
+        {
+          "name": "Ignition source control",
+          "pfd": 0.5,
+          "type": "procedural"
+        }
+      ]
+    },
+    {
+      "name": "BLEVE",
+      "probability": 0.01,
+      "severity_weight": 100,
+      "barriers": [
+        {
+          "name": "Water deluge",
+          "pfd": 0.1,
+          "type": "active"
+        }
+      ]
+    },
+    {
+      "name": "Unignited release",
+      "probability": 0.69,
+      "severity_weight": 0.1,
+      "barriers": []
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "command": "vapour-fire",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "volume": null,
+    "area": null,
+    "D": null,
+    "wall_mm": null,
+    "M": null,
+    "k": null,
+    "p0_g": null,
+    "q": 100.0,
+    "psv_area": 0.0,
+    "psv_set_g": null,
+    "bdv_area": 0.0,
+    "bdv_open_s": 900.0,
+    "strength": 260.0,
+    "h_in": 20.0,
+    "t_end": 3600.0
+  },
+  "_guide": {
+    "volume": {
+      "flag": "--volume",
+      "required": true,
+      "type": "float",
+      "unit": "m3",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.001,
+        "soft_max": 500000
+      }
+    },
+    "area": {
+      "flag": "--area",
+      "required": true,
+      "type": "float",
+      "unit": "m2",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.1,
+        "soft_max": 100000
+      }
+    },
+    "D": {
+      "flag": "--D",
+      "required": true,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 2000
+      }
+    },
+    "wall_mm": {
+      "flag": "--wall-mm",
+      "required": true,
+      "type": "float",
+      "unit": "mm",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 1,
+        "soft_max": 100
+      }
+    },
+    "M": {
+      "flag": "--M",
+      "required": true,
+      "type": "float",
+      "unit": "kg/kmol",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 2,
+        "soft_max": 500
+      }
+    },
+    "k": {
+      "flag": "--k",
+      "required": true,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 1.0,
+        "soft_max": 1.67
+      }
+    },
+    "p0_g": {
+      "flag": "--p0-g",
+      "required": true,
+      "type": "float",
+      "unit": "kPag",
+      "help": ""
+    },
+    "q": {
+      "flag": "--q",
+      "required": false,
+      "type": "float",
+      "unit": "kW/m2",
+      "help": "absorbed flux kW/m2 (pool ~100, jet ~250: verify)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 10,
+        "soft_max": 400
+      }
+    },
+    "psv_area": {
+      "flag": "--psv-area",
+      "required": false,
+      "type": "float",
+      "unit": "mm2",
+      "help": "mm2",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1000000
+      }
+    },
+    "psv_set_g": {
+      "flag": "--psv-set-g",
+      "required": false,
+      "type": "float",
+      "unit": "kPag",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 7,
+        "soft_max": 40000
+      }
+    },
+    "bdv_area": {
+      "flag": "--bdv-area",
+      "required": false,
+      "type": "float",
+      "unit": "mm2",
+      "help": "mm2",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 1000000
+      }
+    },
+    "bdv_open_s": {
+      "flag": "--bdv-open-s",
+      "required": false,
+      "type": "float",
+      "unit": "s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "strength": {
+      "flag": "--strength",
+      "required": false,
+      "type": "float",
+      "unit": "MPa",
+      "help": "MPa (min yield; conservative)"
+    },
+    "h_in": {
+      "flag": "--h-in",
+      "required": false,
+      "type": "float",
+      "unit": "W/m2K",
+      "help": ""
+    },
+    "t_end": {
+      "flag": "--t-end",
+      "required": false,
+      "type": "float",
+      "unit": "s",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    }
+  }
+}

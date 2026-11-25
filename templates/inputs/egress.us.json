@@ -1,0 +1,101 @@
+{
+  "command": "egress",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "distance": null,
+    "speed": null,
+    "people": null,
+    "width": null,
+    "specific_flow": null,
+    "detect_s": null,
+    "premove_s": null,
+    "aset_s": null
+  },
+  "_guide": {
+    "distance": {
+      "flag": "--distance",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "travel distance to a place of safety, m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "speed": {
+      "flag": "--speed",
+      "required": true,
+      "type": "float",
+      "unit": "ft/s",
+      "help": "walking speed, m/s (from the study basis, no default)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 9.84252
+      }
+    },
+    "people": {
+      "flag": "--people",
+      "required": true,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    },
+    "width": {
+      "flag": "--width",
+      "required": true,
+      "type": "float",
+      "unit": "ft",
+      "help": "effective width of the narrowest exit, m",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 6561.67979
+      }
+    },
+    "specific_flow": {
+      "flag": "--specific-flow",
+      "required": true,
+      "type": "float",
+      "unit": "persons/m/s",
+      "help": "persons per metre of width per second (no default)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 3.0
+      }
+    },
+    "detect_s": {
+      "flag": "--detect-s",
+      "required": true,
+      "type": "float",
+      "unit": "s",
+      "help": "time to detect and raise the alarm, s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "premove_s": {
+      "flag": "--premove-s",
+      "required": true,
+      "type": "float",
+      "unit": "s",
+      "help": "recognition and response time before moving, s",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    },
+    "aset_s": {
+      "flag": "--aset-s",
+      "required": false,
+      "type": "float",
+      "unit": "s",
+      "help": "available safe egress time from the fire or toxic study, s (adds the margin)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 86400
+      }
+    }
+  }
+}

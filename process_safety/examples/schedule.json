@@ -1,0 +1,105 @@
+{
+ "_note": "Illustrative placeholder inputs, not data: every duration, effort, cost, value, probability, weight and date below is an example to be replaced.",
+ "start": "2026-11-16",
+ "finish_by": "2026-12-18",
+ "status_date": "2026-11-23",
+ "calendar": {
+  "workdays": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "holidays": [
+   "2026-11-26"
+  ]
+ },
+ "capacity_days_per_week": {
+  "ann": 5,
+  "raj": 5
+ },
+ "activities": [
+  {
+   "id": "A1",
+   "name": "Data collection",
+   "duration_days": 3,
+   "owner": "ann",
+   "effort_days": 3,
+   "percent_complete": 100
+  },
+  {
+   "id": "A2",
+   "name": "Node definition",
+   "duration_days": 2,
+   "owner": "ann",
+   "effort_days": 2,
+   "predecessors": [
+    "A1"
+   ],
+   "percent_complete": 100
+  },
+  {
+   "id": "A3",
+   "name": "Worksheet set-up",
+   "duration_days": 2,
+   "owner": "raj",
+   "effort_days": 2,
+   "predecessors": [
+    {
+     "id": "A1",
+     "type": "SS",
+     "lag": 1
+    }
+   ],
+   "percent_complete": 50
+  },
+  {
+   "id": "A4",
+   "name": "Workshop",
+   "duration_days": 6,
+   "owner": "ann",
+   "effort_days": 12,
+   "predecessors": [
+    "A2",
+    "A3"
+   ],
+   "start_no_earlier": "2026-11-30"
+  },
+  {
+   "id": "A5",
+   "name": "Draft report",
+   "duration_days": 6,
+   "owner": "raj",
+   "effort_days": 6,
+   "predecessors": [
+    {
+     "id": "A4",
+     "type": "FF",
+     "lag": 4
+    }
+   ]
+  },
+  {
+   "id": "A6",
+   "name": "Client review",
+   "duration_days": 5,
+   "predecessors": [
+    "A5"
+   ]
+  },
+  {
+   "id": "A7",
+   "name": "Final report",
+   "duration_days": 2,
+   "owner": "ann",
+   "predecessors": [
+    {
+     "id": "A6",
+     "type": "FS",
+     "lag": 0
+    }
+   ]
+  }
+ ]
+}

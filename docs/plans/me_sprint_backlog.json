@@ -1,0 +1,302 @@
+{
+ "_note": "Planning assumptions, not data: points are ideal developer-days from docs/plans/me_build_plan.json; velocity is scenario-based because the repository history spans seven days and gives no team velocity.",
+ "stories": [
+  {
+   "id": "US-01",
+   "lane": "analyst",
+   "points": 3,
+   "depends_on": [],
+   "not_before": null,
+   "title": "Spec: project register and study-trigger rules",
+   "functions": "F1,F2"
+  },
+  {
+   "id": "US-02",
+   "lane": "analyst",
+   "points": 4,
+   "depends_on": [
+    "US-01"
+   ],
+   "not_before": null,
+   "title": "Read lifecycle rules and operator sources for triggers",
+   "functions": "F2"
+  },
+  {
+   "id": "US-03",
+   "lane": "analyst",
+   "points": 2,
+   "depends_on": [
+    "US-06"
+   ],
+   "not_before": null,
+   "title": "Domain review of register data and rules",
+   "functions": "F1,F2"
+  },
+  {
+   "id": "US-04",
+   "lane": "dev",
+   "points": 4,
+   "depends_on": [
+    "US-01"
+   ],
+   "not_before": null,
+   "title": "project_register module and tests",
+   "functions": "F1"
+  },
+  {
+   "id": "US-05",
+   "lane": "dev",
+   "points": 4,
+   "depends_on": [
+    "US-04",
+    "US-02"
+   ],
+   "not_before": null,
+   "title": "study_trigger rules and tests",
+   "functions": "F2"
+  },
+  {
+   "id": "US-06",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-05"
+   ],
+   "not_before": null,
+   "title": "Study-demand roll-up and capacity link",
+   "functions": "F3"
+  },
+  {
+   "id": "US-07",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-06"
+   ],
+   "not_before": null,
+   "title": "Tool wiring, examples, scenarios",
+   "functions": "F1-F3"
+  },
+  {
+   "id": "US-08",
+   "lane": "dev",
+   "points": 2,
+   "depends_on": [
+    "US-07"
+   ],
+   "not_before": null,
+   "title": "Docs, changelog, gates",
+   "functions": "F1-F3"
+  },
+  {
+   "id": "US-09",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-08",
+    "US-03"
+   ],
+   "not_before": null,
+   "title": "Gulf bid mechanics: fields and checks",
+   "functions": "F4"
+  },
+  {
+   "id": "US-10",
+   "lane": "dev",
+   "points": 4,
+   "depends_on": [
+    "US-09"
+   ],
+   "not_before": null,
+   "title": "Eligibility checker",
+   "functions": "F5"
+  },
+  {
+   "id": "US-11",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-10"
+   ],
+   "not_before": null,
+   "title": "Bid compliance matrix",
+   "functions": "F6"
+  },
+  {
+   "id": "US-12",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-11"
+   ],
+   "not_before": null,
+   "title": "Wiring, scenarios, docs for bid tools",
+   "functions": "F4-F6"
+  },
+  {
+   "id": "US-13",
+   "lane": "dev",
+   "points": 3,
+   "depends_on": [
+    "US-12"
+   ],
+   "not_before": null,
+   "title": "WBS templates by study type",
+   "functions": "F7"
+  },
+  {
+   "id": "US-14",
+   "lane": "dev",
+   "points": 5,
+   "depends_on": [
+    "US-13"
+   ],
+   "not_before": null,
+   "title": "P&ID register to HAZOP nodes to WBS",
+   "functions": "F8"
+  },
+  {
+   "id": "US-15",
+   "lane": "dev",
+   "points": 2,
+   "depends_on": [
+    "US-14"
+   ],
+   "not_before": null,
+   "title": "Gates, changelog, release",
+   "functions": "F1-F8"
+  },
+  {
+   "id": "US-16",
+   "lane": "dev",
+   "points": 6,
+   "depends_on": [
+    "US-15"
+   ],
+   "not_before": "2027-01-04",
+   "title": "Gulf QRA criteria set and contour-confinement check",
+   "functions": "F9"
+  },
+  {
+   "id": "US-17",
+   "lane": "dev",
+   "points": 5,
+   "depends_on": [
+    "US-16"
+   ],
+   "not_before": null,
+   "title": "PSV staggered set-point review",
+   "functions": "F10"
+  },
+  {
+   "id": "US-18",
+   "lane": "dev",
+   "points": 6,
+   "depends_on": [
+    "US-17"
+   ],
+   "not_before": null,
+   "title": "Risk-based inspection screening",
+   "functions": "F11"
+  },
+  {
+   "id": "US-19",
+   "lane": "dev",
+   "points": 8,
+   "depends_on": [
+    "US-18"
+   ],
+   "not_before": null,
+   "title": "Pipeline QRA screening for long gas lines",
+   "functions": "F12"
+  }
+ ],
+ "scenarios": {
+  "low": {
+   "focus": 0.6,
+   "build_now_done": "2027-02-24",
+   "all_done": "2027-04-26",
+   "remaining_after_sprint": [
+    64.0,
+    57.4,
+    49.4,
+    43.8,
+    38.0,
+    32.0,
+    26.4,
+    20.8,
+    14.8,
+    9.2,
+    3.2,
+    0.0
+   ],
+   "burn_per_sprint": [
+    9.0,
+    6.6,
+    8.0,
+    5.6,
+    5.8,
+    6.0,
+    5.6,
+    5.6,
+    6.0,
+    5.6,
+    6.0,
+    3.2
+   ]
+  },
+  "base": {
+   "focus": 0.8,
+   "build_now_done": "2027-02-01",
+   "all_done": "2027-03-18",
+   "remaining_after_sprint": [
+    61.2,
+    51.8,
+    44.2,
+    36.4,
+    28.8,
+    21.8,
+    14.2,
+    7.2,
+    -0.0
+   ],
+   "burn_per_sprint": [
+    11.8,
+    9.4,
+    7.6,
+    7.8,
+    7.6,
+    7.0,
+    7.6,
+    7.0,
+    7.2
+   ]
+  },
+  "high": {
+   "focus": 1.0,
+   "build_now_done": "2027-01-12",
+   "all_done": "2027-02-16",
+   "remaining_after_sprint": [
+    59.0,
+    47.0,
+    37.0,
+    27.0,
+    17.0,
+    7.0,
+    0.0
+   ],
+   "burn_per_sprint": [
+    14.0,
+    12.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    7.0
+   ]
+  }
+ },
+ "unit": "ideal developer-day",
+ "sprint_working_days": 10,
+ "first_sprint_start": "2026-11-16"
+}

@@ -48,3 +48,19 @@ no open Seveso/OSHA PSM data library beyond this toolkit's parsed tables. Search
 1. Add an optional cross-check test suite that compares `relief`, `hydraulics`, `separator` and `props` against `fluids`/`thermo`/CoolProp when installed.
 2. Point users to `pyeldqm`/`slabx` for dense-gas consequence work and `arcflash` for IEEE 1584, rather than reimplementing them here.
 3. Do not copy GPL or unlicensed code; cite and link instead.
+
+## Added 2026-11-06 from a pasted list (existence, licence and version checked on GitHub and PyPI; code not read)
+These sit next to the toolkit rather than overlap it: the toolkit does design-stage screening calculations, while these cover plant
+monitoring, control and cyber-physical safety.
+
+| Project | Licence | What it is (from its own metadata) | How it relates |
+|---|---|---|---|
+| [p4lsec/otsafe](https://github.com/p4lsec/otsafe) (8★, last push 2025-05-22) | Apache-2.0 | detection-as-code and safety modelling for cyber-physical systems | operational-technology security and control-loop safety; no process-safety calculations. Pairs with LOPA/SIL work on the security side of a SIF |
+| [petrobras/BibMon](https://github.com/petrobras/BibMon) (107★, last push 2026-05-22; PyPI `bibmon` 1.2.0) | Apache-2.0 | predictive models for fault detection, soft sensing and process condition monitoring | operations-phase monitoring; could feed measured data into the reliability and proof-test inputs, not a design tool |
+| [gressling/sproclib](https://github.com/gressling/sproclib) (PyPI `sproclib` 3.0.1) | MIT | Standard Process Control Library for chemical process control and plant design | control design and dynamics; the toolkit has no process control |
+| [processpi](https://processpi.org) (PyPI `processpi` 0.2.1) | MIT | chemical engineering simulations, equipment design, unit conversions | general unit-operation calculations; check its coverage before assuming it matches the toolkit's API-based modules |
+| [iapws](https://github.com/jjgomera/iapws) (PyPI 1.5.5) | **GPL v3** | IAPWS water and steam properties | use as a separate tool or test oracle only; do not copy source into this MIT project |
+| [pyXSteam](https://github.com/drunsinn/pyXSteam) (PyPI 0.4.10) | not stated on PyPI | port of the XSteam water and steam tables | no licence stated means treat as all rights reserved until confirmed |
+
+Not related: PyPI [`safety`](https://pypi.org/project/safety/) scans Python dependencies for vulnerabilities (software security, not process safety). The pasted
+list also mentioned unnamed "Bowtie / SMS" scripts and a Reddit thread; neither was verified. The toolkit already has its own `bowtie` module.

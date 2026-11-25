@@ -7,9 +7,12 @@ attenuation unless tau is supplied. Overpressure/fragment effects of the BLEVE a
 """
 from __future__ import annotations
 
+from .ranges import validated
+
 import math
 
 
+@validated(mass_kg="mass_kg", heat_of_combustion_MJ_kg="heat_of_combustion_MJ_kg", radiated_fraction="fraction_0_1")
 def fireball(mass_kg: float, heat_of_combustion_MJ_kg: float, radiated_fraction: float = 0.30) -> dict:
     D = 5.8 * mass_kg ** (1 / 3)
     t = 0.45 * mass_kg ** (1 / 3) if mass_kg < 30_000 else 2.6 * mass_kg ** (1 / 6)

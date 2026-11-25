@@ -8,3 +8,8 @@ build/
 # never commit licensed standards, vendor datasheets or client documents
 standards_private/
 *.dep.pdf
+
+# private extractions from documents you do not own (see docs/REQUIREMENTS_EXTRACT.md)
+requirements_out/
+private_*
+*.private.csv

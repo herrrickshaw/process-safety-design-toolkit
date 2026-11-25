@@ -1,0 +1,116 @@
+{
+  "command": "relief-fire",
+  "units": "si",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "wetted_area": null,
+    "D": null,
+    "L": null,
+    "level": null,
+    "orientation": "horizontal",
+    "elevation": 0.0,
+    "latent": null,
+    "F": 1.0,
+    "no_drainage": null
+  },
+  "_guide": {
+    "wetted_area": {
+      "flag": "--wetted-area",
+      "required": false,
+      "type": "float",
+      "unit": "m2",
+      "help": "m2 (else give vessel geometry)",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 0.1,
+        "soft_max": 100000
+      }
+    },
+    "D": {
+      "flag": "--D",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 2000
+      }
+    },
+    "L": {
+      "flag": "--L",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 2000
+      }
+    },
+    "level": {
+      "flag": "--level",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200
+      }
+    },
+    "orientation": {
+      "flag": "--orientation",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "elevation": {
+      "flag": "--elevation",
+      "required": false,
+      "type": "float",
+      "unit": "m",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "soft_max": 200
+      }
+    },
+    "latent": {
+      "flag": "--latent",
+      "required": true,
+      "type": "float",
+      "unit": "kJ/kg",
+      "help": "latent heat kJ/kg at relieving conditions",
+      "range": {
+        "hard_min": 0.0,
+        "soft_min": 50,
+        "soft_max": 2500
+      }
+    },
+    "F": {
+      "flag": "--F",
+      "required": false,
+      "type": "float",
+      "unit": "-",
+      "help": "",
+      "range": {
+        "hard_min": 0.0,
+        "hard_max": 1.0,
+        "soft_min": 0.03
+      }
+    },
+    "no_drainage": {
+      "flag": "--no-drainage",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    }
+  }
+}

@@ -1,0 +1,563 @@
+{
+ "source": {
+  "title": "OISD letter OISD/ENGG/GEN/22 to PNGRB, views on the draft PNGRB (Technical Standards and Specifications including Safety Standards for Refineries and Gas Processing Plants) Regulations, 2020, Annexure A",
+  "publisher": "Oil Industry Safety Directorate",
+  "date": "2020-04-30",
+  "url": "https://www.pngrb.gov.in/pdf/public-notice/RGP19052020/OISD.pdf",
+  "fetched": "2026-11-07",
+  "read": "text (17-page PDF, 3.0 MB; Annexure A table parsed from the raw text layer)"
+ },
+ "note": "Annexure A of the letter lists 60 of OISD's then 121 standards as applicable to refineries and oil/gas processing plants. letter_title_and_scope is the table's title cell followed by its scope cell, joined as extracted (the cells were not separable). The ten standards the letter calls mandatory through statutes are flagged. id_status compares the letter's number with the 2026-09-21 official list in oisd_standards.json: exact, prefix_changed (same number, different STD/RP/GDN prefix, e.g. the letter's GDN-178 is STD-178 Management of Change today), or absent_from_2026_list (number not in the 105-entry list; it may be withdrawn, merged or simply not on that page - not determined).",
+ "letter_statistics": {
+  "total_oisd_standards": 121,
+  "applicable_to_refineries_and_gpp": 60,
+  "mandatory_by_statute": 10,
+  "statutes_named": [
+   "Petroleum Rules, 2002",
+   "Static and Mobile Pressure Vessels (Unfired) Rules, 2016",
+   "Oil Mines Regulations, 2017"
+  ]
+ },
+ "entries": [
+  {
+   "n": 1,
+   "letter_id": "OISD-STD-105",
+   "official_id": "OISD-STD-105",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Work Permit System",
+   "letter_title_and_scope": "Work Permit System The standard is applicable to all hydrocarbon processing / handling installations such as onshore / offshore oil and gas processing plants & platforms, drilling and workover rigs, crude oil and product installations, refineries, oil port terminals, pipelines & pipeline installations, marketing installations, LPG bottling plants, Lube Blending plants etc."
+  },
+  {
+   "n": 2,
+   "letter_id": "OISD-STD-106",
+   "official_id": "OISD-STD-106",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Pressure Relief & Disposal System",
+   "letter_title_and_scope": "Pressure Relief & Disposal System The standard covers relieving devices and their discharge systems of vessels and equipment in the exploration & production installations and related oil & gas processing plants, refineries, petrochemical plants and storage & handling locations, which are designed for a maximum allowable working pressure of more than 1 Kg/Cm2g."
+  },
+  {
+   "n": 3,
+   "letter_id": "OISD-RP-108",
+   "official_id": "OISD-STD-108",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": true,
+   "official_title": "Oil Storage and Handling",
+   "letter_title_and_scope": "Recommended Practices on Oil Storage and Handling The document is applicable to safety in the design philosophies and operating procedures pertaining to the storage and handling of crude oil and petroleum products at crude oil exploration & production, refineries and pipelines installations which are normally stored in above ground atmospheric pressure or low pressure storage tanks and underground tanks. This does not cover the storage and handling of propane, LPG, butane etc. which requires pressurized/cryogenic storage."
+  },
+  {
+   "n": 4,
+   "letter_id": "OISD-STD-109",
+   "official_id": "OISD-STD-109",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Process Design and Operating Philosophies on Blow Down & sewer system",
+   "letter_title_and_scope": "Process Design and Operating philosophies on blow down and sewer system This document covers the design and operating philosophies for safe handling and disposal of liquid blowdown from various process equipment in the Refineries, Gas Processing & Petrochemical Plants and their storage facilities. Pressure relief of vapour/liquid and their disposal is not covered in this document for which OISD - 106 Standard on “Pressure Relief and Disposal System” should be referred to."
+  },
+  {
+   "n": 5,
+   "letter_id": "OISD-RP-110",
+   "official_id": "OISD-RP-110",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Recommended Practices on Static Electricity",
+   "letter_title_and_scope": "Recommended Practices on Static Electricity The purpose of this document is to assist oil and gas industry in reducing fire hazard due to static electricity by presenting a discussion on the nature and origin of static charges, the general methods of mitigation and recommendations in certain specific operations for its dissipation."
+  },
+  {
+   "n": 6,
+   "letter_id": "OISD-STD-111",
+   "official_id": "OISD-STD-111",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Process Design & Operating Philosophies on Fired Process Furnace",
+   "letter_title_and_scope": "Process design and operating philosophies on fired process furnace This document covers safety provisions in fired process furnaces in Petroleum Refineries, Gas Processing Plants & Petrochemicals. This document does not include items like direct fired heaters of FCCU, SRU, incinerators and heater treaters for E&P installations. OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage"
+  },
+  {
+   "n": 7,
+   "letter_id": "OISD-STD-112",
+   "official_id": "OISD-STD-112",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Safe Handling of Air Hydrocarbon Mixtures & Pyrophoric Substances",
+   "letter_title_and_scope": "Safe handling of air hydrocarbon mixtures and pyrophoric substances The purpose of this document is to provide relevant technical standards for reducing fire hazards of air hydrocarbon mixtures and pyrophoric substances. The document also illustrates the nature andorigin of air hydrocarbon mixtures and pyrophoric substances. The document is applicable to petroleum production, refining, petrochemical, Gas Processing Plants (GPP), pipelines and marketing installations."
+  },
+  {
+   "n": 8,
+   "letter_id": "OISD-STD-113",
+   "official_id": "OISD-STD-113",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Classification of Area for Electrical Installations at Hydrocarbon  Processing & Handling Facilities",
+   "letter_title_and_scope": "Classification of Area for electrical installations at Hydrocarbon processing and handling facilities This standard is applicable to classification of hazardous areas for electrical installations in onshore processing, storage and transportation facilities handling flammable liquids, vapours or gases. . This standard does not cover offshore installations and also the provisions of this standard do not apply to Onshore Drilling and Workover Rigs as well as E&P Onshore Production Installations;"
+  },
+  {
+   "n": 9,
+   "letter_id": "OISD-STD-114",
+   "official_id": "OISD-STD-114",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Safe Handling of Hazardous Chemicals",
+   "letter_title_and_scope": "Safe handling of Hazardous Chemicals This standard deals with the hazardous chemicals used in Petroleum and Natural Gas exploration, production, processing, storage and transportation facilities, petrochemicals manufacturing and additives for lubricating oil blending & markers for checking the adulteration in products like kerosene in motor spirit etc."
+  },
+  {
+   "n": 10,
+   "letter_id": "OISD-GDN-115",
+   "official_id": "OISD-GDN-115",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Guidelines on Fire Fighting Equipment and Appliances in Petroleum  Industry",
+   "letter_title_and_scope": "Guidelines on Fire Fighting Equipment and Appliances in Petroleum Industry This document provides guidelines for development of detailed procedures for specifications/ inspection and testing of various firefighting equipment, appliances and materials. It covers the petroleum industry as a whole."
+  },
+  {
+   "n": 11,
+   "letter_id": "OISD-STD-116",
+   "official_id": "OISD-STD-116",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Fire Protection Facilities for Petroleum Refineries, Petrochemical Complexes & Oil/Gas Processing Plants",
+   "letter_title_and_scope": "Fire Protection facilities for Petroleum Refineries and Oil/Gas Processing Plants This standard covers the minimum design criteria and details of the various fire protection facilities to be provided in petroleum refineries and oil / gas processing plants."
+  },
+  {
+   "n": 12,
+   "letter_id": "OISD-STD-118",
+   "official_id": "OISD-STD-118",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Layouts for Oil and Gas Installations",
+   "letter_title_and_scope": "Layouts for Oil and Gas Installations This document lays down minimum requirements of layouts within the plant boundary for petroleum refineries, Oil / Gas production and processing plants, LPG facilities, Pipeline installations / terminals, Lube oil installations and other Petroleum storage installations such as Crude oil gathering stations, Marketing depots and terminals, Aviation storage & fueling stations, Tank farm for storage of crude / products."
+  },
+  {
+   "n": 13,
+   "letter_id": "OISD-STD-119",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection, Operation and Maintenance of Pumps This document covers the safety aspects in selection, installation & commissioning and operation & maintenance of pumps and their associated systems in hydrocarbon industry. OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage"
+  },
+  {
+   "n": 14,
+   "letter_id": "OISD-STD-120",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection, Operation and Maintenance of Compressors This document covers the safety aspects in selection, installation & commissioning and operation & maintenance of compressors and their associated systemsin hydrocarbon industry."
+  },
+  {
+   "n": 15,
+   "letter_id": "OISD-STD-121",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection, Operation, Inspection & Maintenance of Steam & Gas Turbines This standard specifies the minimum requirements in selection, installation, commissioning, operation, inspection & maintenance of steam & gas turbines and their associated systems in both onshore as well as offshore areas of hydrocarbon industry."
+  },
+  {
+   "n": 16,
+   "letter_id": "OISD-RP-122",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection, Operation and Maintenance of Fans, blowers, gear boxes, agitators & Mixers This document covers the general considerations in Selection, Installation, Commissioning, Operation, Maintenance and Failure & Root Cause Analysis of Fans, Blowers, Gearboxes, Agitators & Mixers."
+  },
+  {
+   "n": 17,
+   "letter_id": "OISD-RP-123",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection, Operation and Maintenance of rotary equipment components This document covers the general considerations for Selection, Installation, Commissioning, Operation, Maintenance and Failure Analysis of Bearings, Couplings and Transmission Belts."
+  },
+  {
+   "n": 18,
+   "letter_id": "OISD-RP-124",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Predictive Maintenance Practices This document covers the methodology for management of a Predictive Maintenance Program for rotary equipment in hydrocarbon industry."
+  },
+  {
+   "n": 19,
+   "letter_id": "OISD-STD-125",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Inspection and Maintenance of Mechanical Seals This standard covers the minimum requirements for selection, operation, maintenance & failure analysis of Mechanical Seals and Sealing Systems installed on rotating equipment in hydrocarbon industry."
+  },
+  {
+   "n": 20,
+   "letter_id": "OISD-RP-126",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Specific practices for installation and maintenance of rotating equipment Specific maintenance practices for rotating equipment viz Equipment Protection & Change Management System; Lubricant and lubrication System; Safe Commissioning Practices; Root Cause Failure Analysis; Safe Utilization of Lifting Tools and Tackles and History Recording are covered in these guidelines."
+  },
+  {
+   "n": 21,
+   "letter_id": "OISD-STD-127",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Selection operation inspection and maintenance of Diesel Engines This standard specifies the minimum requirements in selection, installation, commissioning, operation, inspection & maintenance of diesel engines in hydrocarbon industry, both offshore & onshore."
+  },
+  {
+   "n": 22,
+   "letter_id": "OISD-STD-128",
+   "official_id": "OISD-STD-128",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Inspection of Unfired Pressure Vessels",
+   "letter_title_and_scope": "Inspection of unfired pressure vessels This standard covers minimum inspection requirements, types of inspections, inspection frequencies, inspection procedures and repair methodology for unfired pressure vessels, including underground pressure vessels installed in hydrocarbon industry."
+  },
+  {
+   "n": 23,
+   "letter_id": "OISD-STD-129",
+   "official_id": "OISD-STD-129",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Inspection of Storage Tanks",
+   "letter_title_and_scope": "Inspection of storage tanks This standard covers the minimum inspection requirements for atmospheric and low-pressure storage tanks constructed as per standards IS- 803, API-620, API 650, IS 10987 or equivalent. OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage"
+  },
+  {
+   "n": 24,
+   "letter_id": "OISD-STD-130",
+   "official_id": "OISD-STD-130",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Piping Systems",
+   "letter_title_and_scope": "Inspection of Piping Systems This standard covers minimum inspection requirements, types of inspections, inspection frequencies, inspection procedures and repair methodology for metallic piping systems, including Pipes, Valves and Fittings installed in hydrocarbon industry."
+  },
+  {
+   "n": 25,
+   "letter_id": "OISD-STD-131",
+   "official_id": "OISD-STD-131",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Boilers",
+   "letter_title_and_scope": "Inspection of Boilers This standard covers the minimum inspection requirements for Fired & Unfired Boilers, and Auxiliary Equipment during operation and maintenance. Applicability of the standard is across the Oil & Gas Industry segment."
+  },
+  {
+   "n": 26,
+   "letter_id": "OISD-STD-132",
+   "official_id": "OISD-STD-132",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Pressure Relieving devices",
+   "letter_title_and_scope": "Inspection of pressure relieving devices This standard outlines the minimum inspection and testing requirements applicable to all pressure relieving devices including those for vacuum service used in the petroleum industry."
+  },
+  {
+   "n": 27,
+   "letter_id": "OISD-STD-133",
+   "official_id": "OISD-STD-133",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Fired Heaters",
+   "letter_title_and_scope": "Inspection of fired heaters This standard covers the minimum inspection requirements for fired heaters used in petroleum industry."
+  },
+  {
+   "n": 28,
+   "letter_id": "OISD-STD-134",
+   "official_id": "OISD-STD-134",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Heat Exchangers",
+   "letter_title_and_scope": "Inspection of heat exchangers This standard covers minimum inspection requirements, types of inspections, inspection frequencies, inspection procedures and repair methodology for heat exchangers in hydrocarbon industry."
+  },
+  {
+   "n": 29,
+   "letter_id": "OISD-STD-135",
+   "official_id": "OISD-STD-135",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Loading & Unloading hoses for Petroleum Products",
+   "letter_title_and_scope": "Inspection of loading and unloading hoses for petroleum products Inspection and testing requirements of various types of loading and unloading hoses including the marine hoses used in the petroleum Industry are covered in the standard."
+  },
+  {
+   "n": 30,
+   "letter_id": "OISD-STD-137",
+   "official_id": "OISD-STD-137",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of Electrical Equipment",
+   "letter_title_and_scope": "Inspection of electrical equipment This standard specifies the minimum inspection requirements for the installed electrical systems in the Oil Industry, during their operation and maintenance with special reference to the safety aspects."
+  },
+  {
+   "n": 31,
+   "letter_id": "OISD-STD-140",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Inspection of jetty pipelines This standard provides the minimum inspection & maintenance requirements to assure the integrity for Jetty Pipelines used in transportation of crude oil, petroleum and petroleum related products."
+  },
+  {
+   "n": 32,
+   "letter_id": "OISD-STD-142",
+   "official_id": "OISD-STD-142",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection of fire fighting equipments and systems",
+   "letter_title_and_scope": "Inspection of firefighting equipment and systems This standard covers the minimum design, construction, inspection and testing requirements of new and installed firefighting equipment and Installations in the petroleum Industry."
+  },
+  {
+   "n": 33,
+   "letter_id": "OISD-STD-145",
+   "official_id": "OISD-STD-145",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Internal Safety Audits",
+   "letter_title_and_scope": "Guidelines on Internal Safety Audits (Procedures and Checklist) Detailed methodology along with frequencies for carrying out Internal Safety Audits in Oil & Gas Industry other than that the E&P Industry are enumerated in these guidelines."
+  },
+  {
+   "n": 34,
+   "letter_id": "OISD-STD-146",
+   "official_id": "OISD-RP-146",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": false,
+   "official_title": "Preservation of idle electrical equipment",
+   "letter_title_and_scope": "Preservation of idle electrical equipment This document recommends minimum safe practices and procedures to be adopted for preservation of electrical equipment, which, after their repair/reconditioning, or overhaul are either OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage kept in storage or temporarily removed from service and kept at site."
+  },
+  {
+   "n": 35,
+   "letter_id": "OISD-STD-147",
+   "official_id": "OISD-RP-147",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection & safe practices during electrical installations",
+   "letter_title_and_scope": "Inspection & safe practices during electrical installations This document specifies the minimum inspection requirements and safe practices to be adhered to, in the case of new electrical installations during their erection stage itself."
+  },
+  {
+   "n": 36,
+   "letter_id": "OISD-STD-148",
+   "official_id": "OISD-RP-148",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection & safe practices during overhauling electrical equipment",
+   "letter_title_and_scope": "Inspection & safe practices during overhauling electrical equipment This document recommends safe practices and procedures for overhauling major electrical equipment in the petroleum Industry."
+  },
+  {
+   "n": 37,
+   "letter_id": "OISD-RP-149",
+   "official_id": "OISD-RP-149",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Design aspects for safety in electrical systems",
+   "letter_title_and_scope": "Design aspects for safety in electrical systems This document recommends minimum requirements in the design and engineering of electrical installations in Refineries, Gas Processing Plants and Cross country Pipeline Installations with or without storage."
+  },
+  {
+   "n": 38,
+   "letter_id": "OISD-STD-150",
+   "official_id": "OISD-STD-150",
+   "id_status": "exact",
+   "mandatory_per_letter": true,
+   "official_title": "Design and Safety Requirements for Liquefied Petroleum Gas Mounded  Storage Facility",
+   "letter_title_and_scope": "Design and Safety Requirements For Liquefied Petroleum Gas Mounded Storage Facility This standard lays down minimum requirements on safety, design, layout, installation, operation, maintenance and testing of aboveground fully mounded bulk vessels used for storage of Liquefied Petroleum Gas (LPG) installed in the refineries, gas processing plants, terminals, bottling plants and auto LPG dispensing stations otherwise falling under the scope of any of the OISD standards namely OISD-STD-144, OISD- STD-116, OISD-STD-118, OISD-GDN-169 and OISD-STD-210 as applicable."
+  },
+  {
+   "n": 39,
+   "letter_id": "OISD-STD-152",
+   "official_id": "OISD-STD-152",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Safety Instrumentation for Process System in Hydrocarbon Industry",
+   "letter_title_and_scope": "Safety instrumentation for process system in hydrocarbon industry The document provides guidelines for minimum requirement of the Safety Instrumented System (SIS) for critical process functions / equipment involved typically in the widely used processing route of various processes. The document covers areas including process operations in onshore production facilities, gas processing units, refineries and petrochemical process plants."
+  },
+  {
+   "n": 40,
+   "letter_id": "OISD-STD-153",
+   "official_id": "OISD-STD-153",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Maintenance & inspection of safety instrumentation in hydrocarbon industry",
+   "letter_title_and_scope": "Maintenance & inspection of safety instrumentation in hydrocarbon industry This standard covers safety instrumentation with pneumatic, hydraulic, electrical & electronic / microprocessor system used in oil & gas installations and which are responsible for pre- trip alarm and plant trip."
+  },
+  {
+   "n": 41,
+   "letter_id": "OISD-STD-154",
+   "official_id": "OISD-STD-154",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Training in midstream and downstream sector of petroleum industry",
+   "letter_title_and_scope": "Safety aspects in functional training Safety aspects related to functional training in entire petroleum Industry is covered in this standard."
+  },
+  {
+   "n": 42,
+   "letter_id": "OISD-STD-155",
+   "official_id": "OISD-STD-155",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Personal Protective Equipment",
+   "letter_title_and_scope": "(Part I) Personal Protective Equipment : Part I Non-respiratory equipment This standard is intended to serve largely as a guide for selection of appropriate PPE for different situations in the entire Oil & Gas Industry. OISD- STD-155 (Part II) Personal Protective Equipment : Part II OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage Respiratory Equipment"
+  },
+  {
+   "n": 43,
+   "letter_id": "OISD-STD-163",
+   "official_id": "OISD-STD-163",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Safety of Control Room for Hydrocarbon industry",
+   "letter_title_and_scope": "Process Control Room Safety The requirements of this standard are applicable to Control Rooms in Petroleum Refineries, Oil/Gas Production & Process Plants, Marketing Terminals, LPG Filling Plants, Pipeline installations (including pumping/compressor stations) etc."
+  },
+  {
+   "n": 44,
+   "letter_id": "OISD-STD-164",
+   "official_id": "OISD-STD-164",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Fire Proofing of Steel Supporting Structures in Oil & Gas Industry",
+   "letter_title_and_scope": "Fire Proofing of Steel Supporting Structures in Oil & Gas Industry This standard provides minimum requirements of passive fire proofing for steel supporting structures of on-shore installations for exploration & production, refineries, petrochemicals and marketing installations."
+  },
+  {
+   "n": 45,
+   "letter_id": "OISD-STD-166",
+   "official_id": "OISD-GDN-166",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": false,
+   "official_title": "Guidelines for Occupational Health Monitoring in Oil and Gas Industry",
+   "letter_title_and_scope": "Guidelines for Occupational Health Monitoring in Oil and Gas Industry This document lays down minimum requirements for practicing Occupational Health Monitoring in petroleum refineries, oil/gas exploration / production/processing plants both offshore and onshore, cross country pipelines, LPG bottling plants and other petroleum handling facilities/installations."
+  },
+  {
+   "n": 46,
+   "letter_id": "OISD-STD-170",
+   "official_id": "OISD-STD-170",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection, Maintenance, Repairs & Rehabilitation of Foundations &  Structures",
+   "letter_title_and_scope": "Inspection, Maintenance, Repairs and Rehabilitation of foundations and structures This Recommended Practice (RP) intends to provide guidelines to the Oil Industry personnel with regard to the maintenance, inspection, repairs and rehabilitation of various civil structures and foundations."
+  },
+  {
+   "n": 47,
+   "letter_id": "OISD-STD-171",
+   "official_id": "OISD-STD-171",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Preservation of Idle Static & Rotary Mechanical Equipment",
+   "letter_title_and_scope": "Preservation of Idle Static & Rotary Mechanical Equipment This standard lays down the preservation procedures to be followed in oil and gas installations for various static and rotary idle mechanical equipment installed at plant and for the equipment/spares kept in stores."
+  },
+  {
+   "n": 48,
+   "letter_id": "OISD-STD-173",
+   "official_id": "OISD-STD-173",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Fire Prevention and Protection System for Electrical Installations",
+   "letter_title_and_scope": "Fire Protection System for Electrical Installations This document provides the minimum requirements for preventing fire hazard, containing and suppression of fire in the electrical installations in the petroleum, oil and gas sector. However, this standard does not cover off-shore oil installations and rigs. It also excludes onshore drilling rigs and well head installations."
+  },
+  {
+   "n": 49,
+   "letter_id": "OISD-STD-177",
+   "official_id": "OISD-STD-177",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Inspection and Maintenance of Insulation System",
+   "letter_title_and_scope": "Inspection & Maintenance of Thermal Insulation This standard lays down the minimum inspection/ maintenance practices and procedures adopted for external hot & cold insulation on static/ rotary and mobile equipment/vessels and pipelines in oil and gas industries."
+  },
+  {
+   "n": 50,
+   "letter_id": "OISD-GDN-178",
+   "official_id": "OISD-STD-178",
+   "id_status": "prefix_changed",
+   "mandatory_per_letter": true,
+   "official_title": "Management of Change",
+   "letter_title_and_scope": "Guidelines on Management Of Change These guidelines describes the procedures to be adopted for systemic Management of Change in the entire Petroleum & Natural Gas Industry."
+  },
+  {
+   "n": 51,
+   "letter_id": "OISD-GDN-180",
+   "official_id": "OISD-GDN-180",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Lightning Protection",
+   "letter_title_and_scope": "Lightning Protection This document covers the lightning protection systems requirements in Oil and Gas industry with special references to safety aspects: OISD Standards having applicability for Refineries & Oil/Gas Processing Plants # Standar d /GDN/RP Description Brief Scope / Coverage"
+  },
+  {
+   "n": 52,
+   "letter_id": "OISD-GDN-192",
+   "official_id": "OISD-GDN-192",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Guidelines on Health, Safety and Environment Management and Practices during Construction",
+   "letter_title_and_scope": "Safety Practices During Construction This document specifies broad guidelines on Health, Safety and Environment practices to be adhered to during construction activities including green field projects in oil industry."
+  },
+  {
+   "n": 53,
+   "letter_id": "OISD-GDN-196",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Guidelines for Seeking Environmental Clearance of Development Projects in Petroleum Industry The document is applicable to Oil Exploration, Drilling, Processing, Refining and Transportation Sectors."
+  },
+  {
+   "n": 54,
+   "letter_id": "OISD-GDN-197",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Guidelines for Environmental Impact Assessment The guidelines are applicable to all new/ development projects of oil drilling and gas extraction and processing facilities of onland and offshore areas of upstream petroleum sector, refining sector, LPG, LNG and other petroleum product facilities including marketing terminals of downstream sector including cross country pipeline (surface and sub-surface)."
+  },
+  {
+   "n": 55,
+   "letter_id": "OISD-GDN-206",
+   "official_id": "OISD-GDN-206",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Guidelines on Safety Management System in Oil And Gas Industry",
+   "letter_title_and_scope": "Guidelines on Safety Management System in Petroleum Industry This document provides guidelines for development of detailed procedures for Safety Management System and covers the petroleum Industry as a whole."
+  },
+  {
+   "n": 56,
+   "letter_id": "OISD-GDN-207",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Contractor Safety This document covers broadly the guidelines on the HSE management system for enhancing the safety levels of the contractor workforce deployed in construction, maintenance and operation activities in the hydrocarbon industry."
+  },
+  {
+   "n": 57,
+   "letter_id": "OISD-GDN-211",
+   "official_id": "OISD-GDN-211",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Safety in Petroleum Laboratories",
+   "letter_title_and_scope": "Safety in Petroleum Laboratories This document is applicable to the Quality Control, Quality Assurance and R&D laboratories of the Oil / Gas processing / handling industries viz. Refineries, Petrochemical complexes, gas processing plants, oil production, pipeline and marketing installations."
+  },
+  {
+   "n": 58,
+   "letter_id": "OISD-GDN-212",
+   "official_id": null,
+   "id_status": "absent_from_2026_list",
+   "mandatory_per_letter": false,
+   "official_title": null,
+   "letter_title_and_scope": "Guidelines on Environmental Audit in Downstream Petroleum Sector The scope of these guidelines is limited to downstream petroleum sector facilities namely crude/product pipelines, oil refineries, gas processing plants and marketing installations. It does not cover the road / rail tanker transportation and retail outlets of oil and gas."
+  },
+  {
+   "n": 59,
+   "letter_id": "OISD-GDN-224",
+   "official_id": "OISD-GDN-224",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Monitoring & Control of Volatile Organic Compounds Emission",
+   "letter_title_and_scope": "Monitoring & Control of Volatile Organic Compounds Emission This document lays down guidelines for identification and control of fugitive VOC emissions."
+  },
+  {
+   "n": 60,
+   "letter_id": "OISD-GDN-228",
+   "official_id": "OISD-GDN-228",
+   "id_status": "exact",
+   "mandatory_per_letter": false,
+   "official_title": "Selection, Training & Placement of Fire Operators in Hydrocarbon &  Petrochemical Industry",
+   "letter_title_and_scope": "Selection, Training & Placement of Fire Operators in Hydrocarbon & Petroleum Industry The guidelines establish the requirements for developing and maintaining an effective program"
+  }
+ ]
+}
