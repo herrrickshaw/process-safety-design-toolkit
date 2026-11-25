@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import compliance, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
+from .. import compliance, country_coverage, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
 from .registry import command, emit
 
 
@@ -129,6 +129,44 @@ class Library:
             if e["note"]:
                 print(f"    {e['note']}")
         return 0 if hits else 1
+
+
+@command("countries", "safety regime for industrial assets by country (193 UN members and 2 observers): standards body and main laws")
+class Countries:
+    @staticmethod
+    def add_arguments(kp):
+        kp.add_argument("country", nargs="*", help="country name or ISO code; omit for coverage counts")
+        kp.add_argument("--markdown", action="store_true", help="print the whole table as Markdown (docs/COUNTRY_SAFETY_COVERAGE.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(country_coverage.markdown(), end="")
+            return 0
+        if not a.country:
+            c = country_coverage.counts()
+            print(f"{c['states']} states, {c['found']} of {c['slots']} slots found, {c['not_found']} searched without a result, "
+                  f"{c['not_searched']} not searched yet")
+            for slot, label in country_coverage.SLOTS.items():
+                print(f"  {label}: {c['per_slot'][slot]}")
+            return 0
+        s = country_coverage.find(" ".join(a.country))
+        if s is None:
+            print(f"no single country matches {' '.join(a.country)!r}", file=__import__("sys").stderr)
+            return 1
+        print(f"{s['name']} ({s['iso3']}). From search listings; pages not read. 'not found' does not mean no law exists.")
+        row, extra = country_coverage.table()[s["iso3"]], country_coverage.regional(s["iso3"])
+        for slot, label in country_coverage.SLOTS.items():
+            v = row[slot]
+            if v["status"] == "found":
+                print(f"{label}: {v['name']} [{v['source']}, check: {v.get('check', 'unchecked')}]\n    {v['url']}")
+            else:
+                print(f"{label}: {'not searched yet' if v['status'] == 'not-searched' else 'not found'}")
+            if v.get("note"):
+                print(f"    {v['note']}")
+            for e in extra.get(slot, []):
+                print(f"    EU layer: {e['designation']} {e['url']}")
+        return 0
 
 
 @command("incidents", "search the CSB-based incident register (maps incidents to toolkit modules and design review steps)")

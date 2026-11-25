@@ -244,6 +244,8 @@ library,access,--access,,str,,,,,,,,,,,,,"free, free-registration, mixed, paid"
 library,activity,--activity,,str,,,,,,,,,,,,,"show one row of the design reading map, e.g. relief-flare or low-temperature; 'list' shows the ids"
 library,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole library as Markdown (docs/STANDARDS_LIBRARY.md)
 library,map_markdown,--map-markdown,,flag,,,,,,,,,,,,,print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md)
+countries,country,(positional),,str list,,,,,,,,,,,,,country name or ISO code; omit for coverage counts
+countries,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole table as Markdown (docs/COUNTRY_SAFETY_COVERAGE.md)
 incidents,text,(positional),,str,,,,,,,,,,,,,
 incidents,module,--module,,str,,,,,,,,,,,,,
 incidents,step,--step,,int,,,,,,,,,,,,,design review step 1-12 (docs/DESIGN_AWARENESS.md)
