@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import compliance, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards
+from .. import compliance, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
 from .registry import command, emit
 
 
@@ -79,6 +79,53 @@ class Literature:
         hits = literature.search(a.text, a.topic, a.module, a.region, a.kind, a.read_only)
         for e in hits:
             print(f"{e['title']}\n    {e['publisher']} [{e['region']}, {e['kind']}, {e['access']}, read: {e['read']}, HTTP {e.get('http_status', '?')}]\n    {e['url']}")
+            if e["note"]:
+                print(f"    {e['note']}")
+        return 0 if hits else 1
+
+
+@command("library", "search the standards and literature library (codes, ASTM specs, regulations, guidance) and the design reading map")
+class Library:
+    @staticmethod
+    def add_arguments(sp):
+        sp.add_argument("text", nargs="*", help="words that must all appear in designation, title, body, topics or note")
+        sp.add_argument("--category", help="e.g. relief-flare, astm-pipe-tube, explosion-dust (see docs/STANDARDS_LIBRARY.md)")
+        sp.add_argument("--body", help="e.g. API, ASTM, NFPA, IEC, ISO, HSE"); sp.add_argument("--region", help="e.g. US, UK, EU, IN, NO, global")
+        sp.add_argument("--kind", help="regulation, standard, guidance, book, database, data-tool, investigation, journal, association, course, access-route")
+        sp.add_argument("--access", help="free, free-registration, mixed, paid")
+        sp.add_argument("--activity", help="show one row of the design reading map, e.g. relief-flare or low-temperature; 'list' shows the ids")
+        sp.add_argument("--markdown", action="store_true", help="print the whole library as Markdown (docs/STANDARDS_LIBRARY.md)")
+        sp.add_argument("--map-markdown", action="store_true", help="print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md)")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(standards_library.markdown(), end="")
+            return 0
+        if a.map_markdown:
+            print(standards_library.recommendations_markdown(), end="")
+            return 0
+        if a.activity == "list":
+            r = standards_library.recommendations()
+            for row in r["activities"] + r["materials"]:
+                print(f"{row['id']:28s} {row['title']}")
+            return 0
+        if a.activity:
+            row = standards_library.activity(a.activity)
+            if row is None:
+                print(f"unknown activity {a.activity!r}; use --activity list", file=__import__("sys").stderr)
+                return 2
+            print(row["title"])
+            hits = row["documents"]
+        else:
+            if not (a.text or a.category or a.body or a.region or a.kind or a.access):
+                print("give search words, a filter or --activity (see --help)", file=__import__("sys").stderr)
+                return 2
+            hits = standards_library.search(" ".join(a.text), a.category, a.body, a.region, a.kind, a.access)
+        for e in hits:
+            print(f"{e['designation']}: {e['title']}\n    {e['body']} [{e['region']}, {e['kind']}, {e['access']}, {e['link']} link, check: {e.get('check', 'unchecked')}]\n    {e['url']}")
+            if e.get("pdf_check") == "pdf":
+                print(f"    PDF: {e['pdf_url']}")
             if e["note"]:
                 print(f"    {e['note']}")
         return 0 if hits else 1
