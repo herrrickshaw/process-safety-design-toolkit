@@ -23,7 +23,7 @@ from process_safety.country_coverage import SLOTS  # noqa: E402
 
 OUT = os.path.join(ROOT, "process_safety", "data", "country_safety.json")
 BANNED = ("scribd.", "sci-hub", "libgen", "pdfcoffee", "dokumen.", "idoc.pub", "slideshare.", "academia.edu", "z-lib",
-          "studocu.", "coursehero.", "pdfcookie", "vdocument", "fliphtml5", "yumpu.")
+          "studocu.", "coursehero.", "pdfcookie", "vdocument", "fliphtml5", "yumpu.", "studylib.")
 
 
 NOT_SEARCHED = re.compile(r"not\s+(been\s+)?(searched|researched)|search budget|budget ran out", re.I)

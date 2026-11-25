@@ -1,5 +1,11 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-25: third country research round (priority countries, all areas)
+* Owner chose India and the Gulf states, the G20 states and Southeast Asia (34 states). Four agents (at most 40 searches each) searched the 31 that had open slots: 136 never searched plus 8 earlier blanks. For these 34 states, 217 of 238 slots now have an entry and 21 were searched without a result; none is unsearched. Overall: 555 of 1365 entries, 135 searched without a result, 675 not searched. The 820 total floor and the every-slot-searched gate are still NOT met.
+* Decisions: 5 links returned 'not found' and were removed, then replaced from further searches (2 first replacements were also dead and were swapped again). Oman electrical rejected (document-sharing site; `studylib.` added to the builder's banned list). Brazil major hazard repointed to Decreto 10.088/2019 on one secondary source because the 2002 decree is listed as revoked. South Korea and Cambodia pressure equipment set to not found: no result showed boiler coverage. Rejected: keeping them as found with a warning.
+* Time-sensitive: the Russian pressure-equipment order (Rostechnadzor 536) is reported valid only until 1 January 2027; one search found no successor.
+* Many entries cover only part of a slot (a model code, one emirate, federal workplaces, one fuel, transport only); read the Note column.
+
 ## Unreleased - 2026-11-25: second country research round (occupational safety law)
 * The 158 states not yet searched for an occupational safety law were searched (four agents, 42 searches each at most). An entry now exists for 176 of 195 states, which meets the 170 floor for that area. Totals: 432 of 1365 entries, 122 searched without a result, 811 not searched. The 820 total floor and the every-slot-searched gate are still NOT met.
 * 13 links from this round returned not-found and were removed; 8 states got a replacement from a further search. Congo, Costa Rica, Dominica, Grenada and Saint Kitts and Nevis were left as not found because the results conflicted or did not show which law a link was for. Two labour codes whose safety provisions no result showed (Togo, Guinea-Bissau) were not accepted.

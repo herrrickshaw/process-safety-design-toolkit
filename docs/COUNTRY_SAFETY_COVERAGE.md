@@ -5,29 +5,29 @@ Generated from `process_safety/data/country_safety.json`. Regenerate with `pytho
 ## Read this first
 
 * **This is a starting index, not a legal register.** It records one standards body and up to six main laws or codes per state. It does not list every safety standard in any country.
-* **This table is incomplete.** 811 of 1365 slots have not been searched yet. The table under Coverage shows how many in each area.
+* **This table is incomplete.** 675 of 1365 slots have not been searched yet. The table under Coverage shows how many in each area.
 * **The pages were not read.** Entries come from web-search result listings, except standards bodies marked as coming from one Wikipedia table (compiled 2026-11-25). Names, years, whether a law is still in force and whether it applies to your asset are unconfirmed.
 * **`not found` is not `none exists`.** It means the searches did not turn one up. **`not searched yet`** means nobody has looked.
 * **Federal and devolved countries** often regulate at state or provincial level.
-* **Check** is one automated request: blocked 38, error 30, ok 280, pdf 52, robots 32. `robots` = the site's rules disallow this kind of agent, so it was not requested; `blocked` = refused automated clients; `error` = no answer. A page that loads has not been shown to be the right one.
+* **Check** is one automated request: blocked 51, error 36, ok 342, pdf 81, robots 45. `robots` = the site's rules disallow this kind of agent, so it was not requested; `blocked` = refused automated clients; `error` = no answer. A page that loads has not been shown to be the right one.
 
 ## Spot check
 
-On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched. Second round, same day, occupational safety law only: four agents searched the 158 states not yet searched. A seeded random sample (seed 20261126) of their entries was drawn and the first 12 searched again by the lead agent: all 12 laws turned up for that state, 0 wrong, 0 unconfirmed (Uganda given an amendment note). Same limits: existence only.
+On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched. Second round, same day, occupational safety law only: four agents searched the 158 states not yet searched. A seeded random sample (seed 20261126) of their entries was drawn and the first 12 searched again by the lead agent: all 12 laws turned up for that state, 0 wrong, 0 unconfirmed (Uganda given an amendment note). Same limits: existence only. Third round, same day, 34 priority states (India and the Gulf states, G20 states, Southeast Asia; all areas still open): four agents searched. A seeded random sample (seed 20261127) of 20 of their new entries was drawn and the first 14 searched again by the lead agent: all 14 turned up for that state, 0 wrong, 0 unconfirmed. Same limits: existence only. Separately, the lead agent changed three agent entries after targeted searches (Brazil major hazard repointed from a decree listed as revoked; South Korea and Cambodia pressure equipment set to not found because no result showed boiler coverage).
 
 ## Coverage
 
-195 states, 1365 slots, 432 found (31 %). 122 searched without a result, 811 not searched yet. Of the found entries, 142 are marked official sources and 290 secondary (the researcher's classification).
+195 states, 1365 slots, 555 found (40 %). 135 searched without a result, 675 not searched yet. Of the found entries, 213 are marked official sources and 342 secondary (the researcher's classification).
 
 | Area | States with an entry | Not searched yet |
 |---|---|---|
-| National standards body | 175 of 195 | 16 |
-| Occupational safety and health law | 176 of 195 | 0 |
-| Major hazard / process safety | 12 of 195 | 159 |
-| Boilers and pressure equipment | 13 of 195 | 157 |
-| Fire safety law or code | 21 of 195 | 159 |
-| Electrical safety or wiring code | 16 of 195 | 159 |
-| Petroleum, gas, pipelines, explosives, dangerous goods | 19 of 195 | 161 |
+| National standards body | 177 of 195 | 15 |
+| Occupational safety and health law | 177 of 195 | 0 |
+| Major hazard / process safety | 33 of 195 | 132 |
+| Boilers and pressure equipment | 34 of 195 | 130 |
+| Fire safety law or code | 46 of 195 | 132 |
+| Electrical safety or wiring code | 42 of 195 | 132 |
+| Petroleum, gas, pipelines, explosives, dangerous goods | 46 of 195 | 134 |
 
 ## EU and EEA layer
 
@@ -581,11 +581,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [SABS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Health and Safety Act 85 of 1993](https://www.gov.za/documents/occupational-health-and-safety-act) | official | ok |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Major Hazard Installation Regulations, 2022 (GN R.2989, Government Gazette 47970, 31 January 2023)](https://www.gov.za/sites/default/files/gcis_document/202302/47970rg11536gon2989.pdf) | official | pdf | Under OHS Act 85 of 1993; repealed the 2001 regulations. |
+| Boilers and pressure equipment | [Pressure Equipment Regulations, 2009 (GN R.734, Government Gazette 32395, 15 July 2009)](https://www.gov.za/documents/occupational-health-and-safety-act-regulations-pressure-equipment) | official | ok | Under OHS Act 85 of 1993; incorporated-standards notices amended later. Check linked page for the version. |
+| Fire safety law or code | [Fire Brigade Services Act 99 of 1987](https://www.gov.za/sites/default/files/gcis_document/201503/act-99-1987.pdf) | official | pdf | Amended 1990 and 2000; unapplied amendments noted; review under 2020 White Paper. Mainly fire services; building fire code not searched. |
+| Electrical safety or wiring code | [Electrical Installation Regulations, 2009 (GN R.242, Government Gazette 31975, 6 March 2009)](https://www.nioh.ac.za/wp-content/uploads/2020/03/eir2009.pdf) | secondary | pdf | Under OHS Act 85 of 1993; wiring code SANS 10142-1 incorporated by GN R.243. Later amendments not verified. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum Pipelines Act 60 of 2003](https://www.gov.za/documents/petroleum-pipelines-act) | official | ok | In force 1 Nov 2005; pipeline sector only. Explosives Act 15 of 2003 listed uncommenced, yet gov.za marks 1956 Act repealed: unresolved. |
 
 ### South Sudan (SSD)
 
@@ -703,7 +703,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [Instituto Argentino de Normalización y Certificación (IRAM)](https://www.iso.org/member/1520.html) | secondary | blocked | ISO member listing; private non-profit body. |
 | Occupational safety and health law | [Ley 19587 de Higiene y Seguridad en el Trabajo (1972)](https://www.argentina.gob.ar/normativa/nacional/17612/texto) | official | error |  |
-| Major hazard / process safety | not found | | | A search result gave a link that returned 'not found'; entry removed. |
+| Major hazard / process safety | [Resolución SRT 743/2003, Registro Nacional para la Prevención de Accidentes Industriales Mayores](https://www.argentina.gob.ar/normativa/nacional/norma-90519/texto) | official | ok | Registration duty for sites above Annex I thresholds; not a full Seveso-type regime as far as seen. Later amendments not checked. |
 | Boilers and pressure equipment | [Decreto 351/1979, reglamentación de la Ley 19587 (Higiene y Seguridad en el Trabajo)](https://www.argentina.gob.ar/normativa/recurso/32030/texact/htm) | official | ok | Workplace regulation; a Mendoza government result cites it for boiler conditions. Provinces also regulate boilers and pressure vessels. |
 | Fire safety law or code | [Decreto 351/1979, Anexo VII (Capítulo 18, protección contra incendios)](https://www.argentina.gob.ar/normativa/recurso/32030/dto351-1979-anexo7/htm) | official | ok | Workplace fire protection only; no national building fire code found. Later amendments not checked. |
 | Electrical safety or wiring code | [Resolución SRT 900/2015, guía práctica (applies reglamentación AEA 90364)](https://argentina.gob.ar/sites/default/files/res_srt_900_15-guia-practica_0.pdf) | official | robots | Link is the SRT practical guide, not the resolution text; workplace scope. |
@@ -763,11 +763,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [ABNT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Lei nº 6.514, de 22 de dezembro de 1977 (amends CLT Title II, Chapter V, Safety and Occupational Medicine)](https://planalto.gov.br/ccivil_03/leis/l6514.htm) | official | ok | Safety provisions sit in CLT arts. 154-201; later amendments not checked. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [ILO Convention 174 (prevention of major industrial accidents), consolidated by Decreto 10.088/2019, Annex LXIX](https://www.legjur.com/legislacao/art/dec_00100882019-75) | secondary | robots | Treaty promulgation, not a detailed major-hazard regulation. A legal database lists the earlier Decreto 4.085/2002 as revoked by this decree; official text not seen. |
+| Boilers and pressure equipment | [NR-13 Caldeiras, Vasos de Pressão, Tubulações e Tanques Metálicos de Armazenamento](https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-13.pdf) | official | pdf | Workplace standard. A third-party site cites Portaria MTP 1846/2022 as the updated text; this PDF may be an older (2018) version. |
+| Fire safety law or code | [Lei nº 13.425, de 30 de março de 2017 (prevenção e combate a incêndio e a desastres)](https://planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13425.htm) | official | ok | General federal guidelines for buildings and public-assembly venues; military fire brigades inspect and approve. Later amendments not checked. |
+| Electrical safety or wiring code | [NR-10 Segurança em instalações e serviços em eletricidade (manual de interpretação)](https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-10_manual_de_auxilio_na_interpretacao_e_aplicacao_da_nr_10.pdf) | official | pdf | Link is the official manual. New NR-10 text approved by Portaria MTE 737/2026; a secondary source says in force 1 June 2027 (unconfirmed). |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [NR-20 Segurança e Saúde no Trabalho com Inflamáveis e Combustíveis](https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-20.pdf) | official | pdf | Workplace standard for flammables and combustibles only; rewritten by Portaria SEPRT 1.360/2019. Not a general petroleum, gas or explosives law. |
 
 ### Canada (CAN)
 
@@ -775,11 +775,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [SCC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Canada Labour Code (R.S.C., 1985, c. L-2), Part II](https://laws-lois.justice.gc.ca/eng/acts/L-2/page-15.html) | official | ok | Federally regulated workplaces only. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Environmental Emergency Regulations, 2019 (SOR/2019-51)](https://laws-lois.justice.gc.ca/eng/regulations/SOR-2019-51) | official | ok | Federal, under CEPA 1999; emergency planning and reporting for listed substances. Not a full process safety regime; provinces regulate separately. |
+| Boilers and pressure equipment | [Canada Occupational Health and Safety Regulations (SOR/86-304), boilers and pressure vessels](https://laws-lois.justice.gc.ca/eng/regulations/SOR-86-304/section-5.1-20220502.html) | official | ok | Federally regulated workplaces only; dated point-in-time version, references CSA B51. Otherwise regulated by provinces and territories (not searched individually). |
+| Fire safety law or code | [National Fire Code of Canada 2020](https://nrc.canada.ca/en/certifications-evaluations-standards/codes-canada/codes-canada-publications/national-fire-code-canada-2020) | official | robots | Model code, not law until adopted by a province or territory. A 2025 edition is listed in a government catalogue result. |
+| Electrical safety or wiring code | [Canadian Electrical Code, Part I (CSA C22.1)](https://scc-ccn.ca/system/files/2024-05/final_scc_economic_impacts_of_misalignment_in_ce_code_part_i.pdf) | official | robots | Link is a Standards Council of Canada report. CSA code has legal force only via provincial or territorial adoption, often amended; editions differ. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Transportation of Dangerous Goods Act, 1992 (S.C. 1992, c. 34)](https://laws-lois.justice.gc.ca/eng/acts/T-19.01/) | official | ok | Federal, transport of dangerous goods only. Pipelines, explosives and provincial petroleum or gas laws not searched. |
 
 ### Chile (CHL)
 
@@ -955,11 +955,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [DGN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Ley Federal del Trabajo (Título Noveno, Riesgos de Trabajo, arts. 472-515)](https://www.diputados.gob.mx/LeyesBiblio//pdf/LFT.pdf) | official | error |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [NOM-028-STPS-2012 (process safety, hazardous chemical substances at workplaces)](https://www.gob.mx/cms/uploads/attachment/file/680134/NOM-028-STPS-2012.pdf) | official | pdf | Labour standard, DOF 6 Sep 2012; current status not confirmed. Hydrocarbon sector also has separate ASEA safety management guidelines (DOF 13 May 2016). |
+| Boilers and pressure equipment | [NOM-020-STPS-2011, recipientes sujetos a presión, criogénicos y calderas](https://platiica.economia.gob.mx/wp-content/uploads/sites/2/PDF_Normas_Publicas/020stps2011.pdf) | official | pdf | Workplace standard; listed as in force, later amended by STPS agreement(s). LP gas vessels excluded. |
+| Fire safety law or code | [NOM-002-STPS-2010, prevención y protección contra incendios en los centros de trabajo](https://platiica.economia.gob.mx/normalizacion/NOM-002-STPS-2010) | official | ok | Workplaces only; listed as in force (DOF 9 Dec 2010). State and municipal fire rules not searched. |
+| Electrical safety or wiring code | [NOM-001-SEDE-2012, Instalaciones Eléctricas (utilización)](https://platiica.economia.gob.mx/normalizacion/NOM-001-SEDE-2012/) | official | ok | Listed as in force; published in DOF 29 Nov 2012. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Ley del Sector Hidrocarburos (DOF 18-03-2025)](https://www.diputados.gob.mx/LeyesBiblio/ref/lsh.htm) | official | error | Replaced the 2014 Ley de Hidrocarburos. Sector law (oil and gas); explosives and dangerous goods transport not searched. |
 
 ### Nicaragua (NIC)
 
@@ -1075,11 +1075,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [ANSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety and Health Act of 1970 (Public Law 91-596)](https://www.osha.gov/laws-regs/oshact/completeoshact) | official | ok |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [OSHA Process Safety Management of Highly Hazardous Chemicals, 29 CFR 1910.119](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119) | official | ok | Federal workplace standard; states with OSHA-approved plans may apply own versions. EPA rules not searched. |
+| Boilers and pressure equipment | [No single federal law found; state boiler and pressure vessel laws, compiled in National Board Synopsis NB-370](https://www.nationalboard.org/PrintAllSynopsis.aspx) | secondary | ok | Regulated sub-nationally; compilation is not law. Coverage differs between boilers and pressure vessels by jurisdiction. |
+| Fire safety law or code | [NFPA 1, Fire Code (model code, adopted by states and localities)](https://docinfofiles.nfpa.org/files/AboutTheCodes/1/NFPA1_Fact%20Sheet.pdf) | secondary | pdf | Model code, not itself law. Fact sheet: statewide in 19 states (date unconfirmed); others use IFC or local codes. |
+| Electrical safety or wiring code | [OSHA 29 CFR 1910 Subpart S, Electrical](https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S) | official | ok | Federal workplace rule for general industry only. Building wiring codes are adopted by states and localities (not searched). |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Federal Hazardous Materials Transportation Law, 49 U.S.C. 5101 et seq.](https://www.phmsa.dot.gov/sites/phmsa.dot.gov/files/2021-09/Federal%20Hazmat%20Law.pdf) | official | blocked | Transport only; 2021 copy. Pipeline safety (49 U.S.C. ch. 601) and explosives not verified. |
 
 ### Uruguay (URY)
 
@@ -1149,8 +1149,8 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [Bahrain Standards and Metrology Directorate (BSMD), Ministry of Industry and Commerce](https://trade.gov/country-commercial-guides/bahrain-standards-trade) | secondary | ok | ISO lists a differently named directorate (iso.org/member/1533); name may have changed. |
 | Occupational safety and health law | [Labour Law for the Private Sector, Law No. 36 of 2012](https://lmra.gov.bh/en/page/show/199) | official | ok | Title XV covers OSH; amended since. |
-| Major hazard / process safety | not found | | |  |
-| Boilers and pressure equipment | not found | | |  |
+| Major hazard / process safety | not found | | | Retried: no Bahraini major-accident regulation seen; Environment Law 7/2022 licensing exists, hazard content unchecked. |
+| Boilers and pressure equipment | [Ministry of Labour Decision No. 28 of 2014 on protecting workers from hazards of boilers, steam containers and air tanks](https://www.lloc.gov.bh/PDF/RLAB2814.pdf) | official | pdf | Worker-protection decision; amendments and current status unconfirmed. |
 | Fire safety law or code | [Legislative Decree No. 5 of 1990 regarding Civil Defence](https://www.lloc.gov.bh/FullEn/L0590.docx) | official | ok | Civil defence law (amended 2014); detailed building fire rules are in ministerial edicts. |
 | Electrical safety or wiring code | [Regulations for Electrical Installations (Electricity and Water Authority)](https://legacy.ewa.bh/en/Business/OtherServices/Documents/EDD%20Regulation%20for%20Electricty%20Installaltions%20_En.pdf) | official | pdf | On legacy site; current edition not confirmed. |
 | Petroleum, gas, pipelines, explosives, dangerous goods | [Decree-Law No. 16 of 1976 on explosives, arms and ammunition](https://lloc.gov.bh/Legislation/HTM/L1676) | official | ok | Arabic; amended (1999, 2006); consolidated status not confirmed. |
@@ -1183,7 +1183,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
-| National standards body | not found | | | A search result gave a link that returned 'not found'; entry removed. |
+| National standards body | [Pusat Standard dan Akreditasi Brunei Darussalam (PSABD), also called the National Standards Centre](https://www.iso.org/member/1585.html) | secondary | blocked | ISO correspondent member, under the Ministry of Finance and Economy. |
 | Occupational safety and health law | [Workplace Safety and Health Order, 2009 (S 44/2009)](https://lpr.adb.org/sites/default/files/resource/%5Bnid%5D/brunei-darussalam-workplace-safety-and-health-order-2009-english.pdf) | secondary | pdf | Check amending orders. |
 | Major hazard / process safety | [Workplace Safety and Health (Facilities) (Control of Major Accident Hazards) Regulations, 2013](https://aipalync.org/document/constitution-of-brunei-darussalam-workplace-safety-and-health-facilities-control-of-major-accident-hazards-regulations) | secondary | ok | Later amendments not checked. |
 | Boilers and pressure equipment | [Workplace Safety and Health (General Provisions) Regulations, 2014](https://aipalync.org/document/view/1996) | secondary | pdf | Contents list pressure vessel provisions; text not read. Link-to-title match comes from search summary; verify. |
@@ -1197,11 +1197,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [ISC (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Labour Law (1997), Chapter VIII, Health and Safety of Workers](https://wageindicator.org/en-kh/work-in-cambodia/labour-law/health-and-safety) | secondary | robots | Amended 2021. A standalone OSH law was still in draft in July 2026. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | No chemical accident or major-hazard rule seen; only GHS Sub-Decree 180 and industrial chemical Prakas 110. |
+| Boilers and pressure equipment | not found | | | A candidate (2006 factories law) was found, but no result showed the text of a boiler provision. |
+| Fire safety law or code | [Law on Fire Prevention and Firefighting (2013)](https://ibccambodia.com/wp-content/uploads/2019/09/Law-on-Fire-Prevention-and-Firefighting.pdf) | secondary | pdf | Copy says adopted 7 May 2013, Senate 17 May 2013; press coverage also reports a 2010 Assembly vote. |
+| Electrical safety or wiring code | [Prakas No. 701 on Specific Requirements of Electric Power Technical Standards (2007)](https://lpr.adb.org/resource/prakas-no-701-establishment-general-requirement-electrical-power-technical-standards-2007) | secondary | ok | Power sector; ADB listing title says General Requirement. Parent: Electricity Law 2001 and Prakas 470 of 2004. Current amendments unchecked. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Law on the Management of Weapons, Explosives and Ammunition (2005)](https://www.icj.org/wp-content/uploads/2013/04/Cambodia-Law-on-the-Management-of-Weapons-Explosives-and-Ammunition-2005-eng.pdf) | secondary | pdf | Explosives only. No petroleum or dangerous goods law appeared in the search. |
 
 ### China (CHN)
 
@@ -1257,11 +1257,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [BIS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety, Health and Working Conditions Code, 2020 (Act No. 37 of 2020)](https://www.indiacode.nic.in/bitstream/123456789/22041/1/2020-37.pdf) | official | error | In force 21 November 2025 per search results; check later amendments and rules. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Manufacture, Storage and Import of Hazardous Chemicals Rules, 1989](https://ppcb.punjab.gov.in/media/documents/The_Manufacture_Storage__Import_of_Hazardous_Chemical_Rules_1989.pdf) | official | pdf | Made under Environment (Protection) Act 1986; amended, incl. 1994 and 2000. Link is a state board copy; current consolidation not confirmed. |
+| Boilers and pressure equipment | [Boilers Act, 2025 (Act No. 12 of 2025)](https://www.indiacode.nic.in/bitstream/123456789/21395/1/A2025-12.pdf) | official | error | In force 1 May 2025 per notification; reported to repeal Boilers Act 1923. Covers boilers, not all pressure equipment. |
+| Fire safety law or code | [National Building Code of India, Part 4: Fire and Life Safety](https://bis.gov.in/others/national-building-code/) | official | ok | BIS model code, not itself law. State fire laws not searched separately. 2016 edition; revision drafts seen. |
+| Electrical safety or wiring code | [Central Electricity Authority (Measures relating to Safety and Electric Supply) Regulations, 2023](https://indiaenvironmentportal.org.in/reports-and-documents/central-electricity-authority-measures-relating-to-safety-and-electric-supply-regulations-2023) | secondary | robots | Supersede the 2010 regulations. Sources differ on the date (8 or 16 June 2023). Official CEA links tried returned 'not found'. Later amendments not checked. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum Act, 1934](https://aptel.gov.in/old_website/pdf/PETROLEUM%20ACT.pdf) | official | pdf | PESO also administers Explosives Act 1884 (repeal consultation page seen). Consolidated version not confirmed. |
 
 ### Indonesia (IDN)
 
@@ -1317,11 +1317,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [JISC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Industrial Safety and Health Act (Act No. 57 of 1972)](https://www.japaneselawtranslation.go.jp/en/laws/view/3440/en) | official | ok | English translation is unofficial and may lag the latest amendments. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Act on the Prevention of Disasters in Petroleum Industrial Complexes and Other Petroleum Facilities (石油コンビナート等災害防止法, Act No. 84 of 1975)](https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/07619751217084.htm) | official | ok | English name is a rendering of the Japanese title; no English text seen. Covers designated petroleum complex areas. Page shows text as enacted. |
+| Boilers and pressure equipment | [Ordinance on Safety of Boilers and Pressure Vessels (ボイラー及び圧力容器安全規則, Labour Ministry Ordinance No. 33 of 1972)](https://www.pref.tochigi.lg.jp/e03/welfare/koureisha/fukushishisetsu/documents/05-1_boira.pdf) | official | pdf | Prefecture copy, shows 2013 amendment; amended again in 2023. Made under Industrial Safety and Health Act. High Pressure Gas Safety Act also applies. |
+| Fire safety law or code | [Fire Service Act (Act No. 186 of 1948)](https://www.japaneselawtranslation.go.jp/en/laws/view/3772/en) | official | ok | Unofficial translation, amendments only to Act No. 41 of 2008; Japanese text is authoritative. |
+| Electrical safety or wiring code | [Electricity Business Act (Act No. 170 of 1964)](https://www.japaneselawtranslation.go.jp/en/laws/view/2222/tb) | official | ok | Unofficial translation; currency not checked. Electricity business law; safety provisions and wiring rules not verified in results. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [High Pressure Gas Safety Act (Act No. 204 of 1951)](https://www.japaneselawtranslation.go.jp/en/laws/view/4555/en) | official | ok | Unofficial translation, listed to Act No. 37 of 2019. Covers high-pressure gas only, not petroleum or explosives generally. |
 
 ### Jordan (JOR)
 
@@ -1353,11 +1353,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [KOWSMD (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Law No. 6 of 2010 concerning Labour in the Private Sector](https://alp.unescwa.org/legislations/law-6-2010-labor) | secondary | blocked | Private sector; amended since 2010. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | Only company (KOC) process safety material and older research; no national regulation seen. |
+| Boilers and pressure equipment | not found | | | No boiler or pressure vessel instrument seen. Ministerial Decree 22/1974 is a general work-safety measure; boiler coverage unknown. |
+| Fire safety law or code | [Law No. 13 of 2020 establishing the Kuwait General Fire Force](https://kuwaittimes.com/kuwait-fire-force-law-meets-goals-of-protecting-lives-and-properties) | secondary | robots | Gazetted 6 Sep 2020; amended by Decree-Law 85/2026 per press. Current fire code text not found. |
+| Electrical safety or wiring code | [MEW Regulations for Electrical Installations (MEW/R-1)](https://www.electricaltechnology.org/2018/08/electrical-installations-standards-regulation.html) | secondary | ok | Listed in a country comparison page; official text, edition and current status not found. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Decree No. 5 of 2016, executive regulations on chemicals management](https://leap.unep.org/en/countries/kw/national-legislation/decree-no5-2016-uexecutive-regulations-chemicals-management) | secondary | ok | Chemicals only. No main explosives, petroleum safety or gas law identified. |
 
 ### Kyrgyzstan (KGZ)
 
@@ -1377,11 +1377,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [DOSM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Law on Labor No. 43/NA (2013)](https://digital-client-solutions.hoganlovells.com/resources/esg-global-vision/jurisdiction/laos) | secondary | ok | Labour law carrying OSH provisions; supplemented by an OSH decree. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Law on Chemicals Management No. 07/NA (2016)](https://leap.unep.org/en/countries/la/national-legislation/law-07na-chemical-management) | secondary | ok | General chemicals law with accident-prevention plan duties; not a dedicated major-hazard regime. In force March 2017. |
+| Boilers and pressure equipment | not found | | | Special-equipment safety text naming boilers/pressure vessels appeared, but issuer, date and status unclear; a gazette item is a draft. |
+| Fire safety law or code | not found | | | Two searches (English, Lao): no fire prevention law seen. Disaster Management Law No. 71/NA (2019) appeared; fire coverage unconfirmed. |
+| Electrical safety or wiring code | [Law on Electricity (Amended) No. 19/NA](https://leap.unep.org/en/countries/la/national-legislation/law-no-19na-electricity-amended) | secondary | ok | Press reports a draft 2026 amendment approved in principle; promulgation unconfirmed. Lao Electric Power Technical Standards apply to power works. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Prime Minister's Decree No. 331/PM (2017) on fuel business](https://policy.asiapacificenergy.org/node/3323) | secondary | ok | Excludes petroleum production and refining. Explosives and chemical storage have separate decisions. Current status unconfirmed. |
 
 ### Lebanon (LBN)
 
@@ -1401,11 +1401,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [DSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety and Health Act 1994 (Act 514), reprint as at 1 June 2024](https://dosh.gov.my/wp-content/uploads/2025/03/Act-514-Reprint-Version-1.6.2024_English.pdf) | official | pdf | Amended by Act A1648, in force 1 June 2024. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Occupational Safety and Health (Control of Industrial Major Accident Hazards) Regulations 1996](https://umcms.um.edu.my/sites/fom/pdf/OSHE/resources/5.%20Regulations/OSHA%20CONTROL%20OF%20INDUSTRIAL%20MAJOR%20ACCIDENT%20%28CIMAH%29%201996.pdf) | secondary | error | No revocation found; DOSH guidance still cites it. Effect of 2022 OSH amendment unconfirmed. State-level applicability not checked. |
+| Boilers and pressure equipment | [Occupational Safety and Health (Plant Requiring Certificate of Fitness) Regulations 2024](https://dosh.gov.my/wp-content/uploads/2025/12/Application-Guide-for-Design-Verification-of-Local-Pressure-Vessel.pdf) | official | pdf | URL is DOSH guide, not the regulation text. In operation 1 June 2024; some vessels excluded or exempt. Sabah/Sarawak position not checked. |
+| Fire safety law or code | [Fire Services Act 1988 (Act 341)](https://fkt.utm.my/jkkp/wp-content/uploads/sites/198/2023/04/Act-341-Fire-Services-Act-1988.pdf) | secondary | pdf | University-hosted copy; amendment A1568 (2018) reported. Federal; state/territorial application not checked. |
+| Electrical safety or wiring code | [Electricity Supply Act 1990 (Act 447)](https://leap.unep.org/en/countries/my/national-legislation/electricity-supply-act-1990-act-no-447) | secondary | ok | Reported suspended in Sarawak from 1 September 1990. Amended later (e.g. Act A1501 of 2015); consolidated current text not confirmed. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum (Safety Measures) Act 1984 (Act 302)](https://policy.asiapacificenergy.org/sites/default/files/Petroleum%20%28Safety%20Measures%29%20Act%201984%20%282006%20Ed.%29.pdf) | secondary | pdf | 2006 reprint; later amendments not verified. Petroleum transport, storage and use; gas supply and explosives laws separate. |
 
 ### Maldives (MDV)
 
@@ -1437,11 +1437,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [MSTRD (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety and Health Law, 2019 (Law No. 8/2019)](https://www.ilo.org/resource/news/new-law-major-step-workplace-safety-and-health-myanmar) | secondary | ok | Takes effect on presidential notification; results do not confirm it has been issued. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Prevention of Hazard from Chemical and Related Substances Law, Pyidaungsu Hluttaw Law No. 28 of 2013](https://www.myanmartradeportal.gov.mm/legal/328) | official | ok | Chemicals law, not a dedicated major-hazard regime; 2016 Rules. Portal title reads 'Prevention from Danger of Chemical and Associated Materials Law'. |
+| Boilers and pressure equipment | [Boiler Law, Pyidaungsu Hluttaw Law No. 39 of 2015](https://myanmartradeportal.gov.mm/uploads/legals/2024/12/Boiler%20Law%20%28English%29.pdf) | official | pdf | Registration and inspection of boilers; coverage of other pressure equipment and later amendments not confirmed. |
+| Fire safety law or code | [Myanmar Fire Brigade Law, No. 11 of 2015](https://www.kaigai-shobo.jp/files/internationalforum/Myanmar_Fire_service_law.pdf) | secondary | pdf | Number/year from search summary. A 2020 Fire Safety Code cites a 'Fire Force Law'; whether the 2015 law is still current is unclear. |
+| Electrical safety or wiring code | [Electricity Law, Pyidaungsu Hluttaw Law No. 44/2014](https://data.opendevelopmentmekong.net/laws_record/the-electricity-law) | secondary | ok | Replaces 1984 law. Results did not show its safety or inspection provisions; current status not checked. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum and Petroleum Products Law 2017 (Law No. 20/2017)](https://myanmartradeportal.gov.mm/en/legal/113) | official | ok | Repealed 1934 Petroleum Act. Explosives law not found in the search. Later amendments not checked. |
 
 ### Nepal (NPL)
 
@@ -1461,11 +1461,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [DGSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Labour Law, Royal Decree No. 53/2023](https://leap.unep.org/en/countries/om/national-legislation/royal-decree-no-532023-issuing-labor-law) | secondary | ok | Has an OSH chapter. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | No COMAH-type regulation seen. Environment Authority Decision 50/2023 covers hazardous chemicals; major-hazard content unknown. |
+| Boilers and pressure equipment | not found | | | No boiler provision seen; unknown whether MD 286/2008 (general OSH) covers boilers. |
+| Fire safety law or code | [Civil Defence Law (Royal Decree 76/91)](https://qanoon.om/p/1991/rd1991076/) | secondary | ok | Amended later. Building fire requirements adopted by separate decisions (77/2002, amended 234/2019; 16/2008); currency unconfirmed. |
+| Electrical safety or wiring code | not found | | |  |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Oil and Gas Law (Royal Decree No. 8/2011)](https://www.iea.org/policies/12293-royal-decree-no-82011-oil-and-gas-law) | secondary | blocked | Hydrocarbon sector law. Explosives (RD 82/77 cited) and chemicals are regulated separately. |
 
 ### Pakistan (PAK)
 
@@ -1485,11 +1485,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [BPS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Republic Act No. 11058 (2018), An Act Strengthening Compliance with Occupational Safety and Health Standards and Providing Penalties for Violations Thereof](https://ldr.senate.gov.ph/legislative-issuance/republic-act-no-11058) | official | robots |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | No dedicated PSM or major-accident rule seen; results showed chemical safety/GHS order DO 136-14 and OSH rules only. |
+| Boilers and pressure equipment | [DOLE OSH Standards Rule 1160 (Boiler), as amended](https://chanrobles.com/dolerule1160-2001.html) | secondary | ok | Boiler permit to operate. DO 74-05 amended Rule 1162.02. Coverage of unfired pressure vessels and current consolidated text not confirmed. |
+| Fire safety law or code | [Republic Act No. 9514, Fire Code of the Philippines of 2008](https://legacy.senate.gov.ph/republic_acts/ra%209514.pdf) | official | robots | Some copies title it Revised Fire Code. Repealed PD 1185; enforced by Bureau of Fire Protection. Later amendments not checked. |
+| Electrical safety or wiring code | [Republic Act No. 7920, New Electrical Engineering Law (1995)](https://www.prc.gov.ph/uploaded/documents/prbelec_amended.pdf) | official | pdf | Mainly professional practice licensing; the Philippine Electrical Code is referenced, but no result showed the Code's legal text or edition. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Republic Act No. 11592, LPG Industry Regulation Act (2021)](https://issuances-library.senate.gov.ph/legislative-issuance/republic-act-no-11592) | official | robots | LPG only. Also RA 8479 (downstream oil, 1998; repeal bills pending) and RA 9516 (explosives, amends PD 1866). |
 
 ### Qatar (QAT)
 
@@ -1497,11 +1497,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [QS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Law No. 14 of 2004 issuing the Labour Law](https://alp.unescwa.org/legislations/law-14-2004-labor) | secondary | blocked | Part Ten covers safety and occupational health; amended since 2004. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | No national major-hazard regulation seen; only QatarEnergy company/contractor HSE standards and practice. |
+| Boilers and pressure equipment | not found | | | No Qatari boiler or pressure vessel law seen. |
+| Fire safety law or code | [Qatar Civil Defence fire and life safety manual (updated, announced 2022)](https://www.lexis.ae/2022/03/07/qatar-fire-and-life-safety-manual-launched/) | secondary | ok | Manual; legal force not confirmed. Civil Defence law number unresolved (sources conflict). |
+| Electrical safety or wiring code | [KAHRAMAA Low Voltage Electricity Wiring Code (2018)](https://km.qa/CustomerService/ServiceRegulations/ELECTRICTY%20WIRING%20CODE%202018.pdf) | official | pdf | Utility code for low-voltage installations; compliance required for power supply. Supersession not checked. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Law No. 14 of 1999 concerning Weapons, Ammunition and Explosives](https://www.gunpolicy.org/firearms/citation/quotes/15669) | secondary | blocked | Citation only; current status unconfirmed. Law No. 9 of 2024 separately governs dealing in petroleum/petrochemical products. |
 
 ### Republic of Korea (KOR)
 
@@ -1509,11 +1509,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [KATS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety and Health Act (wholly amended by Act No. 16272 of 2019, since amended)](https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=63609) | official | ok | KLRI (state research institute) English translation. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Occupational Safety and Health Act, Process Safety Management (Arts. 44-46, process safety reports)](https://kosha.or.kr/english/business/processSafetyManagementProgram.do) | official | ok | PSM sits within the OSH Act, not a standalone law. Introduced under the former Industrial Safety and Health Act. |
+| Boilers and pressure equipment | not found | | | A candidate (Energy Use Rationalization Act) was found, but no result showed that its inspection rules cover boilers or pressure vessels. |
+| Fire safety law or code | [Act on Fire Prevention and Safety Control (also rendered Fire Prevention and Safety Management Act; 화재의 예방 및 안전관리에 관한 법률)](https://www.kfsi.or.kr/information/law/fireLaw.do) | secondary | robots | Reported in force 1 Dec 2022, split from an older combined law. Act number not seen. Separate Act covers fire-fighting facilities. |
+| Electrical safety or wiring code | [Electrical Safety Management Act (Act No. 17171 of 2020)](https://elaw.klri.re.kr/kor_service/lawViewMultiContent.do?hseq=68104) | secondary | ok | KLRI bilingual text; in force April 2021 per results; later amendments, including Act No. 20194 of 2024. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [High-Pressure Gas Safety Control Act](https://leap.unep.org/en/countries/kr/national-legislation/high-pressure-gas-safety-control-act) | secondary | ok | FAOLEX consolidation to 2016; amended later. Gas only; separate LPG Act exists. Dangerous substances and explosives laws not verified. |
 
 ### Saudi Arabia (SAU)
 
@@ -1521,11 +1521,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [SASO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Labour Law, Royal Decree No. M/51, chapter eight (worker safety and health)](https://www.wipo.int/wipolex/en/text/498399) | secondary | ok | Translation; the Arabic text governs. Amended since. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [High Commission for Industrial Security (HCIS) Safety and Fire Protection Directives](https://saudipedia.com/en/high-commission-for-industrial-security) | secondary | ok | HCIS also monitors process safety. Directives restricted; apply to HCIS-supervised sectors. No standalone major-hazard regulation seen. |
+| Boilers and pressure equipment | [SASO Technical Regulation for Pressure Equipment](https://saso.gov.sa/ar/Laws-And-Regulations/Technical_regulations/Documents/TR-Pressure-Equipment.pdf) | official | pdf | Only title seen; scope, boiler coverage and commencement unconfirmed. Separate SASO regulation covers simple pressure vessels. |
+| Fire safety law or code | [Saudi Fire Code (SBC 801)](https://www.saso.gov.sa/en/sectors/product-safety/Documents/SBC-INSP-EN.pdf) | official | pdf | Link is SASO inspection-body list naming the code, not its text. Reported based on IFC/NFPA; edition in force unconfirmed. |
+| Electrical safety or wiring code | [Saudi Electrical Code (SBC 401)](https://www.saso.gov.sa/en/sectors/product-safety/Documents/SBC-INSP-EN.pdf) | official | pdf | Link is SASO inspection-body list naming the code, not its text. Electricity regulator safety rules not covered. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Law of Petroleum and Petrochemical Products (Royal Decree M/139, 2025)](https://misa.gov.sa/app/uploads/2025/07/Law-of-Petroleum-and-Petrochemical-Products.pdf) | official | pdf | Commencement unconfirmed. Explosives and chemicals have separate laws. |
 
 ### Singapore (SGP)
 
@@ -1533,11 +1533,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [SPRING SG (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Workplace Safety and Health Act 2006 (2020 Revised Edition)](https://sso.agc.gov.sg/Act/WSHA2006) | official | ok |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Workplace Safety and Health (Major Hazard Installations) Regulations 2017](https://sso.agc.gov.sg/SL/WSHA2006-S202-2017) | official | ok | In force 1 September 2017; Safety Case regime. |
+| Boilers and pressure equipment | [Workplace Safety and Health Act and WSH (General Provisions) Regulations: statutory pressure vessel registration and examination](https://www.mom.gov.sg/workplace-safety-and-health/pressure-vessels/register-a-pressure-vessel) | official | ok | URL is MOM guidance, not legal text. Includes steam boilers; some low-pressure items exempt from registration. |
+| Fire safety law or code | [Fire Safety Act 1993](https://sso.agc.gov.sg/Act/FSA1993?WholeDoc=1) | official | ok |  |
+| Electrical safety or wiring code | [Electricity Act 2001; Electricity (Electrical Installations) Regulations](https://sso.agc.gov.sg/Act/EA2001) | official | ok | 2020 Revised Edition. Installation regulations (Rg 5) amended in 2025. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Fire Safety (Petroleum and Flammable Materials) Regulations](https://sso.agc.gov.sg/SL/FSA1993-RG7) | official | ok | Subsidiary to Fire Safety Act; import, storage, supply and transport; amended 2025. Gas pipelines and explosives not covered by this entry. |
 
 ### Sri Lanka (LKA)
 
@@ -1593,23 +1593,23 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [TISI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Safety, Health and Environment Act B.E. 2554 (2011)](https://data.opendevelopmentmekong.net/th/laws_record/occupational-safety-health-and-environment-act-b-e-2554-a-d-2011) | secondary | error | English title varies by source. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | Two searches (English, Thai): no PSM/major-accident regulation identified; only DIW factory risk-assessment announcements and unofficial JETRO translations. |
+| Boilers and pressure equipment | [Ministerial Regulation on OSH standards in relation to machine, crane and boiler B.E. 2564 (2021)](https://enviliance.com/regions/southeast-asia/th/report_4310) | secondary | ok | Covers boilers and pressure vessels; replaces 2009 rule. Later amendments not checked. Separate Factory Act boiler rules also exist. |
+| Fire safety law or code | [Ministerial Regulation No. 55 and related fire prevention rules (English translation in a JICA study appendix)](https://openjicareport.jica.go.jp/pdf/11710423_01.pdf) | secondary | pdf | Old translation in a Japan International Cooperation Agency study. Check the Royal Gazette for amendments; also covers the Fire Fighting and Prevention Act. |
+| Electrical safety or wiring code | [Ministerial Regulation on OSH standards relating to electricity, B.E. 2558 (2015)](https://enviliance.com/regions/southeast-asia/th/th-osh) | secondary | ok | Workplace safety rule under OSH Act B.E. 2554. Provisions and current status not confirmed. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Hazardous Substance Act B.E. 2535 (1992)](https://leap.unep.org/en/countries/th/national-legislation/hazardous-substance-act-be-2535) | secondary | ok | Amended 2001, 2008, 2019 per JETRO listing. Petroleum fuels: separate Fuel Control Act B.E. 2542 (only a summary seen). |
 
 ### Timor-Leste (TLS)
 
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
-| National standards body | not searched yet | | |  |
+| National standards body | [Institute for Quality of Timor-Leste (IQTL, IP), Decree-Law No. 10/2018](https://leap.unep.org/en/countries/tl/national-legislation/decree-law-no-102018-creating-and-approving-statute-institution) | secondary | ok | Statute amended 2021. ISO membership not confirmed. |
 | Occupational safety and health law | [Law No. 11/2023 on Safety, Health and Hygiene at Work](https://leap.unep.org/en/countries/tl/national-legislation/law-no-112023-safety-health-and-hygiene-work) | secondary | ok | Dedicated OSH law, published April 2023. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | not found | | | No Timorese major-accident rule seen; only Civil Protection Law 12/2020 and a 2026 pesticides/hazardous chemicals law. |
+| Boilers and pressure equipment | not found | | | No Timorese boiler or pressure equipment instrument seen; only a Portuguese regulation. |
+| Fire safety law or code | not found | | | No building fire code or fire safety law seen; only civil protection and fire service organisation laws (Law 12/2020). |
+| Electrical safety or wiring code | not found | | | No safety law or wiring code seen. DL 40/2020 (creates electricity authority, cites installation standards) and DL 13/2003 (system framework) are not safety rules. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Decree-Law No. 1/2012 on the Downstream Sector](https://leap.unep.org/en/countries/tl/national-legislation/decree-law-no-12012-downstream-sector) | secondary | ok | Petroleum products only; FAOLEX shows it as not repealed. No explosives or dangerous goods law seen. |
 
 ### Turkmenistan (TKM)
 
@@ -1629,22 +1629,22 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [TSE (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Occupational Health and Safety Law No. 6331 (2012)](https://live.csgb.gov.tr/Media/hkrbms4l/6331_isgkanunu_en-pdf-ing.pdf) | official | error | Ministry English translation; amended since. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Regulation on Prevention of Major Industrial Accidents and Reduction of their Effects (Büyük Endüstriyel Kazaların Önlenmesi ve Etkilerinin Azaltılması Hakkında Yönetmelik), RG 2 March 2019 No. 30702](https://www.alomaliye.com/2019/03/02/buyuk-endustriyel-kazalarin-onlenmesi/) | secondary | robots | Seveso-type; replaced 2013 regulation. Later amendments not verified. |
+| Boilers and pressure equipment | [Pressure Equipment Regulation (2014/68/EU) (Basınçlı Ekipmanlar Yönetmeliği), RG 3 March 2018 No. 30349](https://www.alomaliye.com/2018/03/03/basincli-ekipmanlar-yonetmeligi/) | secondary | robots | Covers design, manufacture and conformity assessment above 0.5 bar; in-service inspection not covered by this entry. Amendments not checked. |
+| Fire safety law or code | [Regulation on Fire Protection of Buildings (Binaların Yangından Korunması Hakkında Yönetmelik), RG 19 December 2007](https://resmigazete.gov.tr/eskiler/2007/12/20071219-2.htm) | official | ok | Original gazette text; amended since (e.g. 2009). Applies to buildings and facilities. |
+| Electrical safety or wiring code | [Electrical Internal Installations Regulation (Elektrik İç Tesisleri Yönetmeliği), RG 4 November 1984 No. 18565](https://alomaliye.com/1984/11/04/elektrik-ic-tesisleri-yonetmeligi/) | secondary | robots | Indoor installations only; amended. Current in-force status not confirmed. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum Market Law No. 5015 (2003)](https://leap.unep.org/en/countries/tr/national-legislation/petroleum-market-law-no-5015) | secondary | ok | Mainly market and licensing law. LPG falls under Law No. 5307 (2005); dangerous goods road transport has a separate regulation. |
 
 ### United Arab Emirates (ARE)
 
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [Ministry of Industry and Advanced Technology (MoIAT), national standardization body](https://www.iso.org/member/1704.html) | official | blocked | ISO member listing; ministry site is moiat.gov.ae. |
-| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
-| Major hazard / process safety | not found | | | Only emirate-level material surfaced. |
-| Boilers and pressure equipment | not found | | |  |
+| Occupational safety and health law | [Federal Decree-Law No. 33 of 2021 on the Regulation of Employment Relationship, and amendments](https://www.mohre.gov.ae/assets/download/3bde4984/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments_638990571068264034.pdf.aspx) | official | error | Labour law, not standalone OSH law; Art. 13 employer duties. Private sector; implementing and ministerial rules also apply. |
+| Major hazard / process safety | not found | | | Retried: no federal or emirate major-hazard regulation seen. Industrial gas facility safety resolution is product-specific. |
+| Boilers and pressure equipment | not found | | | Retried: no boiler or pressure equipment regulation identified; only general mandatory-standards framework. |
 | Fire safety law or code | [UAE Fire and Life Safety Code of Practice](https://www.dm.gov.ae/wp-content/uploads/2022/05/DM-DCLD-RD-DP32-5119-Type-1-UAE-Fire-Code-R2.pdf) | official | ok | Civil Defence code; copy hosted by Dubai Municipality; current edition not confirmed. |
-| Electrical safety or wiring code | not found | | | Electricity safety rules appear to be emirate-level; no national code shown. |
+| Electrical safety or wiring code | [Electricity Wiring Regulations 2020 (Abu Dhabi Department of Energy)](https://www.doe.gov.ae/-/media/Project/DOE/Department-Of-Energy/Media-Center-Publications/EWR-2020-EN-V8-B-Online.pdf) | official | pdf | Abu Dhabi emirate only, not federal; a later revision is reported. Other emirates have own rules. |
 | Petroleum, gas, pipelines, explosives, dangerous goods | [Federal Decree-Law No. 17 of 2019 on weapons, ammunition, explosives, military materiel and hazardous substances](https://elaws.moj.gov.ae/UAE-MOJ_LC-En/00_WEAPONS/UAE-LC-En_2019-08-29_00017_Markait.html) | official | error | Licensing law. Petroleum products are under separate Federal Law No. 14 of 2017. |
 
 ### Uzbekistan (UZB)
@@ -1665,11 +1665,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [TCVN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Law on Occupational Safety and Hygiene No. 84/2015/QH13](https://thuvienphapluat.vn/van-ban/EN/Lao-dong-Tien-luong/Law-No-84-2015-QH13-on-occupational-safety-and-hygiene/284379/tieng-anh.aspx) | secondary | blocked | In force 1 July 2016. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Decree 25/2026/ND-CP on chemical industry development and chemical safety and security](https://english.luatvietnam.vn/decree-no-25-2026-nd-cp-dated-january-17-2026-of-the-government-detailing-and-providing-measures-for-organizing-and-guiding-the-implementation-of-a-424115-doc1.html) | secondary | ok | Chemicals only, not a general major-hazard law; incident plans/measures. Sources differ on whether the plan chemical list is in Decree 24/2026 or 25/2026. |
+| Boilers and pressure equipment | [QCVN 01:2008/BLDTBXH national technical regulation on safe work of steam boilers and pressure vessels](https://thuvienphapluat.vn/TCVN/Linh-vuc-khac/QCVN-01-2008-BLDTBXH-an-toan-lao-dong-noi-hoi-va-binh-chiu-ap-luc-903061.aspx) | secondary | blocked | Issued 2008 (Decision 64/2008). Amendment or replacement not checked. Transport/offshore vessels are under separate rules. |
+| Fire safety law or code | [Law on Fire Prevention and Fighting, Rescue and Salvage, No. 55/2024/QH15](https://english.luatvietnam.vn/dat-dai/law-55-2024-qh15-on-fire-prevention-firefighting-and-rescue-379071-d1.html) | secondary | ok | In force 1 July 2025 (some equipment duties 2027). Replaces 2001/2013 law. Decree 105/2025/ND-CP implements. |
+| Electrical safety or wiring code | [Electricity Law No. 61/2024/QH15](https://english.luatvietnam.vn/cong-nghiep/electricity-law-no-61-2024-qh15-380161-d1.html) | secondary | ok | In force 1 Feb 2025; later amended by Law 94/2025/QH15. Circular 41/2025/TT-BCT is the national technical regulation on electrical safety. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Petroleum Law No. 12/2022/QH15](https://moit.gov.vn/en/news/new-points-in-viet-nam-s-amended-petroleum-law.html) | official | ok | In force 1 July 2023; mainly upstream petroleum. Gas trading is under separate decrees (2016 Decree 19 seen, may be replaced); dangerous goods transport not checked. |
 
 ### Yemen (YEM)
 
@@ -1835,11 +1835,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [AFNOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Code du travail, Part Four (Santé et sécurité au travail)](https://www.legifrance.gouv.fr/codes/id/LEGIARTI000006903147/2026-08-06) | official | blocked | Link is an article-level page of the Code. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Arrêté du 26 mai 2014 relatif à la prévention des accidents majeurs (installations classées)](https://aida.ineris.fr/reglementation/arrete-260514-relatif-a-prevention-accidents-majeurs-installations-classees) | secondary | robots | INERIS database. Applies to authorised classified installations (Seveso III); amended several times; check current consolidated text. |
+| Boilers and pressure equipment | [Arrêté du 20 novembre 2017 relatif au suivi en service des équipements sous pression et des récipients à pression simples](https://aida.ineris.fr/reglementation/arrete-201117-relatif-suivi-service-equipements-sous-pression-recipients-a-pression) | secondary | robots | In-service monitoring order under Code de l'environnement (book V, title V, ch. VII); in force 1 Jan 2018; current version not confirmed. |
+| Fire safety law or code | [Arrêté du 25 juin 1980, règlement de sécurité contre les risques d'incendie et de panique dans les ERP](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000290033) | official | blocked | Applies to public-access buildings (ERP) only; amended many times, some chapters repealed or replaced. |
+| Electrical safety or wiring code | [Code du travail, articles R. 4226-1 à R. 4226-21 (utilisation des installations électriques, décret 2010-1016)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000022765014/) | official | blocked | Workplace installations only. Listing title is just 'Code du travail'; article range comes from other results on the same search. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Arrêté du 5 mars 2014, sécurité des canalisations de transport de gaz naturel, d'hydrocarbures et de produits chimiques](https://www.legifrance.gouv.fr/jorf/id/JORFSCTA000028770348) | official | blocked | Transmission pipelines only; initial version, amended since (e.g. 2016, 2020). Does not cover explosives or storage. |
 
 ### Germany (DEU)
 
@@ -1847,11 +1847,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [DIN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Arbeitsschutzgesetz (ArbSchG) of 7 August 1996](https://www.gesetze-im-internet.de/arbschg/BJNR124610996.html) | official | ok |  |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Störfall-Verordnung (12. BImSchV)](https://www.gesetze-im-internet.de/bimschv_12_2000/) | official | ok | Version of 15 March 2017, last amended by law of 3 July 2024 per result; later amendments not checked. |
+| Boilers and pressure equipment | [Betriebssicherheitsverordnung (BetrSichV) 2015, incl. Anhang 2 (Druckanlagen)](https://www.gesetze-im-internet.de/betrsichv_2015/anhang_2.html) | official | ok | Covers operation and inspection of pressure systems as monitored installations; see also the 2021 ÜAnlG. Does not cover placing on the market. |
+| Fire safety law or code | [Musterbauordnung (MBO) and Länder building codes (Landesbauordnungen)](https://www.baunetzwissen.de/glossar/m/musterbauordnung-8555419) | secondary | ok | MBO is a model code, not law. Fire protection is regulated by the 16 Länder, with state deviations. Länder fire brigade laws not checked. |
+| Electrical safety or wiring code | [Energiewirtschaftsgesetz (EnWG) § 49 Anforderungen an Energieanlagen](https://www.gesetze-im-internet.de/enwg_2005/__49.html) | official | ok | Applies to energy installations; compliance presumed when VDE technical rules are followed. VDE rules are not themselves law. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Gefahrgutbeförderungsgesetz (GGBefG)](https://www.gesetze-im-internet.de/gefahrgutg/BJNR021210975.html) | official | ok | Transport of dangerous goods only. Explosives law and gas pipeline ordinance not searched. |
 
 ### Greece (GRC)
 
@@ -1919,11 +1919,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [UNI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Decreto Legislativo 9 aprile 2008, n. 81 (Testo Unico on health and safety at work)](https://www.lavoro.gov.it/sites/default/files/archivio-doc-pregressi/Documents/Resources/Lavoro/Eventi/Dlgsn812008.pdf) | official | robots | Amended since 2008; linked copy is from ministry archive and may not be current. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [D.Lgs. 26 giugno 2015, n. 105 (attuazione direttiva 2012/18/UE, Seveso III)](https://www.isprambiente.gov.it/it/servizi/controlli-sui-pericoli-di-incidente-rilevante-direttiva-seveso-iii/documentazione-tecnica-e-normativa) | official | ok | ISPRA documentation page. GU n. 161 of 14 July 2015; in force 29 July 2015. |
+| Boilers and pressure equipment | [DM 1 dicembre 2004, n. 329 (messa in servizio e utilizzazione delle attrezzature a pressione)](https://www.normattiva.it/eli/id/2005/01/28/005G0017/ORIGINAL) | official | ok | Original version; implements art. 19 of D.Lgs. 93/2000. Current amended status not confirmed. |
+| Fire safety law or code | [DM 3 agosto 2015, Codice di prevenzione incendi](https://www.vigilfuoco.it/servizi-le-aziende-e-i-professionisti/prevenzione-incendi/testi-coordinati-di-prevenzione/codice-prevenzione-incendi) | official | ok | Technical code for listed activities under DPR 151/2011; amended (e.g. DM 12 April 2019). Current scope not confirmed. |
+| Electrical safety or wiring code | [DM 22 gennaio 2008, n. 37 (installazione degli impianti all'interno degli edifici)](https://www.tb.camcom.gov.it/uploads/CCIAA/normative-/DM37_2008.pdf) | official | pdf | Building installations; in force 27 March 2008. Legge 186/1968 sets the 'regola d'arte' rule (CEI standards presumption). |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [DM 16 and 17 aprile 2008, regole tecniche for natural gas distribution and transport](https://ance.it/2008/05/costruzione-delle-opere-di-trasporto-e-distribuzione-del-gas-naturale-di-densit-non-superiore-a-0-8/?print=pdf) | secondary | error | Natural gas networks only; not a general petroleum or explosives law. Current amendments not checked. |
 
 ### Latvia (LVA)
 
@@ -2099,11 +2099,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [GOST R (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Labour Code of the Russian Federation, Federal Law No. 197-FZ (2001), Section X (occupational safety)](https://faolex.fao.org/ru/documents/LEX-FAOC245154/labour-code-law-no-197-fz-rus-2001) | secondary | ok | Section X overhauled by Federal Law No. 311-FZ, in force 1 March 2022; linked record may predate it. |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Федеральный закон от 21.07.1997 N 116-ФЗ о промышленной безопасности опасных производственных объектов](https://52.mchs.gov.ru/uploads/resource/2023-05-22/3-1-1-zakony-rf_16847406141386059688.docx) | official | error | Copy on a regional EMERCOM site, may be outdated; one result cites amendments of 8 Aug 2024 in force from 1 Sep 2025. |
+| Boilers and pressure equipment | [Приказ Ростехнадзора от 15.12.2020 N 536 (ФНП, оборудование под избыточным давлением)](https://legalacts.ru/doc/prikaz-rostekhnadzora-ot-15122020-n-536-ob-utverzhdenii-federalnykh/) | secondary | ok | A result says this order is valid only until 1 January 2027. A search on 2026-11-25 found no successor; check before relying on it. |
+| Fire safety law or code | [Федеральный закон от 21.12.1994 N 69-ФЗ «О пожарной безопасности»](https://legalacts.ru/doc/FZ-o-pozharnoj-bezopasnosti/) | secondary | ok | Listing shows edition of 25.04.2026. Also 123-ФЗ of 22.07.2008, technical regulation on fire safety requirements. |
+| Electrical safety or wiring code | [Приказ Минэнерго России от 12.08.2022 N 811, Правила технической эксплуатации электроустановок потребителей](https://legalacts.ru/doc/prikaz-minenergo-rossii-ot-12082022-n-811-ob-utverzhdenii/) | secondary | ok | Operation of consumers' installations; reported in force from 7 January 2023. Installation code (PUE) not covered. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Федеральный закон от 31.03.1999 N 69-ФЗ «О газоснабжении в Российской Федерации»](https://www.consultant.ru/document/cons_doc_LAW_22576/) | secondary | ok | Gas supply only; a listing shows edition of 23.03.2026. Pipeline, explosives and dangerous goods laws not found or not searched. |
 
 ### San Marino (SMR)
 
@@ -2207,11 +2207,11 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 |---|---|---|---|---|
 | National standards body | [BSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
 | Occupational safety and health law | [Health and Safety at Work etc. Act 1974](https://www.legislation.gov.uk/ukpga/1974/37/contents) | official | blocked | Primary law for Great Britain; Northern Ireland coverage not verified (generally has separate legislation). |
-| Major hazard / process safety | not searched yet | | |  |
-| Boilers and pressure equipment | not searched yet | | |  |
-| Fire safety law or code | not searched yet | | |  |
-| Electrical safety or wiring code | not searched yet | | |  |
-| Petroleum, gas, pipelines, explosives, dangerous goods | not searched yet | | |  |
+| Major hazard / process safety | [Control of Major Accident Hazards Regulations 2015 (SI 2015/483)](https://legislation.gov.uk/uksi/2015/483/introduction/2018-04-01/data.html) | official | blocked | Great Britain scope not confirmed in results; Northern Ireland legislates separately. Dated version; check current text. |
+| Boilers and pressure equipment | [Pressure Systems Safety Regulations 2000 (SI 2000/128)](https://www.legislation.gov.uk/uksi/2000/128) | official | blocked | In-use safety; Great Britain, with Northern Ireland regulated separately. Supply of new pressure equipment is under other rules. |
+| Fire safety law or code | [Regulatory Reform (Fire Safety) Order 2005 (SI 2005/1541)](https://legislation.gov.uk/uksi/2005/1541/contents) | official | blocked | England and Wales, non-domestic premises. Scotland and Northern Ireland have separate law. |
+| Electrical safety or wiring code | [Electricity at Work Regulations 1989 (SI 1989/635)](https://www.legislation.gov.uk/uksi/1989/635) | official | blocked | Great Britain; Northern Ireland has separate regulations (check). Wiring code BS 7671 not searched. |
+| Petroleum, gas, pipelines, explosives, dangerous goods | [Dangerous Substances and Explosive Atmospheres Regulations 2002 (SI 2002/2776)](https://legislation.gov.uk/uksi/2002/2776/body/made) | official | blocked | As-made text; later amendments not checked. Workplace fire/explosion risk; pipelines and explosives have separate rules. |
 
 ## Oceania
 
