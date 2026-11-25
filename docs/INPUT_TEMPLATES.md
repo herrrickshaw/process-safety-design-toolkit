@@ -564,6 +564,22 @@ search the curated literature and source index (regulators, investigations, jour
 | `read_only` | `--read-only` |  |  |  |  |  |  | only sources whose content was read for the toolkit |
 | `markdown` | `--markdown` |  |  |  |  |  |  | print the whole index as Markdown (docs/LITERATURE.md) |
 
+## `library`
+
+search the standards and literature library (codes, ASTM specs, regulations, guidance) and the design reading map
+
+| Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
+|---|---|---|---|---|---|---|---|---|
+| `text` | `(positional)` |  |  |  |  |  |  | words that must all appear in designation, title, body, topics or note |
+| `category` | `--category` |  |  |  |  |  |  | e.g. relief-flare, astm-pipe-tube, explosion-dust (see docs/STANDARDS_LIBRARY.md) |
+| `body` | `--body` |  |  |  |  |  |  | e.g. API, ASTM, NFPA, IEC, ISO, HSE |
+| `region` | `--region` |  |  |  |  |  |  | e.g. US, UK, EU, IN, NO, global |
+| `kind` | `--kind` |  |  |  |  |  |  | regulation, standard, guidance, book, database, data-tool, investigation, journal, association, course, access-route |
+| `access` | `--access` |  |  |  |  |  |  | free, free-registration, mixed, paid |
+| `activity` | `--activity` |  |  |  |  |  |  | show one row of the design reading map, e.g. relief-flare or low-temperature; 'list' shows the ids |
+| `markdown` | `--markdown` |  |  |  |  |  |  | print the whole library as Markdown (docs/STANDARDS_LIBRARY.md) |
+| `map_markdown` | `--map-markdown` |  |  |  |  |  |  | print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md) |
+
 ## `incidents`
 
 search the CSB-based incident register (maps incidents to toolkit modules and design review steps)

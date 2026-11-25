@@ -1,5 +1,9 @@
 # process-safety-design-toolkit
 
+> **Walkthrough:** [How-to post on masaladeutsch](https://masaladeutsch.blogspot.com/2026/11/screen-process-safety-question-in-five.html) · [Video on YouTube](https://www.youtube.com/watch?v=a33IiE1vPYA)
+
+> **More:** [Complete walkthrough post](https://masaladeutsch.blogspot.com/2026/11/how-to-use-process-safety-design.html) · videos: [full walkthrough](https://www.youtube.com/watch?v=jjfg3gU03kQ) · [v0.10](https://www.youtube.com/watch?v=zj99fY40jnw) · [derogations, EU, insurance, legal clauses](https://www.youtube.com/watch?v=T2vICb0ieO8)
+
 Dependency-free (Python stdlib only) calculators for the equations and screening models used in process-safety and relief-system
 design, tied to the standards engineers are held to: API 520/521/526/2000, IEC 61511/CCPS LOPA, and the Indian OISD list.
 Built from the safety scope of a typical process-safety consultancy brochure (HAZOP/QRA/SIL, relief and flare, F&G, loss prevention).
@@ -177,6 +181,7 @@ alone often does not protect a gas-filled vessel. Inputs (flux, internal film co
 * `docs/RECOMMENDATION_COSTS.md`: what it costs to implement HAZOP/LOPA/QRA recommendations (piping, civil, electrical, instrumentation), with ranges, shutdown dependency and ALARP cost-benefit.
 * `docs/SHUTDOWN_RISK.md`: shutdown schedule and cost risk, including the opportunity cost of lost operating days, with a worked example and its limits.
 * `docs/INCIDENTS.md`: 17 CSB investigations (date, place, deaths where stated, an example recommendation, design lesson, toolkit modules, review steps), searchable with `python -m process_safety incidents [TEXT] [--module M] [--step N]`.
+* `docs/STANDARDS_LIBRARY.md` and `docs/DESIGN_STANDARDS_RECOMMENDATIONS.md`: a catalogue of codes, standards (including ASTM material specifications and test methods), regulations by jurisdiction, guidance, books, databases, journals, unread Digital Refining safety and design articles, and lawful access routes, with links, and a reading map by design activity and material product form. An index only: no standard text is reproduced and editions are not recorded. Search with `python -m process_safety library WORDS [--body B] [--category C]`; `python -m process_safety library --activity list`.
 * `docs/LITERATURE.md`: 49 curated sources (regulations, regulators, investigation bodies, incident databases, associations, journals, reference tools) with topic and module links, what was read versus URL-checked only, and the HTTP status on 2026-11-06. Search with `python -m process_safety literature TEXT [--topic T] [--module M] [--region R]`.
 * `docs/REGULATORY_LANDSCAPE.md`: process safety regimes by country, governing body and company, with a confidence grade per row (rule text read, regulator page read, search summary, or not found).
 * `docs/DESIGN_AWARENESS.md`: process safety review steps, the design choices each drives, results from the use cases, and incident instances, with the toolkit command for each.
