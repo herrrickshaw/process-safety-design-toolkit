@@ -1,5 +1,22 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-25: third country research round (priority countries, all areas)
+* Owner chose India and the Gulf states, the G20 states and Southeast Asia (34 states). Four agents (at most 40 searches each) searched the 31 that had open slots: 136 never searched plus 8 earlier blanks. For these 34 states, 217 of 238 slots now have an entry and 21 were searched without a result; none is unsearched. Overall: 555 of 1365 entries, 135 searched without a result, 675 not searched. The 820 total floor and the every-slot-searched gate are still NOT met.
+* Decisions: 5 links returned 'not found' and were removed, then replaced from further searches (2 first replacements were also dead and were swapped again). Oman electrical rejected (document-sharing site; `studylib.` added to the builder's banned list). Brazil major hazard repointed to Decreto 10.088/2019 on one secondary source because the 2002 decree is listed as revoked. South Korea and Cambodia pressure equipment set to not found: no result showed boiler coverage. Rejected: keeping them as found with a warning.
+* Time-sensitive: the Russian pressure-equipment order (Rostechnadzor 536) is reported valid only until 1 January 2027; one search found no successor.
+* Many entries cover only part of a slot (a model code, one emirate, federal workplaces, one fuel, transport only); read the Note column.
+
+## Unreleased - 2026-11-25: second country research round (occupational safety law)
+* The 158 states not yet searched for an occupational safety law were searched (four agents, 42 searches each at most). An entry now exists for 176 of 195 states, which meets the 170 floor for that area. Totals: 432 of 1365 entries, 122 searched without a result, 811 not searched. The 820 total floor and the every-slot-searched gate are still NOT met.
+* 13 links from this round returned not-found and were removed; 8 states got a replacement from a further search. Congo, Costa Rica, Dominica, Grenada and Saint Kitts and Nevis were left as not found because the results conflicted or did not show which law a link was for. Two labour codes whose safety provisions no result showed (Togo, Guinea-Bissau) were not accepted.
+* Spot check: 12 seeded random entries from this round searched again, 12 found. The other five law areas were not touched.
+
+## Unreleased - 2026-11-25: country-by-country safety regimes (incomplete)
+* `docs/COUNTRY_SAFETY_COVERAGE.md`, data `un_states.json` and `country_safety.json`, module `country_coverage`, CLI `countries`, builder, checker, tests and scenario REG-21. One standards body and six law areas for the 193 UN members and 2 observers.
+* State of the data: 289 of 1,365 slots have an entry, 107 were searched without a result and 969 have not been searched. The research floors set beforehand (occupational safety law for 170 states, 820 entries) are NOT met (33 and 289). The first research run, six agents in parallel, stopped at a shared limit of 200 web searches.
+* Decisions: never-searched is its own status so it cannot read as "no law found". Standards bodies the searches missed come from one Wikipedia table and are marked. Entries come from search listings and pages were not opened. 9 links that returned not-found were removed. The repository test checks structure and links, not completeness; the floors stay in `scripts/check_country_coverage.py floors` and fail today. Rejected: filling laws from memory, and lowering the floors.
+* Spot check: 24 seeded random search-derived entries searched again, 24 found to exist, 4 given a scope note; it tests existence only, and only for the states researched.
+
 ## Unreleased - 2026-11-25: blank tank-fire template no longer crashes; CLI tests run in process
 * Fixed: `tank-fire` with neither `--wetted-area` nor `--shape` with `--D` raised a bare `ValueError` (for example when a blank `tank-fire` template was run). It now exits 2 and says which inputs to give.
 * New `tests/test_cli_inprocess.py`: the golden CLI cases run through `main()` inside the test process (the existing golden test uses a subprocess, which coverage cannot see, one reason the Codecov report on PR #5 showed the CLI modules as uncovered), and every shipped blank template must run or be refused with exit 2, never a traceback. Rejected: adding tests only to raise the coverage figure without asserting behaviour.

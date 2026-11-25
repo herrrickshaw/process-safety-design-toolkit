@@ -4017,6 +4017,29 @@
    "regression": {}
   },
   {
+   "id": "REG-21",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Country safety regime lookup",
+   "args": [
+    "countries",
+    "India"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "contains",
+     "value": "does not mean no law exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
    "id": "ELE-01",
    "topics": [
     "Arc flash (screening)"
