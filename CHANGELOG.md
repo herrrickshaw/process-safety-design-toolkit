@@ -1,5 +1,10 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-25: second country research round (occupational safety law)
+* The 158 states not yet searched for an occupational safety law were searched (four agents, 42 searches each at most). An entry now exists for 176 of 195 states, which meets the 170 floor for that area. Totals: 432 of 1365 entries, 122 searched without a result, 811 not searched. The 820 total floor and the every-slot-searched gate are still NOT met.
+* 13 links from this round returned not-found and were removed; 8 states got a replacement from a further search. Congo, Costa Rica, Dominica, Grenada and Saint Kitts and Nevis were left as not found because the results conflicted or did not show which law a link was for. Two labour codes whose safety provisions no result showed (Togo, Guinea-Bissau) were not accepted.
+* Spot check: 12 seeded random entries from this round searched again, 12 found. The other five law areas were not touched.
+
 ## Unreleased - 2026-11-25: country-by-country safety regimes (incomplete)
 * `docs/COUNTRY_SAFETY_COVERAGE.md`, data `un_states.json` and `country_safety.json`, module `country_coverage`, CLI `countries`, builder, checker, tests and scenario REG-21. One standards body and six law areas for the 193 UN members and 2 observers.
 * State of the data: 289 of 1,365 slots have an entry, 107 were searched without a result and 969 have not been searched. The research floors set beforehand (occupational safety law for 170 states, 820 entries) are NOT met (33 and 289). The first research run, six agents in parallel, stopped at a shared limit of 200 web searches.

@@ -5,24 +5,24 @@ Generated from `process_safety/data/country_safety.json`. Regenerate with `pytho
 ## Read this first
 
 * **This is a starting index, not a legal register.** It records one standards body and up to six main laws or codes per state. It does not list every safety standard in any country.
-* **This table is incomplete.** 969 of 1365 slots have not been searched yet, and for 157 of 195 states none of the six law areas has been searched.
+* **This table is incomplete.** 811 of 1365 slots have not been searched yet. The table under Coverage shows how many in each area.
 * **The pages were not read.** Entries come from web-search result listings, except standards bodies marked as coming from one Wikipedia table (compiled 2026-11-25). Names, years, whether a law is still in force and whether it applies to your asset are unconfirmed.
 * **`not found` is not `none exists`.** It means the searches did not turn one up. **`not searched yet`** means nobody has looked.
 * **Federal and devolved countries** often regulate at state or provincial level.
-* **Check** is one automated request: blocked 21, error 18, ok 217, pdf 25, robots 8. `robots` = the site's rules disallow this kind of agent, so it was not requested; `blocked` = refused automated clients; `error` = no answer. A page that loads has not been shown to be the right one.
+* **Check** is one automated request: blocked 38, error 30, ok 280, pdf 52, robots 32. `robots` = the site's rules disallow this kind of agent, so it was not requested; `blocked` = refused automated clients; `error` = no answer. A page that loads has not been shown to be the right one.
 
 ## Spot check
 
-On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched.
+On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched. Second round, same day, occupational safety law only: four agents searched the 158 states not yet searched. A seeded random sample (seed 20261126) of their entries was drawn and the first 12 searched again by the lead agent: all 12 laws turned up for that state, 0 wrong, 0 unconfirmed (Uganda given an amendment note). Same limits: existence only.
 
 ## Coverage
 
-195 states, 1365 slots, 289 found (21 %). 107 searched without a result, 969 not searched yet. Of the found entries, 76 are marked official sources and 213 secondary (the researcher's classification).
+195 states, 1365 slots, 432 found (31 %). 122 searched without a result, 811 not searched yet. Of the found entries, 142 are marked official sources and 290 secondary (the researcher's classification).
 
 | Area | States with an entry | Not searched yet |
 |---|---|---|
 | National standards body | 175 of 195 | 16 |
-| Occupational safety and health law | 33 of 195 | 158 |
+| Occupational safety and health law | 176 of 195 | 0 |
 | Major hazard / process safety | 12 of 195 | 159 |
 | Boilers and pressure equipment | 13 of 195 | 157 |
 | Fire safety law or code | 21 of 195 | 159 |
@@ -40,7 +40,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [IANOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n° 88-07 du 26 janvier 1988 relative à l'hygiène, à la sécurité et à la médecine du travail](https://www.mtess.gov.dz/?p=72807) | official | error |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -112,7 +112,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code, approved by Legislative-Decree No. 5/2007](https://leap.unep.org/en/countries/cv/national-legislation/legislative-decree-no-52007-approving-labour-code-cape-verde) | secondary | ok | Code since amended. Decree-Law 55/99 also sets workplace safety and health measures; its current status was not confirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -124,7 +124,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [Agence des Normes et de la Qualité (ANOR)](https://www.iso.org/member/1623.html) | secondary | blocked | Created 2009; results report reorganisation by Decree 2019/143. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n°92-007 du 14 août 1992 portant Code du Travail](https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg92-007-du-14-aout-1992-portant-code-du-travail) | secondary | ok | Labour code; detailed safety rules are in Order No. 039/MTPS/IMT of 1984. |
 | Major hazard / process safety | [Loi n° 98/015 du 14 juillet 1998 relative aux établissements classés dangereux, insalubres ou incommodes](https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg98015-du-14-juillet-1998-relatif-aux-etablissements) | secondary | ok |  |
 | Boilers and pressure equipment | [Décret n° 99/822/PM - designation of inspectors of classified establishments and of gas and steam pressure equipment](https://leap.unep.org/en/countries/cm/national-legislation/decret-no-99822pm-fixant-les-conditions-de-designation-des) | secondary | ok | Covers the appointment of inspectors only; not the main pressure-equipment rule. |
 | Fire safety law or code | not searched yet | | |  |
@@ -148,7 +148,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ATNOR (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | Loi 38/PR/96 (labour code) appears in results, but a guide cites a 2015 code (6/PR/2015) and a database status was unclear; currency unconfirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -160,7 +160,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du Travail, loi n° 84-108/PR, as amended by the law of 28 June 2012](https://www.africa-laws.org/Comores%5CEmployment%20law%5CLoi%20du%2028%20juin%202012%20abrogeant,%20modifiant%20et%20compl%C3%A9tant%20certaines%20dispositions%20de%20la%20loi%20n%C2%B0%2084-108PR%20portant%20Code%20du%20travail..pdf) | secondary | robots | Link is the 2012 amending law. Law 88-015/AF (1988) supplements the code's safety articles. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -172,7 +172,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ACONOQ (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -196,7 +196,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [OCC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n° 015/2002 du 16 octobre 2002 portant Code du travail](https://leap.unep.org/en/countries/cd/national-legislation/loi-ndeg-015-2002-du-16-octobre-2002-portant-code-du-travail) | secondary | ok | Amended by Law 16/010 of 2016. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -208,7 +208,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ADN (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du Travail, loi n° 133/AN/05/5ème L (2006)](https://www.icnl.org/wp-content/uploads/Djibouti_labcode.pdf) | secondary | pdf | Labour code; amended several times. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -220,7 +220,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [EOS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 14 of 2025 promulgating the Labour Law](https://leap.unep.org/en/countries/eg/national-legislation/law-no-14-2025-promulgating-labour-law) | secondary | ok | In force 1 September 2025; replaces the 2003 labour law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -232,7 +232,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley Núm. 4/2021, de 3 de diciembre, General de Trabajo](https://www.observatoire-comifac.net/file/eyJtb2RlbCI6IkFwcFxcTW9kZWxzXFxOYXRpb25hbEluZGljYXRvcnNcXE1vZHVsZXNcXE4yXFxUZXh0ZVJlZ2xlbWVudGFpcmUiLCJmaWVsZCI6ImRvY3VtZW50IiwiaWQiOjEwNjB9) | secondary | pdf | Labour code; safety articles not seen in the official text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -244,7 +244,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ESI (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [The Labour Proclamation of Eritrea, Proclamation No. 118/2001](https://leap.unep.org/en/countries/er/national-legislation/labour-proclamation-eritrea-no-118-2001) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -256,7 +256,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SWASA (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, 2001 (Act No. 9 of 2001)](https://eswatinilii.org/akn/sz/act/2001/9) | secondary | robots |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -268,7 +268,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [IES (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Proclamation No. 1156/2019](https://leap.unep.org/en/countries/et/national-legislation/labour-proclamation-no-1156-2019) | secondary | ok | Labour law carrying the safety and health provisions. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -280,7 +280,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [CNTT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n°022/2021 du 19 novembre 2021 portant Code du Travail](https://leap.unep.org/en/countries/ga/national-legislation/loi-ndeg0222021-du-19-novembre-2021-portant-code-du-travail) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -292,7 +292,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TGSB (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 2023](https://motie.gov.gm/wp-content/uploads/2024/11/Labour-Act-2023.pdf) | official | pdf | Has a part on occupational health, safety and welfare. An older Factories Act is also cited. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -316,7 +316,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INNM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n° L/2014/072/CNT du 10 janvier 2014 portant Code du Travail](https://faolex.fao.org/docs/pdf/gui212958.pdf) | secondary | pdf |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -328,7 +328,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A labour code was found (Lei n.º 7/2022, de 18 de julho, que aprova o Código do Trabalho), but the results did not show its safety provisions. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -340,7 +340,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [KEBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, 2007 (Cap. 236A)](https://new.kenyalaw.org/akn/ke/act/2007/15/eng@2022-12-31/source.pdf) | official | robots | Act No. 15 of 2007; consolidated text as at 31 December 2022. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -352,7 +352,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LSQAS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, 2024 (Act No. 4 of 2024)](https://wageindicator.org/en-ls/labour-law/health-and-safety) | secondary | robots | In force April 2024. Separate from the Labour Act, 2024; mining has a 1981 Mine Safety Act. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -364,7 +364,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LiSA (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Decent Work Act, 2015](https://liblaw.org/wp-content/uploads/2023/02/Decent-Work-Act.pdf) | secondary | pdf | Labour law with an occupational safety and health part; Regulation No. 19 (2025) implements it. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -376,7 +376,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LNCSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 93 of 1976 on industrial security and occupational safety](https://lawsociety.ly/akn/ly/act/law/rcc/1976/93) | secondary | robots | Arabic text, listed as in force. Labour Relations Law 12/2010 applies alongside it. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -400,7 +400,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety, Health and Welfare Act, 1997 (Cap. 55:07)](https://malawilii.org:443/akn/mw/act/1997/21) | secondary | robots | Government review of the Act has been reported. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -436,7 +436,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [Mauritius Standards Bureau (MSB)](https://msb.intnet.mu) | secondary | ok | Address as listed by a trade-facilitation database in search results; site not opened. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act 2005 (Act No. 28 of 2005)](https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/98518/MUS98516.pdf) | secondary | blocked | Since amended. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -472,7 +472,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NSIQO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 2007 (Act No. 11 of 2007)](https://ejustice.jud.na/High%20Court/LegislationAndDirectives/Acts/Labour%20Act%2011%20of%202007.pdf) | official | pdf | Chapter 4 covers health, safety and welfare; 1997 health and safety regulations continue under it. Since amended. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -484,7 +484,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DNQM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n° 2012-45 du 25 septembre 2012 portant Code du travail de la République du Niger](https://leap.unep.org/en/countries/ne/national-legislation/loi-ndeg-2012-45-du-25-septembre-2012-portant-code-du-travail-de) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -496,7 +496,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SON (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Factories Act, Cap. F1, Laws of the Federation of Nigeria 2004](https://labour.gov.ng/professional-operations-departments/occupational-safety-and-health/) | official | error | Link is the labour ministry OSH department page citing the Act. A replacement bill was pending; enactment not seen. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -508,7 +508,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [RBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law N° 66/2018 of 30/08/2018 Regulating Labour in Rwanda](https://www.minijust.gov.rw/fileadmin/user_upload/Minijust/Publications/Laws/Labour_law_2018.pdf) | official | pdf | Amended by Law N° 027/2023. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -520,7 +520,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SENAPIQ STP (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Lei n.º 6/2019, which approves the Código do Trabalho](https://www.africa-laws.org/Saotome%5CEmployment%20law%5CLaw%20no.%2062019,%20of%20November%2016,%202018,%20which%20approves%20the%20Labor%20Code%20%28in%20Portuguese%29.pdf) | secondary | robots | Absorbs the earlier safety, hygiene and health at work law. In force July 2019. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -532,7 +532,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ASN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Loi n° 2026-18 du 3 septembre 2026 portant Code du Travail](https://www.vie-publique.sn/docs/56984d14-34a4-459e-8820-dbca07d9393c/JO-7931-du-17-septembre-2026.pdf) | secondary | pdf | Published in Journal officiel 7931 of 17 September 2026; replaces the 1997 code. Effective date not verified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -544,7 +544,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SBS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Decree, 1978 (Decree 54 of 1978)](https://seylii.org/akn/sc/act/decree/1978/54/eng@2012-06-30) | secondary | robots | Consolidation to 2012; some sources give later dates. A review was reported in 2025. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -556,7 +556,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SLSB (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | Employment Act 2023 found, but safety provisions in it were not confirmed; a standalone OSH law was reported as not yet enacted. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -568,7 +568,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SoBS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Somali Labour Code, Law No. 36 of 2024](https://leap.unep.org/en/countries/so/national-legislation/somali-labour-code-law-no-36-2024) | secondary | ok | Somaliland has its own labour law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -580,7 +580,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SABS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act 85 of 1993](https://www.gov.za/documents/occupational-health-and-safety-act) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -592,7 +592,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SSNBS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 2017 (Act No. 64)](https://leap.unep.org/en/countries/ss/national-legislation/labour-act-2017-act-no64) | secondary | ok | Chapter XI covers health, safety and welfare. Some guides still cite the inherited 1997 Sudan law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -604,7 +604,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SSMO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 1997 (Act No. 20 of 1997)](https://faolex.fao.org/docs/pdf/sud222435.pdf) | secondary | pdf | Includes an industrial safety part; replaced the 1976 Industrial Safety Act. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -616,7 +616,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ATN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A labour code was found (Loi n° 2021-012 du 18 juin 2021 portant Code du travail), but the results did not show its safety provisions. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -628,7 +628,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INNORPI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du travail, promulgated by loi n° 66-27 du 30 avril 1966](https://leap.unep.org/en/countries/tn/national-legislation/loi-no-66-27-portant-promulgation-du-code-du-travail) | secondary | ok | Safety and health articles amended by loi n° 96-62. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -640,7 +640,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [UNBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [The Occupational Safety and Health Act, 2006 (Act 9 of 2006)](https://bills.parliament.ug/attachments/Laws%20of%20Uganda%20%28Acts%29%20-%20THE%20OCCUPATIONAL%20SAFETY%20AND%20HEALTH%20ACT,%202006.pdf) | official | pdf | A 2023 amendment bill was introduced; later amendments not verified. A 2025 report says an amendment bill passed; assent and gazetting not confirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -652,7 +652,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act, 2003 (Act No. 5 of 2003)](https://tanzlii.org/en/akn/tz/act/2003/5/eng@2003-04-11) | secondary | robots | Cap. 297. Sources describe OSHA oversight for Mainland Tanzania; Zanzibar coverage not confirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -664,7 +664,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ZABS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act, 2025 (Act No. 16 of 2025)](https://zambialii.org/akn/zm/act/2025/16/eng@2025-12-30) | secondary | robots | In force 30 December 2025; repeals the 2010 Act. Amended in 2026. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -676,7 +676,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SAZ (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, 2026 (Act No. 7 of 2026)](https://www.afriwise.com/blog/workplace-safety-and-compliance-in-zimbabwe-what-employers-need-to-know-about-the-occupational-safety-and-health-act-2026) | secondary | ok | Commentary says in force 16 Oct 2026 and repeals the Factories and Works Act; not checked against gazette. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -726,7 +726,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [BNSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Safety and Health at Work Act, Cap. 356 (enacted 2005)](https://labour.gov.bb/pdf/Library/safetyandhealthbrochures/Adstract%20to%20the%20Safety%20and%20Health%20at%20Work%20Act%20Cap%20356%20.pdf) | official | pdf | URL is a Labour Department abstract; amended 2022. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -762,7 +762,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ABNT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Lei nº 6.514, de 22 de dezembro de 1977 (amends CLT Title II, Chapter V, Safety and Occupational Medicine)](https://planalto.gov.br/ccivil_03/leis/l6514.htm) | official | ok | Safety provisions sit in CLT arts. 154-201; later amendments not checked. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -774,7 +774,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SCC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Canada Labour Code (R.S.C., 1985, c. L-2), Part II](https://laws-lois.justice.gc.ca/eng/acts/L-2/page-15.html) | official | ok | Federally regulated workplaces only. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -786,7 +786,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley 16.744, Establece normas sobre accidentes del trabajo y enfermedades profesionales (published 1968)](https://www.bcn.cl/leychile/navegar?idNorma=28650) | official | ok | Applies together with Código del Trabajo arts. 184 ff. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -798,7 +798,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ICONTEC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley 1562 de 2012 (Sistema de Riesgos Laborales and occupational safety and health provisions)](https://www1.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=48365) | official | ok | Amends the occupational risk system, including Decree-Law 1295 of 1994. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -810,7 +810,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INTECO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -822,7 +822,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley 189, Código de Trabajo (approved 30 July 2026)](https://www.prensa-latina.cu/2026/07/30/nuevo-codigo-de-trabajo-amplia-derechos-laborales-en-cuba/) | secondary | ok | Replaces Ley 116 of 2013. Reported gazetted 18 Sep 2026; reports conflict on effect (25 Sep or about 90 days later). OSH content not confirmed from text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -834,7 +834,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DBOS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -846,7 +846,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INDOCAL (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Código de Trabajo (Ley 16-92 of 1992), implemented for OSH by Reglamento 522-06](https://www.sismap.gob.do/Central/uploads/Reglamento522-06.pdf) | official | pdf | URL is the OSH regulation (Decree 522-06), not the Code; a revision was consulted on in 2023. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -858,7 +858,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INEN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Código del Trabajo (with Reglamento de Seguridad y Salud en el Trabajo, Decreto Ejecutivo 255 of 2024)](https://www.trabajo.gob.ec/wp-content/uploads/2025/10/24102025_Estructura-RHS-v9.pdf) | official | error | URL is a Labour Ministry document citing the Code (arts. 42, 410), not the Code text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -870,7 +870,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [CONACYT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley General de Prevención de Riesgos en los Lugares de Trabajo (Decreto Legislativo 254 of 2010)](https://el-salvador.justia.com/nacionales/leyes/ley-general-de-prevencion-de-riesgos-en-los-lugares-de-trabajo/gdoc) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -882,7 +882,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [GDBS (ISO subscriber member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -894,7 +894,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [COGUANOR (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Código de Trabajo (Decreto 1441), Title V, Higiene y seguridad en el trabajo](https://leap.unep.org/en/countries/gt/national-legislation/decreto-no-1441-codigo-de-trabajo-de-guatemala) | secondary | ok | Implemented by Acuerdo Gubernativo 229-2014, as amended. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -906,7 +906,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [GNBS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, Cap. 99:06 (Act 32 of 1997)](https://dpi.gov.gy/press-release-the-ministry-of-labour-reminds-employers-of-their-duties-under-the-occupational-safety-and-health-act-chapter-99-06-laws-of-guyana) | official | robots | URL is a government press release. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -918,7 +918,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [BHN (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du travail (1961), updated by the decree of 24 February 1984 and the law of 5 June 2003](https://oig.cepal.org/sites/default/files/2003_codtravail_hti.pdf) | secondary | pdf | A chapter on hygiene and safety is listed; its article text was not seen. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -930,7 +930,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [OHN (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Código del Trabajo, Title V (worker health protection; hygiene and safety)](https://vzf.ilo.org/wp-content/uploads/2021/09/Manual-para-formadores.-Reglamentacion-en-materia-de-seguridad-y-salud-en-el-trabajo-para-la-agricultura-en-Honduras.pdf) | secondary | pdf | URL is an ILO training manual. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -942,7 +942,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [JBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Factories Act (1943)](https://mlss.gov.jm/departments/occupational-safety-and-health) | official | error | Covers factories only in the main. OSH Bill pending as of 2024; no 2025-26 passage found. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -954,7 +954,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DGN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley Federal del Trabajo (Título Noveno, Riesgos de Trabajo, arts. 472-515)](https://www.diputados.gob.mx/LeyesBiblio//pdf/LFT.pdf) | official | error |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -966,7 +966,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DTNM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley No. 618, Ley General de Higiene y Seguridad del Trabajo (2007)](https://leap.unep.org/en/countries/ni/national-legislation/ley-no-618-ley-general-de-higiene-y-seguridad-del-trabajo-texto) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -978,7 +978,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [COPANIT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Código de Trabajo (1971), Book II, Riesgos Profesionales](https://www.academia.utp.ac.pa/sites/default/files/docente/51/4._legislacion_panama.pdf) | secondary | pdf | University course document. Ley 44 of 1995 also cited as part of the framework. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -990,7 +990,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INTN (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley N° 5804/2017, establece el Sistema Nacional de Prevención de Riesgos Laborales](https://www.bacn.gov.py/leyes-paraguayas/9127/ley-n-5804-establece-el-sistema-nacional-de-prevenci-n-de-riesgos-laborales) | official | ok | Regulates Labour Code safety provisions; phased implementation reported, current extent unconfirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1002,7 +1002,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [INACAL (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley N° 29783, Ley de Seguridad y Salud en el Trabajo (2011)](https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=38) | official | pdf | Amended, including by Laws 30222 and 31246. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1014,7 +1014,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SKNBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | A search result gave a link that returned 'not found'; entry removed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1026,7 +1026,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SLBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 2006 (No. 37 of 2006; originally Labour Code), occupational safety and health Part](https://www.govt.lc/media.govt.lc/www/resources/legislation/SaintLuciaLabourCode2006.pdf) | official | pdf | ILO NATLEX gives entry into force 1 Aug 2012; also cited as Cap. 16.04. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1038,7 +1038,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SVGBS (ISO subscriber member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Factories Act](https://www.ilo.org/resource/news/saint-vincent-and-grenadines-moves-modernize-workplace-safety) | secondary | ok | ILO (June 2026): a new OSH Act is passed but awaits proclamation. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1050,7 +1050,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SSB (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Veiligheidswet 1947 (G.B. 1947 no. 142), as amended, including S.B. 2023 no. 121](https://www.sris.sr/wp-content/uploads/2023/09/Veiligheidswet-1947-wijziging-S.B.-2023-no.-121.pdf) | secondary | pdf | URL is the 2023 amendment. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1062,7 +1062,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TTBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act, Chap. 88:08 (2004, amended 2006)](https://www.finance.gov.tt/legislation/the-occupational-safety-and-health-act/) | official | error | Check for a current consolidated text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1074,7 +1074,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ANSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act of 1970 (Public Law 91-596)](https://www.osha.gov/laws-regs/oshact/completeoshact) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1086,7 +1086,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [UNIT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley N° 5032 (1914), Accidentes de trabajo. Medidas de prevención](https://impo.com.uy/bases/leyes/5032-1914) | official | ok | Developed by decrees, e.g. Decreto 406/988. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1098,7 +1098,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SENCAMER (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley Orgánica de Prevención, Condiciones y Medio Ambiente de Trabajo (LOPCYMAT), 2005](https://venezuela.justia.com/federales/leyes-organicas/ley-organica-de-prevencion-condiciones-y-medio-ambiente-de-trabajo/gdoc/) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1196,7 +1196,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISC (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law (1997), Chapter VIII, Health and Safety of Workers](https://wageindicator.org/en-kh/work-in-cambodia/labour-law/health-and-safety) | secondary | robots | Amended 2021. A standalone OSH law was still in draft in July 2026. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1232,7 +1232,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [CSK (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Protection Law of the Democratic People's Republic of Korea (2014 text)](https://lawandnorthkorea.com/laws/labour-protection-law-2014) | secondary | robots | Unofficial translation; current version unverified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1244,7 +1244,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [GEOSTM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Organic Law of Georgia on Occupational Safety (2019)](https://matsne.gov.ge/en/document/view/4486188) | official | ok | Consolidated text shows amendments in 2023 and 2025. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1256,7 +1256,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [BIS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety, Health and Working Conditions Code, 2020 (Act No. 37 of 2020)](https://www.indiacode.nic.in/bitstream/123456789/22041/1/2020-37.pdf) | official | error | In force 21 November 2025 per search results; check later amendments and rules. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1280,7 +1280,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISIRI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code (1990), Chapter IV (technical protection and occupational health, arts. 85-106)](https://faolex.fao.org/en/documents/LEX-FAOC158844/law-on-labour-irn-1990) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1292,7 +1292,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [COSQC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law No. 37 of 2015](https://chambers.com/articles/labour-law-in-iraq-2) | secondary | robots | OSH chapter number not confirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1304,7 +1304,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SII (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Work Safety Ordinance (New Version), 5730-1970](https://www.gov.il/en/departments/units/safety-and-occupational-health-contacts) | official | blocked | URL is the OSH Administration page citing the Ordinance. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1316,7 +1316,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [JISC (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Industrial Safety and Health Act (Act No. 57 of 1972)](https://www.japaneselawtranslation.go.jp/en/laws/view/3440/en) | official | ok | English translation is unofficial and may lag the latest amendments. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1328,7 +1328,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [JISM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law No. 8 of 1996 (Chapter IX, Occupational Safety and Health)](https://www.mol.gov.jo/ebv4.0/root_storage/en/eb_list_page/labor_law_no_8_of_1996.pdf) | official | error | Amended, including by Law No. 10 of 2023. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1340,7 +1340,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [KAZMEMST (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code of the Republic of Kazakhstan (No. 414-V of 23 November 2015)](https://www.adilet.zan.kz/eng/docs/K1500000414) | official | robots | Unofficial English text; amended since adoption. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1352,7 +1352,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [KOWSMD (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 6 of 2010 concerning Labour in the Private Sector](https://alp.unescwa.org/legislations/law-6-2010-labor) | secondary | blocked | Private sector; amended since 2010. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1364,7 +1364,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [KYRGYZST (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law of the Kyrgyz Republic on Occupational Safety](https://gratanet.com/publications/occupational-health-and-safety-regulations-in-kyrgyzstan) | secondary | ok | Safety rules moved out of the 2025 Labour Code into a separate law; its number and date are unconfirmed in results. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1376,7 +1376,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DOSM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law on Labor No. 43/NA (2013)](https://digital-client-solutions.hoganlovells.com/resources/esg-global-vision/jurisdiction/laos) | secondary | ok | Labour law carrying OSH provisions; supplemented by an OSH decree. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1388,7 +1388,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LIBNOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code of 23 September 1946, with Decree No. 11802 of 30 January 2004 on prevention, safety and occupational health](https://wageindicator.org/ar-lb/ai/work-in-lebanon/labour-law/health-and-safety/) | secondary | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1400,7 +1400,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act 1994 (Act 514), reprint as at 1 June 2024](https://dosh.gov.my/wp-content/uploads/2025/03/Act-514-Reprint-Version-1.6.2024_English.pdf) | official | pdf | Amended by Act A1648, in force 1 June 2024. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1412,7 +1412,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act (ratified 2 January 2024)](https://presidency.gov.mv/Press/Article/29534) | official | ok | Act number reported inconsistently (09/2023 or 2/2024). A 2024 source said it then applied only to some workplaces and regulations were pending. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1424,7 +1424,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MASM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law of Mongolia on Occupational Safety and Health (2008)](https://legalinfo.mn/mn/detail?lawId=564) | official | ok | English title varies (also Labour Safety and Hygiene). A revised draft was under discussion. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1436,7 +1436,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MSTRD (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Law, 2019 (Law No. 8/2019)](https://www.ilo.org/resource/news/new-law-major-step-workplace-safety-and-health-myanmar) | secondary | ok | Takes effect on presidential notification; results do not confirm it has been issued. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1448,7 +1448,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NBSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Act, 2017 (Act No. 14 of 2017)](https://leap.unep.org/en/countries/np/national-legislation/labour-act-2017-act-no-14-2017) | secondary | ok | Chapter 12 covers OSH; some groups excluded. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1460,7 +1460,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DGSM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law, Royal Decree No. 53/2023](https://leap.unep.org/en/countries/om/national-legislation/royal-decree-no-532023-issuing-labor-law) | secondary | ok | Has an OSH chapter. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1472,7 +1472,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [PSQCA (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | No single national law supported. Results show provincial OSH Acts (Sindh 2017, Punjab 2019, Khyber Pakhtunkhwa 2022, Balochistan 2022); federal position conflicting. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1484,7 +1484,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [BPS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Republic Act No. 11058 (2018), An Act Strengthening Compliance with Occupational Safety and Health Standards and Providing Penalties for Violations Thereof](https://ldr.senate.gov.ph/legislative-issuance/republic-act-no-11058) | official | robots |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1496,7 +1496,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [QS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 14 of 2004 issuing the Labour Law](https://alp.unescwa.org/legislations/law-14-2004-labor) | secondary | blocked | Part Ten covers safety and occupational health; amended since 2004. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1508,7 +1508,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [KATS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act (wholly amended by Act No. 16272 of 2019, since amended)](https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=63609) | official | ok | KLRI (state research institute) English translation. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1520,7 +1520,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SASO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law, Royal Decree No. M/51, chapter eight (worker safety and health)](https://www.wipo.int/wipolex/en/text/498399) | secondary | ok | Translation; the Arabic text governs. Amended since. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1532,7 +1532,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SPRING SG (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Workplace Safety and Health Act 2006 (2020 Revised Edition)](https://sso.agc.gov.sg/Act/WSHA2006) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1544,7 +1544,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SLSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Factories Ordinance No. 45 of 1942](https://wageindicator.org/en-lk/work-in-sri-lanka/labour-law/health-and-safety) | secondary | robots | Main OSH statute but not a comprehensive one; amendment plans reported. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1556,7 +1556,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [PSI (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law No. 7 of 2000](https://leap.unep.org/en/countries/ps/national-legislation/labour-law-no-7-2000) | secondary | ok | Has a safety and health chapter; check later decree-law amendments. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1568,7 +1568,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SASMO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Law No. 17 of 2010](https://leap.unep.org/en/countries/sy/national-legislation/labour-law-no-172010) | secondary | ok | OSH in Title XI; amendment process reported under way. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1580,7 +1580,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TJKSTN (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code of the Republic of Tajikistan (Law No. 1897)](https://leap.unep.org/en/countries/tj/national-legislation/labor-code-law-no-1897) | secondary | ok | Labour code carrying OSH rules. A FAOLEX record dates No. 1897 to 2022; it appears to follow the 2016 Code No. 1329, which had a labour safety section. Repeal and OSH content of No. 1897 not confirmed in results. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1592,7 +1592,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TISI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety, Health and Environment Act B.E. 2554 (2011)](https://data.opendevelopmentmekong.net/th/laws_record/occupational-safety-health-and-environment-act-b-e-2554-a-d-2011) | secondary | error | English title varies by source. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1604,7 +1604,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 11/2023 on Safety, Health and Hygiene at Work](https://leap.unep.org/en/countries/tl/national-legislation/law-no-112023-safety-health-and-hygiene-work) | secondary | ok | Dedicated OSH law, published April 2023. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1616,7 +1616,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MSST (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code of Turkmenistan (2009)](https://faolex.fao.org/en/documents/LEX-FAOC243144/labour-code-tkm-2009) | secondary | ok | Carries OSH provisions. A separate Law on Labour Protection is also listed; its date and status are unconfirmed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1628,7 +1628,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TSE (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Law No. 6331 (2012)](https://live.csgb.gov.tr/Media/hkrbms4l/6331_isgkanunu_en-pdf-ing.pdf) | official | error | Ministry English translation; amended since. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1652,7 +1652,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [UZSTANDARD (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law of the Republic of Uzbekistan on Labour Protection (new edition, No. ZRU-410 of 22 September 2016)](https://lex.uz/acts/3031429) | official | ok | Number also rendered LRU-410. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1664,7 +1664,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [TCVN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law on Occupational Safety and Hygiene No. 84/2015/QH13](https://thuvienphapluat.vn/van-ban/EN/Lao-dong-Tien-luong/Law-No-84-2015-QH13-on-occupational-safety-and-hygiene/284379/tieng-anh.aspx) | secondary | blocked | In force 1 July 2016. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1676,7 +1676,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [YSMO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code, Act No. 5 of 1995 (Chapter IX, occupational safety and health)](https://alp.unescwa.org/legislations/law-5-1995-labor) | secondary | blocked | Amended, including by Law No. 15 of 2008. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1774,7 +1774,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [HZN (hr) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act (Zakon o zaštiti na radu), NN 71/14](https://narodne-novine.nn.hr/clanci/sluzbeni/2014_06_71_1334.html) | official | ok | Amended since 2014. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1786,7 +1786,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ÚNMZ (cs) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code, Act No. 262/2006 Coll. (Part Five), with Act No. 309/2006 Coll. on further OSH requirements](https://ppropo.mpsv.cz/zakon_309_2006) | official | ok | Link is to Act No. 309/2006. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1798,7 +1798,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DS (da) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Working Environment Act (arbejdsmiljøloven), Consolidated Act No. 2062 of 16 November 2021](https://at.dk/en/regulations/working-environment-act/) | official | ok | English is unofficial; check retsinformation.dk for a later consolidation. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1810,7 +1810,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [EVS (et) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act (passed 16 June 1999)](https://www.riigiteataja.ee/en/tolge/pdf/522122025004) | official | ok | English translation; amended many times, check current consolidation. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1822,7 +1822,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SFS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act (738/2002)](https://finlex.fi/en/legislation/translations/2002/eng/738) | official | ok | Translation; only Finnish and Swedish texts are binding. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1834,7 +1834,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [AFNOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du travail, Part Four (Santé et sécurité au travail)](https://www.legifrance.gouv.fr/codes/id/LEGIARTI000006903147/2026-08-06) | official | blocked | Link is an article-level page of the Code. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1846,7 +1846,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [DIN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Arbeitsschutzgesetz (ArbSchG) of 7 August 1996](https://www.gesetze-im-internet.de/arbschg/BJNR124610996.html) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1858,7 +1858,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ELOT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law 3850/2010, Code of Laws for the Health and Safety of Workers](https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86870) | secondary | blocked | Amended since; check for later recodification. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1870,7 +1870,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. LIV of 10 December 2007 on the protection of workers' safety and health at work](https://iusecclesiae.it/article/download/1662/285/228) | secondary | pdf | Vatican City State; title is a translated description. Italian rules apply in Lateran Treaty Art. 15 areas. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1882,7 +1882,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MSZT (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Act XCIII of 1993 on Occupational Safety (1993. évi XCIII. törvény a munkavédelemről)](https://njt.jog.gov.hu/jogszabaly/1993-93-00-00) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1894,7 +1894,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [IST (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Act on Working Environment, Health and Safety in Workplaces, No. 46/1980](https://government.is/publications/legislation/lex/2005/05/25/Act-on-Working-Environment-Health-and-Safety-in-Workplaces-No.-46-1980) | official | robots | As amended. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1906,7 +1906,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NSAI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Safety, Health and Welfare at Work Act 2005](https://www.irishstatutebook.ie/eli/2005/act/10) | official | ok |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1918,7 +1918,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [UNI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Decreto Legislativo 9 aprile 2008, n. 81 (Testo Unico on health and safety at work)](https://www.lavoro.gov.it/sites/default/files/archivio-doc-pregressi/Documents/Resources/Lavoro/Eventi/Dlgsn812008.pdf) | official | robots | Amended since 2008; linked copy is from ministry archive and may not be current. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1930,7 +1930,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LVS (fr) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Protection Law](https://likumi.lv/ta/en/id/26020-labour-protection-law) | official | ok | English translation; check Latvian consolidated version. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1942,7 +1942,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Gesetz vom 29. Dezember 1966 über die Arbeit in Industrie, Gewerbe und Handel (Arbeitsgesetz), LGBl. 1967 Nr. 6](https://nextmobile.gesetze.li/konso/pdf/1967006000?version=13) | official | error | Labour Act with health protection provisions; some safety rules derive from Swiss law via the customs treaty. Linked version may not be latest. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1954,7 +1954,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [LSD (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law on Safety and Health at Work, 1 July 2003, No IX-1672](https://e-seimas.lrs.lt/rs/legalact/TAD/3c128c0120eb11e58a4198cd62929b7a) | official | blocked | Amended several times; check current consolidated text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1966,7 +1966,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ILNAS (de; fr) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Code du travail, Livre III: Protection, sécurité et santé des salariés](https://data.legilux.public.lu/file/eli-etat-leg-code-travail-20211129-fr-pdf.pdf) | official | pdf | Dated consolidation (2021); newer versions may exist. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1978,7 +1978,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MSA (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work Act, 2024 (Act XXXIII of 2024), Cap. 646](https://www.mondaq.com/health-safety/1552846/the-new-health-and-safety-at-work-act) | secondary | ok | Repealed the OHSA Act (Cap. 424). |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -1990,7 +1990,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [AMNOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | Results show Act No. 637 of 1958 (occupational health services) and older hygiene and safety decrees, but no clear principal OSH law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2002,7 +2002,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISME (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Zakon o zaštiti i zdravlju na radu (Law on Protection and Health at Work), Sl. list CG 34/14, amended 44/18 and 84/24](https://www.cbcg.me/slike_i_fajlovi/fajlovi/fajlovi_brzi_linkovi/propisi/zakoni/ostali_zakoni/zakon_o_zastiti_i_zdravlju_na_radu_prec_tekst_84-24.pdf) | secondary | pdf | Central Bank's unofficial consolidated text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2014,7 +2014,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NEN (nl) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Working Conditions Act (Arbeidsomstandighedenwet 1998)](https://business.gov.nl/regulations/working-conditions-employees/) | official | ok | Government guidance page, not the Act text. European Netherlands; coverage of Caribbean territories not checked. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2026,7 +2026,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISRM (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law on Safety and Health at Work (Official Gazette No. 92/07, as amended)](https://aseestant.ceon.rs/index.php/jouproman/article/view/21113) | secondary | ok | Journal article. A replacement law was reported in drafting; adoption not verified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2038,7 +2038,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Act of 17 June 2005 No. 62 relating to working environment, working hours and employment protection, etc. (Working Environment Act)](https://www.regjeringen.no/en/topics/labour/the-working-environment-and-safety/innsikt/arbeidsmiljoloven/id447107) | official | blocked | Amended since 2005. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2050,7 +2050,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [PKN (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Kodeks pracy (Labour Code), Part Ten: Bezpieczeństwo i higiena pracy](https://eli.gov.pl/api/acts/DU/2023/1465/text/U/D20231465Lj.pdf) | official | pdf | Link is the 2023 consolidated text (Dz.U. 2023 poz. 1465); a secondary result cites a newer one, Dz.U. 2025 poz. 277. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2062,7 +2062,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [IPQ (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Lei n.º 102/2009, de 10 de setembro - Regime jurídico da promoção da segurança e saúde no trabalho](https://diariodarepublica.pt/dr/detalhe/lei/102-2009-490009) | official | blocked | Amended several times; see consolidated version. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2074,7 +2074,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISM (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law No. 186-XVI of 10 July 2008 on occupational safety and health (Legea securității și sănătății în muncă)](https://statistica.gov.md/files/files/Cooperare_internationala/Actele_nationale_transpunere_regulamente_UE/Low_%20186_2008_SSM_2024_EN.pdf) | official | pdf | Unofficial English translation hosted by the National Bureau of Statistics; amended since 2008. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2086,7 +2086,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ASRO (ro) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Legea nr. 319/2006 a securității și sănătății în muncă](https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/76016/ROM-76016.pdf) | secondary | blocked | In force from 1 October 2006; later amendments may not be in linked text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2098,7 +2098,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [GOST R (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour Code of the Russian Federation, Federal Law No. 197-FZ (2001), Section X (occupational safety)](https://faolex.fao.org/ru/documents/LEX-FAOC245154/labour-code-law-no-197-fz-rus-2001) | secondary | ok | Section X overhauled by Federal Law No. 311-FZ, in force 1 March 2022; linked record may predate it. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2110,7 +2110,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Legge 18 febbraio 1998 n. 31, Legge quadro in materia di sicurezza e salute nei luoghi di lavoro](https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=56485) | secondary | blocked | Amended, including by Law No. 191 of 2021. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2122,7 +2122,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [ISS (sr) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law on Occupational Safety and Health (Zakon o bezbednosti i zdravlju na radu), Official Gazette 35/23](https://ceelegalmatters.com/serbia/24100-new-law-on-safety-and-health-at-work) | secondary | robots | Replaced the 2005 law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2134,7 +2134,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [UNMS SR (sk) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Act No. 124/2006 Coll. on occupational safety and health protection](https://static.slov-lex.sk/pdf/SK/ZZ/2006/124/ZZ_2006_124.pdf) | official | pdf | Amended since 2006; check the version in force. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2146,7 +2146,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SIST (sl) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work Act (ZVZD-1), Official Gazette No. 43/11](https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=89470) | secondary | blocked |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2158,7 +2158,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [AENOR (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales](https://boe.es/boe/dias/1995/11/10/pdfs/A32590-32611.pdf) | official | pdf | Link is the original 1995 text; amended since. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2170,7 +2170,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SIS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Work Environment Act (Arbetsmiljölagen, SFS 1977:1160)](https://government.se/contentassets/86e9091526644e90b78d2ff937318530/sfs-19771160-work-environment-act) | official | blocked | Translation may lag amendments. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2182,7 +2182,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SNV (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Federal Act on Accident Insurance (UVG); with the Labour Act (ArG) for health protection](https://www.ekas.admin.ch/en/occupational-health-and-safety/information-for-employees/legal-basis) | official | ok | No single OSH law: UVG covers accident and occupational disease prevention, ArG general health protection. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2194,7 +2194,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SE UkrNDNC (uk) (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Law of Ukraine on Labour Protection, 14 October 1992, No. 2694-XII](https://kodeksy.com.ua/ka/ob_ohrane_truda.htm) | secondary | ok | Amended since 1992. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2206,7 +2206,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [BSI (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work etc. Act 1974](https://www.legislation.gov.uk/ukpga/1974/37/contents) | official | blocked | Primary law for Great Britain; Northern Ireland coverage not verified (generally has separate legislation). |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2232,7 +2232,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [FTSQCO (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work Act 1996 (Act No. 4 of 1996)](https://paclii.org/fj/legis/num_act/hasawa1996237) | secondary | robots | Amended, including 2003. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2244,7 +2244,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act 2015](https://pacliirms.austlii.edu.au/ki/legis/num_act/ohasa2015273) | secondary | error | Amended 2018. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2256,7 +2256,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Health and Safety Act, 2023 (P.L. 2023-92)](https://leap.unep.org/en/countries/mh/national-legislation/occupational-health-and-safety-act-2023-pl-2023-92) | secondary | ok | Commencement not verified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2268,7 +2268,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | No national OSH statute shown; a commercial guide says there is no single comprehensive law. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2280,7 +2280,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | Only commercial guides, which conflict on whether an OHS Act exists. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2292,7 +2292,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [SNZ (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work Act 2015](https://www.legislation.govt.nz/act/public/2015/70/en/latest/) | official | blocked | Amendment bill reported before Parliament. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2304,7 +2304,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | Results indicate no comprehensive OSH law; a bill (SB 12-59) was proposed. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2316,7 +2316,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [NISIT (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Industrial Safety, Health and Welfare Act 1961 (Chapter 175)](https://rms.paclii.org/pg/legis/num_act/ishawa2016415) | secondary | robots | Link is the 2016 Amendment Act to Ch. 175. Current status not verified; results also list a 1991 OHSW Act. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2328,7 +2328,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MCIL-NSS (ISO correspondent member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Occupational Safety and Health Act 2002](https://www.health.gov.ws/wp-content/uploads/2022/07/9Occupational_Safety_and_Health_Act_2002_-_Eng.pdf) | official | pdf |  |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2340,7 +2340,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Safety at Work Act (Cap. 74)](https://pacliirms.paclii.org/sb/legis/consol_act/sawac74190.pdf) | secondary | robots | A search result describes a 2024 reprint as current. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2352,7 +2352,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [MCCTIL-TSCC (ISO subscriber member)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | not found | | | No confirmed OSH Act; ILO profile points to public health legislation; guide claim of a 2005 OHS Act unverified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2364,7 +2364,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | not searched yet | | |  |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Labour and Employment Relations Act 2017, Part 6 (Occupational Safety and Health)](https://pacliirms.paclii.org/tv/legis/num_act/laera2017332) | secondary | robots | Labour law carrying OSH provisions; commencement not separately verified. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |
@@ -2376,7 +2376,7 @@ For the 27 EU members, and for Iceland, Liechtenstein and Norway (confirm incorp
 | Area | Entry | Source | Check | Note |
 |---|---|---|---|---|
 | National standards body | [VBS (ISO member body)](https://en.wikipedia.org/wiki/Countries_in_the_International_Organization_for_Standardization) | secondary | ok | Acronym from Wikipedia's table of countries in ISO (page read 2026-11-25); the link is that table, not the body's own site. |
-| Occupational safety and health law | not searched yet | | |  |
+| Occupational safety and health law | [Health and Safety at Work Act (CAP 195) (Act No. 24 of 1986)](https://dol.gov.vu/index.php/about-us/health-and-safety-unit) | official | ok | Department of Labour page, not the Act text. |
 | Major hazard / process safety | not searched yet | | |  |
 | Boilers and pressure equipment | not searched yet | | |  |
 | Fire safety law or code | not searched yet | | |  |

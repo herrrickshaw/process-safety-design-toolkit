@@ -98,8 +98,8 @@ def markdown() -> str:
              "## Read this first", "",
              "* **This is a starting index, not a legal register.** It records one standards body and up to six main laws or codes per "
              "state. It does not list every safety standard in any country.",
-             f"* **This table is incomplete.** {c['not_searched']} of {c['slots']} slots have not been searched yet, and for "
-             f"{c['states_laws_untouched']} of {c['states']} states none of the six law areas has been searched.",
+             f"* **This table is incomplete.** {c['not_searched']} of {c['slots']} slots have not been searched yet. The table under "
+             "Coverage shows how many in each area.",
              "* **The pages were not read.** Entries come from web-search result listings, except standards bodies marked as coming "
              f"from one Wikipedia table (compiled {d['compiled']}). Names, years, whether a law is still in force and whether it applies to your asset are unconfirmed.",
              "* **`not found` is not `none exists`.** It means the searches did not turn one up. **`not searched yet`** means nobody "

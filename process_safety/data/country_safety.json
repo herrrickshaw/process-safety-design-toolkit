@@ -1,7 +1,7 @@
 {
  "compiled": "2026-11-25",
  "note": "Compiled from web-search result listings (pages not read) and, for some standards bodies, one Wikipedia table. not-found does not mean no law exists; not-searched means nobody has looked.",
- "audit": "On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched.",
+ "audit": "On 2026-11-25 a seeded random sample (seed 20261125) of 24 entries from the search-derived rows was searched again by the lead agent: 24 confirmed as existing documents or bodies for that state and area, 0 wrong, 0 unconfirmed; 4 of them needed a scope note (Cameroon pressure equipment, Andorra fire, Bosnia and Herzegovina occupational safety, Australia pressure equipment). Limits: same kind of search tool as the research, pages not opened, currency and applicability not tested, and the sample comes only from states early in the alphabet within each region because those are the ones researched. Second round, same day, occupational safety law only: four agents searched the 158 states not yet searched. A seeded random sample (seed 20261126) of their entries was drawn and the first 12 searched again by the lead agent: all 12 laws turned up for that state, 0 wrong, 0 unconfirmed (Uganda given an amendment note). Same limits: existence only.",
  "countries": {
   "AFG": {
    "standards_body": {
@@ -1063,8 +1063,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Lei nº 6.514, de 22 de dezembro de 1977 (amends CLT Title II, Chapter V, Safety and Occupational Medicine)",
+    "url": "https://planalto.gov.br/ccivil_03/leis/l6514.htm",
+    "source": "official",
+    "note": "Safety provisions sit in CLT arts. 154-201; later amendments not checked.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1097,8 +1101,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Safety and Health at Work Act, Cap. 356 (enacted 2005)",
+    "url": "https://labour.gov.bb/pdf/Library/safetyandhealthbrochures/Adstract%20to%20the%20Safety%20and%20Health%20at%20Work%20Act%20Cap%20356%20.pdf",
+    "source": "official",
+    "note": "URL is a Labour Department abstract; amended 2022.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1315,8 +1323,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Canada Labour Code (R.S.C., 1985, c. L-2), Part II",
+    "url": "https://laws-lois.justice.gc.ca/eng/acts/L-2/page-15.html",
+    "source": "official",
+    "note": "Federally regulated workplaces only.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1349,8 +1361,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Federal Act on Accident Insurance (UVG); with the Labour Act (ArG) for health protection",
+    "url": "https://www.ekas.admin.ch/en/occupational-health-and-safety/information-for-employees/legal-basis",
+    "source": "official",
+    "note": "No single OSH law: UVG covers accident and occupational disease prevention, ArG general health protection.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1383,8 +1399,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley 16.744, Establece normas sobre accidentes del trabajo y enfermedades profesionales (published 1968)",
+    "url": "https://www.bcn.cl/leychile/navegar?idNorma=28650",
+    "source": "official",
+    "note": "Applies together with Código del Trabajo arts. 184 ff.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1517,8 +1537,12 @@
     "check": "blocked"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n°92-007 du 14 août 1992 portant Code du Travail",
+    "url": "https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg92-007-du-14-aout-1992-portant-code-du-travail",
+    "source": "secondary",
+    "note": "Labour code; detailed safety rules are in Order No. 039/MTPS/IMT of 1984.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "found",
@@ -1559,8 +1583,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n° 015/2002 du 16 octobre 2002 portant Code du travail",
+    "url": "https://leap.unep.org/en/countries/cd/national-legislation/loi-ndeg-015-2002-du-16-octobre-2002-portant-code-du-travail",
+    "source": "secondary",
+    "note": "Amended by Law 16/010 of 2016.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1593,8 +1621,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1627,8 +1655,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley 1562 de 2012 (Sistema de Riesgos Laborales and occupational safety and health provisions)",
+    "url": "https://www1.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=48365",
+    "source": "official",
+    "note": "Amends the occupational risk system, including Decree-Law 1295 of 1994.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1657,8 +1689,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du Travail, loi n° 84-108/PR, as amended by the law of 28 June 2012",
+    "url": "https://www.africa-laws.org/Comores%5CEmployment%20law%5CLoi%20du%2028%20juin%202012%20abrogeant,%20modifiant%20et%20compl%C3%A9tant%20certaines%20dispositions%20de%20la%20loi%20n%C2%B0%2084-108PR%20portant%20Code%20du%20travail..pdf",
+    "source": "secondary",
+    "note": "Link is the 2012 amending law. Law 88-015/AF (1988) supplements the code's safety articles.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1687,8 +1723,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code, approved by Legislative-Decree No. 5/2007",
+    "url": "https://leap.unep.org/en/countries/cv/national-legislation/legislative-decree-no-52007-approving-labour-code-cape-verde",
+    "source": "secondary",
+    "note": "Code since amended. Decree-Law 55/99 also sets workplace safety and health measures; its current status was not confirmed.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1721,8 +1761,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1755,8 +1795,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley 189, Código de Trabajo (approved 30 July 2026)",
+    "url": "https://www.prensa-latina.cu/2026/07/30/nuevo-codigo-de-trabajo-amplia-derechos-laborales-en-cuba/",
+    "source": "secondary",
+    "note": "Replaces Ley 116 of 2013. Reported gazetted 18 Sep 2026; reports conflict on effect (25 Sep or about 90 days later). OSH content not confirmed from text.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1835,8 +1879,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code, Act No. 262/2006 Coll. (Part Five), with Act No. 309/2006 Coll. on further OSH requirements",
+    "url": "https://ppropo.mpsv.cz/zakon_309_2006",
+    "source": "official",
+    "note": "Link is to Act No. 309/2006.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1869,8 +1917,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Arbeitsschutzgesetz (ArbSchG) of 7 August 1996",
+    "url": "https://www.gesetze-im-internet.de/arbschg/BJNR124610996.html",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1903,8 +1955,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du Travail, loi n° 133/AN/05/5ème L (2006)",
+    "url": "https://www.icnl.org/wp-content/uploads/Djibouti_labcode.pdf",
+    "source": "secondary",
+    "note": "Labour code; amended several times.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1937,8 +1993,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -1971,8 +2027,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Working Environment Act (arbejdsmiljøloven), Consolidated Act No. 2062 of 16 November 2021",
+    "url": "https://at.dk/en/regulations/working-environment-act/",
+    "source": "official",
+    "note": "English is unofficial; check retsinformation.dk for a later consolidation.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2005,8 +2065,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Código de Trabajo (Ley 16-92 of 1992), implemented for OSH by Reglamento 522-06",
+    "url": "https://www.sismap.gob.do/Central/uploads/Reglamento522-06.pdf",
+    "source": "official",
+    "note": "URL is the OSH regulation (Decree 522-06), not the Code; a revision was consulted on in 2023.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2039,8 +2103,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n° 88-07 du 26 janvier 1988 relative à l'hygiène, à la sécurité et à la médecine du travail",
+    "url": "https://www.mtess.gov.dz/?p=72807",
+    "source": "official",
+    "note": "",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2073,8 +2141,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Código del Trabajo (with Reglamento de Seguridad y Salud en el Trabajo, Decreto Ejecutivo 255 of 2024)",
+    "url": "https://www.trabajo.gob.ec/wp-content/uploads/2025/10/24102025_Estructura-RHS-v9.pdf",
+    "source": "official",
+    "note": "URL is a Labour Ministry document citing the Code (arts. 42, 410), not the Code text.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2107,8 +2179,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 14 of 2025 promulgating the Labour Law",
+    "url": "https://leap.unep.org/en/countries/eg/national-legislation/law-no-14-2025-promulgating-labour-law",
+    "source": "secondary",
+    "note": "In force 1 September 2025; replaces the 2003 labour law.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2141,8 +2217,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "The Labour Proclamation of Eritrea, Proclamation No. 118/2001",
+    "url": "https://leap.unep.org/en/countries/er/national-legislation/labour-proclamation-eritrea-no-118-2001",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2175,8 +2255,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales",
+    "url": "https://boe.es/boe/dias/1995/11/10/pdfs/A32590-32611.pdf",
+    "source": "official",
+    "note": "Link is the original 1995 text; amended since.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2209,8 +2293,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act (passed 16 June 1999)",
+    "url": "https://www.riigiteataja.ee/en/tolge/pdf/522122025004",
+    "source": "official",
+    "note": "English translation; amended many times, check current consolidation.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2243,8 +2331,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Proclamation No. 1156/2019",
+    "url": "https://leap.unep.org/en/countries/et/national-legislation/labour-proclamation-no-1156-2019",
+    "source": "secondary",
+    "note": "Labour law carrying the safety and health provisions.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2277,8 +2369,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act (738/2002)",
+    "url": "https://finlex.fi/en/legislation/translations/2002/eng/738",
+    "source": "official",
+    "note": "Translation; only Finnish and Swedish texts are binding.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2311,8 +2407,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work Act 1996 (Act No. 4 of 1996)",
+    "url": "https://paclii.org/fj/legis/num_act/hasawa1996237",
+    "source": "secondary",
+    "note": "Amended, including 2003.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2345,8 +2445,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du travail, Part Four (Santé et sécurité au travail)",
+    "url": "https://www.legifrance.gouv.fr/codes/id/LEGIARTI000006903147/2026-08-06",
+    "source": "official",
+    "note": "Link is an article-level page of the Code.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2375,8 +2479,8 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "No national OSH statute shown; a commercial guide says there is no single comprehensive law."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2409,8 +2513,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n°022/2021 du 19 novembre 2021 portant Code du Travail",
+    "url": "https://leap.unep.org/en/countries/ga/national-legislation/loi-ndeg0222021-du-19-novembre-2021-portant-code-du-travail",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2443,8 +2551,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work etc. Act 1974",
+    "url": "https://www.legislation.gov.uk/ukpga/1974/37/contents",
+    "source": "official",
+    "note": "Primary law for Great Britain; Northern Ireland coverage not verified (generally has separate legislation).",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2477,8 +2589,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Organic Law of Georgia on Occupational Safety (2019)",
+    "url": "https://matsne.gov.ge/en/document/view/4486188",
+    "source": "official",
+    "note": "Consolidated text shows amendments in 2023 and 2025.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2557,8 +2673,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n° L/2014/072/CNT du 10 janvier 2014 portant Code du Travail",
+    "url": "https://faolex.fao.org/docs/pdf/gui212958.pdf",
+    "source": "secondary",
+    "note": "",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2591,8 +2711,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 2023",
+    "url": "https://motie.gov.gm/wp-content/uploads/2024/11/Labour-Act-2023.pdf",
+    "source": "official",
+    "note": "Has a part on occupational health, safety and welfare. An older Factories Act is also cited.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2621,8 +2745,8 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A labour code was found (Lei n.º 7/2022, de 18 de julho, que aprova o Código do Trabalho), but the results did not show its safety provisions."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2651,8 +2775,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley Núm. 4/2021, de 3 de diciembre, General de Trabajo",
+    "url": "https://www.observatoire-comifac.net/file/eyJtb2RlbCI6IkFwcFxcTW9kZWxzXFxOYXRpb25hbEluZGljYXRvcnNcXE1vZHVsZXNcXE4yXFxUZXh0ZVJlZ2xlbWVudGFpcmUiLCJmaWVsZCI6ImRvY3VtZW50IiwiaWQiOjEwNjB9",
+    "source": "secondary",
+    "note": "Labour code; safety articles not seen in the official text.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2685,8 +2813,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law 3850/2010, Code of Laws for the Health and Safety of Workers",
+    "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86870",
+    "source": "secondary",
+    "note": "Amended since; check for later recodification.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2719,8 +2851,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2753,8 +2885,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Código de Trabajo (Decreto 1441), Title V, Higiene y seguridad en el trabajo",
+    "url": "https://leap.unep.org/en/countries/gt/national-legislation/decreto-no-1441-codigo-de-trabajo-de-guatemala",
+    "source": "secondary",
+    "note": "Implemented by Acuerdo Gubernativo 229-2014, as amended.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2787,8 +2923,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, Cap. 99:06 (Act 32 of 1997)",
+    "url": "https://dpi.gov.gy/press-release-the-ministry-of-labour-reminds-employers-of-their-duties-under-the-occupational-safety-and-health-act-chapter-99-06-laws-of-guyana",
+    "source": "official",
+    "note": "URL is a government press release.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2821,8 +2961,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Código del Trabajo, Title V (worker health protection; hygiene and safety)",
+    "url": "https://vzf.ilo.org/wp-content/uploads/2021/09/Manual-para-formadores.-Reglamentacion-en-materia-de-seguridad-y-salud-en-el-trabajo-para-la-agricultura-en-Honduras.pdf",
+    "source": "secondary",
+    "note": "URL is an ILO training manual.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2855,8 +2999,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act (Zakon o zaštiti na radu), NN 71/14",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2014_06_71_1334.html",
+    "source": "official",
+    "note": "Amended since 2014.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2889,8 +3037,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du travail (1961), updated by the decree of 24 February 1984 and the law of 5 June 2003",
+    "url": "https://oig.cepal.org/sites/default/files/2003_codtravail_hti.pdf",
+    "source": "secondary",
+    "note": "A chapter on hygiene and safety is listed; its article text was not seen.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -2923,8 +3075,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Act XCIII of 1993 on Occupational Safety (1993. évi XCIII. törvény a munkavédelemről)",
+    "url": "https://njt.jog.gov.hu/jogszabaly/1993-93-00-00",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3015,8 +3171,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety, Health and Working Conditions Code, 2020 (Act No. 37 of 2020)",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/22041/1/2020-37.pdf",
+    "source": "official",
+    "note": "In force 21 November 2025 per search results; check later amendments and rules.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3049,8 +3209,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Safety, Health and Welfare at Work Act 2005",
+    "url": "https://www.irishstatutebook.ie/eli/2005/act/10",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3083,8 +3247,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code (1990), Chapter IV (technical protection and occupational health, arts. 85-106)",
+    "url": "https://faolex.fao.org/en/documents/LEX-FAOC158844/law-on-labour-irn-1990",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3117,8 +3285,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law No. 37 of 2015",
+    "url": "https://chambers.com/articles/labour-law-in-iraq-2",
+    "source": "secondary",
+    "note": "OSH chapter number not confirmed.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3151,8 +3323,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Act on Working Environment, Health and Safety in Workplaces, No. 46/1980",
+    "url": "https://government.is/publications/legislation/lex/2005/05/25/Act-on-Working-Environment-Health-and-Safety-in-Workplaces-No.-46-1980",
+    "source": "official",
+    "note": "As amended.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3185,8 +3361,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Work Safety Ordinance (New Version), 5730-1970",
+    "url": "https://www.gov.il/en/departments/units/safety-and-occupational-health-contacts",
+    "source": "official",
+    "note": "URL is the OSH Administration page citing the Ordinance.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3219,8 +3399,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Decreto Legislativo 9 aprile 2008, n. 81 (Testo Unico on health and safety at work)",
+    "url": "https://www.lavoro.gov.it/sites/default/files/archivio-doc-pregressi/Documents/Resources/Lavoro/Eventi/Dlgsn812008.pdf",
+    "source": "official",
+    "note": "Amended since 2008; linked copy is from ministry archive and may not be current.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3253,8 +3437,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Factories Act (1943)",
+    "url": "https://mlss.gov.jm/departments/occupational-safety-and-health",
+    "source": "official",
+    "note": "Covers factories only in the main. OSH Bill pending as of 2024; no 2025-26 passage found.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3287,8 +3475,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law No. 8 of 1996 (Chapter IX, Occupational Safety and Health)",
+    "url": "https://www.mol.gov.jo/ebv4.0/root_storage/en/eb_list_page/labor_law_no_8_of_1996.pdf",
+    "source": "official",
+    "note": "Amended, including by Law No. 10 of 2023.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3321,8 +3513,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Industrial Safety and Health Act (Act No. 57 of 1972)",
+    "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3440/en",
+    "source": "official",
+    "note": "English translation is unofficial and may lag the latest amendments.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3355,8 +3551,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code of the Republic of Kazakhstan (No. 414-V of 23 November 2015)",
+    "url": "https://www.adilet.zan.kz/eng/docs/K1500000414",
+    "source": "official",
+    "note": "Unofficial English text; amended since adoption.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3389,8 +3589,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, 2007 (Cap. 236A)",
+    "url": "https://new.kenyalaw.org/akn/ke/act/2007/15/eng@2022-12-31/source.pdf",
+    "source": "official",
+    "note": "Act No. 15 of 2007; consolidated text as at 31 December 2022.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3423,8 +3627,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law of the Kyrgyz Republic on Occupational Safety",
+    "url": "https://gratanet.com/publications/occupational-health-and-safety-regulations-in-kyrgyzstan",
+    "source": "secondary",
+    "note": "Safety rules moved out of the 2025 Labour Code into a separate law; its number and date are unconfirmed in results.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3457,8 +3665,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law (1997), Chapter VIII, Health and Safety of Workers",
+    "url": "https://wageindicator.org/en-kh/work-in-cambodia/labour-law/health-and-safety",
+    "source": "secondary",
+    "note": "Amended 2021. A standalone OSH law was still in draft in July 2026.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3487,8 +3699,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act 2015",
+    "url": "https://pacliirms.austlii.edu.au/ki/legis/num_act/ohasa2015273",
+    "source": "secondary",
+    "note": "Amended 2018.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3521,8 +3737,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A search result gave a link that returned 'not found'; entry removed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3555,8 +3771,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act (wholly amended by Act No. 16272 of 2019, since amended)",
+    "url": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=63609",
+    "source": "official",
+    "note": "KLRI (state research institute) English translation.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3589,8 +3809,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 6 of 2010 concerning Labour in the Private Sector",
+    "url": "https://alp.unescwa.org/legislations/law-6-2010-labor",
+    "source": "secondary",
+    "note": "Private sector; amended since 2010.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3623,8 +3847,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law on Labor No. 43/NA (2013)",
+    "url": "https://digital-client-solutions.hoganlovells.com/resources/esg-global-vision/jurisdiction/laos",
+    "source": "secondary",
+    "note": "Labour law carrying OSH provisions; supplemented by an OSH decree.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3657,8 +3885,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code of 23 September 1946, with Decree No. 11802 of 30 January 2004 on prevention, safety and occupational health",
+    "url": "https://wageindicator.org/ar-lb/ai/work-in-lebanon/labour-law/health-and-safety/",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3691,8 +3923,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Decent Work Act, 2015",
+    "url": "https://liblaw.org/wp-content/uploads/2023/02/Decent-Work-Act.pdf",
+    "source": "secondary",
+    "note": "Labour law with an occupational safety and health part; Regulation No. 19 (2025) implements it.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3725,8 +3961,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 93 of 1976 on industrial security and occupational safety",
+    "url": "https://lawsociety.ly/akn/ly/act/law/rcc/1976/93",
+    "source": "secondary",
+    "note": "Arabic text, listed as in force. Labour Relations Law 12/2010 applies alongside it.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3759,8 +3999,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 2006 (No. 37 of 2006; originally Labour Code), occupational safety and health Part",
+    "url": "https://www.govt.lc/media.govt.lc/www/resources/legislation/SaintLuciaLabourCode2006.pdf",
+    "source": "official",
+    "note": "ILO NATLEX gives entry into force 1 Aug 2012; also cited as Cap. 16.04.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3789,8 +4033,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Gesetz vom 29. Dezember 1966 über die Arbeit in Industrie, Gewerbe und Handel (Arbeitsgesetz), LGBl. 1967 Nr. 6",
+    "url": "https://nextmobile.gesetze.li/konso/pdf/1967006000?version=13",
+    "source": "official",
+    "note": "Labour Act with health protection provisions; some safety rules derive from Swiss law via the customs treaty. Linked version may not be latest.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3823,8 +4071,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Factories Ordinance No. 45 of 1942",
+    "url": "https://wageindicator.org/en-lk/work-in-sri-lanka/labour-law/health-and-safety",
+    "source": "secondary",
+    "note": "Main OSH statute but not a comprehensive one; amendment plans reported.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3857,8 +4109,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, 2024 (Act No. 4 of 2024)",
+    "url": "https://wageindicator.org/en-ls/labour-law/health-and-safety",
+    "source": "secondary",
+    "note": "In force April 2024. Separate from the Labour Act, 2024; mining has a 1981 Mine Safety Act.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3891,8 +4147,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law on Safety and Health at Work, 1 July 2003, No IX-1672",
+    "url": "https://e-seimas.lrs.lt/rs/legalact/TAD/3c128c0120eb11e58a4198cd62929b7a",
+    "source": "official",
+    "note": "Amended several times; check current consolidated text.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3925,8 +4185,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du travail, Livre III: Protection, sécurité et santé des salariés",
+    "url": "https://data.legilux.public.lu/file/eli-etat-leg-code-travail-20211129-fr-pdf.pdf",
+    "source": "official",
+    "note": "Dated consolidation (2021); newer versions may exist.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -3959,8 +4223,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Protection Law",
+    "url": "https://likumi.lv/ta/en/id/26020-labour-protection-law",
+    "source": "official",
+    "note": "English translation; check Latvian consolidated version.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4039,8 +4307,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "Results show Act No. 637 of 1958 (occupational health services) and older hygiene and safety decrees, but no clear principal OSH law."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4073,8 +4341,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 186-XVI of 10 July 2008 on occupational safety and health (Legea securității și sănătății în muncă)",
+    "url": "https://statistica.gov.md/files/files/Cooperare_internationala/Actele_nationale_transpunere_regulamente_UE/Low_%20186_2008_SSM_2024_EN.pdf",
+    "source": "official",
+    "note": "Unofficial English translation hosted by the National Bureau of Statistics; amended since 2008.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4141,8 +4413,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act (ratified 2 January 2024)",
+    "url": "https://presidency.gov.mv/Press/Article/29534",
+    "source": "official",
+    "note": "Act number reported inconsistently (09/2023 or 2/2024). A 2024 source said it then applied only to some workplaces and regulations were pending.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4175,8 +4451,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley Federal del Trabajo (Título Noveno, Riesgos de Trabajo, arts. 472-515)",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio//pdf/LFT.pdf",
+    "source": "official",
+    "note": "",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4205,8 +4485,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act, 2023 (P.L. 2023-92)",
+    "url": "https://leap.unep.org/en/countries/mh/national-legislation/occupational-health-and-safety-act-2023-pl-2023-92",
+    "source": "secondary",
+    "note": "Commencement not verified.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4239,8 +4523,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law on Safety and Health at Work (Official Gazette No. 92/07, as amended)",
+    "url": "https://aseestant.ceon.rs/index.php/jouproman/article/view/21113",
+    "source": "secondary",
+    "note": "Journal article. A replacement law was reported in drafting; adoption not verified.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4311,8 +4599,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work Act, 2024 (Act XXXIII of 2024), Cap. 646",
+    "url": "https://www.mondaq.com/health-safety/1552846/the-new-health-and-safety-at-work-act",
+    "source": "secondary",
+    "note": "Repealed the OHSA Act (Cap. 424).",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4345,8 +4637,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Law, 2019 (Law No. 8/2019)",
+    "url": "https://www.ilo.org/resource/news/new-law-major-step-workplace-safety-and-health-myanmar",
+    "source": "secondary",
+    "note": "Takes effect on presidential notification; results do not confirm it has been issued.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4379,8 +4675,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Zakon o zaštiti i zdravlju na radu (Law on Protection and Health at Work), Sl. list CG 34/14, amended 44/18 and 84/24",
+    "url": "https://www.cbcg.me/slike_i_fajlovi/fajlovi/fajlovi_brzi_linkovi/propisi/zakoni/ostali_zakoni/zakon_o_zastiti_i_zdravlju_na_radu_prec_tekst_84-24.pdf",
+    "source": "secondary",
+    "note": "Central Bank's unofficial consolidated text.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4413,8 +4713,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law of Mongolia on Occupational Safety and Health (2008)",
+    "url": "https://legalinfo.mn/mn/detail?lawId=564",
+    "source": "official",
+    "note": "English title varies (also Labour Safety and Hygiene). A revised draft was under discussion.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4531,8 +4835,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act 2005 (Act No. 28 of 2005)",
+    "url": "https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/98518/MUS98516.pdf",
+    "source": "secondary",
+    "note": "Since amended.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4565,8 +4873,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety, Health and Welfare Act, 1997 (Cap. 55:07)",
+    "url": "https://malawilii.org:443/akn/mw/act/1997/21",
+    "source": "secondary",
+    "note": "Government review of the Act has been reported.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4599,8 +4911,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act 1994 (Act 514), reprint as at 1 June 2024",
+    "url": "https://dosh.gov.my/wp-content/uploads/2025/03/Act-514-Reprint-Version-1.6.2024_English.pdf",
+    "source": "official",
+    "note": "Amended by Act A1648, in force 1 June 2024.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4633,8 +4949,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 2007 (Act No. 11 of 2007)",
+    "url": "https://ejustice.jud.na/High%20Court/LegislationAndDirectives/Acts/Labour%20Act%2011%20of%202007.pdf",
+    "source": "official",
+    "note": "Chapter 4 covers health, safety and welfare; 1997 health and safety regulations continue under it. Since amended.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4667,8 +4987,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n° 2012-45 du 25 septembre 2012 portant Code du travail de la République du Niger",
+    "url": "https://leap.unep.org/en/countries/ne/national-legislation/loi-ndeg-2012-45-du-25-septembre-2012-portant-code-du-travail-de",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4701,8 +5025,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Factories Act, Cap. F1, Laws of the Federation of Nigeria 2004",
+    "url": "https://labour.gov.ng/professional-operations-departments/occupational-safety-and-health/",
+    "source": "official",
+    "note": "Link is the labour ministry OSH department page citing the Act. A replacement bill was pending; enactment not seen.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4735,8 +5063,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley No. 618, Ley General de Higiene y Seguridad del Trabajo (2007)",
+    "url": "https://leap.unep.org/en/countries/ni/national-legislation/ley-no-618-ley-general-de-higiene-y-seguridad-del-trabajo-texto",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4769,8 +5101,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Working Conditions Act (Arbeidsomstandighedenwet 1998)",
+    "url": "https://business.gov.nl/regulations/working-conditions-employees/",
+    "source": "official",
+    "note": "Government guidance page, not the Act text. European Netherlands; coverage of Caribbean territories not checked.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4803,8 +5139,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Act of 17 June 2005 No. 62 relating to working environment, working hours and employment protection, etc. (Working Environment Act)",
+    "url": "https://www.regjeringen.no/en/topics/labour/the-working-environment-and-safety/innsikt/arbeidsmiljoloven/id447107",
+    "source": "official",
+    "note": "Amended since 2005.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4837,8 +5177,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 2017 (Act No. 14 of 2017)",
+    "url": "https://leap.unep.org/en/countries/np/national-legislation/labour-act-2017-act-no-14-2017",
+    "source": "secondary",
+    "note": "Chapter 12 covers OSH; some groups excluded.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4867,8 +5211,8 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "Only commercial guides, which conflict on whether an OHS Act exists."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4901,8 +5245,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work Act 2015",
+    "url": "https://www.legislation.govt.nz/act/public/2015/70/en/latest/",
+    "source": "official",
+    "note": "Amendment bill reported before Parliament.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4935,8 +5283,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law, Royal Decree No. 53/2023",
+    "url": "https://leap.unep.org/en/countries/om/national-legislation/royal-decree-no-532023-issuing-labor-law",
+    "source": "secondary",
+    "note": "Has an OSH chapter.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -4969,8 +5321,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "No single national law supported. Results show provincial OSH Acts (Sindh 2017, Punjab 2019, Khyber Pakhtunkhwa 2022, Balochistan 2022); federal position conflicting."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5003,8 +5355,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Código de Trabajo (1971), Book II, Riesgos Profesionales",
+    "url": "https://www.academia.utp.ac.pa/sites/default/files/docente/51/4._legislacion_panama.pdf",
+    "source": "secondary",
+    "note": "University course document. Ley 44 of 1995 also cited as part of the framework.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5037,8 +5393,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley N° 29783, Ley de Seguridad y Salud en el Trabajo (2011)",
+    "url": "https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=38",
+    "source": "official",
+    "note": "Amended, including by Laws 30222 and 31246.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5071,8 +5431,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Republic Act No. 11058 (2018), An Act Strengthening Compliance with Occupational Safety and Health Standards and Providing Penalties for Violations Thereof",
+    "url": "https://ldr.senate.gov.ph/legislative-issuance/republic-act-no-11058",
+    "source": "official",
+    "note": "",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5101,8 +5465,8 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "Results indicate no comprehensive OSH law; a bill (SB 12-59) was proposed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5135,8 +5499,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Industrial Safety, Health and Welfare Act 1961 (Chapter 175)",
+    "url": "https://rms.paclii.org/pg/legis/num_act/ishawa2016415",
+    "source": "secondary",
+    "note": "Link is the 2016 Amendment Act to Ch. 175. Current status not verified; results also list a 1991 OHSW Act.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5169,8 +5537,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Kodeks pracy (Labour Code), Part Ten: Bezpieczeństwo i higiena pracy",
+    "url": "https://eli.gov.pl/api/acts/DU/2023/1465/text/U/D20231465Lj.pdf",
+    "source": "official",
+    "note": "Link is the 2023 consolidated text (Dz.U. 2023 poz. 1465); a secondary result cites a newer one, Dz.U. 2025 poz. 277.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5203,8 +5575,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Protection Law of the Democratic People's Republic of Korea (2014 text)",
+    "url": "https://lawandnorthkorea.com/laws/labour-protection-law-2014",
+    "source": "secondary",
+    "note": "Unofficial translation; current version unverified.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5237,8 +5613,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Lei n.º 102/2009, de 10 de setembro - Regime jurídico da promoção da segurança e saúde no trabalho",
+    "url": "https://diariodarepublica.pt/dr/detalhe/lei/102-2009-490009",
+    "source": "official",
+    "note": "Amended several times; see consolidated version.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5271,8 +5651,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley N° 5804/2017, establece el Sistema Nacional de Prevención de Riesgos Laborales",
+    "url": "https://www.bacn.gov.py/leyes-paraguayas/9127/ley-n-5804-establece-el-sistema-nacional-de-prevenci-n-de-riesgos-laborales",
+    "source": "official",
+    "note": "Regulates Labour Code safety provisions; phased implementation reported, current extent unconfirmed.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5305,8 +5689,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law No. 7 of 2000",
+    "url": "https://leap.unep.org/en/countries/ps/national-legislation/labour-law-no-7-2000",
+    "source": "secondary",
+    "note": "Has a safety and health chapter; check later decree-law amendments.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5339,8 +5727,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 14 of 2004 issuing the Labour Law",
+    "url": "https://alp.unescwa.org/legislations/law-14-2004-labor",
+    "source": "secondary",
+    "note": "Part Ten covers safety and occupational health; amended since 2004.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5373,8 +5765,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Legea nr. 319/2006 a securității și sănătății în muncă",
+    "url": "https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/76016/ROM-76016.pdf",
+    "source": "secondary",
+    "note": "In force from 1 October 2006; later amendments may not be in linked text.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5407,8 +5803,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code of the Russian Federation, Federal Law No. 197-FZ (2001), Section X (occupational safety)",
+    "url": "https://faolex.fao.org/ru/documents/LEX-FAOC245154/labour-code-law-no-197-fz-rus-2001",
+    "source": "secondary",
+    "note": "Section X overhauled by Federal Law No. 311-FZ, in force 1 March 2022; linked record may predate it.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5441,8 +5841,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law N° 66/2018 of 30/08/2018 Regulating Labour in Rwanda",
+    "url": "https://www.minijust.gov.rw/fileadmin/user_upload/Minijust/Publications/Laws/Labour_law_2018.pdf",
+    "source": "official",
+    "note": "Amended by Law N° 027/2023.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5475,8 +5879,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law, Royal Decree No. M/51, chapter eight (worker safety and health)",
+    "url": "https://www.wipo.int/wipolex/en/text/498399",
+    "source": "secondary",
+    "note": "Translation; the Arabic text governs. Amended since.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5509,8 +5917,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 1997 (Act No. 20 of 1997)",
+    "url": "https://faolex.fao.org/docs/pdf/sud222435.pdf",
+    "source": "secondary",
+    "note": "Includes an industrial safety part; replaced the 1976 Industrial Safety Act.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5543,8 +5955,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Loi n° 2026-18 du 3 septembre 2026 portant Code du Travail",
+    "url": "https://www.vie-publique.sn/docs/56984d14-34a4-459e-8820-dbca07d9393c/JO-7931-du-17-septembre-2026.pdf",
+    "source": "secondary",
+    "note": "Published in Journal officiel 7931 of 17 September 2026; replaces the 1997 code. Effective date not verified.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5577,8 +5993,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Workplace Safety and Health Act 2006 (2020 Revised Edition)",
+    "url": "https://sso.agc.gov.sg/Act/WSHA2006",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5607,8 +6027,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Safety at Work Act (Cap. 74)",
+    "url": "https://pacliirms.paclii.org/sb/legis/consol_act/sawac74190.pdf",
+    "source": "secondary",
+    "note": "A search result describes a 2024 reprint as current.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5641,8 +6065,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "Employment Act 2023 found, but safety provisions in it were not confirmed; a standalone OSH law was reported as not yet enacted."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5675,8 +6099,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley General de Prevención de Riesgos en los Lugares de Trabajo (Decreto Legislativo 254 of 2010)",
+    "url": "https://el-salvador.justia.com/nacionales/leyes/ley-general-de-prevencion-de-riesgos-en-los-lugares-de-trabajo/gdoc",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5705,8 +6133,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Legge 18 febbraio 1998 n. 31, Legge quadro in materia di sicurezza e salute nei luoghi di lavoro",
+    "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=56485",
+    "source": "secondary",
+    "note": "Amended, including by Law No. 191 of 2021.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5739,8 +6171,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Somali Labour Code, Law No. 36 of 2024",
+    "url": "https://leap.unep.org/en/countries/so/national-legislation/somali-labour-code-law-no-36-2024",
+    "source": "secondary",
+    "note": "Somaliland has its own labour law.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5773,8 +6209,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law on Occupational Safety and Health (Zakon o bezbednosti i zdravlju na radu), Official Gazette 35/23",
+    "url": "https://ceelegalmatters.com/serbia/24100-new-law-on-safety-and-health-at-work",
+    "source": "secondary",
+    "note": "Replaced the 2005 law.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5807,8 +6247,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Act, 2017 (Act No. 64)",
+    "url": "https://leap.unep.org/en/countries/ss/national-legislation/labour-act-2017-act-no64",
+    "source": "secondary",
+    "note": "Chapter XI covers health, safety and welfare. Some guides still cite the inherited 1997 Sudan law.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5841,8 +6285,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Lei n.º 6/2019, which approves the Código do Trabalho",
+    "url": "https://www.africa-laws.org/Saotome%5CEmployment%20law%5CLaw%20no.%2062019,%20of%20November%2016,%202018,%20which%20approves%20the%20Labor%20Code%20%28in%20Portuguese%29.pdf",
+    "source": "secondary",
+    "note": "Absorbs the earlier safety, hygiene and health at work law. In force July 2019.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5875,8 +6323,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Veiligheidswet 1947 (G.B. 1947 no. 142), as amended, including S.B. 2023 no. 121",
+    "url": "https://www.sris.sr/wp-content/uploads/2023/09/Veiligheidswet-1947-wijziging-S.B.-2023-no.-121.pdf",
+    "source": "secondary",
+    "note": "URL is the 2023 amendment.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5909,8 +6361,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Act No. 124/2006 Coll. on occupational safety and health protection",
+    "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2006/124/ZZ_2006_124.pdf",
+    "source": "official",
+    "note": "Amended since 2006; check the version in force.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5943,8 +6399,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work Act (ZVZD-1), Official Gazette No. 43/11",
+    "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=89470",
+    "source": "secondary",
+    "note": "",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -5977,8 +6437,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Work Environment Act (Arbetsmiljölagen, SFS 1977:1160)",
+    "url": "https://government.se/contentassets/86e9091526644e90b78d2ff937318530/sfs-19771160-work-environment-act",
+    "source": "official",
+    "note": "Translation may lag amendments.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6011,8 +6475,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, 2001 (Act No. 9 of 2001)",
+    "url": "https://eswatinilii.org/akn/sz/act/2001/9",
+    "source": "secondary",
+    "note": "",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6045,8 +6513,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Decree, 1978 (Decree 54 of 1978)",
+    "url": "https://seylii.org/akn/sc/act/decree/1978/54/eng@2012-06-30",
+    "source": "secondary",
+    "note": "Consolidation to 2012; some sources give later dates. A review was reported in 2025.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6079,8 +6551,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Law No. 17 of 2010",
+    "url": "https://leap.unep.org/en/countries/sy/national-legislation/labour-law-no-172010",
+    "source": "secondary",
+    "note": "OSH in Title XI; amendment process reported under way.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6113,8 +6589,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "Loi 38/PR/96 (labour code) appears in results, but a guide cites a 2015 code (6/PR/2015) and a database status was unclear; currency unconfirmed."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6147,8 +6623,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "A labour code was found (Loi n° 2021-012 du 18 juin 2021 portant Code du travail), but the results did not show its safety provisions."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6181,8 +6657,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety, Health and Environment Act B.E. 2554 (2011)",
+    "url": "https://data.opendevelopmentmekong.net/th/laws_record/occupational-safety-health-and-environment-act-b-e-2554-a-d-2011",
+    "source": "secondary",
+    "note": "English title varies by source.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6215,8 +6695,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code of the Republic of Tajikistan (Law No. 1897)",
+    "url": "https://leap.unep.org/en/countries/tj/national-legislation/labor-code-law-no-1897",
+    "source": "secondary",
+    "note": "Labour code carrying OSH rules. A FAOLEX record dates No. 1897 to 2022; it appears to follow the 2016 Code No. 1329, which had a labour safety section. Repeal and OSH content of No. 1897 not confirmed in results.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6249,8 +6733,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code of Turkmenistan (2009)",
+    "url": "https://faolex.fao.org/en/documents/LEX-FAOC243144/labour-code-tkm-2009",
+    "source": "secondary",
+    "note": "Carries OSH provisions. A separate Law on Labour Protection is also listed; its date and status are unconfirmed.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6279,8 +6767,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. 11/2023 on Safety, Health and Hygiene at Work",
+    "url": "https://leap.unep.org/en/countries/tl/national-legislation/law-no-112023-safety-health-and-hygiene-work",
+    "source": "secondary",
+    "note": "Dedicated OSH law, published April 2023.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6313,8 +6805,8 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "not-found",
+    "note": "No confirmed OSH Act; ILO profile points to public health legislation; guide claim of a 2005 OHS Act unverified."
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6347,8 +6839,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, Chap. 88:08 (2004, amended 2006)",
+    "url": "https://www.finance.gov.tt/legislation/the-occupational-safety-and-health-act/",
+    "source": "official",
+    "note": "Check for a current consolidated text.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6381,8 +6877,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Code du travail, promulgated by loi n° 66-27 du 30 avril 1966",
+    "url": "https://leap.unep.org/en/countries/tn/national-legislation/loi-no-66-27-portant-promulgation-du-code-du-travail",
+    "source": "secondary",
+    "note": "Safety and health articles amended by loi n° 96-62.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6415,8 +6915,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Law No. 6331 (2012)",
+    "url": "https://live.csgb.gov.tr/Media/hkrbms4l/6331_isgkanunu_en-pdf-ing.pdf",
+    "source": "official",
+    "note": "Ministry English translation; amended since.",
+    "check": "error"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6445,8 +6949,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour and Employment Relations Act 2017, Part 6 (Occupational Safety and Health)",
+    "url": "https://pacliirms.paclii.org/tv/legis/num_act/laera2017332",
+    "source": "secondary",
+    "note": "Labour law carrying OSH provisions; commencement not separately verified.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6479,8 +6987,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act, 2003 (Act No. 5 of 2003)",
+    "url": "https://tanzlii.org/en/akn/tz/act/2003/5/eng@2003-04-11",
+    "source": "secondary",
+    "note": "Cap. 297. Sources describe OSHA oversight for Mainland Tanzania; Zanzibar coverage not confirmed.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6513,8 +7025,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "The Occupational Safety and Health Act, 2006 (Act 9 of 2006)",
+    "url": "https://bills.parliament.ug/attachments/Laws%20of%20Uganda%20%28Acts%29%20-%20THE%20OCCUPATIONAL%20SAFETY%20AND%20HEALTH%20ACT,%202006.pdf",
+    "source": "official",
+    "note": "A 2023 amendment bill was introduced; later amendments not verified. A 2025 report says an amendment bill passed; assent and gazetting not confirmed.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6547,8 +7063,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law of Ukraine on Labour Protection, 14 October 1992, No. 2694-XII",
+    "url": "https://kodeksy.com.ua/ka/ob_ohrane_truda.htm",
+    "source": "secondary",
+    "note": "Amended since 1992.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6581,8 +7101,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley N° 5032 (1914), Accidentes de trabajo. Medidas de prevención",
+    "url": "https://impo.com.uy/bases/leyes/5032-1914",
+    "source": "official",
+    "note": "Developed by decrees, e.g. Decreto 406/988.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6615,8 +7139,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act of 1970 (Public Law 91-596)",
+    "url": "https://www.osha.gov/laws-regs/oshact/completeoshact",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6649,8 +7177,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law of the Republic of Uzbekistan on Labour Protection (new edition, No. ZRU-410 of 22 September 2016)",
+    "url": "https://lex.uz/acts/3031429",
+    "source": "official",
+    "note": "Number also rendered LRU-410.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6679,8 +7211,12 @@
     "note": ""
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law No. LIV of 10 December 2007 on the protection of workers' safety and health at work",
+    "url": "https://iusecclesiae.it/article/download/1662/285/228",
+    "source": "secondary",
+    "note": "Vatican City State; title is a translated description. Italian rules apply in Lateran Treaty Art. 15 areas.",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6713,8 +7249,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Factories Act",
+    "url": "https://www.ilo.org/resource/news/saint-vincent-and-grenadines-moves-modernize-workplace-safety",
+    "source": "secondary",
+    "note": "ILO (June 2026): a new OSH Act is passed but awaits proclamation.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6747,8 +7287,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Ley Orgánica de Prevención, Condiciones y Medio Ambiente de Trabajo (LOPCYMAT), 2005",
+    "url": "https://venezuela.justia.com/federales/leyes-organicas/ley-organica-de-prevencion-condiciones-y-medio-ambiente-de-trabajo/gdoc/",
+    "source": "secondary",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6781,8 +7325,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Law on Occupational Safety and Hygiene No. 84/2015/QH13",
+    "url": "https://thuvienphapluat.vn/van-ban/EN/Lao-dong-Tien-luong/Law-No-84-2015-QH13-on-occupational-safety-and-hygiene/284379/tieng-anh.aspx",
+    "source": "secondary",
+    "note": "In force 1 July 2016.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6815,8 +7363,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Health and Safety at Work Act [CAP 195] (Act No. 24 of 1986)",
+    "url": "https://dol.gov.vu/index.php/about-us/health-and-safety-unit",
+    "source": "official",
+    "note": "Department of Labour page, not the Act text.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6849,8 +7401,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act 2002",
+    "url": "https://www.health.gov.ws/wp-content/uploads/2022/07/9Occupational_Safety_and_Health_Act_2002_-_Eng.pdf",
+    "source": "official",
+    "note": "",
+    "check": "pdf"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6883,8 +7439,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Labour Code, Act No. 5 of 1995 (Chapter IX, occupational safety and health)",
+    "url": "https://alp.unescwa.org/legislations/law-5-1995-labor",
+    "source": "secondary",
+    "note": "Amended, including by Law No. 15 of 2008.",
+    "check": "blocked"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6917,8 +7477,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act 85 of 1993",
+    "url": "https://www.gov.za/documents/occupational-health-and-safety-act",
+    "source": "official",
+    "note": "",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6951,8 +7515,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Health and Safety Act, 2025 (Act No. 16 of 2025)",
+    "url": "https://zambialii.org/akn/zm/act/2025/16/eng@2025-12-30",
+    "source": "secondary",
+    "note": "In force 30 December 2025; repeals the 2010 Act. Amended in 2026.",
+    "check": "robots"
    },
    "major_hazard": {
     "status": "not-searched",
@@ -6985,8 +7553,12 @@
     "check": "ok"
    },
    "osh_law": {
-    "status": "not-searched",
-    "note": ""
+    "status": "found",
+    "name": "Occupational Safety and Health Act, 2026 (Act No. 7 of 2026)",
+    "url": "https://www.afriwise.com/blog/workplace-safety-and-compliance-in-zimbabwe-what-employers-need-to-know-about-the-occupational-safety-and-health-act-2026",
+    "source": "secondary",
+    "note": "Commentary says in force 16 Oct 2026 and repeals the Factories and Works Act; not checked against gazette.",
+    "check": "ok"
    },
    "major_hazard": {
     "status": "not-searched",
