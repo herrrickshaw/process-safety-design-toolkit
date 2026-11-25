@@ -6,7 +6,8 @@ A slot whose note says it was never searched is stored as not-searched, which is
 ISO_TABLE_JSON ({ISO3: {name, url}}) fills standards bodies that the searches did not find.
 
 Each RESEARCH_DIR/*.json is {ISO3: {slot: {"status": "found", "name", "url", "source", "note"} | {"status": "not-found"}}}.
-Anything malformed, linking to a document-sharing site, or missing becomes not-found (and is reported); nothing is invented.
+The committed table is the durable record: a run adds to it. A slot absent from the research files keeps its current value, and a
+later not-found or not-searched never erases a found entry. A malformed entry or a document-sharing link is reported and not added.
 Standard library only.
 """
 import glob
@@ -81,10 +82,17 @@ def main() -> None:
     for s in states:
         row = {}
         for slot in SLOTS:
-            row[slot], why = clean(research.get(s["iso3"], {}).get(slot))
+            prev = old.get("countries", {}).get(s["iso3"], {}).get(slot, {})
+            given = research.get(s["iso3"], {}).get(slot)
+            if given is None:  # nothing new: keep what the table has; a slot nobody has looked at is not-searched
+                row[slot] = prev or {"status": "not-searched", "note": ""}
+                continue
+            row[slot], why = clean(given)
             if why:
                 dropped.append((s["iso3"], slot, why))
-            prev = old.get("countries", {}).get(s["iso3"], {}).get(slot, {})
+            if row[slot]["status"] != "found" and prev.get("status") == "found":  # a later blank never erases an entry
+                row[slot] = prev
+                continue
             if row[slot]["status"] == "found" and prev.get("url") == row[slot]["url"] and "check" in prev:
                 row[slot]["check"] = prev["check"]
         if row["standards_body"]["status"] != "found" and s["iso3"] in iso_table:
