@@ -1,0 +1,11 @@
+metric,rev_a,rev_b,reference,deviation_before,deviation_after,status
+V3 propane required relief area (mm2),1227 (Z 0.673),1496 (Z 1.0),workbook R_Sizing / API 520-I 5.6.3.2.2,-18 %,0 %,closed
+V3 n-butane required relief area (mm2),2414 (Z 0.807),2688 (Z 1.0),workbook RB_Sizing,-10 %,0 %,closed
+PSV orifice letters (V4 propane; V5 propane; V1 butane; V4 butane),M; G; H; P,N; H; J; Q,workbook R_Sizing / RB_Sizing,one size low,0,closed
+Direct ignition probability (jet fire basis),not shown (implied 0.003-0.07),Purple Book 0.2 added beside UKOOA/Cox,PGS 3 Table 4.5 PDF p.75,3x-77x lower jet-fire frequency,both bases shown,closed (basis choice open)
+Pipe full-bore rupture frequency (200 m DN150),not shown,6.0e-5 /yr (jet fire 3.0e-5 at P 0.5; 1.2e-5 if <10 kg/s),PGS 3 Table 3.7 PDF p.47,gap,shown,closed
+Pipe leak frequency PB (15 mm effective),not shown,4.0e-4 /yr,PGS 3 Table 3.7,n/a,shown,closed
+BLEVE frequency chain,'5e-7; 5e-7; 1e-5 cited to Tables 3.3 4.5',5e-7 x 0.7 x 0.7 = 2.45e-7 /yr,PGS 3 Tables 3.3 and 4.5 and p.76,wording,corrected,closed
+1.21 x set label,presented as failure pressure,labelled convention; HSL failure at 1.42 x set,PGS 3 p.76; HSL (S13),n/a,labelled,closed
+n-butane set pressure 690 kPag,A,A (kept; thin 4 % orifice margin noted),RB_Assumptions,n/a,n/a,unchanged: no source for MAWP
+Trapped-liquid thermal relief,absent,TSV-102 + L-105 drawn (A); not sized,process_safety.scenarios,gap,device present,reduced (sizing needs heat input)
