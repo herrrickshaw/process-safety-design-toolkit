@@ -1,5 +1,14 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-26: worldwide incident casebook for teaching
+* Added `casebook` (data, command, `docs/INCIDENT_CASEBOOK.md`): 78 historical process safety cases from 38 countries and territories, with a roster, country index, discussion prompts by topic, a case-discussion method, two questions per case, learnings marked as drawn by a source or by the compiler, graded sources and a note where the best grade overstates the support. It is a selection, not a complete record.
+* Method: four research passes by region from fetched pages and documents. `scripts/build_casebook.py` rejects a case unless its date, cause and any death toll have an exact quote in the saved text. Quotes and page texts are not committed (third-party text), so the committed JSON is the durable record. Independent audit of all 78 cases: 122 findings, 22 of them plain errors; 101 applied. The corrections were not audited again.
+* Decisions: a separate data set; the 17-case CSB register is unchanged because the recommendation catalogue depends on it. Rejected: merging them. HSE case-study pages and ARIA sheets stay grade B (summaries, not the investigation); rejected: upgrading them to A. Five cause labels moved off "official investigation" where only news, abstracts or a company-appointed committee were read. A death toll is blank where the sources read give no usable figure. Rejected: filling it from memory.
+* Fetching: no bot challenge was bypassed; some pages came from Wayback copies after the live page refused or failed. A copy that was not obtained within the source-fetching rules is not cited.
+* The Jaipur report was read from a copy headed "Confidential"; a 2010 Lok Sabha answer states it was put in the public domain, and the case sheet says both. Other copies on third-party hosts are noted on their case sheets.
+* Tests also cover the sector, event, year and text filters and the command's output paths in-process (the earlier command tests ran a separate process, which the coverage tool does not trace). Not covered: the document's skip for a topic with no cases, which the current data does not reach. Rejected: patching the data only to run that line.
+* Known difference, not changed: the CSB register gives 14 deaths for West Fertilizer (the CSB web summary); the casebook gives 15 (the CSB final report) and says why.
+
 ## Unreleased - 2026-11-26: tests for the release, fire and explosion input checks
 
 * New `tests/test_release_input_guards.py`: refusals of bad input, the droplet screen, the release input check and the pool-fire warning for fluids without burning constants, and three fireball behaviours. The tests use refusals and relations, not stored result values. No change to calculation code.

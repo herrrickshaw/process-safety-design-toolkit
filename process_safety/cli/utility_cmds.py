@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import compliance, country_coverage, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
+from .. import casebook, compliance, country_coverage, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
 from .registry import command, emit
 
 
@@ -167,6 +167,34 @@ class Countries:
             for e in extra.get(slot, []):
                 print(f"    EU layer: {e['designation']} {e['url']}")
         return 0
+
+
+@command("casebook", "worldwide incident casebook for teaching: filter by country or topic; --sheet prints full cases; --markdown prints docs/INCIDENT_CASEBOOK.md")
+class Casebook:
+    @staticmethod
+    def add_arguments(cb):
+        cb.add_argument("text", nargs="?"); cb.add_argument("--country", help="name or ISO code"); cb.add_argument("--topic", choices=sorted(casebook.TOPICS))
+        cb.add_argument("--sector"); cb.add_argument("--event", choices=casebook.EVENT_TYPES); cb.add_argument("--year", type=int)
+        cb.add_argument("--sheet", action="store_true", help="print each match as a teaching sheet with learnings, questions and sources")
+        cb.add_argument("--markdown", action="store_true")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown:
+            print(casebook.markdown(), end="")
+            return 0
+        hits = casebook.search(a.text, a.country, a.topic, a.sector, a.event, a.year)
+        if a.topic and hits:
+            print(f"Open with: {casebook.TOPICS[a.topic][1]}")
+        names = casebook.country_names()
+        for c in hits:
+            if a.sheet:
+                print("\n".join(casebook.sheet(c)))
+            else:
+                print(f"{c['date']}  {c['name']} ({names[c['iso3']]}; deaths: {casebook.deaths_text(c)}; source grade {casebook.best_grade(c)})\n    id: {c['id']}; topics: {', '.join(c['topics'])}")
+        if not hits:
+            print("no case in this selection matches; that does not mean there was no incident", file=__import__("sys").stderr)
+        return 0 if hits else 1
 
 
 @command("incidents", "search the CSB-based incident register (maps incidents to toolkit modules and design review steps)")

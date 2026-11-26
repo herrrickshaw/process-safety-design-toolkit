@@ -4040,6 +4040,29 @@
    "regression": {}
   },
   {
+   "id": "REG-22",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Incident casebook lookup by discussion topic",
+   "args": [
+    "casebook",
+    "--topic",
+    "facility-siting"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
    "id": "ELE-01",
    "topics": [
     "Arc flash (screening)"
