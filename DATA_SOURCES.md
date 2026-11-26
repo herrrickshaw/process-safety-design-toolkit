@@ -44,6 +44,9 @@ This toolkit ships screening calculators and small reference tables. It is not a
 ### incidents.json
 - Publisher: US Chemical Safety and Hazard Investigation Board investigation pages (https://www.csb.gov/), read 2026-11-06. Facts as stated by CSB; lessons and design-step mapping are the toolkit's own. Deaths unknown for 6 entries.
 
+### incident_casebook.json
+- Historical incident cases for teaching, compiled 2026-11-26 from pages and documents fetched and read by research agents (official reports, professional and journal sources, and secondary pages; some through archive copies or third-party mirrors). Each case lists its sources with a grade. At compile time a script required an exact quote from the saved text for each date, cause and stated death toll; the quotes and page texts are not committed. All prose is the toolkit's own.
+
 ### legal_clauses.json
 - 46 provisions (India, Australia, Singapore, Canada, South Korea and others) paraphrased from the cited statutes/regulations; each entry has the instrument, provision, grade (A = text read, B = secondary) and URL. Not legal text; check the current consolidated version.
 
