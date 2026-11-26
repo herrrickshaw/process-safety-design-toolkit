@@ -50,6 +50,10 @@ This toolkit ships screening calculators and small reference tables. It is not a
 ### legal_clauses.json
 - 46 provisions (India, Australia, Singapore, Canada, South Korea and others) paraphrased from the cited statutes/regulations; each entry has the instrument, provision, grade (A = text read, B = secondary) and URL. Not legal text; check the current consolidated version.
 
+### modelling_map.json, modelling_studies.json
+- Map: bibliographic records harvested on 2026-11-26 by `scripts/harvest_modelling_literature.py` from the OpenAlex, Crossref, DOAJ, HAL, DataCite and OSTI APIs without keys (OpenAlex stopped when the free daily allowance ran out). Title, authors, year, venue, identifiers and links come from those catalogues; tool and study tags are rule matches on title and abstract (`process_safety/modelling_tags.py`). Abstracts are not committed. Records were not read and links were not checked.
+- Study sheets: paraphrases of openly fetched works read by AI research agents. `scripts/build_modelling_literature.py` required an exact quote from the saved text for each tool, step, choice, validation, sensitivity and limitation entry, before audit corrections. Quotes and source texts are not committed. Audit status is in the document.
+
 ### lng_analogs.json
 - Source: ORIMIZ-Consulting/open-fel1-lng-cost, data/public_analogs.csv (Haider 2026), commit 4ed065a, MIT licence (full notice in THIRD_PARTY_NOTICES.md). Underlying figures come from company announcements and OIES NG137 (Songhurst 2018).
 

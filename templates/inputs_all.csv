@@ -254,6 +254,17 @@ casebook,event,--event,,str,,,,,,,,,,,,fire explosion toxic release BLEVE vapour
 casebook,year,--year,,int,,,,,,,,,,,,,
 casebook,sheet,--sheet,,flag,,,,,,,,,,,,,"print each match as a teaching sheet with learnings, questions and sources"
 casebook,markdown,--markdown,,flag,,,,,,,,,,,,,
+modelling,text,(positional),,str,,,,,,,,,,,,,
+modelling,tool,--tool,,str,,,,,,,,,,,,aermod aloha aspen-dynamics aspen-hysys aspen-plus biosteam blowdown-codes cfx chemcad dense-gas-codes dwsim effects-riskcurves fds firefoam flacs fluent gproms hyram idaes kfx matlab modelica neqsim olga openfoam phast proii promax safeti structural-codes superpro unisim,
+modelling,study,--study,,str,,,,,,,,,,,,data-driven design-tea dispersion domino-structural explosion fault-diagnosis fire hazop-pha inherent-safety lopa-sil method-guidance operability-ots qra reaction-hazard relief-blowdown validation,
+modelling,kind,--type,,str,,,,,,,,,,,,thesis journal conference report book-chapter preprint other,map record type
+modelling,since,--since,,int,,,,,,,,,,,,,
+modelling,open,--open,,flag,,,,,,,,,,,,,map records with an open link
+modelling,read,--read,,flag,,,,,,,,,,,,,search the read study sheets instead of the map
+modelling,sheet,--sheet,,flag,,,,,,,,,,,,,with --read: print each matching study sheet in full
+modelling,limit,--limit,,int,25,,,,,,,,,,,,
+modelling,markdown,--markdown,,flag,,,,,,,,,,,,,print docs/MODELLING_STUDIES.md
+modelling,theses_markdown,--theses-markdown,,flag,,,,,,,,,,,,,print docs/MODELLING_THESES.md
 incidents,text,(positional),,str,,,,,,,,,,,,,
 incidents,module,--module,,str,,,,,,,,,,,,,
 incidents,step,--step,,int,,,,,,,,,,,,,design review step 1-12 (docs/DESIGN_AWARENESS.md)

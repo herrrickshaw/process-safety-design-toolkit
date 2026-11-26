@@ -1,7 +1,7 @@
 """Commands about the toolkit itself: coverage map, glossary, input ranges."""
 from __future__ import annotations
 
-from .. import casebook, compliance, country_coverage, glossary, insurance_impact, legal_clauses, incidents, literature, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
+from .. import casebook, compliance, country_coverage, glossary, insurance_impact, legal_clauses, incidents, literature, modelling_literature, modelling_tags, ranges, recommendation_catalog, requirements_extract, scenario_ingest, standards, standards_library
 from .registry import command, emit
 
 
@@ -195,6 +195,38 @@ class Casebook:
         if not hits:
             print("no case in this selection matches; that does not mean there was no incident", file=__import__("sys").stderr)
         return 0 if hits else 1
+
+
+@command("modelling", "how published studies build process-simulation and safety models: read study sheets and a screened literature map")
+class Modelling:
+    @staticmethod
+    def add_arguments(mp):
+        mp.add_argument("text", nargs="?"); mp.add_argument("--tool", choices=sorted(modelling_tags.TOOLS)); mp.add_argument("--study", choices=sorted(modelling_literature.study_labels()))
+        mp.add_argument("--type", dest="kind", choices=modelling_literature.MAP_TYPES, help="map record type"); mp.add_argument("--since", type=int)
+        mp.add_argument("--open", action="store_true", help="map records with an open link"); mp.add_argument("--read", action="store_true", help="search the read study sheets instead of the map")
+        mp.add_argument("--sheet", action="store_true", help="with --read: print each matching study sheet in full"); mp.add_argument("--limit", type=int, default=25)
+        mp.add_argument("--markdown", action="store_true", help="print docs/MODELLING_STUDIES.md"); mp.add_argument("--theses-markdown", action="store_true", help="print docs/MODELLING_THESES.md")
+
+    @staticmethod
+    def run(a, p):
+        if a.markdown or a.theses_markdown:
+            print(modelling_literature.markdown() if a.markdown else modelling_literature.theses_markdown(), end="")
+            return 0
+        if a.read or a.sheet:
+            hits = modelling_literature.search_profiles(a.text, a.tool, a.study)
+            for h in hits:
+                print("\n".join(modelling_literature.sheet(h)) if a.sheet else f"{h['year']}  {h['title']} ({h['doc_type']}; validation: {h['validation']['kind']})\n    id: {h['id']}\n    {h['url']}")
+            note = "AI-read sheets; quotes matched, paraphrase not human-checked."
+        else:
+            hits = modelling_literature.search(a.text, a.tool, a.study, a.kind, a.since, a.open)
+            for r in hits[: a.limit]:
+                print(f"{r['year'] or '----'}  [{r['type']}] {r['title']}\n    {r['open_url'] or r['url']}")
+            note = f"showing {min(a.limit, len(hits))} of {len(hits)} map records; tagged by rule from title and abstract, not read."
+        if not hits:
+            print("nothing in this selection matches; the search behind this map is not exhaustive", file=__import__("sys").stderr)
+            return 1
+        print(note)
+        return 0
 
 
 @command("incidents", "search the CSB-based incident register (maps incidents to toolkit modules and design review steps)")

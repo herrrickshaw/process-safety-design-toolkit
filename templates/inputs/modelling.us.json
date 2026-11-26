@@ -1,0 +1,158 @@
+{
+  "command": "modelling",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "text": null,
+    "tool": null,
+    "study": null,
+    "kind": null,
+    "since": null,
+    "open": null,
+    "read": null,
+    "sheet": null,
+    "limit": 25,
+    "markdown": null,
+    "theses_markdown": null
+  },
+  "_guide": {
+    "text": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "tool": {
+      "flag": "--tool",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "aermod",
+        "aloha",
+        "aspen-dynamics",
+        "aspen-hysys",
+        "aspen-plus",
+        "biosteam",
+        "blowdown-codes",
+        "cfx",
+        "chemcad",
+        "dense-gas-codes",
+        "dwsim",
+        "effects-riskcurves",
+        "fds",
+        "firefoam",
+        "flacs",
+        "fluent",
+        "gproms",
+        "hyram",
+        "idaes",
+        "kfx",
+        "matlab",
+        "modelica",
+        "neqsim",
+        "olga",
+        "openfoam",
+        "phast",
+        "proii",
+        "promax",
+        "safeti",
+        "structural-codes",
+        "superpro",
+        "unisim"
+      ]
+    },
+    "study": {
+      "flag": "--study",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "data-driven",
+        "design-tea",
+        "dispersion",
+        "domino-structural",
+        "explosion",
+        "fault-diagnosis",
+        "fire",
+        "hazop-pha",
+        "inherent-safety",
+        "lopa-sil",
+        "method-guidance",
+        "operability-ots",
+        "qra",
+        "reaction-hazard",
+        "relief-blowdown",
+        "validation"
+      ]
+    },
+    "kind": {
+      "flag": "--type",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "map record type",
+      "choices": [
+        "thesis",
+        "journal",
+        "conference",
+        "report",
+        "book-chapter",
+        "preprint",
+        "other"
+      ]
+    },
+    "since": {
+      "flag": "--since",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    },
+    "open": {
+      "flag": "--open",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "map records with an open link"
+    },
+    "read": {
+      "flag": "--read",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "search the read study sheets instead of the map"
+    },
+    "sheet": {
+      "flag": "--sheet",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "with --read: print each matching study sheet in full"
+    },
+    "limit": {
+      "flag": "--limit",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    },
+    "markdown": {
+      "flag": "--markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print docs/MODELLING_STUDIES.md"
+    },
+    "theses_markdown": {
+      "flag": "--theses-markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print docs/MODELLING_THESES.md"
+    }
+  }
+}

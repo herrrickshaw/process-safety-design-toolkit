@@ -604,6 +604,24 @@ worldwide incident casebook for teaching: filter by country or topic; --sheet pr
 | `sheet` | `--sheet` |  |  |  |  |  |  | print each match as a teaching sheet with learnings, questions and sources |
 | `markdown` | `--markdown` |  |  |  |  |  |  |  |
 
+## `modelling`
+
+how published studies build process-simulation and safety models: read study sheets and a screened literature map
+
+| Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
+|---|---|---|---|---|---|---|---|---|
+| `text` | `(positional)` |  |  |  |  |  |  |  |
+| `tool` | `--tool` |  |  |  |  |  |  |  |
+| `study` | `--study` |  |  |  |  |  |  |  |
+| `kind` | `--type` |  |  |  |  |  |  | map record type |
+| `since` | `--since` |  |  |  |  |  |  |  |
+| `open` | `--open` |  |  |  |  |  |  | map records with an open link |
+| `read` | `--read` |  |  |  |  |  |  | search the read study sheets instead of the map |
+| `sheet` | `--sheet` |  |  |  |  |  |  | with --read: print each matching study sheet in full |
+| `limit` | `--limit` |  |  |  |  |  | 25 |  |
+| `markdown` | `--markdown` |  |  |  |  |  |  | print docs/MODELLING_STUDIES.md |
+| `theses_markdown` | `--theses-markdown` |  |  |  |  |  |  | print docs/MODELLING_THESES.md |
+
 ## `incidents`
 
 search the CSB-based incident register (maps incidents to toolkit modules and design review steps)
