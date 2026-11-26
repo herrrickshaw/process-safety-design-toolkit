@@ -1,5 +1,10 @@
 # Changelog (decisions, including rejected alternatives)
 
+## Unreleased - 2026-11-26: tests for the release, fire and explosion input checks
+
+* New `tests/test_release_input_guards.py`: refusals of bad input, the droplet screen, the release input check and the pool-fire warning for fluids without burning constants, and three fireball behaviours. The tests use refusals and relations, not stored result values. No change to calculation code.
+* Rejected: tests that reach into private helpers or patch the property tables only to run guards that the public functions cannot reach.
+
 ## Unreleased - 2026-11-26: cleanup before this work enters main
 
 * Left out the generated Office files and the two VertiStrat report PDFs. Earlier entries still name some of them; they are not in this repository. Some documents and source comments refer to them too.
