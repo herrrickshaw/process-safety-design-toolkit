@@ -4063,6 +4063,31 @@
    "regression": {}
   },
   {
+   "id": "REG-23",
+   "topics": [
+    "PSM management system (OSHA 14 elements, AIGA 99, RBPS)"
+   ],
+   "title": "Modelling-literature lookup by study type",
+   "args": [
+    "modelling",
+    "--study",
+    "relief-blowdown",
+    "--limit",
+    "5"
+   ],
+   "expect": [
+    {
+     "path": "$stdout",
+     "op": "exists"
+    }
+   ],
+   "oracle": [],
+   "meta": [],
+   "si_us": false,
+   "note": "text output",
+   "regression": {}
+  },
+  {
    "id": "ELE-01",
    "topics": [
     "Arc flash (screening)"
