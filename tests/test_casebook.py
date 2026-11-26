@@ -1,4 +1,6 @@
+import contextlib
 import datetime
+import io
 import os
 import subprocess
 import sys
@@ -6,6 +8,7 @@ import tempfile
 import unittest
 
 from process_safety import casebook, incidents
+from process_safety.__main__ import main as cli_main
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
@@ -102,6 +105,44 @@ class Casebook(unittest.TestCase):
         self.assertEqual(r.returncode, 0)
         self.assertIn(first["id"], r.stdout)
         self.assertEqual(run("zzzzqqq").returncode, 1)
+
+    def test_sector_event_and_year_filters_return_exactly_the_matching_cases(self):
+        every = casebook.cases()
+        ids = lambda cs: [c["id"] for c in cs]
+        for sector in {c["sector"] for c in every}:
+            self.assertEqual(ids(casebook.search(sector=sector.upper())), ids(c for c in every if sector.lower() in c["sector"].lower()))
+        for event in casebook.EVENT_TYPES:
+            self.assertEqual(ids(casebook.search(event=event.upper())), ids(c for c in every if event in c["event_types"]))
+        for year in {c["date"][:4] for c in every}:
+            self.assertEqual(ids(casebook.search(year=int(year))), ids(c for c in every if c["date"].startswith(year)))
+
+    def test_text_search_reads_causes_and_learnings_and_ignores_case(self):
+        for c in casebook.cases():
+            for phrase in (c["name"], c["what_happened"], c["causes"][-1], c["learnings"][-1]["text"]):
+                self.assertIn(c["id"], [h["id"] for h in casebook.search(phrase.upper())])
+        self.assertEqual(casebook.search("zzzzqqq"), [])
+
+    def test_command_output_paths(self):
+        def run(*args):
+            out, err = io.StringIO(), io.StringIO()
+            with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+                code = cli_main(["casebook", *args])
+            return code, out.getvalue(), err.getvalue()
+
+        self.assertEqual(run("--markdown")[:2], (0, casebook.markdown()))
+        topic = casebook.cases()[0]["topics"][0]
+        code, out, _ = run("--topic", topic)
+        self.assertEqual(code, 0)
+        self.assertTrue(out.startswith("Open with: " + casebook.TOPICS[topic][1]))
+        for c in casebook.search(topic=topic):
+            self.assertIn("id: " + c["id"], out)
+        first = casebook.cases()[0]
+        code, out, _ = run(first["name"], "--sheet")
+        self.assertEqual(code, 0)
+        self.assertIn("\n".join(casebook.sheet(first)), out)
+        code, out, err = run("zzzzqqq")
+        self.assertEqual((code, out), (1, ""))
+        self.assertIn("does not mean there was no incident", err)
 
     def test_data_file_is_the_normal_form(self):
         with open(casebook._PATH, encoding="utf-8") as fh:
