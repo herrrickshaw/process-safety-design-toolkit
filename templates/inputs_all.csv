@@ -246,6 +246,14 @@ library,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole library as Markdow
 library,map_markdown,--map-markdown,,flag,,,,,,,,,,,,,print the reading map as Markdown (docs/DESIGN_STANDARDS_RECOMMENDATIONS.md)
 countries,country,(positional),,str list,,,,,,,,,,,,,country name or ISO code; omit for coverage counts
 countries,markdown,--markdown,,flag,,,,,,,,,,,,,print the whole table as Markdown (docs/COUNTRY_SAFETY_COVERAGE.md)
+casebook,text,(positional),,str,,,,,,,,,,,,,
+casebook,country,--country,,str,,,,,,,,,,,,,name or ISO code
+casebook,topic,--topic,,str,,,,,,,,,,,,alarms-and-human-factors bleve-and-fire combustible-dust contractor-management emergency-response facility-siting hazard-identification hazardous-transport ignition-control isolation-and-permit land-use-planning management-of-change mechanical-integrity natural-hazards-and-utilities overfill-and-level pipeline-integrity reactive-hazards relief-and-disposal safety-culture startup-shutdown storage-and-segregation toxic-release vapour-cloud-explosion well-control,
+casebook,sector,--sector,,str,,,,,,,,,,,,,
+casebook,event,--event,,str,,,,,,,,,,,,fire explosion toxic release BLEVE vapour cloud explosion dust explosion runaway reaction blowout pipeline rupture structural failure,
+casebook,year,--year,,int,,,,,,,,,,,,,
+casebook,sheet,--sheet,,flag,,,,,,,,,,,,,"print each match as a teaching sheet with learnings, questions and sources"
+casebook,markdown,--markdown,,flag,,,,,,,,,,,,,
 incidents,text,(positional),,str,,,,,,,,,,,,,
 incidents,module,--module,,str,,,,,,,,,,,,,
 incidents,step,--step,,int,,,,,,,,,,,,,design review step 1-12 (docs/DESIGN_AWARENESS.md)

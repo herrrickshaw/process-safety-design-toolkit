@@ -1,0 +1,111 @@
+{
+  "command": "casebook",
+  "units": "us",
+  "_note": "Fill in `inputs` using the unit in each _guide entry. Help text may quote SI units; the `unit` field is the one that applies. psig and psia are different: gauge arguments (set_g, back_g ...) are psig, absolute ones psia. Temperatures are readings, not differences.",
+  "inputs": {
+    "text": null,
+    "country": null,
+    "topic": null,
+    "sector": null,
+    "event": null,
+    "year": null,
+    "sheet": null,
+    "markdown": null
+  },
+  "_guide": {
+    "text": {
+      "flag": "(positional)",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "country": {
+      "flag": "--country",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "name or ISO code"
+    },
+    "topic": {
+      "flag": "--topic",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "alarms-and-human-factors",
+        "bleve-and-fire",
+        "combustible-dust",
+        "contractor-management",
+        "emergency-response",
+        "facility-siting",
+        "hazard-identification",
+        "hazardous-transport",
+        "ignition-control",
+        "isolation-and-permit",
+        "land-use-planning",
+        "management-of-change",
+        "mechanical-integrity",
+        "natural-hazards-and-utilities",
+        "overfill-and-level",
+        "pipeline-integrity",
+        "reactive-hazards",
+        "relief-and-disposal",
+        "safety-culture",
+        "startup-shutdown",
+        "storage-and-segregation",
+        "toxic-release",
+        "vapour-cloud-explosion",
+        "well-control"
+      ]
+    },
+    "sector": {
+      "flag": "--sector",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": ""
+    },
+    "event": {
+      "flag": "--event",
+      "required": false,
+      "type": "str",
+      "unit": null,
+      "help": "",
+      "choices": [
+        "fire",
+        "explosion",
+        "toxic release",
+        "BLEVE",
+        "vapour cloud explosion",
+        "dust explosion",
+        "runaway reaction",
+        "blowout",
+        "pipeline rupture",
+        "structural failure"
+      ]
+    },
+    "year": {
+      "flag": "--year",
+      "required": false,
+      "type": "int",
+      "unit": null,
+      "help": ""
+    },
+    "sheet": {
+      "flag": "--sheet",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": "print each match as a teaching sheet with learnings, questions and sources"
+    },
+    "markdown": {
+      "flag": "--markdown",
+      "required": false,
+      "type": "flag",
+      "unit": null,
+      "help": ""
+    }
+  }
+}

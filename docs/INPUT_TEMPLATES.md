@@ -589,6 +589,21 @@ safety regime for industrial assets by country (193 UN members and 2 observers):
 | `country` | `(positional)` |  |  |  |  |  |  | country name or ISO code; omit for coverage counts |
 | `markdown` | `--markdown` |  |  |  |  |  |  | print the whole table as Markdown (docs/COUNTRY_SAFETY_COVERAGE.md) |
 
+## `casebook`
+
+worldwide incident casebook for teaching: filter by country or topic; --sheet prints full cases; --markdown prints docs/INCIDENT_CASEBOOK.md
+
+| Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
+|---|---|---|---|---|---|---|---|---|
+| `text` | `(positional)` |  |  |  |  |  |  |  |
+| `country` | `--country` |  |  |  |  |  |  | name or ISO code |
+| `topic` | `--topic` |  |  |  |  |  |  |  |
+| `sector` | `--sector` |  |  |  |  |  |  |  |
+| `event` | `--event` |  |  |  |  |  |  |  |
+| `year` | `--year` |  |  |  |  |  |  |  |
+| `sheet` | `--sheet` |  |  |  |  |  |  | print each match as a teaching sheet with learnings, questions and sources |
+| `markdown` | `--markdown` |  |  |  |  |  |  |  |
+
 ## `incidents`
 
 search the CSB-based incident register (maps incidents to toolkit modules and design review steps)
