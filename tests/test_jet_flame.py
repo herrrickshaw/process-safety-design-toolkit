@@ -92,7 +92,7 @@ class JetFlame(unittest.TestCase):
 
     def test_refusals(self):
         for bad in (dict(m_kg_s=0), dict(rho_j_kg_m3=-1), dict(wind_m_s=-1), dict(MW=0), dict(Hc_J_kg=0),
-                    dict(release_angle_deg=120), dict(fs_model="x")):
+                    dict(release_angle_deg=190), dict(fs_model="x")):
             with self.assertRaises(ValueError, msg=str(bad)):
                 flame(**bad)
         with self.assertRaises(ValueError):

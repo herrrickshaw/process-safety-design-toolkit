@@ -1,0 +1,26 @@
+metric,rev_a,rev_b,reference,deviation_before,deviation_after,status
+Stage-1 H2,123.45 kg/h,123.45 kg/h,123.45 (own stoichiometry),0.0 %,0.0 %,unchanged (agreed)
+Stage-1 heat of reaction,312 kW (0.30 MJ/kg),1106 kW (1.07 MJ/kg),"1,059-1,151 kW (Hf, two routes)",-70 %,+0.1 % vs route mean,closed (+/-10 %)
+No-diluent runaway rise,112 K,230 K,"316-344 K (validator, liquid only)",-64 %,basis changed (gas heat capacity included),closed by derivation
+No-quench rise,64 K,75 K,144-156 K at R=1.5 (validator),-55 %,n/a: recycle now 5.9,"closed by derivation, not a reference match"
+Liquid cp in duties,2.3 kJ/kg/K,"3.23 hot, 2.83 feed, 2.86 cool",3.23 (CoolProp n-dodecane 250-340 C),-29 %,0 % (hot),closed
+E-202 duty,667 kW,1177 kW,"PR check 1,123 kW (re-run)",0.4 %,+4.8 %,agrees (now includes paraffin condensing)
+K-201 shaft,25.5 kW,25.4 kW,26.1 (CoolProp real-gas H2),-2.7 %,-2.7 %,agrees
+C-401 SAF draw T,210 C,212 C,211.8-212.5 C,-1.2 %,0 %,closed
+Naphtha dew T,120 C,112 C,"112.4 C (CoolProp, PR)",+6.7 %,0 %,closed
+RD bottoms T,320 C,303 C,303.1 C bubble n-C16,+5.6 %,0 %,closed
+E-401,4.7 kW,87 kW,87.2 kW (PR energy balance),-1.9 % (vs 4.8),0 % (frozen),closed; naphtha flow grew 5.6x
+E-403,420 kW,"462 kW (feed 210 C, 52 mol % vapour)",696 kW at 250 C (100 % vapour),-39.7 %,not comparable: feed T changed,reduced: 250 C gives negative reboiler duty (-118 kW)
+E-402,0 kW (clamped),160 kW,column energy balance,clamp,n/a,closed (no clamp)
+V-201 paraffin to vapour,0 % (sharp),9.0 %,"26.6 % (Rev A flows, PR)",disagrees,PR at Rev B flows: 9.0 %,closed: carry-over modelled (stream 25)
+SAF yield,"0.80 t/t UCO (24,000 t/yr)",0.446 t/t (13388 t/yr),"0.45-0.58 derived; NREL 0.461 (13,830 t/yr)",+38 %,-3.2 % vs NREL on raw oil,closed (clean-oil basis explains the gap)
+SAF share of liquids,96.4 %,54.2 %,60-70 % (Tao),unexplained,"about 54 %, below Tao range; NREL jet mode 46.1/85.0 = 54 %",reduced; Tao is a hydrocracked upper bound
+Naphtha share of liquids,0.9 %,10.0 %,10 % (NREL 8.5/85.0); 32 % Tao jatropha,unexplained,agrees with NREL,closed vs NREL; Tao 32 % not followed
+Hydrocracking loss,1.4 %,stage-2 H2 0.45 wt % of oil; C4+C2 2.3 % of oil,about 8 wt % (CBSCI); NREL light ends +9 points,-82 %,"reduced, not reproduced",unchanged-ish: pseudo-cuts under-predict cracking; licensor item
+Total H2,3.77 wt % of oil,3.76 wt %,"4.5 (NREL jet), 1.5-3.8 (Ecofining)",-16 % vs NREL,-16 % vs NREL,unchanged: stage-2 H2 0.45 wt %
+H2 per t SAF,46.4 kg,83 kg,55-60 (OIES net); about 98 NREL total-oil basis,-16 %,"above OIES, below NREL basis",reduced; bases differ
+Propane,5.06 wt %,5.06 wt %,5-5.2,1.1 %,1.1 %,unchanged (agrees)
+HT paraffin,85.4 wt %,85.4 wt %,75-85,3.4 %,3.4 %,unchanged (agrees)
+CO + CO2,1.89 wt %,1.89 wt %,1.8 (CBSCI); NREL 4.0,4.8 %,-54 % vs NREL,"unchanged: A pathway shares, not tuned"
+Reaction water,11.0 wt %,10.8 wt % of raw,NREL aqueous 8.0,n/a,+35 %,"new comparison, unchanged"
+"PSV coverage V-102, V-201, V-401","none, no reason","PSV-207, PSV-204, zone PSV-205 (stated reason)",lint,3 failures,0 failures,closed

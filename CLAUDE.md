@@ -20,6 +20,17 @@ Guidance for AI coding agents working on this repo. Contributor rules are in `CO
 6. **Review before PR.** Use `code-review-and-quality`; for ranges and standards also check that `ranges.py` limits are enforced and `RANGES.md` is regenerated.
 7. **Record it.** `documentation-and-adrs`: decisions go in `CHANGELOG.md`; regenerate docs listed in `CONTRIBUTING.md`.
 
+## Fetching data from open sources
+
+Learned while building the leak chain (`docs/SOURCE_TERM_SOURCES.md` is the worked example).
+
+1. **Fetch the document, not a summary.** Download the PDF with `curl` (browser User-Agent, about one request per second per host) into its own new directory, extract text with `pdftotext -layout`, and read the passage. A search snippet or a fetch-tool summary is grade C: the summariser can be wrong, so take every number and equation from the extracted text. Where extraction garbles an equation, render the page (`pdftoppm`) and read the image.
+2. **Prefer the publisher's own copy.** Known open locations: TNO Yellow Book at `publications.tno.nl/publication/34634119/QIKv78/TNO-2005-yellow.pdf`; the Dutch Publicatiereeks Gevaarlijke Stoffen at `content.publicatiereeksgevaarlijkestoffen.nl/documents/PGS2/...` (Yellow), `PGS3/...` (Purple), `PGS4/...` (Red) and `publicatiereeksgevaarlijkestoffen.nl/documents/81474/...` (PGS 1, the Green Book, in Dutch). Do not cite unofficial uploads (Scribd and similar): they cannot be verified and often return errors.
+3. **Stop at a wall.** A CAPTCHA, robot check, WAF challenge, login, registration or "enter your name and company" form means stop on that host. Do not use stealth or fingerprint-spoofing browsers, identity or proxy rotation, or challenge solvers, and do not submit anyone's details to a form. Report the item as unavailable and ask the owner to share the document. Paywalled books (CCPS, API, ISO, Wiley) are never scraped.
+4. **No unvetted crawlers.** Do not install or run third-party scraper binaries or build them from an unknown account. If the owner wants one used, they run it themselves, with robots.txt respected and stealth off, on named open URLs, and share the output files; read those as documents.
+5. **Check, then grade.** Reproduce the source's own worked example as a test where it has one; check each equation against a second source (the Purple Book heat probit was confirmed against the Norwegian DSB guideline and the Dutch Green Book). Report misprints found rather than silently fixing them, and say which form reproduces the book's numbers.
+6. **Record every source** in the ledger with title, edition, section or page, route, and grade (A = the standard's text was read; B = a public document quoting it; C = web page or summary). Say what is still missing and what would close it. Never commit extracted text from licensed standards: extract values and equations, cite the clause.
+
 ## Checks before any PR
 
 ```bash

@@ -1,0 +1,89 @@
+process,feature,source,grade,status
+ETHANOL,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSV-301/302, PVRV-201, PVRV-401 present; T-101 day tank and MS-101A/B sieve beds have no device or reason; destination 'to vent (A)' is generic"
+ETHANOL,"Tank normal venting (PVRV) plus emergency venting for fire engulfment, flame arrester where valid",S1,A,partial: PVRV-401 on T-201A/B with flame arrester; T-101 has none
+ETHANOL,Independent high-high level trip on tank filling (separate from gauging),S1,A,"partial: LAHH-401 named in scenarios, not on sheet 1"
+ETHANOL,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"partial: XV-201, XV-301, XV-501 named in scenarios, not on sheet 1"
+ETHANOL,Bund/dyke sized for largest spill,"S1,S9",A,not assessed: validation report does not cover bunds
+ETHANOL,Safety distances / tank spacing basis stated,"S1,S3",A,missing: no layout basis
+ETHANOL,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,"partial: GD-201 named, not on sheet 1"
+ETHANOL,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,partial: TAHH-501 not on sheet 1; no matrix
+ETHANOL,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing: no SIF list or SIL
+ETHANOL,HAZOP node list and PHA incl. facility siting,S5,A,missing: no node list
+BIODIESEL,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSV-301A/B present with destination; 9 vessels without relief/vent or reason: V-302, V-401, V-402 (80 C), M-301, V-601, V-901, T-101, T-701A/B, T-801"
+BIODIESEL,"Tank normal venting (PVRV) plus emergency venting for fire engulfment, flame arrester where valid",S1,A,partial: methanol and product tanks T-101/T-701/T-801 without stated vent
+BIODIESEL,Independent high-high level trip on tank filling (separate from gauging),S1,A,not assessed
+BIODIESEL,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,present: XV-201/202/203/301A/B/901 on sheet 1
+BIODIESEL,Bund/dyke sized for largest spill,"S1,S9",A,not assessed
+BIODIESEL,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+BIODIESEL,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+BIODIESEL,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,partial: ESD valves present; no matrix
+BIODIESEL,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+BIODIESEL,HAZOP node list and PHA incl. facility siting,S5,A,missing
+CBG,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: D-201A/B via holder PRVs and V-501 via PSV-501 covered; R-301, E-301, M-401 (16 barg), K-201 discharge, CAS-601 (250 barg, TPRD in text only) have none"
+CBG,"Biogas: PRV and vacuum relief on digester/gas holder, flare, ventilation and H2S control",S12,A,partial: holder PRVs present; flare/vacuum relief and H2S control not assessed in report
+CBG,"Hydrogen: pressure relief, vent line design and safety distances",S4,A,not assessed: compressed gas cascade 250 barg: PESO/SMPV applies (see S18)
+CBG,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"present: XV-101A/B, XV-201, XV-501, XV-601 tagged"
+CBG,Bund/dyke sized for largest spill,"S1,S9",A,not assessed
+CBG,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+CBG,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+CBG,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,partial
+CBG,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+CBG,HAZOP node list and PHA incl. facility siting,S5,A,missing
+FRUITVEG,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSV-501, -502, -701 present with vent cap; E-301, F-401/CS-401, DA-201/VC-201 (no vacuum breaker) have none"
+FRUITVEG,"Ammonia: refrigerated tank containment, relief to flare/scrubber, dual PRVs, detectors","S6,S8,S7",A,partial: common refrigerant PSV suggested but not drawn; NH3 detection not assessed
+FRUITVEG,"Boiler: low-water, high-pressure trip, safety valves, burner management",,-,partial: boiler PSV-501 present; BMS-501 not in equipment list
+FRUITVEG,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"present: XV-501, XV-502, SV-701, FDV-301 on sheet 1"
+FRUITVEG,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,"partial: EF-701, ESD-701, BMS-501 not on sheet 1 or list"
+FRUITVEG,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+FRUITVEG,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+FRUITVEG,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+FRUITVEG,HAZOP node list and PHA incl. facility siting,S5,A,missing
+LNG,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSV-201 to F1, PSV-501 to FL-601 drawn; none on V-101, T-301, V-201A/B, V-401 (code comment says PSV but none drawn), V-301, E-301; PSV-501 vs PSV-501A/B naming"
+LNG,"LNG: thermal and vapour-dispersion exclusion zones, impoundment, control centre protected",S9,A,missing: no exclusion zones or impoundment shown
+LNG,Bund/dyke sized for largest spill,"S1,S9",A,missing: impoundment not shown
+LNG,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"partial: XV-504 named in scenarios, not on sheet 1"
+LNG,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+LNG,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+LNG,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,partial
+LNG,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+LNG,HAZOP node list and PHA incl. facility siting,S5,A,missing
+LNG,"Release frequency basis for leak scenarios (vessel, pipe, valve, hole classes)",S15,A,missing
+LPG,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,unknown: no LPG validation report in docs/pid/validation; task finding: pressure vessels lack relief or reason
+LPG,"Fire-case relief sizing basis for LPG-type vessels (wetted area, drainage, PRV may cycle then fail to protect)",S13,A,missing: fire-case relief and PRV cycling not shown
+LPG,Ignition probability and full-bore/instantaneous rupture cases in release scenarios,"S14,S16,S15",A,missing: ignition probability and full-bore rupture gaps per validators
+LPG,"Release frequency basis for leak scenarios (vessel, pipe, valve, hole classes)",S15,A,partial: ledger holds Purple Book and IOGP 434-01 data; not on P&ID
+LPG,Bund/dyke sized for largest spill,"S1,S9",A,not assessed
+LPG,Safety distances / tank spacing basis stated,"S1,S3",A,"missing: OISD-STD-144/118, NFPA 58, API 2510 not read"
+LPG,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,unknown
+LPG,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,unknown
+LPG,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+LPG,HAZOP node list and PHA incl. facility siting,S5,A,missing
+REFINERY,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: 4 PSVs (101, 204, 301, 401) for 14 pressure items; 10 with none: C-101, C-102, C-301, C-401, D-101, D-102, D-401A/B, D-901, R-201..204, R-301, R-302 (as listed in report)"
+REFINERY,"Hydrogen: pressure relief, vent line design and safety distances",S4,A,missing: hydrotreater H2 vent/relief/safety distances not on sheets
+REFINERY,"Refinery: pressure relief and disposal, fire protection, layouts, control room, fireproofing",S17,walled,walled: OISD-STD-106/116/118/163/164 not read
+REFINERY,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"present: XV-102/103/205/206, XV-301 and ESD-3 added to sheet 1"
+REFINERY,Alarm rationalisation / operator-response credit limited,S10,A,missing: no alarm philosophy; BP-Husky shows safeguards credited but ineffective
+REFINERY,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+REFINERY,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+REFINERY,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+REFINERY,HAZOP node list and PHA incl. facility siting,S5,A,missing
+REFINERY,Bund/dyke sized for largest spill,"S1,S9",A,not assessed
+SAF,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSV-201/-202/-203/-205 to flare; V-102, V-201, V-401 have none; tanks carry PVRV in list"
+SAF,"Hydrogen: pressure relief, vent line design and safety distances",S4,A,missing: hydroprocessing H2 relief and distances not on sheets
+SAF,"Tank normal venting (PVRV) plus emergency venting for fire engulfment, flame arrester where valid",S1,A,partial: tank PVRV in list only
+SAF,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"present: XV-201, XV-202, HV-201, XV-401 on sheet 1"
+SAF,Independent high-high level trip on tank filling (separate from gauging),S1,A,not assessed
+SAF,Bund/dyke sized for largest spill,"S1,S9",A,not assessed
+SAF,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+SAF,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+SAF,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+SAF,HAZOP node list and PHA incl. facility siting,S5,A,missing
+UREA,"Relief schedule: every pressure item has a PSV/rupture disc or a stated reason, with set pressure, scenario, and discharge location","S5,S11",A,"partial: PSVs on R-101, R-401/V-401 loop, T-501, R-601 (flare FL-1 or scrubber); R-201, R-202, R-301, C-301, C-302, C-601, V-102 have none"
+UREA,"Ammonia: refrigerated tank containment, relief to flare/scrubber, dual PRVs, detectors","S6,S8,S7",A,partial: relief to flare/scrubber drawn for four items; NH3 storage containment type and detectors not shown
+UREA,"Remotely operated shut-off valves (ROSOV) on large inventory lines, fail-safe or power-independent",S1,A,"present: 8 ESD/BDV valves incl. BDV-101, XV-502 now on sheet 1"
+UREA,Bund/dyke sized for largest spill,"S1,S9",A,not assessed: NH3 storage bund/containment not shown
+UREA,Gas / flame / fire detection with alarm and executive action,"S4,S8",A,not assessed
+UREA,Safety distances / tank spacing basis stated,"S1,S3",A,missing
+UREA,"ESD matrix: every scenario valve, trip, and shutdown action on the P&ID",S5,A,partial: ESD-1/2 logic noted
+UREA,"Safety instrumented function list with assumed SIL, separate from basic control","S2,S10",A,missing
+UREA,HAZOP node list and PHA incl. facility siting,S5,A,missing
