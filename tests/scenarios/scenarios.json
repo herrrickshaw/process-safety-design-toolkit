@@ -7427,6 +7427,469 @@
    "regression": {
     "tool": "portfolio"
    }
+  },
+  {
+   "id": "LGR-01",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Flashing release: continuity, momentum and energy balances close (flash_release)",
+   "call": "flash_release.saturated_liquid_release",
+   "kwargs": {
+    "P0_kPa": 1200.0,
+    "rho0_kg_m3": 476.9645,
+    "omega": 6.410917,
+    "area_m2": 0.0004908738521234052,
+    "Cd": 0.62,
+    "T0_K": 307.5809,
+    "Tb_K": 231.036,
+    "cp_mean_J_kgK": 2493.63,
+    "h_fg_Tb_J_kg": 425592.0,
+    "rho_L_Tb_kg_m3": 580.883,
+    "rho_V_Tb_kg_m3": 2.41611
+   },
+   "expect": [
+    {
+     "path": "W_kg_s",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "x_vapour",
+     "op": "lt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "W_kg_s",
+     "formula": "$rho_f_kg_m3*$A_f_m2*$u_f_m_s"
+    },
+    {
+     "path": "P_choke_kPa",
+     "formula": "101.325 + $G_kg_m2_s*($u_f_m_s-$u_choke_m_s)/1000"
+    },
+    {
+     "path": "x_vapour",
+     "formula": "$x_isenthalpic - $KE_share_of_h_fg"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "area_m2",
+      "factor": 2
+     },
+     "path": "W_kg_s",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-09
+    },
+    {
+     "vary": {
+      "kwarg": "Cd",
+      "factor": 0.5
+     },
+     "path": "W_kg_s",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; property values are CoolProp-derived test inputs",
+   "regression": {
+    "G_kg_m2_s": 7678.178445255297,
+    "W_kg_s": 2.336790559042287,
+    "regime": "choked",
+    "eta_c": 0.8126146176490991,
+    "P_choke_kPa": 975.1375411789189,
+    "rho_choke_kg_m3": 192.45403271186146,
+    "u_choke_m_s": 39.89616812421344,
+    "u_f_m_s": 153.70083513073348,
+    "x_isenthalpic": 0.4484921215318896,
+    "x_vapour": 0.4207379030316771,
+    "rho_f_kg_m3": 5.709856036134421,
+    "A_f_m2": 0.002662676489933355
+   }
+  },
+  {
+   "id": "LGR-02",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Largest Weber-stable droplet scales with 1/u^2 (droplet)",
+   "call": "droplet.weber_max_diameter_m",
+   "kwargs": {
+    "sigma_N_m": 0.0157,
+    "u_f_m_s": 150.0,
+    "rho_air_kg_m3": 1.18,
+    "We_crit": 12.5
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.0157*12.5/(150**2*1.18)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "u_f_m_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.25,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 7.391713747645951e-06
+   }
+  },
+  {
+   "id": "LGR-03",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Droplet evaporation time follows the d-squared law (droplet)",
+   "call": "droplet.evaporation_time_s",
+   "kwargs": {
+    "d_m": 0.0002,
+    "rho_L": 580.0,
+    "h_fg_J_kg": 420000.0,
+    "k_gas_W_mK": 0.026,
+    "dT_K": 67.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "580*4.2e5*(2e-4)**2/(8*0.026*67)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "d_m",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 4,
+     "rtol": 1e-09
+    },
+    {
+     "vary": {
+      "kwarg": "dT_K",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.5,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 0.6991963260619977
+   }
+  },
+  {
+   "id": "LGR-04",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Pool burn-off area balances feed and burning (pool_spread)",
+   "call": "pool_spread.equilibrium_area_m2",
+   "kwargs": {
+    "m_feed_kg_s": 2.0,
+    "burn_flux_kg_m2_s": 0.1
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "2.0/0.1"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "m_feed_kg_s",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 2,
+     "rtol": 1e-09
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs",
+   "regression": {
+    "value": 20.0
+   }
+  },
+  {
+   "id": "LGR-05",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Propane leak study: rain-out plus airborne equals the release (lgrelease tool)",
+   "steps": [
+    {
+     "write": "lgrelease.json",
+     "json": {
+      "_note": "Worked example: propane, 25 mm hole, saturated liquid at 1200 kPa(a). Properties come from the Yellow Book Annex; only the study inputs are listed. Illustrative inputs, not a site study.",
+      "fluid": "propane",
+      "mode": "saturated",
+      "P0_kPa": 1200.0,
+      "hole_d_m": 0.025,
+      "Cd": 0.62,
+      "discharge_basis": "omega",
+      "ambient": {
+       "P_kPa": 101.325,
+       "T_K": 288.15,
+       "wind_m_s": 5.0
+      },
+      "fire": {
+       "release_height_m": 2.0,
+       "release_angle_deg": 90,
+       "target_height_m": 1.5,
+       "tau": 1.0,
+       "exposure_time_s": 20.0
+      },
+      "pool": {
+       "C_T": 0.001,
+       "r0_m": 0.05,
+       "h0_m": 0.01,
+       "extra_rainout_fractions": []
+      }
+     }
+    },
+    [
+     "tool",
+     "lgrelease",
+     "lgrelease.json",
+     "--quiet"
+    ]
+   ],
+   "files": [],
+   "expect": [
+    {
+     "path": "checks",
+     "op": "no_prefix",
+     "value": "FAIL"
+    },
+    {
+     "path": "droplet.rainout_kg_s",
+     "op": "close",
+     "value": 0.0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "release.W_kg_s",
+     "formula": "$droplet.rainout_kg_s+$droplet.q_nett_air_kg_s"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "JSON tool; illustrative propane inputs (CoolProp-derived properties) written by the first step",
+   "regression": {
+    "tool": "lgrelease",
+    "mode": "saturated"
+   }
+  },
+  {
+   "id": "LGR-06",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Yellow Book spray release, step 1: jet velocity from momentum (yb_spray, book's butane example inputs)",
+   "call": "yb_spray.jet_after_flash",
+   "kwargs": {
+    "q_kg_s": 41.34,
+    "A_e_m2": 0.00363,
+    "P_e_Pa": 174549.0,
+    "P_a_Pa": 101325.0,
+    "Phi_e": 0.0,
+    "rho_L_e": 584.49,
+    "rho_V_e": 4.233,
+    "dH_V_f_minus_e_J_kg": -44816.0,
+    "L_v_e": 362140.0,
+    "L_v_f": 376740.0,
+    "rho_L_f": 600.72,
+    "rho_V_f": 2.5964
+   },
+   "expect": [
+    {
+     "path": "Phi_f",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "Phi_f",
+     "op": "lt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "u_f_m_s",
+     "formula": "(174549-101325)*0.00363/41.34 + $u_e_m_s"
+    },
+    {
+     "path": "u_e_m_s",
+     "formula": "41.34/(584.49*0.00363)"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario, SI inputs; inputs are the Yellow Book worked example (Table 2.6)",
+   "regression": {
+    "rho_e_kg_m3": 584.49,
+    "u_e_m_s": 19.484387674838093,
+    "u_f_m_s": 25.91407127425754,
+    "Phi_f": 0.15732348870979462,
+    "rho_f_kg_m3": 16.1301484788668,
+    "A_f_m2": 0.0989000379535694,
+    "b_f_m": 0.17742846396385575
+   }
+  },
+  {
+   "id": "LGR-07",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Purple Book heat-radiation probit: P = 0.5 at probit 5 (vulnerability)",
+   "call": "vulnerability.probability_from_probit",
+   "kwargs": {
+    "Pr": 5.0
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "0.5"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario; the Purple Book Table 5.1 lists probit 5.00 for P = 0.5",
+   "regression": {
+    "value": 0.5
+   }
+  },
+  {
+   "id": "LGR-08",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "Process vessel leak frequency follows the IOGP 434-01 power law (release_frequency)",
+   "call": "release_frequency.exceedance",
+   "kwargs": {
+    "sheet": 6,
+    "D_mm": 200.0,
+    "hole_mm": 10.0,
+    "period": "2006-2015"
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "6.5e-4*10**(-0.66)"
+    }
+   ],
+   "meta": [
+    {
+     "vary": {
+      "kwarg": "hole_mm",
+      "factor": 2
+     },
+     "path": "value",
+     "relation": "ratio",
+     "value": 0.6329,
+     "rtol": 0.0002
+    }
+   ],
+   "si_us": false,
+   "note": "Python-API scenario; the equation F(d) = 6.50e-4 d^-0.66 is printed in IOGP 434-01 datasheet 6; ratio = 2^-0.66",
+   "regression": {
+    "value": 0.00014220450555672089
+   }
+  },
+  {
+   "id": "LGR-09",
+   "topics": [
+    "Liquefied-gas leak: two-phase discharge, droplet and rainout screen, jet and pool fire"
+   ],
+   "title": "UKOOA large-plant gas/LPG ignition probability by log-log interpolation (ignition_ukooa)",
+   "call": "ignition_ukooa.ignition_probability",
+   "kwargs": {
+    "rate_kg_s": 2.34,
+    "case": 8
+   },
+   "expect": [
+    {
+     "path": "value",
+     "op": "gt",
+     "value": 0
+    },
+    {
+     "path": "value",
+     "op": "lt",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "value",
+     "formula": "exp(log(0.0025) + (log(2.34) - log(1.0)) * (log(0.25) - log(0.0025)) / (log(100.0) - log(1.0)))"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario; points 1 kg/s 0.0025 and 100 kg/s 0.25 are from IOGP 434-06 Table 3-1, curve 8",
+   "regression": {
+    "value": 0.005850000000000001
+   }
   }
  ]
 }

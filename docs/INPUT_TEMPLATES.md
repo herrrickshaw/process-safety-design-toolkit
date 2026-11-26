@@ -484,7 +484,7 @@ quantitative risk assessment workflow (HAZID -> frequency -> consequence -> risk
 
 ## `tool`
 
-JSON-driven study tools: bowtie, sif, fg, thermal, atex, ram, shutdown, recs, lngcost, workflow, plant, pha, wbs, schedule, tenders, portfolio (see process_safety/tools.py)
+JSON-driven study tools: bowtie, sif, fg, thermal, atex, ram, shutdown, recs, lngcost, workflow, plant, pha, lgrelease, wbs, schedule, tenders, portfolio (see process_safety/tools.py)
 
 | Parameter | Flag | Req | SI unit | US unit | Hard range (SI) | Soft range (SI) | Default | Meaning |
 |---|---|---|---|---|---|---|---|---|
