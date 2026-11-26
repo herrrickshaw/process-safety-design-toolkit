@@ -8,6 +8,7 @@
 * Left out: one thesis sheet whose front matter asks for the author's permission before material from it is published; two unaudited duplicate sheets.
 * Gaps: the read set has no sheet that builds a model in PRO/II, CHEMCAD or NeqSim, and none that runs KFX or DEGADIS directly; thermodynamic method selection is thinly covered. Rejected: filling gaps from abstracts or search snippets.
 * Rejected: a systematic-review claim (the search is neither exhaustive nor protocol-registered) and prevalence statistics from the purposive read set.
+* A further test checks that a study sheet prints its optional sections (caveats, audit note, tool chain, limitations) only when they have content; no committed sheet has an audit note, so that line was not run before.
 
 ## Unreleased - 2026-11-26: worldwide incident casebook for teaching
 * Added `casebook` (data, command, `docs/INCIDENT_CASEBOOK.md`): 78 historical process safety cases from 38 countries and territories, with a roster, country index, discussion prompts by topic, a case-discussion method, two questions per case, learnings marked as drawn by a source or by the compiler, graded sources and a note where the best grade overstates the support. It is a selection, not a complete record.

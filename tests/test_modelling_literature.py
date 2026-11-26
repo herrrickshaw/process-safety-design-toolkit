@@ -84,6 +84,15 @@ class Validator(unittest.TestCase):
         self.assertNotIn("quote", repr(row))
         self.assertNotIn("saved_text", row)
 
+    def test_sheet_shows_optional_sections_only_when_they_have_content(self):
+        row = build.published(profile(caveats=""))
+        bare = "\n".join(ml.sheet(row))
+        for label in ("**Caveats.**", "**Audit note.**", "**Limitations the authors state.**", "**Tool chain.**"):
+            self.assertNotIn(label, bare)
+        full = "\n".join(ml.sheet(dict(row, caveats="c1", audit_note="a1", tool_chain="t1", limitations=[{"text": "l1"}])))
+        for text in ("**Caveats.** c1", "**Audit note.** a1", "**Tool chain.** t1", "- l1"):
+            self.assertIn(text, full)
+
     def test_map_rows_drop_abstracts_and_shared_copies(self):
         r = {"title": "T", "year": 2000, "authors": list("abcde"), "venue": "", "type": "thesis", "level": "", "doi": "10.1/x",
              "url": "https://www.academia.edu/1", "oa_url": "https://www.researchgate.net/1", "tools": [], "studies": [],
