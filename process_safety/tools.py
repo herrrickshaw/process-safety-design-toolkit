@@ -8,6 +8,7 @@
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
     plant    ingest PFS/HMB streams, P&ID registers (+Proteus XML), PHA register: balances, scenarios, P&ID review, why-chain, common recommendations, workflow skeleton  (plant_model, hmb, pid_review, scenario_ingest)
+    hmb      compiled stream table, mass/component/energy closure, design-vs-model audit, P&ID line links: Excel + visual HTML  (hmb_audit, hmb_report)
     workflow safety simulation -> resizing/design -> BOQ -> capex and opex (devices, pipeline rerouting, sensors, PCN modification), ALARP, shutdown merge  (design_workflow.py)
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)
@@ -26,7 +27,7 @@ import json
 import math
 import os
 
-from . import atex, lg_release, bowtie, design_workflow, hmb, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, portfolio, ram, recommendation_cost, schedule, shutdown_risk, sil_lifecycle, tender_register, thermal_runaway, wbs
+from . import atex, lg_release, bowtie, design_workflow, hmb, hmb_audit, hmb_report, plant_model, scenario_ingest, fg_mapping, lng_cost, pha, portfolio, ram, recommendation_cost, schedule, shutdown_risk, sil_lifecycle, tender_register, thermal_runaway, wbs
 
 
 def _dump(obj, path):
@@ -128,6 +129,13 @@ def run_tool(name: str, data: dict, out: str, progress: bool = True) -> dict:
         pha.write_csv(full["tornado_cost"], pre + "_tornado_cost.csv")
         shutdown_risk.s_curve_svg(full, pre + "_s_curve.svg")
         summ["files"] = [pre + "_s_curve.csv", pre + "_s_curve.svg", pre + "_criticality.csv", pre + "_tornado_duration.csv", pre + "_tornado_cost.csv"]
+    elif name == "hmb":
+        r = hmb_audit.audit(data, base_dir=data.get("base_dir"))
+        files = hmb_report.write(r, pre)
+        head = {"pass": "PASS: every check ran and passed", "fail": f"FAIL: {r['counts']['fail']} finding(s) failed",
+                "not_checked": f"INFO: audit incomplete, {r['counts']['not_checked']} item(s) not checked (not a pass)"}[r["verdict"]]
+        summ["checks"] = [head]
+        summ.update(verdict=r["verdict"], counts=r["counts"], plant_mass_balance=r["overall"]["mass"], findings=r["findings"], limits=r["limits"], files=files)
     elif name == "plant":
         m = plant_model.load(data, base_dir=data.get("base_dir"))
         errs = plant_model.validate(m)
