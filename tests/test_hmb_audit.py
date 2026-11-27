@@ -1,4 +1,6 @@
+import contextlib
 import copy
+import io
 import json
 import os
 import tempfile
@@ -7,6 +9,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 from process_safety import hmb_audit, hmb_report, tools, xlsx_write
+from process_safety.__main__ import main
 from process_safety.hmb_audit import FAIL, NC, PASS, REVIEW
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -197,6 +200,84 @@ class ModelConnectivity(unittest.TestCase):
             x.pop("from")
             x.pop("to")
         self.assertEqual(self.conflicts(d), [])
+
+
+class EdgeCases(unittest.TestCase):
+    def findings(self, d, area):
+        return {(f["status"], f["item"]): f["message"] for f in hmb_audit.audit(d)["findings"] if f["area"] == area}
+
+    def test_stream_on_one_side_only(self):
+        d = closed()
+        d["model_streams"] = [x for x in d["model_streams"] if x["id"] != "S2"] + [{"id": "S99", "mass_kg_h": 1}]
+        got = self.findings(d, "design vs model")
+        self.assertIn("no model result", got[(NC, "S2")])             # a design stream without a result is unchecked
+        self.assertIn("not in the design", got[(REVIEW, "S99")])
+
+    def test_duplicate_ids_are_refused(self):
+        for mutate in (lambda d: d["model_streams"].append(dict(d["model_streams"][0])), lambda d: d["units"].append(dict(d["units"][0]))):
+            d = closed()
+            mutate(d)
+            with self.assertRaises(ValueError):
+                hmb_audit.audit(d)
+
+    def test_property_absent_on_both_sides_makes_no_row(self):
+        d = closed()
+        for key in ("streams", "model_streams"):
+            stream(d, "S1", key).pop("T_C")
+        rows = hmb_audit.audit(d)["comparison"]
+        self.assertNotIn(("S1", "T_C"), {(x["stream"], x["property"]) for x in rows})
+
+    def test_negative_mass_and_bad_values_never_pass(self):
+        d = closed()
+        stream(d, "S1")["mass_kg_h"] = -1000
+        self.assertIn("negative mass flow", " ".join(self.findings(d, "input").values()))
+        d = closed()
+        stream(d, "S1")["components"] = {"water": -1.0, "ethanol": 2.0}
+        self.assertIn("negative", unit(hmb_audit.audit(d), "MX-100")["component"]["reason"])
+        d = closed()
+        d["units"][0]["work_kW"] = "5 kW"
+        self.assertIn("work_kW invalid", unit(hmb_audit.audit(d), "MX-100")["energy"]["reason"])
+
+    def test_zero_flow_stream_needs_no_composition(self):
+        self.assertEqual(hmb_audit.component_flows({"mass_kg_h": 0}, None, {}, 1e-3), ({}, None))
+
+    def test_energy_failure_reports_the_residual(self):
+        d = closed()
+        d["units"][1]["duty_kW"] = 120                     # 40 kW more than the stream enthalpies take up
+        r = hmb_audit.audit(d)
+        self.assertEqual(unit(r, "E-100")["energy"]["status"], FAIL)
+        self.assertAlmostEqual(unit(r, "E-100")["energy"]["residual_kW"], 40)
+        msg = next(f["message"] for f in r["findings"] if (f["area"], f["item"]) == ("energy balance", "E-100"))
+        self.assertIn("residual 40 kW", msg)
+
+    def test_line_without_end_points_and_boundary_to_boundary_stream_are_not_checked(self):
+        d = closed()
+        next(x for x in d["lines"] if x["line_no"] == "L-103").update({"from": None, "to": None})
+        d["streams"].append({"id": "BYP", "from": "feed", "to": "product", "mass_kg_h": 0})
+        links = {x["stream"]: x for x in hmb_audit.audit(d)["links"]}
+        self.assertEqual(links["S3"]["status"], NC)
+        self.assertIn("no end points", links["S3"]["reason"])
+        self.assertIn("plant boundary", links["BYP"]["reason"])
+
+    def test_page_says_what_was_not_checked_or_compared(self):
+        d = closed()
+        stream(d, "S3").pop("mass_kg_h")
+        del d["model_streams"]
+        page = hmb_report.html_page(hmb_audit.audit(d))
+        self.assertIn(">not checked<title>mass flow missing", page)
+        self.assertIn("No model results were compared.", page)
+
+    def test_workbook_refuses_no_sheets_and_clashing_names(self):
+        with tempfile.TemporaryDirectory() as t:
+            for sheets in ([], [("A", [["x"]]), ("a", [["y"]])]):
+                with self.assertRaises(ValueError):
+                    xlsx_write.write_xlsx(os.path.join(t, "w.xlsx"), sheets)
+
+    def test_cli_example_help_lists_the_tool(self):
+        err = io.StringIO()
+        with contextlib.redirect_stderr(err):
+            self.assertEqual(main(["tool", "example"]), 2)
+        self.assertIn("|hmb|", err.getvalue())
 
 
 class Inputs(unittest.TestCase):
