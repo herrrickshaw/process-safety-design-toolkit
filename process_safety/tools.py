@@ -8,7 +8,7 @@
     ram      Monte Carlo availability with analytic check                       (ram.py)          sample-first: N runs, then planned runs
     shutdown schedule and cost risk Monte Carlo (QSRA+QCRA), S-curve, tornado, safety-critical flags  (shutdown_risk.py)  sample-first
     plant    ingest PFS/HMB streams, P&ID registers (+Proteus XML), PHA register: balances, scenarios, P&ID review, why-chain, common recommendations, workflow skeleton  (plant_model, hmb, pid_review, scenario_ingest)
-    hmb      compiled stream table, mass/component/energy closure, design-vs-model audit, P&ID line links: Excel + visual HTML  (hmb_audit, hmb_report)
+    hmb      compiled stream table, mass/component/energy closure, design-vs-model audit, P&ID line links: Excel, text and visual HTML  (hmb_audit, hmb_report, hmb_views)
     workflow safety simulation -> resizing/design -> BOQ -> capex and opex (devices, pipeline rerouting, sensors, PCN modification), ALARP, shutdown merge  (design_workflow.py)
     lngcost  conceptual (FEL 1, Class 5 style) LNG liquefaction capex from public analogs, with Monte Carlo range  (lng_cost.py)
     recs     cost of implementing study recommendations (piping, civil, electrical, instrumentation) with uncertainty, ALARP CBA, optional merge into a shutdown model  (recommendation_cost.py)

@@ -275,7 +275,7 @@ def link_pid(m: dict) -> tuple[list[dict], list[dict], list[dict]]:
     equipment = []
     for u in m["units"]:
         t = u["tag"]
-        row = {"unit": t, "type": u.get("type", ""),
+        row = {"unit": t, "type": u.get("type", ""), "duty_kW": u.get("duty_kW"), "work_kW": u.get("work_kW"),
                "instruments": [str(x.get("tag")) for x in m["instruments"] if x.get("unit") == t],
                "valves": [str(x.get("tag")) for x in m["valves"] if x.get("unit") == t],
                "relief_devices": [str(x.get("tag")) for x in m["relief_devices"] if x.get("unit") == t]}
@@ -403,12 +403,13 @@ def audit(data: dict, base_dir: str | None = None) -> dict:
         comparison = []
         findings.append(_finding("design vs model", NC, "all streams", "no model_streams given: model results were not audited"))
 
+    flows = {s["id"]: component_flows(s, ctx["basis"], ctx["mm"], p["composition_sum_tol"])[0] for s in m["streams"]}
     order = {FAIL: 0, NC: 1, REVIEW: 2}
     findings.sort(key=lambda f: order[f["status"]])
     count = {k: sum(1 for f in findings if f["status"] == k) for k in order}
     verdict = FAIL if count[FAIL] else (NC if count[NC] else PASS)
     return {"name": m["name"], "verdict": verdict, "counts": count, "units": units, "overall": overall, "links": links,
-            "equipment": equipment, "comparison": comparison, "findings": findings, "streams": m["streams"], "tolerances": p,
+            "equipment": equipment, "comparison": comparison, "findings": findings, "streams": m["streams"], "component_kg_h": flows, "tolerances": p,
             "enthalpy_basis": ctx["enthalpy_basis"], "component_basis": ctx["basis"], "notes": m["notes"],
             "limits": "Screening audit of the numbers supplied. A pass means the tables are consistent within the tolerances shown; it does "
                       "not show that the design, the thermodynamic method or the P&ID is correct."}
