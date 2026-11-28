@@ -179,5 +179,42 @@ class TextReport(unittest.TestCase):
             self.assertTrue(os.path.getsize(files[3]) > 0)
 
 
+class Fallbacks(unittest.TestCase):
+    def test_a_reaction_that_does_not_conserve_mass_fails_the_unit_even_if_its_balances_pass(self):
+        u = copy.deepcopy(clean()["units"][0])
+        self.assertEqual(hmb_views.unit_status(u), PASS)
+        u["generation"] = {"status": FAIL, "reason": "generation does not sum to zero"}
+        self.assertEqual(hmb_views.unit_status(u), FAIL)
+
+    def test_a_very_large_value_keeps_its_magnitude_and_fits_the_column(self):
+        d = closed()
+        for key in ("streams", "model_streams"):
+            d[key][0]["mass_kg_h"] = 2.5e12
+        r = hmb_audit.audit(d)
+        self.assertIn(">2.5e+12<", hmb_views.stream_table_html(r))
+        self.assertIn("2.5e+12", hmb_views.text_report(r))
+
+    def test_run_summary_says_when_no_energy_balance_could_be_run(self):
+        d = closed()
+        del d["enthalpy_basis"]
+        facts = dict(hmb_views.run_summary(hmb_audit.audit(d)))
+        self.assertEqual(facts["Largest energy residual"], "not computed: no energy balance could be run")
+
+    def test_an_unrecognised_equipment_type_is_a_plain_box_with_no_symbol(self):
+        d = closed()
+        d["units"][0]["type"] = "widget"
+        r = hmb_audit.audit(d)
+        root = ET.fromstring(hmb_views.flowsheet_svg(r))
+        unit_link = next(a for a in root.iter("a") if a.get("href") == "#unit-0")
+        self.assertEqual(unit_link.find("rect").get("rx"), "3")
+        self.assertEqual(len(unit_link.find("g")), 0)
+
+    def test_text_report_says_when_there_are_no_model_results(self):
+        d = closed()
+        del d["model_streams"]
+        text = hmb_views.text_report(hmb_audit.audit(d))
+        self.assertIn("\nNot compared: no model results.\n", text)
+
+
 if __name__ == "__main__":
     unittest.main()
