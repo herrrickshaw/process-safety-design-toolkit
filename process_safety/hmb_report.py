@@ -1,6 +1,7 @@
-"""Reports for `hmb_audit.audit`: an Excel workbook, a findings CSV and a self-contained visual HTML page (inline SVG, no scripts).
+"""Reports for `hmb_audit.audit`: an Excel workbook, findings CSV, fixed-width text report and a self-contained HTML page (no scripts).
 
-HTML layout: each section is headed by a sentence stating what the data shows (the assertion-evidence slide idea), with the
+HTML layout: verdict and run summary, a section menu, then the simulator-style views from `hmb_views` (flowsheet, stream and unit
+property tables) followed by the audit evidence. Each evidence section is headed by a sentence stating what the data shows (the assertion-evidence slide idea), with the
 evidence under it: verdict tiles, a mass-flow Sankey, closure bars against the tolerance band, a check-coverage grid, a
 design-versus-model deviation heatmap, then the full findings table. Status is always icon plus word, never colour alone.
 """
@@ -10,11 +11,8 @@ from html import escape
 
 from . import pha
 from .hmb_audit import FAIL, NC, PASS, REVIEW
+from .hmb_views import ICON, KINDS, LABEL, chip, flowsheet_svg, graph, run_summary, stream_table_html, text_report, unit_table_html
 from .xlsx_write import write_xlsx
-
-LABEL = {PASS: "PASS", FAIL: "FAIL", NC: "NOT CHECKED", REVIEW: "REVIEW"}
-ICON = {PASS: "&#10003;", FAIL: "&#10007;", NC: "?", REVIEW: "!"}
-KINDS = ("mass", "component", "energy")
 
 
 # ---- workbook ---------------------------------------------------------------------------------------------------
@@ -69,64 +67,9 @@ def sheets(r: dict) -> list[tuple[str, list[list]]]:
 
 
 # ---- visual page ------------------------------------------------------------------------------------------------
-def _chip(status: str, extra: str = "") -> str:
-    return f'<span class="chip {status}">{ICON[status]} {LABEL[status]}{extra}</span>'
-
-
-def _layers(nodes: list, edges: list) -> tuple[dict, set]:
-    """Longest-path layering; edges that close a loop (found by depth-first search) are returned as recycle indices."""
-    out = {n: [] for n in nodes}
-    for i, (a, b, _) in enumerate(edges):
-        out[a].append((i, b))
-    state, back, order = {}, set(), []
-    indeg = {n: 0 for n in nodes}
-    for _, b, _s in edges:
-        indeg[b] += 1
-    for start in sorted(nodes, key=lambda n: indeg[n] > 0):
-        if start in state:
-            continue
-        state[start] = 1
-        stack = [(start, iter(out[start]))]
-        while stack:
-            n, it = stack[-1]
-            step = next(it, None)
-            if step is None:
-                state[n] = 2
-                order.append(n)
-                stack.pop()
-                continue
-            i, b = step
-            if state.get(b) == 1:
-                back.add(i)
-            elif b not in state:
-                state[b] = 1
-                stack.append((b, iter(out[b])))
-    layer = {n: 0 for n in nodes}
-    for n in reversed(order):
-        for i, b in out[n]:
-            if i not in back:
-                layer[b] = max(layer[b], layer[n] + 1)
-    return layer, back
-
-
 def sankey_svg(r: dict) -> str:
     unit_row = {u["unit"]: u for u in r["units"]}
-    nodes, edges, kind = [], [], {}
-
-    def node(key, k):
-        if key not in kind:
-            kind[key] = k
-            nodes.append(key)
-        return key
-
-    for s in r["streams"]:
-        a = ("u", s["from"]) if s.get("from") in unit_row else ("feed", s["id"])
-        b = ("u", s["to"]) if s.get("to") in unit_row else ("prod", s["id"])
-        edges.append((node(a, a[0]), node(b, b[0]), s))
-    layer, back = _layers(nodes, edges)
-    for a, b, _ in edges:                       # pull each feed next to the unit it enters
-        if kind[a] == "feed" and kind[b] == "u":
-            layer[a] = max(0, layer[b] - 1)
+    nodes, edges, kind, layer, back = graph(r)
 
     def mass(s):
         v = s.get("mass_kg_h")
@@ -287,43 +230,69 @@ svg text{fill:var(--ink);font:12px system-ui,sans-serif}
 .unode{fill:var(--ink2);stroke-width:3}.unode.pass{stroke:var(--good)}.unode.fail{stroke:var(--bad)}.unode.not_checked{stroke:var(--warn)}.bnode{fill:var(--muted)}
 svg .ulabel{text-anchor:middle;font-weight:700}svg .slabel{text-anchor:middle;fill:var(--ink2);font-size:11px;paint-order:stroke;stroke:var(--surface);stroke-width:3px}svg .blabel,svg .tick,svg .nc{fill:var(--ink2)}svg .tick{text-anchor:middle;font-size:11px}
 .band{fill:var(--grid)}.axis{stroke:var(--muted)}.bar.pass{fill:var(--good)}.bar.fail{fill:var(--bad)}
-@media print{section{break-inside:avoid}}"""
+nav{position:sticky;top:0;z-index:3;display:flex;gap:4px;overflow-x:auto;white-space:nowrap;padding:8px 0;margin:0 0 8px;background:var(--page)}
+nav a{padding:4px 10px;border:1px solid var(--grid);border-radius:6px;background:var(--surface);color:var(--ink);text-decoration:none}
+section,[id^=stream-],[id^=unit-]{scroll-margin-top:56px}
+.runlog{margin-top:12px;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace}.runlog th{font-weight:400;color:var(--ink2)}
+.props th.prop{position:sticky;left:0;background:var(--surface);z-index:1;min-width:130px}.props .uom{color:var(--ink2)}.props th:target{outline:3px solid var(--flow);outline-offset:-3px}
+.sid{font-size:15px}.differs{background:rgba(208,59,59,.16)}.differs small{display:block;white-space:nowrap}
+.plists>input{position:absolute;opacity:0}.plists>label{display:inline-block;padding:4px 12px;margin:0 4px 10px 0;border:1px solid var(--grid);border-radius:6px;cursor:pointer}
+.plists>input:checked+label{background:var(--ink);color:var(--surface);border-color:var(--ink)}.plists>input:focus-visible+label{outline:2px solid var(--flow);outline-offset:2px}
+.panel{display:none}#plist-0:checked~.panel-0,#plist-1:checked~.panel-1,#plist-2:checked~.panel-2{display:block}
+.pipe{fill:none;stroke:var(--ink2);stroke-width:1.5}.pipe.fail{stroke:var(--bad);stroke-width:2.5}.pipe.not_checked{stroke-dasharray:5 4}.pipe.recycle{stroke-dasharray:10 4}
+.head{fill:var(--ink2)}.head.fail{fill:var(--bad)}
+.flag,.equip{fill:var(--surface);stroke:var(--ink2);stroke-width:1.5}.flag.pass,.equip.pass{stroke:var(--good)}.flag.fail,.equip.fail{stroke:var(--bad);stroke-width:2.5}
+.flag.not_checked,.equip.not_checked{stroke:var(--warn);stroke-width:2.5;stroke-dasharray:5 3}.flag.review,.equip.review{stroke:var(--flow)}
+.glyph{fill:none;stroke:var(--ink);stroke-width:1.5}.terminal{fill:var(--grid);stroke:var(--muted)}
+svg .flagtext,svg .termtext,svg .tag{text-anchor:middle}svg .tag{font-weight:700}svg .lineno{text-anchor:middle;font-size:10px;fill:var(--ink2);paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.pfd a:hover .flag,.pfd a:hover .equip,.pfd a:focus .flag,.pfd a:focus .equip{fill:var(--grid)}
+@media print{section{break-inside:avoid}nav,.plists>input,.plists>label{display:none}.panel{display:block;margin-bottom:12px}}"""
 
 
 def html_page(r: dict) -> str:
     h = _headlines(r)
-    tiles = "".join(f'<div class="tile">{_chip(k)}<b>{r["counts"][k]}</b><span class="muted">finding(s)</span></div>' for k in (FAIL, NC, REVIEW))
+    tiles = "".join(f'<div class="tile">{chip(k)}<b>{r["counts"][k]}</b><span class="muted">finding(s)</span></div>' for k in (FAIL, NC, REVIEW))
     cov = ["<table><tr><th>Unit</th>" + "".join(f"<th>{k.title()} balance</th>" for k in KINDS) + "</tr>"]
     for u in r["units"] + [r["overall"]]:
-        cells = "".join(f'<td title="{escape(u[k]["reason"])}">{_chip(u[k]["status"])}</td>' for k in KINDS)
+        cells = "".join(f'<td title="{escape(u[k]["reason"])}">{chip(u[k]["status"])}</td>' for k in KINDS)
         cov.append(f"<tr><th>{escape(str(u['unit']))}{' (reactive)' if u['reactive'] else ''}</th>{cells}</tr>")
     links = ["<table><tr><th>Stream</th><th>P&amp;ID line</th><th>Check</th><th>Note</th><th>Tags on line</th></tr>"]
-    links += [f"<tr><td>{escape(str(x['stream']))}</td><td>{escape(str(x['line_no'] or ''))}</td><td>{_chip(x['status'])}</td><td>{escape(x['reason'])}</td>"
+    links += [f"<tr><td>{escape(str(x['stream']))}</td><td>{escape(str(x['line_no'] or ''))}</td><td>{chip(x['status'])}</td><td>{escape(x['reason'])}</td>"
               f"<td>{escape(', '.join(x['line_tags']))}</td></tr>" for x in r["links"]]
     finds = ["<table><tr><th>Check</th><th>Area</th><th>Item</th><th>Finding</th></tr>"]
-    finds += [f"<tr><td>{_chip(f['status'])}</td><td>{escape(f['area'])}</td><td>{escape(f['item'])}</td><td>{escape(f['message'])}</td></tr>" for f in r["findings"]]
+    finds += [f"<tr><td>{chip(f['status'])}</td><td>{escape(f['area'])}</td><td>{escape(f['item'])}</td><td>{escape(f['message'])}</td></tr>" for f in r["findings"]]
     tol = ", ".join(f"{k}={v:g}" for k, v in r["tolerances"].items())
 
-    def sec(title, body, note=""):
-        return f'<section><h2>{escape(title)}</h2>{f"<p class=muted>{note}</p>" if note else ""}<div class="scroll">{body}</div></section>'
+    def sec(anchor, title, body, note=""):
+        return f'<section id="{anchor}"><h2>{escape(title)}</h2>{f"<p class=muted>{note}</p>" if note else ""}<div class="scroll">{body}</div></section>'
+
+    nav = (("flowsheet", "Flowsheet"), ("streams", "Streams"), ("units", "Units"), ("closure", "Closure"), ("flows", "Mass flows"),
+           ("checks", "Checks"), ("model", "Model"), ("pid", "P&amp;ID"), ("findings", "Findings"))
+    menu = "<nav>" + "".join(f'<a href="#{a}">{b}</a>' for a, b in nav) + "</nav>"
+    facts = "".join(f"<tr><th>{escape(k)}</th><td>{escape(v)}</td></tr>" for k, v in run_summary(r))
 
     return ("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
             f"<title>HMB audit: {escape(str(r['name']))}</title><style>{CSS}</style></head><body><main>"
-            f"<section><p class=\"muted\">HMB audit &#183; {escape(str(r['name']))}</p><h1>{escape(h['top'])}</h1>{_chip(r['verdict'])}<div class=\"tiles\">{tiles}</div></section>"
-            + sec(h["closure"], closure_svg(r), "Residual = (in &#8722; out) / larger of the two. Hover a bar for flows.")
-            + sec("Where the mass goes", sankey_svg(r), "Line width is mass flow; very small flows are drawn at a minimum width. Long dashes: recycle. Dotted grey: no mass given. Unit marks show the mass check.")
-            + sec(h["coverage"], "".join(cov) + "</table>", "Hover a cell for the reason. A reactive unit needs a declared generation.")
-            + sec(h["compare"], _heatmap(r), "Cell = (model &#8722; design) / limit; beyond &#177;1.0x fails. Red: model higher. Blue: model lower.")
-            + sec(h["links"], "".join(links) + "</table>")
-            + sec("All findings, failures first", "".join(finds) + "</table>")
+            f"<section><p class=\"muted\">HMB audit &#183; {escape(str(r['name']))}</p><h1>{escape(h['top'])}</h1>{chip(r['verdict'])}<div class=\"tiles\">{tiles}</div><div class=\"scroll\"><table class=\"runlog\">{facts}</table></div></section>{menu}"
+            + sec("flowsheet", "Flowsheet: where each check sits", flowsheet_svg(r), "Generated from stream connectivity; it is not the PFD or P&amp;ID drawing. Select a stream flag or a unit to jump to its table (flags open the Summary list). Red line: a check failed. Dashed: not fully checked.")
+            + sec("streams", "Stream properties", stream_table_html(r), f"A dash means not given or not computable, never zero. A shaded cell with {ICON[FAIL]} shows the model value that is outside the limit.")
+            + sec("units", "Unit operations", unit_table_html(r), "Hover a check for its reason.")
+            + sec("closure", h["closure"], closure_svg(r), "Residual = (in &#8722; out) / larger of the two. Hover a bar for flows.")
+            + sec("flows", "Where the mass goes", sankey_svg(r), "Line width is mass flow; very small flows are drawn at a minimum width. Long dashes: recycle. Dotted grey: no mass given. Unit marks show the mass check.")
+            + sec("checks", h["coverage"], "".join(cov) + "</table>", "Hover a cell for the reason. A reactive unit needs a declared generation.")
+            + sec("model", h["compare"], _heatmap(r), "Cell = (model &#8722; design) / limit; beyond &#177;1.0x fails. Red: model higher. Blue: model lower.")
+            + sec("pid", h["links"], "".join(links) + "</table>")
+            + sec("findings", "All findings, failures first", "".join(finds) + "</table>")
             + f'<section><p class="muted">{escape(r["limits"])}</p><p class="muted">Tolerances (judgment defaults unless overridden): {escape(tol)}</p></section>'
             "</main></body></html>")
 
 
 def write(r: dict, prefix: str) -> list[str]:
-    files = [prefix + "_report.xlsx", prefix + "_report.html", prefix + "_findings.csv"]
+    files = [prefix + "_report.xlsx", prefix + "_report.html", prefix + "_findings.csv", prefix + "_report.txt"]
     write_xlsx(files[0], sheets(r))
     with open(files[1], "w", encoding="utf-8") as fh:
         fh.write(html_page(r))
     pha.write_csv([["status", "area", "item", "message"]] + [[f["status"], f["area"], f["item"], f["message"]] for f in r["findings"]], files[2])
+    with open(files[3], "w", encoding="utf-8") as fh:
+        fh.write(text_report(r))
     return files
