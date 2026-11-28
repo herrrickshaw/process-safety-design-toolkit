@@ -7890,6 +7890,358 @@
    "regression": {
     "value": 0.005850000000000001
    }
+  },
+  {
+   "id": "REG-24",
+   "topics": [
+    "Heat and material balance compilation and audit"
+   ],
+   "title": "HMB audit of the synthetic example: planted faults are reported",
+   "call": "hmb_audit.audit",
+   "kwargs": {
+    "data": {
+     "_note": "SYNTHETIC water/ethanol example with invented numbers and deliberate faults (a separator that does not close, a wrong line number, a missing enthalpy, model drift) so that each report status appears. Not process data; enthalpies are illustrative, not from a property method.",
+     "name": "Synthetic water/ethanol example",
+     "component_basis": "mass",
+     "enthalpy_basis": "illustrative common datum",
+     "units": [
+      {
+       "tag": "MX-100",
+       "type": "mixer",
+       "duty_kW": 0
+      },
+      {
+       "tag": "E-100",
+       "type": "exchanger",
+       "duty_kW": 80
+      },
+      {
+       "tag": "V-100",
+       "type": "drum",
+       "duty_kW": 0
+      },
+      {
+       "tag": "P-100",
+       "type": "pump",
+       "duty_kW": 0,
+       "work_kW": 1.0
+      }
+     ],
+     "streams": [
+      {
+       "id": "S1",
+       "from": "battery_limit",
+       "to": "MX-100",
+       "phase": "liquid",
+       "T_C": 25,
+       "P_kpag": 200,
+       "mass_kg_h": 1000,
+       "H_kW": 29.0,
+       "components": {
+        "water": 1.0
+       },
+       "line_no": "L-101"
+      },
+      {
+       "id": "S2",
+       "from": "battery_limit",
+       "to": "MX-100",
+       "phase": "liquid",
+       "T_C": 35,
+       "P_kpag": 200,
+       "mass_kg_h": 500,
+       "H_kW": 12.0,
+       "components": {
+        "ethanol": 1.0
+       },
+       "line_no": "L-102"
+      },
+      {
+       "id": "S3",
+       "from": "MX-100",
+       "to": "E-100",
+       "phase": "liquid",
+       "T_C": 29,
+       "P_kpag": 190,
+       "mass_kg_h": 1500,
+       "H_kW": 41.0,
+       "components": {
+        "water": 0.666667,
+        "ethanol": 0.333333
+       },
+       "line_no": "L-103"
+      },
+      {
+       "id": "S4",
+       "from": "E-100",
+       "to": "V-100",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 180,
+       "mass_kg_h": 1500,
+       "H_kW": 121.0,
+       "components": {
+        "water": 0.666667,
+        "ethanol": 0.333333
+       },
+       "line_no": "L-104"
+      },
+      {
+       "id": "S5",
+       "from": "V-100",
+       "to": "battery_limit",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 170,
+       "mass_kg_h": 420,
+       "H_kW": 40.0,
+       "components": {
+        "water": 0.3,
+        "ethanol": 0.7
+       },
+       "line_no": "L-105"
+      },
+      {
+       "id": "S6",
+       "from": "V-100",
+       "to": "P-100",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 170,
+       "mass_kg_h": 1040,
+       "H_kW": 81.0,
+       "components": {
+        "water": 0.814,
+        "ethanol": 0.186
+       },
+       "line_no": "L-199"
+      },
+      {
+       "id": "S7",
+       "from": "P-100",
+       "to": "battery_limit",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 600,
+       "mass_kg_h": 1040,
+       "H_kW": null,
+       "components": {
+        "water": 0.814,
+        "ethanol": 0.186
+       },
+       "line_no": "L-107"
+      }
+     ],
+     "model_streams": [
+      {
+       "id": "S1",
+       "from": "battery_limit",
+       "to": "MX-100",
+       "phase": "liquid",
+       "T_C": 25,
+       "P_kpag": 200,
+       "mass_kg_h": 1000,
+       "H_kW": 29.0,
+       "components": {
+        "water": 1.0
+       }
+      },
+      {
+       "id": "S2",
+       "from": "battery_limit",
+       "to": "MX-100",
+       "phase": "liquid",
+       "T_C": 35,
+       "P_kpag": 200,
+       "mass_kg_h": 500,
+       "H_kW": 12.0,
+       "components": {
+        "ethanol": 1.0
+       }
+      },
+      {
+       "id": "S3",
+       "from": "MX-100",
+       "to": "E-100",
+       "phase": "liquid",
+       "T_C": 29,
+       "P_kpag": 190,
+       "mass_kg_h": 1500,
+       "H_kW": 41.0,
+       "components": {
+        "water": 0.666667,
+        "ethanol": 0.333333
+       }
+      },
+      {
+       "id": "S4",
+       "from": "E-100",
+       "to": "V-100",
+       "phase": "liquid",
+       "T_C": 86.0,
+       "P_kpag": 180,
+       "mass_kg_h": 1500,
+       "H_kW": 121.0,
+       "components": {
+        "water": 0.666667,
+        "ethanol": 0.333333
+       }
+      },
+      {
+       "id": "S5",
+       "from": "V-100",
+       "to": "battery_limit",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 170,
+       "mass_kg_h": 455,
+       "H_kW": 40.0,
+       "components": {
+        "water": 0.3,
+        "ethanol": 0.7
+       }
+      },
+      {
+       "id": "S6",
+       "from": "V-100",
+       "to": "P-100",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 170,
+       "mass_kg_h": 1040,
+       "H_kW": 81.0,
+       "components": {
+        "water": 0.814,
+        "ethanol": 0.186
+       }
+      },
+      {
+       "id": "S7",
+       "from": "P-100",
+       "to": "battery_limit",
+       "phase": "liquid",
+       "T_C": 80,
+       "P_kpag": 600,
+       "mass_kg_h": 1040,
+       "H_kW": 82.0,
+       "components": {
+        "water": 0.814,
+        "ethanol": 0.186
+       }
+      }
+     ],
+     "lines": [
+      {
+       "line_no": "L-101",
+       "from": null,
+       "to": "MX-100"
+      },
+      {
+       "line_no": "L-102",
+       "from": null,
+       "to": "MX-100"
+      },
+      {
+       "line_no": "L-103",
+       "from": "MX-100",
+       "to": "E-100"
+      },
+      {
+       "line_no": "L-104",
+       "from": "E-100",
+       "to": "V-100"
+      },
+      {
+       "line_no": "L-105",
+       "from": "V-100",
+       "to": null
+      },
+      {
+       "line_no": "L-106",
+       "from": "V-100",
+       "to": "P-100"
+      },
+      {
+       "line_no": "L-107",
+       "from": "P-100",
+       "to": null
+      },
+      {
+       "line_no": "L-108",
+       "from": null,
+       "to": "E-100"
+      }
+     ],
+     "valves": [
+      {
+       "tag": "TV-104",
+       "type": "control",
+       "unit": "E-100",
+       "line": "L-104"
+      },
+      {
+       "tag": "LV-106",
+       "type": "control",
+       "unit": "V-100",
+       "line": "L-106"
+      }
+     ],
+     "instruments": [
+      {
+       "tag": "TI-104",
+       "type": "TI",
+       "unit": "E-100",
+       "line": "L-104"
+      },
+      {
+       "tag": "LIC-100",
+       "type": "LIC",
+       "unit": "V-100"
+      }
+     ],
+     "relief_devices": [
+      {
+       "tag": "PSV-100",
+       "unit": "V-100",
+       "type": "PSV",
+       "set_kpag": 500
+      }
+     ]
+    }
+   },
+   "expect": [
+    {
+     "path": "verdict",
+     "op": "eq",
+     "value": "fail"
+    },
+    {
+     "path": "counts.fail",
+     "op": "ge",
+     "value": 1
+    },
+    {
+     "path": "counts.not_checked",
+     "op": "ge",
+     "value": 1
+    }
+   ],
+   "oracle": [
+    {
+     "path": "overall.mass.residual_kg_h",
+     "formula": "(1000 + 500) - (420 + 1040)"
+    },
+    {
+     "path": "overall.mass.residual_rel",
+     "formula": "((1000 + 500) - (420 + 1040)) / (1000 + 500)"
+    }
+   ],
+   "meta": [],
+   "si_us": false,
+   "note": "Python-API scenario on synthetic data with deliberate faults",
+   "regression": {
+    "verdict": "fail"
+   }
   }
  ]
 }
